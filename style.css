@@ -1071,12 +1071,14 @@ p {
 
 
 .faq-collapsible {
+  margin-left: 180px;
   background-color: var(--bg2);
   border-radius: 15px;
   width: 80vw;
   word-spacing: 3px;
   font-size: 1em;
   margin-bottom: 10px;
+  box-shadow: 0px 10px 15px var(--transparent-dark);
 }
 
 @media only screen and (max-width: 800px) {
