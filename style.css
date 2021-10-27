@@ -136,7 +136,7 @@ p {
 
 /* On mouse-over, add a grey background color */
 .switch:hover input ~ .theme-box-icon {
-  background-color: #ccc;
+  background-color: rgb(122, 122, 122);
 }
 
 /* When the checkbox is checked, add a sun */
