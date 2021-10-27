@@ -375,7 +375,7 @@ p {
   transform: scale(50%);
   animation: htext2 1.5s ease 2s 1;
   animation-fill-mode: forwards;
-  font-family: "ReemKufi";
+  font-family: "ReemKufi" !important;
 }
 
 .arrow-there {
