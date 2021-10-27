@@ -58,7 +58,20 @@
 <div class="reddit-div hl-hover"><a href="https://www.reddit.com/user/Vitroid" target="_blank" rel="noopener noreferrer">
               <img class="reddit-img z2" src="https://img.icons8.com/metro/78/e7e7e7/reddit.png"/></a></div>
 
-<button class="content">Test</button>
+<button class="content theme-switch">Test</button>
+
+<script>
+  var coll = document.getElementsByClassName("theme-switch");
+  var i;
+  
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      document.documentElement.style.setProperty('--darkbg1', '#ffffff');
+      } else {
+      } 
+    );
+  }
+  </script>
 
 </body>
 </html>
