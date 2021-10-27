@@ -102,6 +102,8 @@ p {
   display: inline-block;
   width: 60px;
   height: 34px;
+  right: 0px;
+  top: 0px;
 }
 
 /* Hide default HTML checkbox */
