@@ -932,7 +932,7 @@ p {
  /*=============================Starting Out===============================*/
 .collapsible-starting {
   font-family: "Reem Kufi";
-  color: #e7e7e7;
+  color: var(--white2);
   cursor: pointer;
   padding-bottom: 18px;
   border: none;
@@ -949,7 +949,7 @@ p {
 }
 /*transition setup*/
 .starting-transition {
-  color: #e7e7e7;
+  color: var(--white2);
   transition: color .15s;
 }
 .starting-transition:hover {color:var(--violet)}
@@ -961,7 +961,7 @@ p {
 
 .collapsible-starting::after {
   content: "+";
-  color: #e7e7e7;
+  color: var(--white2);
   margin-left: 5px;
 }
 /*show minus when opened*/
@@ -979,7 +979,7 @@ p {
 }
 /*building transition setup*/
 .building-transition {
-  color: #e7e7e7;
+  color: var(--white2);
   transition: color .15s;
 }
 .building-transition:hover {color:var(--red)}
@@ -991,14 +991,14 @@ p {
 
 .collapsible-building::after {
   content: "+";
-  color: #e7e7e7;
+  color: var(--white2);
   margin-left: 5px;
 }
 
 /*show minus when opened*/
 .collapsible-open-building::after {
   content: "-";
-  color: #e7e7e7 ;
+  color: var(--white2);
   font-weight: bold;
 }
 
@@ -1009,7 +1009,7 @@ p {
 
 .collapsible-building {
   font-family: "Reem Kufi";
-  color: #e7e7e7;
+  color: var(--white2);
   cursor: pointer;
   padding-bottom: 18px;
   border: none;
@@ -1029,7 +1029,7 @@ p {
  }
  .collapsible-bf {
   font-family: "Reem Kufi";
-  color: #e7e7e7;
+  color: var(--white2);
   cursor: pointer;
   padding-bottom: 18px;
   border: none;
@@ -1040,7 +1040,7 @@ p {
 }
 /*transition setup*/
 .bf-transition {
-  color: #e7e7e7;
+  color: var(--white2);
   transition: color .15s;
 }
 .bf-transition:hover {color:var(--yellow)}
@@ -1052,7 +1052,7 @@ p {
 
 .collapsible-bf::after {
   content: "+";
-  color: #e7e7e7;
+  color: var(--white2);
   margin-left: 5px;
 }
 /*show minus when opened*/
