@@ -121,10 +121,33 @@ p {
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
+  height: 40px;
+  width: 40px;
   background-color: red;
 }
+
+/* On mouse-over, add a grey background color */
+.switch:hover input ~ .theme-box-icon {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.switch input:checked ~ .theme-box-icon {
+  background-color: #2196F3;
+}
+
+/* Create the theme-box-icon/indicator (hidden when not checked) */
+.theme-box-icon:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the theme-box-icon when checked */
+.switch input:checked ~ .theme-box-icon:after {
+  display: block;
+}
+
 
 
 
