@@ -126,11 +126,11 @@ p {
   width: 40px;
 }
 
-.theme-box-icon .theme-dark {
+.theme-dark .theme-box-icon {
   background: transparent url('https://img.icons8.com/material-outlined/40/e4e4e4/bright-moon.png');
 }
 
-.theme-box-icon .theme-light {
+.theme-light .theme-box-icon {
   background: transparent url('https://img.icons8.com/material-outlined/40/e4e4e4/bright-moon.png');
 }
 
@@ -140,12 +140,12 @@ p {
 }
 
 /* When the checkbox is checked, add a sun */
-.switch input:checked ~ .theme-box-icon .theme-light {
+.theme-light .switch input:checked ~ .theme-box-icon {
   background: transparent url('https://img.icons8.com/material-outlined/40/a1a1a1/sun--v1.png');
 }
 
 /* When the checkbox is checked, add a sun */
-.switch input:checked ~ .theme-box-icon .theme-dark {
+.theme-dark .switch input:checked ~ .theme-box-icon {
   background: transparent url('https://img.icons8.com/material-outlined/40/a1a1a1/sun--v1.png');
 }
 
