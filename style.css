@@ -123,7 +123,7 @@ p {
   left: 0;
   height: 40px;
   width: 40px;
-  background: transparent url('https://img.icons8.com/material-outlined/40/000000/sun--v1.png');
+  background: transparent url('https://img.icons8.com/material-outlined/40/e4e4e4/bright-moon.png');
 }
 
 /* On mouse-over, add a grey background color */
@@ -133,7 +133,7 @@ p {
 
 /* When the checkbox is checked, add a blue background */
 .switch input:checked ~ .theme-box-icon {
-  background: transparent url('https://img.icons8.com/material-outlined/40/000000/bright-moon.png');
+  background: transparent url('https://img.icons8.com/material-outlined/40/a1a1a1/sun--v1.png');
 }
 
 /* Create the theme-box-icon/indicator (hidden when not checked) */
