@@ -121,7 +121,7 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: var(--bg2);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -139,7 +139,7 @@ p {
   -webkit-transition: 0.4s;
   transition: 0.4s;
   box-shadow: 0 0px 15px #2020203d;
-  background: white url('https://i.ibb.co/FxzBYR9/night.png');
+  background: red;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -156,7 +156,7 @@ input:checked + .slider:before {
   -webkit-transform: translateX(24px);
   -ms-transform: translateX(24px);
   transform: translateX(24px);
-  background: white url('https://i.ibb.co/7JfqXxB/sunny.png');
+  background: blue;
   background-repeat: no-repeat;
   background-position: center;
 }
