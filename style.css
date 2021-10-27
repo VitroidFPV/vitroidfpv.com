@@ -24,6 +24,10 @@ body {
 
 }
 
+body.theme-light {
+  background: var(--bg2);
+}
+
 :root {
   --highlight: #1cd17d;
   --violet: #9550ba;
@@ -497,10 +501,10 @@ p {
     height: 100vh;
     width: 120px;
     box-shadow: 5px 0 0 var(--highlight);
-    background-color: var(--bg2);
+    background-color: var(--bg1);
     padding: 0 !important;
     margin: 0 !important;
-    border-left: 10px solid var(--bg2);
+    border-left: 10px solid var(--bg1);
   }
 }
 
