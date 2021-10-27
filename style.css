@@ -1432,6 +1432,12 @@ th {
   background-color: var(--bg3);
 }
 
+.theme-light th {
+  font-weight: bold;
+  color: var(--white2);
+  background-color: var(--bg3);
+}
+
 th.table-fix-padding {
   padding-left: 18px;
 }
