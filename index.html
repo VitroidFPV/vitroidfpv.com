@@ -77,6 +77,37 @@
             
 <div class="reddit-div hl-hover z3"><a href="https://www.reddit.com/user/Vitroid" target="_blank" rel="noopener noreferrer">
               <img class="reddit-img z3" src="https://img.icons8.com/metro/78/e7e7e7/reddit.png"/></a></div> -->
+              
+  <label id="switch" class="switch">
+    <input type="checkbox" onchange="toggleTheme()" class="theme-box">
+    <span class="theme-box-icon"></span>
+</label>
+
+<script>
+  // function to set a given theme/color-scheme
+  function setTheme(themeName) {
+      localStorage.setItem('theme', themeName);
+      document.documentElement.className = themeName;
+  }
+
+  // function to toggle between light and dark theme
+  function toggleTheme() {
+      if (localStorage.getItem('theme') === 'theme-dark') {
+          setTheme('theme-light');
+      } else {
+          setTheme('theme-dark');
+      }
+  }
+
+  // Immediately invoked function to set the theme on initial load
+  (function () {
+      if (localStorage.getItem('theme') === 'theme-dark') {
+          setTheme('theme-dark');
+      } else {
+          setTheme('theme-light');
+      }
+  })();
+</script>
 
 <div class="main-title">
   <div class="title z2">Vitroid FPV</div>
