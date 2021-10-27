@@ -133,7 +133,7 @@ p {
 
 /* When the checkbox is checked, add a blue background */
 .switch input:checked ~ .theme-box-icon {
-  background-color: #2196F3;
+  background: transparent url('https://img.icons8.com/material-outlined/40/000000/bright-moon.png');
 }
 
 /* Create the theme-box-icon/indicator (hidden when not checked) */
