@@ -118,12 +118,19 @@ p {
   color: red;
 }
 
-.theme-box-icon.theme-dark {
+.theme-box-icon {
   position: absolute;
   top: 0;
   left: 0;
   height: 40px;
   width: 40px;
+}
+
+.theme-box-icon.theme-dark {
+  background: transparent url('https://img.icons8.com/material-outlined/40/e4e4e4/bright-moon.png');
+}
+
+.theme-box-icon.theme-light {
   background: transparent url('https://img.icons8.com/material-outlined/40/e4e4e4/bright-moon.png');
 }
 
@@ -134,6 +141,11 @@ p {
 
 /* When the checkbox is checked, add a sun */
 .switch input:checked ~ .theme-box-icon.theme-light {
+  background: transparent url('https://img.icons8.com/material-outlined/40/a1a1a1/sun--v1.png');
+}
+
+/* When the checkbox is checked, add a sun */
+.switch input:checked ~ .theme-box-icon.theme-dark {
   background: transparent url('https://img.icons8.com/material-outlined/40/a1a1a1/sun--v1.png');
 }
 
