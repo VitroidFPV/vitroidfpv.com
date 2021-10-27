@@ -124,13 +124,14 @@ p {
   background-color: var(--bg2);
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  height: 20px;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 40px;
-  width: 40px;
+  height: 25px;
+  width: 25px;
   left: 0px;
   bottom: 4px;
   top: 0;
