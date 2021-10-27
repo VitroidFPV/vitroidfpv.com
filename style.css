@@ -1301,6 +1301,13 @@ p {
   bottom: 100px;
 }
 
+.icon-div.beginner {
+  height: 130px;
+  width: 110px;
+  margin: auto;
+  bottom: 100px;
+}
+
 .icon {
   height: inherit;
   width: inherit;
