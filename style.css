@@ -1314,6 +1314,11 @@ p {
   height: 110px;
 }
 
+.icon.beginner {
+  width: 110px;
+  height: 110px;
+}
+
 .card-title {
   position: relative;
   font-size: 2em;
