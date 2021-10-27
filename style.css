@@ -118,7 +118,7 @@ p {
   color: red;
 }
 
-.theme-box-icon {
+.theme-box-icon.theme-dark {
   position: absolute;
   top: 0;
   left: 0;
@@ -133,7 +133,7 @@ p {
 }
 
 /* When the checkbox is checked, add a sun */
-.switch input:checked ~ .theme-box-icon {
+.switch input:checked ~ .theme-box-icon.theme-light {
   background: transparent url('https://img.icons8.com/material-outlined/40/a1a1a1/sun--v1.png');
 }
 
