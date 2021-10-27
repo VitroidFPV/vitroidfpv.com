@@ -113,23 +113,10 @@ p {
   height: 40px;
 }
 
-.switch :checked {
+.theme-box:checked {
   color: red;
 }
 
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--bg2);
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-  height: 20px;
-}
 
 
 
