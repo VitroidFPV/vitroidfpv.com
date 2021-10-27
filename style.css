@@ -1412,7 +1412,7 @@ p {
 
 
 .table {
-  display: flex;
+  margin-left: 200px;
   margin-bottom: 10px;
   background-color: var(--bg2);
   width: 80%;
