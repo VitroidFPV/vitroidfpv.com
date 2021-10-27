@@ -1190,7 +1190,7 @@ p {
   margin: auto;
   margin-top: 50px;
   border-radius: 30px;
-  box-shadow:0px -20px var(--green);
+  box-shadow: 0px -20px var(--green), 0px 10px 15px var(--transparent-dark2);
   transition: all ease-in-out .3s;
   transition-delay: .37s;
   text-decoration: none;
@@ -1203,11 +1203,11 @@ p {
 
 
 .build-card.medium {
-  box-shadow:0px -20px var(--orange);
+  box-shadow:0px -20px var(--orange), 0px 10px 15px var(--transparent-dark2);
 }
 
 .build-card.hard {
-  box-shadow:0px -20px var(--red);
+  box-shadow:0px -20px var(--red), 0px 10px 15px var(--transparent-dark2);
 }
 
 .build-card .card-link {
