@@ -368,6 +368,13 @@ p {
   transform: scale(50%);
   animation: htext2 1.5s ease 2s 1;
   animation-fill-mode: forwards;
+}
+
+#arrow-there-svg-text {
+  fill: transparent;
+  transform: scale(50%);
+  animation: htext2 1.5s ease 2s 1;
+  animation-fill-mode: forwards;
   font-family: "ReemKufi";
 }
 
