@@ -123,7 +123,7 @@ p {
   left: 0;
   height: 40px;
   width: 40px;
-  background-color: red;
+  background-image: url'(https://img.icons8.com/material-outlined/50/000000/sun--v1.png)';
 }
 
 /* On mouse-over, add a grey background color */
