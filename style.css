@@ -113,6 +113,10 @@ p {
   height: 40px;
 }
 
+.switch :checked {
+  background-color: red;
+}
+
 /* The slider */
 .slider {
   position: absolute;
