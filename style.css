@@ -104,6 +104,7 @@ p {
   height: 40px;
   right: 10px;
   top: 10px;
+  transition: color .3s;
 }
 
 /* Hide default HTML checkbox */
@@ -131,7 +132,7 @@ p {
   background-color: #ccc;
 }
 
-/* When the checkbox is checked, add a blue background */
+/* When the checkbox is checked, add a sun */
 .switch input:checked ~ .theme-box-icon {
   background: transparent url('https://img.icons8.com/material-outlined/40/a1a1a1/sun--v1.png');
 }
