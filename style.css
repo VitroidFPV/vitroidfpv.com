@@ -124,6 +124,7 @@ p {
   left: 0;
   height: 40px;
   width: 40px;
+  transition: transform .3s;
 }
 
 .theme-dark .theme-box-icon {
@@ -134,10 +135,10 @@ p {
   background: transparent url('https://img.icons8.com/material-outlined/40/a1a1a1/sun--v1.png');
 }
 
-/* On mouse-over, add a grey background color */
+/* On mouse-over, add a grey background color
 .switch:hover input ~ .theme-box-icon {
   background-color: rgb(122, 122, 122);
-}
+} */
 
 /* When the checkbox is checked, add a sun */
 .theme-light .switch input:checked ~ .theme-box-icon {
@@ -149,19 +150,14 @@ p {
   background: transparent url('https://img.icons8.com/material-outlined/40/e4e4e4/bright-moon.png');
 }
 
-/* Create the theme-box-icon/indicator (hidden when not checked) */
-.theme-box-icon:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
 /* Show the theme-box-icon when checked */
 .switch input:checked ~ .theme-box-icon:after {
   display: block;
 }
 
-
+.theme-box-icon:hover {
+  transform: translateY(5px);
+}
 
 
 .main-title {
