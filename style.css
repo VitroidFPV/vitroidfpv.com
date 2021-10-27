@@ -76,6 +76,18 @@ p {
   border-radius: 10px;
 }
 
+.theme-light {
+  --darkbg1: #ffffff;
+  --darkbg2: #292929;
+  --darkbg3: #1f1f1f;
+  --darkbg4: #242424;
+}
+.theme-dark {
+  --darkbg1: #0f0f0f;
+  --darkbg2: #292929;
+  --darkbg3: #1f1f1f;
+  --darkbg4: #242424;
+}
 
 .main-title {
   margin: auto;
