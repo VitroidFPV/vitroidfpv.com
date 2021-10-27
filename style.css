@@ -19,7 +19,7 @@ body {
   margin: 0;
   font-family: "ReemKufi";
   color: var(--white1);
-  background: var(--darkbg1);
+  background: var(--bg1);
 
 
 }
@@ -33,10 +33,10 @@ body {
   --green: #5ae65a;
   --lightblue: #5ad8e6;
   --darkblue: #5a6fe6;
-  --darkbg1: #0f0f0f;
-  --darkbg2: #292929;
-  --darkbg3: #1f1f1f;
-  --darkbg4: #242424;
+  --bg1: #0f0f0f;
+  --bg2: #292929;
+  --bg3: #1f1f1f;
+  --bg4: #242424;
   --transparent-dark: rgba(23, 23, 23, 0.25);
   --white1: #e7e7e7;
   --white2: #dddddd;
@@ -77,16 +77,16 @@ p {
 }
 
 .theme-light {
-  --darkbg1: #ffffff;
-  --darkbg2: #292929;
-  --darkbg3: #1f1f1f;
-  --darkbg4: #242424;
+  --bg1: #e7e7e7;
+  --bg2: #dbdbdb;
+  --bg3: #cfcfcf;
+  --bg4: #ffffff;
 }
 .theme-dark {
-  --darkbg1: #0f0f0f;
-  --darkbg2: #292929;
-  --darkbg3: #1f1f1f;
-  --darkbg4: #242424;
+  --bg1: #0f0f0f;
+  --bg2: #292929;
+  --bg3: #1f1f1f;
+  --bg4: #242424;
 }
 
 .main-title {
@@ -101,9 +101,9 @@ p {
 @keyframes animtest {
   from {top: -50px;}
   to {top:30px;}
-  from {color:var(--darkbg1)}
+  from {color:var(--bg1)}
   to {color:var(--highlight)}
-  /* from {background: var(--darkbg1);}
+  /* from {background: var(--bg1);}
   to {background: linear-gradient(var(--highlight), var(--highlight));
   -webkit-background-clip: text;
   background-clip: text;
@@ -495,10 +495,10 @@ p {
     height: 100vh;
     width: 120px;
     box-shadow: 5px 0 0 var(--highlight);
-    background-color: var(--darkbg1);
+    background-color: var(--bg1);
     padding: 0 !important;
     margin: 0 !important;
-    border-left: 10px solid var(--darkbg1);
+    border-left: 10px solid var(--bg1);
   }
 }
 
@@ -507,8 +507,8 @@ p {
     position: fixed;
     height: 50px;
     width: 100vw;
-    box-shadow: 0px 15px 0px var(--darkbg2);
-    background-color: var(--darkbg2);
+    box-shadow: 0px 15px 0px var(--bg2);
+    background-color: var(--bg2);
     padding: 0px !important;
     margin: 0px !important;
     border-top: 16px solid var(--highlight) !important;
@@ -524,7 +524,7 @@ p {
   left: 125px;
   width: 30px;
   height: 50vh;
-  background-color: var(--darkbg1);
+  background-color: var(--bg1);
 }
 
 @media only screen and (max-width: 800px) {
@@ -535,7 +535,7 @@ p {
     left: 0px;
     width: 100%;
     height: 0px;
-    background-color: var(--darkbg2);
+    background-color: var(--bg2);
   }
 }
 
@@ -990,7 +990,7 @@ p {
 
 
 .faq-collapsible {
-  background-color: var(--darkbg2);
+  background-color: var(--bg2);
   border-radius: 15px;
   width: 80vw;
   word-spacing: 3px;
@@ -1000,7 +1000,7 @@ p {
 
 @media only screen and (max-width: 800px) {
   .faq-collapsible {
-    background-color: var(--darkbg2);
+    background-color: var(--bg2);
     border-radius: 15px;
     width: 90vw;
     word-spacing: 3px;
@@ -1034,7 +1034,7 @@ p {
   height: 80px;
   line-height: 80px;
   width: 120px;
-  background-color: var(--darkbg3);
+  background-color: var(--bg3);
   border-radius: 15px;
   margin: 0px;
   border-top: 5px solid var(--white1);
@@ -1103,7 +1103,7 @@ p {
 .build-card {
   height: 160px;
   width: 300px;
-  background-color: var(--darkbg3);
+  background-color: var(--bg3);
   margin: auto;
   margin-top: 50px;
   border-radius: 30px;
@@ -1334,7 +1334,7 @@ p {
 .table {
   margin-left: 170px;
   margin-bottom: 10px;
-  background-color: var(--darkbg2);
+  background-color: var(--bg2);
   width: 80%;
   font-size: 1.2em;
   border-collapse: collapse;
@@ -1350,7 +1350,7 @@ p {
 th {
   font-weight: initial;
   color: var(--highlight);
-  background-color: var(--darkbg3);
+  background-color: var(--bg3);
 }
 
 th.table-fix-padding {
@@ -1363,15 +1363,15 @@ th.table-fix-padding2 {
 th, td {
   text-align: center;
   padding: 10px;
-  /* border: 2px solid var(--darkbg4) */
+  /* border: 2px solid var(--bg4) */
 }
 
 tr:nth-child(even), .table-fix-bgd {
-  background-color: var(--darkbg3);
+  background-color: var(--bg3);
 }
 
 .table-fix-bgl {
-  background-color: var(--darkbg2) !important;
+  background-color: var(--bg2) !important;
 }
 
 
