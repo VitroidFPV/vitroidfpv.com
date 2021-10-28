@@ -110,6 +110,7 @@ p {
   bottom: 10px;
   left: 10px;
   transition: color .3s;
+  z-index: 4;
 }
 
 /* Hide default HTML checkbox */
