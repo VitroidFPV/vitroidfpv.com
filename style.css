@@ -143,16 +143,18 @@ p {
   left: 0;
   height: 40px;
   width: 40px;
-  background-size:contain;
+  background-size: contain;
   transition: transform .3s;
 }
 
 .theme-dark .theme-box-icon {
-  background: transparent url('https://img.icons8.com/material-outlined/80/e4e4e4/bright-moon.png');
+  background-image: url('https://img.icons8.com/material-outlined/80/e4e4e4/bright-moon.png');
+  background-size:contain;
 }
 
 .theme-light .theme-box-icon {
-  background: transparent url('https://img.icons8.com/material-outlined/80/a1a1a1/sun--v1.png');
+  background-image: url('https://img.icons8.com/material-outlined/80/a1a1a1/sun--v1.png');
+  background-size:contain;
 }
 
 /* On mouse-over, add a grey background color
@@ -162,12 +164,14 @@ p {
 
 /* When the checkbox is checked, add a sun */
 .theme-light .switch input:checked ~ .theme-box-icon {
-  background: transparent url('https://img.icons8.com/material-outlined/80/a1a1a1/sun--v1.png');
+  background-image: url('https://img.icons8.com/material-outlined/80/a1a1a1/sun--v1.png');
+  background-size:contain;
 }
 
 /* When the checkbox is checked, add a sun */
 .theme-dark .switch input:checked ~ .theme-box-icon {
-  background: transparent url('https://img.icons8.com/material-outlined/80/e4e4e4/bright-moon.png');
+  background-image: url('https://img.icons8.com/material-outlined/80/e4e4e4/bright-moon.png');
+  background-size:contain;
 }
 
 /* Show the theme-box-icon when checked */
