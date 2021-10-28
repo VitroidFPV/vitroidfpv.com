@@ -113,6 +113,19 @@ p {
   z-index: 4;
 }
 
+@media only screen and (max-width: 800px) {
+  .switch {
+    position: fixed;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    left: 10px;
+    transition: color .3s;
+    z-index: 4;
+  }
+}
+
 /* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
