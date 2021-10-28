@@ -115,7 +115,7 @@ p {
 
 @media only screen and (max-width: 800px) {
   .switch {
-    position: fixed;
+    position: static;
     display: inline-block;
     width: 40px;
     height: 40px;
