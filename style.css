@@ -143,7 +143,7 @@ p {
   left: 0;
   height: 40px;
   width: 40px;
-  transform: scale 50%;
+  background-size:contain;
   transition: transform .3s;
 }
 
