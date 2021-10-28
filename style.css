@@ -609,6 +609,7 @@ p {
   width: 30px;
   height: 50vh;
   background-color: var(--bg1);
+  transition: background-color .3s;
 }
 
 @media only screen and (max-width: 800px) {
