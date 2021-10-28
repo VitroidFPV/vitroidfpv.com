@@ -20,7 +20,7 @@ body {
   font-family: "ReemKufi";
   color: var(--white1);
   background: var(--bg1);
-
+  transition: all .3s;
 
 }
 
