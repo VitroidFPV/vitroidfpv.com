@@ -583,6 +583,7 @@ p {
     padding: 0 !important;
     margin: 0 !important;
     border-left: 10px solid var(--bg1);
+    transition: border-left, background-color .3s ;
   }
 }
 
