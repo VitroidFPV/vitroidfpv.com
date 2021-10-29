@@ -1529,7 +1529,7 @@ tr:nth-child(even), .table-fix-bgd {
   list-style: circle;
 }
 
-.price.budget::marker {
+.price::marker {
   color: var(--green);
 }
 
