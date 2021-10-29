@@ -49,13 +49,15 @@ body.theme-light {
 
 .theme-light {
   --bg1: #eeeeee;
-  --bg2: #d1d1d1;
-  --bg3: #c2c2c2;
+  --bg2: #e2e2e2;
+  --bg3: #cccccc;
   --bg4: #e0e0e0;
   --white1: #1f1f1f;
   --white2: #393939;
   --highlight: #77d86a;
   --yellow: #dfb303;
+  --orange: #ff9000;
+  --green: #79D70F;
 }
 
 .theme-dark {
