@@ -1527,7 +1527,7 @@ tr:nth-child(even), .table-fix-bgd {
   overflow: hidden;
 }
 
-.price-list::marker {
+.price.budget::marker {
   color: var(--green);
 }
 
