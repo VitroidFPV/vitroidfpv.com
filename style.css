@@ -1504,7 +1504,10 @@ tr:nth-child(even), .table-fix-bgd {
   background-color: var(--bg2) !important;
 }
 
-
+.link.budget {
+  background-color: var(--green);
+  color: var(--green);
+}
 
 
 
