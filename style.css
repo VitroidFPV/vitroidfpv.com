@@ -1505,7 +1505,7 @@ tr:nth-child(even), .table-fix-bgd {
 }
 
 .link.budget {
-  background-color: var(--green);
+  background-image: linear-gradient(var(--green),var(--green));
   color: var(--green);
 }
 
