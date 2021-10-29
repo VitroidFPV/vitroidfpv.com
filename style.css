@@ -1521,6 +1521,10 @@ tr:nth-child(even), .table-fix-bgd {
   color: var(--red);
 }
 
+.price::before {
+  content: '';
+  background-color: #5a6fe6;
+}
 
 
 /* disables animations on load */
