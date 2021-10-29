@@ -1528,6 +1528,10 @@ tr:nth-child(even), .table-fix-bgd {
   overflow: hidden;
 }
 
+.price-list ul {
+  float: left;
+}
+
 
 
 /* disables animations on load */
