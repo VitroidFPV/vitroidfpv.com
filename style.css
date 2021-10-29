@@ -1522,7 +1522,6 @@ tr:nth-child(even), .table-fix-bgd {
 }
 
 .price-list {
-  list-style-type: none;
   margin: 0px;
   padding: 0px;
   overflow: hidden;
