@@ -1523,6 +1523,7 @@ tr:nth-child(even), .table-fix-bgd {
 
 .price::before {
   content: '';
+  position: absolute;
   background-color: #5a6fe6;
   height: 16px;
   width: 16px;
