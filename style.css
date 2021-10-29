@@ -1532,6 +1532,7 @@ tr:nth-child(even), .table-fix-bgd {
   background-color: #5a6fe6;
   height: 16px;
   width: 16px;
+  right: 10px;
 }
 
 
