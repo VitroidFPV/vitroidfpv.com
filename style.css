@@ -1509,6 +1509,16 @@ tr:nth-child(even), .table-fix-bgd {
   color: var(--green);
 }
 
+.link.mid-range {
+  background-image: linear-gradient(var(--orange),var(--orange));
+  color: var(--orange);
+}
+
+.link.high-end {
+  background-image: linear-gradient(var(--red),var(--red));
+  color: var(--red);
+}
+
 
 
 /* disables animations on load */
