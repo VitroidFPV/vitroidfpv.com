@@ -1525,6 +1525,7 @@ tr:nth-child(even), .table-fix-bgd {
   margin: 0px;
   padding: 0px;
   overflow: hidden;
+  list-style: circle;
 }
 
 .price.budget::marker {
