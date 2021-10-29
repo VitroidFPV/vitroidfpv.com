@@ -1521,19 +1521,13 @@ tr:nth-child(even), .table-fix-bgd {
   color: var(--red);
 }
 
-.price {
-  margin-left: 20px;
-  padding-left: 20px;
+.price-list {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
 }
 
-.price::before {
-  content: '';
-  position: absolute;
-  background-color: #5a6fe6;
-  height: 16px;
-  width: 16px;
-  right: 10px;
-}
 
 
 /* disables animations on load */
