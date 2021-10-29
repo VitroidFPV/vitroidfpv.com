@@ -1524,6 +1524,7 @@ tr:nth-child(even), .table-fix-bgd {
 .price-list {
   margin: 0px;
   padding: 0px;
+  padding-left: 10px;
   overflow: hidden;
   list-style: circle;
 }
