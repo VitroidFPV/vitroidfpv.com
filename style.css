@@ -1522,12 +1522,22 @@ tr:nth-child(even), .table-fix-bgd {
 }
 
 .price::before {
-  content: '-';
-  color: #5a6fe6;
-  background-color: #5a6fe6;
-  height: 1.2em;
-  width: 1.2em;
+  content: '';
+  margin-right: 10px;
+  padding-right: 30px;
+  border-radius: 10px;
 }
+
+.price.budget::before {
+  background-color: var(--green);
+}
+.price.mid-range::before {
+  background-color: var(--orange);
+}
+.price.high-end::before {
+  background-color: var(--red);
+}
+
 
 
 /* disables animations on load */
