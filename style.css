@@ -1522,11 +1522,14 @@ tr:nth-child(even), .table-fix-bgd {
 }
 
 .price::before {
+  position: relative;
   content: '';
-  margin-right: 10px;
+  margin-right: 6px;
   padding-right: 30px;
   border-radius: 10px;
+  bottom: 3px;
 }
+
 
 .price.budget::before {
   background-color: var(--green);
