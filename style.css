@@ -1522,7 +1522,8 @@ tr:nth-child(even), .table-fix-bgd {
 }
 
 .price::before {
-  content: '';
+  content: '-';
+  color: #5a6fe6;
   background-color: #5a6fe6;
   height: 1.2em;
   width: 1.2em;
