@@ -1521,22 +1521,12 @@ tr:nth-child(even), .table-fix-bgd {
   color: var(--red);
 }
 
-.price-list {
-  margin: 0px;
-  padding: 0px;
-  padding-left: 10px;
-  overflow: hidden;
-  list-style: circle;
+.price::before {
+  content: '';
+  background-color: #5a6fe6;
+  height: 1.2em;
+  width: 1.2em;
 }
-
-.price::marker {
-  color: var(--green);
-}
-
-.price-list ul {
-  float: left;
-}
-
 
 
 /* disables animations on load */
