@@ -70,13 +70,11 @@
 </label>
   
 <script>
-  // function to set a given theme/color-scheme
   function setTheme(themeName) {
       localStorage.setItem('theme', themeName);
       document.documentElement.className = themeName;
   }
 
-  // function to toggle between light and dark theme
   function toggleTheme() {
       if (localStorage.getItem('theme') === 'theme-dark') {
           setTheme('theme-light');
@@ -85,7 +83,6 @@
       }
   }
 
-  // Immediately invoked function to set the theme on initial load
   (function () {
       if (localStorage.getItem('theme') === 'theme-light') {
           setTheme('theme-light');
@@ -573,6 +570,20 @@
     <td>3.3g</td>
     <td>Great option for a really good price. Hobbywing make very durable electronics, and pairing this with the 40A Mini ESC will make for a great, durable combination that will also be PNP with DJI</td>
     <td>$39.99</td>
+  </tr>
+  <tr>
+    <td>Flywoo</td>
+    <td>      
+      <a
+      target="_blank" 
+      rel="noopener noreferrer"
+      href="https://flywoo.net/collections/20x20-fc/products/goku-versatile-f745-pro-fc-20x20-30-5x30-5"
+      class="link">Goku Versatile F745 Pro</a></td>
+    <td>STM32F745</td>
+    <td>7 UARTs, USB C, I2C, Betaflight LED control, 3.3V, 2A 5v, 2A 9V regulator</td>
+    <td>2.5g</td>
+    <td>Flywoo have recently entered into the market big time with a lot of really innovative stuff. Probably one of the only F745 20x20 FCs on the market today, uarts to fit everything you need and more</td>
+    <td>$59.99</td>
   </tr>
 
 </tbody>
