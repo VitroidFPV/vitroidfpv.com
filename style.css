@@ -977,17 +977,17 @@ p {
 .starting-transition:hover {color:var(--violet)}
 
 /*color when opened*/
-.collapsible-open-starting{
+.collapsible-open{
   color: var(--violet);
 }
 
-.collapsible-starting::after {
+.collapsible::after {
   content: "+";
   color: var(--white2);
   margin-left: 5px;
 }
 /*show minus when opened*/
-.collapsible-open-starting::after {
+.collapsible-open::after {
   content: "-";
   font-weight: bold;
 }
