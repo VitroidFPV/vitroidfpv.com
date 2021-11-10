@@ -1458,10 +1458,10 @@ p {
 
 .table {
   margin-left: 200px;
-  margin-right: 30px;
+  margin-right: 20px;
   margin-bottom: 10px;
   background-color: var(--bg2);
-  width: 100%;
+  width: calc(100vw - 220px);
   font-size: 1.2em;
   border-collapse: collapse;
   border-radius: 30px;
