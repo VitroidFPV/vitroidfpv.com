@@ -1458,9 +1458,10 @@ p {
 
 .table {
   margin-left: 200px;
+  margin-right: 30px;
   margin-bottom: 10px;
   background-color: var(--bg2);
-  width: 80%;
+  width: 100%;
   font-size: 1.2em;
   border-collapse: collapse;
   border-radius: 30px;
