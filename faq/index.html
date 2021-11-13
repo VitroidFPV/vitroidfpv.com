@@ -115,11 +115,10 @@
 
   (function () {
     var faq = window.location.hash;
-    var element = document.getElementById(faq);
-    element.classList.add("mystyle");
     console.log({faq});
-    console.log({elID})
-    elID.classList.add("test-style");
+    var element = document.getElementById(faq);
+    console.log({element});
+    element.classList.add("mystyle");
   })();
 </script>
 
