@@ -115,8 +115,9 @@
 
   (function () {
     var faq = window.location.hash;
+    var elid = document.getElementById(faq));
     console.log({faq});
-    document.getElementById(faq).classList.toggle("test");
+    elid.classList.add("test-style");
   })();
 </script>
 
