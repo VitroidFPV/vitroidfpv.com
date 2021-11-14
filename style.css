@@ -1018,6 +1018,7 @@ p {
 }
 
 .details-text {
+  width: fit-content;
   color: var(--white1);
   font-size: 1.2rem;
   transition: color .3s;
@@ -1029,6 +1030,10 @@ p {
 
 details summary { 
   cursor: pointer;
+}
+
+.details-bg {
+  background-color: var(--bg2);
 }
 
 .collapsible {
