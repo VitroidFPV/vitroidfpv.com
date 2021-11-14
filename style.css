@@ -957,6 +957,32 @@ p {
 }
 
  /*=============================Starting Out===============================*/
+
+ input[type='checkbox'] {
+  display: none;
+}
+
+.lbl-toggle {
+  display: block;
+
+  font-size: 1.2rem;
+
+  padding: 1rem;
+
+  color: #A77B0E;
+  background: #FAE042;
+
+  cursor: pointer;
+
+  border-radius: 7px;
+  transition: all 0.25s ease-out;
+}
+
+.lbl-toggle:hover {
+  color: #7C5A0B;
+}
+
+
 .collapsible {
   font-family: "Reem Kufi";
   color: var(--white2);
