@@ -951,6 +951,11 @@ p {
 .collapsible-font {
   font-family: "ReemKufi";
 }
+
+.test {
+  background-color: var(--bg2);
+}
+
  /*=============================Starting Out===============================*/
 .collapsible {
   font-family: "Reem Kufi";
