@@ -1019,7 +1019,7 @@ p {
 
 .details-text {
   color: var(--white1);
-  font-size: 1.1em;
+  font-size: 1.2rem;
   transition: color .3s;
 }
 
