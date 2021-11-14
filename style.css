@@ -984,7 +984,6 @@ p {
 
 .collapsible-text .content-inner {
   background: var(--bg2);
-  /* border-bottom: 1px solid; */
   border-radius: 15px;
   padding: .5rem 1rem;
 }
@@ -996,7 +995,7 @@ p {
 }
 
 .toggle:checked + .lbl-toggle + .collapsible-text {
-  max-height: 100vh;
+  max-height: 100%;
   transition: max-height .5s;
 }
 
