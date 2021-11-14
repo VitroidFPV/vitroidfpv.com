@@ -996,7 +996,7 @@ p {
 }
 
 .toggle:checked + .lbl-toggle + .collapsible-text {
-  max-height: calc(fit-content + 10px);
+  max-height: calc(fit-content);
   transition: max-height .25s ease-in-out;
 }
 
