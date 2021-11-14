@@ -972,6 +972,15 @@ p {
   transition: all 0.3s;
 }
 
+.lbl-toggle::before {
+  content: '+';
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: .7rem;
+  transform: translateY(-2px);
+  transition: transform .3s;
+}
+
 .lbl-toggle.starting:hover {
   color: var(--violet);
 }
