@@ -1012,7 +1012,10 @@ p {
   color: var(--violet)
 }
 
-
+.details {
+  font-size: 1em !important;
+  color: var(--white1)
+}
 
 .details-text {
   color: var(--white1);
