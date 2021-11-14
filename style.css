@@ -989,6 +989,16 @@ p {
   padding: .5rem 1rem;
 }
 
+.collapsible-content {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height .3s;
+}
+
+.toggle:checked + .lbl-toggle + .collapsible-content {
+  max-height: fit-content;
+}
+
 .lbl-toggle.starting:hover {
   color: var(--violet);
 }
