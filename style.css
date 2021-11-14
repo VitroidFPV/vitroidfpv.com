@@ -990,14 +990,14 @@ p {
 }
 
 .collapsible-text {
-  max-height: 0px;
+  height: 0px;
   overflow: hidden;
-  transition: max-height .5s !important;
+  transition: height .5s !important;
 }
 
 .toggle:checked + .lbl-toggle + .collapsible-text {
   max-height: fit-content;
-  transition: max-height .5s !important;
+  transition: height .5s !important;
 }
 
 .lbl-toggle.starting:hover {
