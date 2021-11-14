@@ -969,8 +969,7 @@ p {
 
   padding: 1rem;
 
-  color: #A77B0E;
-  background: #FAE042;
+  color: var(--white1);
 
   cursor: pointer;
 
@@ -978,8 +977,8 @@ p {
   transition: all 0.25s ease-out;
 }
 
-.lbl-toggle:hover {
-  color: #7C5A0B;
+.lbl-toggle.starting:hover {
+  color: var(--violet);
 }
 
 
