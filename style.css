@@ -1021,7 +1021,7 @@ p {
 }
 
 .details-text:hover {
-  background-color: var(--violet);
+  color: var(--violet);
 }
 
 details summary { 
