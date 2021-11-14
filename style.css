@@ -1013,7 +1013,7 @@ p {
 }
 
 .details {
-  font-size: 1em !important;
+  font-size: 1em;
   color: var(--white1)
 }
 
