@@ -1012,6 +1012,8 @@ p {
   color: var(--violet)
 }
 
+
+
 .details {
   font-size: 1.2em;
   transition: color .3s;
@@ -1019,6 +1021,10 @@ p {
 
 .details:hover {
   color: var(--violet);
+}
+
+details summary { 
+  cursor: pointer;
 }
 
 .collapsible {
