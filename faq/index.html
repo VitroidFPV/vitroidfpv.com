@@ -581,18 +581,19 @@ for (i = 0; i < coll.length; i++) {
   }
   </script>
   
-  <script>
-    (function () {
-      var faq = window.location.hash;
-      console.log({faq});
-      faq.replace('#','')
-      var elementID = document.getElementById("terms");
-      console.log({classList});
-      document.getElementById("terms").classList.add("mystyle");
-      console.log({classList});
-  
-    })();
-  </script>
+<script>
+  window.onload = opencoll;
+  (function opencoll() {
+    var faq = window.location.hash;
+    console.log({faq});
+    faq.replace('#','')
+    var elementID = document.getElementById("terms");
+    console.log({classList});
+    document.getElementById("terms").classList.add("mystyle");
+    console.log({classList});
+
+  })();
+</script>
 
 </body>
 </html>
