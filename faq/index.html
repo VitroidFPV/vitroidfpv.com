@@ -582,8 +582,7 @@ for (i = 0; i < coll.length; i++) {
   </script>
   
 <script>
-  window.onload = opencoll;
-  function opencoll() {
+  window.addEventListener("load", opencoll()){
     var hashfaq = window.location.hash;
     console.log({hashfaq});
     var faq = hashfaq.replace('#','');
@@ -593,7 +592,7 @@ for (i = 0; i < coll.length; i++) {
     document.getElementById("terms").classList.add("mystyle");
     console.log({classList});
 
-  };
+};
 </script>
 
 </body>
