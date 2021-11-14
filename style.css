@@ -1020,7 +1020,7 @@ p {
 }
 
 .details-text:hover {
-  color: var(--violet);
+  background-color: var(--violet);
 }
 
 details summary { 
