@@ -953,7 +953,7 @@ p {
 }
 
 .test {
-  background-color: var(--bg2);
+  background-color: var(--bg2) !important;
 }
 
  /*=============================Starting Out===============================*/
