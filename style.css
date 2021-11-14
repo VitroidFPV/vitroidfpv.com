@@ -1015,6 +1015,7 @@ p {
 
 
 .details-text {
+  color: var(--white1);
   font-size: 1.2em;
   transition: color .3s;
 }
