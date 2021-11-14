@@ -1014,12 +1014,12 @@ p {
 
 
 
-.details {
+.details-text {
   font-size: 1.2em;
   transition: color .3s;
 }
 
-.details:hover {
+.details-text:hover {
   color: var(--violet);
 }
 
