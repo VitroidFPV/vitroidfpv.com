@@ -1017,7 +1017,7 @@ p {
   transition: color .3s;
 }
 
-.details:hover.starting {
+.details:hover {
   color: var(--violet);
 }
 
