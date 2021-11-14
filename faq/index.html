@@ -587,10 +587,8 @@ for (i = 0; i < coll.length; i++) {
   console.log({hashfaq});
   var faq = hashfaq.replace('#','');
   console.log({faq});
-  var elementID = document.getElementById("terms");
-  console.log({classList});
-  document.getElementById("terms").classList.add("mystyle");
-  console.log({classList});
+  var elementID = document.getElementById(faq);
+  elementID.classList.add("test");
 
 };
 </script>
