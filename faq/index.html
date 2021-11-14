@@ -598,7 +598,8 @@ for (i = 0; i < coll.length; i++) {
   console.log({hashfaq});
   var faq = hashfaq.replace('#','');
   console.log({faq});
-  var elementID = document.getElementById(faq);
+  var elementID = document.getElementById(faq).children;
+  consolde.log({elementID})
   elementID.children.classList.add("test");
 
 };
