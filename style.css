@@ -982,20 +982,20 @@ p {
   transition: transform .3s;
 }
 
-.collapsible-content .content-inner {
+.collapsible-text .content-inner {
   background: var(--bg2);
   /* border-bottom: 1px solid; */
   border-radius: 15px;
   padding: .5rem 1rem;
 }
 
-.collapsible-content {
+.collapsible-text {
   max-height: 0px;
   overflow: hidden;
   transition: all .5s;
 }
 
-.toggle:checked + .lbl-toggle + .collapsible-content {
+.toggle:checked + .lbl-toggle + .collapsible-text {
   max-height: fit-content;
   transition: all .5s;
 }
