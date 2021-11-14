@@ -1012,6 +1012,15 @@ p {
   color: var(--violet)
 }
 
+.details {
+  font-size: 1.2em;
+  transition: color .3s;
+}
+
+.details.starting:hover {
+  color: var(--violet);
+}
+
 .collapsible {
   font-family: "Reem Kufi";
   color: var(--white2);
