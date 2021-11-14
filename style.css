@@ -981,6 +981,14 @@ p {
   transition: transform .3s;
 }
 
+.collapsible-content .content-inner {
+  background: var(--bg2);
+  /* border-bottom: 1px solid; */
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: .5rem 1rem;
+}
+
 .lbl-toggle.starting:hover {
   color: var(--violet);
 }
