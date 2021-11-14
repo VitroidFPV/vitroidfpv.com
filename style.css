@@ -1034,7 +1034,7 @@ details summary {
 
 .details-bg {
   background-color: var(--bg2);
-  padding: 15px;
+  margin: 15px;
 }
 
 .collapsible {
