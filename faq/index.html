@@ -585,6 +585,7 @@ for (i = 0; i < coll.length; i++) {
     (function () {
       var faq = window.location.hash;
       console.log({faq});
+      faq.replace('#','')
       var elementID = document.getElementById("terms");
       console.log({classList});
       document.getElementById("terms").classList.add("mystyle");
