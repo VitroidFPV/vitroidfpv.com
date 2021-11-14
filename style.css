@@ -1008,6 +1008,10 @@ p {
   width: 10px;
 }
 
+.toggle:checked + .lbl-toggle.starting {
+  color: var(--violet)
+}
+
 .collapsible {
   font-family: "Reem Kufi";
   color: var(--white2);
