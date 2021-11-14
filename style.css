@@ -984,15 +984,14 @@ p {
 .collapsible-content .content-inner {
   background: var(--bg2);
   /* border-bottom: 1px solid; */
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-radius: 15px;
   padding: .5rem 1rem;
 }
 
 .collapsible-content {
   max-height: 0px;
   overflow: hidden;
-  transition: max-height .3s;
+  transition: max-height .5s;
 }
 
 .toggle:checked + .lbl-toggle + .collapsible-content {
@@ -1003,6 +1002,9 @@ p {
   color: var(--violet);
 }
 
+.toggle:checked + .lbl-toggle::before {
+  content:'-';
+}
 
 .collapsible {
   font-family: "Reem Kufi";
