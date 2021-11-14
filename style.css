@@ -974,6 +974,7 @@ p {
 
 .lbl-toggle::before {
   content: '+';
+  width: 10px;
   display: inline-block;
   vertical-align: middle;
   margin-right: .7rem;
@@ -991,11 +992,12 @@ p {
 .collapsible-content {
   max-height: 0px;
   overflow: hidden;
-  transition: max-height .5s;
+  transition: all .5s;
 }
 
 .toggle:checked + .lbl-toggle + .collapsible-content {
   max-height: fit-content;
+  transition: all .5s;
 }
 
 .lbl-toggle.starting:hover {
@@ -1004,6 +1006,7 @@ p {
 
 .toggle:checked + .lbl-toggle::before {
   content:'-';
+  width: 10px;
 }
 
 .collapsible {
