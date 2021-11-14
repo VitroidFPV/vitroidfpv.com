@@ -997,6 +997,7 @@ p {
 
 .toggle:checked + .lbl-toggle + .collapsible-text {
   max-height: 100vh;
+  transition: max-height .5s;
 }
 
 .lbl-toggle.starting:hover {
