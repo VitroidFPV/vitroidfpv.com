@@ -583,7 +583,7 @@ for (i = 0; i < coll.length; i++) {
   
 <script>
   window.onload = opencoll;
-  (function opencoll() {
+  function opencoll() {
     var faq = window.location.hash;
     console.log({faq});
     faq.replace('#','')
@@ -592,7 +592,7 @@ for (i = 0; i < coll.length; i++) {
     document.getElementById("terms").classList.add("mystyle");
     console.log({classList});
 
-  })();
+  };
 </script>
 
 </body>
