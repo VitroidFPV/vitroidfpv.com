@@ -992,12 +992,12 @@ p {
 .collapsible-text {
   max-height: 0px;
   overflow: hidden;
-  transition: all .5s;
+  transition: max-height .5s;
 }
 
 .toggle:checked + .lbl-toggle + .collapsible-text {
   max-height: fit-content;
-  transition: all .5s;
+  transition: max-height .5s;
 }
 
 .lbl-toggle.starting:hover {
