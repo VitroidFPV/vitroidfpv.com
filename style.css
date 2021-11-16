@@ -41,7 +41,7 @@ body.theme-light {
   --bg2: #292929;
   --bg3: #1f1f1f;
   --bg4: #242424;
-  --transparent-dark: rgba(23, 23, 23, 0.25);
+  --transparent-dark: rgba(0, 0, 0, 0.25);
   --transparent-dark2: rgba(23, 23, 23, 0.1);
   --white1: #e7e7e7;
   --white2: #dddddd;
