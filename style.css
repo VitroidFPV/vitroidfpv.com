@@ -1016,6 +1016,7 @@ p {
   font-size: 1em;
   color: var(--white1);
   transition: height .3s;
+  padding: 15px;
 }
 
 .details[open] .coll-content {
