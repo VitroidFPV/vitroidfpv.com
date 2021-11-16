@@ -1015,12 +1015,13 @@ p {
 .details {
   font-size: 1em;
   color: var(--white1);
+  transition: height .3s;
 }
 
 .details[open] .coll-content {
 	animation-name: invisiblyGrowFontSize, fadeIn;
-  animation-duration: 500ms, 200ms;
-  animation-delay: 0ms, 500ms;
+  animation-duration: .3s, .3s;
+  animation-delay: 0ms, .3s;
 }
 
 @keyframes invisiblyGrowFontSize {
