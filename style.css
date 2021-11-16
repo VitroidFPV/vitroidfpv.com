@@ -1060,6 +1060,8 @@ details summary {
 }
 
 .details-text:before {
+  display: inline-block;
+  vertical-align: middle;
   content:'+';
   width: 10px;
   margin-right: .7rem;
