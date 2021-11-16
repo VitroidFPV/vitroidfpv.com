@@ -1059,7 +1059,7 @@ details summary {
   cursor: pointer;
 }
 
-summary:before {
+.details-text:before {
   content:'+';
   width: 10px;
   margin-right: 10px;
@@ -1071,7 +1071,7 @@ summary:before {
   margin-right: 10px;
 }
 
-details summary::-webkit-details-marker {
+.details .details-text::-webkit-details-marker {
   display:none;
 }
 
