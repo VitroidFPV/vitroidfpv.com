@@ -958,60 +958,6 @@ p {
 
  /*=============================Starting Out===============================*/
 
- input[type='checkbox'] {
-  display: none;
-}
-
-.lbl-toggle {
-  display: block;
-  width: fit-content;
-  font-size: 1.2rem;
-  padding: 1rem;
-  color: var(--white1);
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.lbl-toggle::before {
-  content: '+';
-  width: 10px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: .7rem;
-  transform: translateY(-2px);
-  transition: transform .3s;
-}
-
-.collapsible-text .content-inner {
-  background: var(--bg2);
-  border-radius: 15px;
-  padding: .5rem 1rem;
-}
-
-.collapsible-text {
-  max-height: 0px;
-  overflow: hidden;
-  transition: max-height .5s !important;
-}
-
-.toggle:checked + .lbl-toggle + .collapsible-text {
-  max-height: 200vh;
-  transition: max-height .5s;
-}
-
-.lbl-toggle.starting:hover {
-  color: var(--violet);
-}
-
-.toggle:checked + .lbl-toggle::before {
-  content:'-';
-  width: 10px;
-}
-
-.toggle:checked + .lbl-toggle.starting {
-  color: var(--violet)
-}
-
 .details {
   font-size: 1em;
   color: var(--white1);
