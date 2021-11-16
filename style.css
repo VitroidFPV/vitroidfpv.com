@@ -1059,10 +1059,6 @@ details summary {
   cursor: pointer;
 }
 
-details summary::-webkit-details-marker {
-  display:none;
-}
-
 summary:before {
   content:'+';
   width: 10px
@@ -1071,6 +1067,10 @@ summary:before {
 summary[open]:before {
   content:'-';
   width: 10px
+}
+
+details summary::-webkit-details-marker {
+  display:none;
 }
 
 .details-bg {
