@@ -631,11 +631,10 @@ for (i = 0; i < coll.length; i++) {
   console.log({hashfaq});
   var faq = hashfaq.replace('#','');
   console.log({faq});
-  var elementID = document.getElementById(faq).children[0];
+  var elementID = document.getElementById(faq);
   console.log({elementID})
   elementID.classList.add("test");
   elementID.open = true;
-
 };
 </script>
 
