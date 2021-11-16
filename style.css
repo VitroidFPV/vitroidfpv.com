@@ -1061,12 +1061,14 @@ details summary {
 
 .details-text:before {
   content:'+';
-  width: 15px;
+  width: 10px;
+  margin-right: .7rem;
+  transform: translateY(-2px);
 }
 
 .details[open] .details-text:before {
   content:'-';
-  width: 15px;
+  width: 10px;
 }
 
 details > summary {
