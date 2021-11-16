@@ -1022,12 +1022,12 @@ details summary {
   width: 10px;
 }
 
-.details[open] .details-text.starting:hover    {color: var(--violet);}
-.details[open] .details-text.building:hover    {color: var(--red);}
-.details[open] .details-text.betaflight:hover  {color: var(--yellow);}
-.details[open] .details-text.radio:hover       {color: var(--green);}
-.details[open] .details-text.video:hover       {color: var(--lightblue);}
-.details[open] .details-text.hardware:hover    {color: var(--darkblue);}
+.details[open] .details-text.starting    {color: var(--violet);}
+.details[open] .details-text.building    {color: var(--red);}
+.details[open] .details-text.betaflight  {color: var(--yellow);}
+.details[open] .details-text.radio       {color: var(--green);}
+.details[open] .details-text.video       {color: var(--lightblue);}
+.details[open] .details-text.hardware    {color: var(--darkblue);}
 
 details > summary {
   list-style: none;
