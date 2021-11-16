@@ -1015,14 +1015,31 @@ p {
 .details {
   font-size: 1em;
   color: var(--white1);
-  height: auto;
-  transition: all .3s;
-  max-height: 1em;
 }
 
-.details[open] {
-  max-height: 99rem;
-  transition: all .3s;
+.details[open] .content {
+	animation-name: invisiblyGrowFontSize, fadeIn;
+  animation-duration: 500ms, 200ms;
+  animation-delay: 0ms, 500ms;
+}
+
+@keyframes invisiblyGrowFontSize {
+	0% {
+    font-size: 0;
+    opacity: 0;
+	}
+	100% {
+    font-size: 1em;
+    opacity: 0;
+	}
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+	100% {
+		opacity: 1;
+	}
 }
 
 .details-text {
