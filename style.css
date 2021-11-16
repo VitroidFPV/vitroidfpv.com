@@ -1017,7 +1017,7 @@ p {
   color: var(--white1);
 }
 
-.details[open] .content {
+.details[open] .coll-content {
 	animation-name: invisiblyGrowFontSize, fadeIn;
   animation-duration: 500ms, 200ms;
   animation-delay: 0ms, 500ms;
