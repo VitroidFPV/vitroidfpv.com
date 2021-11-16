@@ -1017,7 +1017,7 @@ p {
   color: var(--white1);
   height: auto;
   transition: all .3s;
-  max-height: 1rem;
+  max-height: 1em;
 }
 
 .details[open] {
