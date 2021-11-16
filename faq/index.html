@@ -173,43 +173,49 @@
 
 <details class="content normal-text details starting" id="termsSW">
   <summary class="details-text">What do all the Software terms mean?</summary>
-  <ul class="details-bg coll-content">
-    <li class="faq-list"><span class="li-highlight">BF - </span>Short for Betaflight, the main software used to configure the drone, and the firmware running on the drone</li>
-    <li class="faq-list"><span class="li-highlight">FW - </span>Short for Firmware. Runs on all kinds of electronics, defining how they function</li>
-    <li class="faq-list"><span class="li-highlight">DShot - </span>Wire protocol used for communication between the FC and ESC, can run at different update rates</li>
-    <li class="faq-list"><span class="li-highlight">SBUS - </span>Wire protocol for communication between the FC and mainly FrSky receivers, originally used for digital servos, but now used for serial one wire communication</li>
-    <li class="faq-list"><span class="li-highlight">S.Port - </span>Wire protocol, also used by FrSky receivers, used alongside SBUS for sending telemetry back to the radio</li>
-    <li class="faq-list"><span class="li-highlight">F.Port - </span>SBUS and S.Port over one wire, not two. On compatible receivers it needs a different firmware</li>
-    <li class="faq-list"><span class="li-highlight">IBUS - </span>Wire protocol used by FlySky, similar to SBUS, but is not inverted. Also used for FlySky digital servos at first, now kinda useless</li>
-    <li class="faq-list"><span class="li-highlight">BlHeli - </span>firmware and ESC type. Older ESCs use BlHeli_S which is open, and so has custom configurators and firmware made for it, newer ESC's use BlHeli_32, 
-      which is closed, so it doesn't have as much custom stuff for it. Both are widely used nowadays, and BlHeli_S is often cheaper, and doesn't have that many downsides</li>
-  </ul>
+  <div>
+    <p>A lot of things in FPV have established names, terms, and acronyms. These are used when reffereing to software, and anything not physcially bound</p>
+    <ul class="details-bg coll-content">
+      <li class="faq-list"><span class="li-highlight">BF - </span>Short for Betaflight, the main software used to configure the drone, and the firmware running on the drone</li>
+      <li class="faq-list"><span class="li-highlight">FW - </span>Short for Firmware. Runs on all kinds of electronics, defining how they function</li>
+      <li class="faq-list"><span class="li-highlight">DShot - </span>Wire protocol used for communication between the FC and ESC, can run at different update rates</li>
+      <li class="faq-list"><span class="li-highlight">SBUS - </span>Wire protocol for communication between the FC and mainly FrSky receivers, originally used for digital servos, but now used for serial one wire communication</li>
+      <li class="faq-list"><span class="li-highlight">S.Port - </span>Wire protocol, also used by FrSky receivers, used alongside SBUS for sending telemetry back to the radio</li>
+      <li class="faq-list"><span class="li-highlight">F.Port - </span>SBUS and S.Port over one wire, not two. On compatible receivers it needs a different firmware</li>
+      <li class="faq-list"><span class="li-highlight">IBUS - </span>Wire protocol used by FlySky, similar to SBUS, but is not inverted. Also used for FlySky digital servos at first, now kinda useless</li>
+      <li class="faq-list"><span class="li-highlight">BlHeli - </span>firmware and ESC type. Older ESCs use BlHeli_S which is open, and so has custom configurators and firmware made for it, newer ESC's use BlHeli_32, 
+        which is closed, so it doesn't have as much custom stuff for it. Both are widely used nowadays, and BlHeli_S is often cheaper, and doesn't have that many downsides</li>
+    </ul>
+  </div>
 </details>
 
 <details class="content normal-text details starting" id="termsOTH">
   <summary class="details-text">What do all the other terms mean?</summary>
-  <ul class="details-bg list coll-content">
-    <li class="faq-list"><span class="li-highlight">mAh - </span>Battery capacity. When simplified, it's a measure of how much the battery can store</li>
-    <li class="faq-list"><span class="li-highlight">C Rating - </span>Used to calculate the max charge/discharge current of the battery. How it's calculated, and more on battery theory is answered bellow in Building</li>
-    <li class="faq-list"><span class="li-highlight">S Rating - </span>How many cells are in series. One cell has a max voltage of 4.2V, with a 3.7V nominal. So a 4S battery will have a max voltage of 16.8V for example. 
-      Series "adds" together the max voltage of batteries</li>
-    <li class="faq-list"><span class="li-highlight">P Rating - </span>How many cells are in parallel. A 4S2P battery will have 8 cells, four in series, two of the 4S batteries in parallel. 
-      Parallel "adds" together the capacity of batteries</li>
-    <li class="faq-list"><span class="li-highlight">OSD - </span>On Screen Display. Most often right on the FC, the video get's passed through it, with the OSD information overlayed on it, and then sent out to the VTX</li>
-    <li class="faq-list"><span class="li-highlight">AUX - </span>Auxilary port. Name for a control channel that isn't in the four main ones - Throttle, Yaw, Pitch, Roll</li>
-    <li class="faq-list"><span class="li-highlight">BNF - </span>Bind And Fly. A quadcopter that comes with a receiver, and all you have to do is to bind it to your radio, plug in a battery, 
-      and it should be ready to fly with minimal setup</li>
-    <li class="faq-list"><span class="li-highlight">RTF - </span>Ready To Fly. A set that includes everything, as the name suggests that you need to be ready fly it straight out of the box. 
-      These are kinda rare with bigger quads, really only under 3".</li>
-    <li class="faq-list"><span class="li-highlight">PNP - </span>Plug N' Play. A quad that comes without a receiver, so you can add your own.</li>
-    <li class="faq-list"><span class="li-highlight">Power Kit - </span>Some manufacturers name it differently, but it is a quad that you have to put your own VTX and receiver into.</li>
-    <li class="faq-list"><span class="li-highlight">AUW - </span>All Up Weight. How heavy the quad is at takeoff with everything included.</li>
-    <li class="faq-list"><span class="li-highlight">Analog - The original way of transmitting FPV video on quads. At first, car back-up and security cameras were used, the signal is carried as analog is very much like old TV!<br>
-      Still using the NTSC/PAL standards, it's cheaper to use, integrate, and transcode</span></li>
-    <li class="faq-list"><span class="li-highlight">Digital - </span>Newer systems, coming out from DJI and Fatshark with sharkbyte, with some open source projects as well. <br>
-      The video quality is higher, at the cost of some latency. The level of latency differs from system, with Sharkbyte being the fastest, and OpenHD being one of the highest, DJI in the middle. <br>
-      The signal is carried by ones and zeros, and it's a much newer technology for FPV quads, making the hardware more expensive</li>
-  </ul>
+  <div class="details-bg list coll-content">
+    <p>A lot of things in FPV have established names, terms, and acronyms. These are used when reffereing to misc parts of the hobby</p>
+    <ul>
+      <li class="faq-list"><span class="li-highlight">mAh - </span>Battery capacity. When simplified, it's a measure of how much the battery can store</li>
+      <li class="faq-list"><span class="li-highlight">C Rating - </span>Used to calculate the max charge/discharge current of the battery. How it's calculated, and more on battery theory is answered bellow in Building</li>
+      <li class="faq-list"><span class="li-highlight">S Rating - </span>How many cells are in series. One cell has a max voltage of 4.2V, with a 3.7V nominal. So a 4S battery will have a max voltage of 16.8V for example. 
+        Series "adds" together the max voltage of batteries</li>
+      <li class="faq-list"><span class="li-highlight">P Rating - </span>How many cells are in parallel. A 4S2P battery will have 8 cells, four in series, two of the 4S batteries in parallel. 
+        Parallel "adds" together the capacity of batteries</li>
+      <li class="faq-list"><span class="li-highlight">OSD - </span>On Screen Display. Most often right on the FC, the video get's passed through it, with the OSD information overlayed on it, and then sent out to the VTX</li>
+      <li class="faq-list"><span class="li-highlight">AUX - </span>Auxilary port. Name for a control channel that isn't in the four main ones - Throttle, Yaw, Pitch, Roll</li>
+      <li class="faq-list"><span class="li-highlight">BNF - </span>Bind And Fly. A quadcopter that comes with a receiver, and all you have to do is to bind it to your radio, plug in a battery, 
+        and it should be ready to fly with minimal setup</li>
+      <li class="faq-list"><span class="li-highlight">RTF - </span>Ready To Fly. A set that includes everything, as the name suggests that you need to be ready fly it straight out of the box. 
+        These are kinda rare with bigger quads, really only under 3".</li>
+      <li class="faq-list"><span class="li-highlight">PNP - </span>Plug N' Play. A quad that comes without a receiver, so you can add your own.</li>
+      <li class="faq-list"><span class="li-highlight">Power Kit - </span>Some manufacturers name it differently, but it is a quad that you have to put your own VTX and receiver into.</li>
+      <li class="faq-list"><span class="li-highlight">AUW - </span>All Up Weight. How heavy the quad is at takeoff with everything included.</li>
+      <li class="faq-list"><span class="li-highlight">Analog - The original way of transmitting FPV video on quads. At first, car back-up and security cameras were used, the signal is carried as analog is very much like old TV!<br>
+        Still using the NTSC/PAL standards, it's cheaper to use, integrate, and transcode</span></li>
+      <li class="faq-list"><span class="li-highlight">Digital - </span>Newer systems, coming out from DJI and Fatshark with sharkbyte, with some open source projects as well. <br>
+        The video quality is higher, at the cost of some latency. The level of latency differs from system, with Sharkbyte being the fastest, and OpenHD being one of the highest, DJI in the middle. <br>
+        The signal is carried by ones and zeros, and it's a much newer technology for FPV quads, making the hardware more expensive</li>
+    </ul>
+  </div>
 </details>
 
 <details class="content normal-text details starting" id="values">
