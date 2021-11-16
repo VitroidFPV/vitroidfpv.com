@@ -1014,7 +1014,14 @@ p {
 
 .details {
   font-size: 1em;
-  color: var(--white1)
+  color: var(--white1);
+  height: auto;
+  transition: all .3s;
+}
+
+.details[open] {
+  max-height: 99rem;
+  transition: all .3s;
 }
 
 .details-text {
