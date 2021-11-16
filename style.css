@@ -1061,18 +1061,19 @@ details summary {
 
 .details-text:before {
   content:'+';
-  width: 10px;
-  margin-right: 10px;
+  width: 15px;
 }
 
 .details[open] .details-text:before {
   content:'-';
-  width: 10px;
-  margin-right: 10px;
+  width: 15px;
 }
 
-.details .details-text::-webkit-details-marker {
-  display:none;
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
 }
 
 .details-bg {
