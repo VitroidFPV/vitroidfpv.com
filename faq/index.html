@@ -151,27 +151,7 @@
   <h2 class="content page-header starting starting-header">Starting Out</h2>
 </div>
 
-<div class="wrap-collabsible content">
-  <input id="collapsible" class="toggle" type="checkbox">
-  <label for="collapsible" class="lbl-toggle starting">Collapsible 1</label>
-  <div class="collapsible-text">
-    <div class="content-inner">
-        <p>Collapsible 1</p>
-    </div>
-  </div>
-</div>
-
-<div class="wrap-collabsible content">
-  <input id="collapsible" class="toggle" type="checkbox">
-  <label for="collapsible" class="lbl-toggle starting">Collapsible 2</label>
-  <div class="collapsible-text">
-    <div class="content-inner">
-        <p>Collapsible 2</p>
-    </div>
-  </div>
-</div>
-
-<details class="content normal-text details starting">
+<details class="content normal-text details starting" id="termsHW">
   <summary class="details-text">What do all the Hardware terms mean?</summary>
   <ul class="details-bg coll-content">
     <li class="faq-list"><span class="li-highlight">Quad - </span>Short for quadcopter, when talking about drones it makes you sound smarter, and it's faster/easier</li>
@@ -201,7 +181,7 @@
   </ul>
 </details>
 
-<details class="content normal-text details starting">
+<details class="content normal-text details starting" id="termsSW">
   <summary class="details-text">What do all the Software terms mean?</summary>
   <ul class="details-bg coll-content">
     <li class="faq-list"><span class="li-highlight">BF - </span>Short for Betaflight, the main software used to configure the drone, and the firmware running on the drone</li>
@@ -654,7 +634,7 @@ for (i = 0; i < coll.length; i++) {
   var elementID = document.getElementById(faq).children[0];
   console.log({elementID})
   elementID.classList.add("test");
-  elementID.checked = true;
+  elementID.open = true;
 
 };
 </script>
