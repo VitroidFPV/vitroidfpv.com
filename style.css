@@ -1065,7 +1065,7 @@ summary:before {
   margin-right: 10px;
 }
 
-summary[open]:before {
+.details[open]summary:before {
   content:'-';
   width: 10px;
   margin-right: 10px;
