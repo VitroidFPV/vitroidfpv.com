@@ -1059,6 +1059,20 @@ details summary {
   cursor: pointer;
 }
 
+details summary::-webkit-details-marker {
+  display:none;
+}
+
+summary:before {
+  content:'+';
+  width: 10px
+}
+
+summary[open]:before {
+  content:'-';
+  width: 10px
+}
+
 .details-bg {
   background-color: var(--bg2);
   border-radius: 15px;
