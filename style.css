@@ -1061,12 +1061,14 @@ details summary {
 
 summary:before {
   content:'+';
-  width: 10px
+  width: 10px;
+  margin-right: 10px;
 }
 
 summary[open]:before {
   content:'-';
-  width: 10px
+  width: 10px;
+  margin-right: 10px;
 }
 
 details summary::-webkit-details-marker {
