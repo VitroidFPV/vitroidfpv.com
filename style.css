@@ -997,9 +997,12 @@ p {
   transition: color .3s;
 }
 
-.details-text:hover {
-  color: var(--violet);
-}
+.details-text.starting:hover    {color: var(--violet);}
+.details-text.building:hover    {color: var(--red);}
+.details-text.betaflight:hover  {color: var(--yellow);}
+.details-text.radio:hover       {color: var(--green);}
+.details-text.video:hover       {color: var(--lightblue);}
+.details-text.hardware:hover    {color: var(--darkblue);}
 
 details summary { 
   cursor: pointer;
@@ -1018,6 +1021,13 @@ details summary {
   content:'-';
   width: 10px;
 }
+
+.details[open] .details-text.starting:hover    {color: var(--violet);}
+.details[open] .details-text.building:hover    {color: var(--red);}
+.details[open] .details-text.betaflight:hover  {color: var(--yellow);}
+.details[open] .details-text.radio:hover       {color: var(--green);}
+.details[open] .details-text.video:hover       {color: var(--lightblue);}
+.details[open] .details-text.hardware:hover    {color: var(--darkblue);}
 
 details > summary {
   list-style: none;
