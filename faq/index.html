@@ -433,41 +433,27 @@
   </div>
 </details>
 
+<details class="content normal-text details" id="whatKv">
+  <summary class="details-text building">What KV should I get for my build?</summary>
+  <div class="details-bg coll-content">
+    <p>For a 5", generally it's about 1700-1900kv for 6s, and then 2400-2700kv for 4s. But obviously there are more factors at play. 
+      If you're building a lighter quad, it's better to go with high kv motors and low pitch props, and for a heavier quad go with lower kv and higher pitch props. 
+      For smaller quads, there can be so much variation that you should probably look at examples of what you are building. 
+      I have a lot of build lists on the <a class="link" href="https://vitroidfpv.com/builds">Builds page</a> of this site, so you can get a better idea of what to use
+    </p>
+  </div>
+</details>
 
-
-<button class="collapsible-building building-transition content">What KV should I get for my build?</button>
-<div class="collapsible-content faq-collapsible content">
-  <p>For a 5", generally it's about 1700-1900kv for 6s, and then 2400-2700kv for 4s. But obviously there are more factors at play. 
-    If you're building a lighter quad, it's better to go with high kv motors and low pitch props, and for a heavier quad go with lower kv and higher pitch props. 
-    For smaller quads, there can be so much variation that you should probably look at examples of what you are building</p>
-</div>
-
-<button class="collapsible-building building-transition content">What kind of battery should I get?</button>
-<div class="collapsible-content faq-collapsible content">
-  <p>CNHL, GNB, Tattu (and their respective OEMs) are all good batteries, 
-    CNHL being the best in value, GNB are all round great performers, and Tattu are usually for high current/low weight setups.
-    As for the specs, again this also depends on the size of the quad and cell count, but for a 5" it's about 1000-1300mah for a 6s battery, 
-    1300-1500mah for 4s, all ideally at or above 100C. With quads smaller than that, it depends on what kind of quad it is, 
-    so again, look at examples of what other people built,and/or experiment yourself (within reason ;) )</p>
-</div>
-
-<!--building script-->
-<script>
-var coll = document.getElementsByClassName("collapsible-building");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("collapsible-open-building");
-    var content = this.nextElementSibling;
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    } 
-  });
-}
-</script>
+<details class="content normal-text details" id="whatBattery">
+  <summary class="details-text building">What kind of battery should I get?</summary>
+  <div class="details-bg coll-content">
+    <p>CNHL, GNB, Tattu (and their respective OEMs) are all good batteries, 
+      CNHL being the best in value, GNB are all round great performers, and Tattu are usually for high current/low weight setups.
+      As for the specs, again this also depends on the size of the quad and cell count, but for a 5" it's about 1000-1300mah for a 6s battery, 
+      1300-1500mah for 4s, all ideally at or above 100C. With quads smaller than that, it depends on what kind of quad it is, 
+      so again, look at examples of what other people built,and/or experiment yourself (within reason ;) )</p>
+  </div>
+</details>
 
 <!--==============================================================================Betaflight==============================================================================================
 =======================================================================================================================================================================================-->  
