@@ -455,9 +455,10 @@ p {
 .code {
   padding-left: 10px !important;
   padding: 10px;
-  background-color: #252525;
+  background-color: var(--bg3);
   border-radius: 3px;
   max-width: 100%;
+  line-height: 1.8rem;
 }
 
 .video-embed {
