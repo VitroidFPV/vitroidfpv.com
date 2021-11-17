@@ -438,7 +438,7 @@
   <div class="details-bg coll-content">
     <p>For a 5", generally it's about 1700-1900kv for 6s, and then 2400-2700kv for 4s. But obviously there are more factors at play. 
       If you're building a lighter quad, it's better to go with high kv motors and low pitch props, and for a heavier quad go with lower kv and higher pitch props. 
-      For smaller quads, there can be so much variation that you should probably look at examples of what you are building. 
+      For smaller quads, there can be so much variation that you should probably look at examples of what you are building.<br>
       I have a lot of build lists on the <a class="link" href="https://vitroidfpv.com/builds">Builds page</a> of this site, so you can get a better idea of what to use
     </p>
   </div>
@@ -461,66 +461,76 @@
 
 <h2  id="betaflight" class="content page-header bf-header betaflight" >Betaflight</h2>
 
-<button class="collapsible-bf bf-transition content">Betaflight won't connect to my FC, what to do?</button>
-<div class="collapsible-content faq-collapsible content">
-  <p>There is a few reasons this can happen. Some USB Micro B cables only supply power, not data, so that would be the first thing I'd check. Next step would be installing the drivers. 
-    The ones needed are listed in Betaflight Configurator, but there is <a class="link" href="https://impulserc.blob.core.windows.net/utilities/ImpulseRC_Driver_Fixer.exe"> a tool</a> 
-    that can install all the ones that are needed in one step. Run that, plug in your FC, follow the instructions, and it should be all fixed.</p>
-</div>
+<details class="content normal-text details" id="bfcConnect">
+  <summary class="details-text betaflight">Betaflight won't connect to my FC, what to do?</summary>
+  <div class="details-bg coll-content">
+    <p>There is a few reasons this can happen. Some USB Micro B cables only supply power, not data, so that would be the first thing I'd check. Next step would be installing the drivers. 
+      The ones needed are listed in Betaflight Configurator, but there is <a class="link" href="https://impulserc.blob.core.windows.net/utilities/ImpulseRC_Driver_Fixer.exe">a tool</a> 
+      that can install all the ones that are needed in one step. Run that, plug in your FC, follow the instructions, and it should be all fixed
+    </p>
+  </div>
+</details>
 
-<button class="collapsible-bf bf-transition content">How to flash the FC?</button>
-<div class="collapsible-content faq-collapsible content">
-  <p>Before flashing anything, it's always good to make a backup. So go into the CLI, type <code class="code">diff all</code> and press enter. 
-    This will list out all the settings that were changed from bone stock Betaflight. you can then save the file with the buttons at the bottom, and then you can load it in<br><br>
-    <code class="code">!!! Don't just randomly load in diff files from a much older version of betaflight, as this can make problems, especially with the PID settings, those received a lot of changes in 4.2 !!!</code><br><br>
-    Once you have this file, you can go ahead and flash it. The diff file contains all the info you need. At the top, it will have something like this:<br><code class="code">
-       # diff all <br>
-       # version <br>
-       # Betaflight / STM32F411 (S411) 4.2.0 Jun 14 2020 / 03:04:43 (8f2d21460) MSP API: 1.43 <br>
-       # config: YES <br>
-       # start the command batch <br>
-       batch start <br>
-       # reset configuration to default settings <br>
-       defaults nosave <br>
-       board_name HGLRCF411 <br>
-       manufacturer_id HGLR <br>
-       mcu_id 004900423439510f37393937 <br>
-       signature 
-      </code><br>
-    You care about the <code class="code">board_name</code> as that will be the target you select when flashing. Click on the <code class="code">Update Firmware</code> button, 
-    and set your parameters there. Don't touch most of the stuff, you just need to select the board target, the version you want to flash, and to do full chip erase. 
-    Then, once you have all that set, you can click <code class="code">Load Firmware (Online)</code> and that will download the firmware. Then once you have all that, 
-    you can actually click <code class="code">Flash Firmware</code> If everything goes as it should, the bar should slowly load, and when fully loaded, 
-    should show up as green, and say that the flashing was successful
-  </p>
-</div>
+<details class="content normal-text details" id="howFlash">
+  <summary class="details-text betaflight">Betaflight won't connect to my FC, what to do?</summary>
+  <div class="details-bg coll-content">
+    <p>Before flashing anything, it's always good to make a backup. So go into the CLI, type <code class="code">diff all</code> and press enter. 
+      This will list out all the settings that were changed from bone stock Betaflight. you can then save the file with the buttons at the bottom, and then you can load it in<br><br>
+      <code class="code">!!! Don't just randomly load in diff files from a much older version of betaflight, as this can make problems, especially with the PID settings, those received a lot of changes in 4.2 !!!</code><br><br>
+      Once you have this file, you can go ahead and flash it. The diff file contains all the info you need. At the top, it will have something like this:<br><code class="code">
+         # diff all <br>
+         # version <br>
+         # Betaflight / STM32F411 (S411) 4.2.0 Jun 14 2020 / 03:04:43 (8f2d21460) MSP API: 1.43 <br>
+         # config: YES <br>
+         # start the command batch <br>
+         batch start <br>
+         # reset configuration to default settings <br>
+         defaults nosave <br>
+         board_name HGLRCF411 <br>
+         manufacturer_id HGLR <br>
+         mcu_id 004900423439510f37393937 <br>
+         signature 
+        </code><br>
+      You care about the <code class="code">board_name</code> as that will be the target you select when flashing. Click on the <code class="code">Update Firmware</code> button, 
+      and set your parameters there. Don't touch most of the stuff, you just need to select the board target, the version you want to flash, and to do full chip erase. 
+      Then, once you have all that set, you can click <code class="code">Load Firmware (Online)</code> and that will download the firmware. Then once you have all that, 
+      you can actually click <code class="code">Flash Firmware</code> If everything goes as it should, the bar should slowly load, and when fully loaded, 
+      should show up as green, and say that the flashing was successful
+    </p>
+  </div>
+</details>
 
-<button class="collapsible-bf bf-transition content">How to set up a receiver</button>
-<div class="collapsible-content faq-collapsible content">
-  <p>This does depend on what receiver you have, but there are some things that stay the same. If you connected it up according to the manual, you just enable <code class="code">serial rx</code>
-    under the UART that youconnected it to, and then in the configuration tab, there is a receiver section. There, you want to select the output protocol that your receiver does.
-    For FrSky, that is SBUS (or F.Port if you set that up), Crossfire does CRSF, IRC Ghost is GHST, and FlySky is IBUS. Once that is done, you should have input in the receiver tab. <br><br>
-    There are some things you want to change there too though. Mainly the channel order, and the RSSi channel if you're runnin a receiver that has RSSi on an aux channel. 
-    The channel order can be different from TX to TX, so you might want to look your specific one, or just change the order of the letters until it does match up with the stick input
-  </p>
-</div>
+<details class="content normal-text details" id="howReceiver">
+  <summary class="details-text betaflight">How to set up a receiver?</summary>
+  <div class="details-bg coll-content">
+    <p>This does depend on what receiver you have, but there are some things that stay the same. If you connected it up according to the manual, you just enable <code class="code">serial rx</code>
+      under the UART that youconnected it to, and then in the configuration tab, there is a receiver section. There, you want to select the output protocol that your receiver does.
+      For FrSky, that is SBUS (or F.Port if you set that up), Crossfire does CRSF, IRC Ghost is GHST, and FlySky is IBUS. Once that is done, you should have input in the receiver tab. <br><br>
+      There are some things you want to change there too though. Mainly the channel order, and the RSSi channel if you're runnin a receiver that has RSSi on an aux channel. 
+      The channel order can be different from TX to TX, so you might want to look your specific one, or just change the order of the letters until it does match up with the stick input
+    </p>
+  </div>
+</details>
 
-<button class="collapsible-bf bf-transition content">How to set up SmartAudio</button>
-<div class="collapsible-content faq-collapsible content">
-  <p>First step is to find out what SA version your VTX supports. The manufacturer will often have this listed on their website, or on the product listing itself. 
-    Once you have that, you can load in a generic VTX table for that version, and then modify the values if needed, stuff like output power, and maybe the channels if they are missing. <br><br>
-    The other way is much easier. Some bigger manufacturers will have VTX tables ready for download for the specific VTX, so you just load that in, and it should work.
-  </p>
-</div>
+<details class="content normal-text details" id="howSA">
+  <summary class="details-text betaflight">Betaflight won't connect to my FC, what to do?</summary>
+  <div class="details-bg coll-content">
+    <p>First step is to find out what SA version your VTX supports. The manufacturer will often have this listed on their website, or on the product listing itself. 
+      Once you have that, you can load in a generic VTX table for that version, and then modify the values if needed, stuff like output power, and maybe the channels if they are missing. <br><br>
+      The other way is much easier. Some bigger manufacturers will have VTX tables ready for download for the specific VTX, so you just load that in, and it should work.
+    </p>
+  </div>
+</details>
 
-<button class="collapsible-bf bf-transition content">How to set up GPS and return to home functionality?</button>
-<div class="collapsible-content faq-collapsible content">
-  <p>It is pretty easy to set up basic GPS, but dialing in RTH settings might be more difficult. To get GPS working, you just need to wire it up correctly to a spare UART on the FC. 
-    Then in betaflight, in the ports tabunder that UART you want to select GPS in the Sensors dropdown, and keep the baud rate as is. Most oft he actual setup is done in the configuration tab. 
-    There, enable GPS, set the protocol to UBLOX (NMEA if UBLOX isn't working), enable autoconfig, and you can enable auto baud rate, 
-    but ideally you should have this value from the manufacturer <br><br>
-    As for RTH, this can be up to preference, like how fast it should return, how high should it go before returing, etc... All of these settings are in the Failsafe tab. 
-    First you need to enable GPS RTH Failsafe, and then you can set your parameters. These are as follows: <br>
+<details class="content normal-text details" id="howGPS">
+  <summary class="details-text betaflight">Betaflight won't connect to my FC, what to do?</summary>
+  <div class="details-bg coll-content">
+    <p>It is pretty easy to set up basic GPS, but dialing in RTH settings might be more difficult. To get GPS working, you just need to wire it up correctly to a spare UART on the FC. 
+      Then in betaflight, in the ports tabunder that UART you want to select GPS in the Sensors dropdown, and keep the baud rate as is. Most oft he actual setup is done in the configuration tab. 
+      There, enable GPS, set the protocol to UBLOX (NMEA if UBLOX isn't working), enable autoconfig, and you can enable auto baud rate, 
+      but ideally you should have this value from the manufacturer <br><br>
+      As for RTH, this can be up to preference, like how fast it should return, how high should it go before returing, etc... All of these settings are in the Failsafe tab. 
+      First you need to enable GPS RTH Failsafe, and then you can set your parameters. These are as follows:</p>
     <ul>
       <li class="faq-list"><span class="li-highlight">Minimum Satellites - </span>How many sats are needed beforet he quad can even arm. Once this value is higher than what you set, 
         the quad will be ready to arm. Usually it's better to have it above 6, but the more, the better.</li>
@@ -534,38 +544,18 @@
       <li class="faq-list"><span class="li-highlight">Throttle Min/Max/Hover - </span>The throttle channel values it will use for the whole RTH process. Keep Min high enough thaht the props spin fast enough, 
         keep Max low enough so that it isn't too fast, and set hover to the approximate value that the quad will hover at</li>
     </ul>
-  </p>
-</div>
+  </div>
+</details>
 
-<button class="collapsible-bf bf-transition content">My motors won't stop spinning after zero throttle</button>
-<div class="collapsible-content faq-collapsible content">
-  <p>This is called I Term Windup. The quad will want to have control over it's movement 100% of the time. If it can't move, it'll add throttle constantly to try and move itself. So it keeps adding more and more until you disarm.</p>
-</div>
+<details class="content normal-text details" id="iWindup">
+  <summary class="details-text betaflight">My motors won't stop spinning after zero throttle</summary>
+  <div class="details-bg coll-content">
+    <p>This is called I Term Windup. The quad will want to have control over it's movement 100% of the time. If it can't move, it'll add throttle constantly to try and move itself. 
+      So it keeps adding more and more until you disarm. As said, this happens when the quad can't move correctly for any kind of reason. 
+      Props removed/not installed correctly, motor direction wrong, FC orientation set incorrectly, etc... basically anything that might be spinning wrong</p>
+  </div>
+</details>
 
-<!-- <button class="collapsible-bf bf-transition content">Question</button>
-<div class="collapsible-content faq-collapsible content">
-  <p>Answer</p>
-</div> -->
-
-
-
-<!--betaflight script-->
-<script>
-  var coll = document.getElementsByClassName("collapsible-bf");
-  var i;
-  
-  for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-      this.classList.toggle("collapsible-open-bf");
-      var content = this.nextElementSibling;
-      if (content.style.maxHeight){
-        content.style.maxHeight = null;
-      } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-      } 
-    });
-  }
-  </script>
   
 <script>
   function opencoll(){
