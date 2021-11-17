@@ -464,7 +464,7 @@
 <details class="content normal-text details" id="bfcConnect">
   <summary class="details-text betaflight">Betaflight won't connect to my FC, what to do?</summary>
   <div class="details-bg coll-content">
-    <p>There is a few reasons this can happen. Some USB Micro B cables only supply power, not data, so that would be the first thing I'd check. Next step would be installing the drivers. 
+    <p>There is a few reasons this can happen. Some USB cables only supply power, not data, so that would be the first thing I'd check. Next step would be installing the drivers. 
       The ones needed are listed in Betaflight Configurator, but there is <a class="link" href="https://impulserc.blob.core.windows.net/utilities/ImpulseRC_Driver_Fixer.exe">a tool</a> 
       that can install all the ones that are needed in one step. Run that, plug in your FC, follow the instructions, and it should be all fixed
     </p>
@@ -472,7 +472,7 @@
 </details>
 
 <details class="content normal-text details" id="howFlash">
-  <summary class="details-text betaflight">Betaflight won't connect to my FC, what to do?</summary>
+  <summary class="details-text betaflight">How to flash my FC?</summary>
   <div class="details-bg coll-content">
     <p>Before flashing anything, it's always good to make a backup. So go into the CLI, type <code class="code">diff all</code> and press enter. 
       This will list out all the settings that were changed from bone stock Betaflight. you can then save the file with the buttons at the bottom, and then you can load it in<br><br>
@@ -513,7 +513,7 @@
 </details>
 
 <details class="content normal-text details" id="howSA">
-  <summary class="details-text betaflight">Betaflight won't connect to my FC, what to do?</summary>
+  <summary class="details-text betaflight">How to set up SmartAudio?</summary>
   <div class="details-bg coll-content">
     <p>First step is to find out what SA version your VTX supports. The manufacturer will often have this listed on their website, or on the product listing itself. 
       Once you have that, you can load in a generic VTX table for that version, and then modify the values if needed, stuff like output power, and maybe the channels if they are missing. <br><br>
@@ -523,7 +523,7 @@
 </details>
 
 <details class="content normal-text details" id="howGPS">
-  <summary class="details-text betaflight">Betaflight won't connect to my FC, what to do?</summary>
+  <summary class="details-text betaflight">How to set up GPS return to home?</summary>
   <div class="details-bg coll-content">
     <p>It is pretty easy to set up basic GPS, but dialing in RTH settings might be more difficult. To get GPS working, you just need to wire it up correctly to a spare UART on the FC. 
       Then in betaflight, in the ports tabunder that UART you want to select GPS in the Sensors dropdown, and keep the baud rate as is. Most oft he actual setup is done in the configuration tab. 
