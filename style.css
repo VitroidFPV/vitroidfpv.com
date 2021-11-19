@@ -1434,6 +1434,13 @@ details > summary::-webkit-details-marker {
   bottom: 100px;
 }
 
+.icon-div.s-tooth {
+  height: 130px;
+  width: 110px;
+  margin: auto;
+  bottom: 100px;
+}
+
 .icon {
   height: inherit;
   width: inherit;
