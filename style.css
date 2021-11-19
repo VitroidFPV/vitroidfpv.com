@@ -71,11 +71,6 @@ p {
   font-size: 1.1em;
 }
 
-a {
-  cursor: pointer;
-}
-
-
 @media only screen and (max-width: 800px) {
   .content {
     margin-left: 0px !important;
@@ -420,6 +415,7 @@ a {
 }
 
 .link {
+  cursor: pointer;
   color: var(--white1);
   text-decoration: none;
   background-image: linear-gradient(var(--highlight),var(--highlight));
