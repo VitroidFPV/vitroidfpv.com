@@ -71,6 +71,10 @@ p {
   font-size: 1.1em;
 }
 
+a {
+  cursor: pointer;
+}
+
 
 @media only screen and (max-width: 800px) {
   .content {
