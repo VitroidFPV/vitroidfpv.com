@@ -1459,6 +1459,11 @@ details > summary::-webkit-details-marker {
   height: 110px;
 }
 
+.icon.s-tooth {
+  width: 110px;
+  height: 110px;
+}
+
 .card-title {
   position: relative;
   font-size: 2em;
