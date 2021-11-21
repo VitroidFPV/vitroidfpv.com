@@ -71,7 +71,6 @@ p {
   font-size: 1.1em;
 }
 
-
 @media only screen and (max-width: 800px) {
   .content {
     margin-left: 0px !important;
@@ -416,6 +415,7 @@ p {
 }
 
 .link {
+  cursor: pointer;
   color: var(--white1);
   text-decoration: none;
   background-image: linear-gradient(var(--highlight),var(--highlight));
@@ -1434,6 +1434,13 @@ details > summary::-webkit-details-marker {
   bottom: 100px;
 }
 
+.icon-div.s-tooth {
+  height: 130px;
+  width: 110px;
+  margin: auto;
+  bottom: 103px;
+}
+
 .icon {
   height: inherit;
   width: inherit;
@@ -1448,6 +1455,11 @@ details > summary::-webkit-details-marker {
 }
 
 .icon.beginner {
+  width: 110px;
+  height: 110px;
+}
+
+.icon.s-tooth {
   width: 110px;
   height: 110px;
 }
