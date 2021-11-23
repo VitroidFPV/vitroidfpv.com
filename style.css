@@ -565,7 +565,7 @@ p {
 }
 
 .content {
-  margin-left: 180px !important;
+  margin-left: 180px;
 }
 .content-p {
   padding-left: 110px;
