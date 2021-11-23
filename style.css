@@ -1049,7 +1049,9 @@ details > summary::-webkit-details-marker {
 @media only screen and (max-width: 800px) {
   .details-bg {
     display: flex;
-    justify-self: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 0 auto;
   }
 }
 
