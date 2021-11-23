@@ -1046,6 +1046,13 @@ details > summary::-webkit-details-marker {
   margin-left: -10px;
 }
 
+@media only screen and (max-width: 800px) {
+  .details-bg {
+    display: flex;
+    justify-self: center;
+  }
+}
+
 .starting + .details-bg   {box-shadow: 0px 5px 0px var(--violet), 0px 10px 15px var(--transparent-dark);}
 .building + .details-bg   {box-shadow: 0px 5px 0px var(--red), 0px 10px 15px var(--transparent-dark);}
 .betaflight + .details-bg {box-shadow: 0px 5px 0px var(--yellow), 0px 10px 15px var(--transparent-dark);}
