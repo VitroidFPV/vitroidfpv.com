@@ -1066,18 +1066,6 @@ details > summary::-webkit-details-marker {
   padding-left: 50px;
 }
 
-.collapsible {
-  font-family: "Reem Kufi";
-  color: var(--white2);
-  cursor: pointer;
-  padding-bottom: 18px;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 1.1em;
-  background-color: transparent;
-}
-
 /*main starting topic header*/
 .starting-header{
   border-bottom: 1px solid var(--violet);
