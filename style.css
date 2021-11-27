@@ -1185,7 +1185,7 @@ details > summary::-webkit-details-marker {
   }
 }
 
-.build-cards {
+.display-cards {
   margin-left: 150px;
   display: flex;
   flex-direction: row;
@@ -1195,13 +1195,13 @@ details > summary::-webkit-details-marker {
 }
 
 @media only screen and (max-width: 800px) {
-  .build-cards {
+  .display-cards {
     margin-left: 0px !important;
   }
 }
 
 
-.build-card {
+.display-card {
   height: 160px;
   width: 300px;
   background-color: var(--bg3);
@@ -1214,25 +1214,25 @@ details > summary::-webkit-details-marker {
   text-decoration: none;
   position: relative;
 }
-.build-card:hover {
+.display-card:hover {
   height: 380px;
   transition-delay: 0s;
 }
 
-.theme-light .build-card {
+.theme-light .display-card {
   background-color: var(--bg4);
 }
 
 
-.build-card.medium {
+.display-card.medium {
   box-shadow:0px -20px var(--orange), 0px 10px 15px var(--transparent-dark2);
 }
 
-.build-card.hard {
+.display-card.hard {
   box-shadow:0px -20px var(--red), 0px 10px 15px var(--transparent-dark2);
 }
 
-.build-card .card-link {
+.display-card .card-link {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -1383,13 +1383,13 @@ details > summary::-webkit-details-marker {
   transition: .3s;
 }
 
-.build-card:hover .card-title {
+.display-card:hover .card-title {
   background-size: 100% 3px;
 }
 
 
-.build-card:hover  .icon-div { transform: translateY(-7px)}
-.build-card:hover  .build-short {  visibility: visible;}
+.display-card:hover  .icon-div { transform: translateY(-7px)}
+.display-card:hover  .build-short {  visibility: visible;}
 
 .title-under {
   position: relative;
@@ -1399,13 +1399,13 @@ details > summary::-webkit-details-marker {
   top: -7px;
 }
 
-.build-card:hover   .title-under.easy {background-color: var(--green);}
-.build-card:hover   .title-under.medium {background-color: var(--orange);}
-.build-card:hover   .title-under.hard {background-color: var(--red);}
+.display-card:hover   .title-under.easy {background-color: var(--green);}
+.display-card:hover   .title-under.medium {background-color: var(--orange);}
+.display-card:hover   .title-under.hard {background-color: var(--red);}
 
-.build-card:hover   .title-under.cine {width: 185px;}
-.build-card:hover   .title-under.race {width: 115px;}
-.build-card:hover   .title-under.s-tooth {width: 160px;}
+.display-card:hover   .title-under.cine {width: 185px;}
+.display-card:hover   .title-under.race {width: 115px;}
+.display-card:hover   .title-under.s-tooth {width: 160px;}
 
 .build-short {
   position: relative;
@@ -1421,7 +1421,7 @@ details > summary::-webkit-details-marker {
   transition: all .2s .025s;
 }
 
-.build-card:hover    .short1 {color: var(--white1); transform: translateY(0px);}
+.display-card:hover    .short1 {color: var(--white1); transform: translateY(0px);}
 
 .short2 {
   color: transparent;
@@ -1429,7 +1429,7 @@ details > summary::-webkit-details-marker {
   transition: all .2s .075s;
 }
 
-.build-card:hover    .short2 {color: var(--white1); transform: translateY(0px);}
+.display-card:hover    .short2 {color: var(--white1); transform: translateY(0px);}
 
 .short3 {
   color: transparent;
@@ -1437,7 +1437,7 @@ details > summary::-webkit-details-marker {
   transition: all .2s .15s;
 }
 
-.build-card:hover    .short3 {color: var(--white1); transform: translateY(0px);}
+.display-card:hover    .short3 {color: var(--white1); transform: translateY(0px);}
 
 .short4 {
   color: transparent;
@@ -1445,7 +1445,7 @@ details > summary::-webkit-details-marker {
   transition: all .2s .225s;
 }
 
-.build-card:hover    .short4 {color: var(--white1); transform: translateY(0px);}
+.display-card:hover    .short4 {color: var(--white1); transform: translateY(0px);}
 
 .short5 {
   color: transparent;
@@ -1453,9 +1453,9 @@ details > summary::-webkit-details-marker {
   transition: all .2s .225s;
 }
 
-.build-card:hover    .short5 {color: var(--white1); transform: translateY(0px);}
+.display-card:hover    .short5 {color: var(--white1); transform: translateY(0px);}
 
-.build-card.race {
+.display-card.race {
   order: 0;
 }
 
@@ -1557,6 +1557,11 @@ transition:background-color 0s, opacity 0s, color 0s, width 0s, height 0s, paddi
 iframe[seamless] {
   border: none;
 }
+
+/* ========================================================================================================================================================================================= */
+/* =================================================================================== Builds page styles ==================================================================================*/
+/* ========================================================================================================================================================================================= */
+
 
 
 .side-wave {
