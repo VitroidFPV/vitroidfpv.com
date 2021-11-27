@@ -1239,6 +1239,11 @@ details > summary::-webkit-details-marker {
   margin-bottom: 80px;
 }
 
+.card-color.green {
+  background-color: var(--lightblue);
+  color: var(--lightblue);
+}
+
 .card-color.light-blue {
   background-color: var(--lightblue);
   color: var(--lightblue);
