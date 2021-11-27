@@ -1201,7 +1201,7 @@ details > summary::-webkit-details-marker {
   margin-left: -40px;
   background-color: transparent;
   border-radius: 50%;
-  box-shadow: 20px -20px inherit;
+  box-shadow: 20px -20px;
 }
 
 .card-circle-rounded.medium {
