@@ -1194,6 +1194,10 @@ details > summary::-webkit-details-marker {
   background-color: var(--red);
 }
 
+.card-circle.light-blue {
+  background-color: var(--lightblue);
+}
+
 .card-circle-rounded {
   position: relative;
   height: 40px;
@@ -1201,15 +1205,15 @@ details > summary::-webkit-details-marker {
   margin-left: -40px;
   background-color: transparent;
   border-radius: 50%;
-  box-shadow: 20px -20px var(--green);
+  box-shadow: 20px -20px inherit;
 }
 
 .card-circle-rounded.medium {
-  box-shadow: 20px -20px var(--orange);
+  box-shadow: 20px -20px inherit;
 }
 
 .card-circle-rounded.hard {
-  box-shadow: 20px -20px var(--red);
+  box-shadow: 20px -20px inherit
 }
 
 .card-circle-rounded-2 {
@@ -1220,14 +1224,14 @@ details > summary::-webkit-details-marker {
   margin-left: 160px;
   background-color: transparent;
   border-radius: 50%;
-  box-shadow: -20px -20px var(--green);
+  box-shadow: -20px -20px inherit;
 }
 .card-circle-rounded-2.medium {
-  box-shadow: -20px -20px var(--orange);
+  box-shadow: -20px -20px inherit;
 }
 
 .card-circle-rounded-2.hard {
-  box-shadow: -20px -20px var(--red);
+  box-shadow: -20px -20px inherit;
 }
 
 .icon-div {
