@@ -1149,7 +1149,7 @@ details > summary::-webkit-details-marker {
 }
 
 .display-card.line5:hover {height: 300px;}
-.display-card.line5:hover {height: 300px;}
+.display-card.line4:hover {height: 300px;}
 
 .theme-light .display-card {
   background-color: var(--bg4);
