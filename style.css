@@ -1190,14 +1190,6 @@ details > summary::-webkit-details-marker {
   border-bottom-right-radius: 60px;
 }
 
-.card-circle.medium {
-  background-color: var(--orange);
-}
-
-.card-circle.hard {
-  background-color: var(--red);
-}
-
 .card-circle-rounded {
   position: relative;
   height: 40px;
@@ -1206,14 +1198,6 @@ details > summary::-webkit-details-marker {
   background-color: transparent;
   border-radius: 50%;
   box-shadow: 20px -20px;
-}
-
-.card-circle-rounded.medium {
-  box-shadow: 20px -20px var(--orange);
-}
-
-.card-circle-rounded.hard {
-  box-shadow: 20px -20px var(--red);
 }
 
 .card-circle-rounded-2 {
@@ -1226,13 +1210,6 @@ details > summary::-webkit-details-marker {
   border-radius: 50%;
   box-shadow: -20px -20px;
 }
-.card-circle-rounded-2.medium {
-  box-shadow: -20px -20px var(--orange);
-}
-
-.card-circle-rounded-2.hard {
-  box-shadow: -20px -20px var(--red);
-}
 
 .card-color {
   height: 0px;
@@ -1242,6 +1219,16 @@ details > summary::-webkit-details-marker {
 .card-color.green {
   background-color: var(--green);
   color: var(--green);
+}
+
+.card-color.orange {
+  background-color: var(--orange);
+  color: var(--orange);
+}
+
+.card-color.red {
+  background-color: var(--red);
+  color: var(--red);
 }
 
 .card-color.light-blue {
