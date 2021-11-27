@@ -813,45 +813,6 @@ p {
   font-size: 1.2em;
 }
 
-/*Colapsible stuff*/
-.collapsible {
-  font-family: "Reem Kufi";
-  color: var(--white1);
-  cursor: pointer;
-  padding-bottom: 18px;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-  background-color: transparent;
-}
-
-.collapsible-active, .collapsible:hover {
-  /* when open */
- color: var(--highlight);
-}
-
-.collapsible::after {
-  content: "+";
-  color: var(--white1);
-  margin-left: 5px;
-}
-
-.collapsible-active::after {
-  content: "-";
-  color: var(--white1);
-  font-weight: bold;
-}
-
-.collapsible-content {
-  padding: 0 18px;
-  max-height: 0;
-  overflow: hidden;
-  color: var(--white1);
-  transition: max-height 0.2s ease-out;
-  font-size: 1.05em;
-}
-
 @media only screen and (max-width: 800px) {
   .sidebar-socials {
     display: none;
