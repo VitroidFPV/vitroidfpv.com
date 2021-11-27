@@ -1080,7 +1080,7 @@ details > summary::-webkit-details-marker {
   }
 }
 
-.mini-card.easy {
+.mini-card.green {
   border-top: 5px solid var(--green);
 }
 
@@ -1311,7 +1311,7 @@ details > summary::-webkit-details-marker {
   transition: .3s;
 }
 
-.card-title.easy {
+.card-title.green {
   background-image: linear-gradient(var(--green),var(--green));
 }
 .card-title.medium {
@@ -1337,7 +1337,7 @@ details > summary::-webkit-details-marker {
   top: -7px;
 }
 
-.display-card:hover   .title-under.easy {background-color: var(--green);}
+.display-card:hover   .title-under.green {background-color: var(--green);}
 .display-card:hover   .title-under.medium {background-color: var(--orange);}
 .display-card:hover   .title-under.hard {background-color: var(--red);}
 
