@@ -1236,7 +1236,7 @@ details > summary::-webkit-details-marker {
 
 .card-color.light-blue {
   background-color: var(--lightblue);
-  box-shadow: 0px var(--lightblue);
+  color: var(--lightblue);
 }
 
 .icon-div {
