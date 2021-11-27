@@ -907,7 +907,7 @@ p {
 .betaflight {color: var(--yellow);}
 .video      {color: var(--green);}
 .radio      {color: var(--lightblue);}
-.hardware   {color: var(--darkblue);}
+.redware   {color: var(--darkblue);}
 
 
 .collapsible-font {
@@ -964,7 +964,7 @@ p {
 .details-text.betaflight:hover  {color: var(--yellow);}
 .details-text.radio:hover       {color: var(--green);}
 .details-text.video:hover       {color: var(--lightblue);}
-.details-text.hardware:hover    {color: var(--darkblue);}
+.details-text.redware:hover    {color: var(--darkblue);}
 
 details summary { 
   cursor: pointer;
@@ -989,7 +989,7 @@ details summary {
 .details[open] .details-text.betaflight  {color: var(--yellow);}
 .details[open] .details-text.radio       {color: var(--green);}
 .details[open] .details-text.video       {color: var(--lightblue);}
-.details[open] .details-text.hardware    {color: var(--darkblue);}
+.details[open] .details-text.redware    {color: var(--darkblue);}
 
 details > summary {
   list-style: none;
@@ -1021,7 +1021,7 @@ details > summary::-webkit-details-marker {
 .betaflight + .details-bg {box-shadow: 0px 5px 0px var(--yellow), 0px 10px 15px var(--transparent-dark);}
 .radio + .details-bg      {box-shadow: 0px 5px 0px var(--green), 0px 10px 15px var(--transparent-dark);}
 .video + .details-bg      {box-shadow: 0px 5px 0px var(--lightblue), 0px 10px 15px var(--transparent-dark);}
-.hardware + .details-bg   {box-shadow: 0px 5px 0px var(--darkblue), 0px 10px 15px var(--transparent-dark);}
+.redware + .details-bg   {box-shadow: 0px 5px 0px var(--darkblue), 0px 10px 15px var(--transparent-dark);}
 
 .details-bg.list {
   padding-left: 50px;
@@ -1084,10 +1084,10 @@ details > summary::-webkit-details-marker {
   border-top: 5px solid var(--green);
 }
 
-.mini-card.medium {
+.mini-card.orange {
   border-top: 5px solid var(--orange);
 }
-.mini-card.hard {
+.mini-card.red {
   border-top: 5px solid var(--red);
 }
 
@@ -1114,6 +1114,8 @@ details > summary::-webkit-details-marker {
   }
 }
 
+
+/* flex container */
 .display-cards {
   margin-left: 150px;
   display: flex;
@@ -1143,10 +1145,8 @@ details > summary::-webkit-details-marker {
   text-decoration: none;
   position: relative;
 }
-.display-card:hover {
-  height: 380px;
-  transition-delay: 0s;
-}
+
+.display-card:hover {height: 380px;}
 
 .display-card.line5:hover {height: 300px;}
 .display-card.line4:hover {height: 270px;}
@@ -1156,11 +1156,11 @@ details > summary::-webkit-details-marker {
 }
 
 
-.display-card.medium {
+.display-card.orange {
   box-shadow:0px -20px var(--orange), 0px 10px 15px var(--transparent-dark2);
 }
 
-.display-card.hard {
+.display-card.red {
   box-shadow:0px -20px var(--red), 0px 10px 15px var(--transparent-dark2);
 }
 
@@ -1306,10 +1306,10 @@ details > summary::-webkit-details-marker {
 .card-title.green {
   background-image: linear-gradient(var(--green),var(--green));
 }
-.card-title.medium {
+.card-title.orange {
   background-image: linear-gradient(var(--orange),var(--orange));
 }
-.card-title.hard {
+.card-title.red {
   background-image: linear-gradient(var(--red),var(--red));
 }
 
@@ -1330,8 +1330,8 @@ details > summary::-webkit-details-marker {
 }
 
 .display-card:hover   .title-under.green {background-color: var(--green);}
-.display-card:hover   .title-under.medium {background-color: var(--orange);}
-.display-card:hover   .title-under.hard {background-color: var(--red);}
+.display-card:hover   .title-under.orange {background-color: var(--orange);}
+.display-card:hover   .title-under.red {background-color: var(--red);}
 
 .display-card:hover   .title-under.cine {width: 185px;}
 .display-card:hover   .title-under.race {width: 115px;}
