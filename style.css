@@ -1230,6 +1230,11 @@ details > summary::-webkit-details-marker {
   box-shadow: -20px -20px var(--red);
 }
 
+.card-color {
+  height: 0px;
+  width: 0px;
+}
+
 .card-color.light-blue {
   background-color: var(--lightblue);
 }
