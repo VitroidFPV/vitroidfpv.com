@@ -1236,6 +1236,11 @@ details > summary::-webkit-details-marker {
   color: var(--lightblue);
 }
 
+.card-color.dark-blue {
+  background-color: var(--darkblue);
+  color: var(--darkblue);
+}
+
 .icon-div {
   position: relative;
   bottom: 115px;
