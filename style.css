@@ -957,7 +957,7 @@ p {
   background-color: var(--bg2) !important;
 }
 
- /*=============================Starting Out===============================*/
+
 
 .details {
   font-size: 1em;
@@ -1083,28 +1083,8 @@ details > summary::-webkit-details-marker {
   border-bottom: 1px solid var(--violet);
   width: 210px;
 }
-/*transition setup*/
-.starting-transition {
-  color: var(--white2);
-  transition: color .15s;
-}
-.starting-transition:hover {color:var(--violet)}
 
-/*color when opened*/
-.collapsible-open{
-  color: var(--violet);
-}
 
-.collapsible::after {
-  content: "+";
-  color: var(--white2);
-  margin-left: 5px;
-}
-/*show minus when opened*/
-.collapsible-open::after {
-  content: "-";
-  font-weight: bold;
-}
 
 /* ========================================================================================================================================================================================= */
 /* =================================================================================== Builds page styles ==================================================================================*/
