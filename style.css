@@ -1137,7 +1137,7 @@ details > summary::-webkit-details-marker {
   margin: auto;
   margin-top: 50px;
   border-radius: 30px;
-  box-shadow: 0px -20px var(--green), 0px 10px 15px var(--transparent-dark2);
+  box-shadow: 0px -20px, 0px 10px 15px var(--transparent-dark2);
   transition: all ease-in-out .3s;
   transition-delay: .37s;
   text-decoration: none;
@@ -1220,7 +1220,7 @@ details > summary::-webkit-details-marker {
   margin-left: 160px;
   background-color: transparent;
   border-radius: 50%;
-  box-shadow: -20px -20px var(--green);
+  box-shadow: -20px -20px;
 }
 .card-circle-rounded-2.medium {
   box-shadow: -20px -20px var(--orange);
