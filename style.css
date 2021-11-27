@@ -1149,7 +1149,7 @@ details > summary::-webkit-details-marker {
 }
 
 .display-card.line5:hover {height: 300px;}
-.display-card.line4:hover {height: 300px;}
+.display-card.line4:hover {height: 270px;}
 
 .theme-light .display-card {
   background-color: var(--bg4);
@@ -1291,28 +1291,20 @@ details > summary::-webkit-details-marker {
   margin-left: 10px;
   padding-right: 10px;
   width: fit-content;
+  background-size: 0% 3px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: .3s;
 }
 
 .card-title.easy {
   background-image: linear-gradient(var(--green),var(--green));
-  background-size: 0% 3px;
-  background-repeat: no-repeat;
-  background-position: left bottom;
-  transition: .3s;
 }
 .card-title.medium {
   background-image: linear-gradient(var(--orange),var(--orange));
-  background-size: 0% 3px;
-  background-repeat: no-repeat;
-  background-position: left bottom;
-  transition: .3s;
 }
 .card-title.hard {
   background-image: linear-gradient(var(--red),var(--red));
-  background-size: 0% 3px;
-  background-repeat: no-repeat;
-  background-position: left bottom;
-  transition: .3s;
 }
 
 .display-card:hover .card-title {
