@@ -1159,13 +1159,14 @@ details > summary::-webkit-details-marker {
 .display-card.orange {
   box-shadow:0px -20px var(--orange), 0px 10px 15px var(--transparent-dark2);
 }
-
 .display-card.red {
   box-shadow:0px -20px var(--red), 0px 10px 15px var(--transparent-dark2);
 }
-
 .display-card.light-blue {
   box-shadow:0px -20px var(--lightblue), 0px 10px 15px var(--transparent-dark2);
+}
+.display-card.dark-blue {
+  box-shadow:0px -20px var(--darkblue), 0px 10px 15px var(--transparent-dark2);
 }
 
 .display-card .card-link {
