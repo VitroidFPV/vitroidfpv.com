@@ -1148,10 +1148,8 @@ details > summary::-webkit-details-marker {
   transition-delay: 0s;
 }
 
-.display-card.line5:hover {
-  height: 300px;
-  transition-delay: 0s;
-}
+.display-card.line5:hover {height: 300px;}
+.display-card.line5:hover {height: 300px;}
 
 .theme-light .display-card {
   background-color: var(--bg4);
