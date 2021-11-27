@@ -1180,7 +1180,7 @@ details > summary::-webkit-details-marker {
 .card-circle {
   height: 80px;
   width: 160px;
-  background-color: var(--green);
+  background-color: inherit;
   margin: auto;
   border-bottom-left-radius: 60px;
   border-bottom-right-radius: 60px;
