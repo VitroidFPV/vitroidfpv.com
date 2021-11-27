@@ -1240,8 +1240,8 @@ details > summary::-webkit-details-marker {
 }
 
 .card-color.green {
-  background-color: var(--lightblue);
-  color: var(--lightblue);
+  background-color: var(--green);
+  color: var(--green);
 }
 
 .card-color.light-blue {
