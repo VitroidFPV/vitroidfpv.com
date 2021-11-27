@@ -907,7 +907,7 @@ p {
 .betaflight {color: var(--yellow);}
 .video      {color: var(--green);}
 .radio      {color: var(--lightblue);}
-.redware   {color: var(--darkblue);}
+.hardware   {color: var(--darkblue);}
 
 
 .collapsible-font {
@@ -964,7 +964,7 @@ p {
 .details-text.betaflight:hover  {color: var(--yellow);}
 .details-text.radio:hover       {color: var(--green);}
 .details-text.video:hover       {color: var(--lightblue);}
-.details-text.redware:hover    {color: var(--darkblue);}
+.details-text.hardware:hover    {color: var(--darkblue);}
 
 details summary { 
   cursor: pointer;
@@ -989,7 +989,7 @@ details summary {
 .details[open] .details-text.betaflight  {color: var(--yellow);}
 .details[open] .details-text.radio       {color: var(--green);}
 .details[open] .details-text.video       {color: var(--lightblue);}
-.details[open] .details-text.redware    {color: var(--darkblue);}
+.details[open] .details-text.hardware    {color: var(--darkblue);}
 
 details > summary {
   list-style: none;
@@ -1021,7 +1021,7 @@ details > summary::-webkit-details-marker {
 .betaflight + .details-bg {box-shadow: 0px 5px 0px var(--yellow), 0px 10px 15px var(--transparent-dark);}
 .radio + .details-bg      {box-shadow: 0px 5px 0px var(--green), 0px 10px 15px var(--transparent-dark);}
 .video + .details-bg      {box-shadow: 0px 5px 0px var(--lightblue), 0px 10px 15px var(--transparent-dark);}
-.redware + .details-bg   {box-shadow: 0px 5px 0px var(--darkblue), 0px 10px 15px var(--transparent-dark);}
+.hardware + .details-bg   {box-shadow: 0px 5px 0px var(--darkblue), 0px 10px 15px var(--transparent-dark);}
 
 .details-bg.list {
   padding-left: 50px;
@@ -1084,10 +1084,10 @@ details > summary::-webkit-details-marker {
   border-top: 5px solid var(--green);
 }
 
-.mini-card.orange {
+.mini-card.medium {
   border-top: 5px solid var(--orange);
 }
-.mini-card.red {
+.mini-card.hard {
   border-top: 5px solid var(--red);
 }
 
@@ -1156,11 +1156,11 @@ details > summary::-webkit-details-marker {
 }
 
 
-.display-card.orange {
+.display-card.medium {
   box-shadow:0px -20px var(--orange), 0px 10px 15px var(--transparent-dark2);
 }
 
-.display-card.red {
+.display-card.hard {
   box-shadow:0px -20px var(--red), 0px 10px 15px var(--transparent-dark2);
 }
 
@@ -1306,10 +1306,10 @@ details > summary::-webkit-details-marker {
 .card-title.green {
   background-image: linear-gradient(var(--green),var(--green));
 }
-.card-title.orange {
+.card-title.medium {
   background-image: linear-gradient(var(--orange),var(--orange));
 }
-.card-title.red {
+.card-title.hard {
   background-image: linear-gradient(var(--red),var(--red));
 }
 
@@ -1330,8 +1330,8 @@ details > summary::-webkit-details-marker {
 }
 
 .display-card:hover   .title-under.green {background-color: var(--green);}
-.display-card:hover   .title-under.orange {background-color: var(--orange);}
-.display-card:hover   .title-under.red {background-color: var(--red);}
+.display-card:hover   .title-under.medium {background-color: var(--orange);}
+.display-card:hover   .title-under.hard {background-color: var(--red);}
 
 .display-card:hover   .title-under.cine {width: 185px;}
 .display-card:hover   .title-under.race {width: 115px;}
