@@ -594,7 +594,7 @@ p {
     display: flex;
     position: fixed;
     height: 100vh;
-    width: 120px;
+    width: 130px;
     box-shadow: 5px 0 0 var(--highlight);
     background-color: var(--bg1);
     padding: 0 !important;
