@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/sources/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/sources/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/sources/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/sources/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/sources/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/sources/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/sources/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/sources/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="/sources/favicon-196x196.png" sizes="196x196" />
+  <link rel="icon" type="image/png" href="/sources/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="/sources/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/sources/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/sources/favicon-128.png" sizes="128x128" />
+  <meta name="application-name" content="&nbsp;"/>
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="/sources/mstile-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="/sources/mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="/sources/mstile-150x150.png" />
+  <meta name="msapplication-wide310x150logo" content="/sources/mstile-310x150.png" />
+  <meta name="msapplication-square310x310logo" content="/sources/mstile-310x310.png" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5" Beginner Build</title>
+  <link rel="stylesheet" href="/style.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B2GJTV3FZP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B2GJTV3FZP');
+</script>
+</head>
+<body>
+  <div class="sidebar z3">
+    <ul>
+        <li class="sidebar-link">
+          <a href="/">
+            <div class="sidebar-text">Home
+
+            </div>
+          </a>
+        </li>
+        <li class="sidebar-link">
+          <a href="/faq">
+            <div class="sidebar-text">FAQ</div>
+          </a>
+        </li>
+        <!-- <li class="sidebar-link">
+          <a href="/contact">
+            <div class="sidebar-text">Contact</div>
+          </a>
+        </li>
+        <li class="sidebar-link  sidebar-active">
+          <a href="/links">
+            <div class="sidebar-text">Links</div>
+          </a>
+        </li> -->
+        <li class="sidebar-link sidebar-active">
+          <a href="/builds">
+            <div class="sidebar-text">Builds</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-socials">
+      <div class="insta-div hl-hover"><a href="https://www.instagram.com/vitroid.fpv/" target="_blank" rel="noopener noreferrer">
+              <img class="insta-img z2" src="https://img.icons8.com/metro/78/e7e7e7/instagram-new.png"></a></div>
+      
+      <div class="yt-div hl-hover"><a href="https://www.youtube.com/channel/UChH3PvPYV0Ho5WO8nKE940A" target="_blank" rel="noopener noreferrer">
+                <img class="yt-img z2" src="https://img.icons8.com/small/64/e7e7e7/youtube--v1.png"/></a></div>
+      
+      <div class="disc-div hl-hover"><a href="https://linktr.ee/VitroidFPV" target="_blank" rel="noopener noreferrer">
+                  <img class="disc-img z2" src="https://img.icons8.com/ios/100/e7e7e7/discord-logo--v1.png"/></a></div>
+                  
+      <div class="reddit-div hl-hover"><a href="https://www.reddit.com/user/Vitroid" target="_blank" rel="noopener noreferrer">
+                    <img class="reddit-img z2" src="https://img.icons8.com/metro/78/e7e7e7/reddit.png"/></a></div>
+      </div>
+
+<label id="switch" class="switch">
+    <input type="checkbox" onchange="toggleTheme()" class="theme-box">
+    <span class="theme-box-icon"></span>
+</label>
+
+<script>
+  // function to set a given theme/color-scheme
+  function setTheme(themeName) {
+      localStorage.setItem('theme', themeName);
+      document.documentElement.className = themeName;
+  }
+
+  // function to toggle between light and dark theme
+  function toggleTheme() {
+      if (localStorage.getItem('theme') === 'theme-dark') {
+          setTheme('theme-light');
+      } else {
+          setTheme('theme-dark');
+      }
+  }
+
+  // Immediately invoked function to set the theme on initial load
+  (function () {
+      if (localStorage.getItem('theme') === 'theme-light') {
+          setTheme('theme-light');
+      } else {
+          setTheme('theme-dark');
+      }
+  })();
+</script>
+
+<div class="center-top"><h2 class="top race">5" Beginner</h2></div>
+
+<h2 class="content page-header">Easy to build, cheap, and durable to learn on</h2>
+
+<p class="content normal-text">Specced out to be as easy to put together, affordable and plentiful parts, and easy to solder electronics. I haven't included radio systems, as those are largely up to preference, and budget<br> Prices may depend on where you source the parts. (Prices and specs are sourced from the manufacturers website when possible)<br>
+  These are not affiliate links for your, and my convenience. <br><br>
+  Most of the flight controllers listed have complete stack variants listed, unless specifically mentioned. Just so you don't have to go get the ESC separately, also ensuring compatibility, and better ease of use. <br> For the proper function of multilinks, you may need to enable popups
+</p>
+
+<h2 class="content page-header table-offset">Motors</h2>
+
+<div class="">
+<table class="table content">
+  <thead>
+ <tr>
+    <th class="table-fix-padding">Manufacturer</th>
+    <th>Name</th>
+    <th>Size</th>
+    <th>kv</th>
+    <th>Weight</th>
+    <th>Description</th>
+    <th class="table-fix-padding2">Price</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Emax</td>
+    <td>      
+      <a href="https://emaxmodel.com/products/pre-order-emax-eco-ii-series-2207-3-6s-1700kv-1900kv-2400kv-brushless-motor-for-rc-drone-fpv-racing" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="link">Eco II</a></td>
+    <td>2207</td>
+    <td>1700/1900kv</td>
+    <td>33.5g</td>
+    <td>For the price, these are one of the best budget motors. They work well, but they aren't unibell which makes them a bit less durable</td>
+    <td>$13.99</td>
+  </tr>
+
+  <tr>
+    <td>TMotor</td>
+    <td>      
+      <a href="https://www.getfpv.com/t-motor-velox-v2-v2207-1750kv-1950kv-2550kv-motor.html" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="link">Velox V2</a></td>
+      <td>2207</td>
+      <td>1750/1950kv</td>
+      <td>35.2g</td>
+      <td>TMotor have great motors across a lot of price ranges. These are the cheapest, but that doesn't mean they're bad. They're built well, and are made of good parts. Just that they aren't unibell</td>
+      <td>$13.99</td>
+    </tr>
+
+    <tr>
+      <td>IFlight</td>
+      <td>      
+        <a href="https://shop.iflight-rc.com/index.php?search=Xing-E+pro+motor&submit_search=&route=product%2Fsearch" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="link">Xing-E Pro</a></td>
+      <td>2207/2208</td>
+      <td>1800kv</td>
+      <td>33.8g</td>
+      <td>IFlights refreshed budget line of motors. They are less durable than their premium counterparts, but they work great on more budget setups, or when you just crash a lot</td>
+      <td>$15.50</td>
+    </tr>
+
+</tbody>
+</table>
+</div>
+
+<h2 class="content page-header table-offset">Frames</h2>
+
+<table class="table content">
+  <thead>
+ <tr>
+    <th class="table-fix-padding">Manufacturer</th>
+    <th>Name</th>
+    <th>Carbon thickness</th>
+    <th>Wheelbase</th>
+    <th>Weight</th>
+    <th>Description</th>
+    <th class="table-fix-padding2">Price</th>
+  </tr>
+</thead>
+<tbody>
+
+  <tr>
+    <td>TBS</td>
+    <td>      
+      <a href="https://www.team-blacksheep.com/products/prod:sourceone_v3" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="link">SourceOne V3</a></td>
+    <td>Arms: 5mm, Bottom plate: 3mm, Top plate: 2mm</td>
+    <td>226mm</td>
+    <td>145g</td>
+    <td>Talking about beginner/budget frames, I can't miss the TBS SourceOne. It's THE best price-performance frame for beginners. Built to work, it can survive almost anything</td>
+    <td>$26.99</td>
+  </tr>
+
+  <tr>
+    <td>XILO</td>
+    <td>      
+      <a href="https://www.getfpv.com/xilo-phreakstyle-slam-freestyle-quadcopter-frame-kit.html" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="link">Phreakstyle Slam</a></td>
+    <td>Arms: 4mm, Bottom plate: 2.5mm, Middle plate: 2.5mm, Top plate: 2.5mm</td>
+    <td>226mm</td>
+    <td>145g</td>
+    <td>A good all round frame for a pretty good price. Comes with a build kit that Joshua Bardwell has a full video series on it</td>
+    <td>$26.99</td>
+  </tr>
+
+  <tr>
+    <td rowspan="3">IFlight</td>
+    <td>      
+      <a href="https://shop.iflight-rc.com/quad-parts-cat20/FrameKits-Parts-TPU-cat346/titan-series-cat108/titan-xl5-hd-fpv-frame-pro1194" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="link">Titan XL5</a></td>
+    <td>Arms: 6mm, Bottom plate: 2mm, Middle plate: 2mm, Top plate: 2mm</td>
+    <td>250mm</td>
+    <td>199g</td>
+    <td>An absolute tank of a frame. IFlight makes a lot of different frames that are priced very well, and it will take everything to may crash into. But the weight will be noticeable</td>
+    <td>$49.99</td>
+  </tr>
+
+  <tr class="table-fix-bgl">
+    <td>      
+      <a href="https://shop.iflight-rc.com/quad-parts-cat20/FrameKits-Parts-TPU-cat346/titan-series-cat108/xl5-v5-1-true-x-fpv-freestyle-frame-kit-pro1293" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="link">XL5 V5.1</a></td>
+    <td>Arms: 5mm, Bottom plate: 2mm, Middle plate: 2mm, Top plate: 3mm</td>
+    <td>240mm</td>
+    <td>147g</td>
+    <td>A bit lighter than the Titan Xl5, but it can still take a beating. Slighly smaller wheelbase thanks to the TrueX design, which is supposed to get better handling</td>
+    <td>$55.99</td>
+  </tr>
+
+  <tr>
+    <td>      
+      <a href="https://shop.iflight-rc.com/quad-parts-cat20/FrameKits-Parts-TPU-cat346/titan-series-cat108/titan-dc5-v1-4-hd-frame-pro1074" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="link">Titan DC5</a></td>
+    <td>Arms: 5mm, Bottom plate: 2mm, Middle plate: 2mm, Top plate: 3mm</td>
+    <td>222mm</td>
+    <td>150g</td>
+    <td>The deadcat geometry makes sure that you will not get any props in view, making it ideal for cinematic, slower flying</td>
+    <td>$55.99</td>
+  </tr>
+    
+  <tr>
+    <td>Diatone</td>
+    <td>      
+      <a href="https://www.diatone.us/products/diatone-roma-f5-v2-frame-kit" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="link">Roma F5 V2</a></td>
+    <td>Arms: 5mm, Bottom plate: 2.5mm, Middle plate: 2mm, Top plate: 2.5mm</td>
+    <td>218mm</td>
+    <td>120g</td>
+    <td>This frame is beautifully designed, and really nice to build in. However to save weight, the arms are a bit thinner, so I'd take it if you don't crash much, or want a lighter quad</td>
+    <td>$61.99</td>
+  </tr>
+
+  <tr>
+    <td>GepRC</td>
+    <td>      
+      <a href="https://geprc.com/product/gep-mark4-frame/" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="link">Mark4</a></td>
+    <td>Arms: 5mm, Bottom plate: 2.5mm, "Protect" plate: 2mm, Top plate: 2.5mm</td>
+    <td>225mm</td>
+    <td>102g</td>
+    <td>Like the roma, it's not made to be crashed too hard. But it flies well, has lots of space, and does stand out. If you want to go for weight savings, these two are the way to go</td>
+    <td>$51.99</td>
+  </tr>
+
+</tbody>
+</table>
+
+<h2 class="content page-header table-offset">FCs</h2>
+
+<table class="table content">
+  <thead>
+ <tr>
+    <th class="table-fix-padding">Manufacturer</th>
+    <th>Name</th>
+    <th>Processor</th>
+    <th>IO</th>
+    <th>Weight</th>
+    <th>Description</th>
+    <th class="table-fix-padding2">Price</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td rowspan="4">Diatone</td>
+    <td>      
+      <a
+      target="_blank" 
+      rel="noopener noreferrer" 
+      onclick=" window.open('https://www.diatone.us/collections/dji-fc/products/mb-dji-f722-mk2-fc'); 
+                window.open('https://www.diatone.us/collections/dji-fc/products/mb-dji-f405-mk2-fc');"
+      class="link">Mamba DJI F405/F722 MK2</a></td>
+    <td>STM32F405<br>STM32F722</td>
+    <td>6 UARTs, USB C, I2C, Betaflight LED control, 0.5A 3.3V, 3A 5v, 3A 9V regulator</td>
+    <td>n/a</td>
+    <td>These are all nearly, or completely identical pairs, except the main processor, so I'm keeping them together. <br> Great option if you want the DJI FPV system, but they will work with analog just fine, and you can easily use LEDs with the integrated driver</td>
+    <td>$49.99</td>
+  </tr>
+
+  <tr class="table-fix-bgl">
+    <td>      
+      <a
+      target="_blank" 
+      rel="noopener noreferrer" 
+      onclick=" window.open('https://www.diatone.us/products/mb-app-wifi-f405-mk1-fc?_pos=1&_sid=5529ac4dd&_ss=r'); 
+                window.open('https://www.diatone.us/products/mb-f722app-mk1-fc?_pos=3&_sid=5529ac4dd&_ss=r');"
+      class="link">Mamba APP F405/F722</a></td>
+    <td>STM32F405<br>STM32F722</td>
+    <td>6 UARTs, USB C, I2C, Betaflight LED control, 0.5A 3.3V, 3A 5v, 3A 9V regulator</td>
+    <td>n/a</td>
+    <td>The two are pretty much the same, except the F722 variant having a slighly weaker 5V and 9V regulator. These are great if you dont want to use USB, you can use your phone wirelessly with the speedybee app</td>
+    <td>$48.99</td>
+  </tr>
+
+  <tr>
+    <td>      
+      <a
+      target="_blank" 
+      rel="noopener noreferrer" 
+      onclick=" window.open('https://www.diatone.us/collections/basic-fc/products/mb-f405-mk3-fc'); 
+                window.open('https://www.diatone.us/collections/basic-fc/products/mb-f722-mk3-fc');"
+      class="link">Mamba Basic F405/F722 MK3</a></td>
+    <td>STM32F405<br>STM32F722</td>
+    <td>6 UARTs, USB C, I2C, Betaflight LED control, 0.5A 3.3V, 3A 5V + 3A 5V LED, 3A 9V regulator</td>
+    <td>n/a</td>
+    <td>Exactly the same, again except the main chip. This is the most barebones one out of the list, but that can be a good thing, less stuff that can go wrong. Plus the black color will look better :)</td>
+    <td>$51.99</td>
+  </tr>
+
+  <tr class="table-fix-bgl">
+    <td>      
+      <a
+      href="https://www.diatone.us/products/mamba-stack-easy-f405-mk1-flight-controller?_pos=3&_sid=787bbf2c1&_ss=r"
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="link">Mamba Easy F405</a></td>
+    <td>STM32F405</td>
+    <td>6 UARTs, USB C, I2C, Betaflight LED control, 0.5A 3.3V, 2A 5V + 3A 5V LED, 3A 9V regulator</td>
+    <td>n/a</td>
+    <td>A pretty unique concept: use plugs for everything. This may be the preffered option if you don't want to solder, or you want to hotswap your parts. If you do want to solder, the pads are made extra big to make it easier</td>
+    <td>$51.99</td>
+  </tr>
+  <tr></tr>
+  <tr>
+    <td>Hobbywing</td>
+    <td>      
+      <a
+      target="_blank" 
+      rel="noopener noreferrer"
+      href="https://www.getfpv.com/hobbywing-xrotor-f7-convertible-flight-controller.html"
+      class="link">XRotor F7 Conevertible</a></td>
+    <td>STM32F722</td>
+    <td>3 UARTs + 1 TX pad, USB Micro, 3.3V, 2A 5v, 2A 10V regulator</td>
+    <td>3.3g</td>
+    <td>A lighter flight controller, both in features and weight. Being smaller, it may be harder to solder, but I picked it for other reasons. It's really durable, can be used on both 20x20 and 30x30 stacks, and the stacks it comes with are extremely durable</td>
+    <td>$39.99</td>
+  </tr>
+
+  <tr>
+    <td>XILO</td>
+    <td>      
+      <a
+      target="_blank" 
+      rel="noopener noreferrer" 
+      href="https://www.getfpv.com/xilo-stax-f4-flight-controller.html"
+      class="link">Stax F4</a></td>
+    <td>STM32F405</td>
+    <td>6 UARTs, USB Micro, I2C, Betaflight LED control, 3.3V 0.2A, 2A 5v regulator</td>
+    <td>7g</td>
+    <td>I picked this one for three main reasons. Somewhat cheap, big solder pads, and the full series surrounding a full build from Joshua Bardwell, if you want a full detailed build guide, this is probably the one to go with</td>
+    <td>$39.99</td>
+  </tr>
+
+  <tr>
+    <td>Zeez</td>
+    <td>      
+      <a
+      target="_blank" 
+      rel="noopener noreferrer" 
+      href="https://www.getfpv.com/zeez-v2-f7-3-6s-30x30-flight-controller.html"
+      class="link">F7 V2 3030</a></td>
+    <td>STM32F722</td>
+    <td>5 UARTs, USB C, I2C, Betaflight LED control, 3.3V, 3A 5v, 3A 9V regulator</td>
+    <td>n/a</td>
+    <td>Zeez makes premium parts, and it's reasonably affordable to todays standards too. Aimed more towards advanced use, with extra features making it ideal for a very clean build, but it does still fit the ~$50 price point I set for FCs</td>
+    <td>$49.99</td>
+  </tr>
+
+
+
+</tbody>
+</table>
+
+<h2 class="content page-header table-offset">ESCs</h2>
+
+<table class="table content">
+  <thead>
+ <tr>
+    <th class="table-fix-padding">Manufacturer</th>
+    <th>Name</th>
+    <th>Current Rating <br>Nominal/Peak</th>
+    <th>Firmware</th>
+    <th>Weight</th>
+    <th>Description</th>
+    <th class="table-fix-padding2">Price</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td rowspan="3">Diatone</td>
+    <td>      
+      <a href="https://www.diatone.us/collections/esc/products/mamba-f40_bls-dshot600-4in1-esc-40a-6s" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="link">Mamba F40 BLS</a></td>
+    <td>40A/50A</td>
+    <td>BLHeli_S</td>
+    <td>n/a</td>
+    <td>The refreshed line of 30x30 ESCs is a great option if you're looking for something that just works. Nothing too fancy, but they so the job very well, and have clean output, making them less noisy. Needs custom firmware for BiDirectional DShot though</td>
+    <td>$37.99</td>
+  </tr>
+
+  <tr class="table-fix-bgl">
+    <td>      
+      <a href="https://www.diatone.us/collections/esc/products/mamba-f50_bls-dshot600-4in1-esc-40a-6s-2" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="link">Mamba F50 BLS</a></td>
+    <td>50A/60A</td>
+    <td>BLHeli_S</td>
+    <td>n/a</td>
+    <td>Stepup from the F40, giving headroom for demanding setups, or when not needed, extra durability. Also cannot do BiDirectional DShot out of the box</td>
+    <td>$40.99</td>
+  </tr>
+
+  <tr>
+    <td>      
+      <a href="https://www.diatone.us/collections/esc/products/mamba-f50pro-4in1-esc-dshot1200" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="link">Mamba F50 BL32</a></td>
+    <td>50A/60A</td>
+    <td>BLHeli_32</td>
+    <td>n/a</td>
+    <td>Same as the F50 BLS, but with BLHeli_32, giving you more customizability options from the box, might be easier if you don't want to use and flash custom firmwares</td>
+    <td>$47.99</td>
+  </tr>
+
+  <tr>
+    <td rowspan="2" class=table-fix-bgd">IFlight</td>
+    <td>
+      <a href="https://shop.iflight-rc.com/quad-parts-cat20/electronics-cat27/succex-esc-cat136/succex-e-45a-2-6s-blheli-s-dshot600-4-in-1-esc-pro979" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="link">SucceX-E 45A</a>
+      </td>
+    <td>45A/55A</td>
+    <td>BLHeli_S</td>
+    <td>14.4g</td>
+    <td>Good ESC, for a reasonable price. I've been flying one in my beater quad, so far it's been doing just fine. Not the best filtration, but you may find it easier to solder</td>
+    <td>$39.99</td>
+  </tr>
+
+  <tr class="table-fix-bgd">
+    <td>
+      <a href="https://shop.iflight-rc.com/quad-parts-cat20/electronics-cat27/succex-esc-cat136/succex-e-45a-v2-2-6s-blheli-s-4-in-1-esc-pro1413?sort=p.price&order=ASC" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="link">SucceX-E 45A V2</a>
+    </td>
+    <td>45A/55A</td>
+    <td>BLHeli_S</td>
+    <td>15g</td>
+    <td>Improving on the original SucceX-E 45A, it has improved filtering, and an easier layout, so that you don't have to wrestle the motor wires, it comes out towards the arms with the solder pads</td>
+    <td>$55.99</td>
+  </tr>
+
+
+</tbody>
+</table>
+
+<h2 class="content page-header table-offset">VTXs</h2>
+
+<table class="table content">
+  <thead>
+ <tr>
+    <th class="table-fix-padding">Manufacturer</th>
+    <th>Name</th>
+    <th>Max Output Power</th>
+    <th>Connector</th>
+    <th>Weight</th>
+    <th>Description</th>
+    <th class="table-fix-padding2">Price</th>
+  </tr>
+</thead>
+<tbody>
+
+  <tr>
+    <td>XILO</td>
+    <td>      
+      <a href="https://www.team-blacksheep.com/products/prod:crossfire_sixty9" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="link">Stax VTX</a></td>
+    <td>600mw</td>
+    <td>MMCX</td>
+    <td>4.5g</td>
+    <td>A pretty cheap VTX, while the output power is a bit lower than the rest of the list, it's still plenty to fly around with good video</td>
+    <td>$39.95</td>
+  </tr>
+
+  <tr>
+  <td>HGLRC</td>
+  <td>      
+    <a href="https://www.hglrc.com/collections/video-transmitters/products/hglrc-zeus-800mw-smart-mounting-20-20-30-30-vtx-for-fpv-racing-drone" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    class="link">Zeus 800mw</a></td>
+  <td>800mw</td>
+  <td>MMCX</td>
+  <td>4.8g</td>
+  <td>30x30 and 20x20 mounting size, so you can mount it on your flight stack, or in the back of the frame. It will give pretty good video, at a price that won't break the bank</td>
+  <td>$35.99</td>
+  </tr>
+
+
+  <tr>
+    <td  rowspan="3">RUSH</td>
+    <td>      
+      <a href="https://www.getfpv.com/rush-tank-tiny-5-8ghz-vtx-w-smart-audio.html" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="link">Tank II</a></td>
+    <td>800mw</td>
+    <td>MMCX</td>
+    <td>6.8g</td>
+    <td>Rush makes really good VTXs, and this is their newest one. 30x30 mounting holes for direct installation on the flight stack, and excelent output quality</td>
+    <td>$36.99</td>
+  </tr>
+
+  <tr class="table-fix-bgl">
+    <td>      
+      <a href="https://www.getfpv.com/rushfpv-rush-tank-ii-5-8ghz-vtx-w-smart-audio.html" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="link">Tank Ultimate Plus</a></td>
+    <td>800mw</td>
+    <td>MMCX</td>
+    <td>6.6g</td>
+    <td>If you don't want to use screws to mount your VTX, this is the better option, as it's almost the same transmit module as the Tank II, but without the extra mounting holes</td>
+    <td>$26.99</td>
+  </tr>
+
+  <tr>
+    <td>      
+      <a href="https://www.getfpv.com/rush-tank-ultimate-mini-5-8ghz-20x20-vtx.html" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="link">Tank Ultimate Mini</a></td>
+    <td>800mw</td>
+    <td>MMCX</td>
+    <td>5.4g</td>
+    <td>Great option if you have 20x20 mounting holes in the back of your frame, it's the smallest form factor you can get a VTX with such video quality</td>
+    <td>$38.99</td>
+  </tr>
+
+  <tr>
+    <td>TBS</td>
+    <td>      
+      <a href="https://www.team-blacksheep.com/products/prod:crossfire_sixty9" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="link">Sixty9</a></td>
+    <td>1W</td>
+    <td>U.fl</td>
+    <td>4.1g</td>
+    <td>An interesting idea - to fit a VTX and a receiver onto one board. This makes for an easier and cleaner installation, often also more durable. Mounts to 20x20 and 30x30, comes in both Crossfire and Tracer variants</td>
+    <td>$39.95</td>
+  </tr>
+
+</tbody>
+</table>
+
+
+</body>
+</html>
