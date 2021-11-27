@@ -1146,7 +1146,7 @@ details > summary::-webkit-details-marker {
   position: relative;
 }
 
-.display-card:hover {height: 380px; transition-delay: .37s;}
+.display-card:hover {height: 380px; transition-delay: 0s}
 
 .display-card.line5:hover {height: 300px;}
 .display-card.line4:hover {height: 270px;}
