@@ -623,7 +623,7 @@ p {
   content: '';
   position: absolute;
   top: 0px;
-  left: 125px;
+  left: 135px;
   width: 30px;
   height: 50vh;
   background-color: var(--bg1);
@@ -697,7 +697,7 @@ p {
     content:'';
     position: absolute;
     top: -30px;
-    left: 90px;
+    left: 100px;
     width: 30px;
     height: 30px;
     background-color: transparent;
@@ -725,7 +725,7 @@ p {
     content:'';
     position: absolute;
     top: 70px;
-    left: 90px;
+    left: 100px;
     width: 30px;
     height: 30px;
     background-color: transparent;
@@ -776,7 +776,7 @@ p {
 @media only screen and (min-width: 800px) {
   .sidebar ul li a .sidebar-text {
     position: relative;
-    margin-left: 20px;
+    margin-left: 10px;
     padding-top: 20px !important;
     margin-bottom: 10px !important;
     height: 40px;
