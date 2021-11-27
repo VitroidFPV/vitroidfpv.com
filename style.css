@@ -47,6 +47,10 @@ body.theme-light {
   --white2: #dddddd;
 }
 
+.light-blue {
+  background-color: var(--lightblue);
+}
+
 .theme-light {
   --bg1: #eeeeee;
   --bg2: #e2e2e2;
@@ -1192,10 +1196,6 @@ details > summary::-webkit-details-marker {
 
 .card-circle.hard {
   background-color: var(--red);
-}
-
-.light-blue {
-  background-color: var(--lightblue);
 }
 
 .card-circle-rounded {
