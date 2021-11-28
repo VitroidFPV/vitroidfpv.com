@@ -1531,11 +1531,10 @@ iframe[seamless] {
 
 .equipment-card.red {border-left: solid 3px var(--red);}
 
-.equipment-card p:nth-last-child(0) {
-  margin: 10px;
-  padding: 1px;
+.equipment-desc {
+  margin-top: 10px;
+  margin-bottom: 0px;
 }
-
 
 
 
