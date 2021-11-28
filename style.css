@@ -1506,6 +1506,8 @@ iframe[seamless] {
   margin: 10px;
   display: flex;
   margin-bottom: 25px;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .equipment-card {
