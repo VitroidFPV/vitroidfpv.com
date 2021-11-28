@@ -415,6 +415,7 @@ p {
 }
 
 .link {
+  width: fit-content;
   cursor: pointer;
   color: var(--white1);
   text-decoration: none;
