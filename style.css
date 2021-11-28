@@ -1511,7 +1511,21 @@ iframe[seamless] {
   flex-direction: column;
 }
 
+.equipment-specs {
+  margin: 0px;
+  color: var(--white3);
+  font-size: 0.9rem !important;
+  display: flex;
+  font-weight: lighter;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
 
+.equipment-specs p {
+  margin: 1px;
+  padding: 1px;
+}
 
 
 
