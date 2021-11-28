@@ -419,6 +419,7 @@ p {
 }
 
 .link {
+  margin-top: 10px;
   width: fit-content;
   cursor: pointer;
   color: var(--white1);
@@ -1523,6 +1524,7 @@ iframe[seamless] {
   height: fit-content;
   flex-direction: column;
   padding-left: 10px;
+  margin-top: 25px;
 }
 
 .equipment-specs {
