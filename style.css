@@ -1548,6 +1548,7 @@ iframe[seamless] {
 }
 
 .equipment-specs {
+  width: 95%;
   margin: 0px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -1556,7 +1557,7 @@ iframe[seamless] {
   display: flex;
   font-weight: lighter;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
