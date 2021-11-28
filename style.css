@@ -1531,8 +1531,8 @@ iframe[seamless] {
 
 .equipment-card.red {border-left: solid 3px var(--red);}
 
-.equipment-card p {
-  margin: 1px;
+.equipment-card p:nth-last-child() {
+  margin: 10px;
   padding: 1px;
 }
 
