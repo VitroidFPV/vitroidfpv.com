@@ -576,6 +576,12 @@ p {
   padding-left: 110px;
 }
 
+@media only screen and (max-width: 800px) {
+  .content {
+    margin-left: 0px !important;
+  }
+}
+
 .mobile-bar-fix {
   padding-bottom: 80px;
 }
