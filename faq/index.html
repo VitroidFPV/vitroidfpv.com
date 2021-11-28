@@ -87,19 +87,17 @@
       </ul>
     </div>
 
-<label id="switch" class="switch z3">
-  <input type="checkbox" onchange="toggleTheme()" class="theme-box z3">
-  <span class="theme-box-icon z3"></span>
+<label id="switch" class="switch">
+  <input type="checkbox" onchange="toggleTheme()" class="theme-box">
+  <span class="theme-box-icon"></span>
 </label>
-
+  
 <script>
-  // function to set a given theme/color-scheme
   function setTheme(themeName) {
       localStorage.setItem('theme', themeName);
       document.documentElement.className = themeName;
   }
 
-  // function to toggle between light and dark theme
   function toggleTheme() {
       if (localStorage.getItem('theme') === 'theme-dark') {
           setTheme('theme-light');
@@ -108,14 +106,13 @@
       }
   }
 
-  // Immediately invoked function to set the theme on initial load
   (function () {
       if (localStorage.getItem('theme') === 'theme-light') {
           setTheme('theme-light');
       } else {
           setTheme('theme-dark');
       }
-  });
+  })();
 </script>
 
 
