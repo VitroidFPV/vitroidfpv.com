@@ -1503,7 +1503,7 @@ iframe[seamless] {
   display: flex;
 }
 
-.equipment.card {
+.equipment-card {
   display: flex;
   width: 400px;
   height: fit-content;
