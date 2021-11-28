@@ -14,6 +14,7 @@
 html {
   scroll-behavior: smooth !important;
 }
+
 body {
   padding: 0;
   margin: 0;
@@ -21,7 +22,6 @@ body {
   color: var(--white1);
   background: var(--bg1);
   transition: all .3s;
-
 }
 
 body.theme-light {
@@ -82,7 +82,7 @@ p {
 }
 
 
-/* width */
+/* custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -106,7 +106,7 @@ p {
 
 
 
-/* The switch - the box around the slider */
+/* Theme switch - the box around the slider */
 .switch {
   position: fixed;
   display: inline-block;
@@ -148,6 +148,7 @@ p {
   transition: transform .3s;
 }
 
+/* Icon dumbfuckery */
 .theme-dark .theme-box-icon {
   background-image: url('https://img.icons8.com/material-outlined/80/e4e4e4/bright-moon.png');
   background-size: contain;
@@ -163,13 +164,11 @@ p {
   background-color: rgb(122, 122, 122);
 } */
 
-/* When the checkbox is checked, add a sun */
 .theme-light .switch input:checked ~ .theme-box-icon {
   background-image: url('https://img.icons8.com/material-outlined/80/a1a1a1/sun--v1.png');
   background-size: contain;
 }
 
-/* When the checkbox is checked, add a sun */
 .theme-dark .switch input:checked ~ .theme-box-icon {
   background-image: url('https://img.icons8.com/material-outlined/80/e4e4e4/bright-moon.png');
   background-size: contain;
@@ -184,7 +183,7 @@ p {
   transform: translateY(-5px);
 }
 
-
+/* self explanatory */
 .main-title {
   margin: auto;
   width: 99%;
@@ -254,8 +253,6 @@ p {
   from {fill: transparent;}
   to {fill: var(--white1);}
 }
-
-/* ======== */
 
 #prop-svg2 {
   z-index: 2;
@@ -329,7 +326,7 @@ p {
 
 
 
-
+/* big text */
 .home-header {
   color: transparent;
   font-size: xx-large;
@@ -343,6 +340,7 @@ p {
   padding-bottom: 10px;
   }
 
+  /* no need to explain this */
 .normal-text {
   font-size: 1.2em;
   margin-top: 3px;
@@ -365,6 +363,7 @@ p {
   color: transparent;
 }
 
+/* home load fade-in */
 .home-anim {
   animation: htext 1.5s ease .7s 1;
   animation-fill-mode: both;
@@ -418,6 +417,8 @@ p {
 
 }
 
+
+/* cool link stuff */
 .link {
   margin-top: 10px;
   width: fit-content;
@@ -429,6 +430,10 @@ p {
   background-repeat: no-repeat;
   background-position: left bottom;
   transition: .3s;
+}
+
+.link:hover {
+  background-size: 100% 3px;
 }
 
 .link.home-anim {
@@ -444,10 +449,7 @@ p {
   to {color: var(--white1)}
 }
 
-.link:hover {
-  background-size: 100% 3px;
-}
-
+/* I think this stuff is useless */
 .link-ul {
   text-decoration-color: none;
   color: #e7e7e7;
@@ -458,6 +460,7 @@ p {
   color: #00f1a1;
 }
 
+/* codeblock stuff */
 .code {
   padding-left: 10px !important;
   padding: 10px;
@@ -467,6 +470,7 @@ p {
   line-height: 1.8rem;
 }
 
+/* unused for now */
 .video-embed {
   width: 480px;
   height: 270px;
@@ -476,6 +480,7 @@ p {
   border-bottom: 3px solid #00f1a1;
 }
 
+/* unused for now */
 .insta-img {
   position: fixed;
   height: 48px;
@@ -548,6 +553,7 @@ p {
   margin-left: 5px;
 }
 
+/* unused */
 .img{
   padding: 0;
   margin: 0;
@@ -570,6 +576,7 @@ p {
   margin: 0;
 }
 
+/* gotta do this for the sidebar, gets removed on mobile */
 .content {
   margin-left: 180px !important;
 }
@@ -579,10 +586,11 @@ p {
 
 @media only screen and (max-width: 800px) {
   .content {
-    margin-left: 0px !important;
+    margin-left: 0px auto !important;
   }
 }
 
+/* adds space for mobile navbar */
 .mobile-bar-fix {
   padding-bottom: 80px;
 }
@@ -595,12 +603,13 @@ p {
   z-index: 3;
 }
 
+/* template for screen modification */
 @media only screen and (max-width: 800px) {
 
 }
 
 
-/* =========================================Side bar stuff==================================*/
+/* =========================================Side bar stuff DO NOT TOUCH UNLESS EXPLICITLY NEEDED==================================*/
 @media only screen and (min-width: 800px) {
   .sidebar {
     display: flex;
@@ -837,6 +846,7 @@ p {
 /* ===================================================================================== FAQ page styles ====================================================================================*/
 /* ========================================================================================================================================================================================= */
 
+/* normal page header */
 .top {
   text-align: center;
   font-size: 55px;
@@ -853,9 +863,11 @@ p {
   margin-bottom: 10px;
 }
 
+/* this could be done better, but i cba */
 .center-top {
   text-align: center;
 }
+
 @media only screen and (min-width: 800px) {
   .page-header {
     font-size: 2em;
@@ -879,6 +891,7 @@ p {
   }
 }
 
+/* cool icons for FAQ */
 .faq-index-bf {list-style-image: url(https://img.icons8.com/material-outlined/16/ffcc00/plus--v1.png);}
 .faq-index-v  {list-style-image: url(https://img.icons8.com/material-outlined/16/7fe65a/plus--v1.png);}
 .faq-index-r  {list-style-image: url(https://img.icons8.com/material-outlined/16/5ad8e6/plus--v1.png);}
@@ -886,6 +899,7 @@ p {
 .faq-index-b  {list-style-image: url(https://img.icons8.com/material-outlined/16/d44a4a/plus--v1.png);}
 .faq-index-s  {list-style-image: url(https://img.icons8.com/material-outlined/16/9550ba/plus--v1.png);}
 
+/* could also be done better, same reason */
 .no-hl {
   color: var(--white1);
   text-decoration: none !important;
@@ -895,6 +909,7 @@ p {
   font-size: 1.1em !important;
 }
 
+/* faq index scroll to section */
 .faq-link {
   width: 120px;
   padding-bottom: 0px;
@@ -907,6 +922,7 @@ p {
   padding-left: 3px;
 }
 
+/* colors yaye */
 .faq-index-s:hover  {color: var(--violet);}
 .faq-index-b:hover  {color: var(--red);}
 .faq-index-bf:hover {color: var(--yellow);}
@@ -1547,7 +1563,9 @@ iframe[seamless] {
   padding: 1px;
 }
 
-.equipment-card.red {border-left: solid 3px var(--red);}
+.equipment-card.green  {border-left: solid 3px var(--green);}
+.equipment-card.orange {border-left: solid 3px var(--orange);}
+.equipment-card.red    {border-left: solid 3px var(--red);}
 
 .equipment-desc {
   margin-top: 10px;
