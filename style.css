@@ -1447,17 +1447,17 @@ tr:nth-child(even), .table-fix-bgd {
   background-color: var(--bg2) !important;
 }
 
-.link.budget {
+.link.green {
   background-image: linear-gradient(var(--green),var(--green));
   color: var(--green);
 }
 
-.link.mid-range {
+.link.orange {
   background-image: linear-gradient(var(--orange),var(--orange));
   color: var(--orange);
 }
 
-.link.high-end {
+.link.red {
   background-image: linear-gradient(var(--red),var(--red));
   color: var(--red);
 }
@@ -1472,13 +1472,13 @@ tr:nth-child(even), .table-fix-bgd {
 }
 
 
-.price.budget::before {
+.price.green::before {
   background-color: var(--green);
 }
-.price.mid-range::before {
+.price.orange::before {
   background-color: var(--orange);
 }
-.price.high-end::before {
+.price.red::before {
   background-color: var(--red);
 }
 
