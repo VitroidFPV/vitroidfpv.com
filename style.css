@@ -45,7 +45,8 @@ body.theme-light {
   --transparent-dark2: rgba(23, 23, 23, 0.1);
   --white1: #e7e7e7;
   --white2: #dddddd;
-  --white3: #ababab;
+  --white3: #9e9e9e;
+  --white4: #cecece;
 }
 
 .theme-light {
@@ -55,8 +56,8 @@ body.theme-light {
   --bg4: #e0e0e0;
   --white1: #1f1f1f;
   --white2: #393939;
-  --white3: #929292;
-  --white4: #797979;
+  --white3: #ababab;
+  --white4: #5e5e5e;
   --highlight: #77d86a;
   --yellow: #dfb303;
   --orange: #ff9000;
