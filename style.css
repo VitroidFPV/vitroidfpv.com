@@ -1510,6 +1510,7 @@ iframe[seamless] {
   width: 400px;
   height: fit-content;
   flex-direction: column;
+  padding-left: 10px;
 }
 
 .equipment-specs {
@@ -1527,6 +1528,8 @@ iframe[seamless] {
   margin: 1px;
   padding: 1px;
 }
+
+.equipment-card.red {border-left: solid 3px var(--red);}
 
 .equipment-card p {
   margin: 1px;
