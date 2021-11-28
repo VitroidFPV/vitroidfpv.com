@@ -45,7 +45,7 @@ body.theme-light {
   --transparent-dark2: rgba(23, 23, 23, 0.1);
   --white1: #e7e7e7;
   --white2: #dddddd;
-  --white3: #cccccc;
+  --white3: #ababab;
 }
 
 .theme-light {
@@ -1503,6 +1503,7 @@ iframe[seamless] {
 .equipment-card-box {
   margin: 10px;
   display: flex;
+  margin-bottom: 25px;
 }
 
 .equipment-card {
