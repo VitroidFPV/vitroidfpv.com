@@ -1543,6 +1543,10 @@ iframe[seamless] {
   margin-top: 25px;
 }
 
+.link.equipment {
+  font-size: 1.2em;
+}
+
 .equipment-specs {
   margin: 0px;
   color: var(--white3);
