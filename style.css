@@ -1549,6 +1549,8 @@ iframe[seamless] {
 
 .equipment-specs {
   margin: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   color: var(--white3);
   font-size: 0.9rem !important;
   display: flex;
@@ -1572,8 +1574,7 @@ iframe[seamless] {
 .equipment-card.red    {border-left: solid 3px var(--red);}
 
 .equipment-desc {
-  margin-top: 10px;
-  margin-bottom: 0px;
+  margin: 0px;
 }
 
 
