@@ -420,7 +420,7 @@ p {
 
 /* cool link stuff */
 .link {
-  margin-top: 0px;
+  margin: 0px;
   width: fit-content;
   cursor: pointer;
   color: var(--white1);
