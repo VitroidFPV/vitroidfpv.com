@@ -420,7 +420,7 @@ p {
 
 /* cool link stuff */
 .link {
-  margin-top: 10px;
+  margin-top: 0px;
   width: fit-content;
   cursor: pointer;
   color: var(--white1);
@@ -1544,7 +1544,7 @@ iframe[seamless] {
 }
 
 .link.equipment {
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 
 .equipment-specs {
