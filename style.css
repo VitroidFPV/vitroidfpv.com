@@ -55,6 +55,8 @@ body.theme-light {
   --bg4: #e0e0e0;
   --white1: #1f1f1f;
   --white2: #393939;
+  --white3: #929292;
+  --white4: #797979;
   --highlight: #77d86a;
   --yellow: #dfb303;
   --orange: #ff9000;
@@ -1523,6 +1525,10 @@ iframe[seamless] {
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
+}
+
+.spec-highlight {
+  color: var(--white4);
 }
 
 .equipment-specs p {
