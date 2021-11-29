@@ -1528,6 +1528,12 @@ iframe[seamless] {
   justify-content: space-around;
 }
 
+@media only screen and (max-width: 800px) {
+  .content {
+    margin-left: 10px;
+  }
+}
+
 .equipment-card {
   display: flex;
   width: 400px;
