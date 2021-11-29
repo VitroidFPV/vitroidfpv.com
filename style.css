@@ -571,7 +571,7 @@ p {
 
 /* gotta do this for the sidebar, gets removed on mobile */
 .content {
-  margin-left: 180px !important;
+  margin-left: 180px;
 }
 .content-p {
   padding-left: 110px;
@@ -579,7 +579,7 @@ p {
 
 @media only screen and (max-width: 800px) {
   .content {
-    margin-left: 0px auto !important;
+    margin-left: 0px auto;
   }
 }
 
