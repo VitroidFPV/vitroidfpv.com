@@ -1529,7 +1529,7 @@ iframe[seamless] {
 }
 
 @media only screen and (max-width: 800px) {
-  .content {
+  .equipment-card-box {
     margin-left: 10px;
   }
 }
