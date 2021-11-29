@@ -75,13 +75,6 @@ p {
   font-size: 1.1em;
 }
 
-@media only screen and (max-width: 800px) {
-  .content {
-    margin-left: 0px !important;
-  }
-}
-
-
 /* custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
