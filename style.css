@@ -1522,7 +1522,7 @@ iframe[seamless] {
 .equipment-card-box {
   margin-top: 10px;
   display: flex;
-  margin-bottom: 90px;
+  margin-bottom: 10px;
   flex-wrap: wrap;
   justify-content: space-around;
 }
