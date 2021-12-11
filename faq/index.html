@@ -292,10 +292,13 @@
     <p>Batteries can very quickly go up in flames if you don't care for them properly. The chances of that are almost zero if you just take some safety precautions. 
       There are charger and battery recommendations down the line, so you should have a good base of what to get.<br> When you first get your charger, it is a good idea to calibrate it, 
       if you have a multimeter. <br>When it comes to charging, you should set the charger to the correct battery type, for most FPV batteries that will be LiPo. 
-      The charger should show 4.2V maximum voltage. Enter in your cell count, and then get the charge current in.<br>
+      The charger should show 4.2V maximum voltage. Enter in your cell count, and then get the charge current in.<br><br>
       As talked about above, the C rating is used to calcualte the current going in/out of the battery. 
       The calculation is Capacity(Ah)×C=A. So for a 1300mah battery charging at 1C, you would set the charge current to 1.3A (1.3Ah×1C=1.3A), 
-      for a 1500mah battery charging at 2C it would be 3A (1.5A×2C=3A), etc...<br>
+      for a 1500mah battery charging at 2C it would be 3A (1.5A×2C=3A), etc... <br><br>
+      For the voltage, you might make the mistake of reading the nominal voltage, which is printed on the battery itself. So for a 4s battery, you might think that you 
+      should be charging it to 14.8V, but that is wrong. The nominal voltage rating is the aproximate "50%" charge of the battery, 3.7V per cell. What you actually want to use is the max voltage, 
+      which is 4.2V multiplied by the cell count. For a 4s battery, that would be 16.8V (4.2V×4)<br>
       Plug in the battery, with both the main xt60 connector, and the balance plug into their respective portson the charger. You can then start the charge. 
       At 1C, a full charge should take about an hour. 1C is the optimal charge current, but if need be, you can go higher. 
       This shouldn't damage the battery all that much, but it is always better to charge at 1C.
