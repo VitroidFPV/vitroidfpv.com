@@ -297,10 +297,14 @@
     <p>Batteries can very quickly go up in flames if you don't care for them properly. The chances of that are almost zero if you just take some safety precautions. 
       There are charger and battery recommendations down the line, so you should have a good base of what to get.<br> When you first get your charger, it is a good idea to calibrate it, 
       if you have a multimeter. <br>When it comes to charging, you should set the charger to the correct battery type, for most FPV batteries that will be LiPo. 
-      The charger should show 4.2V maximum voltage. Enter in your cell count, and then get the charge current in.<br>
+      The charger should show 4.2V maximum voltage. Enter in your cell count, and then get the charge current in.<br><br>
       As talked about above, the C rating is used to calcualte the current going in/out of the battery. 
       The calculation is Capacity(Ah)×C=A. So for a 1300mah battery charging at 1C, you would set the charge current to 1.3A (1.3Ah×1C=1.3A), 
-      for a 1500mah battery charging at 2C it would be 3A (1.5A×2C=3A), etc...<br>
+      for a 1500mah battery charging at 2C it would be 3A (1.5A×2C=3A), etc... <br><br>
+      For the voltage, you might make the mistake of reading the nominal voltage, which is printed on the battery itself. So for a 4s battery, you might think that you 
+      should be charging it to 14.8V, but that is wrong. The nominal voltage rating is the aproximate "50%" charge of the battery, 3.7V per cell. What you actually want to use is the max voltage, 
+      which is 4.2V multiplied by the cell count. For a 4s battery, that would be 16.8V (4.2V×4), for 6s that's 25.2V, and for 1s it might be a little different depending on if you have an 
+      HV cell or a normal one. HV cells are almost the same as the normal ones, but they have been tested to not explode whencharged to higher voltages. HV batteries have a max voltage of 4.35, and a nominal voltage of about 3.85V<br><br>
       Plug in the battery, with both the main xt60 connector, and the balance plug into their respective portson the charger. You can then start the charge. 
       At 1C, a full charge should take about an hour. 1C is the optimal charge current, but if need be, you can go higher. 
       This shouldn't damage the battery all that much, but it is always better to charge at 1C.
@@ -421,7 +425,9 @@
       Camera size is also important to make sure you get right. There are pre-established size standards though, so that makes it a bit easier. 
       Cameras are (from biggest to smallest): Full-size (28x28), Mini (21x21), Micro (19x19), Nano (14x14), and Pico (12x12). 
       For FC's/ESC's/VTX's, it's (again from biggest to smallest, the numbers are in mm): 30x30 (full), 25x25 (whoop mount), 20x20 (micro), and 16x16 (nano)
-      Same goes for motors. There are motors that have screw spacing of different sizes, and you need to make sure that it will fit what your frame has.<br><br>
+      Same goes for motors. There are motors that have screw spacing of different sizes, and you need to make sure that it will fit what your frame has.<br>
+      With the somewhat recent entry of Digital systems, you should also make sure that you're getting into the correct system. Analog goggles for analog 
+      cams/VTXs, DJI goggles for the DJI Air Units, etc...<br><br>
   
       There is also electronical compatibility. Some parts can only take a certain voltage, and some need specific ports on your FC, like I2C - SDA and SCL
     </p>
