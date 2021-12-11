@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="theme-dark">
+<html>
   
 <meta charset="UTF-8">
 <head>
@@ -47,51 +47,57 @@
 </script>
 </head>
 <body onload="opencoll()">
-  <div class="sidebar z2">
+  <div class="sidebar z3">
     <ul>
         <li class="sidebar-link">
           <a href="/">
-            <div class="sidebar-text">Home
-
-            </div>
+            <div class="sidebar-text">Home</div>
           </a>
         </li>
-        <li class="sidebar-link    sidebar-active">
+
+        <li class="sidebar-link sidebar-active">
           <a href="/faq">
             <div class="sidebar-text">FAQ</div>
           </a>
         </li>
+
         <!-- <li class="sidebar-link">
           <a href="/contact">
             <div class="sidebar-text">Contact</div>
           </a>
         </li>
+
         <li class="sidebar-link">
           <a href="/links">
             <div class="sidebar-text">Links</div>
           </a>
         </li> -->
+
         <li class="sidebar-link">
           <a href="/builds">
             <div class="sidebar-text">Builds</div>
           </a>
         </li>
+
+        <li class="sidebar-link">
+          <a href="/equipment">
+            <div class="sidebar-text">Equipment</div>
+          </a>
+        </li>
       </ul>
     </div>
 
-<label id="switch" class="switch z3">
-  <input type="checkbox" onchange="toggleTheme()" class="theme-box z3">
-  <span class="theme-box-icon z3"></span>
+<label id="switch" class="switch">
+  <input type="checkbox" onchange="toggleTheme()" class="theme-box">
+  <span class="theme-box-icon"></span>
 </label>
-
+  
 <script>
-  // function to set a given theme/color-scheme
   function setTheme(themeName) {
       localStorage.setItem('theme', themeName);
       document.documentElement.className = themeName;
   }
 
-  // function to toggle between light and dark theme
   function toggleTheme() {
       if (localStorage.getItem('theme') === 'theme-dark') {
           setTheme('theme-light');
@@ -100,14 +106,13 @@
       }
   }
 
-  // Immediately invoked function to set the theme on initial load
   (function () {
       if (localStorage.getItem('theme') === 'theme-light') {
           setTheme('theme-light');
       } else {
           setTheme('theme-dark');
       }
-  });
+  })();
 </script>
 
 
@@ -299,7 +304,7 @@
       For the voltage, you might make the mistake of reading the nominal voltage, which is printed on the battery itself. So for a 4s battery, you might think that you 
       should be charging it to 14.8V, but that is wrong. The nominal voltage rating is the aproximate "50%" charge of the battery, 3.7V per cell. What you actually want to use is the max voltage, 
       which is 4.2V multiplied by the cell count. For a 4s battery, that would be 16.8V (4.2V×4), for 6s that's 25.2V, and for 1s it might be a little different depending on if you have an 
-      HV cell or a normal one. HV cells are almost the same as the normal ones, but they have been tested to not explode whencharged to higher voltages. HV batteries have a max voltage of 4.35V, and a nominal voltage of about 3.85V<br><br>
+      HV cell or a normal one. HV cells are almost the same as the normal ones, but they have been tested to not explode whencharged to higher voltages. HV batteries have a max voltage of 4.35, and a nominal voltage of about 3.85V<br><br>
       Plug in the battery, with both the main xt60 connector, and the balance plug into their respective portson the charger. You can then start the charge. 
       At 1C, a full charge should take about an hour. 1C is the optimal charge current, but if need be, you can go higher. 
       This shouldn't damage the battery all that much, but it is always better to charge at 1C.
