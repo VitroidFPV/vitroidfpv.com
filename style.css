@@ -1568,7 +1568,7 @@ iframe[seamless] {
 
 .equipment-specs p {
   margin: 1px;
-  padding: 1px;
+  margin-left: 10px;
 }
 
 .equipment-card.green  {border-left: solid 3px var(--green);}
