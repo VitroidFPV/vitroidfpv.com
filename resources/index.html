@@ -112,9 +112,39 @@
   })();
 </script>
 
-<input type="number" class="content number-input">
+<label>
+  <input type="text" class="content number-input radius" id="size-input-radius" onchange="getMotorSize()">
+  Motor width
+</label>
 
+<label>
+  <input type="text" class="content number-input height" id="size-input-height" onchange="getMotorSize()">
+  Motor Height
+</label>
 
+<p class="size-result normal-text content" id="size-result"></p>
+
+<script>
+ function getMotorSize() {
+  var rawR = document.getElementById('size-input-radius').value;
+  var rawH = document.getElementById('size-input-height').value;
+
+  var numR = parseFloat(rawR)
+  var numH = parseFloat(rawH)
+
+  const pi = 3.1415; 
+  // cry about it
+  
+  var num = ((numR / 2) ** 2 * pi * numH).toFixed(0);
+
+  console.log({num});
+  document.getElementById('size-result').innerHTML = num;
+
+  if (isNaN(num)) {
+    document.getElementById('size-result').innerHTML = 'Invalid Value';
+  }
+ };
+</script>
 
 </body>
 </html>

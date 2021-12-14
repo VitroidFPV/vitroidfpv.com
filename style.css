@@ -1591,12 +1591,35 @@ iframe[seamless] {
   }
 }
 
-.input-number {
-  margin: 10px;
+.number-input {
+  border-radius: 15px;
+  padding: 10px;
+  margin-top: 10px;
+  background: var(--bg4);
+  border: none;
+  box-shadow: 2px 2px 0px 0px var(--green);
+  color: inherit;
+  font-size: 1.2em;
+  font-family: inherit;
+  transition: all .3s;
 }
 
+.number-input:hover {
+  background-color: var(--bg3);
+}
 
+.number-input:focus-visible {
+  box-shadow: 0px 0px 0px 2px var(--green);
+  border: none;
+  background-color: var(--bg3);
+  outline: none;
+}
 
+.number-input:focus {
+  box-shadow: 0px 0px 0px 2px var(--green);
+  border: none;
+  background-color: var(--bg3);
+}
 
 /* experimental */
 
