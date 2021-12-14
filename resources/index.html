@@ -22,65 +22,97 @@
   <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
   <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vitroid FPV</title>
-  <link rel="stylesheet" href="/style.css">
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B2GJTV3FZP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta name="author" content="VitroidFPV"/>
+  <!-- <meta property="og:image" content="https://vitroidfpv.com/sources/cinewhoop_512.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512"> -->
+  <meta property="#og:title" content="Testing"/>
+  <meta name="description" content="Testing"/>
+  <meta content="" property="og:url" />
+  <meta name="theme-color" content="#5ad8e6">
 
-  gtag('config', 'G-B2GJTV3FZP');
-</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VitroidFPV - Testing</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <div class="sidebar">
+
+  <div class="sidebar z3">
     <ul>
         <li class="sidebar-link">
           <a href="/">
-            <span class="sidebar-text">Home
-
-            </span>
+            <div class="sidebar-text">Home</div>
           </a>
         </li>
+
         <li class="sidebar-link">
           <a href="/faq">
-            <span class="sidebar-text">FAQ</span>
+            <div class="sidebar-text">FAQ</div>
           </a>
         </li>
-        <li class="sidebar-link  sidebar-active">
+
+        <!-- <li class="sidebar-link">
+          <a href="/contact">
+            <div class="sidebar-text">Contact</div>
+          </a>
+        </li>
+
+        <li class="sidebar-link">
           <a href="/links">
-            <span class="sidebar-text">Links</span>
+            <div class="sidebar-text">Links</div>
           </a>
-        </li>
+        </li> -->
+
         <li class="sidebar-link">
           <a href="/builds">
-            <span class="sidebar-text">Builds</span>
+            <div class="sidebar-text">Builds</div>
           </a>
         </li>
+
+        <li class="sidebar-link">
+          <a href="/equipment">
+            <div class="sidebar-text">Equipment</div>
+          </a>
+        </li>
+
+        <li class="sidebar-link sidebar-active">
+          <a href="/equipment">
+            <div class="sidebar-text">Testing</div>
+          </a>
+        </li>
+
       </ul>
     </div>
 
-    <div class="sidebar-socials">
-      <div class="insta-div hl-hover"><a href="https://www.instagram.com/vitroid.fpv/" target="_blank" rel="noopener noreferrer">
-              <img class="insta-img z2" src="https://img.icons8.com/metro/78/e7e7e7/instagram-new.png"></a></div>
-      
-      <div class="yt-div hl-hover"><a href="https://www.youtube.com/channel/UChH3PvPYV0Ho5WO8nKE940A" target="_blank" rel="noopener noreferrer">
-                <img class="yt-img z2" src="https://img.icons8.com/small/64/e7e7e7/youtube--v1.png"/></a></div>
-      
-      <div class="disc-div hl-hover"><a href="https://linktr.ee/VitroidFPV" target="_blank" rel="noopener noreferrer">
-                  <img class="disc-img z2" src="https://img.icons8.com/ios/100/e7e7e7/discord-logo--v1.png"/></a></div>
-                  
-      <div class="reddit-div hl-hover"><a href="https://www.reddit.com/user/Vitroid" target="_blank" rel="noopener noreferrer">
-                    <img class="reddit-img z2" src="https://img.icons8.com/metro/78/e7e7e7/reddit.png"/></a></div>
-      </div>
+<label id="switch" class="switch">
+  <input type="checkbox" onchange="toggleTheme()" class="theme-box">
+  <span class="theme-box-icon"></span>
+</label>
+  
+<script>
+  function setTheme(themeName) {
+      localStorage.setItem('theme', themeName);
+      document.documentElement.className = themeName;
+  }
 
-<div class="wave1 side-wave"></div>
-<div class="wave2 side-wave"></div>
+  function toggleTheme() {
+      if (localStorage.getItem('theme') === 'theme-dark') {
+          setTheme('theme-light');
+      } else {
+          setTheme('theme-dark');
+      }
+  }
 
-<footer class="footer normal-text">aaaa</footer>
+  (function () {
+      if (localStorage.getItem('theme') === 'theme-light') {
+          setTheme('theme-light');
+      } else {
+          setTheme('theme-dark');
+      }
+  })();
+</script>
+
+
 
 </body>
 </html>
