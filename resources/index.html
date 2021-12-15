@@ -34,8 +34,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VitroidFPV - Testing</title>
   <link rel="stylesheet" href="../style.css">
+  <link type="text/css" rel="stylesheet" href="../style-calc.css" media="all">
+
 </head>
-<body>
+<body o="getMotorSize()">
 
   <div class="sidebar z3">
     <ul>
@@ -112,15 +114,23 @@
   })();
 </script>
 
-<label>
-  <input type="text" class="content number-input radius" id="size-input-radius" onchange="getMotorSize()">
-  Motor width
-</label>
+<div class="equipment-card-box content">
 
-<label>
-  <input type="text" class="content number-input height" id="size-input-height" onchange="getMotorSize()">
-  Motor Height
-</label>
+  <div class="info-card green">
+    <p class="link equipment green no-hover">
+      Motor Size</p>
+    <div class="info">
+      <p>Width:<input type="text" class="number-input radius" id="size-input-radius" onchange="getMotorSize()"></p>
+      <p>Height:<input type="text" class="number-input height" id="size-input-height" onchange="getMotorSize()"></p>
+      <p>Result:</p><code class="size-result green" id="size-result"></code>
+      </div>
+    <p class="info-desc">The motor stator size is listed as <code>xxyy</code>, with the <code>xx</code> being the width, and <code>yy</code> being the height. A 2207 motor will have a stator 22mm wide, and 7mm high<br><br>
+      The calculation to get the volume is for a simple cylinder. <code>π × r<sup>2</sup> × h</code>
+    </p>
+  </div>
+
+</div>
+
 
 <p class="size-result normal-text content" id="size-result"></p>
 
@@ -139,9 +149,10 @@
 
   console.log({num});
   document.getElementById('size-result').innerHTML = num;
+  document.getElementById('size-result').style.visibility = "visible";
 
   if (isNaN(num)) {
-    document.getElementById('size-result').innerHTML = 'Invalid Value';
+    document.getElementById('size-result').style.visibility = "hidden";
   }
  };
 </script>
