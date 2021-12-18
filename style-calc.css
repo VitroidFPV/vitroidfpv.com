@@ -13,6 +13,7 @@
   width: 60px;
   text-align: center;
   height: 22px;
+  cursor: pointer;
 }
 
 .number-input:hover {
