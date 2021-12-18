@@ -1591,6 +1591,10 @@ iframe[seamless] {
   }
 }
 
+.no-hover:hover {
+  background-size: 0px;
+}
+
 /* experimental */
 
 .side-wave {
