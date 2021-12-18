@@ -123,7 +123,7 @@
     <p class="link equipment green no-hover">
       Motor Volume</p>
     <div class="info">
-      <p>Motor Size:<input type="text" class="number-input radius" id="size-input" onchange="getMotorSize()"></p>
+      <p>Motor Size:<input type="text" class="number-input" id="size-input" onchange="getMotorSize()"></p>
       <p>Result:</p><code class="size-result green" id="size-result"></code>
       </div>
     <p class="info-desc">The motor stator size is listed as <code>xxyy</code>, with the <code>xx</code> being the width, and <code>yy</code> being the height. A 2207 motor will have a stator 22mm wide, and 7mm high<br><br>
@@ -133,10 +133,52 @@
 
 </div>
 
-
-<p class="size-result normal-text content" id="size-result"></p>
-
 <script>
+  
+  let timer;              // Timer identifier
+  const waitTime = 500;   // Wait time in milliseconds 
+
+  // Search function
+  const search = (text) => {
+      // TODO: Make HTTP Request HERE
+  };
+
+  // Listen for `keyup` event
+  const input = document.querySelector('#size-input');
+  input.addEventListener('keyup', (e) => {
+      const text = e.currentTarget.value;
+
+      var raw = document.getElementById('size-input').value.replace(',','.');
+          numR = parseFloat(raw.substr(0, 2));
+          numH = parseFloat(raw.substr(2));
+
+      console.log({numR});
+      console.log({numH});
+
+      const pi = 3.1415;
+      // cry about it
+
+      var num = ((numR / 2) ** 2 * pi * numH).toFixed(0);
+      
+      if (isNaN(num)) {
+        document.getElementById('size-result').style.visibility = "hidden";
+      }
+      else {
+        document.getElementById('size-result').style.visibility = "visible";
+      }
+
+      console.log({ num });
+      document.getElementById('size-result').innerHTML = num;
+
+      // Clear timer
+      clearTimeout(timer);
+
+      // Wait for X ms and then process the request
+      timer = setTimeout(() => {
+          search(text);
+      }, waitTime);
+  });
+
   function getMotorSize() {
     var raw = document.getElementById('size-input').value.replace(',','.');
 
