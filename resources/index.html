@@ -123,8 +123,7 @@
     <p class="link equipment green no-hover">
       Motor Volume</p>
     <div class="info">
-      <p>Width:<input type="text" class="number-input radius" id="size-input-radius" onchange="getMotorSize()"></p>
-      <p>Height:<input type="text" class="number-input height" id="size-input-height" onchange="getMotorSize()"></p>
+      <p>Motor Size:<input type="text" class="number-input radius" id="size-input" onchange="getMotorSize()"></p>
       <p>Result:</p><code class="size-result green" id="size-result"></code>
       </div>
     <p class="info-desc">The motor stator size is listed as <code>xxyy</code>, with the <code>xx</code> being the width, and <code>yy</code> being the height. A 2207 motor will have a stator 22mm wide, and 7mm high<br><br>
@@ -138,26 +137,31 @@
 <p class="size-result normal-text content" id="size-result"></p>
 
 <script>
- function getMotorSize() {
-  var rawR = document.getElementById('size-input-radius').value;
-  var rawH = document.getElementById('size-input-height').value;
+  function getMotorSize() {
+    var raw = document.getElementById('size-input').value.replace(',','.');
 
-  var numR = parseFloat(rawR)
-  var numH = parseFloat(rawH)
+    numR = parseFloat(raw.substr(0, 2));
+    numH = parseFloat(raw.substr(2));
 
-  const pi = 3.1415; 
-  // cry about it
-  
-  var num = ((numR / 2) ** 2 * pi * numH).toFixed(0);
+    console.log({numR});
+    console.log({numH});
 
-  console.log({num});
-  document.getElementById('size-result').innerHTML = num;
-  document.getElementById('size-result').style.visibility = "visible";
+    const pi = 3.1415;
+    // cry about it
 
-  if (isNaN(num)) {
-    document.getElementById('size-result').style.visibility = "hidden";
-  }
- };
+    var num = ((numR / 2) ** 2 * pi * numH).toFixed(0);
+
+    console.log({ num });
+
+    if (isNaN(num)) {
+      document.getElementById('size-result').style.visibility = "hidden";
+    }
+    else {
+      document.getElementById('size-result').style.visibility = "visible";
+    }
+
+    document.getElementById('size-result').innerHTML = num;
+  };
 </script>
 
 </body>
