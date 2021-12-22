@@ -1573,8 +1573,8 @@ iframe[seamless] {
 }
 
 .equipment-card.green  {border-left: solid 3px var(--green); background-color: var(--green);}
-.equipment-card.orange {border-left: solid 3px var(--orange);}
-.equipment-card.red    {border-left: solid 3px var(--red);}
+.equipment-card.orange {border-left: solid 3px var(--orange); background-color: var(--orange);}
+.equipment-card.red    {border-left: solid 3px var(--red); background-color: var(--red);}
 
 .equipment-desc {
   margin: 0px;
