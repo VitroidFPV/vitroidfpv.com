@@ -1542,7 +1542,7 @@ iframe[seamless] {
   flex-direction: column;
   padding-left: 10px;
   margin-top: 25px;
-  background-size: 0px 0px;
+  background-size: 0%;
 }
 
 .link.equipment {
