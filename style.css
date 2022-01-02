@@ -1622,8 +1622,11 @@ iframe[seamless] {
   align-items: baseline;
 }
 
-.faq-box:last-of-type {
-  margin-bottom: 80px;
+
+@media only screen and (max-width: 800px) {
+  .faq-box:last-of-type {
+    margin-bottom: 80px;
+  }
 }
 
 .copy-id {
