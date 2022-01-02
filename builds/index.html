@@ -122,25 +122,26 @@
 
 
 <div class="difficulty-cards content">
-  <div class="mini-card easy">Easy</div>
+  <div class="mini-card green">Easy</div>
     <p class="mini-card-text"> - You should be able to build it as a complete beginner. Easy to put together and set up, plenty of space, and parts can be easily found</p>
-  <div class="mini-card medium">Medium</div>
+  <div class="mini-card orange">Medium</div>
    <p class="mini-card-text"> - A bit more difficult, but still manageable. Smaller spaces and solder pads, tighter build restrictions, the setup can be harder, and parts are less available</p>
-  <div class="mini-card hard">Hard</div>
+  <div class="mini-card red">Hard</div>
    <p class="mini-card-text"> - For advanced pilots. Either for a very specific use case, or just difficult in general. Long build and setup process, parts pricey, and few in between</p>
 </div>
 
 <!-- flexbox container -->
-<div class="build-cards"> 
-  <div class="build-card easy beginner">
+<div class="display-cards"> 
+  <div class="display-card green beginner">
     <a href="/builds/5inch-beginner" class="card-link"></a>
-    <div class="card-circle easy z2"> <div class="card-circle-rounded easy"></div><div class="card-circle-rounded-2 easy"></div>
+    <div class="card-color green"><div class="card-circle z2"> <div class="card-circle-rounded"></div><div class="card-circle-rounded-2"></div>
+    </div>
     </div>
 
       <div class="icon-div beginner">
         <img class="icon beginner" src="/sources/beginner_512.png">
       </div>
-      <div class="card-title easy">Beginner/Budget 5"</div>
+      <div class="card-title green">Beginner/Budget 5"</div>
      <ul class="build-short">
        <li class="short1">600-800g</li>
        <li class="short2">Plenty of space to fit parts</li>
@@ -150,13 +151,14 @@
   </div>
 
 
-  <div class="build-card medium race"> <!-- basic card-->
+  <div class="display-card orange race"> <!-- basic card-->
     <a href="/builds/5inch-race" class="card-link"></a>
-    <div class="card-circle medium z2"> <div class="card-circle-rounded medium"></div><div class="card-circle-rounded-2 medium"></div>
+    <div class="card-color orange"><div class="card-circle z2"> <div class="card-circle-rounded"></div><div class="card-circle-rounded-2"></div>
+    </div>
       </div>
 
       <div class="icon-div"><img class="icon" src="/sources/racer_512.png"></div>
-      <div class="card-title medium">5" Racer</div>
+      <div class="card-title orange">5" Racer</div>
       <ul class="build-short">
         <li class="short1">250-300g without, 400-450g with battery</li>
         <li class="short2">Tight building space</li>
@@ -166,12 +168,13 @@
       </ul>
   </div>
 
-  <div class="build-card medium cine">
-    <div class="card-circle medium z2"> <div class="card-circle-rounded medium"></div><div class="card-circle-rounded-2 medium"></div>
-    </div>
+  <div class="display-card orange cine">
     <a href="/builds/3inch-cinewhoop" class="card-link"></a>
+    <div class="card-color orange"><div class="card-circle z2"> <div class="card-circle-rounded"></div><div class="card-circle-rounded-2"></div>
+    </div>
+    </div>
       <div class="icon-div cine"><img class="icon cine" src="/sources/cinewhoop_512.png"></div>
-      <div class="card-title">3" Cinewhoop<div class="title-under medium cine"></div></div>
+      <div class="card-title orange">3" Cinewhoop</div>
      <ul class="build-short">
        <li class="short1">250-400g without, 420-600g with battery</li>
        <li class="short2">Larger building space, but closed on all sides</li>
@@ -180,14 +183,13 @@
        <li class="short5">$200-350</li>
   </div>
 
-  <div class="build-card hard s-tooth">
-    <div class="card-circle hard z2"> <div class="card-circle-rounded hard"></div><div class="card-circle-rounded-2 hard"></div>
-    </div>
-
-      <div class="icon-div s-tooth">
-        <img class="icon s-tooth" src="/sources/1s_toothpick_512.png">
+  <div class="display-card red s-tooth">
+    <a href="/builds/1s-toothpick" class="card-link"></a>
+    <div class="card-color red"><div class="card-circle z2"> <div class="card-circle-rounded"></div><div class="card-circle-rounded-2"></div>
       </div>
-      <div class="card-title">1s Toothpick<div class="title-under hard s-tooth"></div></div>
+    </div>
+    <div class="icon-div s-tooth"><img class="icon s-tooth" src="/sources/1s_toothpick_512.png"></div>
+      <div class="card-title red">1s Toothpick</div>
      <ul class="build-short">
        <li class="short1">20-40g</li>
        <li class="short2">Tight building space, should be <br> as light as possible</li>
@@ -196,8 +198,8 @@
        <li class="short5">$100-200</li>
   </div>
 
-  <!-- <div class="build-card easy"></div>
-  <div class="build-card"></div> -->
+  <!-- <div class="display-card easy"></div>
+  <div class="display-card"></div> -->
 </div>
 
 <script>
