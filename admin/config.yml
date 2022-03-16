@@ -3,3 +3,5 @@ backend:
   branch: experimental
 media_folder: "/sources"
 collections:
+  -name: Test
+  label: Test
