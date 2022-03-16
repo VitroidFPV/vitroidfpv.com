@@ -1,4 +1,5 @@
 backend:
   name: git-gateway
   branch: experimental
-media_folder: /sources
+media_folder: "/sources"
+collections:
