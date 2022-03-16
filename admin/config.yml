@@ -4,7 +4,11 @@ backend:
 media_folder: "/sources"
 collections:
   - name: "radio"
-    label: "Test"
+    label: "Radio"
     folder: "equipment/radio"
     fields:
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image"}
+      - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
+      - {label: "Body", name: "body", widget: "markdown"}
