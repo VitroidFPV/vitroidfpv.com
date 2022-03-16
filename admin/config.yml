@@ -3,5 +3,8 @@ backend:
   branch: experimental
 media_folder: "/sources"
 collections:
-  - name: "test"
+  - name: "radio"
     label: "Test"
+    folder: "equipment/radio"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
