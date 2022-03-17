@@ -8,3 +8,4 @@ collections:
     folder: "equipment/radio"
     fields:
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Test", name: "rating", widget: "number"}
