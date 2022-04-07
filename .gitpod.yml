@@ -1,0 +1,21 @@
+# List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
+tasks:
+  - init: echo 'init script' # runs during prebuild
+    command: echo 'start script'
+
+# List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
+ports:
+  - port: 3000
+    onOpen: open-preview
+
+vscode:
+  extensions:
+    - svelte.svelte-vscode
+    - vscode-ext-color-highlight
+    - esbenp.prettier-vscode
+    - bungcip.better-toml
+    - chunsen.bracket-select
+    - knisterpeter.vscode-github
+    - github.copilot
+    - ardenivanov.svelte-intellisense
+    - bradlc.vscode-tailwindcss
