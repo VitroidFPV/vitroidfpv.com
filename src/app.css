@@ -10,3 +10,29 @@
     font-family: 'Caveat', cursive;
   }
 }
+
+@layer components {
+  .nav-active {
+    @apply h-14 bg-highlight dark:bg-highlight-dark w-32 flex items-center pr-[60px] relative rounded-l-2xl pl-4 my-2
+        after:content-[''] after:absolute after:bg-transparent after:left-24 after:bottom-14 after:w-8 after:h-8 after:rounded-full after:-z-10 
+        dark:after:shadow-[-1rem_1rem_0px_#0f0f0f,8px_13px_0px_#1cd167] after:shadow-[-1rem_1rem_0px_#eeeeee,8px_13px_0px_#90d95b]
+        before:content-[''] before:absolute before:bg-transparent before:left-24 before:top-14 before:w-8 before:h-8 before:rounded-full before:-z-10 
+        dark:before:shadow-[-1rem_-1rem_0px_#0f0f0f,8px_-13px_0px_#1cd167] before:shadow-[-1rem_-1rem_0px_#eeeeee,8px_-13px_0px_#90d95b]
+  }
+  .nav {
+    @apply h-14 w-32 flex items-center pr-[60px] relative pl-4 my-2
+  }
+  .collapsible.faq-active {
+    @apply after:content-['-']
+  }
+  .collapsible {
+    @apply after:content-['+']
+  }
+  /* defeats the point of tailwind but idk any other way */
+  .faq-active.violet {
+    @apply text-violet
+  }
+  .collapsible.violet {
+    @apply hover:text-violet
+  }
+}

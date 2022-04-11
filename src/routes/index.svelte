@@ -101,7 +101,7 @@
                 </ul>
             </div>
         </div>
-        <div class="w-full h-full md:w-1/2">
+        <div class="w-full h-full md:w-1/2 flex justify-around pr-16 items-center">
             <svg class="h-fit w-fit relative scale-50 -rotate-12 fill-black/20 dark:fill-white/20" height="300" width="300" viewBox="0 0 500 500">
                     <path d="M111.25,222.803c12.77,0,25.305-2.154,37.259-6.403c3.903-1.387,5.942-5.676,4.556-9.579
                             c-1.388-3.903-5.678-5.94-9.579-4.555c-10.337,3.674-21.183,5.537-32.235,5.537c-53.072,0-96.25-43.178-96.25-96.25
@@ -157,7 +157,7 @@
                             z M235.605,268.92c-18.536,0-33.616-15.081-33.616-33.617c0-18.537,15.08-33.617,33.616-33.617
                             c18.536,0,33.617,15.081,33.617,33.617S254.141,268.92,235.605,268.92z" />
             </svg>
-            <svg class="h-fit w-fit relative scale-50 rotate-12 fill-black/20 dark:fill-white/20 bottom-80 left-[32rem]" height="300" width="300" viewBox="0 0 512 512">
+            <svg class="h-fit w-fit relative scale-50 rotate-12 fill-black/20 dark:fill-white/20 bottom-16" height="300" width="300" viewBox="0 0 512 512">
                 <g>
                   <path class="st0" d="M256,0C114.6,0,0,114.6,0,256s114.6,256,256,256s256-114.6,256-256S397.4,0,256,0z M256,460.8
                       c-113.1,0-204.8-91.7-204.8-204.8S142.9,51.2,256,51.2S460.8,142.9,460.8,256S369.1,460.8,256,460.8z" />
@@ -168,7 +168,7 @@
                   <circle class="st0" cx="256" cy="384" r="25.6" />
                 </g>
             </svg>
-            <svg class="h-fit w-fit relative scale-150 fill-black/20 dark:fill-white/20 bottom-[26rem] left-[22rem]" viewBox="0 0 110 110" width="110" height="110">
+            <svg class="h-fit w-fit relative scale-150 fill-black/20 dark:fill-white/20" viewBox="0 0 110 110" width="110" height="110">
                 <g>
                     <path d="m 86.125,25.314 c 0.035,0.002 0.07,0.003 0.105,0.003 0.54,0 1.041,-0.292 1.306,-0.769 l 7.277,-13.114 c 0.323,-0.583 0.222,-1.31 -0.25,
                     -1.782 L 90.349,5.438 C 89.878,4.967 89.15,4.864 88.567,5.188 l -13.114,7.277 c -0.507,0.282 -0.806,0.832 -0.765,1.411 L 75.022,18.647 52.512,
