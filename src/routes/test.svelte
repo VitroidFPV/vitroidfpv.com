@@ -1,26 +1,8 @@
-{#each Object.entries(grouped_modules) as [cat, contents]}
-<div class="{cat} bg-emerald-200 my-8">
-    {#each contents as question}
-    <div class="w-1/3">
-        <button type="button" class="collapsible duration-300 after:ml-1 {cat}">{question.metadata.title}</button>
-        <div class="content">
-            <p>{question.metadata.answer}</p>
-        </div>
-    </div>
-    {/each}
-</div>
-{/each}
-
-<style>
-    .content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.2s ease-out;
-    }
-</style>
-
 <script>
+    import Header from "../components/Header.svelte";
     import { onMount } from 'svelte';
+    import MainHeader from "../components/mainHeader.svelte";
+    import CategoryIndex from "../components/faqPage/categoryIndex.svelte";
 
     console.log("===========");
     const modules = import.meta.globEager("/faq/*.md");
@@ -55,3 +37,33 @@
         }
     })
 </script>
+
+<div class="w-full min-h-screen m-8 flex flex-col">
+
+    <MainHeader text="FAQ"/>
+    <Header text="If you need a quick answer, there's a good chance you'll find it here!"></Header>
+    <p class="leading-normal">There's a lot of questions in FPV, doesn't matter if you're just starting or not<br>
+    You will find most of the common and easy to answer ones here. For more specific ones, there are tutorials planned<br>
+    The questions are sorted into individual categories, and next to each one there is a button that will copy a link to the specific one if you want to send it to someone</p>
+
+    {#each Object.entries(grouped_modules) as [cat, contents]}
+    <div class="{cat} my-8 w-full h-fit">
+        {#each contents as question}
+        <div class="w-1/3">
+            <button type="button" class="collapsible duration-300 after:ml-1 {cat}">{question.metadata.title}</button>
+            <div class="content">
+                <p>{question.metadata.answer}</p>
+            </div>
+        </div>
+        {/each}
+    </div>
+    {/each}
+</div>
+
+<style>
+    .content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+    }
+</style>

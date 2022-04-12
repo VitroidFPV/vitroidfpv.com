@@ -5,7 +5,14 @@ import mdsvexConfig from "./mdsvex.config.js";
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		vite: {
+			server: {
+				fs: {
+					allow: ['./faq']
+				}
+			}
+		}
 	},
 	extensions: [".svelte", ...mdsvexConfig.extensions],
 	preprocess: [mdsvex(mdsvexConfig)]
