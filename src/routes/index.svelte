@@ -1,7 +1,3 @@
-<svelte:head>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-</svelte:head>
-
 <div class="flex flex-col w-full">
     <div class="mt-64">
         <h1 class="text-[200px] caveat h-fit leading-none dark:text-highlight-dark">Vitroid FPV</h1>
