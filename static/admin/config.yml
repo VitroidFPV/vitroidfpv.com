@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway
+  branch: svelte
+collections:
+  - name: FAQ
+    label: FAQ
+    folder: faq/
+    create: true
+    slug: "{{day}}-{{month}}-{{year}}-{{title}}"
+    fields:
+      - name: Category
+        widget: "select"
+        options:
+          - { label: "Red", value: "red" }
+          - { label: "Green", value: "green" }
+          - { label: "Blue", value: "blue" }
+      - {label: "Question", name: "title", widget: "text"}
+      - {label: "Answer", name: "answer", widget: "markdown"}
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+# site_url: https://your-site.com
+# display_url: https://your-site.com
+# logo_url: https://your-site.com/images/logo.svg
