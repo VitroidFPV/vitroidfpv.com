@@ -23,16 +23,48 @@
     @apply h-14 w-32 flex items-center pr-[60px] relative pl-4 my-2
   }
   .collapsible.faq-active {
-    @apply after:content-['-']
+    @apply after:content-['-'] translate-x-1
   }
   .collapsible {
     @apply after:content-['+']
   }
   /* defeats the point of tailwind but idk any other way */
-  .faq-active.violet {
+
+  .Starting.cat {
+    @apply text-violet border-violet
+  }
+  .Starting {
+    @apply order-1
+  }
+  .Starting.faq-active  {
     @apply text-violet
   }
-  .collapsible.violet {
+  .Starting.collapsible {
     @apply hover:text-violet
+  }
+
+
+  .Building.cat {
+    @apply order-2 text-red border-red
+  }
+  .Building.faq-active  {
+    @apply text-red
+  }
+  .Building.collapsible {
+    @apply hover:text-red
+  }
+
+  
+  .Betaflight {
+    @apply order-3
+  }
+  .Video {
+    @apply order-4
+  }
+  .Radio {
+    @apply order-5
+  }
+  .Hardware {
+    @apply order-6
   }
 }
