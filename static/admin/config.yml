@@ -11,9 +11,12 @@ collections:
       - name: Category
         widget: "select"
         options:
-          - { label: "Red", value: "red" }
-          - { label: "Green", value: "green" }
-          - { label: "Blue", value: "blue" }
+          - { label: "Starting Out", value: "Starting Out" }
+          - { label: "Building", value: "Building" }
+          - { label: "Betaflight", value: "Betaflight" }
+          - { label: "Video", value: "Video" }
+          - { label: "Radio", value: "Radio" }
+          - { label: "Hardware", value: "Hardware" }
       - {label: "Question", name: "title", widget: "text"}
       - {label: "Answer", name: "answer", widget: "markdown"}
 media_folder: "static/uploads"

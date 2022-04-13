@@ -49,7 +49,7 @@
     {#each Object.entries(grouped_modules) as [cat, contents]}
     <div class="{cat} my-8 w-full h-fit">
         {#each contents as question}
-        <div class="w-1/3">
+        <div class="w-1/3 flex flex-col">{cat}
             <button type="button" class="collapsible duration-300 after:ml-1 {cat}">{question.metadata.title}</button>
             <div class="content">
                 <p>{question.metadata.answer}</p>
