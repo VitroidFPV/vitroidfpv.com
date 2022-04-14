@@ -61,9 +61,9 @@
 
     {#each Object.entries(grouped_modules) as [cat, contents]}
     <div class="{cat} my-8 w-full h-fit">
+    <div class="text-3xl tracking-tight border-b-2 w-fit px-1 cat {cat} pb-1">{cat}</div>
         {#each contents as question}
         <div class="w-full">
-            <div class="text-3xl tracking-tight border-b-2 w-fit px-1 cat {cat} pb-1">{cat}</div>
             <div class="w-[38rem] tracking-normal text-main-200 dark:text-contrast-100 border-none">
                 <button type="button" class="collapsible duration-300 after:ml-1 text-[22px] hover:translate-x-1 duartion-150 {cat}">{question.metadata.title}</button>
                 <div class="content text-xl">
