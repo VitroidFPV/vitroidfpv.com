@@ -96,7 +96,7 @@
     @apply hover:text-cyan
   }
 
-  .Hardware.Cat {
+  .Hardware.cat {
     @apply text-blue border-blue
   }
   .Hardware {
