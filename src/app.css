@@ -45,7 +45,10 @@
 
 
   .Building.cat {
-    @apply order-2 text-red border-red
+    @apply text-red border-red
+  }
+  .Building {
+    @apply order-2
   }
   .Building.faq-active  {
     @apply text-red
@@ -54,17 +57,55 @@
     @apply hover:text-red
   }
 
-  
+  .Betaflight.cat {
+    @apply text-yellow border-yellow
+  }
   .Betaflight {
     @apply order-3
+  }
+  .Betaflight.faq-active  {
+    @apply text-yellow
+  }
+  .Betaflight.collapsible {
+    @apply hover:text-yellow
+  }
+
+  .Video.cat {
+    @apply text-green border-green
   }
   .Video {
     @apply order-4
   }
+  .Video.faq-active  {
+    @apply text-green
+  }
+  .Video.collapsible {
+    @apply hover:text-green
+  }
+
+  .Radio.cat {
+    @apply text-cyan border-cyan
+  }
   .Radio {
     @apply order-5
   }
+  .Radio.faq-active  {
+    @apply text-cyan
+  }
+  .Radio.collapsible {
+    @apply hover:text-cyan
+  }
+
+  .Hardware.Cat {
+    @apply text-blue border-blue
+  }
   .Hardware {
     @apply order-6
+  }
+  .Hardware.faq-active  {
+    @apply text-blue
+  }
+  .Hardware.collapsible {
+    @apply hover:text-blue
   }
 }

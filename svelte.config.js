@@ -9,7 +9,7 @@ const config = {
 		vite: {
 			server: {
 				fs: {
-					allow: ['./faq']
+					allow: ['./faqs']
 				}
 			}
 		}
