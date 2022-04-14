@@ -4,7 +4,7 @@ backend:
 collections:
   - name: FAQ
     label: FAQ
-    folder: faq/
+    folder: faqs/
     create: true
     slug: "{{day}}-{{month}}-{{year}}-{{title}}"
     fields:
