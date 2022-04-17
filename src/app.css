@@ -96,16 +96,6 @@
     @apply hover:text-cyan
   }
 
-  .Hardware.cat {
-    @apply text-blue border-blue
-  }
-  .Hardware {
-    @apply order-6
-  }
-  .Hardware.faq-active  {
-    @apply text-blue
-  }
-  .Hardware.collapsible {
-    @apply hover:text-blue
-  }
-}
+  .Hardware.cat{@apply text-blue border-blue}.Hardware{@apply order-6}.Hardware.faq-active{@apply text-blue}.Hardware.collapsible{@apply hover:text-blue}}
+
+  .card.red {@apply shadow-red}.bulge.red{@apply bg-red after:shadow-red before:shadow-red}.title.red{@apply from-red to-red}

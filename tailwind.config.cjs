@@ -26,6 +26,10 @@ module.exports = {
           400: '#cccccc',
         },
       },
+      backgroundSize: {
+        "0w": "0% 3px",
+        "100w": "100% 3px",
+      },
     },
 
   },

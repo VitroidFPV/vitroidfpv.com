@@ -7,6 +7,7 @@
     <ul class="mt-8 pl-4">
         <li class="nav" class:nav-active={$page.url.pathname === "/"}><a href="/" class="h-fit text-lg">Home</a></li>
         <li class="nav" class:nav-active={$page.url.pathname === "/faq"}><a href="/faq" class="h-fit text-lg">FAQ</a></li>
+        <li class="nav" class:nav-active={$page.url.pathname === "/builds"}><a href="/builds" class="h-fit text-lg">Builds</a></li>
         <ThemeToggle />
     </ul>
 </nav>
