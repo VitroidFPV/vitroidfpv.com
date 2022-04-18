@@ -13,14 +13,20 @@
 
 @layer components {
   .nav-active {
-    @apply h-14 bg-highlight dark:bg-highlight-dark w-32 flex items-center pr-[60px] relative rounded-l-2xl pl-4 my-2
-        after:content-[''] after:absolute after:bg-transparent after:left-24 after:bottom-14 after:w-8 after:h-8 after:rounded-full after:-z-10 
-        dark:after:shadow-[-1rem_1rem_0px_#0f0f0f,8px_13px_0px_#1cd167] after:shadow-[-1rem_1rem_0px_#eeeeee,8px_13px_0px_#90d95b]
-        before:content-[''] before:absolute before:bg-transparent before:left-24 before:top-14 before:w-8 before:h-8 before:rounded-full before:-z-10 
-        dark:before:shadow-[-1rem_-1rem_0px_#0f0f0f,8px_-13px_0px_#1cd167] before:shadow-[-1rem_-1rem_0px_#eeeeee,8px_-13px_0px_#90d95b]
+    @apply  bg-highlight dark:bg-highlight-dark md:rounded-l-2xl md:rounded-br-none rounded-b-3xl relative shadow-highlight dark:shadow-highlight-dark
+        md:after:content-[''] md:after:absolute md:after:bg-transparent md:after:left-24 md:after:bottom-14 md:after:w-8 md:after:h-8 md:after:rounded-full md:after:-z-10 
+        md:dark:after:shadow-[-1rem_1rem_0px_#0f0f0f,8px_13px_0px_#1cd167] md:after:shadow-[-1rem_1rem_0px_#eeeeee,8px_13px_0px_#90d95b]
+        md:before:content-[''] md:before:absolute md:before:bg-transparent md:before:left-24 md:before:top-14 md:before:w-8 md:before:h-8 md:before:rounded-full md:before:-z-10 
+        md:dark:before:shadow-[-1rem_-1rem_0px_#0f0f0f,8px_-13px_0px_#1cd167] md:before:shadow-[-1rem_-1rem_0px_#eeeeee,8px_-13px_0px_#90d95b]
+
+        after:content-[''] after:absolute after:bg-transparent after:left-20 after:bottom-8 after:w-12 after:h-12 after:rounded-full after:-z-10 
+        dark:after:shadow-[-1rem_1.2rem_0px_#0f0f0f,-22px_-14px_0px_#1cd167] after:shadow-[-1rem_1.2rem_0px_#eeeeee,-22px_-14px_0px_#90d95b]
+        before:content-[''] before:absolute before:bg-transparent before:right-20 before:bottom-8 before:w-12 before:h-12 before:rounded-full before:-z-10 
+        dark:before:shadow-[1rem_1.2rem_0px_#0f0f0f,22px_-14px_0px_#1cd167] before:shadow-[1rem_1.2rem_0px_#eeeeee,22px_-14px_0px_#90d95b]
+
   }
   .nav {
-    @apply h-14 w-32 flex items-center pr-[60px] relative pl-4 my-2
+    @apply md:h-14 md:w-32 h-20 w-20 flex items-center md:pr-[60px] relative md:pl-4 md:my-2
   }
   .collapsible.faq-active {
     @apply after:content-['-'] translate-x-1
