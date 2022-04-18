@@ -1,5 +1,5 @@
 <div class="flex flex-col w-full">
-    <div class="mt-64">
+    <div class="md:mt-64 mt-16 md:mb-0 mb-16">
         <h1 class="text-[200px] caveat h-fit leading-none dark:text-highlight-dark">Vitroid FPV</h1>
     </div>
     <div class="h-fit max-w-full">
@@ -13,7 +13,7 @@
             </svg>
         </div>
     </div>
-    <div class="w-full h-96 bg-highlight dark:bg-highlight-dark px-8 -mb-1 flex flex-row">
+    <div class="w-full h-96 bg-highlight dark:bg-highlight-dark pl-8 -mb-1 flex flex-row">
         <div class="flex flex-col md:w-1/2">
             <div class="text-main-100 dark:text-contrast-100">
                 <h2 class="text-4xl font-semibold my-4 border-b-4 border-dotted w-fit border-main-100 dark:border-contrast-100">Your source for quick FPV info!</h2>
@@ -22,7 +22,7 @@
                     GitHub <a href="/" class="">here</a>, and if you like what I do, you can donate <a href="/">here</a></p>
             </div>
         </div>
-        <div class="w-full h-full md:w-1/2">
+        <div class="w-full h-full md:w-1/2 overflow-hidden">
             <svg class="h-fit w-fit relative left-16 rotate-12" viewBox="0 0 150 150" width="150" height="150">
                 <path id="prop-svg3" class="fill-white/20" d="M 74.892631,5.1711806 C 74.114473,5.18908 
                 73.25665,5.3460323 72.669665,5.484156 71.539357,5.7501303 70.293619,6.4390845 69.831921,7.5045284 62.379721,24.701745 62.364833,46.64307 
@@ -88,8 +88,8 @@
             </svg>
         </div>
     </div>
-    <div class="w-full h-96 px-8 -mb-1 flex flex-row-reverse text-xl">
-        <div class="flex flex-col md:w-1/2">
+    <div class="w-full h-fit px-8 -mb-1 flex flex-row-reverse text-xl dark:bg-main-400 bg-contrast-100 shadow-[0px_20px-0px] dark:shadow-main-400 shadow-contrast-100">
+        <div class="flex flex-col md:w-1/2 h-fit">
             <div class="text-main-100 dark:text-contrast-300">
                 <h2 class="text-4xl font-semibold my-4 border-b-4 border-dotted w-fit border-main-100 dark:border-contrast-100">What can you find here?</h2>
                 <p class="leading-normal">This site is mainly going to be a quick way to sahre and find useful resources. What you can find here right now:
@@ -101,7 +101,7 @@
                 </ul>
             </div>
         </div>
-        <div class="w-full h-full md:w-1/2 flex justify-around pr-16 items-center">
+        <div class="md:w-1/2 w-1/3 flex md:flex-row flex-col md:justify-around justify-between pr-16 items-center md:h-fit h-96">
             <svg class="h-fit w-fit relative scale-50 -rotate-12 fill-black/20 dark:fill-white/20" height="300" width="300" viewBox="0 0 500 500">
                     <path d="M111.25,222.803c12.77,0,25.305-2.154,37.259-6.403c3.903-1.387,5.942-5.676,4.556-9.579
                             c-1.388-3.903-5.678-5.94-9.579-4.555c-10.337,3.674-21.183,5.537-32.235,5.537c-53.072,0-96.25-43.178-96.25-96.25
@@ -157,7 +157,7 @@
                             z M235.605,268.92c-18.536,0-33.616-15.081-33.616-33.617c0-18.537,15.08-33.617,33.616-33.617
                             c18.536,0,33.617,15.081,33.617,33.617S254.141,268.92,235.605,268.92z" />
             </svg>
-            <svg class="h-fit w-fit relative scale-50 rotate-12 fill-black/20 dark:fill-white/20 bottom-16" height="300" width="300" viewBox="0 0 512 512">
+            <svg class="h-fit w-fit relative scale-50 rotate-12 fill-black/20 dark:fill-white/20 md:bottom-16" height="300" width="300" viewBox="0 0 512 512">
                 <g>
                   <path class="st0" d="M256,0C114.6,0,0,114.6,0,256s114.6,256,256,256s256-114.6,256-256S397.4,0,256,0z M256,460.8
                       c-113.1,0-204.8-91.7-204.8-204.8S142.9,51.2,256,51.2S460.8,142.9,460.8,256S369.1,460.8,256,460.8z" />
