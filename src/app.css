@@ -13,6 +13,7 @@
 
 @layer components {
   .nav-active {
+    /* god is dead and we have killed him */
     @apply  bg-highlight dark:bg-highlight-dark md:rounded-l-2xl md:rounded-br-none rounded-b-3xl relative shadow-highlight dark:shadow-highlight-dark
         md:after:content-[''] md:after:absolute md:after:bg-transparent md:after:left-24 md:after:bottom-14 md:after:w-8 md:after:h-8 md:after:rounded-full md:after:-z-10 
         md:dark:after:shadow-[-1rem_1rem_0px_#0f0f0f,8px_13px_0px_#1cd167] md:after:shadow-[-1rem_1rem_0px_#eeeeee,8px_13px_0px_#90d95b]
@@ -104,4 +105,6 @@
 
   .Hardware.cat{@apply text-blue border-blue}.Hardware{@apply order-6}.Hardware.faq-active{@apply text-blue}.Hardware.collapsible{@apply hover:text-blue}}
 
-  .card.red {@apply shadow-red}.bulge.red{@apply bg-red after:shadow-red before:shadow-red}.title.red{@apply from-red to-red}
+  .card.red {@apply shadow-[0px_-22px_0px_#d6395b,0px_15px_50px_#1818184d]}.bulge.red{@apply bg-red after:shadow-red before:shadow-red}.title.red{@apply from-red to-red}
+  .card.green {@apply shadow-[0px_-22px_0px_#60cc52,0px_15px_50px_#1818184d]}.bulge.green{@apply bg-green after:shadow-green before:shadow-green}.title.green{@apply from-green to-green}
+  .card.orange {@apply shadow-[0px_-22px_0px_#ff9742,0px_15px_50px_#1818184d]}.bulge.orange{@apply bg-orange after:shadow-orange before:shadow-orange}.title.orange{@apply from-orange to-orange}
