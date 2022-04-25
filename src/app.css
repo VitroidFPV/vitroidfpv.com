@@ -9,6 +9,34 @@
   .caveat {
     font-family: 'Caveat', cursive;
   }
+
+  #sliderCell, #sliderCell1 {
+    width: 16rem;
+  }
+  :root {
+    --range-slider:          #d7dada; /* slider main background color */
+    --range-handle-inactive: #99a2a2; /* inactive handle color */
+    --range-handle:          #90d95b; /* non-focussed handle color */
+    --range-handle-focus:    #90d95b; /* focussed handle color */
+    --range-handle-border:   var(--range-handle);
+    --range-range-inactive:  var(--range-handle-inactive); /* inactive range bar background color */
+    --range-range:           var(--range-handle-focus); /* active range bar background color */
+    --range-float-inactive:  var(--range-handle-inactive); /* inactive floating label background color */
+    --range-float:           var(--range-handle-focus); /* floating label background color */
+    --range-float-text:      white; /* text color on floating label */
+  }
+  .dark {
+    --range-slider:          #1e1e1e; /* slider main background color */
+    --range-handle-inactive: #292929; /* inactive handle color */
+    --range-handle:          #2ad162; /* non-focussed handle color */
+    --range-handle-focus:    #2ad162; /* focussed handle color */
+    --range-handle-border:   var(--range-handle);
+    --range-range-inactive:  var(--range-handle-inactive); /* inactive range bar background color */
+    --range-range:           var(--range-handle-focus); /* active range bar background color */
+    --range-float-inactive:  var(--range-handle-inactive); /* inactive floating label background color */
+    --range-float:           var(--range-handle-focus); /* floating label background color */
+    --range-float-text:      white; /* text color on floating label */
+  }
 }
 
 @layer components {
@@ -27,7 +55,7 @@
 
   }
   .nav {
-    @apply md:h-14 md:w-32 h-20 w-20 flex items-center md:pr-[60px] relative md:pl-4 md:my-2
+    @apply md:h-14 md:w-32 md:min-h-[3.5rem] min-h-[5rem] min-w-[5rem] flex items-center md:pr-[60px] relative md:pl-4 md:my-2
   }
   .collapsible.faq-active {
     @apply after:content-['-'] translate-x-1

@@ -1,8 +1,11 @@
 <script>
     
+
+
+    // @ts-ignore
     import BuildProduct from "/src/components/buildsPage/buildProduct.svelte";
 
-    const modules = import.meta.globEager("./faq/*.md");
+    const modules = import.meta.globEager("/aa/*.md");
     console.log(modules)
     let grouped_modules = {};
 
