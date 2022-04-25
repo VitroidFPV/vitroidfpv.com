@@ -1,40 +1,41 @@
-# create-svelte
+# Vitroid FPV
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Your quick source of all FPV info, in a convenient place.
 
-## Creating a project
+## What is this?
 
-If you're seeing this, you've probably already done this step. Congrats!
+🔎If you're reading this, you probably clicked on the github link out of curiosity, great!
 
-```bash
-# create a new project in the current directory
-npm init svelte@next
+This is a constantly evolving project of mine, started around June 2021 as a small thing for me to learn a bit of HTML, now being completely re-written in Svelte and Tailwind, to make it modular, and allow others to easily contribute
 
-# create a new project in my-app
-npm init svelte@next my-app
+## What can you find on the site?
+
+Right now, there are three main pages available:
+- ❓ FAQ - Quick answers to frequently asked questions in the world of FPV
+- 🔧 Builds - All different kinds of (not only) quadcopters, from beginner to advanced
+- 🛠️ Equipment - All the things you will need to get flying - Batteries and chargers, video and radio equipment, and tools to put it all together
+
+## Contributing:
+
+### Some rules and principles to follow:
+The files in place should give you an idea of how the `.md` files should be written and named. The file naming scheme should be `dd-mm-yyyy-question-here-if-not-too-long`, follow the below example for an FAQ question to learn more about the content itself. 
+
+The site is designed in a way that all of the repeatable content is modular. Let's take for an example the [Starting Question](https://github.com/VitroidFPV/VitroidFPV/blob/svelte/faqs/13-04-2022-starting-out-question.md?plain=1):
+
+```markdown
+---
+Category: Starting Out
+title: Starting out question
+answer: Starting out question but it's longer so I can have more lines so I can
+  display long stuff and make it look nice and oh formatting doesn't work
+---
 ```
+Every file in the `/faqs/` directory represents one question and its corresponding info and answer on the faq page on the site. The categories for the FAQ page are restricted to the ones that are available on the site itself, ie:
+- Starting Out
+- Building
+- Betaflight
+- Video
+- Radio
+- Hardware
 
-> Note: the `@next` is temporary
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Putting one of those as the `Category` (case sensitive) will automatically sort it into the category in the site, and you can write the `Question` and `Answer` yourself.
