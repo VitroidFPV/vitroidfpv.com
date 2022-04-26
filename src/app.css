@@ -131,8 +131,18 @@
     @apply hover:text-cyan
   }
 
-  .Hardware.cat{@apply text-blue border-blue}.Hardware{@apply order-6}.Hardware.faq-active{@apply text-blue}.Hardware.collapsible{@apply hover:text-blue}}
+  .Hardware.cat{@apply text-blue border-blue}.Hardware{@apply order-6}.Hardware.faq-active{@apply text-blue}.Hardware.collapsible{@apply hover:text-blue}
 
-  .card.red {@apply shadow-[0px_-22px_0px_#d6395b,0px_15px_50px_#1818184d]}.bulge.red{@apply bg-red after:shadow-red before:shadow-red}.title.red{@apply from-red to-red}
-  .card.green {@apply shadow-[0px_-22px_0px_#60cc52,0px_15px_50px_#1818184d]}.bulge.green{@apply bg-green after:shadow-green before:shadow-green}.title.green{@apply from-green to-green}
-  .card.orange {@apply shadow-[0px_-22px_0px_#ff9742,0px_15px_50px_#1818184d]}.bulge.orange{@apply bg-orange after:shadow-orange before:shadow-orange}.title.orange{@apply from-orange to-orange}
+  .card.red {@apply shadow-[0px_-22px_0px_#d6395b,0px_15px_50px_#1818184d]}.bulge.red{@apply bg-red after:shadow-red before:shadow-red}
+  .card.green {@apply shadow-[0px_-22px_0px_#60cc52,0px_15px_50px_#1818184d]}.bulge.green{@apply bg-green after:shadow-green before:shadow-green}
+  .card.orange {@apply shadow-[0px_-22px_0px_#ff9742,0px_15px_50px_#1818184d]}.bulge.orange{@apply bg-orange after:shadow-orange before:shadow-orange}
+
+  .link {@apply text-2xl bg-gradient-to-r bg-no-repeat bg-left-bottom bg-0w hover:bg-100w duration-300 w-fit pb-[-1rem] leading-tight}
+
+  .link.red {@apply from-red to-red} .link.t-red {@apply text-red}
+  .link.green {@apply from-green to-green} .link.t-green {@apply text-green}
+  .link.orange {@apply from-orange to-orange} .link.t-orange {@apply text-orange}
+  .link.cyan {@apply from-cyan to-cyan} .link.t-cyan {@apply text-cyan}
+  .link.blue {@apply from-blue to-blue} .link.t-blue {@apply text-blue}
+  .link.violet {@apply from-violet to-violet} .link.t-violet {@apply text-violet}
+}

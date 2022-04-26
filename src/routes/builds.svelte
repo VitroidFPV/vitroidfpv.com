@@ -40,7 +40,7 @@
     import Header from "../components/Header.svelte";
     import MainHeader from "../components/mainHeader.svelte";
 
-    const modules = import.meta.globEager("/buildCards/*.md");
+    const modules = import.meta.globEager("/buildLists/*.md");
     // console.log(modules)
     let grouped_modules = {};
 

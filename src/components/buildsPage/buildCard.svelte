@@ -2,10 +2,10 @@
     <div class="bulge {color} w-40 h-16 rounded-b-[2rem] absolute
     before:content-[''] before:absolute before:bg-transparent before:rounded-full before:w-12 before:h-12 before:-left-12 before:shadow-[22px_-22px_0px]
     after:content-[''] after:absolute after:bg-transparent after:rounded-full after:w-12 after:h-12 after:-right-12 after:shadow-[-22px_-22px_0px]"></div>
-    <div class="top-16 relative self-start">
-        <a href="{link}" class="text-3xl font-medium ml-3 bg-gradient-to-r title {color} bg-no-repeat bg-left-bottom bg-0w group-hover:bg-100w duration-300 w-fit">{title}</a>
-        <div class="ml-3 text-[19px] mt-4">
-            <ul class="list-disc list-inside">
+    <div class="top-16 relative self-start pl-3">
+        <Link color={color} title={title} link={link} size=3/>
+        <div class="text-[19px] mt-4">
+            <ul class="list-disc list-inside h-0 invisible group-hover:visible">
                 <li class="text-transparent group-hover:text-main-200 dark:group-hover:text-contrast-100 duration-300 delay-[100ms]">{text1}</li>
                 <li class="text-transparent group-hover:text-main-200 dark:group-hover:text-contrast-100 duration-300 delay-[175ms]">{text2}</li>
                 <li class="text-transparent group-hover:text-main-200 dark:group-hover:text-contrast-100 duration-300 delay-[250ms]">{text3}</li>
@@ -17,6 +17,8 @@
 </div>
 
 <script>
+    import Link from "../Link.svelte";
+
     export let color
     export let title
     export let link
