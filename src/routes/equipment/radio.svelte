@@ -31,7 +31,7 @@
     // @ts-ignore
     import MainHeader from "/src/components/mainHeader.svelte";
     // @ts-ignore
-    import Header from "/src/components/header.svelte";
+    import Header from "/src/components/Header.svelte";
     // @ts-ignore
     import Paragraph from "/src/components/Paragraph.svelte";
 
