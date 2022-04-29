@@ -2,7 +2,7 @@
     import Header from "../components/Header.svelte";
     import MainHeader from "../components/mainHeader.svelte";
     import CategoryIndex from "../components/faqPage/categoryIndex.svelte";
-    import Faq from "../components/faqPage/faq.svelte";
+    import Faq from "src/components/faqPage/Faq.svelte";
     import { onMount } from 'svelte';
 
     console.log("===========");
