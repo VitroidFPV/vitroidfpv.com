@@ -7,7 +7,7 @@
     // @ts-ignore
     import MainHeader from "/src/components/mainHeader.svelte";
     // @ts-ignore
-    import Header from "/src/components/header.svelte";
+    import Header from "/src/components/Header.svelte";
     // @ts-ignore
     import Paragraph from "/src/components/Paragraph.svelte";
 
@@ -26,7 +26,7 @@
         
 </script>
 
-<div class="w-full p-4 px-10 flex flex-col">
+<div class="w-full p-4 px-8 flex flex-col">
     <MainHeader text="5'' Beginner"/>
     <Header text="Cheap, durable, and easy to put together and repair"/>
     <Paragraph text="Specced out to be easy to assemble, with affordable and accessible parts, and electronics that should be easy to solder, 
