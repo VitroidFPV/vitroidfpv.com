@@ -43,7 +43,7 @@
     <title>VitroidFPV - FAQ</title>
 </svelte:head>
 
-<div class="w-full min-h-screen p-4 flex flex-col">
+<div class="w-full min-h-screen p-4 px-8 flex flex-col">
 
     <MainHeader text="FAQ"/>
     <Header text="If you need a quick answer, you might find it here!"></Header>
@@ -55,7 +55,7 @@
         <CategoryIndex icon="bg-[url('https://img.icons8.com/material-outlined/32/9550ba/plus--v1.png')]" color="hover:text-violet" text="Starting out" link="Starting"></CategoryIndex>
         <CategoryIndex icon="bg-[url('https://img.icons8.com/material-outlined/32/d6395b/plus--v1.png')]" color="hover:text-red" text="Building" link="Building"></CategoryIndex>
         <CategoryIndex icon="bg-[url('https://img.icons8.com/material-outlined/32/ffcc00/plus--v1.png')]" color="hover:text-yellow" text="Betaflight" link="Betaflight"></CategoryIndex>
-        <CategoryIndex icon="bg-[url('https://img.icons8.com/material-outlined/32/5ae65a/plus--v1.png')]" color="hover:text-green" text="Video" link="Video"></CategoryIndex>
+        <CategoryIndex icon="bg-[url('https://img.icons8.com/material-outlined/32/87cc52/plus--v1.png')]" color="hover:text-green" text="Video" link="Video"></CategoryIndex>
         <CategoryIndex icon="bg-[url('https://img.icons8.com/material-outlined/32/5ad8e6/plus--v1.png')]" color="hover:text-cyan" text="Radio" link="Radio"></CategoryIndex>
         <CategoryIndex icon="bg-[url('https://img.icons8.com/material-outlined/32/5a6fe6/plus--v1.png')]" color="hover:text-blue" text="Hardware" link="Hardware"></CategoryIndex>
     </ul>

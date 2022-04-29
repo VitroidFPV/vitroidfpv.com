@@ -1,10 +1,12 @@
-<div class="h-fit w-96 border-l-4 border-red pl-2">
+<div class="{color} h-fit w-96 border-l-4 product pl-2">
     <Link color={color} title={title} color1={color} size=2 link={link}/>
     <div class="flex justify-between mt-2 flex-wrap">
-        <div class="text-base text-main-100">{price}</div>
-        <div class="text-base text-main-50">{point1}</div>
-        <div class="text-base text-main-50">{point2}</div>
-        <div class="text-base text-main-50">{point3}</div>
+        <div class="text-base text-main-100 dark:text-contrast-300">{price}</div>
+        <div class="text-base text-main-50 dark:text-contrast-500">{point1}</div>
+        <div class="text-base text-main-50 dark:text-contrast-500">{point2}</div>
+        <div class="text-base text-main-50 dark:text-contrast-500">{point3}</div>
+        <div class="text-base text-main-50 dark:text-contrast-500">{point4}</div>
+        <div class="text-base text-main-50 dark:text-contrast-500">{point5}</div>
     </div>
     <div>{text}</div>
 </div>
@@ -19,6 +21,8 @@
     export let point1 = ""
     export let point2 = ""
     export let point3 = ""
+    export let point4 = ""
+    export let point5 = ""
     export let text
     export let link
 </script>

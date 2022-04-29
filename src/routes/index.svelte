@@ -1,6 +1,6 @@
 <div class="flex flex-col w-full">
-    <div class="md:mt-64 mt-16 md:mb-0 mb-16">
-        <h1 class="md:text-[200px] text-[150px] caveat h-fit leading-none dark:text-highlight-dark">Vitroid FPV</h1>
+    <div class="md:mt-64 mt-16 md:mb-0 mb-16 w-fit">
+        <h1 class="md:text-[180px] text-[150px] caveat h-fit w-fit leading-none dark:text-highlight-dark">Vitroid FPV</h1>
     </div>
     <div>
         <div class="h-fit max-w-full">
@@ -14,7 +14,7 @@
                 </svg>
             </div>
         </div>
-        <div class="w-full min-h-96 bg-highlight dark:bg-highlight-dark pl-8 -mb-1 flex flex-row">
+        <div class="w-full h-fit bg-highlight dark:bg-highlight-dark pl-8 -mb-1 flex flex-row">
             <div class="flex flex-col md:w-1/2">
                 <div class="text-main-100 dark:text-contrast-100">
                     <h2 class="text-4xl font-semibold my-4 border-b-4 border-dotted w-fit border-main-100 dark:border-contrast-100">Your source for quick FPV info!</h2>
@@ -23,7 +23,7 @@
                         GitHub <a href="/" class="">here</a>, and if you like what I do, you can donate <a href="/">here</a></p>
                 </div>
             </div>
-            <div class="w-full h-full md:w-1/2 overflow-clip">
+            <div class="w-full h-full md:w-1/2 overflow-hidden">
                 <svg class="h-fit w-fit relative left-16 rotate-12" viewBox="0 0 150 150" width="150" height="150">
                     <path id="prop-svg3" class="fill-white/20" d="M 74.892631,5.1711806 C 74.114473,5.18908
                     73.25665,5.3460323 72.669665,5.484156 71.539357,5.7501303 70.293619,6.4390845 69.831921,7.5045284 62.379721,24.701745 62.364833,46.64307
@@ -90,9 +90,9 @@
             </div>
         </div>
     </div>
-    <div class="w-full h-fit px-8 mb-1 flex flex-row-reverse text-xl dark:bg-main-400 bg-contrast-100 pb-16 dark:shadow-main-400 shadow-contrast-100">
-        <div class="flex flex-col md:w-1/2 h-fit">
-            <div class="text-main-100 dark:text-contrast-300">
+    <div class="w-full h-fit mb-1 flex flex-row-reverse text-xl dark:bg-main-400 bg-contrast-100 pb-16 dark:shadow-main-400 shadow-contrast-100">
+        <div class="flex flex-col md:w-fit h-fit mr-8">
+            <div class="text-main-100 dark:text-contrast">
                 <h2 class="text-4xl font-semibold my-4 border-b-4 border-dotted w-fit border-main-100 dark:border-contrast-100">What can you find here?</h2>
                 <p class="leading-normal">This site is mainly going to be a quick way to sahre and find useful resources. What you can find here right now:
                 </p>
@@ -103,7 +103,7 @@
                 </ul>
             </div>
         </div>
-        <div class="md:w-1/2 w-1/3 flex md:flex-row flex-col md:justify-around justify-between pr-16 items-center md:h-fit h-96">
+        <div class="md:w-96 mr-8 w-1/3 flex md:flex-row flex-col md:justify-around justify-between items-center md:h-fit h-96 mt-16">
             <svg class="h-fit w-fit relative scale-50 -rotate-12 fill-black/20 dark:fill-white/20" height="300" width="300" viewBox="0 0 500 500">
                     <path d="M111.25,222.803c12.77,0,25.305-2.154,37.259-6.403c3.903-1.387,5.942-5.676,4.556-9.579
                             c-1.388-3.903-5.678-5.94-9.579-4.555c-10.337,3.674-21.183,5.537-32.235,5.537c-53.072,0-96.25-43.178-96.25-96.25
