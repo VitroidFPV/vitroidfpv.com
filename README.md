@@ -1,4 +1,5 @@
 # Vitroid FPV
+[![forthebadge](https://forthebadge.com/images/badges/it-works-why.svg)](https://vitroidfpv.com)
 
 Your quick source of all FPV info, in a convenient place.
 
@@ -16,6 +17,7 @@ Right now, there are three main pages available:
 - 🛠️ Equipment - All the things you will need to get flying - Batteries and chargers, video and radio equipment, and tools to put it all together
 
 ## Contributing:
+[![forthebadge](https://forthebadge.com/images/badges/contains-tasty-spaghetti-code.svg)](https://forthebadge.com)
 
 ### Some rules and principles to follow:
 The files in place should give you an idea of how the `.md` files should be written and named. The file naming scheme should be `dd-mm-yyyy-question-here-if-not-too-long`, follow the below example for an FAQ question to learn more about the content itself. 
