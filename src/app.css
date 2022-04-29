@@ -57,6 +57,9 @@
   .nav {
     @apply md:h-14 md:w-32 md:min-h-[3.5rem] min-h-[5rem] min-w-[5rem] flex items-center md:pr-[60px] relative md:pl-4 md:my-2
   }
+
+  .nav-active > a {@apply md:translate-x-1 translate-x-0 hover:text-main-100 dark:hover:text-contrast-100}
+
   .collapsible.faq-active {
     @apply after:content-['-'] translate-x-1
   }
@@ -133,9 +136,15 @@
 
   .Hardware.cat{@apply text-blue border-blue}.Hardware{@apply order-6}.Hardware.faq-active{@apply text-blue}.Hardware.collapsible{@apply hover:text-blue}
 
-  .card.red {@apply shadow-[0px_-22px_0px_#d6395b,0px_15px_50px_#1818184d]}.bulge.red{@apply bg-red after:shadow-red before:shadow-red}
-  .card.green {@apply shadow-[0px_-22px_0px_#60cc52,0px_15px_50px_#1818184d]}.bulge.green{@apply bg-green after:shadow-green before:shadow-green}
-  .card.orange {@apply shadow-[0px_-22px_0px_#ff9742,0px_15px_50px_#1818184d]}.bulge.orange{@apply bg-orange after:shadow-orange before:shadow-orange}
+  .card.red {@apply shadow-[0px_-23px_0px_#d6395b,0px_15px_50px_#1818184d]}.bulge.red{@apply bg-red after:shadow-red before:shadow-red}
+  .card.green {@apply shadow-[0px_-23px_0px_#87cc52,0px_15px_50px_#1818184d]}.bulge.green{@apply bg-green after:shadow-green before:shadow-green}
+  .card.orange {@apply shadow-[0px_-23px_0px_#ff9742,0px_15px_50px_#1818184d]}.bulge.orange{@apply bg-orange after:shadow-orange before:shadow-orange}
+  .card.blue {@apply shadow-[0px_-23px_0px_#00a0ff,0px_15px_50px_#1818184d]}.bulge.blue{@apply bg-blue after:shadow-blue before:shadow-blue}
+  .card.violet {@apply shadow-[0px_-23px_0px_#8c73ff,0px_15px_50px_#1818184d]}.bulge.violet{@apply bg-violet after:shadow-violet before:shadow-violet}
+  .card.yellow {@apply shadow-[0px_-23px_0px_#ffd600,0px_15px_50px_#1818184d]}.bulge.yellow{@apply bg-yellow after:shadow-yellow before:shadow-yellow}
+  .card.cyan {@apply shadow-[0px_-23px_0px_#5ad8e6,0px_15px_50px_#1818184d]}.bulge.cyan{@apply bg-cyan after:shadow-cyan before:shadow-cyan}
+
+  .card.true {@apply hover:h-72}
 
   .link {@apply text-2xl bg-gradient-to-r bg-no-repeat bg-left-bottom bg-0w hover:bg-100w duration-300 w-fit pb-[-1rem] leading-tight}
 
@@ -145,4 +154,7 @@
   .link.cyan {@apply from-cyan to-cyan} .link.t-cyan {@apply text-cyan}
   .link.blue {@apply from-blue to-blue} .link.t-blue {@apply text-blue}
   .link.violet {@apply from-violet to-violet} .link.t-violet {@apply text-violet}
+
+  .product.red {@apply border-red} .product.green {@apply border-green} .product.orange {@apply border-orange} 
+  .product.cyan {@apply border-cyan} .product.blue {@apply border-blue} .product.violet {@apply border-violet}
 }

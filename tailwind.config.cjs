@@ -9,7 +9,7 @@ module.exports = {
         'red':    '#d6395b',
         'orange': '#ff9742',
         'yellow': '#ffcc00',
-        'green':  '#60cc52',
+        'green':  '#87cc52',
         'cyan': '#5ad8e6',
         'blue': '#5a6fe6',
         'violet': '#9550ba',
@@ -25,6 +25,7 @@ module.exports = {
           200: '#e2e2e2',
           300: '#e0e0e0',
           400: '#cccccc',
+          500: '#adadad',
         },
       },
       backgroundSize: {

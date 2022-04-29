@@ -92,7 +92,7 @@
     </div>
     <div class="w-full h-fit mb-1 flex flex-row-reverse text-xl dark:bg-main-400 bg-contrast-100 pb-16 dark:shadow-main-400 shadow-contrast-100">
         <div class="flex flex-col md:w-fit h-fit mr-8">
-            <div class="text-main-100 dark:text-contrast">
+            <div class="text-main-100 dark:text-contrast-100">
                 <h2 class="text-4xl font-semibold my-4 border-b-4 border-dotted w-fit border-main-100 dark:border-contrast-100">What can you find here?</h2>
                 <p class="leading-normal">This site is mainly going to be a quick way to sahre and find useful resources. What you can find here right now:
                 </p>
