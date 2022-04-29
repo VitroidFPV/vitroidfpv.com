@@ -9,7 +9,7 @@ const config = {
 		vite: {
 			server: {
 				fs: {
-					allow: ['./faqs', './buildLists', './buildLists/5inchBeginner']
+					allow: ['./modules/']
 				}
 			}
 		}

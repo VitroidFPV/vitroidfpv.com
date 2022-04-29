@@ -6,7 +6,7 @@
     import { onMount } from 'svelte';
 
     console.log("===========");
-    const modules = import.meta.globEager("/faqs/*.md");
+    const modules = import.meta.globEager("/modules/faqs/*.md");
     // console.log(modules)
     let grouped_modules = {};
 

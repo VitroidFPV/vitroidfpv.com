@@ -1,13 +1,13 @@
-<div class="w-full p-4 flex flex-col">
+<div class="w-full p-4 px-8 flex flex-col">
     <MainHeader text="Builds"/>
     <Header text="Parts lists and build guides for any quad you'd want!"/>
-    <p class="text-xl md:w-[33vw] w-[90%] leading-relaxed mb-4 border-gray-500 border-b-[1px]"> - If you're just a beginner wanting to get their first build, or a long-time pilot that just wants some build inspiration, this is the place for you!<br><br>
-    The builds here are sorted by difficulty, so you can quickly decide if something is for you as a beginner, or to recommend to someone else. When you hover on a specifc build, it will pop up with some short info, and you can get to the build by clicking on the name
-    </p>
+
+    <Paragraph text="If you're just a beginner wanting to get their first build, or a long-time pilot that just wants some build inspiration, this is the place for you!<br><br>
+        The builds here are sorted by difficulty, so you can quickly decide if something is for you as a beginner, or to recommend to someone else. When you hover on a specifc build, it will pop up with some short info, and you can get to the build by clicking on the name" />
     <ul>
         <li>
             <div class="flex items-center mb-4">
-                <div class="dark:bg-main-300 bg-contrast-300 w-32 h-20 rounded-2xl flex items-center justify-around text-2xl shadow-[0px_-10px_0px_#5ae65a] mr-2">Easy</div>
+                <div class="dark:bg-main-300 bg-contrast-300 w-32 h-20 rounded-2xl flex items-center justify-around text-2xl shadow-[0px_-10px_0px_#87cc52] mr-2">Easy</div>
                 <div class="w-[28rem] mb-4"> - You should be able to put this together as a complete beginner. Parts are easy to source, and you'll have enough space to assemble and solder everything</div>
             </div>
         </li>
@@ -39,8 +39,9 @@
     import BuildCard from "../components/buildsPage/buildCard.svelte";
     import Header from "../components/Header.svelte";
     import MainHeader from "../components/mainHeader.svelte";
+    import Paragraph from "../components/Paragraph.svelte";
 
-    const modules = import.meta.globEager("/buildLists/*.md");
+    const modules = import.meta.globEager("/modules/buildLists/*.md");
     // console.log(modules)
     let grouped_modules = {};
 
