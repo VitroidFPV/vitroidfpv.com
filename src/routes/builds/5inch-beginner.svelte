@@ -4,6 +4,12 @@
 
     // @ts-ignore
     import BuildProduct from "/src/components/buildsPage/buildProduct.svelte";
+    // @ts-ignore
+    import MainHeader from "/src/components/mainHeader.svelte";
+    // @ts-ignore
+    import Header from "/src/components/header.svelte";
+    // @ts-ignore
+    import Paragraph from "/src/components/Paragraph.svelte";
 
     const modules = import.meta.globEager("/buildLists/5inchBeginner/*.md");
     // console.log(modules)
@@ -20,10 +26,16 @@
         
 </script>
 
-<div class="w-full p-4 flex flex-col">
+<div class="w-full p-4 px-10 flex flex-col">
+    <MainHeader text="5'' Beginner"/>
+    <Header text="Cheap, durable, and easy to put together and repair"/>
+    <Paragraph text="Specced out to be easy to assemble, with affordable and accessible parts, and electronics that should be easy to solder, 
+    this build should be perfect to get you started in the world of FPV<br>
+    This list includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations"/>
+
     {#each Object.entries(grouped_modules) as [cat, contents]}
     <div class="{cat} my-8 w-full h-fit">
-    <div class="text-3xl tracking-tight border-b-2 w-fit px-1 cat {cat} pb-1" id="{cat}">{cat}</div>
+    <div class="text-4xl tracking-tight w-fit px-1 cat {cat} mb-2" id="{cat}">{cat}</div>
         {#each contents as info}
             <BuildProduct 
             color="{info.metadata.color}" 
@@ -32,6 +44,8 @@
             point1="{info.metadata.point1}" 
             point2="{info.metadata.point2}" 
             point3="{info.metadata.point3}" 
+            point4="{info.metadata.point4}"
+            point5="{info.metadata.point5}"
             text="{info.metadata.text}"
             link="{info.metadata.link}"/>
         {/each}
