@@ -42,7 +42,7 @@ Through GitHub Desktop (more noob friendly):
 From there, you can submit a pull request from the GitHub UI
 
 ### Some rules and principles to follow:
-The files in place should give you an idea of how the `.md` files should be written and named. The file naming scheme should be `dd-mm-yyyy-question-here-if-not-too-long`, follow the below example for an FAQ question to learn more about the content itself. 
+The files in place should give you an idea of how the `.md` files should be written and named. The file naming scheme should be `dd-mm-yyyy-question-here-if-not-too-long.md`.
 
 The site is designed in a way that all of the repeatable content is modular, the content that's easily accessible for contribution is in the `/modules/` directory. Let's take for an example the [Starting Question](https://github.com/VitroidFPV/VitroidFPV/blob/svelte/modules/faqs/13-04-2022-starting-out-question.md?plain=1):
 
@@ -54,7 +54,7 @@ answer: Starting out question but it's longer so I can have more lines so I can
   display long stuff and make it look nice and oh formatting doesn't work
 ---
 ```
-Every file in the `/faqs/` directory represents one question and its corresponding info and answer on the faq page on the site. The categories for the FAQ page are restricted to the ones that are available on the site itself, ie:
+Every file in the `/modules/faqs/` directory represents one question and its corresponding info and answer on the faq page on the site. The categories for the FAQ page are restricted to the ones that are available on the site itself, ie:
 - Starting Out
 - Building
 - Betaflight
