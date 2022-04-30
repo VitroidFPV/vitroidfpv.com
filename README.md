@@ -19,10 +19,32 @@ Right now, there are three main pages available:
 ## Contributing:
 [![forthebadge](https://forthebadge.com/images/badges/contains-tasty-spaghetti-code.svg)](https://forthebadge.com)
 
+This process requires at least some familiarity with Git, but should still be easy to follow with either the CLI, or Github desktop
+
+### Process:
+
+If you know CLI:
+1. `git clone <URL of your fork>`
+2. `git checkout svelte`
+3. from there, do `checkout -b name-of-new-branch`
+4. do your changes/additions
+5. `git add .` will add all the files in the current directory
+6. `git push origin name-of-new-branch` will push to your fork of the repo
+
+Through GitHub Desktop (more noob friendly):
+1. `File` > `Clone Repository` > find your forked repo, and select a path to clone it to
+2. Change the default `main` branch to `origin/svelte`
+3. Make a new branch based from the `svelte` branch
+4. Go to the directory you cloned it to, and make your changes/additions
+5. In GitHub Desktop, write a summary and commit the changes
+6. And publish/push the branch to your forked repo
+
+From there, you can submit a pull request from the GitHub UI
+
 ### Some rules and principles to follow:
 The files in place should give you an idea of how the `.md` files should be written and named. The file naming scheme should be `dd-mm-yyyy-question-here-if-not-too-long`, follow the below example for an FAQ question to learn more about the content itself. 
 
-The site is designed in a way that all of the repeatable content is modular. Let's take for an example the [Starting Question](https://github.com/VitroidFPV/VitroidFPV/blob/svelte/faqs/13-04-2022-starting-out-question.md?plain=1):
+The site is designed in a way that all of the repeatable content is modular, the content that's easily accessible for contribution is in the `/modules/` directory. Let's take for an example the [Starting Question](https://github.com/VitroidFPV/VitroidFPV/blob/svelte/modules/faqs/13-04-2022-starting-out-question.md?plain=1):
 
 ```markdown
 ---
