@@ -25,7 +25,7 @@ collections:
     create: true
     slug: "{{day}}-{{month}}-{{year}}-{{title}}"
     fields:
-      - label: Category
+      - name: Category
         widget: "select"
         options:
           - { label: "Frames", value: "Frames" }
