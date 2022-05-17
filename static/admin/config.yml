@@ -19,15 +19,15 @@ collections:
           - { label: "Hardware", value: "Hardware" }
       - {label: "Question", name: "title", widget: "text"}
       - {label: "Answer", name: "answer", widget: "markdown"}
+
   - name: 5" Beginner Build
     label: 5" Beginner Build
     folder: modules/buildLists/5inchBeginner/
     create: true
-    slug: "{{day}}-{{month}}-{{year}}-{{title}}"
+    slug: "{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
     fields:
-      - {label: "Title", name: "title", widget: "text"}
-      - {label: "Link", name: "link", widget: "text"}
-      - name: Category
+      - label: Category
+        name: Category
         widget: "select"
         options:
           - { label: "Frames", value: "Frames" }
@@ -42,6 +42,8 @@ collections:
           - { label: "Budget", value: "green" }
           - { label: "Mid-Range", value: "orange" }
           - { label: "High-end", value: "red" }
+      - {label: "Title", name: "title", widget: "text"}
+      - {label: "Link", name: "link", widget: "text"}
       - {label: "Description", name: "text", widget: "text"}
       - {label: "Price", name: "price", widget: "string"}
       - {label: "Point 1", name: "point1", widget: "string"}
