@@ -2,6 +2,7 @@
 difficulty: green
 title: 5" Beginner
 link: /builds/5inch-beginner
+img: https://www.vitroidfpv.com/sources/beginner_512.png
 text1: 600-800g
 text2: Plenty of space with little care for extra weight
 text3: As cheap and easy to put and solder together, as to repair 

@@ -1,17 +1,10 @@
 <script>
-    
-
-
-    // @ts-ignore
     import BuildProduct from "/src/components/buildsPage/buildProduct.svelte";
-    // @ts-ignore
     import MainHeader from "/src/components/mainHeader.svelte";
-    // @ts-ignore
     import Header from "/src/components/Header.svelte";
-    // @ts-ignore
     import Paragraph from "/src/components/Paragraph.svelte";
 
-    const modules = import.meta.globEager("/buildLists/5inchBeginner/*.md");
+    const modules = import.meta.globEager("/modules/buildLists/5inchBeginner/*.md");
     // console.log(modules)
     let grouped_modules = {};
 
@@ -26,6 +19,10 @@
         
 </script>
 
+<svelte:head>
+    <title>VitroidFPV - 5" Beginner Build</title>
+</svelte:head>
+
 <div class="w-full p-4 px-8 flex flex-col">
     <MainHeader text="5'' Beginner"/>
     <Header text="Cheap, durable, and easy to put together and repair"/>
@@ -35,20 +32,22 @@
 
     {#each Object.entries(grouped_modules) as [cat, contents]}
     <div class="{cat} my-8 w-full h-fit">
-    <div class="text-4xl tracking-tight w-fit px-1 cat {cat} mb-2" id="{cat}">{cat}</div>
-        {#each contents as info}
-            <BuildProduct 
-            color="{info.metadata.color}" 
-            title="{info.metadata.title}" 
-            price="{info.metadata.price}" 
-            point1="{info.metadata.point1}" 
-            point2="{info.metadata.point2}" 
-            point3="{info.metadata.point3}" 
-            point4="{info.metadata.point4}"
-            point5="{info.metadata.point5}"
-            text="{info.metadata.text}"
-            link="{info.metadata.link}"/>
-        {/each}
+    <div class="text-4xl tracking-tight w-fit px-1 md:ml-1 ml-2 cat {cat} mb-2" id="{cat}">{cat}</div>
+        <div class="flex flex-col md:flex-row flex-wrap">
+            {#each contents as info}
+                <BuildProduct
+                color="{info.metadata.color}"
+                title="{info.metadata.title}"
+                price="{info.metadata.price}"
+                point1="{info.metadata.point1}"
+                point2="{info.metadata.point2}"
+                point3="{info.metadata.point3}"
+                point4="{info.metadata.point4}"
+                point5="{info.metadata.point5}"
+                text="{info.metadata.text}"
+                link="{info.metadata.link}"/>
+            {/each}
+        </div>
     </div>
     {/each}
 </div>
