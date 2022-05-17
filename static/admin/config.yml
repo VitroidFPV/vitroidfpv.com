@@ -42,10 +42,9 @@ collections:
           - { label: "Budget", value: "green" }
           - { label: "Mid-Range", value: "orange" }
           - { label: "High-end", value: "red" }
-      - {name: "Title", widget: "text"}
+      - {label: "Title", name: "title", widget: "text"}
       - {label: "Link", name: "link", widget: "text"}
       - {label: "Description", name: "text", widget: "text"}
-      - {label: "Price", name: "price", widget: "string"}
       - {label: "Point 1", name: "point1", widget: "string"}
       - {label: "Point 2", name: "point2", widget: "string"}
       - {label: "Point 3", name: "point3", widget: "string"}
