@@ -26,7 +26,6 @@ collections:
     slug: "{{day}}-{{month}}-{{year}}-{{title}}"
     fields:
       - label: Category
-        name: color
         widget: "select"
         options:
           - { label: "Frames", value: "Frames" }
@@ -34,7 +33,8 @@ collections:
           - { label: "Flight Controllers", value: "Flight Controllers" }
           - { label: "ESCs", value: "ESCs" }
           - { label: "Video Transmitters", value: "Video Transmitters" }
-      - name: Price
+      - label: Price Range
+        name: color
         widget: "select"
         options:
           - { label: "Budget", value: "green" }
@@ -43,12 +43,12 @@ collections:
       - {label: "Title", name: "title", widget: "text"}
       - {label: "Link", name: "link", widget: "text"}
       - {label: "Description", name: "text", widget: "text"}
-      - {label: "Price", name: "price", widget: "text"}
-      - {label: "Point 1", name: "point1", widget: "text"}
-      - {label: "Point 2", name: "point2", widget: "text"}
-      - {label: "Point 3", name: "point3", widget: "text"}
-      - {label: "Point 4", name: "point4", widget: "text"}
-      - {label: "Point 5", name: "point5", widget: "text"}
+      - {label: "Price", name: "price", widget: "string"}
+      - {label: "Point 1", name: "point1", widget: "string"}
+      - {label: "Point 2", name: "point2", widget: "string"}
+      - {label: "Point 3", name: "point3", widget: "string"}
+      - {label: "Point 4", name: "point4", widget: "string"}
+      - {label: "Point 5", name: "point5", widget: "string"}
 media_folder: "static/uploads"
 public_folder: "/uploads"
 

@@ -14,11 +14,28 @@
 
 </div>
 
+<svelte:head>
+    <title>{title}</title>
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={descr}>
+    <meta property="og:image" content={img}>
+    <meta property="og:url" content={url}>
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={descr}>
+    <meta name="twitter:image" content={img}>
+    <meta name="twitter:card" content="summary_large_image">
+</svelte:head>
+
 <script>
     import BuildCard from "../components/buildsPage/buildCard.svelte";
     import Header from "../components/Header.svelte";
     import MainHeader from "../components/mainHeader.svelte";
     import Paragraph from "../components/Paragraph.svelte";
+    
+    let descr = "Everything that you will need to get building and flying. From goggles, cams, antennas, to radio transmitters and receivers, tools and soldering equipment";
+    let img = "";
+    let title = "VitroidFPV - Equipment";
+    let url = "";
 
     const modules = import.meta.globEager("/modules/equipmentLists/*.md");
     // console.log(modules)
