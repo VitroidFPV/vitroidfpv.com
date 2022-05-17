@@ -4,7 +4,7 @@ backend:
 collections:
   - name: FAQ
     label: FAQ
-    folder: faqs/
+    folder: modules/faqs/
     create: true
     slug: "{{day}}-{{month}}-{{year}}-{{title}}"
     fields:
@@ -19,6 +19,36 @@ collections:
           - { label: "Hardware", value: "Hardware" }
       - {label: "Question", name: "title", widget: "text"}
       - {label: "Answer", name: "answer", widget: "markdown"}
+  - name: 5" Beginner Build
+    label: 5" Beginner Build
+    folder: modules/buildLists/5inchBeginner/
+    create: true
+    slug: "{{day}}-{{month}}-{{year}}-{{title}}"
+    fields:
+      - label: Category
+        name: color
+        widget: "select"
+        options:
+          - { label: "Frames", value: "Frames" }
+          - { label: "Motors", value: "Motors" }
+          - { label: "Flight Controllers", value: "Flight Controllers" }
+          - { label: "ESCs", value: "ESCs" }
+          - { label: "Video Transmitters", value: "Video Transmitters" }
+      - name: Price
+        widget: "select"
+        options:
+          - { label: "Budget", value: "green" }
+          - { label: "Mid-Range", value: "orange" }
+          - { label: "High-end", value: "red" }
+      - {label: "Title", name: "title", widget: "text"}
+      - {label: "Link", name: "link", widget: "text"}
+      - {label: "Description", name: "text", widget: "text"}
+      - {label: "Price", name: "price", widget: "text"}
+      - {label: "Point 1", name: "point1", widget: "text"}
+      - {label: "Point 2", name: "point2", widget: "text"}
+      - {label: "Point 3", name: "point3", widget: "text"}
+      - {label: "Point 4", name: "point4", widget: "text"}
+      - {label: "Point 5", name: "point5", widget: "text"}
 media_folder: "static/uploads"
 public_folder: "/uploads"
 
