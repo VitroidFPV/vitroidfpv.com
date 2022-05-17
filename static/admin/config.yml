@@ -25,6 +25,8 @@ collections:
     create: true
     slug: "{{day}}-{{month}}-{{year}}-{{title}}"
     fields:
+      - {label: "Title", name: "title", widget: "text"}
+      - {label: "Link", name: "link", widget: "text"}
       - name: Category
         widget: "select"
         options:
@@ -40,8 +42,6 @@ collections:
           - { label: "Budget", value: "green" }
           - { label: "Mid-Range", value: "orange" }
           - { label: "High-end", value: "red" }
-      - {label: "Title", name: "title", widget: "text"}
-      - {label: "Link", name: "link", widget: "text"}
       - {label: "Description", name: "text", widget: "text"}
       - {label: "Price", name: "price", widget: "string"}
       - {label: "Point 1", name: "point1", widget: "string"}
