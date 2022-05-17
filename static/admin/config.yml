@@ -21,7 +21,7 @@ collections:
       - {label: "Answer", name: "answer", widget: "markdown"}
 
   - name: 5" Beginner Build
-    label: 5" Beginner Build
+    label: 5" Beginner Build Part
     folder: modules/buildLists/5inchBeginner/
     create: true
     slug: "{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
