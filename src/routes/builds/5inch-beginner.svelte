@@ -1,7 +1,11 @@
 <script>
+        // @ts-ignore
     import BuildProduct from "/src/components/buildsPage/buildProduct.svelte";
+        // @ts-ignore
     import MainHeader from "/src/components/mainHeader.svelte";
+        // @ts-ignore
     import Header from "/src/components/Header.svelte";
+        // @ts-ignore
     import Paragraph from "/src/components/Paragraph.svelte";
 
     const modules = import.meta.globEager("/modules/buildLists/5inchBeginner/*.md");
@@ -32,8 +36,8 @@
 
     {#each Object.entries(grouped_modules) as [cat, contents]}
     <div class="{cat} my-8 w-full h-fit">
-    <div class="text-4xl tracking-tight w-fit px-1 md:ml-1 ml-2 cat {cat} mb-2" id="{cat}">{cat}</div>
-        <div class="flex flex-col md:flex-row flex-wrap">
+    <div class="text-4xl tracking-tight md:w-fit f-full px-1 md:ml-1 ml-2 cat {cat} mb-2 text-center" id="{cat}">{cat}</div>
+        <div class="flex flex-col md:flex-row flex-wrap w-full md:justify-between items-center">
             {#each contents as info}
                 <BuildProduct
                 color="{info.metadata.color}"
