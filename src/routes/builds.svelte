@@ -27,13 +27,25 @@
     <div class="flex flex-row flex-wrap justify-around">
         {#each Object.entries(grouped_modules) as [,contents]}
             {#each contents as build}
-                <BuildCard title="{build.metadata.title}" color="{build.metadata.difficulty}" link="{build.metadata.link}"
-                text1="{build.metadata.text1}" text2="{build.metadata.text2}" text3="{build.metadata.text3}" text4="{build.metadata.text4}" text5="{build.metadata.text5}"></BuildCard>
+                <BuildCard 
+                title="{build.metadata.title}" 
+                color="{build.metadata.difficulty}" 
+                link="{build.metadata.link}"
+                text1="{build.metadata.text1}" 
+                text2="{build.metadata.text2}" 
+                text3="{build.metadata.text3}" 
+                text4="{build.metadata.text4}" 
+                text5="{build.metadata.text5}"
+                img="{build.metadata.img}"></BuildCard>
             {/each}
         {/each}
     </div>
 
 </div>
+
+<svelte:head>
+    <title>VitroidFPV - Builds</title>
+</svelte:head>
 
 <script>
     import BuildCard from "../components/buildsPage/buildCard.svelte";

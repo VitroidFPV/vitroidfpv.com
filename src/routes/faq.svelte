@@ -2,6 +2,7 @@
     import Header from "../components/Header.svelte";
     import MainHeader from "../components/mainHeader.svelte";
     import CategoryIndex from "../components/faqPage/categoryIndex.svelte";
+    // @ts-ignore
     import Faq from "../components/faqPage/Faq.svelte";
     import { onMount } from 'svelte';
 
@@ -74,7 +75,11 @@
             </div>
         </div> -->
 
-        <Faq category="{cat}" title="{question.metadata.title}" content="{question.metadata.answer}"/>
+        <Faq 
+            category="{cat}" 
+            title="{question.metadata.title}" 
+            content="{question.metadata.answer}"
+            id="{question.metadata.id}"/>
         {/each}
     </div>
     {/each}

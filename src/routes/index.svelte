@@ -1,3 +1,6 @@
+<svelte:head>
+    <title>VitroidFPV</title>
+</svelte:head>
 <div class="flex flex-col w-full">
     <div class="md:mt-64 mt-16 md:mb-0 mb-16 w-fit">
         <h1 class="md:text-[180px] text-[150px] caveat h-fit w-fit leading-none dark:text-highlight-dark">Vitroid FPV</h1>
@@ -16,8 +19,8 @@
         </div>
         <div class="w-full h-fit bg-highlight dark:bg-highlight-dark pl-8 -mb-1 flex flex-row">
             <div class="flex flex-col md:w-1/2">
-                <div class="text-main-100 dark:text-contrast-100">
-                    <h2 class="text-4xl font-semibold my-4 border-b-4 border-dotted w-fit border-main-100 dark:border-contrast-100">Your source for quick FPV info!</h2>
+                <div class="dark:text-main-200 text-main-100">
+                    <h2 class="text-4xl font-semibold my-4 border-b-4 border-dotted w-fit border-main-100">Your source for quick FPV info!</h2>
                     <p class="text-xl leading-normal">Heyo! I'm a 16y/o FPV pilot, and Front-End developer<br><br>
                         This site is my project to keep FPV info easily and more importantly quickly readable when needed. It's constantly getting updated, so expect new stuff (and maybe some bugs) to be added here and there.<br> If you wish to contribute, you can go to the
                         GitHub <a href="/" class="">here</a>, and if you like what I do, you can donate <a href="/">here</a></p>
