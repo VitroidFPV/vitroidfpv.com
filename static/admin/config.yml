@@ -42,7 +42,7 @@ collections:
           - { label: "Budget", value: "green" }
           - { label: "Mid-Range", value: "orange" }
           - { label: "High-end", value: "red" }
-      - {label: "Question", name: "title", widget: "text"}
+      - {name: "Title", widget: "text"}
       - {label: "Link", name: "link", widget: "text"}
       - {label: "Description", name: "text", widget: "text"}
       - {label: "Price", name: "price", widget: "string"}
