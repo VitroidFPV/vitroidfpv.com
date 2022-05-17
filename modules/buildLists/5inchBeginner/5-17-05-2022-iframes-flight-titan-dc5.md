@@ -1,6 +1,6 @@
 ---
 Category: Frames
-color: orange
+color: red
 title: IFlight Titan DC5
 link: https://shop.iflight-rc.com/quad-parts-cat20/FrameKits-Parts-TPU-cat346/titan-series-cat108/titan-dc5-v1-4-hd-frame-pro1074
 text: Similar to the Titan XL5, the deadcat geometry makes sure that you will

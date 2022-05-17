@@ -1,6 +1,6 @@
 ---
 Category: Frames
-color: orange
+color: red
 title: IFlight XL5 V2.1
 text: A bit lighter than the Titan Xl5, but it can still take a beating. Slighly smaller wheelbase thanks to the TrueX design, supposed to give better handling
 link: https://www.youtube.com/watch?v=dQw4w9WgXcQ

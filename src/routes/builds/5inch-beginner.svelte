@@ -37,7 +37,7 @@
     {#each Object.entries(grouped_modules) as [cat, contents]}
     <div class="{cat} my-8 w-full h-fit">
     <div class="text-4xl tracking-tight md:w-fit f-full px-1 md:ml-1 ml-2 cat {cat} mb-2 text-center" id="{cat}">{cat}</div>
-        <div class="flex flex-col md:flex-row flex-wrap w-full md:justify-between items-center">
+        <div class="flex flex-col md:flex-row flex-wrap w-full md:justify-between md:items-start items-center">
             {#each contents as info}
                 <BuildProduct
                 color="{info.metadata.color}"
