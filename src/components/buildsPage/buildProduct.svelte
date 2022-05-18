@@ -1,6 +1,6 @@
 <div class="{color} h-fit max-w-sm min-w-[18rem] border-l-4 product pl-2 my-4 mx-2">
     <Link color={color} title={title} color1={color} size=2 link={link}/>
-    <div class="flex justify-between mt-2 flex-wrap">
+    <div class="flex justify-between mt-3 mb-3 flex-wrap tracking-[0.01em]">
         <div class="text-base text-main-100 dark:text-contrast-300 mr-2">{price}</div>
         <div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point1}</div>
         <div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point2}</div>
