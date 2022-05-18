@@ -1,7 +1,7 @@
 ---
 Category: Flight Controllers
 color: green
-title: Diatone Mamba DJI F722 MK2
+title: Diatone DJI F722 MK2
 link: https://www.diatone.us/collections/dji-fc/products/mb-dji-f722-mk2-fc
 text: A great option if you want the DJI FPV system, but they will work with
   analog just fine too. For some reason they're cheaper than the analog
