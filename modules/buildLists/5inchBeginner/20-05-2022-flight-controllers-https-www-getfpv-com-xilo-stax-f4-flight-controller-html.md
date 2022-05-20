@@ -1,7 +1,7 @@
 ---
 Category: Flight Controllers
 color: orange
-title: https://www.getfpv.com/xilo-stax-f4-flight-controller.html
+title: XILO Stax F4
 link: https://www.getfpv.com/hobbywing-xrotor-f7-convertible-flight-controller.html
 text: It's a well laid out FC with big solder pads, and it has a series
   surrounding a full build from Joshua Bardwell, if you want a full detailed
