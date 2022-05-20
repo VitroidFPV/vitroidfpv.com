@@ -31,8 +31,16 @@
     <MainHeader text="5'' Beginner"/>
     <Header text="Cheap, durable, and easy to put together and repair"/>
     <Paragraph text="Specced out to be easy to assemble, with affordable and accessible parts, and electronics that should be easy to solder, 
-    this build should be perfect to get you started in the world of FPV<br>
-    This list includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations"/>
+    this build should be perfect to get you started in the world of FPV.<br>
+    This list includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br>
+    The price range for each part is highlighted, so you can quickly find something to suit your budget. That doesn't mean the budget parts are bad, all of them here are great">
+    <ul class="flex flex-row md:flex-col justify-around w-full">
+        <li class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-green before:relative mb-2">Budget</li>
+        <li class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-orange before:relative mb-2">Mid-range</li>
+        <li class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-red before:relative mb-2">High-end</li>
+    </ul>
+    </Paragraph>
+
 
     {#each Object.entries(grouped_modules) as [cat, contents]}
     <div class="{cat} my-8 w-full h-fit">
