@@ -42,7 +42,7 @@
     </Paragraph>
 
 
-    <div class="flex">
+    <div class="flex flex-col">
         {#each Object.entries(grouped_modules) as [cat, contents]}
         <div class="{cat} my-8 w-full h-fit">
         <div class="text-4xl tracking-tight md:w-fit f-full px-1 md:ml-1 ml-2 cat {cat} mb-2 text-center" id="{cat}">{cat}</div>
