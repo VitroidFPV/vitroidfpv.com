@@ -42,24 +42,26 @@
     </Paragraph>
 
 
-    {#each Object.entries(grouped_modules) as [cat, contents]}
-    <div class="{cat} my-8 w-full h-fit">
-    <div class="text-4xl tracking-tight md:w-fit f-full px-1 md:ml-1 ml-2 cat {cat} mb-2 text-center" id="{cat}">{cat}</div>
-        <div class="flex flex-col md:flex-row flex-wrap w-full md:justify-between md:items-start items-center border-b-[1px] border-white/10">
-            {#each contents as info}
-                <BuildProduct
-                color="{info.metadata.color}"
-                title="{info.metadata.title}"
-                price="{info.metadata.price}"
-                point1="{info.metadata.point1}"
-                point2="{info.metadata.point2}"
-                point3="{info.metadata.point3}"
-                point4="{info.metadata.point4}"
-                point5="{info.metadata.point5}"
-                text="{info.metadata.text}"
-                link="{info.metadata.link}"/>
-            {/each}
+    <div class="flex">
+        {#each Object.entries(grouped_modules) as [cat, contents]}
+        <div class="{cat} my-8 w-full h-fit">
+        <div class="text-4xl tracking-tight md:w-fit f-full px-1 md:ml-1 ml-2 cat {cat} mb-2 text-center" id="{cat}">{cat}</div>
+            <div class="flex flex-col md:flex-row flex-wrap w-full md:justify-between md:items-start items-center border-b-[1px] border-white/10">
+                {#each contents as info}
+                    <BuildProduct
+                    color="{info.metadata.color}"
+                    title="{info.metadata.title}"
+                    price="{info.metadata.price}"
+                    point1="{info.metadata.point1}"
+                    point2="{info.metadata.point2}"
+                    point3="{info.metadata.point3}"
+                    point4="{info.metadata.point4}"
+                    point5="{info.metadata.point5}"
+                    text="{info.metadata.text}"
+                    link="{info.metadata.link}"/>
+                {/each}
+            </div>
         </div>
+        {/each}
     </div>
-    {/each}
 </div>
