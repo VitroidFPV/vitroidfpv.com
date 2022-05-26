@@ -157,4 +157,6 @@
 
   .product.red {@apply border-red} .product.green {@apply border-green} .product.orange {@apply border-orange} 
   .product.cyan {@apply border-cyan} .product.blue {@apply border-blue} .product.violet {@apply border-violet}
+
+  .Motors {@apply order-1} .Frames {@apply order-2} .Flight {@apply order-3} .ESCs {@apply order-4} .VTXs {@apply order-5}
 }
