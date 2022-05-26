@@ -6,7 +6,7 @@ collections:
     label: FAQ
     folder: modules/faqs/
     create: true
-    slug: "{{day}}-{{month}}-{{year}}-{{title}}"
+    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{title}}"
     fields:
       - name: Category
         widget: "select"
@@ -17,6 +17,7 @@ collections:
           - { label: "Video", value: "Video" }
           - { label: "Radio", value: "Radio" }
           - { label: "Hardware", value: "Hardware" }
+      - {label: "Order", name: "order", widget: "number"}
       - {label: "Question", name: "title", widget: "text"}
       - {label: "Answer", name: "answer", widget: "markdown"}
 
@@ -24,7 +25,7 @@ collections:
     label: 5" Beginner Build
     folder: modules/buildLists/5inchBeginner/
     create: true
-    slug: "{{day}}-{{month}}-{{year}}-{{Category}}-{{title}}"
+    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Category}}-{{title}}"
     fields:
       - label: Category
         name: Category
@@ -42,6 +43,7 @@ collections:
           - { label: "Budget", value: "green" }
           - { label: "Mid-Range", value: "orange" }
           - { label: "High-end", value: "red" }
+      - {label: "Order", name: "order", widget: "number"}
       - {label: "Title", name: "title", widget: "text"}
       - {label: "Link", name: "link", widget: "text"}
       - {label: "Description", name: "text", widget: "text"}
