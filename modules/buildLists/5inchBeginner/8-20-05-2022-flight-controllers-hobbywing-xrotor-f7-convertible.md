@@ -1,6 +1,7 @@
 ---
 Category: Flight Controllers
-color: orange
+color: red
+order: 6
 title: Hobbywing XRotor F7 Convertible
 link: https://www.getfpv.com/hobbywing-xrotor-f7-convertible-flight-controller.html
 text: A lighter FC in features and weight. Being smaller, it may be harder to
