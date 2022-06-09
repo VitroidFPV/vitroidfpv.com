@@ -1,6 +1,6 @@
 ---
 Category: ESCs
-color: orange
+color: purple
 order: 5
 title: TMotor Velox 45A V2
 link: https://www.racedayquads.com/products/t-motor-velox-45a-32bit-3-6s-30x30-4in1-esc-1
