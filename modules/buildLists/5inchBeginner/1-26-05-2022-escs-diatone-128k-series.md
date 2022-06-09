@@ -1,6 +1,6 @@
 ---
 Category: ESCs
-color: purple
+color: violet
 order: 1
 title: Diatone 128K Series
 link: " "
