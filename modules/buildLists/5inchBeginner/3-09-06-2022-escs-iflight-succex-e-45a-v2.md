@@ -1,7 +1,7 @@
 ---
 Category: ESCs
 color: green
-order: 3
+order: 4
 title: IFlight SucceX-E 45A V2
 link: https://shop.iflight-rc.com/quad-parts-cat20/electronics-cat27/succex-esc-cat136/succex-e-45a-v2-2-6s-blheli-s-4-in-1-esc-pro1413?sort=p.price&order=ASC
 text: A newer version of the original, coming with the motor pads angled out
