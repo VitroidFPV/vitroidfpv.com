@@ -43,7 +43,7 @@ collections:
           - { label: "Budget", value: "green" }
           - { label: "Mid-Range", value: "orange" }
           - { label: "High-end", value: "red" }
-          - { label: "Varied", value: "purple" }
+          - { label: "Varied", value: "violet" }
       - {label: "Order", name: "order", widget: "number"}
       - {label: "Title", name: "title", widget: "text"}
       - {label: "Link", name: "link", widget: "text"}
