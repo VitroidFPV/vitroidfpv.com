@@ -7,7 +7,7 @@ link: https://www.racedayquads.com/products/t-motor-velox-45a-32bit-3-6s-30x30-4
 text: This was originally planned to go into a high-end freestyle build list,
   but with the other ESCs going up in price, this will fit in too and will be a
   great option
-price: $40.99
+price: $55.90
 point1: "Nominal Current: 45A"
 point2: "Peak Current: 55A"
 point3: "Firmware: BLHeli_32"
