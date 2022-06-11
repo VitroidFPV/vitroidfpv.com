@@ -32,7 +32,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="VitroidFPV" />
     <meta property="article:author" content="VitroidFPV" />
-    <meta property="#og:title" content="Builds - 5inch Beginner Build List"/>
+    <meta property="og:title" content="Builds - 5inch Beginner Build List"/>
     <meta name="description" content="Specced out to be easy to assemble, with affordable and accessible parts, and electronics that should be easy to solder, this build should be perfect to get you started in the world of FPV"/>
     <meta property="og:description" content="Specced out to be easy to assemble, with affordable and accessible parts, and electronics that should be easy to solder, this build should be perfect to get you started in the world of FPV">
     <meta content="https://vitroidfpv.com/faq" property="og:url" />
