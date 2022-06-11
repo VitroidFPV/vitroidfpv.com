@@ -29,8 +29,12 @@
     <meta property="og:image" content="https://www.vitroidfpv.com/sources/beginner_512.png">
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="VitroidFPV" />
+    <meta property="article:author" content="VitroidFPV" />
     <meta property="#og:title" content="Builds - 5inch Beginner Build List"/>
-    <meta name="description" content="Easy to build, cheap, and durable to learn on, you should be able to put these together as a complete beginner and start your journey in the world of FPV!"/>
+    <meta name="description" content="Specced out to be easy to assemble, with affordable and accessible parts, and electronics that should be easy to solder, this build should be perfect to get you started in the world of FPV"/>
+    <meta property="og:description" content="Specced out to be easy to assemble, with affordable and accessible parts, and electronics that should be easy to solder, this build should be perfect to get you started in the world of FPV">
     <meta content="https://vitroidfpv.com/faq" property="og:url" />
     <meta name="theme-color" content="#1cd167">
 </svelte:head>
