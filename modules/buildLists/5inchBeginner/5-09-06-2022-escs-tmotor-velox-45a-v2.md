@@ -1,7 +1,7 @@
 ---
 Category: ESCs
 color: red
-order: 6
+order: 7
 title: TMotor Velox 45A V2
 link: https://www.racedayquads.com/products/t-motor-velox-45a-32bit-3-6s-30x30-4in1-esc-1
 text: This was originally planned to go into a high-end freestyle build list,
