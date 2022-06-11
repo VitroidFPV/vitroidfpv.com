@@ -111,6 +111,9 @@
   .Video.cat {
     @apply text-green border-green
   }
+  .Transmitters.cat {
+    @apply text-main-200 dark:text-contrast-100
+  }
   .Video {
     @apply order-4
   }
@@ -162,5 +165,5 @@
   .Frames.my-8 {@apply order-2} 
   .Flight.Controllers.my-8 {@apply order-3} 
   .ESCs.my-8 {@apply order-4} 
-  .VTXs.my-8 {@apply order-5} 
+  .Video.my-8 {@apply order-5} 
 }

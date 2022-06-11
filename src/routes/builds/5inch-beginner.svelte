@@ -25,6 +25,14 @@
 
 <svelte:head>
     <title>VitroidFPV - 5" Beginner Build</title>
+    <meta name="author" content="VitroidFPV"/>
+    <meta property="og:image" content="https://www.vitroidfpv.com/sources/beginner_512.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="#og:title" content="Builds - 5inch Beginner Build List"/>
+    <meta name="description" content="Easy to build, cheap, and durable to learn on, you should be able to put these together as a complete beginner and start your journey in the world of FPV!"/>
+    <meta content="https://vitroidfpv.com/faq" property="og:url" />
+    <meta name="theme-color" content="#1cd167">
 </svelte:head>
 
 <div class="w-full p-4 px-8 flex flex-col">
