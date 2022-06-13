@@ -5,7 +5,7 @@
   
   {#key refresh}
     <div
-        in:fly="{{ x: -10, duration: 250}}"
+        in:fly="{{ x: -10, duration: 500}}"
       >
       <slot/>
     </div>
