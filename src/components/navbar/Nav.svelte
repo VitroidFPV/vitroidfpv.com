@@ -1,6 +1,7 @@
 <script>
     import ThemeToggle from "./themeToggle.svelte";
     import { page } from "$app/stores"
+    export let segment
 </script>
 
 <nav class="md:w-fit bottom-0 md:h-screen w-screen h-24 test-nav md:justify-start flex md:flex-col flex-row md:items-center border-highlight dark:border-highlight-dark md:border-r-8 md:border-t-0 border-t-[15px] fixed z-50 bg-contrast-100 dark:bg-main-400 md:shadow-2xl shadow-[0px_-25px_50px_-12px] shadow-black/30 dark:shadow-black/60">
