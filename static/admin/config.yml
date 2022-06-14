@@ -91,8 +91,8 @@ collections:
       - {label: "Point 4", name: "point4", widget: "text", required: false}
       - {label: "Point 5", name: "point5", widget: "text", required: false}
     
-media_folder: "/src/uploads/"
-public_folder: "/src/uploads/"
+media_folder: "/static/uploads/"
+public_folder: "/static/uploads/"
 
 # site_url: https://your-site.com
 # display_url: https://your-site.com
