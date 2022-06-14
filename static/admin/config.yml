@@ -58,7 +58,7 @@ collections:
 
   - name: 3" Cinewhoop Build
     label: 3" Cinewhoop Build
-    folder: modules/buildLists/3inchBeginner/
+    folder: modules/buildLists/3inchCinewhoop/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Category}}-{{title}}"
     fields:
