@@ -4,7 +4,7 @@
 
     <Paragraph text="If you're just a beginner wanting to get their first build, or a long-time pilot that just wants some build inspiration, this is the place for you!<br><br>
         The builds here are sorted by difficulty, so you can quickly decide if something is for you as a beginner, or to recommend to someone else. When you hover on a specifc build, it will pop up with some short info, and you can get to the build by clicking on the name" />
-    <ul>
+    <ul class="mt-2">
         <li>
             <div class="flex items-center mb-4">
                 <div class="dark:bg-main-300 bg-contrast-300 w-32 h-20 rounded-2xl flex items-center justify-around text-2xl shadow-[0px_-10px_0px_#87cc52] mr-2">Easy</div>
