@@ -10,4 +10,5 @@ price: $16.99
 point1: "Size: 2004"
 point2: "Weight: 33.5g"
 point3: "KV: 1700/2900"
+point4: "Prop Mount: T-Mount"
 ---
