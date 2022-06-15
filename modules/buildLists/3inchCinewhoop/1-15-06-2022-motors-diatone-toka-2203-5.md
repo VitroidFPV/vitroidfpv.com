@@ -11,4 +11,5 @@ price: $20.99
 point1: "Size: 2203.5"
 point2: "Weight: 20.8g"
 point3: "KV: 2200/3300kv"
+point4: "Prop Mount: M5 Shaft"
 ---
