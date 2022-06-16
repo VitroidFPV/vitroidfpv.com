@@ -1,6 +1,6 @@
 ---
 Category: Motors
-color: orange
+color: green
 order: 4
 title: HGLRC Aeolus 1804
 link: https://www.hglrc.com/collections/motors/products/hglrc-aeolus-1804-3500kv-brushless-motor
