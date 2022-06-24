@@ -1,6 +1,6 @@
 ---
 Category: Frames
-color: green
+color: orange
 order: 2
 title: HGLRC Veyron30
 link: https://www.hglrc.com/collections/drone-frame/products/hglrc-veyron30cr-3-inches-cinewhoop-indoor-fpv-frame
