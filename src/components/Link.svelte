@@ -1,4 +1,4 @@
-<a href="{link}" class="{color} t-{color1} text-{size}xl link">{title}</a>
+<a target="_blank" rel="noopener noreferrer" href="{link}" class="{color} t-{color1} text-{size}xl link">{title}</a>
 
 <script>
     export let color
