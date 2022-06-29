@@ -40,12 +40,13 @@ Through GitHub Desktop (more noob friendly):
 6. And publish/push the branch to your forked repo
 
 From there, you can submit a pull request from the GitHub UI
+
 And I'm not entirely sure I wrote the instructions properly
 
 ### Some rules and principles to follow:
 The files in place should give you an idea of how the `.md` files should be written and named. The file naming scheme should be `dd-mm-yyyy-question-here-if-not-too-long.md`.
 
-The site is designed in a way that all of the repeatable content is modular, the content that's easily accessible for contribution is in the `/modules/` directory. Let's take for an example the [Starting Question](https://github.com/VitroidFPV/VitroidFPV/blob/svelte/modules/faqs/13-04-2022-starting-out-question.md?plain=1):
+The site is designed in a way that all of the repeatable content is modular, the content that's easily accessible for contribution is in the `/modules/` directory:
 
 ```markdown
 ---
