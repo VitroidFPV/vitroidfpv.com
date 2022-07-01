@@ -21,14 +21,14 @@
         }
     }
     
-    let prefix = "Builds - "
-    let title = "3\" Cinewhoop Build"
+    let prefix = "Builds"
+    let title = " - 3\" Cinewhoop Build"
     let color = "#ff9742"
     let description = "Meant to be used with a full size gopro, to carry it safely around hard, and soft targets alike, in close proximity. Wider, shorter motors, fully protected frames, and mini stacks or AIOs"
 </script>
 
 <svelte:head>
-    <title>VitroidFPV - {title}</title>
+    <title>VitroidFPV{title}</title>
     <meta name="author" content="VitroidFPV"/>
     <meta property="og:image" content="https://www.vitroidfpv.com/sources/cinewhoop_512.png">
     <meta property="og:image:width" content="512">

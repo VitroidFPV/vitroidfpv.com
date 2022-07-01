@@ -65,4 +65,10 @@
         grouped_modules[cat] = [modules[k]]
         }
     }
+
+    let prefix = "VitroidFPV"
+    let title = " - Builds"
+    let color = "#1cd167"
+    let description = "If you're just a beginner wanting to get their first build, or a long-time pilot that just wants some build inspiration, this is the place for you!"
+
 </script>

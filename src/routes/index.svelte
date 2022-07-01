@@ -1,6 +1,26 @@
+<script>
+    let prefix = "VitroidFPV"
+    let title = ""
+    let color = "#1cd167"
+    let description = "This site is my project to keep FPV info easily and more importantly quickly readable when needed. It's constantly getting updated, so expect new stuff (and maybe some bugs) to be added here and there"
+</script>
+
 <svelte:head>
-    <title>VitroidFPV</title>
+    <title>VitroidFPV{title}</title>
+    <meta name="author" content="VitroidFPV"/>
+    <!-- <meta property="og:image" content="https://www.vitroidfpv.com/sources/cinewhoop_512.png"> -->
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="VitroidFPV" />
+    <meta property="article:author" content="VitroidFPV" />
+    <meta property="og:title" content="{prefix}{title}"/>
+    <meta name="description" content="{description}"/>
+    <meta property="og:description" content="{description}">
+    <meta content="https://vitroidfpv.com/" property="og:url" />
+    <meta name="theme-color" content="{color}">
 </svelte:head>
+
 <div class="flex flex-col w-full">
     <div class="md:mt-64 mt-16 md:mb-0 mb-16 w-fit">
         <h1 class="md:text-[180px] text-[150px] caveat h-fit w-fit leading-none dark:text-highlight-dark">Vitroid FPV</h1>

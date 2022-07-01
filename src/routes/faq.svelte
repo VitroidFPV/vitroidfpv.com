@@ -38,10 +38,26 @@
         });
         }
     })
+    let prefix = "VitroidFPV"
+    let title = " - FAQ"
+    let color = "#1cd167"
+    let description = "There's a lot of questions in FPV, doesn't matter if you're just starting or not. You will find most of the common and easy to answer ones here. For more specific ones, there are tutorials planned"
 </script>
 
 <svelte:head>
-    <title>VitroidFPV - FAQ</title>
+    <title>VitroidFPV{title}</title>
+    <meta name="author" content="VitroidFPV"/>
+    <!-- <meta property="og:image" content="https://www.vitroidfpv.com/sources/cinewhoop_512.png"> -->
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="VitroidFPV" />
+    <meta property="article:author" content="VitroidFPV" />
+    <meta property="og:title" content="{prefix}{title}"/>
+    <meta name="description" content="{description}"/>
+    <meta property="og:description" content="{description}">
+    <meta content="https://vitroidfpv.com/" property="og:url" />
+    <meta name="theme-color" content="{color}">
 </svelte:head>
 
 <div class="w-full min-h-screen p-4 px-8 flex flex-col">
