@@ -20,11 +20,15 @@
             grouped_modules[cat] = [modules[k]]
         }
     }
-        
+    
+    let prefix = "Builds - "
+    let title = "3\" Cinewhoop Build"
+    let color = "#ff9742"
+    let description = "Meant to be used with a full size gopro, to carry it safely around hard, and soft targets alike, in close proximity. Wider, shorter motors, fully protected frames, and mini stacks or AIOs"
 </script>
 
 <svelte:head>
-    <title>VitroidFPV - 3" Cinewhoop Build</title>
+    <title>VitroidFPV - {title}</title>
     <meta name="author" content="VitroidFPV"/>
     <meta property="og:image" content="https://www.vitroidfpv.com/sources/cinewhoop_512.png">
     <meta property="og:image:width" content="512">
@@ -32,11 +36,11 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="VitroidFPV" />
     <meta property="article:author" content="VitroidFPV" />
-    <meta property="og:title" content="Builds - 3'' Cinewhoop Build List"/>
-    <meta name="description" content="Meant to be used with a full size gopro, to carry it safely around hard, and soft targets alike, in close proximity. Wider, shorter motors, fully protected frames, and mini stacks or AIOs"/>
-    <meta property="og:description" content="Meant to be used with a full size gopro, to carry it safely around hard, and soft targets alike, in close proximity. Wider, shorter motors, fully protected frames, and mini stacks or AIOs">
-    <meta content="https://vitroidfpv.com/faq" property="og:url" />
-    <meta name="theme-color" content="#1cd167">
+    <meta property="og:title" content="{prefix}{title}"/>
+    <meta name="description" content="{description}"/>
+    <meta property="og:description" content="{description}">
+    <meta content="https://vitroidfpv.com/" property="og:url" />
+    <meta name="theme-color" content="{color}">
 </svelte:head>
 
 <div class="w-full p-4 px-8 flex flex-col">
