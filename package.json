@@ -28,6 +28,8 @@
   "type": "module",
   "dependencies": {
     "@macfja/svelte-persistent-store": "=1.2.0",
+    "copy-image-clipboard": "^2.1.2",
+    "dom-to-image": "^2.6.0",
     "svelte-collapsible": "^0.2.1",
     "svelte-range-slider-pips": "^2.0.3"
   }

@@ -166,4 +166,6 @@
   .Flight.Controllers.my-8 {@apply order-3} 
   .ESCs.my-8 {@apply order-4} 
   .Video.my-8 {@apply order-5} 
+
+  code {@apply bg-gray-500/30 p-1 rounded-md}
 }
