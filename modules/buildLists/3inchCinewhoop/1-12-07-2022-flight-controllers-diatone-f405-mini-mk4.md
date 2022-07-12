@@ -2,7 +2,7 @@
 Category: Flight Controllers
 color: green
 order: 1
-title: Diatone F405 Mini MK4
+title: Diatone Mini F405/F722 MK4
 link: https://www.diatone.us/search?type=product&options%5Bprefix%5D=last&options%5Bunavailable_products%5D=last&q=mk4+mini+stack
 text: Grouping these together because they're nearly the same, except the F722
   version has the BMI270 gyro and two more motor outputs. They're good FCs with
