@@ -70,6 +70,7 @@ collections:
           - { label: "Motors", value: "Motors" }
           - { label: "Flight Controllers", value: "Flight Controllers" }
           - { label: "ESCs", value: "ESCs" }
+          - { label: "AIOs", value: "AIOs" }
           - { label: "Video Transmitters", value: "Video Transmitters" }
       - label: Price Range
         name: color
