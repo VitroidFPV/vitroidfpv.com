@@ -41,7 +41,7 @@
             <div class="flex flex-col md:w-1/2">
                 <div class="dark:text-main-200 text-main-100">
                     <h2 class="text-4xl font-semibold my-4 border-b-4 border-dotted w-fit border-main-100">Your source for quick FPV info!</h2>
-                    <p class="text-xl leading-normal">Heyo! I'm a 16y/o FPV pilot, and Front-End developer<br><br>
+                    <p class="text-xl leading-normal">Heyo! I'm a 17y/o FPV pilot, and Front-End developer<br><br>
                         This site is my project to keep FPV info easily and more importantly quickly readable when needed. It's constantly getting updated, so expect new stuff (and maybe some bugs) to be added here and there.<br> If you wish to contribute, you can go to the
                         GitHub <a href="/" class="">here</a>, and if you like what I do, you can donate <a href="/">here</a></p>
                 </div>
