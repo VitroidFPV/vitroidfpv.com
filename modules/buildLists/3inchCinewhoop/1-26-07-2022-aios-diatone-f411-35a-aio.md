@@ -10,7 +10,7 @@ text: A good entry-level AIO, with no need to stack the FC and ESC boards on top
 price: $62.99
 point1: "IO: 2 UARTs, BF LED Control, USB Micro"
 point2: "Regulators: 0.5A 3.3v, 2A 5v, 2A 9v"
-point3: "Nominal Current: 35A"
-point4: "Peak Current: 40A"
+point3: "Nominal/Peak Current: 35A/40A"
+point4: "Mounting: 20x20"
 point5: "Weight: 5.7g"
 ---
