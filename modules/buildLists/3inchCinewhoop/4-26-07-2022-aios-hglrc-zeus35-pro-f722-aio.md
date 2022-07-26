@@ -1,6 +1,6 @@
 ---
 Category: AIOs
-color: green
+color: orange
 order: 4
 title: HGLRC Zeus35 Pro F722 AIO
 link: https://www.hglrc.com/collections/aio/products/hglrc-zeus35-pro-aio-fpv-racing-drone-3-6s-f722-flight-controller-35a-bl_s-4in1-esc
