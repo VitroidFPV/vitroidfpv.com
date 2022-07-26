@@ -1,6 +1,6 @@
 ---
 Category: Video Transmitters
-color: red
+color: orange
 order: 1
 title: RUSH Tank Mini
 link: https://www.racedayquads.com/products/rush-fpv-tank-mini-25-800mw-20x20-5-8ghz-vtx-mmcx
