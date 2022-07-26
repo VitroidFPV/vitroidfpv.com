@@ -1,8 +1,8 @@
 ---
 Category: AIOs
 color: red
-order: 5
-title: Foxeer Reaper F745 AIO
+order: 6
+title: Flywoo GOKU GN722 EVO
 link: https://www.getfpv.com/electronics/flight-controllers/aio-all-in-one-fc/flywoo-goku-gn722-hd-evo-40a-bl-s-aio-flight-controller-20x20.html
 text: A great high-end AIO with a ton of features, such as integrated
   programmable LEDs and Plug n' Play with DJI, with 6 UARTs it's the most on
