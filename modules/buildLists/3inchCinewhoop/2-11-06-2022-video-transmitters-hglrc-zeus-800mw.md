@@ -1,6 +1,6 @@
 ---
 Category: Video Transmitters
-color: orange
+color: green
 order: 2
 title: HGLRC Zeus 800mW
 link: https://www.hglrc.com/collections/video-transmitters/products/hglrc-zeus-800mw-smart-mounting-20-20-30-30-vtx-for-fpv-racing-drone
