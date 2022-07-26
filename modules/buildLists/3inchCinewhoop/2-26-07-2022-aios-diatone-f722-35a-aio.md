@@ -8,9 +8,7 @@ text: Most of the other AIOs will be 25x25, which is the more common size. The
   main thing making this AIO different from other ones is the option to have an
   external USB port, extended on a wire
 price: $78.99
-point1: |-
-  IO: 5 UARTs, I2C, BF LED Control, USB Micro
-  2.5A 5V regulator
+point1: "IO: 5 UARTs, I2C, BF LED Control, USB Micro"
 point2: "Regulators: 2.5A 5v"
 point3: "Nominal/Peak Current: 35A/45A"
 point4: "Mounting: 25.5x25.5"
