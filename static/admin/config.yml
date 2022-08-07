@@ -92,8 +92,8 @@ collections:
       - {label: "Point 4", name: "point4", widget: "text", required: false}
       - {label: "Point 5", name: "point5", widget: "text", required: false}
 
-  - name: 1s/2s Toothpick Build
-    label: 1s/2s Toothpick Build
+  - name: 1s - 2s Toothpick Build
+    label: 1s - 2s Toothpick Build
     folder: modules/buildLists/1s2sToothpick/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Category}}-{{title}}"
