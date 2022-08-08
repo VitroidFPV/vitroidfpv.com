@@ -2,6 +2,7 @@
 Category: Starting Out
 order: 6
 title: How to safely charge batteries?
+id: charging
 answer: >-
   ###### Batteries can very quickly go up in flames if you don't care for them
   properly
