@@ -3,10 +3,11 @@
     import MainHeader from "../components/mainHeader.svelte";
     import CategoryIndex from "../components/faqPage/categoryIndex.svelte";
     // @ts-ignore
-    import Faq from "../components/faqPage/Faq.svelte";
+    import FaqQuestion from "../components/faqPage/faqQuestion.svelte";
     import { onMount } from 'svelte';
+    import { page } from "$app/stores"
+    import { bind } from "svelte/internal";
 
-    console.log("===========");
     const modules = import.meta.globEager("/modules/faqs/*.md");
     // console.log(modules)
     let grouped_modules = {};
@@ -19,25 +20,6 @@
         grouped_modules[cat] = [modules[k]]
         }
     }
-        
-    console.log(grouped_modules)
-
-    onMount(() =>{
-        var coll = document.getElementsByClassName("collapsible");
-        var i;
-
-        for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("faq-active");
-            var content = this.nextElementSibling;
-            if (content.style.maxHeight){
-            content.style.maxHeight = null;
-            } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-            } 
-        });
-        }
-    })
     let prefix = "VitroidFPV"
     let title = " - FAQ"
     let color = "#1cd167"
@@ -91,7 +73,7 @@
             </div>
         </div> -->
 
-        <Faq 
+        <FaqQuestion 
             category="{cat}" 
             title="{question.metadata.title}" 
             content="{question.metadata.answer}"
@@ -100,11 +82,3 @@
     </div>
     {/each}
 </div>
-
-<style>
-    .content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.2s ease-out;
-    }
-</style>
