@@ -19,6 +19,7 @@ collections:
           - { label: "Hardware", value: "Hardware" }
       - {label: "Order", name: "order", widget: "number"}
       - {label: "Question", name: "title", widget: "text"}
+      - {label: "ID", name: "id", widget: "text"}
       - {label: "Answer", name: "answer", widget: "markdown"}
 
   - name: 5" Beginner Build
