@@ -35,9 +35,9 @@
             114.3 301 57.2 301L0 301Z" class="dark:fill-[#171b18] fill-[#2C4938]"></path>
           </svg>
     </div>
-    <div class="w-full min-h-32 dark:bg-[#171b18] bg-[#2C4938] md:pl-48 md:pb-8 pb-28 px-8">
-        <div class="text-contrast-100 flex flex-row justify-around">
-            <div class="text-5xl caveat text-contrast-200 w-64 md:m-0 mr-4">Vitroid FPV</div>
+    <div class="w-full min-h-32 dark:bg-[#171b18] bg-[#2C4938] md:pl-48 md:pb-8 pb-28 md:px-8">
+        <div class="text-contrast-100 flex md:flex-row flex-col md:items-start items-center">
+            <div class="justify-self-center md:text-5xl text-6xl caveat text-contrast-200 md:w-64 w-fit md:m-0">Vitroid FPV</div>
 
             <div class="md:flex hidden flex-col w-64">
                 <div class="text-2xl">Navigation:</div>
@@ -48,11 +48,11 @@
                 </ul>
             </div>
 
-            <div class="flex flex-col w-64">
-                <div class="text-2xl">Socials:</div>
-                <div class="flex flex-row">
-                    <ul class="flex justify-around flex-col">
-                        <li class="w-fit flex">
+            <div class="flex flex-col md:w-64">
+                <div class="text-2xl md:text-left text-center">Socials:</div>
+                <div class="flex flex-row justify-center md:justify-start">
+                    <ul class="flex justify-between md:flex-col">
+                        <li class="w-fit flex mr-4">
                             <a href="/" class="w-fit h-fit flex flex-col opacity-90 hover:opacity-100 duration-100">
                                 <div class="h-12 w-12 bg-[url('https://img.icons8.com/material-rounded/64/eeeeee/discord-logo.png')] bg-no-repeat bg-contain bg-center"> </div>
                                 <div class="text-xs opacity-50">Mr Steele</div>
@@ -65,7 +65,7 @@
                             </a>
                         </li>
                     </ul>
-                    <ul class="flex justify-around flex-col">
+                    <ul class="flex justify-around md:flex-col">
                         <li class="w-fit flex">
                             <a href="/" class="w-fit h-fit flex flex-col items-center opacity-90 hover:opacity-100 duration-100 mr-4">
                                 <div class="h-12 w-12 bg-[url('https://img.icons8.com/material-rounded/64/eeeeee/youtube-play.png')] bg-no-repeat bg-contain bg-center"></div>
@@ -80,19 +80,25 @@
                 </div>
             </div>
 
-            <div class="flex flex-col">
-                <div class="text-2xl">Links:</div>
-                <ul class="text-base">
-                    <li><a href="/" class="underline font-thin opacity-90 hover:opacity-100 duration-100">Site GitHub</a></li>
-                    <li><a href="/faq" class="underline font-thin opacity-90 hover:opacity-100 duration-100">Donate</a></li>
-                    <li><a href="/builds" class="underline font-thin opacity-90 hover:opacity-100 duration-100">Icons</a></li>
-                </ul>
-                <div class="text-2xl">Other resources:</div>
-                <ul class="text-base">
-                    <li><a href="/" class="underline font-thin opacity-90 hover:opacity-100 duration-100">Joshua Bardwell</a></li>
-                    <li><a href="/faq" class="underline font-thin opacity-90 hover:opacity-100 duration-100">Oscal Liang</a></li>
-                    <li><a href="/builds" class="underline font-thin opacity-90 hover:opacity-100 duration-100">FPV Market EU</a></li>
-                </ul>
+            <div class="flex md:flex-col">
+
+                <div class="flex flex-col mr-8">
+                    <div class="text-2xl text-center md:text-left">Links:</div>
+                    <ul class="text-base text-center md:text-left">
+                        <li><a href="/" class="underline font-thin opacity-90 hover:opacity-100 duration-100">Site GitHub</a></li>
+                        <li><a href="/faq" class="underline font-thin opacity-90 hover:opacity-100 duration-100">Donate</a></li>
+                        <li><a href="/builds" class="underline font-thin opacity-90 hover:opacity-100 duration-100">Icons</a></li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col">
+                    <div class="text-2xl text-center md:text-left">Other resources:</div>
+                    <ul class="text-base text-center md:text-left">
+                        <li><a href="/" class="underline font-thin opacity-90 hover:opacity-100 duration-100">Joshua Bardwell</a></li>
+                        <li><a href="/faq" class="underline font-thin opacity-90 hover:opacity-100 duration-100">Oscal Liang</a></li>
+                        <li><a href="/builds" class="underline font-thin opacity-90 hover:opacity-100 duration-100">FPV Market EU</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
