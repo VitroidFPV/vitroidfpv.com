@@ -45,6 +45,6 @@
       // on call, get the id of its first following sibling and put it in the clipboard
       let id = this.nextElementSibling.id;
       console.log(id)
-      navigator.clipboard.writeText("localhost:3000/faq/#" + id);
+      navigator.clipboard.writeText($page.url.origin + $page.url.pathname + "#" + id);
     }
 </script>
