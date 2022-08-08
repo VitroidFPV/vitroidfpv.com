@@ -7,9 +7,22 @@
     import { onMount } from 'svelte';
     import { page } from "$app/stores"
     import { bind } from "svelte/internal";
+    import { marked } from 'marked';
+
+    marked.setOptions({
+    renderer: new marked.Renderer(),
+    langPrefix: 'hljs language-', // highlight.js css expects a top-level 'hljs' class.
+    pedantic: false,
+    gfm: true,
+    breaks: true,
+    sanitize: false,
+    smartLists: false,
+    smartypants: false,
+    xhtml: false
+    });
 
     const modules = import.meta.globEager("/modules/faqs/*.md");
-    // console.log(modules)
+    console.log(modules)
     let grouped_modules = {};
 
     for (const k in modules) {
@@ -76,7 +89,7 @@
         <FaqQuestion 
             category="{cat}" 
             title="{question.metadata.title}" 
-            content="{question.metadata.answer}"
+            content="{marked.parse(question.metadata.answer)}"
             id="{question.metadata.id}"/>
         {/each}
     </div>

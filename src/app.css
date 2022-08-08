@@ -169,4 +169,20 @@
   .Video.my-8 {@apply order-6} 
 
   code {@apply bg-gray-500/30 p-1 rounded-md}
+
+  /* markdown styles */
+  .md h1 {@apply text-4xl}
+  .md h2 {@apply text-3xl}
+  .md h3 {@apply text-2xl}
+  .md h4 {@apply font-bold}
+  .md h5 {@apply font-bold text-green}
+  .md h6 {@apply font-bold text-red}
+  .md hr {@apply border-t-2 border-gray-500/50 my-2}
+  .md blockquote {@apply border-l-4 border-gray-500/50 pl-4}
+  .md ul {@apply list-disc list-inside}
+  .md ol {@apply list-decimal ml-3}
+  .md ol li p {@apply pl-3}
+  .md a {@apply text-xl text-highlight bg-gradient-to-r bg-no-repeat bg-left-bottom from-highlight to-highlight bg-0w hover:bg-100w duration-300 w-fit pb-[-1rem] leading-tight}
+  .md pre code {@apply block}
+  .md br+code {@apply block}
 }

@@ -6,7 +6,7 @@
       </div>
       {#if open}
         <div transition:slide class="content text-xl bg-contrast-200 dark:bg-main-300 rounded-2xl shadow-xl dark:shadow-black mb-2 h-full min-w-fit max-w-[70vw]">
-            <p class="p-8 text-lg leading-relaxed">{@html content}</p>
+            <p class="p-8 text-lg leading-relaxed md">{@html content}</p>
         </div>
       {/if}
   </div>
@@ -30,7 +30,7 @@
     function linkOpen() {
       // give a class "open" to an element with the class content with the id of the variable hash
       let hash = $page.url.hash.replace("#", "");
-      console.log(hash);
+      // console.log(hash);
 
       if (hash != "") {
         if (hash == id) {
@@ -47,4 +47,5 @@
       console.log(id)
       navigator.clipboard.writeText($page.url.origin + $page.url.pathname + "#" + id);
     }
+    console.log()
 </script>

@@ -6,7 +6,7 @@ collections:
     label: FAQ
     folder: modules/faqs/
     create: true
-    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{title}}"
+    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Category}}-{{title}}"
     fields:
       - name: Category
         widget: "select"
