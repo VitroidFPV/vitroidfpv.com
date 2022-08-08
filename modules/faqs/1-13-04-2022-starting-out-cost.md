@@ -8,7 +8,11 @@ answer: >-
   expensive fast, so you should know what you're getting into. 
 
 
-  ##### A good rule of thumb is to not get anything you can't immediately afford to get replacement parts. 
+
+
+  ##### A good rule of thumb is to not get anything you can't immediately afford to get replacement parts.
+
+
 
 
   * $20 - If you already have a game controller and a decent PC/Console, you can buy a sim and try flying to see if you'd enjoy FPV
