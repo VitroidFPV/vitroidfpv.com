@@ -179,8 +179,8 @@
   .md h6 {@apply font-bold text-red my-2 tracking-wide}
   .md hr {@apply border-t-2 border-gray-500/50 my-2}
   .md blockquote {@apply border-l-4 border-gray-500/50 pl-4}
-  .md ul {@apply list-disc list-inside}
-  .md ol {@apply list-decimal ml-3}
+  .md ul {@apply list-disc ml-4 my-2}
+  .md ol {@apply list-decimal ml-4 my-2}
   .md ol li p {@apply pl-3}
   .md a {@apply text-xl text-highlight bg-gradient-to-r bg-no-repeat bg-left-bottom from-highlight to-highlight bg-0w hover:bg-100w duration-300 w-fit pb-[-1rem] leading-tight}
   .md pre code {@apply block}
