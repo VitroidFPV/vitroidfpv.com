@@ -175,8 +175,8 @@
   .md h2 {@apply text-3xl my-3}
   .md h3 {@apply text-2xl my-2}
   .md h4 {@apply font-bold my-2}
-  .md h5 {@apply font-bold text-green my-2}
-  .md h6 {@apply font-bold text-red my-2}
+  .md h5 {@apply font-bold text-green my-2 tracking-wide}
+  .md h6 {@apply font-bold text-red my-2 tracking-wide}
   .md hr {@apply border-t-2 border-gray-500/50 my-2}
   .md blockquote {@apply border-l-4 border-gray-500/50 pl-4}
   .md ul {@apply list-disc list-inside}
