@@ -16,5 +16,5 @@ answer: >-
 
   * [Orqa FPV.SkyDive](https://store.steampowered.com/app/1278060/FPVSkyDive__FPV_Drone_Racing__Freestyle_Simulator/) - Likely the best free sim out there, with decent graphics and pysics for the price (PC, Free)
 
-  * [DCL](https://store.steampowered.com/app/964570/DCL__The_Game/) - An "official" sim for the Drone Champoins League {$30, PC and Console)
+  * [DCL](https://store.steampowered.com/app/964570/DCL__The_Game/) - An "official" sim for the Drone Champoins League ($30, PC and Console)
 ---
