@@ -2,6 +2,7 @@
 Category: Betaflight
 order: 2
 title: Markdown Test
+id: markdown
 answer: |-
   # H1
 
@@ -59,5 +60,5 @@ answer: |-
 
   Do I really need images...?
 
-  ![round man saying "y tho"](/static/uploads/y_tho_meme.jpg "y tho")
+  ![round man saying "y tho"](/uploads/y_tho_meme.jpg "y tho")
 ---
