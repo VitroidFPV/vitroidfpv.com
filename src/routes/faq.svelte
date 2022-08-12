@@ -8,10 +8,33 @@
     import { page } from "$app/stores"
     import { bind } from "svelte/internal";
     import { marked } from 'marked';
+    
+    // const renderer = {
+    //     image(href, title, text) {
+    //         if (href === null) {
+    //             return text;
+    //         }
+        
+    //         // let out = `<img src="${href}" alt="${text}" on:click={() => open = !open} class:img-closed={!open} class:img-open={open} class="h-auto duration-300"`;
+    //         let out = `<img src="a" alt="${text}" onclick="enlargeImg()" id="img1"`;
+    //         if (title) {
+    //             out += ` title="${title}"`;
+    //         }
+    //         out += this.options.xhtml ? '/>' : '>';
+    //         console.log(out)
+    //         return out;
+    //     }
+    // }
+    // marked.use({ renderer })
 
+    // doesn't even work
+
+    // img = document.getElementById("img1");
+    // function enlargeImg() {
+    //     Image.style.tran
+    // }   
+    // danovo prace
     marked.setOptions({
-    renderer: new marked.Renderer(),
-    langPrefix: 'hljs language-', // highlight.js css expects a top-level 'hljs' class.
     gfm: true,
     breaks: true,
     sanitize: false,
@@ -19,9 +42,11 @@
     smartypants: false,
     xhtml: false
     });
-
+    
+    // svelte template <img src="/uploads/axisflying-1-.png" alt="" on:click={() => open = !open} class:img-closed={!open} class:img-open={open} class="h-auto duration-300">
+    
     const modules = import.meta.globEager("/modules/faqs/*.md");
-    console.log(modules)
+    // console.log(modules)
     let grouped_modules = {};
 
     for (const k in modules) {
@@ -94,3 +119,8 @@
     </div>
     {/each}
 </div>
+
+<style>
+    .img-closed { width: 50%}
+    .img-open { width: 100%}
+</style>

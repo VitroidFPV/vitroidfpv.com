@@ -26,12 +26,9 @@
         linkOpen()
       }
     )
-
+    
     function linkOpen() {
-      // give a class "open" to an element with the class content with the id of the variable hash
       let hash = $page.url.hash.replace("#", "");
-      // console.log(hash);
-
       if (hash != "") {
         if (hash == id) {
           open = true
@@ -42,7 +39,6 @@
     }
 
     function copyID() {
-      // on call, get the id of its first following sibling and put it in the clipboard
       let id = this.nextElementSibling.id;
       console.log(id)
       navigator.clipboard.writeText($page.url.origin + $page.url.pathname + "#" + id);
