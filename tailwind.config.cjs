@@ -21,6 +21,7 @@ module.exports = {
           400: '#0f0f0f',
         },
         'contrast': {
+          50: '#f7f7f7',
           100: '#eeeeee',
           200: '#e2e2e2',
           300: '#e0e0e0',

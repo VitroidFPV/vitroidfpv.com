@@ -5,7 +5,7 @@
         <button type="button" on:click={() => open = !open} class:faq-active={open} class="collapsible duration-300 after:ml-1 text-[22px] hover:translate-x-1 duartion-150 {category} text-left" id="{id}">{title}</button>
       </div>
       {#if open}
-        <div transition:slide class="content text-xl bg-contrast-200 dark:bg-main-300 rounded-2xl shadow-xl dark:shadow-black mb-2 h-full min-w-fit max-w-[70vw]">
+        <div transition:slide class="content text-xl bg-contrast-100 dark:bg-main-300 rounded-2xl shadow-2xl dark:shadow-black mb-2 h-full min-w-fit max-w-[70vw]">
             <p class="p-8 text-lg leading-relaxed md">{@html content}</p>
         </div>
       {/if}
