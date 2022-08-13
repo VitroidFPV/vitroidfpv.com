@@ -8,6 +8,8 @@
     import { page } from "$app/stores"
     import { bind } from "svelte/internal";
     import { marked } from 'marked';
+    // @ts-ignore
+    import Paragraph from "/src/components/Paragraph.svelte";
     
     // const renderer = {
     //     image(href, title, text) {
@@ -79,13 +81,14 @@
     <meta name="theme-color" content="{color}">
 </svelte:head>
 
-<div class="w-full min-h-screen p-4 px-8 flex flex-col">
+<div class="w-full p-4 px-4 flex flex-col">
 
     <MainHeader text="FAQ"/>
     <Header text="If you need a quick answer, you might find it here!"></Header>
-    <p class="text-xl md:w-[33vw] w-[90%] leading-relaxed mb-4 border-gray-500 border-b-[1px]">There's a lot of questions in FPV, doesn't matter if you're just starting or not<br>
-    You will find most of the common and easy to answer ones here. For more specific ones, there are tutorials planned<br>
-    The questions are sorted into individual categories, and next to each one there is a button that will copy a link to the specific one if you want to send it to someone</p>
+
+    <Paragraph text="There's a lot of questions in FPV, doesn't matter if you're just starting or not<br>
+        You will find most of the common and easy to answer ones here. For more specific ones, there are tutorials planned<br>
+        The questions are sorted into individual categories, and next to each one there is a button that will copy a link to the specific one if you want to send it to someone"/>
 
     <ul class="mt-8 text-2xl w-fit">
         <CategoryIndex icon="bg-[url('https://img.icons8.com/material-outlined/32/9550ba/plus--v1.png')]" color="hover:text-violet" text="Starting out" link="Starting"></CategoryIndex>

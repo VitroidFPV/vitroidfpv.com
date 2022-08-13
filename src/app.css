@@ -48,17 +48,17 @@
         md:before:content-[''] md:before:absolute md:before:bg-transparent md:before:left-24 md:before:top-14 md:before:w-8 md:before:h-8 md:before:rounded-full md:before:-z-10 
         md:dark:before:shadow-[-1rem_-1rem_0px_#0f0f0f,8px_-13px_0px_#1cd167] md:before:shadow-[-1rem_-1rem_0px_#eeeeee,8px_-13px_0px_#90d95b]
 
-        after:content-[''] after:absolute after:bg-transparent after:left-20 after:bottom-8 after:w-12 after:h-12 after:rounded-full after:-z-10 
-        dark:after:shadow-[-1rem_1.2rem_0px_#0f0f0f,-22px_-14px_0px_#1cd167] after:shadow-[-1rem_1.2rem_0px_#eeeeee,-22px_-14px_0px_#90d95b]
-        before:content-[''] before:absolute before:bg-transparent before:right-20 before:bottom-8 before:w-12 before:h-12 before:rounded-full before:-z-10 
-        dark:before:shadow-[1rem_1.2rem_0px_#0f0f0f,22px_-14px_0px_#1cd167] before:shadow-[1rem_1.2rem_0px_#eeeeee,22px_-14px_0px_#90d95b]
+        after:content-[''] after:absolute after:bg-transparent after:left-12 after:bottom-[16px] after:w-8 after:h-8 after:rounded-full after:-z-10 
+        dark:after:shadow-[-18px_-12px_0px_#1cd167] after:shadow-[-18px_-12px_0px_#90d95b]
+        before:content-[''] before:absolute before:bg-transparent before:right-12 before:bottom-[16px] before:w-8 before:h-8 before:rounded-full before:-z-10 
+        dark:before:shadow-[18px_-12px_0px_#1cd167] before:shadow-[18px_-12px_0px_#90d95b]
 
   }
   .nav {
-    @apply md:h-14 md:w-32 md:min-h-[3.5rem] min-h-[5rem] min-w-[5rem] flex items-center md:pr-[60px] relative md:pl-4 md:my-2
+    @apply md:h-14 md:w-32 md:min-h-[3.5rem] min-h-[3rem] min-w-[3rem] flex items-center md:pr-[60px] relative md:pl-4 md:my-2 mx-4 md:mx-0
   }
 
-  .nav-active > a {@apply md:translate-x-1 translate-x-0 hover:text-main-100 dark:hover:text-contrast-100}
+  .nav-active > a {@apply md:translate-x-1 translate-x-0 hover:text-main-100 dark:hover:text-contrast-100 dark:brightness-100}
 
   .collapsible.faq-active {
     @apply after:content-['-'] translate-x-1
@@ -179,12 +179,12 @@
   .md h6 {@apply font-semibold text-red my-2 tracking-wide}
   .md hr {@apply border-t-2 border-gray-500/50 my-2}
   .md blockquote {@apply border-l-4 border-gray-500/50 pl-4}
-  .md ul {@apply list-disc ml-6 my-2}
-  .md ol {@apply list-decimal ml-6 my-2}
+  .md ul {@apply list-disc md:ml-6 ml-2 my-2}
+  .md ol {@apply list-decimal md:ml-6 my-2}
   .md ol li p {@apply pl-3}
   .md li {@apply my-2}
   .md a {@apply text-xl text-highlight bg-gradient-to-r bg-no-repeat bg-left-bottom from-highlight to-highlight bg-0w hover:bg-100w duration-300 w-fit pb-[-1rem] leading-tight}
   .md pre code {@apply block}
   .md br+code {@apply block}
-  .md img {@apply rounded-3xl shadow-2xl my-8 h-auto w-3/4 mx-auto}
+  .md img {@apply md:rounded-3xl rounded-xl shadow-2xl mb-8 h-auto md:w-3/4 mx-auto}
 }
