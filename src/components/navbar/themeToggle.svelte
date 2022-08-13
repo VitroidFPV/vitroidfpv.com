@@ -3,7 +3,7 @@
   import { persist, localStorage } from '@macfja/svelte-persistent-store';
   import { onMount } from 'svelte';
 
-  const theme = persist(writable('light'), localStorage(), 'app-theme');
+  const theme = persist(writable('dark'), localStorage(), 'app-theme');
 
   onMount(() => {
     let unsubscribe = theme.subscribe((value) => {
