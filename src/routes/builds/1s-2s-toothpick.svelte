@@ -44,7 +44,7 @@
     <meta name="theme-color" content="{color}">
 </svelte:head>
 
-<div class="w-full p-4 px-8 flex flex-col">
+<div class="content-box">
     <MainHeader text="{titleRaw}"/>
     <Header text="Every gram matters, for silent flying nearly anywhere"/>
     <Paragraph text="{description}<br>

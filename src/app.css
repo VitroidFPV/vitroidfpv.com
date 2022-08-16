@@ -66,6 +66,8 @@
   .collapsible {
     @apply after:content-['+']
   }
+
+  .content-box {@apply w-full p-4 md:px-8 flex flex-col}
   /* defeats the point of tailwind but idk any other way */
 
   .Starting.cat {

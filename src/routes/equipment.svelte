@@ -1,4 +1,4 @@
-<div class="w-full p-4 px-18 flex flex-col">
+<div class="content-box">
     <MainHeader text="Equipment"/>
     <Header text="All the things you'll need to get in the air!"/>
 

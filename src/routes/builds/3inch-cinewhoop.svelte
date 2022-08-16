@@ -43,7 +43,7 @@
     <meta name="theme-color" content="{color}">
 </svelte:head>
 
-<div class="w-full p-4 px-8 flex flex-col">
+<div class="content-box">
     <MainHeader text="3'' Cinewhoop"/>
     <Header text="Slow, safe, cinematic flying, indoors and outdoors"/>
     <Paragraph text="Meant to be used with a full size gopro, to carry it safely around hard, and soft targets alike, in close proximity. Wider, shorter motors, fully protected frames, and mini stacks or AIOs<br>

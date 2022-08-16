@@ -39,7 +39,7 @@
     <meta name="theme-color" content="#1cd167">
 </svelte:head>
 
-<div class="w-full p-4 px-8 flex flex-col">
+<div class="content-box">
     <MainHeader text="5'' Beginner"/>
     <Header text="Cheap, durable, and easy to put together and repair"/>
     <Paragraph text="Specced out to be easy to assemble, with affordable and accessible parts, and electronics that should be easy to solder, 

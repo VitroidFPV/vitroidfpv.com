@@ -81,7 +81,7 @@
     <meta name="theme-color" content="{color}">
 </svelte:head>
 
-<div class="w-full p-4 px-4 flex flex-col">
+<div class="content-box">
 
     <MainHeader text="FAQ"/>
     <Header text="If you need a quick answer, you might find it here!"></Header>

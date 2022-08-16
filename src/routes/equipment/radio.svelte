@@ -1,4 +1,4 @@
-<div class="w-full p-4 px-8 flex flex-col">
+<div class="content-box">
     <MainHeader text="Radio equipment"/>
     <Header text="Everything you need to control your quad"/>
     <Paragraph text="Radios, TX modules, receivers, antennas, and any other misc accessories for radios, all you need to get control over your craft.<br>
