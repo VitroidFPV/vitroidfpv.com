@@ -1,0 +1,34 @@
+---
+Category: Building
+order: 5
+title: How to solder properly?
+id: soldering
+answer: >-
+  Whether you like it or not, soldering is an essential part of the hobby. Stuff
+  breaks and you have to fix it. Good equipment and know-how go a long way to
+  help with the process, so let's get into that:
+
+
+  You will need a decent soldering iron, most cheap ones aren't worth the trouble. I have some good ones listed elsewhere on the site. Flux, solder, side cutters, and tweezers are all must-haves IMO, a silicon mat and helping hands/blutac also help. Prepare all your items:
+
+
+  * Start by setting the iron to \~370°C for smaller joints, \~420°C for larger ones
+
+  * Clean the soldering iron tip with a wet sponge or brass wool, and slightly tin it
+
+  * Clean off the PCB if it's dirty, ideally with IPA or distilled water
+
+  * Get the PCB fixed in place
+
+
+  Now to the actual soldering:
+
+
+  1. If your flux isn't solid, apply it to the pads
+
+  2. Tin the pads. The soldering iron **shouldn't** melt the solder. It should heat up the pad, and the pad should melt the solder
+
+  3. Once they're tinned, they should look shiny, smooth, and round. If they're not, you likely need more heat and/or flux
+
+  4. Expose and tin the wires (you should only leave enough wire exposed to match the length of the pad). This shouldn't need flux, but may sometimes help. Again, heat up the exposed part of the wire, and apply the solder to the wire, not the soldering iron
+---
