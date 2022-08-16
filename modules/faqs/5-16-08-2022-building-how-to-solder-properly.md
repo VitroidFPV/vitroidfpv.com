@@ -21,7 +21,7 @@ answer: >-
   * Get the PCB fixed in place
 
 
-  Now to the actual soldering:
+  ##### Now to the actual soldering:
 
 
   1. If your flux isn't solid, apply it to the pads
@@ -36,5 +36,5 @@ answer: >-
 
   6. Make sure the pad stays round-ish after it's solidified, and that the exposed end of the wire isn't sticking out
 
-  7. Optionally clean the board after finishing all of the joints with IPA or distilled water
+  7. Optionally clean the board after finishing all of the joints with IPA or distilled water to get rid of residual flux
 ---
