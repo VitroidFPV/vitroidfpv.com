@@ -30,5 +30,11 @@ answer: >-
 
   3. Once they're tinned, they should look shiny, smooth, and round. If they're not, you likely need more heat and/or flux
 
-  4. Expose and tin the wires (you should only leave enough wire exposed to match the length of the pad). This shouldn't need flux, but may sometimes help. Again, heat up the exposed part of the wire, and apply the solder to the wire, not the soldering iron
+  4. Expose, twist, and tin the wires (you should only leave enough wire exposed to match the length of the pad). This shouldn't need flux, but may sometimes help. Again, heat up the exposed part of the wire, and apply the solder to the wire, not the soldering iron
+
+  5. Bring the tinned wire to the pad, melt the solder blob on the pad, and insert the wire. Don't push on the wire with te soldering iron as that can fray the end
+
+  6. Make sure the pad stays round-ish after it's solidified, and that the exposed end of the wire isn't sticking out
+
+  7. Optionally clean the board after finishing all of the joints with IPA or distilled water
 ---
