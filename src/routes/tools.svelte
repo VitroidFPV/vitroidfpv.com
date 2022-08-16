@@ -53,7 +53,7 @@
 
 </script>
 
-<div class="w-full p-4 px-8 flex flex-col">
+<div class="content-box">
     <MainHeader text="Tools"/>
 
     <div class="my-8 w-full h-fit">
