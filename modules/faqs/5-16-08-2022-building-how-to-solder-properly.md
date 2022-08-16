@@ -12,7 +12,7 @@ answer: >-
   You will need a decent soldering iron, most cheap ones aren't worth the trouble. I have some good ones listed elsewhere on the site. Flux, solder, side cutters, and tweezers are all must-haves IMO, a silicon mat and helping hands/blutac also help. Prepare all your items:
 
 
-  * Start by setting the iron to \~370°C for smaller joints, \~420°C for larger ones
+  * Start by setting the iron to \~370°C for smaller joints, \~420°C for larger ones (this goes for most "cheaper" irons as they usually cannot supply enough heat, if you have a good/more expensive one, you'll likely be fine in the lower range)
 
   * Clean the soldering iron tip with a wet sponge or brass wool, and slightly tin it
 
@@ -26,7 +26,7 @@ answer: >-
 
   1. If your flux isn't solid, apply it to the pads
 
-  2. Tin the whole pad. Ideally the iron shouldn't melt the solder. It should heat up the pad, and the pad should melt the solder. But if you use it to melt it, it's not a big issue
+  2. Tin the whole pad. Ideally, the iron shouldn't melt the solder. It should heat up the pad, and the pad should melt the solder. But if you use it to melt it, it's not a big issue
 
   3. Once it's tinned, it should look shiny, smooth, and round. If it's not, you likely need more heat and/or flux
 
