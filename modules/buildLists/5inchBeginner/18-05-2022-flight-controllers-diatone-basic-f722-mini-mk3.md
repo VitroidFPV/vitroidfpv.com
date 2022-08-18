@@ -1,8 +1,9 @@
 ---
 Category: Flight Controllers
 color: green
+order: 2
 title: Diatone Basic F722 Mini MK3
-link: https://www.diatone.us/collections/basic-fc/products/mb-f722-mini-mk3-fc
+link: https://www.diatone.us/collections/mamba-stack/products/mamba-stack-basic-f722-mini-mk3-40a-128k-32bit-m2-20mm-preorder
 text: Very similar in terms of features of the bigger variants, it's a good FC
   for 20x20 stacks in tighter builds. You lose the 9v regulator, but not much
   else
