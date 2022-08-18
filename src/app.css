@@ -58,7 +58,7 @@
     @apply md:h-14 md:w-32 md:min-h-[3.5rem] min-h-[3rem] min-w-[3rem] flex items-center md:pr-[60px] relative md:pl-4 md:my-2 mx-4 md:mx-0
   }
 
-  .nav-active > a {@apply md:translate-x-1 translate-x-0 hover:text-main-100 dark:hover:text-contrast-100 dark:brightness-100}
+  .nav-active > a {@apply md:translate-x-1 translate-x-0 dark:hover:text-main-100 hover:text-contrast-100 dark:text-main-100 text-contrast-100 dark:brightness-100}
 
   .collapsible.faq-active {
     @apply after:content-['-'] translate-x-1

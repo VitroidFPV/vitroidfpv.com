@@ -44,9 +44,20 @@
 </div>
 
 <svelte:head>
-    <title>VitroidFPV - Builds</title>
+    <title>VitroidFPV{title}</title>
+    <meta name="author" content="VitroidFPV"/>
+    <!-- <meta property="og:image" content="https://www.vitroidfpv.com/sources/cinewhoop_512.png"> -->
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="VitroidFPV" />
+    <meta property="article:author" content="VitroidFPV" />
+    <meta property="og:title" content="{prefix}{title}"/>
+    <meta name="description" content="{description}"/>
+    <meta property="og:description" content="{description}">
+    <meta content="https://vitroidfpv.com/" property="og:url" />
+    <meta name="theme-color" content="{color}">
 </svelte:head>
-
 <script>
     import BuildCard from "../components/buildsPage/buildCard.svelte";
     import Header from "../components/Header.svelte";

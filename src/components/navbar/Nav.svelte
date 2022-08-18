@@ -11,27 +11,27 @@
             <a 
             href="/" 
             class="bg-[url('https://img.icons8.com/metro/64/292929/home.png')] translate-y-[-2px] z-50 
-            md:bg-none md:dark:bg-none bg-no-repeat bg-center text-lg md:after:content-['Home'] h-full 
-            w-full md:h-fit md:w-fit md:bg-[length:32px_32px] hover:text-highlight dark:hover:text-highlight-dark 
-            duration-200 md:hover:translate-x-1 bg-[length:24px_24px] dark:brightness-[5]">
+            md:bg-none md:dark:bg-none bg-no-repeat bg-center md:text-lg text-[0px] h-full 
+            w-full md:h-fit md:w-fit md:bg-[length:32px_32px] hover:text-highlight dark:hover:text-highlight-dark
+            duration-200 md:hover:translate-x-1 bg-[length:24px_24px] md:dark:brightness-100 dark:brightness-[5]">Home
             </a>
         </li>
         <li class="nav" class:nav-active={$page.url.pathname === "/faq"}>
             <a 
             href="/faq" 
             class="bg-[url('https://img.icons8.com/material-rounded/64/292929/question-mark.png')] md:bg-none 
-            md:dark:bg-none bg-no-repeat bg-center text-lg md:after:content-['FAQ'] h-full 
+            md:dark:bg-none bg-no-repeat bg-center md:text-lg text-[0px] h-full 
             w-full md:h-fit md:w-fit md:bg-[length:32px_32px] hover:text-highlight dark:hover:text-highlight-dark 
-            duration-200 md:hover:translate-x-1 bg-[length:24px_24px] dark:brightness-[5]"> 
+            duration-200 md:hover:translate-x-1 bg-[length:24px_24px] md:dark:brightness-100 dark:brightness-[5]">FAQ
             </a>
         </li>
         <li class="nav" class:nav-active={$page.url.pathname.startsWith("/builds")}>
             <a 
             href="/builds" 
             class="bg-[url('https://i.imgur.com/rbaaSaJ.png')] md:bg-none 
-            md:dark:bg-none bg-no-repeat bg-center text-lg md:after:content-['Builds'] h-full 
-            w-full md:h-fit md:w-fit md:bg-[length:32px_32px] hover:text-highlight dark:hover:text-highlight-dark 
-            duration-200 md:hover:translate-x-1 bg-[length:24px_24px] dark:brightness-[4.5] dark:saturate-[0.25]"> 
+            md:dark:bg-none bg-no-repeat bg-center md:text-lg text-[0px] h-full 
+            w-full md:h-fit md:w-fit md:bg-[length:32px_32px] md:hover:text-highlight dark:hover:text-highlight-dark 
+            duration-200 md:hover:translate-x-1 bg-[length:24px_24px] md:dark:brightness-100 dark:brightness-[4.5] md:dark:saturate-100 dark:saturate-[0.25]">Builds
             </a>
         </li>
         <!-- <li class="nav" class:nav-active={$page.url.pathname === "/tools/battery"}>
@@ -44,9 +44,9 @@
             <a 
             href="/equipment" 
             class="bg-[url('https://img.icons8.com/external-smashingstocks-detailed-outline-smashing-stocks/66/292929/external-tools-car-repair-smashingstocks-detailed-outline-smashing-stocks.png')]
-             md:bg-none md:dark:bg-none bg-no-repeat bg-center text-lg md:after:content-['Equipment'] h-full 
+             md:bg-none md:dark:bg-none bg-no-repeat bg-center md:text-lg text-[0px] h-full 
              w-full md:h-fit md:w-fit md:bg-[length:32px_32px] hover:text-highlight dark:hover:text-highlight-dark 
-             duration-200 md:hover:translate-x-1 bg-[length:24px_24px] dark:brightness-[5]"> 
+             duration-200 md:hover:translate-x-1 bg-[length:24px_24px] md:dark:brightness-100 dark:brightness-[5]">Equipment
             </a>
     </ul>
     <ThemeToggle />

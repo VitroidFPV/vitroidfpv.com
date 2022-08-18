@@ -67,12 +67,12 @@
                     </ul>
                     <ul class="flex justify-around md:flex-col">
                         <li class="w-fit flex">
-                            <a href="/" class="w-fit h-fit flex flex-col items-center opacity-90 hover:opacity-100 duration-100 mr-4">
+                            <a href="/" class="w-fit h-fit flex flex-col items-center opacity-90 hover:opacity-100 duration-100 mr-4 text-[0px] leading-none">YouTube
                                 <div class="h-12 w-12 bg-[url('https://img.icons8.com/material-rounded/64/eeeeee/youtube-play.png')] bg-no-repeat bg-contain bg-center"></div>
                             </a>
                         </li>
                         <li class="w-fit flex">
-                            <a href="/" class="w-fit h-fit flex flex-col items-center opacity-90 hover:opacity-100 duration-100 mr-4 mb-3">
+                            <a href="/" class="w-fit h-fit flex flex-col items-center opacity-90 hover:opacity-100 duration-100 mr-4 mb-3 text-[0px] leading-none">Reddit
                                 <div class="h-12 w-12 bg-[url('https://img.icons8.com/ios-filled/64/eeeeee/reddit--v1.png')] bg-no-repeat bg-contain bg-center"></div>
                             </a>
                         </li>
