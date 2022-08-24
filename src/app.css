@@ -188,5 +188,5 @@
   .md a {@apply text-xl text-highlight bg-gradient-to-r bg-no-repeat bg-left-bottom from-highlight to-highlight bg-0w hover:bg-100w duration-300 w-fit pb-[-1rem] leading-tight}
   .md pre code {@apply block}
   .md br+code {@apply block}
-  .md img {@apply md:rounded-3xl rounded-xl shadow-2xl mb-8 h-auto md:w-3/4 mx-auto}
+  .md img {@apply md:rounded-2xl rounded-xl shadow-2xl my-8 h-auto md:w-full mx-auto}
 }
