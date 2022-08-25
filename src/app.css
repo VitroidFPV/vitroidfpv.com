@@ -60,6 +60,15 @@
 
   .nav-active > a {@apply md:translate-x-1 translate-x-0 dark:hover:text-main-100 hover:text-contrast-100 dark:text-main-100 text-contrast-100 dark:brightness-100}
 
+
+  .Motors.my-8 {@apply order-1} 
+  .Frames.my-8 {@apply order-2} 
+  .Flight.Controllers.my-8 {@apply order-3} 
+  .ESCs.my-8 {@apply order-4}
+  .AIOs.my-8 {@apply order-5}
+  .Video.my-8 {@apply order-6} 
+
+
   .collapsible.faq-active {
     @apply after:content-['-'] translate-x-1
   }
@@ -116,7 +125,7 @@
   .Transmitters.cat {
     @apply text-main-200 dark:text-contrast-100
   }
-  .Video {
+  .Video.text-justify {
     @apply order-4
   }
   .Video.faq-active  {
@@ -129,7 +138,7 @@
   .Radio.cat {
     @apply text-cyan border-cyan
   }
-  .Radio {
+  .Radio.text-justify {
     @apply order-5
   }
   .Radio.faq-active  {
@@ -162,13 +171,6 @@
 
   .product.red {@apply border-red} .product.green {@apply border-green} .product.orange {@apply border-orange} 
   .product.cyan {@apply border-cyan} .product.blue {@apply border-blue} .product.violet {@apply border-violet}
-
-  .Motors.my-8 {@apply order-1} 
-  .Frames.my-8 {@apply order-2} 
-  .Flight.Controllers.my-8 {@apply order-3} 
-  .ESCs.my-8 {@apply order-4}
-  .AIOs.my-8 {@apply order-5}
-  .Video.my-8 {@apply order-6} 
 
   code {@apply bg-gray-500/30 p-1 rounded-md}
 

@@ -9,6 +9,6 @@ answer: >-
 
 
   1. Connect the receiver to the FC as instructed by the FC or receiver manufacturer.
-    + ELRS, TBS Receivers, and most of the other high-performance systems use a full UART, meaning you just need a TX and an RX pad of the same number. 
-    + FrSky uses a single **inverted** RX pad for their SBUS signal (needs hardware inversion on F4 FCs, F7 can be changed in config)
+      * ELRS, TBS Receivers, and most of the other high-performance systems use a full UART, meaning you just need a TX and an RX pad of the same number. 
+      * FrSky uses a single **inverted** RX pad for their SBUS signal (needs hardware inversion on F4 FCs, F7 can be changed in config)
 ---
