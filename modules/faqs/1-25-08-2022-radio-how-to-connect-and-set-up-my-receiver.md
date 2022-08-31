@@ -17,11 +17,9 @@ answer: >-
      * Yes this is 100 % FrSky's fault
      * No they have not done much to address it
      * This is why we no longer recommend them﻿
-
   2. Connect the receiver to the FC as instructed by the FC or receiver manufacturer
       * ELRS, TBS Receivers, and most of the other high-performance systems use a full UART, meaning you just need a TX and an RX pad of the same number. 
        * FrSky uses a single **inverted** RX pad for their SBUS signal (needs hardware inversion on F4 FCs, F7 can be changed in the config), SmartPort for telemetry which needs to be on a **different** TX pad, or F.Port which is signal+telemetry over one wire on an uninverted TX pad
        * FlySky uses IBUS, which just needs a free RX pad
-
   3. Hope that future me finishes writing this
 ---
