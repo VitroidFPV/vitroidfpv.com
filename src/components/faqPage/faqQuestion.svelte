@@ -40,8 +40,8 @@
         after:ml-1 text-[20px] md:text-xl hover:translate-x-1 duartion-150 {category} text-left" id="{id}">{title}</button>
     </div>
     {#if open}
-      <div transition:slide class="content text-xl bg-contrast-100 dark:bg-main-300 rounded-2xl shadow-2xl
-        dark:shadow-black mb-2 h-full min-w-fit max-w-[70vw]">
+			<div transition:slide class="content text-xl bg-contrast-100 dark:bg-main-300 rounded-2xl
+				mb-2 h-full min-w-fit max-w-[70vw]">
           <p class="md:p-8 p-6 text-base md:text-lg leading-relaxed md">{@html content}</p>
       </div>
     {/if}
