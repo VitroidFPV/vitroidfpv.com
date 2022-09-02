@@ -91,7 +91,7 @@
   .Starting.collapsible {
     @apply hover:text-violet
   }
-  .Starting .content {@apply shadow-[0_25px_50px_-12px_#00000040,-6px_0px_0px_0px_#9550ba]}
+  .Starting .content {@apply shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#9550ba]}
 
 
   .Building.cat {
@@ -106,7 +106,7 @@
   .Building.collapsible {
     @apply hover:text-red
   }
-  .Building .content {@apply shadow-[0_25px_50px_-12px_#00000040,-6px_0px_0px_0px_#d6395b]}
+  .Building .content {@apply shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#d6395b]}
 
   .Betaflight.cat {
     @apply text-yellow border-yellow
@@ -120,7 +120,7 @@
   .Betaflight.collapsible {
     @apply hover:text-yellow
   }
-  .Betaflight .content {@apply shadow-[0_25px_50px_-12px_#00000040,-6px_0px_0px_0px_#ffcc00]}
+  .Betaflight .content {@apply shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#ffcc00]}
 
   .Video.cat {
     @apply text-green border-green
@@ -137,7 +137,7 @@
   .Video.collapsible {
     @apply hover:text-green
   }
-  .Video .content {@apply shadow-[0_25px_50px_-12px_#00000040,-6px_0px_0px_0px_#87cc52]}
+  .Video .content {@apply shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#87cc52]}
 
   .Radio.cat {
     @apply text-cyan border-cyan
@@ -151,7 +151,7 @@
   .Radio.collapsible {
     @apply hover:text-cyan
   }
-  .Radio .content {@apply shadow-[0_25px_50px_-12px_#00000040,-6px_0px_0px_0px_#5ad8e6]}
+  .Radio .content {@apply shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#5ad8e6]}
 
   .Hardware.cat{@apply text-blue border-blue}.Hardware{@apply order-6}.Hardware.faq-active{@apply text-blue}.Hardware.collapsible{@apply hover:text-blue}
 
