@@ -117,7 +117,7 @@
         <FaqQuestion 
             category="{cat}" 
             title="{question.metadata.title}" 
-            content="{question.metadata.answer}"
+            content="{marked.parse(question.metadata.answer)}"
             id="{question.metadata.id}">
         </FaqQuestion>
         {/each}
