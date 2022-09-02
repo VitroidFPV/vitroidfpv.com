@@ -59,6 +59,22 @@
         grouped_modules[cat] = [modules[k]]
         }
     }
+
+    // function setEmbed() {
+        let hash = $page.url.hash.replace("#", "");
+        console.log(hash)
+        let el = document.querySelector("#" + hash)
+        let elTitle = el.textContent
+        let elParent = el.parentElement.parentElement
+        let elContent = el.parentElement.parentElement.firstElementChild
+        console.log(elParent)
+        console.log(elContent)
+    // }
+
+    // onMount(() => {
+    //     setEmbed()
+    // })
+
     let prefix = "VitroidFPV"
     let title = " - FAQ"
     let color = "#1cd167"
@@ -74,7 +90,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="VitroidFPV" />
     <meta property="article:author" content="VitroidFPV" />
-    <meta property="og:title" content="{prefix}{title}"/>
+    <meta property="og:title" content="{prefix}{elTitle}"/>
     <meta name="description" content="{description}"/>
     <meta property="og:description" content="{description}">
     <meta content="https://vitroidfpv.com/" property="og:url" />
