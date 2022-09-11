@@ -3,7 +3,8 @@
     <Header text="Parts lists and build guides for any quad you'd want!"/>
 
     <Paragraph text="If you're just a beginner wanting to get their first build, or a long-time pilot that just wants some build inspiration, this is the place for you!<br><br>
-        The builds here are sorted by difficulty, so you can quickly decide if something is for you as a beginner, or to recommend to someone else. When you hover on a specifc build, it will pop up with some short info, and you can get to the build by clicking on the name" />
+        The builds here are sorted by difficulty, so you can quickly decide if something is for you as a beginner, or to recommend to someone else. When you hover on a specifc build, it will pop up with some short info, and you can get to the build by clicking on the name<br>
+        Keep in mind that this site is still in the works. Info here should be mostly reliable, but some may be unfinished and/or buggy" />
     <ul class="mt-2">
         <li>
             <div class="flex items-center mb-4">

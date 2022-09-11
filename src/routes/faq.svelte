@@ -89,7 +89,8 @@
 
     <Paragraph text="There's a lot of questions in FPV, doesn't matter if you're just starting or not<br>
         You will find most of the common and easy to answer ones here. For more specific ones, there are tutorials planned<br>
-        The questions are sorted into individual categories, and next to each one there is a button that will copy a link to the specific one if you want to send it to someone"/>
+        The questions are sorted into individual categories, and next to each one there is a button that will copy a link to the specific one if you want to send it to someone.<br>
+        Keep in mind that this site is still in the works. Info here should be mostly reliable, but some may be unfinished and/or buggy"/>
 
     <ul class="mt-8 text-2xl w-fit">
         <CategoryIndex icon="bg-[url('https://img.icons8.com/material-outlined/32/9550ba/plus--v1.png')]" color="hover:text-violet" text="Starting out" link="Starting"></CategoryIndex>
