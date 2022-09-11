@@ -9,7 +9,7 @@ answer: >-
   once you understand it
 
 
-  1. Select the newest stable release (as of me writing this, 2.5.1 is the newest stable, and likely the last before the full 3.0 release)
+  1. Select the newest stable release (as of me writing this, 3.0.0)
 
   2. Select your device category, and find out what hardware target you need to use, usually, the manufacturer will have this listed. Then select it in the configurator. Below is an example for Happymodel EP1 and EP2 receivers. If you're flashing a different receiver or a transmitter, it will be different for you:
 
@@ -19,18 +19,18 @@ answer: >-
      * WiFi will have you connect to the receiver/transmitter wifi network and upload the file there or connect the receiver/transmitter to your WiFi network
      * Betaflight passthrough will need you to enable that option in Betaflight as well, and you can then connect your flight controller and flash it that way
      * UART will use the integrated USB port (mostly for transmitters), or an FTDI breakout board for receivers (though this is more advanced)
-  4. Now set your device options. There's a lot to cover here, so I'll only go in-depth for the main ones:
+  4. Now set your device options. There's a lot to cover here, and it's all well covered in the [ELRS wiki](https://www.expresslrs.org/2.0/quick-start/getting-started/) and more specifically the [User Defines](https://www.expresslrs.org/2.0/software/user-defines/). The main thing is the bind phrase, which you should set to be the same on your transmitter and receiver, you won't have to do any manual binding. Set your regulatory domain, and your home wifi settings to make flashing a little easier once you have flashed the receiver once with this ew firmware
+     ![elrs device options](/uploads/elrs_device_options.png "elrs device options")
 
-     * `Regulatory domain` - may or may not be necessary where you live, changed things like the frequency and max allowed power, unless you really care about legality, can be mostly ignored
-     * `Binding phrase` - what you use to automagically bind to your receiver that has the same bind phrase selected. If you don't select a bind phrase, you'll have to bind manually
-     * `RCVR_UART_BAUD` - Default (420000) is good for most use cases, Kiss V1 FCs need 400000
-     * `RCVR_INVERT_TX` - only for ESP-based receivers, allows you to use a hard-inverted SBUS pad as a normal RX pad for the CRSF signal
-     * `LOCK_ON_FIRST_CONNECTION` - This makes the receiver reconnect more quickly because it's listening at the proper rate. You generally want this on, but turning it off can be used to get slightly more range to possibly connect to an out-of-range craft
-     * `AUTO_WIFI_ON_INTERVAL` - The time that the receiver will wait until it goes from attempting to get a connection to your radio, to getting into wifi flashing mode
-     * `HOME_WIFI_SSID` and `HOME_WIFI_PASSWORD` are settings for your home WiFi network to make the receiver available to all devices on said network
+     These settings are mostly universal across receivers, there are some module-specific settings that are more for advanced use, and should be kept to default
+  5. Once you have all your settings, you can then build the firmware. Don't worry if this takes a while, it may first need to install all the dependencies. Once done, it should pop up a file explorer window with the firmware files, you will want the one with the full device name
 
-       ![elrs device options](/uploads/elrs_device_options.png "elrs device options")
 
-     These settings are mostly universal across receivers, there are some module-specific settings that are more for advanced use, and should be kept to default. The [ELRS wiki](https://www.expresslrs.org/2.0/quick-start/getting-started/) and more specifically the [User Defines](https://www.expresslrs.org/2.0/software/user-defines/) section will have more detail on all of these options
-  5. This would take too long to write, will finish tomorrow
+  6﻿. Power on the receiver, either with the battery, or USB (if your FC supports it). After the wifi interval time has passed, the receiver should change its blinking pattern, indicating WiFi access point mode. You should see a new WiFi network show up named something like `ExpressLRX RX`. Connect to it, and go to <http://10.0.0.1> in your web browser. Drag the file into the file attachment area, or navigate to it manually. Then you can press `Update`. If everything went to plan, you should soon see a blank page saying `Update Success! Rebooting...`
+
+
+  7﻿. You have now flashed your receiver! For later flashes, you can now also use your home network to flash and set up the receiver
+
+
+  8﻿. Follow the steps for your transmitter, it's mostly the same
 ---
