@@ -9,7 +9,8 @@ text: Good quality motors in a wide variety of kv options, 12000 for 2s, 17000
   builds
 price: $9.99
 point1: "Size: 0802"
-point2: "Weight: 1.9g"
-point3: "KV: 12000/17000/22000/25000kv"
-point4: "Prop Mount: 1mm Push-on"
+point2: 'Props: 1.2-1.6"'
+point3: "Weight: 1.9g"
+point4: "KV: 12000/17000/22000/25000kv"
+point5: "Prop Mount: 1mm Push-on"
 ---
