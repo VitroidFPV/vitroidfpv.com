@@ -2,7 +2,7 @@
 Category: Motors
 color: orange
 order: 5
-title: RCinpower GTS 1002
+title: RCinpower GTS V3 1002
 link: https://www.getfpv.com/rcinpower-gts-v3-1002-motor-14000kv-19000kv-22000kv.html
 text: RCinpower make really good motors, this one isn't an exception. Good
   quality, a pop of color to make your quad stand out, with a good amount of kv
