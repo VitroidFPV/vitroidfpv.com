@@ -11,6 +11,6 @@ price: $9.99
 point1: "Size: 0802"
 point2: 'Props: 1.2-1.6"'
 point3: "Weight: 1.7g"
-point4: "KV: 19000kv"
+point4: "KV: 19000"
 point5: "Prop Mount: 1mm Push-on"
 ---
