@@ -1,6 +1,6 @@
 ---
 Category: Motors
-color: green
+color: orange
 order: 9
 title: Happymodel EX12025
 link: https://www.getfpv.com/happymodel-ex1202-5-motor-6400kv-8000kv-11500kv.html
