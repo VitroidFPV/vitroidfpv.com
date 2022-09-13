@@ -82,4 +82,15 @@
         </div>
         {/each}
     </div>
+
+    <div class="flex flex-col">
+        <div class="my-8 w-full h-fit">
+        <div class="text-4xl tracking-tight md:w-fit f-full px-1 md:ml-1 ml-2 cat mb-2 text-center">Recommended builds:</div>
+            <div class="ml-2">
+                <Paragraph text="As there is a lot of variety in this class of builds, you will find some recommended build combinations for specific quads below:">
+                </Paragraph>
+            </div>
+        </div>
+    </div>
+
 </div>
