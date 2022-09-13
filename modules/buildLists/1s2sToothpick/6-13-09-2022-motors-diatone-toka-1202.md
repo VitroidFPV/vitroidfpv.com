@@ -12,5 +12,5 @@ point1: "Size: 1202"
 point2: 'Props: 1.6-2.5"'
 point3: "Weight: 5.2g"
 point4: "KV: 8500/10000"
-point5: "Prop Mount: 1.5mm Push-on"
+point5: "Prop Mount: 1.5mm T-Mount"
 ---
