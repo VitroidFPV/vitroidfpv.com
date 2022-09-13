@@ -51,7 +51,7 @@
     This list is specced for 1/2s, and includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br>
     The price range for each part is highlighted, so you can quickly find something to suit your budget needs<br><br>
     As this class of builds is pretty diverse from 1.6'' to 3'', there will be some spec examples of different builds to choose from">
-    <ul class="flex flex-row md:flex-col justify-around w-full flex-wrap">
+    <ul class="flex flex-row justify-between w-full flex-wrap">
         <li class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-green before:relative mb-2">Budget</li>
         <li class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-orange before:relative mb-2">Mid-range</li>
         <li class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-red before:relative mb-2">High-end</li>
