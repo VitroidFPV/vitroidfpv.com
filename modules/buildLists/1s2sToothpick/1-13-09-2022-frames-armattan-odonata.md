@@ -1,6 +1,6 @@
 ---
 Category: Frames
-color: green
+color: orange
 order: 1
 title: Armattan Odonata
 link: https://pyrodrone.com/collections/new-products/products/armattan-odonata-74mm-fpv-drone-frame
