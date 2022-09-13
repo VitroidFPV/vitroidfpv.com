@@ -1,6 +1,6 @@
 ---
 Category: Motors
-color: green
+color: red
 order: 93
 title: FPVCycle 13mm
 link: https://fpvcycle.com/collections/motors/products/fpvcycle-1202-5-11-500kv-motor-2mm-prop-shaft
