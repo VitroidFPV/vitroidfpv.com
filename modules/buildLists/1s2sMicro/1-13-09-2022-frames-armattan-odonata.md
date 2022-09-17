@@ -10,7 +10,7 @@ text: Designed by Craftedkwads "The Odonata is a nano drone that fits in your
   small 1.6" frame, for small yet powerful builds
 price: $17.90
 point1: "Wheelbase: 74mm"
-point2: "Weight: 14.1g"
+point2: "Weight: 7.7g"
 point3: "Bottom/Top: 1.5mm"
 point4: "FC Mount: 25.5x"
 ---
