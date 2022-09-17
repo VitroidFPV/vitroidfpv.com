@@ -1,6 +1,6 @@
 ---
 Category: Frames
-color: orange
+color: red
 order: 5
 title: TKS Starlord 90mm
 link: https://www.jacks3dprinting.com/collections/frames/products/tks-starlord-90mm-2-5mm-carbon
