@@ -1,6 +1,6 @@
 ---
 Category: Frames
-color: orange
+color: red
 order: 8
 title: DarwinFPV TinyApe Freestyle
 link: https://darwinfpv.com/products/darwin-tinyapee-freestyle-frame
