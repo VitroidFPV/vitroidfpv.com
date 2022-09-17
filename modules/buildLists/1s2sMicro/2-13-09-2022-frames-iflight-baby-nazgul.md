@@ -9,7 +9,7 @@ text: IFlight's entry into the <2" market. A decent frame, ~1g lighter than the
   want to go for the lowest weight for an all-carbon frame
 price: $12.99
 point1: "Wheelbase: 73mm"
-point2: "Weight: 13.1g"
+point2: "Weight: 9.3g"
 point3: "Bottom/Top: 1.5/1mm"
 point4: "FC Mount: 25.5x"
 ---
