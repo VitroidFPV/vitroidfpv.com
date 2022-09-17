@@ -24,7 +24,7 @@
     let prefix = "Builds"
     let title = " - 1s/2s Micro"
     let titleRaw = title.slice(3)
-    let color = "#ff9742"
+    let color = "#d6395b"
     let description = "Built to be very light, every gram matters here. Great park/backyard fliers, and basically silent. Mostly analog video, AIO flight controllers, with an external/integrated VTX, tiny motors, pico cams, and push-on props"
 </script>
 
