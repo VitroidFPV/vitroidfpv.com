@@ -95,7 +95,7 @@ collections:
 
   - name: 1s - 2s Toothpick Build
     label: 1s - 2s Toothpick Build
-    folder: modules/buildLists/1s2sToothpick/
+    folder: modules/buildLists/1s2sMicro/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Category}}-{{title}}"
     fields:
