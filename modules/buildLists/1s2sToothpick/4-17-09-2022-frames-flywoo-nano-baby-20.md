@@ -1,6 +1,6 @@
 ---
 Category: Frames
-color: green
+color: orange
 order: 4
 title: Flywoo Nano Baby 20
 link: https://flywoo.net/search?type=product&q=NOT+tag%3A__gift+AND+firefly+nano+baby+20+frame+kit*
