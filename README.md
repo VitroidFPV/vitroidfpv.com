@@ -19,9 +19,11 @@ Right now, there are three main pages available:
 ## Contributing:
 [![forthebadge](https://forthebadge.com/images/badges/contains-tasty-spaghetti-code.svg)](https://forthebadge.com)
 
-This process requires at least some familiarity with Git, but should still be easy to follow with either the CLI, or Github desktop
+This process requires at least some familiarity with Git, but should still be easy to follow with either the CLI, or Github desktop. As any SvelteKit app, it supports a full HMR Live Dev enviroment by running the `npm run dev` command in the CLI. Writing the `.md` files requires a page refresh on any change to take effect, the rest will re-render automatically on save
 
 ### Process:
+
+(totally not yoinked from Betaflight and slightly changed cuz I have no idea with Git CLI 😎)
 
 If you know CLI:
 1. `git clone <URL of your fork>`
@@ -43,25 +45,29 @@ From there, you can submit a pull request from the GitHub UI
 
 And I'm not entirely sure I wrote the instructions properly
 
-### Some rules and principles to follow:
+### FAQ content:
 The files in place should give you an idea of how the `.md` files should be written and named. The file naming scheme should be `dd-mm-yyyy-question-here-if-not-too-long.md`.
 
-The site is designed in a way that all of the repeatable content is modular, the content that's easily accessible for contribution is in the `/modules/` directory:
+The site is designed in a way that all of the repeatable content is modular, the content that's easily accessible for contribution is in the `/modules/` directory, for example the `I'm barely getting any video range` FAQ:
 
 ```markdown
 ---
-Category: Betaflight 
-# Starting Out, Building, Betaflight, Video, Radio, Hardware (case sensitive)
-title: Lorem?
-# Question title
-id: Lorem
-# Question ID for sharing in links
+Category: Video
+order: 6
+title: I'm barely getting any video range
+id: videoRange
 answer: >-
- Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
- tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
- quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
- consequat.
-#  Question answer (write under the >- tag with indentation)
+  If you're only getting less than ~10m, even worse less than 1m of video range,
+  these are often the main reasons:
+
+
+  * **ABSOLUTELY** make sure that your VTX antenna is correctly installed. If not, you can *very* quickly fry the VTX. Make sure it's on correctly, and with the correct connector
+
+  * Make sure you're on the correct frequency. You should be on the same band and channel as your VTX. This often occurs from incorrect behavior of the auto-search feature on goggles. Auto-search is not very reliable, it's always best to manually set the correct band and channel
+
+  * The VTX may often be locked to 25mW for legal reasons. There are plenty of tutorials on how to unlock it to get a higher output power
+
+  * The VTX can also be stuck in PIT mode (completely powered off, or transmitting at like 0.1mW). This can be changed with the hardware button on the VTX, or in Betaflight as well
 ---
 ```
 Every file in the `/modules/faqs/` directory represents one question and its corresponding info and answer on the faq page on the site. The categories for the FAQ page are restricted to the ones that are available on the site itself, ie:
@@ -72,4 +78,8 @@ Every file in the `/modules/faqs/` directory represents one question and its cor
 - Radio
 - Hardware
 
-Putting one of those as the `Category` (case sensitive) will automatically sort it into the category in the site, and you can write the `Question` and `Answer` yourself.
+Putting one of those as the `Category` (case sensitive) will automatically sort it into the category in the site, and you can write the `Question` and `Answer` yourself.  
+The `order` value specifies the order in which the answers will be shown in their respective category. I will likely have to change the naming scheme because currently it can only go to 10 per category, bit of an oversight  
+`title` is the question name that gets displayed as the collapsible  
+`id` is the question anchor which can then be shared when clicking on the hashtag button next to it
+and lastly the `answer: >-` supports full markdown fomatting, you only need to indent the lines
