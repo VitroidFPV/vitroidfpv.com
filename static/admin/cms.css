@@ -9,3 +9,11 @@ body {
 body {
   padding: 20px;
 }
+
+.container {
+  height: fit-content;
+  max-width: 24rem;
+  min-width: 18rem;
+  border-left-width: 4px;
+  padding-left: 0.5rem;
+}

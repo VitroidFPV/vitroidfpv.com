@@ -33,7 +33,7 @@
         
         return h("div", {className: "container"},
           h("div", {className: "title"}, entry.getIn(["data", "title" ])),
-          h("div", {className: "points"},
+          h("div", {className: "points" + entry.getIn(["data", "color"])},
             h("div", {className: "price"}, entry.getIn(["data", "price"])),
             h("div", {className: "point1"}, entry.getIn(["data", "point1"])),
             h("div", {className: "point2"}, entry.getIn(["data", "point2"])),
