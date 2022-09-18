@@ -14,7 +14,7 @@ body {
   height: fit-content;
   max-width: 24rem;
   min-width: 18rem;
-  border-left-width: 4px;
+  border-left-width: 4px !important;
   padding-left: 0.5rem;
 }
 
@@ -27,9 +27,9 @@ body {
 .title.orange {color: #ff9742;}
 .title.red {color: #d6395b;}
 
-.container.green {border-color: #87cc52;}
-.container.orange {border-color: #ff9742;}
-.container.red {border-color: #d6395b;}
+.container.green {border-color: #87cc52 !important;}
+.container.orange {border-color: #ff9742 !important;}
+.container.red {border-color: #d6395b !important;}
 
 .points {
   display: flex;
