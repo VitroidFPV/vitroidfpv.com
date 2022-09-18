@@ -11,6 +11,43 @@
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
   <script>
     CMS.registerPreviewStyle("cms.css");
+
+    var PostPreview = createClass({
+      render: function() {
+        const { entry, getAsset, widgetsFor } = this.props
+        const imagePath = entry.getIn(['data', 'image'])
+        const image = getAsset(imagePath)
+
+
+        // return h('div', { className: 'container' },
+        //   h('div', { className: 'row' },
+        //     h('div', { className: 'card col-md-12' },
+        //       h('img', { src: image.toString(), className: 'img-fluid rounded' }),
+        //       h('div', { className: 'card-body' },
+        //         h('h5', { className: 'card-title' }, entry.getIn(['data', 'title']) ),
+        //         h('p', { classname: 'card-text' }, entry.getIn(['data', 'body']),
+        //         h('p', { className: 'small font-weight-light mt-3' }, `Created On: ${entry.getIn(['data', 'date'])}` )
+        //         ),
+        //       )
+        //     )
+        //   )
+        // )
+        return h("div", {className: "container"},
+          h("div", {className: "title"}, entry.getIn(["data", "Title" ])),
+          h("div", {className: "points"},
+            h("div", {className: "price"}, entry.getIn(["data", "price"])),
+            h("div", {className: "point1"}, entry.getIn(["data", "point1"])),
+            h("div", {className: "point2"}, entry.getIn(["data", "point2"])),
+            h("div", {className: "point3"}, entry.getIn(["data", "point3"])),
+            h("div", {className: "point4"}, entry.getIn(["data", "point4"])),
+            h("div", {className: "point5"}, entry.getIn(["data", "point5"])),
+          ),
+          h("div", {className: "description"}, entry.getIn(["data", "description"]))
+        )
+      }
+    })
+
+    CMS.registerPreviewTemplate('5" Beginner Build', PostPreview)
   </script>
 </body>
 </html>
