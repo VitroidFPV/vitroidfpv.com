@@ -70,16 +70,11 @@ answer: >-
   * The VTX can also be stuck in PIT mode (completely powered off, or transmitting at like 0.1mW). This can be changed with the hardware button on the VTX, or in Betaflight as well
 ---
 ```
-Every file in the `/modules/faqs/` directory represents one question and its corresponding info and answer on the faq page on the site. The categories for the FAQ page are restricted to the ones that are available on the site itself, ie:
-- Starting Out
-- Building
-- Betaflight
-- Video
-- Radio
-- Hardware
+Here are the explanations for all of the fields:
+* The categories for the FAQ page are restricted to the ones that are available on the site itself, ie: Starting Out, Building, Betaflight, Video, Radio, Hardware. Putting one of those as the `Category` (case sensitive) will automatically sort it into the category in the site
+* The `order` value specifies the order in which the answers will be shown in their respective category. I will likely have to change the naming scheme because currently it can only go to 10 per category, bit of an oversight  
+* `title` is the question name that gets displayed as the collapsible  
+* `id` is the question anchor which can then be shared when clicking on the hashtag button next to it
+* And lastly the `answer: >-` supports full markdown fomatting, you only need to indent the lines
 
-Putting one of those as the `Category` (case sensitive) will automatically sort it into the category in the site, and you can write the `Question` and `Answer` yourself.  
-The `order` value specifies the order in which the answers will be shown in their respective category. I will likely have to change the naming scheme because currently it can only go to 10 per category, bit of an oversight  
-`title` is the question name that gets displayed as the collapsible  
-`id` is the question anchor which can then be shared when clicking on the hashtag button next to it
-and lastly the `answer: >-` supports full markdown fomatting, you only need to indent the lines
+As for code style, I don't care as long as it works and is somewhat readable and consistent, though even I often fail to do that
