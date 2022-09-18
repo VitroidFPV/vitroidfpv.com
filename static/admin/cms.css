@@ -1,8 +1,9 @@
 html,
 body {
-  color: red;
+  background-color: #0f0f0f;
+  color: #f7f7f7;
   font-size: 14px;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Reem Kufi';
 }
 
 body {
