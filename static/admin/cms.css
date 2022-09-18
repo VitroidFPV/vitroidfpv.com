@@ -23,25 +23,25 @@ body {
   line-height: 2rem/* 32px */;
 }
 
-.title.green {color: #87cc52}
-.title.orange {color: #ff9742}
-.title.red {color: #d6395b}
+.title.green {color: #87cc52;}
+.title.orange {color: #ff9742;}
+.title.red {color: #d6395b;}
 
-.container.green {border-color: #87cc52}
-.container.orange {border-color: #ff9742}
-.container.red {border-color: #d6395b}
+.container.green {border-color: #87cc52;}
+.container.orange {border-color: #ff9742;}
+.container.red {border-color: #d6395b;}
 
 .points {
-  display: flex
-  justify-content: space-between
-  margin-top: 0.75rem
-  margin-bottom: 0.75rem
-  flex-wrap: wrap
-  letter-spacing: 0.01em
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  letter-spacing: 0.01em;
   font-size: 1rem/* 16px */
   line-height: 1.5rem/* 24px */;
-  color: #adadad
-  margin-right: 0.5rem
+  color: #adadad;
+  margin-right: 0.5rem;
 }
 
-.price {color: #e0e0e0}
+.price {color: #e0e0e0;}
