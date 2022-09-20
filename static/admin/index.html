@@ -16,8 +16,7 @@
 		render: function() {
 			var entry = this.props.entry
 			
-			return 
-			h("div", {className: "category"}, entry.getIn(["data", "Category"])),
+			return h("div", {className: "category"}, entry.getIn(["data", "Category"])),
 			h("div", {className: "container" + " " + entry.getIn(["data", "color"])},
          		h("div", {className: "title" + " " + entry.getIn(["data", "color"])}, entry.getIn(["data", "title" ])),
           		h("div", {className: "points"},
