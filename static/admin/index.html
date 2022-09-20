@@ -10,43 +10,38 @@
   <!-- Include the script that builds the page and powers Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
   <script>
-    CMS.registerPreviewStyle("cms.css");
+	CMS.registerPreviewStyle("cms.css");
 
-    var PostPreview = createClass({
-      render: function() {
-        var entry = this.props.entry
+	var PostPreview = createClass({
+		render: function() {
+			var entry = this.props.entry
+			
+			return 
+			h("div", { className: "main-box" },
+			h("div", {className: "category"}, entry.getIn(["data", "Category"])),
+			h("div", {className: "container" + " " + entry.getIn(["data", "color"])},
+				h("div", {className: "title" + " " + entry.getIn(["data", "color"])}, entry.getIn(["data", "title" ])),
+				h("div", {className: "points"},
+					h("div", {className: "price"}, entry.getIn(["data", "price"])),
+					h("div", {className: "point1"}, entry.getIn(["data", "point1"])),
+					h("div", {className: "point2"}, entry.getIn(["data", "point2"])),
+					h("div", {className: "point3"}, entry.getIn(["data", "point3"])),
+					h("div", {className: "point4"}, entry.getIn(["data", "point4"])),
+					h("div", {className: "point5"}, entry.getIn(["data", "point5"])),
+				),
+				h("div", {className: "description"}, entry.getIn(["data", "text"]))
+			),
+			//  list out order, group, and link
+			h("ul", {className: "list"},
+				h("li", {className: "list-item"}, entry.getIn(["data", "order"])),
+				h("li", {className: "list-item"}, entry.getIn(["data", "group"])),
+				h("li", {className: "list-item"}, entry.getIn(["data", "link"]))
+			)
+		)	
+	}
+})
 
-
-        // return h('div', { className: 'container' },
-        //   h('div', { className: 'row' },
-        //     h('div', { className: 'card col-md-12' },
-        //       h('img', { src: image.toString(), className: 'img-fluid rounded' }),
-        //       h('div', { className: 'card-body' },
-        //         h('h5', { className: 'card-title' }, entry.getIn(['data', 'title']) ),
-        //         h('p', { classname: 'card-text' }, entry.getIn(['data', 'body']),
-        //         h('p', { className: 'small font-weight-light mt-3' }, `Created On: ${entry.getIn(['data', 'date'])}` )
-        //         ),
-        //       )
-        //     )
-        //   )
-        // )
-        
-        return h("div", {className: "container" + " " + entry.getIn(["data", "color"])},
-          h("div", {className: "title" + " " + entry.getIn(["data", "color"])}, entry.getIn(["data", "title" ])),
-          h("div", {className: "points"},
-            h("div", {className: "price"}, entry.getIn(["data", "price"])),
-            h("div", {className: "point1"}, entry.getIn(["data", "point1"])),
-            h("div", {className: "point2"}, entry.getIn(["data", "point2"])),
-            h("div", {className: "point3"}, entry.getIn(["data", "point3"])),
-            h("div", {className: "point4"}, entry.getIn(["data", "point4"])),
-            h("div", {className: "point5"}, entry.getIn(["data", "point5"])),
-          ),
-          h("div", {className: "description"}, entry.getIn(["data", "text"]))
-        )
-      }
-    })
-
-    CMS.registerPreviewTemplate('5" Beginner Build', PostPreview)
+	CMS.registerPreviewTemplate('5" Beginner Build', PostPreview)
   </script>
 </body>
 </html>

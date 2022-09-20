@@ -45,4 +45,13 @@ body {
 
 .price {color: #e0e0e0;}
 
+.category {
+  font-size: 2.25rem/* 36px */;
+  line-height: 2.5rem/* 40px */;
+  letter-spacing: -0.025rem;
+}
+
+.list {display: flex;}
+.list-item {font-size: 13px}
+
 .point1, .point2, .point2, .point4, .point5, .price {margin-right: 0.6rem;}
