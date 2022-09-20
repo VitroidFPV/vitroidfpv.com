@@ -16,12 +16,9 @@
 		render: function() {
 			var entry = this.props.entry
 			
-			return 
-			h("div", { className: "main-box" },
-			h("div", {className: "category"}, entry.getIn(["data", "Category"])),
-			h("div", {className: "container" + " " + entry.getIn(["data", "color"])},
-				h("div", {className: "title" + " " + entry.getIn(["data", "color"])}, entry.getIn(["data", "title" ])),
-				h("div", {className: "points"},
+			return h("div", {className: "container" + " " + entry.getIn(["data", "color"])},
+         		h("div", {className: "title" + " " + entry.getIn(["data", "color"])}, entry.getIn(["data", "title" ])),
+          		h("div", {className: "points"},
 					h("div", {className: "price"}, entry.getIn(["data", "price"])),
 					h("div", {className: "point1"}, entry.getIn(["data", "point1"])),
 					h("div", {className: "point2"}, entry.getIn(["data", "point2"])),
@@ -29,13 +26,12 @@
 					h("div", {className: "point4"}, entry.getIn(["data", "point4"])),
 					h("div", {className: "point5"}, entry.getIn(["data", "point5"])),
 				),
-				h("div", {className: "description"}, entry.getIn(["data", "text"]))
-			)
-		)	
-	}
-})
+         		h("div", {className: "description"}, entry.getIn(["data", "text"]))
+        	)
+      	}
+    })
 
-	CMS.registerPreviewTemplate('5" Beginner Build', PostPreview)
+    CMS.registerPreviewTemplate('5" Beginner Build', PostPreview)
   </script>
 </body>
 </html>
