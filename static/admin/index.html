@@ -31,9 +31,9 @@
 				),
 				h("div", {className: "description"}, entry.getIn(["data", "text"]))
 			),
+			//  list out order, group, and link
 			h("ul", {className: "list"},
 				h("li", {className: "list-item"}, entry.getIn(["data", "order"])),
-				h("li", {className: "list-item"}, entry.getIn(["data", "group"])),
 				h("li", {className: "list-item"}, entry.getIn(["data", "link"]))
 			)
 		)	
