@@ -1,7 +1,8 @@
 ---
 Category: Radios
-color: green
-title: Radiomaster Zorro
+group: ELRS
+color: orange
+title: Radiomaster TX12 MK II
 price: $80-$99
 text: A good budget radio with plenty of protocols to choose from.
 link: https://www.youtube.com/watch?v=dQw4w9WgXcQ
@@ -11,6 +12,4 @@ point2: >-
  Weight: 144g
 point3: >-
  Gimbals: Pot
-point4: >-
- Bottom & top: 3 & 2mm
 ---

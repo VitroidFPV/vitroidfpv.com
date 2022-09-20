@@ -177,9 +177,16 @@
   .product.red {@apply border-red} .product.green {@apply border-green} .product.orange {@apply border-orange} 
   .product.cyan {@apply border-cyan} .product.blue {@apply border-blue} .product.violet {@apply border-violet}
 
-  code {@apply bg-gray-500/30 p-1 rounded-md}
+  .group.ELRS {
+    @apply order-1
+  }
+  .group.Crossfire {
+    @apply order-2
+  }
+
 
   /* markdown styles */
+  code {@apply bg-gray-500/30 p-1 rounded-md}
   .md h1 {@apply text-4xl my-3 tracking-wide}
   .md h2 {@apply text-3xl my-3 tracking-wide}
   .md h3 {@apply text-2xl my-2 tracking-wide}
