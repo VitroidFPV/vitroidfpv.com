@@ -54,6 +54,6 @@ body {
 
 .list {display: flex; flex-wrap: wrap; flex-direction: column; list-style-position: outside; padding-left: 4px;}
 .list-item {font-size: 15px; list-style: none; margin-bottom: 0.5rem;}
-.list-item.link {overflow-wrap: break-word;}
+.list-item.link {overflow-wrap: anywhere;}
 
 .point1, .point2, .point2, .point4, .point5, .price {margin-right: 0.6rem;}
