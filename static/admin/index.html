@@ -15,6 +15,7 @@
 	var PostPreview = createClass({
 		render: function() {
 			var entry = this.props.entry
+			var group = entry.getIn(['data', 'group'])
 			
 			return h("div", {className: "main-box"},
 				h("div", {className: "category"}, entry.getIn(["data", "Category"])),
@@ -33,7 +34,9 @@
 				h("ul", {className: "misc-info list"},
 					// link, order, and group
 					h("li", {className: "order list-item"}, "Order: " + entry.getIn(["data", "order"])),
-					h("li", {className: "group list-item"}, "Group:" + entry.getIn(["data", "group"])),
+					{group: "undefined" &&
+						h("li", {className: "group list-item"}, "Group:" + entry.getIn(["data", "group"])),
+					},
 					h("li", {className: "link list-item"}, "Link:" +  entry.getIn(["data", "link"])),
 				)
 			)
