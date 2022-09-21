@@ -34,9 +34,7 @@
 				h("ul", {className: "misc-info list"},
 					// link, order, and group
 					h("li", {className: "order list-item"}, "Order: " + entry.getIn(["data", "order"])),
-					{group: "undefined" &&
-						h("li", {className: "group list-item"}, "Group:" + entry.getIn(["data", "group"])),
-					},
+					h("li", {className: "group list-item"}, "Group:" + entry.getIn(["data", "group"])),
 					h("li", {className: "link list-item"}, "Link:" +  entry.getIn(["data", "link"])),
 				)
 			)
@@ -46,7 +44,7 @@
     CMS.registerPreviewTemplate('5" Beginner Build', PostPreview)
 	CMS.registerPreviewTemplate('3" Cinewhoop Build', PostPreview)
 	CMS.registerPreviewTemplate('1s - 2s Micro Build', PostPreview)
-	
+
 	CMS.registerPreviewTemplate('Equipment - Radio', PostPreview)
   </script>
 </body>
