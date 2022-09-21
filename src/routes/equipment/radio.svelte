@@ -29,7 +29,7 @@
             {#each Object.entries(contents) as [group, info]}
                 <div class="group {group} my-4 w-full h-fit">
                     {#if group != "undefined"}
-                        <div class="text-xl tracking-tight w-full px-1 group {group} mb-2 border-b-[1px] border-gray-700 text-main-50 dark:text-contrast-500" id="{group}">{group}</div>
+                        <div class="text-xl tracking-tight w-full px-1 {group} mb-2 border-b-[1px] border-gray-700 text-main-50 dark:text-contrast-500" id="{group}">{group}</div>
                     {/if}
                     <div class="ml-3 flex flex-col md:flex-row flex-wrap w-full md:justify-start md:items-start items-center border-white/10">
                         {#each info as product}

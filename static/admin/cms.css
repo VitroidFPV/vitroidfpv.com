@@ -49,6 +49,7 @@ body {
   font-size: 2.25rem/* 36px */;
   line-height: 2.5rem/* 40px */;
   letter-spacing: -0.025rem;
+  margin-bottom: 1.5rem;
 }
 
 .list {display: flex;}
