@@ -29,6 +29,12 @@
 						h("div", {className: "point5"}, entry.getIn(["data", "point5"])),
 					),
 					h("div", {className: "description"}, entry.getIn(["data", "text"]))
+				),
+				h("ul", {className: "misc-info"},
+					// link, order, and group
+					h("li", {className: "link"}, entry.getIn(["data", "link"])),
+					h("li", {className: "order"}, entry.getIn(["data", "order"])),
+					h("li", {className: "group"}, entry.getIn(["data", "group"])),
 				)
 			)
       	}
