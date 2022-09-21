@@ -3,7 +3,7 @@ Category: Radios
 group: Gamepad style
 color: green
 order: -2
-title: Jumper T-Lite V2
+title: BetaFPV LiteRadio 3
 link: https://betafpv.com/products/literadio-3-radio-transmitter?_pos=1&_sid=ad54ec93f&_ss=r
 text: Likely the cheapest you can get without it being absolute crap. Decent
   build quality and upgraded gimbals from the original LR2 (SE). I'd recommend
