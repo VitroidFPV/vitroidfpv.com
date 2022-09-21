@@ -53,6 +53,6 @@ body {
 }
 
 .list {display: flex; flex-wrap: wrap; flex-direction: column;}
-.list-item {font-size: 13px; list-style: none}
+.list-item {font-size: 15px; list-style: none; list-position: outside; margin-bottom: 0.5rem;}
 
 .point1, .point2, .point2, .point4, .point5, .price {margin-right: 0.6rem;}
