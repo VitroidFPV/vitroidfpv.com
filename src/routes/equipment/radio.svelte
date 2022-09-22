@@ -29,7 +29,7 @@
     }
     // console.log(JSON.stringify(grouped_modules))
 
-    let prefix = "Builds"
+    let prefix = "Equipment"
     let title = " - Radio Equipment"
     let titleRaw = title.slice(3)
     let color = "#5ad8e6"
