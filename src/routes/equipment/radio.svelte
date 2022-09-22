@@ -1,7 +1,61 @@
+<script>
+    // @ts-ignore
+    import BuildProduct from "/src/components/buildsPage/buildProduct.svelte";
+    // @ts-ignore
+    import MainHeader from "/src/components/mainHeader.svelte";
+    // @ts-ignore
+    import Header from "/src/components/Header.svelte";
+    // @ts-ignore
+    import Paragraph from "/src/components/Paragraph.svelte";
+
+    const modules = import.meta.globEager("/modules/equipmentLists/radioList/*.md");
+    let grouped_modules = {};
+
+    for (const k in modules) {
+        const cat = modules[k].metadata.Category;
+        const group = modules[k].metadata.group
+
+        // construct object as {cat: {group: [metadata]}}
+        if (grouped_modules[cat]) {
+            if (grouped_modules[cat][group]) {
+                grouped_modules[cat][group].push(modules[k]);
+            } else {
+                grouped_modules[cat][group] = [modules[k]];
+            }
+        } else {
+            grouped_modules[cat] = {};
+            grouped_modules[cat][group] = [modules[k]];
+        }
+    }
+    // console.log(JSON.stringify(grouped_modules))
+
+    let prefix = "Builds"
+    let title = " - Radio Equipment"
+    let titleRaw = title.slice(3)
+    let color = "#5ad8e6"
+    let description = "Radios, TX modules, receivers, antennas, and any other misc accessories for radios, all you need to get control over your craft"
+</script>
+
+<svelte:head>
+    <title>VitroidFPV{title}</title>
+    <meta name="author" content="VitroidFPV"/>
+    <meta property="og:image" content="https://www.vitroidfpv.com/sources/radio_512.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="VitroidFPV" />
+    <meta property="article:author" content="VitroidFPV" />
+    <meta property="og:title" content="{prefix}{title}"/>
+    <meta name="description" content="{description}"/>
+    <meta property="og:description" content="{description}">
+    <meta content="https://vitroidfpv.com/" property="og:url" />
+    <meta name="theme-color" content="{color}">
+</svelte:head>
+
 <div class="content-box">
-    <MainHeader text="Radio equipment"/>
+    <MainHeader text="{titleRaw}"/>
     <Header text="Everything you need to control your quad"/>
-    <Paragraph text="Radios, TX modules, receivers, antennas, and any other misc accessories for radios, all you need to get control over your craft.<br>
+    <Paragraph text="{description}<br>
     If you're trying to decide, or don't even have any prior experience, this list will hopefully help you!<br><br>
     Prices may depend on where and when you source the parts, (prices and specs are sourced from the manufacturers website at the time of the writing when possible)"/>
 
@@ -52,35 +106,3 @@
     {/each}
         
 </div>
-
-<script>
-    // @ts-ignore
-    import BuildProduct from "/src/components/buildsPage/buildProduct.svelte";
-    // @ts-ignore
-    import MainHeader from "/src/components/mainHeader.svelte";
-    // @ts-ignore
-    import Header from "/src/components/Header.svelte";
-    // @ts-ignore
-    import Paragraph from "/src/components/Paragraph.svelte";
-
-    const modules = import.meta.globEager("/modules/equipmentLists/radioList/*.md");
-    let grouped_modules = {};
-
-    for (const k in modules) {
-        const cat = modules[k].metadata.Category;
-        const group = modules[k].metadata.group
-
-        // construct object as {cat: {group: [metadata]}}
-        if (grouped_modules[cat]) {
-            if (grouped_modules[cat][group]) {
-                grouped_modules[cat][group].push(modules[k]);
-            } else {
-                grouped_modules[cat][group] = [modules[k]];
-            }
-        } else {
-            grouped_modules[cat] = {};
-            grouped_modules[cat][group] = [modules[k]];
-        }
-    }
-    // console.log(JSON.stringify(grouped_modules))
-</script>
