@@ -154,7 +154,7 @@ collections:
       - {label: "Order", name: "order", widget: "number"}
       - {label: "Title", name: "title", widget: "text"}
       - {label: "Link", name: "link", widget: "text"}
-      - {label: "Description", name: "text", widget: "text"}
+      - {label: "Description", name: "text", widget: "markdown"}
 
       - {label: "Price", name: "price", widget: "text"}
       - {label: "Point 1", name: "point1", widget: "text", required: false}

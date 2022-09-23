@@ -8,6 +8,16 @@
     // @ts-ignore
     import Paragraph from "/src/components/Paragraph.svelte";
 
+    import { marked } from 'marked';
+    marked.setOptions({
+    gfm: true,
+    breaks: true,
+    sanitize: false,
+    smartLists: false,
+    smartypants: false,
+    xhtml: false
+    });
+
     const modules = import.meta.globEager("/modules/equipmentLists/radioList/*.md");
     let grouped_modules = {};
 
@@ -81,26 +91,32 @@
     <div class="{cat} my-8 w-full h-fit flex flex-col">
         <div class="text-4xl tracking-tight w-fit px-1 cat {cat} mb-2" id="{cat}">{cat}</div>
             {#each Object.entries(contents) as [group, info]}
-                <div class="group {group} my-4 w-full h-fit">
-                    {#if group != "undefined"}
-                        <div class="text-xl tracking-tight w-full px-1 {group} mb-2 border-b-[1px] border-gray-700 text-main-50 dark:text-contrast-500" id="{group}">{group}</div>
-                    {/if}
-                    <div class="ml-3 flex flex-col md:flex-row flex-wrap w-full md:justify-start md:items-start items-center border-white/10">
-                        {#each info as product}
-                            <BuildProduct 
-                            color="{product.metadata.color}" 
-                            title="{product.metadata.title}" 
-                            price="{product.metadata.price}" 
-                            point1="{product.metadata.point1}" 
-                            point2="{product.metadata.point2}" 
-                            point3="{product.metadata.point3}" 
-                            point4="{product.metadata.point4}"
-                            point5="{product.metadata.point5}"
-                            text="{product.metadata.text}"
-                            link="{product.metadata.link}"/>
-                        {/each}
+                {#if group != "Info"}
+                    <div class="group {group} my-4 w-full h-fit">
+                        {#if group != "undefined"}
+                            <div class="text-xl tracking-tight w-full px-1 {group} mb-2 border-b-[1px] border-gray-700 text-main-50 dark:text-contrast-500" id="{group}">{group}</div>
+                        {/if}
+                        <div class="ml-3 flex flex-col md:flex-row flex-wrap w-full md:justify-start md:items-start items-center border-white/10">
+                            {#each info as product}
+                                <BuildProduct
+                                color="{product.metadata.color}" 
+                                title="{product.metadata.title}" 
+                                price="{product.metadata.price}" 
+                                point1="{product.metadata.point1}" 
+                                point2="{product.metadata.point2}" 
+                                point3="{product.metadata.point3}" 
+                                point4="{product.metadata.point4}"
+                                point5="{product.metadata.point5}"
+                                text="{product.metadata.text}"
+                                link="{product.metadata.link}"/>
+                            {/each}
+                        </div>
                     </div>
-                </div>
+                {:else}
+                    {#each info as product}
+                        <div class="md ml-4">{@html marked.parse(product.metadata.text)}</div>
+                    {/each}
+                {/if}
             {/each}
         </div>
     {/each}
