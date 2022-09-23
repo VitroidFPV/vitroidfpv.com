@@ -57,3 +57,8 @@ body {
 .list-item.link {overflow-wrap: anywhere;}
 
 .point1, .point2, .point2, .point4, .point5, .price {margin-right: 0.6rem;}
+
+.md.ml-4 {
+  transform-origin: top left;
+  scale: 0.9;
+}
