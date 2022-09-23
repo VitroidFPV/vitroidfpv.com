@@ -5,11 +5,11 @@ color: red
 order: 5
 title: TBS Tango2
 link: https://www.team-blacksheep.com/products/prod:tbs_tango_2
-text: If you want a small radio with top-end specs, this is the one to go with.
-  Integrated crossfire for long range, and a large built-in battery. TBS make
-  good quality stuff, and if you're already in the Crossfire ecosystem, it's a
-  great radio. But if you don't have any Crossfire equipment, I'd consider
-  adding an ELRS module going forward
+text: If you want a small game-pad style radio, with top-end build quality, this
+  is the one to go for. A large internal battery, and integrated crossfire for
+  those who already run it. TBS make good quality stuff, but for users who don't
+  already run crossfire, it is recommended to get an ELRS module, even though
+  you'd be limited to 250Hz
 price: $159.95
 point1: "Protocol: Crossfire"
 point2: "Gimbals: Hall"
