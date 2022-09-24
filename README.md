@@ -25,7 +25,7 @@ This process requires at least some familiarity with Git, but should still be ea
 
 (totally not yoinked from Betaflight and slightly changed cuz I have no idea with Git CLI 😎)
 
-If you know CLI:\
+If you know CLI:
 1. Navigate to the directory you want to clone the repo to
 1. `git clone <URL of your fork>`
 2. `cd VitroidFPV`
