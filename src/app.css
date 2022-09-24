@@ -184,6 +184,10 @@
     @apply order-2
   }
 
+  .ml-4.md {
+    @apply origin-top-right scale-90
+  }
+
 
   /* markdown styles */
   code {@apply bg-gray-500/30 p-1 rounded-md}
