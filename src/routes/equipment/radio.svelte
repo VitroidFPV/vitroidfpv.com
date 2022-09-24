@@ -26,6 +26,7 @@
         const group = modules[k].metadata.group
 
         // construct object as {cat: {group: [metadata]}}
+
         if (grouped_modules[cat]) {
             if (grouped_modules[cat][group]) {
                 grouped_modules[cat][group].push(modules[k]);
@@ -37,7 +38,24 @@
             grouped_modules[cat][group] = [modules[k]];
         }
     }
-    // console.log(JSON.stringify(grouped_modules))
+
+    // sort grouped_modules to have the group "Info" be last
+    let sorted_grouped_modules = {};
+    for (const cat in grouped_modules) {
+        sorted_grouped_modules[cat] = {};
+        for (const group in grouped_modules[cat]) {
+            if (group === "Info") {
+                continue;
+            }
+            sorted_grouped_modules[cat][group] = grouped_modules[cat][group];
+        }
+        if (grouped_modules[cat]["Info"]) {
+            sorted_grouped_modules[cat]["Info"] = grouped_modules[cat]["Info"];
+        }
+    }
+    // omfg copilot carries this shit
+
+    console.log(JSON.stringify(sorted_grouped_modules))
 
     let prefix = "Equipment"
     let title = " - Radio Equipment"
@@ -69,25 +87,7 @@
     If you're trying to decide, or don't even have any prior experience, this list will hopefully help you!<br><br>
     Prices may depend on where and when you source the parts, (prices and specs are sourced from the manufacturers website at the time of the writing when possible)"/>
 
-    <!-- {#each Object.entries(grouped_modules) as [cat, contents]}
-    <div class="{cat} my-8 w-full h-fit">
-    <div class="text-4xl tracking-tight w-fit px-1 cat {cat} mb-2" id="{cat}">{cat}</div>
-        {#each contents as info}
-            <BuildProduct 
-            color="{info.metadata.color}" 
-            title="{info.metadata.title}" 
-            price="{info.metadata.price}" 
-            point1="{info.metadata.point1}" 
-            point2="{info.metadata.point2}" 
-            point3="{info.metadata.point3}" 
-            point4="{info.metadata.point4}"
-            point5="{info.metadata.point5}"
-            text="{info.metadata.text}"
-            link="{info.metadata.link}"/>
-        {/each}
-    </div>
-    {/each} -->
-    {#each Object.entries(grouped_modules) as [cat, contents]}
+    {#each Object.entries(sorted_grouped_modules) as [cat, contents]}
     <div class="{cat} my-8 w-full h-fit flex flex-col">
         <div class="text-4xl tracking-tight w-fit px-1 cat {cat} mb-2" id="{cat}">{cat}</div>
             {#each Object.entries(contents) as [group, info]}
