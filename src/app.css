@@ -185,7 +185,7 @@
   }
 
   .ml-4.md {
-    @apply origin-top-right scale-90
+    @apply origin-top-left scale-90
   }
 
 
