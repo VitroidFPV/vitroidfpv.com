@@ -15,8 +15,9 @@
 	:root {
 		--background: #0f0f0f;
 		--background-light: #1e1e1e;
-		--background-light1: #292929;
+		--background-light1: #3d454d;
 		--light: #f7f7f7;
+		--highlight: #90d95b;
 	}
 
 	#nc-root {
@@ -54,10 +55,17 @@
 		background-color: var(--background-light) !important;
 		color: var(--light) !important;
 	}
-
+	.css-u2webi-SidebarNavLink-sidebarNavLinkActive-SidebarNavLink {
+		border: none !important;
+	}
 	.css-u2webi-SidebarNavLink-sidebarNavLinkActive-SidebarNavLink:hover {
 		background-color: var(--background-light1) !important;
 		color: var(--light) !important;
+	}
+	.css-u2webi-SidebarNavLink-sidebarNavLinkActive-SidebarNavLink.sidebar-active {
+		background-color: var(--background-light1) !important;
+		color: var(--light) !important;
+		border-left: 2px solid var(--highlight) !important;
 	}
 
 
