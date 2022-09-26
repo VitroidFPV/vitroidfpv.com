@@ -26,8 +26,9 @@ This process requires at least some familiarity with Git, but should still be ea
 (totally not yoinked from Betaflight and slightly changed cuz I have no idea with Git CLI 😎)
 
 If you know CLI:
+1. Navigate to the directory you want to clone the repo to
 1. `git clone <URL of your fork>`
-2. `git checkout svelte`
+2. `cd VitroidFPV`
 3. from there, do `checkout -b name-of-new-branch`
 4. do your changes/additions
 5. `git add .` will add all the files in the current directory
@@ -35,8 +36,7 @@ If you know CLI:
 
 Through GitHub Desktop (more noob friendly):
 1. `File` > `Clone Repository` > find your forked repo, and select a path to clone it to
-2. Change the default `main` branch to `origin/svelte`
-3. Make a new branch based from the `svelte` branch
+3. Make a new branch based from the `main` branch
 4. Go to the directory you cloned it to, and make your changes/additions
 5. In GitHub Desktop, write a summary and commit the changes
 6. And publish/push the branch to your forked repo
