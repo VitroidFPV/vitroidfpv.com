@@ -2,7 +2,7 @@
 Category: Radio
 order: 1
 title: How to connect and bind my receiver?
-id: receiverSetup
+id: receiverBind
 answer: >-
   1. (This step can be skipped if you have a receiver that can be flashed
   wirelessly as it can be changed after soldering it up) Make sure that the
