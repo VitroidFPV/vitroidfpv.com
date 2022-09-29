@@ -1,54 +1,89 @@
 <script>
-    let prefix = "VitroidFPV"
-    let title = ""
-    let color = "#1cd167"
-    let description = "This site is my project to keep FPV info easily and more importantly quickly readable when needed. It's constantly getting updated, so expect new stuff (and maybe some bugs) to be added here and there"
+	let prefix = "VitroidFPV";
+	let title = "";
+	let color = "#1cd167";
+	let description =
+		"This site is my project to keep FPV info easily and more importantly quickly readable when needed. It's constantly getting updated, so expect new stuff (and maybe some bugs) to be added here and there";
 </script>
 
 <svelte:head>
-    <title>VitroidFPV{title}</title>
-    <meta name="author" content="VitroidFPV"/>
-    <!-- <meta property="og:image" content="https://www.vitroidfpv.com/sources/cinewhoop_512.png"> -->
-    <meta property="og:image:width" content="512">
-    <meta property="og:image:height" content="512">
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="VitroidFPV" />
-    <meta property="article:author" content="VitroidFPV" />
-    <meta property="og:title" content="{prefix}{title}"/>
-    <meta name="description" content="{description}"/>
-    <meta property="og:description" content="{description}">
-    <meta content="https://vitroidfpv.com/" property="og:url" />
-    <meta name="theme-color" content="{color}">
+	<title>VitroidFPV{title}</title>
+	<meta name="author" content="VitroidFPV" />
+	<!-- <meta property="og:image" content="https://www.vitroidfpv.com/sources/cinewhoop_512.png"> -->
+	<meta property="og:image:width" content="512" />
+	<meta property="og:image:height" content="512" />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="VitroidFPV" />
+	<meta property="article:author" content="VitroidFPV" />
+	<meta property="og:title" content="{prefix}{title}" />
+	<meta name="description" content={description} />
+	<meta property="og:description" content={description} />
+	<meta content="https://vitroidfpv.com/" property="og:url" />
+	<meta name="theme-color" content={color} />
 </svelte:head>
 
 <div class="flex flex-col w-full">
-    <div class="md:mt-64 mt-16 md:mb-0 mb-16 w-fit">
-        <h1 class="md:text-[180px] text-[150px] caveat h-fit w-fit leading-none dark:text-highlight-dark">Vitroid FPV</h1>
-    </div>
-    <div>
-        <div class="h-fit max-w-full">
-            <div>
-                <svg class="max-w-full h-fit" id="visual" viewBox="0 0 2400 300" width="2400" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
-                <rect x="0" y="0" width="2400" height="300" class="fill-transparent"></rect>
-                <path d="M0 92L50 91.8C100 91.7 200 91.3 300 112.7C400 134 500 177 600 175.5C700 174 800 128 900 118.5C1000 109 1100 136 1200 151.8C1300 167.7
+	<div class="md:mt-64 mt-16 md:mb-0 mb-16 w-fit">
+		<h1
+			class="md:text-[180px] text-[150px] caveat h-fit w-fit leading-none dark:text-highlight-dark"
+		>
+			Vitroid FPV
+		</h1>
+	</div>
+	<div>
+		<div class="h-fit max-w-full">
+			<div>
+				<svg
+					class="max-w-full h-fit"
+					id="visual"
+					viewBox="0 0 2400 300"
+					width="2400"
+					height="300"
+					xmlns="http://www.w3.org/2000/svg"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					version="1.1"
+				>
+					<rect x="0" y="0" width="2400" height="300" class="fill-transparent" />
+					<path
+						d="M0 92L50 91.8C100 91.7 200 91.3 300 112.7C400 134 500 177 600 175.5C700 174 800 128 900 118.5C1000 109 1100 136 1200 151.8C1300 167.7
                 1400 172.3 1500 158C1600 143.7 1700 110.3 1800 97.7C1900 85 2000 93 2100 114.8C2200 136.7 2300 172.3 2350 190.2L2400 208L2400 301L2350 301C2300
                 301 2200 301 2100 301C2000 301 1900 301 1800 301C1700 301 1600 301 1500 301C1400 301 1300 301 1200 301C1100 301 1000 301 900 301C800 301 700 301
-                600 301C500 301 400 301 300 301C200 301 100 301 50 301L0 301Z" fill="" stroke-linecap="round" stroke-linejoin="miter" class="fill-highlight dark:fill-highlight-dark"></path>
-                </svg>
-            </div>
-        </div>
-        <div class="w-full h-fit bg-highlight dark:bg-highlight-dark pl-8 -mb-1 flex flex-row">
-            <div class="flex flex-col md:w-1/2">
-                <div class="dark:text-main-200 text-main-100">
-                    <h2 class="text-4xl font-semibold my-4 border-b-4 border-dotted w-fit border-main-100">Your source for quick FPV info!</h2>
-                    <p class="text-xl leading-normal">Heyo! I'm a 17y/o FPV pilot, and Front-End developer<br><br>
-                        This site is my project to keep FPV info easily and more importantly quickly readable when needed. It's constantly getting updated, so expect new stuff (and maybe some bugs) to be added here and there.<br> If you wish to contribute, you can go to the
-                        GitHub <a href="/" class="">here</a>, and if you like what I do, you can donate <a href="/">here</a></p>
-                </div>
-            </div>
-            <div class="w-full flex h-full flex-col md:w-1/2 overflow-hidden">
-                <svg class="h-fit w-fit relative left-4 rotate-12" viewBox="0 0 150 150" width="150" height="150">
-                    <path id="prop-svg3" class="fill-white/20" d="M 74.892631,5.1711806 C 74.114473,5.18908
+                600 301C500 301 400 301 300 301C200 301 100 301 50 301L0 301Z"
+						fill=""
+						stroke-linecap="round"
+						stroke-linejoin="miter"
+						class="fill-highlight dark:fill-highlight-dark"
+					/>
+				</svg>
+			</div>
+		</div>
+		<div class="w-full h-fit bg-highlight dark:bg-highlight-dark pl-8 -mb-1 flex flex-row">
+			<div class="flex flex-col md:w-1/2">
+				<div class="dark:text-main-200 text-main-100">
+					<h2 class="text-4xl font-semibold my-4 border-b-4 border-dotted w-fit border-main-100">
+						Your source for quick FPV info!
+					</h2>
+					<p class="text-xl leading-normal">
+						Heyo! I'm a 17y/o FPV pilot, and Front-End developer<br /><br />
+						This site is my project to keep FPV info easily and more importantly quickly readable when
+						needed. It's constantly getting updated, so expect new stuff (and maybe some bugs) to be
+						added here and there.<br /> If you wish to contribute, you can go to the GitHub
+						<a href="/" class="">here</a>, and if you like what I do, you can donate
+						<a href="/">here</a>
+					</p>
+				</div>
+			</div>
+			<div class="w-full flex h-full flex-col md:w-1/2 overflow-hidden">
+				<svg
+					class="h-fit w-fit relative left-4 rotate-12"
+					viewBox="0 0 150 150"
+					width="150"
+					height="150"
+				>
+					<path
+						id="prop-svg3"
+						class="fill-white/20"
+						d="M 74.892631,5.1711806 C 74.114473,5.18908
                     73.25665,5.3460323 72.669665,5.484156 71.539357,5.7501303 70.293619,6.4390845 69.831921,7.5045284 62.379721,24.701745 62.364833,46.64307
                     64.07051,66.534728 c 0.389939,4.547495 1.877487,10.798634 2.096519,13.59769 -0.902718,0.89215 -1.58203,1.984839 -1.982646,3.189139 -0.102305,0.04112 -0.124266,0.04931 -0.308784,0.108292
                     -3.287675,1.469656 -8.709331,2.243136 -12.818045,4.024672 -2.748132,1.191597 -5.327665,2.763861 -7.824397,4.418693 -6.84553,4.537211 -11.050665,9.662976 -19.51489,15.039606
@@ -58,10 +93,19 @@
                     7.90138,4.12642 19.53937,11.23189 23.15953,13.37134 1.18446,0.7 2.20279,-1.8952 2.60021,-3.215 0.33482,-1.11184 0.36073,-2.53531 -0.33114,-3.46787 -11.16713,-15.0524 -30.16138,-26.035543
                     -48.240907,-34.50421 -2.070846,-0.970012 -4.92762,-2.796612 -7.449247,-4.107113 -0.506045,-1.070333 -1.241642,-2.016065 -2.154505,-2.769975 0.02089,-0.08558 0.03759,-0.172345 0.0468,
                     -0.26128 0.371078,-3.58204 2.412172,-8.66384 2.923671,-13.112857 0.34212,-2.975749 0.270691,-5.995832 0.08592,-8.985483 -0.506574,-8.197011 -2.843196,-14.401955 -3.267383,-24.420508
-                    -0.377084,-8.90601 -0.04275,-22.5371 0,-26.7419806 0.0078,-0.7738851 -0.860603,-0.9808009 -1.861091,-0.9577917 z"></path>
-                </svg>
-                <svg class="h-fit w-fit relative md:left-56 left-0 md:bottom-16 -rotate-12 scale-125" viewBox="0 0 150 150" width="150" height="150">
-                    <path id="prop-svg3" class="fill-white/20" d="M 74.892631,5.1711806 C 74.114473,5.18908
+                    -0.377084,-8.90601 -0.04275,-22.5371 0,-26.7419806 0.0078,-0.7738851 -0.860603,-0.9808009 -1.861091,-0.9577917 z"
+					/>
+				</svg>
+				<svg
+					class="h-fit w-fit relative md:left-56 left-0 md:bottom-16 -rotate-12 scale-125"
+					viewBox="0 0 150 150"
+					width="150"
+					height="150"
+				>
+					<path
+						id="prop-svg3"
+						class="fill-white/20"
+						d="M 74.892631,5.1711806 C 74.114473,5.18908
                     73.25665,5.3460323 72.669665,5.484156 71.539357,5.7501303 70.293619,6.4390845 69.831921,7.5045284 62.379721,24.701745 62.364833,46.64307
                     64.07051,66.534728 c 0.389939,4.547495 1.877487,10.798634 2.096519,13.59769 -0.902718,0.89215 -1.58203,1.984839 -1.982646,3.189139 -0.102305,0.04112 -0.124266,0.04931 -0.308784,0.108292
                     -3.287675,1.469656 -8.709331,2.243136 -12.818045,4.024672 -2.748132,1.191597 -5.327665,2.763861 -7.824397,4.418693 -6.84553,4.537211 -11.050665,9.662976 -19.51489,15.039606
@@ -71,10 +115,19 @@
                     7.90138,4.12642 19.53937,11.23189 23.15953,13.37134 1.18446,0.7 2.20279,-1.8952 2.60021,-3.215 0.33482,-1.11184 0.36073,-2.53531 -0.33114,-3.46787 -11.16713,-15.0524 -30.16138,-26.035543
                     -48.240907,-34.50421 -2.070846,-0.970012 -4.92762,-2.796612 -7.449247,-4.107113 -0.506045,-1.070333 -1.241642,-2.016065 -2.154505,-2.769975 0.02089,-0.08558 0.03759,-0.172345 0.0468,
                     -0.26128 0.371078,-3.58204 2.412172,-8.66384 2.923671,-13.112857 0.34212,-2.975749 0.270691,-5.995832 0.08592,-8.985483 -0.506574,-8.197011 -2.843196,-14.401955 -3.267383,-24.420508
-                    -0.377084,-8.90601 -0.04275,-22.5371 0,-26.7419806 0.0078,-0.7738851 -0.860603,-0.9808009 -1.861091,-0.9577917 z"></path>
-                </svg>
-                <svg class="h-fit w-fit relative md:left-32 rotate-45 bottom-4 left-4" viewBox="0 0 150 150" width="150" height="150">
-                    <path id="prop-svg3" class="fill-white/20" d="M 74.892631,5.1711806 C 74.114473,5.18908
+                    -0.377084,-8.90601 -0.04275,-22.5371 0,-26.7419806 0.0078,-0.7738851 -0.860603,-0.9808009 -1.861091,-0.9577917 z"
+					/>
+				</svg>
+				<svg
+					class="h-fit w-fit relative md:left-32 rotate-45 bottom-4 left-4"
+					viewBox="0 0 150 150"
+					width="150"
+					height="150"
+				>
+					<path
+						id="prop-svg3"
+						class="fill-white/20"
+						d="M 74.892631,5.1711806 C 74.114473,5.18908
                     73.25665,5.3460323 72.669665,5.484156 71.539357,5.7501303 70.293619,6.4390845 69.831921,7.5045284 62.379721,24.701745 62.364833,46.64307
                     64.07051,66.534728 c 0.389939,4.547495 1.877487,10.798634 2.096519,13.59769 -0.902718,0.89215 -1.58203,1.984839 -1.982646,3.189139 -0.102305,0.04112 -0.124266,0.04931 -0.308784,0.108292
                     -3.287675,1.469656 -8.709331,2.243136 -12.818045,4.024672 -2.748132,1.191597 -5.327665,2.763861 -7.824397,4.418693 -6.84553,4.537211 -11.050665,9.662976 -19.51489,15.039606
@@ -84,58 +137,103 @@
                     7.90138,4.12642 19.53937,11.23189 23.15953,13.37134 1.18446,0.7 2.20279,-1.8952 2.60021,-3.215 0.33482,-1.11184 0.36073,-2.53531 -0.33114,-3.46787 -11.16713,-15.0524 -30.16138,-26.035543
                     -48.240907,-34.50421 -2.070846,-0.970012 -4.92762,-2.796612 -7.449247,-4.107113 -0.506045,-1.070333 -1.241642,-2.016065 -2.154505,-2.769975 0.02089,-0.08558 0.03759,-0.172345 0.0468,
                     -0.26128 0.371078,-3.58204 2.412172,-8.66384 2.923671,-13.112857 0.34212,-2.975749 0.270691,-5.995832 0.08592,-8.985483 -0.506574,-8.197011 -2.843196,-14.401955 -3.267383,-24.420508
-                    -0.377084,-8.90601 -0.04275,-22.5371 0,-26.7419806 0.0078,-0.7738851 -0.860603,-0.9808009 -1.861091,-0.9577917 z"></path>
-                </svg>
-            </div>
-        </div>
-        <div class="h-fit max-w-full rotate-180">
-            <div>
-                <svg class="max-w-full h-fit" id="visual" viewBox="0 0 2400 300" width="2400" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
-                <rect x="0" y="0" width="2400" height="300" class="fill-transparent"></rect>
-                <path d="M0 92L50 91.8C100 91.7 200 91.3 300 112.7C400 134 500 177 600 175.5C700 174 800 128 900 118.5C1000 109 1100 136 1200 151.8C1300 167.7
+                    -0.377084,-8.90601 -0.04275,-22.5371 0,-26.7419806 0.0078,-0.7738851 -0.860603,-0.9808009 -1.861091,-0.9577917 z"
+					/>
+				</svg>
+			</div>
+		</div>
+		<div class="h-fit max-w-full rotate-180">
+			<div>
+				<svg
+					class="max-w-full h-fit"
+					id="visual"
+					viewBox="0 0 2400 300"
+					width="2400"
+					height="300"
+					xmlns="http://www.w3.org/2000/svg"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					version="1.1"
+				>
+					<rect x="0" y="0" width="2400" height="300" class="fill-transparent" />
+					<path
+						d="M0 92L50 91.8C100 91.7 200 91.3 300 112.7C400 134 500 177 600 175.5C700 174 800 128 900 118.5C1000 109 1100 136 1200 151.8C1300 167.7
                 1400 172.3 1500 158C1600 143.7 1700 110.3 1800 97.7C1900 85 2000 93 2100 114.8C2200 136.7 2300 172.3 2350 190.2L2400 208L2400 301L2350 301C2300
                 301 2200 301 2100 301C2000 301 1900 301 1800 301C1700 301 1600 301 1500 301C1400 301 1300 301 1200 301C1100 301 1000 301 900 301C800 301 700 301
-                600 301C500 301 400 301 300 301C200 301 100 301 50 301L0 301Z" fill="" stroke-linecap="round" stroke-linejoin="miter" class="fill-highlight dark:fill-highlight-dark"></path>
-                </svg>
-            </div>
-        </div>
-    </div>
-    <div class="w-full h-fit mb-1 flex flex-row-reverse text-xl pb-16 dark:shadow-main-400 shadow-contrast-100">
-        <div class="flex flex-col md:w-fit h-fit mr-8">
-            <div class="text-main-100 dark:text-contrast-100">
-                <h2 class="text-4xl font-semibold my-4 border-b-4 border-dotted w-fit border-main-100 dark:border-contrast-100">What can you find here?</h2>
-                <p class="leading-normal">This site is mainly going to be a quick way to sahre and find useful resources. What you can find here right now:
-                </p>
-                <ul>
-                    <li class="list-disc list-inside">FAQ - Shorter answers to frequently asked questions</li>
-                    <li class="list-disc list-inside">Builds - Build guides/lists for a variety of quads, sorted by difficulty</li>
-                    <li class="list-disc list-inside">Equipment - Everything else you'll need to get flying: Radios, goggles, and various tools</li>
-                </ul>
-            </div>
-        </div>
-        <div class="md:w-96 mr-8 w-1/3 flex md:flex-row flex-col md:justify-around justify-between items-center md:h-fit h-96 mt-16">
-            <svg class="h-fit w-fit relative scale-50 -rotate-12 fill-black/20 dark:fill-white/20" height="300" width="300" viewBox="0 0 500 500">
-                    <path d="M111.25,222.803c12.77,0,25.305-2.154,37.259-6.403c3.903-1.387,5.942-5.676,4.556-9.579
+                600 301C500 301 400 301 300 301C200 301 100 301 50 301L0 301Z"
+						fill=""
+						stroke-linecap="round"
+						stroke-linejoin="miter"
+						class="fill-highlight dark:fill-highlight-dark"
+					/>
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div
+		class="w-full h-fit mb-1 flex flex-row-reverse text-xl pb-16 dark:shadow-main-400 shadow-contrast-100"
+	>
+		<div class="flex flex-col md:w-fit h-fit mr-8">
+			<div class="text-main-100 dark:text-contrast-100">
+				<h2
+					class="text-4xl font-semibold my-4 border-b-4 border-dotted w-fit border-main-100 dark:border-contrast-100"
+				>
+					What can you find here?
+				</h2>
+				<p class="leading-normal">
+					This site is mainly going to be a quick way to sahre and find useful resources. What you
+					can find here right now:
+				</p>
+				<ul>
+					<li class="list-disc list-inside">FAQ - Shorter answers to frequently asked questions</li>
+					<li class="list-disc list-inside">
+						Builds - Build guides/lists for a variety of quads, sorted by difficulty
+					</li>
+					<li class="list-disc list-inside">
+						Equipment - Everything else you'll need to get flying: Radios, goggles, and various
+						tools
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div
+			class="md:w-96 mr-8 w-1/3 flex md:flex-row flex-col md:justify-around justify-between items-center md:h-fit h-96 mt-16"
+		>
+			<svg
+				class="h-fit w-fit relative scale-50 -rotate-12 fill-black/20 dark:fill-white/20"
+				height="300"
+				width="300"
+				viewBox="0 0 500 500"
+			>
+				<path
+					d="M111.25,222.803c12.77,0,25.305-2.154,37.259-6.403c3.903-1.387,5.942-5.676,4.556-9.579
                             c-1.388-3.903-5.678-5.94-9.579-4.555c-10.337,3.674-21.183,5.537-32.235,5.537c-53.072,0-96.25-43.178-96.25-96.25
                             c0-53.072,43.178-96.25,96.25-96.25c53.072,0,96.25,43.178,96.25,96.25c0,10.754-1.765,21.32-5.244,31.404
                             c-1.352,3.916,0.728,8.185,4.644,9.536c3.914,1.35,8.186-0.728,9.536-4.644c4.024-11.662,6.064-23.874,6.064-36.297
-                            c0-61.343-49.906-111.25-111.25-111.25S0,50.209,0,111.553S49.906,222.803,111.25,222.803z" />
-                    <path d="M207.314,317.675c-3.909,1.37-5.968,5.648-4.599,9.558c3.576,10.211,5.39,20.917,5.39,31.82
+                            c0-61.343-49.906-111.25-111.25-111.25S0,50.209,0,111.553S49.906,222.803,111.25,222.803z"
+				/>
+				<path
+					d="M207.314,317.675c-3.909,1.37-5.968,5.648-4.599,9.558c3.576,10.211,5.39,20.917,5.39,31.82
                             c0,53.072-43.178,96.25-96.25,96.25c-53.072,0-96.25-43.178-96.25-96.25c0-53.072,43.178-96.25,96.25-96.25
                             c10.9,0,21.605,1.813,31.82,5.39c3.912,1.369,8.188-0.69,9.557-4.6c1.369-3.909-0.69-8.188-4.6-9.557
                             c-11.812-4.136-24.185-6.233-36.777-6.233c-61.344,0-111.25,49.907-111.25,111.25s49.906,111.25,111.25,111.25
-                            s111.25-49.907,111.25-111.25c0-12.595-2.097-24.969-6.233-36.778C215.503,318.365,211.224,316.305,207.314,317.675z" />
-                    <path d="M359.355,247.803c-12.593,0-24.966,2.097-36.777,6.233c-3.909,1.369-5.969,5.648-4.6,9.557
+                            s111.25-49.907,111.25-111.25c0-12.595-2.097-24.969-6.233-36.778C215.503,318.365,211.224,316.305,207.314,317.675z"
+				/>
+				<path
+					d="M359.355,247.803c-12.593,0-24.966,2.097-36.777,6.233c-3.909,1.369-5.969,5.648-4.6,9.557
                             c1.368,3.91,5.649,5.968,9.557,4.6c10.215-3.577,20.92-5.39,31.82-5.39c53.072,0,96.25,43.178,96.25,96.25
                             c0,53.072-43.178,96.25-96.25,96.25c-53.072,0-96.25-43.178-96.25-96.25c0-10.9,1.813-21.606,5.39-31.82
                             c1.369-3.909-0.69-8.188-4.6-9.557c-3.91-1.368-8.188,0.691-9.557,4.6c-4.137,11.812-6.233,24.185-6.233,36.777
-                            c0,61.343,49.906,111.25,111.25,111.25s111.25-49.907,111.25-111.25S420.699,247.803,359.355,247.803z" />
-                    <path d="M263.896,152.93c3.909-1.369,5.969-5.648,4.6-9.557c-3.576-10.214-5.39-20.92-5.39-31.82
+                            c0,61.343,49.906,111.25,111.25,111.25s111.25-49.907,111.25-111.25S420.699,247.803,359.355,247.803z"
+				/>
+				<path
+					d="M263.896,152.93c3.909-1.369,5.969-5.648,4.6-9.557c-3.576-10.214-5.39-20.92-5.39-31.82
                             c0-53.072,43.178-96.25,96.25-96.25c53.072,0,96.25,43.178,96.25,96.25s-43.178,96.25-96.25,96.25
                             c-10.901,0-21.607-1.813-31.82-5.39c-3.909-1.368-8.188,0.691-9.557,4.6c-1.369,3.91,0.689,8.188,4.6,9.558
                             c11.81,4.136,24.184,6.233,36.777,6.233c61.344,0,111.25-49.907,111.25-111.25S420.699,0.303,359.355,0.303
-                            s-111.25,49.907-111.25,111.25c0,12.592,2.097,24.966,6.233,36.777C255.707,152.24,259.987,154.3,263.896,152.93z" />
-                    <path d="M332.272,363.789c0.54,3.094,1.595,6.012,3.08,8.66l-33.426,33.427c-2.929,2.929-2.929,7.678,0,10.606
+                            s-111.25,49.907-111.25,111.25c0,12.592,2.097,24.966,6.233,36.777C255.707,152.24,259.987,154.3,263.896,152.93z"
+				/>
+				<path
+					d="M332.272,363.789c0.54,3.094,1.595,6.012,3.08,8.66l-33.426,33.427c-2.929,2.929-2.929,7.678,0,10.606
                             c1.465,1.464,3.385,2.197,5.304,2.197c1.919,0,3.839-0.732,5.304-2.197l33.426-33.426c3.967,2.223,8.535,3.497,13.397,3.497
                             c15.163,0,27.5-12.336,27.5-27.5c0-4.862-1.273-9.43-3.496-13.397l33.427-33.427c2.929-2.929,2.929-7.678,0-10.606
                             c-2.929-2.929-7.677-2.929-10.607,0l-33.427,33.426c-2.649-1.484-5.566-2.54-8.66-3.08l-82.101-82.101
@@ -167,22 +265,40 @@
                             c2.311-2.299,5.425-3.691,8.858-3.691c6.893,0,12.5,5.607,12.5,12.5C124.355,362.487,122.962,365.6,120.713,367.862z
                             M135.859,345.656c-2.487-4.438-6.168-8.119-10.606-10.606l71.103-71.104c2.969,4.057,6.549,7.637,10.606,10.606L135.859,345.656
                             z M235.605,268.92c-18.536,0-33.616-15.081-33.616-33.617c0-18.537,15.08-33.617,33.616-33.617
-                            c18.536,0,33.617,15.081,33.617,33.617S254.141,268.92,235.605,268.92z" />
-            </svg>
-            <svg class="h-fit w-fit relative scale-50 rotate-12 fill-black/20 dark:fill-white/20 md:bottom-16" height="300" width="300" viewBox="0 0 512 512">
-                <g>
-                  <path class="st0" d="M256,0C114.6,0,0,114.6,0,256s114.6,256,256,256s256-114.6,256-256S397.4,0,256,0z M256,460.8
-                      c-113.1,0-204.8-91.7-204.8-204.8S142.9,51.2,256,51.2S460.8,142.9,460.8,256S369.1,460.8,256,460.8z" />
-                  <path class="st0" d="M256,102.4c-49.5,0-89.6,40.1-89.6,89.6c0,14.1,11.5,25.6,25.6,25.6s25.6-11.5,25.6-25.6
+                            c18.536,0,33.617,15.081,33.617,33.617S254.141,268.92,235.605,268.92z"
+				/>
+			</svg>
+			<svg
+				class="h-fit w-fit relative scale-50 rotate-12 fill-black/20 dark:fill-white/20 md:bottom-16"
+				height="300"
+				width="300"
+				viewBox="0 0 512 512"
+			>
+				<g>
+					<path
+						class="st0"
+						d="M256,0C114.6,0,0,114.6,0,256s114.6,256,256,256s256-114.6,256-256S397.4,0,256,0z M256,460.8
+                      c-113.1,0-204.8-91.7-204.8-204.8S142.9,51.2,256,51.2S460.8,142.9,460.8,256S369.1,460.8,256,460.8z"
+					/>
+					<path
+						class="st0"
+						d="M256,102.4c-49.5,0-89.6,40.1-89.6,89.6c0,14.1,11.5,25.6,25.6,25.6s25.6-11.5,25.6-25.6
                       c0-21.2,17.2-38.4,38.4-38.4s38.4,17.2,38.4,38.4s-17.2,38.4-38.4,38.4c-14.1,0-25.6,11.5-25.6,25.6v51.2
                       c0,14.1,11.5,25.6,25.6,25.6c14.1,0,25.6-11.5,25.6-25.6v-29.7c47.4-13.8,74.5-63.4,60.7-110.8C331.1,128.4,295.9,102.2,256,102.4z
-                      " />
-                  <circle class="st0" cx="256" cy="384" r="25.6" />
-                </g>
-            </svg>
-            <svg class="h-fit w-fit relative scale-150 fill-black/20 dark:fill-white/20" viewBox="0 0 110 110" width="110" height="110">
-                <g>
-                    <path d="m 86.125,25.314 c 0.035,0.002 0.07,0.003 0.105,0.003 0.54,0 1.041,-0.292 1.306,-0.769 l 7.277,-13.114 c 0.323,-0.583 0.222,-1.31 -0.25,
+                      "
+					/>
+					<circle class="st0" cx="256" cy="384" r="25.6" />
+				</g>
+			</svg>
+			<svg
+				class="h-fit w-fit relative scale-150 fill-black/20 dark:fill-white/20"
+				viewBox="0 0 110 110"
+				width="110"
+				height="110"
+			>
+				<g>
+					<path
+						d="m 86.125,25.314 c 0.035,0.002 0.07,0.003 0.105,0.003 0.54,0 1.041,-0.292 1.306,-0.769 l 7.277,-13.114 c 0.323,-0.583 0.222,-1.31 -0.25,
                     -1.782 L 90.349,5.438 C 89.878,4.967 89.15,4.864 88.567,5.188 l -13.114,7.277 c -0.507,0.282 -0.806,0.832 -0.765,1.411 L 75.022,18.647 52.512,
                     41.155 39.816,28.459 C 41.993,22.092 40.392,15.038 35.59,10.236 30.848,5.495 23.95,3.845 17.585,5.931 17.562,5.939 17.542,5.951 17.52,5.96 17.497,
                     5.969 17.476,5.98 17.453,5.99 17.287,6.063 17.14,6.16 17.016,6.281 17.009,6.286 17,6.288 16.994,6.294 c -0.009,0.009 -0.011,0.02 -0.019,0.029 
@@ -226,9 +342,10 @@
                     0,-1.071 -0.356,-2.082 -0.986,-2.927 l 2.945,-2.945 z M 80.802,21.952 c -0.017,0 -0.034,0 -0.051,10e-4 -0.417,0 -0.795,0.177 -1.064,0.468 L 
                     51.724,50.383 49.617,48.276 77.615,20.279 c 0.002,-0.002 0.003,-0.006 0.006,-0.008 0.132,-0.135 0.238,-0.293 0.311,-0.469 0.004,-0.01 0.01,
                     -0.02 0.014,-0.031 0.063,-0.16 0.096,-0.332 0.1,-0.512 10e-4,-0.021 0.002,-0.042 0.002,-0.063 0,-0.025 0.004,-0.048 0.002,-0.073 l -0.316,
-                    -4.507 11.297,-6.268 2.621,2.621 -6.268,11.297 -4.507,-0.315 c -0.025,-0.003 -0.05,0.002 -0.075,0.001 z"/>
-                </g>
-            </svg>
-        </div>
-    </div>
+                    -4.507 11.297,-6.268 2.621,2.621 -6.268,11.297 -4.507,-0.315 c -0.025,-0.003 -0.05,0.002 -0.075,0.001 z"
+					/>
+				</g>
+			</svg>
+		</div>
+	</div>
 </div>

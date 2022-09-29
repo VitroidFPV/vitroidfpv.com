@@ -1,26 +1,25 @@
 <script>
-		let open = false
+	let open = false;
 		export let title;
 		export let content;
 		export let category;
 		export let id = "";
-		import { onMount } from 'svelte';
-		import { slide } from 'svelte/transition';
-		import { page } from "$app/stores"
+	import { onMount } from "svelte";
+	import { slide } from "svelte/transition";
+	import { page } from "$app/stores";
 		// import SvelteMarkdown from 'svelte-markdown'
 
-		let source = content
+	let source = content;
 
 		onMount(() => {
-				linkOpen()
-			}
-		)
+		linkOpen();
+	});
 		
 		function linkOpen() {
 			let hash = $page.url.hash.replace("#", "");
 			if (hash != "") {
 				if (hash == id) {
-					open = true
+				open = true;
 				}
 				location.href = "#" + hash;
 				// document.querySelector("#" + hash).scrollIntoView({behavior: 'smooth'});
@@ -29,16 +28,15 @@
 
 		function copyID() {
 			let id = this.nextElementSibling.id;
-			console.log(id)
+		console.log(id);
 			navigator.clipboard.writeText($page.url.origin + $page.url.pathname + "#" + id);
 		}
-		console.log()
+	console.log();
 
 	// 	function handleParsed(event) {
 	// 	//access tokens via event.detail.tokens
 	// 	console.log(event.detail.tokens);
 	// }
-
 </script>
 
 <div class="tracking-normal text-main-200 dark:text-contrast-100 border-none flex flex-col mt-2">

@@ -6,11 +6,11 @@ text: An absolute tank of a frame. IFlight makes a lot of frames, all priced wel
 link: https://shop.iflight-rc.com/quad-parts-cat20/FrameKits-Parts-TPU-cat346/titan-series-cat108/titan-xl5-hd-fpv-frame-pro1194
 price: $49.99
 point1: >-
- Wheelbase: 250mm
+  Wheelbase: 250mm
 point2: >-
- Weight: 199g
+  Weight: 199g
 point3: >-
- Arms: 6mm
+  Arms: 6mm
 point4: >-
- Bottom/Top/Mid: 2mm
+  Bottom/Top/Mid: 2mm
 ---

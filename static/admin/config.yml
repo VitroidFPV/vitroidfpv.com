@@ -17,10 +17,10 @@ collections:
           - { label: "Video", value: "Video" }
           - { label: "Radio", value: "Radio" }
           - { label: "Hardware", value: "Hardware" }
-      - {label: "Order", name: "order", widget: "number"}
-      - {label: "Question", name: "title", widget: "text"}
-      - {label: "ID", name: "id", widget: "text"}
-      - {label: "Answer", name: "answer", widget: "markdown"}
+      - { label: "Order", name: "order", widget: "number" }
+      - { label: "Question", name: "title", widget: "text" }
+      - { label: "ID", name: "id", widget: "text" }
+      - { label: "Answer", name: "answer", widget: "markdown" }
 
   - name: 5" Beginner Build
     label: 5" Beginner Build
@@ -45,17 +45,17 @@ collections:
           - { label: "Mid-Range", value: "orange" }
           - { label: "High-end", value: "red" }
           - { label: "Varied", value: "violet" }
-      - {label: "Order", name: "order", widget: "number"}
-      - {label: "Title", name: "title", widget: "text"}
-      - {label: "Link", name: "link", widget: "text"}
-      - {label: "Description", name: "text", widget: "text"}
+      - { label: "Order", name: "order", widget: "number" }
+      - { label: "Title", name: "title", widget: "text" }
+      - { label: "Link", name: "link", widget: "text" }
+      - { label: "Description", name: "text", widget: "text" }
 
-      - {label: "Price", name: "price", widget: "text"}
-      - {label: "Point 1", name: "point1", widget: "text", required: false}
-      - {label: "Point 2", name: "point2", widget: "text", required: false}
-      - {label: "Point 3", name: "point3", widget: "text", required: false}
-      - {label: "Point 4", name: "point4", widget: "text", required: false}
-      - {label: "Point 5", name: "point5", widget: "text", required: false}
+      - { label: "Price", name: "price", widget: "text" }
+      - { label: "Point 1", name: "point1", widget: "text", required: false }
+      - { label: "Point 2", name: "point2", widget: "text", required: false }
+      - { label: "Point 3", name: "point3", widget: "text", required: false }
+      - { label: "Point 4", name: "point4", widget: "text", required: false }
+      - { label: "Point 5", name: "point5", widget: "text", required: false }
 
   - name: 3" Cinewhoop Build
     label: 3" Cinewhoop Build
@@ -81,17 +81,17 @@ collections:
           - { label: "Mid-Range", value: "orange" }
           - { label: "High-end", value: "red" }
           - { label: "Varied", value: "violet" }
-      - {label: "Order", name: "order", widget: "number"}
-      - {label: "Title", name: "title", widget: "text"}
-      - {label: "Link", name: "link", widget: "text"}
-      - {label: "Description", name: "text", widget: "text"}
+      - { label: "Order", name: "order", widget: "number" }
+      - { label: "Title", name: "title", widget: "text" }
+      - { label: "Link", name: "link", widget: "text" }
+      - { label: "Description", name: "text", widget: "text" }
 
-      - {label: "Price", name: "price", widget: "text"}
-      - {label: "Point 1", name: "point1", widget: "text", required: false}
-      - {label: "Point 2", name: "point2", widget: "text", required: false}
-      - {label: "Point 3", name: "point3", widget: "text", required: false}
-      - {label: "Point 4", name: "point4", widget: "text", required: false}
-      - {label: "Point 5", name: "point5", widget: "text", required: false}
+      - { label: "Price", name: "price", widget: "text" }
+      - { label: "Point 1", name: "point1", widget: "text", required: false }
+      - { label: "Point 2", name: "point2", widget: "text", required: false }
+      - { label: "Point 3", name: "point3", widget: "text", required: false }
+      - { label: "Point 4", name: "point4", widget: "text", required: false }
+      - { label: "Point 5", name: "point5", widget: "text", required: false }
 
   - name: 1s - 2s Micro Build
     label: 1s - 2s Micro Build
@@ -115,17 +115,17 @@ collections:
           - { label: "Mid-Range", value: "orange" }
           - { label: "High-end", value: "red" }
           - { label: "Varied", value: "violet" }
-      - {label: "Order", name: "order", widget: "number"}
-      - {label: "Title", name: "title", widget: "text"}
-      - {label: "Link", name: "link", widget: "text"}
-      - {label: "Description", name: "text", widget: "text"}
+      - { label: "Order", name: "order", widget: "number" }
+      - { label: "Title", name: "title", widget: "text" }
+      - { label: "Link", name: "link", widget: "text" }
+      - { label: "Description", name: "text", widget: "text" }
 
-      - {label: "Price", name: "price", widget: "text"}
-      - {label: "Point 1", name: "point1", widget: "text", required: false}
-      - {label: "Point 2", name: "point2", widget: "text", required: false}
-      - {label: "Point 3", name: "point3", widget: "text", required: false}
-      - {label: "Point 4", name: "point4", widget: "text", required: false}
-      - {label: "Point 5", name: "point5", widget: "text", required: false}
+      - { label: "Price", name: "price", widget: "text" }
+      - { label: "Point 1", name: "point1", widget: "text", required: false }
+      - { label: "Point 2", name: "point2", widget: "text", required: false }
+      - { label: "Point 3", name: "point3", widget: "text", required: false }
+      - { label: "Point 4", name: "point4", widget: "text", required: false }
+      - { label: "Point 5", name: "point5", widget: "text", required: false }
 
   - name: Equipment - Radio
     label: Equipment - Radio
@@ -142,7 +142,7 @@ collections:
           - { label: "Receivers", value: "Receivers" }
           - { label: "Antennas", value: "Antennas" }
 
-      - {label: "Group", name: "group", widget: "text"}
+      - { label: "Group", name: "group", widget: "text" }
       - label: Price Range
         name: color
         widget: "select"
@@ -151,18 +151,18 @@ collections:
           - { label: "Mid-Range", value: "orange" }
           - { label: "High-end", value: "red" }
           - { label: "Varied", value: "violet" }
-      - {label: "Order", name: "order", widget: "number"}
-      - {label: "Title", name: "title", widget: "text"}
-      - {label: "Link", name: "link", widget: "text"}
-      - {label: "Description", name: "text", widget: "markdown"}
+      - { label: "Order", name: "order", widget: "number" }
+      - { label: "Title", name: "title", widget: "text" }
+      - { label: "Link", name: "link", widget: "text" }
+      - { label: "Description", name: "text", widget: "markdown" }
 
-      - {label: "Price", name: "price", widget: "text"}
-      - {label: "Point 1", name: "point1", widget: "text", required: false}
-      - {label: "Point 2", name: "point2", widget: "text", required: false}
-      - {label: "Point 3", name: "point3", widget: "text", required: false}
-      - {label: "Point 4", name: "point4", widget: "text", required: false}
-      - {label: "Point 5", name: "point5", widget: "text", required: false}
-    
+      - { label: "Price", name: "price", widget: "text" }
+      - { label: "Point 1", name: "point1", widget: "text", required: false }
+      - { label: "Point 2", name: "point2", widget: "text", required: false }
+      - { label: "Point 3", name: "point3", widget: "text", required: false }
+      - { label: "Point 4", name: "point4", widget: "text", required: false }
+      - { label: "Point 5", name: "point5", widget: "text", required: false }
+
 media_folder: "/static/uploads/"
 public_folder: "/uploads/"
 
