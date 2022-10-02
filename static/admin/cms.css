@@ -1,64 +1,97 @@
 html,
 body {
-  background-color: #0f0f0f;
-  color: #f7f7f7;
-  font-size: 16px;
-  font-family: 'Reem Kufi';
+	background-color: #0f0f0f;
+	color: #f7f7f7;
+	font-size: 16px;
+	font-family: "Reem Kufi";
 }
 
 body {
-  padding: 20px;
+	padding: 20px;
 }
 
 .container {
-  height: fit-content;
-  max-width: 24rem;
-  min-width: 18rem;
-  border-left: 4px solid !important;
-  padding-left: 0.5rem;
+	height: fit-content;
+	max-width: 24rem;
+	min-width: 18rem;
+	border-left: 4px solid !important;
+	padding-left: 0.5rem;
 }
 
 .title {
-  font-size: 1.5rem/* 24px */;
-  line-height: 2rem/* 32px */;
+	font-size: 1.5rem /* 24px */;
+	line-height: 2rem /* 32px */;
 }
 
-.title.green {color: #87cc52;}
-.title.orange {color: #ff9742;}
-.title.red {color: #d6395b;}
+.title.green {
+	color: #87cc52;
+}
+.title.orange {
+	color: #ff9742;
+}
+.title.red {
+	color: #d6395b;
+}
 
-.container.green {border-color: #87cc52 !important;}
-.container.orange {border-color: #ff9742 !important;}
-.container.red {border-color: #d6395b !important;}
+.container.green {
+	border-color: #87cc52 !important;
+}
+.container.orange {
+	border-color: #ff9742 !important;
+}
+.container.red {
+	border-color: #d6395b !important;
+}
 
 .points {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
-  flex-wrap: wrap;
-  letter-spacing: 0.01em;
-  font-size: 1rem/* 16px */;
-  line-height: 1.5rem/* 24px */;
-  color: #adadad;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 0.75rem;
+	margin-bottom: 0.75rem;
+	flex-wrap: wrap;
+	letter-spacing: 0.01em;
+	font-size: 1rem /* 16px */;
+	line-height: 1.5rem /* 24px */;
+	color: #adadad;
 }
 
-.price {color: #e0e0e0;}
+.price {
+	color: #e0e0e0;
+}
 
 .category {
-  font-size: 2.25rem/* 36px */;
-  line-height: 2.5rem/* 40px */;
-  letter-spacing: -0.025rem;
-  margin-bottom: 1.5rem;
+	font-size: 2.25rem /* 36px */;
+	line-height: 2.5rem /* 40px */;
+	letter-spacing: -0.025rem;
+	margin-bottom: 1.5rem;
 }
 
-.list {display: flex; flex-wrap: wrap; flex-direction: column; list-style-position: outside; padding-left: 4px;}
-.list-item {font-size: 15px; list-style: none; margin-bottom: 0.5rem;}
-.list-item.link {overflow-wrap: anywhere;}
+.list {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	list-style-position: outside;
+	padding-left: 4px;
+}
+.list-item {
+	font-size: 15px;
+	list-style: none;
+	margin-bottom: 0.5rem;
+}
+.list-item.link {
+	overflow-wrap: anywhere;
+}
 
-.point1, .point2, .point2, .point4, .point5, .price {margin-right: 0.6rem;}
+.point1,
+.point2,
+.point2,
+.point4,
+.point5,
+.price {
+	margin-right: 0.6rem;
+}
 
 .md.ml-4 {
-  transform-origin: top left;
-  scale: 0.9;
+	transform-origin: top left;
+	scale: 0.9;
 }
