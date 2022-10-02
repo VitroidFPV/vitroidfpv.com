@@ -39,7 +39,7 @@
 		}
 	}
 
-	// sort grouped_modules to have the group "Info" be last
+	// sort the groups in each category by the "order" key, and have the group "Info" be last
 	let sorted_grouped_modules = {};
 	for (const cat in grouped_modules) {
 		sorted_grouped_modules[cat] = {};
@@ -47,11 +47,11 @@
 			if (group === "Info") {
 				continue;
 			}
-			sorted_grouped_modules[cat][group] = grouped_modules[cat][group];
+			sorted_grouped_modules[cat][group] = grouped_modules[cat][group].sort((a, b) => {
+				return a.metadata.order - b.metadata.order;
+			});
 		}
-		if (grouped_modules[cat]["Info"]) {
-			sorted_grouped_modules[cat]["Info"] = grouped_modules[cat]["Info"];
-		}
+		sorted_grouped_modules[cat]["Info"] = grouped_modules[cat]["Info"];
 	}
 	// omfg copilot carries this shit
 
@@ -125,7 +125,7 @@
 					</div>
 				{:else}
 					{#each info as product}
-						<div class="md ml-4">{@html marked.parse(product.metadata.text)}</div>
+						<div class="md ml-4 group {group}">{@html marked.parse(product.metadata.text)}</div>
 					{/each}
 				{/if}
 			{/each}
