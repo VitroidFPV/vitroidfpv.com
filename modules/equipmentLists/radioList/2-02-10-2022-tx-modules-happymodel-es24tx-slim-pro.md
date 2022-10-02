@@ -2,7 +2,7 @@
 Category: TX Modules
 group: ELRS
 color: orange
-order: 2
+order: 3
 title: Happymodel ES24TX Slim Pro
 link: https://www.getfpv.com/happymodel-es24tx-slim-pro-expresslrs-tx-module.html
 text: If you want to upgrade your Tango2 as recommended above or a different
