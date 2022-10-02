@@ -75,7 +75,7 @@
 		</li>
 	</ul>
 	<div class="flex flex-row flex-wrap justify-around">
-		{#each Object.entries(grouped_modules) as [ contents]}
+		{#each Object.entries(grouped_modules) as [a, contents]}
 			{#each contents as build}
 				<BuildCard
 					title={build.metadata.title}

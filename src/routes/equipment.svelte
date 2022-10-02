@@ -44,7 +44,7 @@
 		text="Everything that you will need to get building and flying. <br>From goggles, cams, antennas, to radio transmitters and receivers, tools and soldering equipment, and some other minor things that could still make or break a new build"
 	/>
 	<div class="flex flex-row flex-wrap justify-around">
-		{#each Object.entries(grouped_modules) as [ contents]}
+		{#each Object.entries(grouped_modules) as [a, contents]}
 			{#each contents as build}
 				<BuildCard
 					title={build.metadata.title}
