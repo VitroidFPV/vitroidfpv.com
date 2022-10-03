@@ -39,20 +39,21 @@
 		}
 	}
 
-	// sort the groups in each category by the "order" key, and have the group "Info" be last
+	// sort the products in each category by the "order" key, and have the group "Info" be last while keeping the same structure
 	let sorted_grouped_modules = {};
 	for (const cat in grouped_modules) {
 		sorted_grouped_modules[cat] = {};
-		for (const group in grouped_modules[cat]) {
-			if (group === "Info") {
-				continue;
-			}
-			sorted_grouped_modules[cat][group] = grouped_modules[cat][group].sort((a, b) => {
-				return a.metadata.order - b.metadata.order;
-			});
+		const groups = Object.keys(grouped_modules[cat]);
+		groups.sort((a, b) => {
+			if (a === "Info") return 1;
+			if (b === "Info") return -1;
+			return grouped_modules[cat][a][0].metadata.order - grouped_modules[cat][b][0].metadata.order;
+		});
+		for (const group of groups) {
+			sorted_grouped_modules[cat][group] = grouped_modules[cat][group];
 		}
-		sorted_grouped_modules[cat]["Info"] = grouped_modules[cat]["Info"];
 	}
+
 	// omfg copilot carries this shit
 
 	console.log(JSON.stringify(sorted_grouped_modules));
@@ -91,7 +92,7 @@
 	/>
 
 	{#each Object.entries(sorted_grouped_modules) as [cat, contents]}
-		<div class="{cat} my-8 w-full h-fit flex flex-col">
+		<div class="{cat} category my-8 w-full h-fit flex flex-col">
 			<div class="text-4xl tracking-tight w-fit px-1 cat {cat} mb-2" id={cat}>{cat}</div>
 			{#each Object.entries(contents) as [group, info]}
 				{#if group != "Info"}
@@ -99,14 +100,12 @@
 						{#if group != "undefined"}
 							<div
 								class="text-xl tracking-tight w-full px-1 {group} mb-2 border-b-[1px] border-gray-700 text-main-50 dark:text-contrast-500"
-								id={group}
-							>
+								id={group}>
 								{group}
 							</div>
 						{/if}
 						<div
-							class="ml-3 flex flex-col md:flex-row flex-wrap w-full md:justify-start md:items-start items-center border-white/10"
-						>
+							class="ml-3 flex flex-col md:flex-row flex-wrap w-full md:justify-start md:items-start items-center border-white/10">
 							{#each info as product}
 								<BuildProduct
 									color={product.metadata.color}

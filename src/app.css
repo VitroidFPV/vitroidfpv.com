@@ -190,6 +190,14 @@
     @apply order-last
   }
 
+  .category.Radios {
+    @apply order-1
+  }
+
+  .category.TX {
+    @apply order-2
+  }
+
   .ml-4.md {
     @apply origin-top-left scale-90
   }
