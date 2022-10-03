@@ -46,17 +46,29 @@
 	<div class="flex flex-row flex-wrap justify-around">
 		{#each Object.entries(grouped_modules) as [a, contents]}
 			{#each contents as build}
+				<!-- <BuildCard
+					title={build.metadata.title}
+					color={build.metadata.color}
+					link={build.metadata.link}
+					short={build.metadata.short}
+					text1={build.metadata.text1}
+					text2={build.metadata.text2}
+					text3={build.metadata.text3}
+					text4={build.metadata.text4}
+					text5={build.metadata.text5}
+				/> -->
+
 				<BuildCard
-				title={build.metadata.title}
-				color={build.metadata.difficulty}
-				link={build.metadata.link}
-				text1={build.metadata.text1}
-				text2={build.metadata.text2}
-				text3={build.metadata.text3}
-				text4={build.metadata.text4}
-				text5={build.metadata.text5}
-				img={build.metadata.img}
-			/>
+					title={build.metadata.title}
+					color={build.metadata.color}
+					link={build.metadata.link}
+					text1={build.metadata.text1}
+					text2={build.metadata.text2}
+					text3={build.metadata.text3}
+					text4={build.metadata.text4}
+					text5={build.metadata.text5}
+					img={build.metadata.img}
+				/>
 			{/each}
 		{/each}
 	</div>
