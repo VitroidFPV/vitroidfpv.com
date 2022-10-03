@@ -12,6 +12,6 @@ text: Back to lower prices again, the Jumper AION is a very affordable module
 price: $29.99
 point1: "Freq: 2.4GHz"
 point2: "Output: 500mW"
-point3: "Module bay: JR"
+point3: "Module bay: Lite"
 point4: "Weight: ??"
 ---
