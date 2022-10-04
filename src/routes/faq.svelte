@@ -1,65 +1,65 @@
 <script>
-    import Header from "../components/Header.svelte";
-    import MainHeader from "../components/mainHeader.svelte";
-    import CategoryIndex from "../components/faqPage/categoryIndex.svelte";
-    // @ts-ignore
-    import FaqQuestion from "../components/faqPage/faqQuestion.svelte";
+	import Header from "../components/Header.svelte";
+	import MainHeader from "../components/mainHeader.svelte";
+	import CategoryIndex from "../components/faqPage/categoryIndex.svelte";
+	// @ts-ignore
+	import FaqQuestion from "../components/faqPage/faqQuestion.svelte";
 	import { onMount } from "svelte";
 	import { page } from "$app/stores";
-    import { bind } from "svelte/internal";
+	import { bind } from "svelte/internal";
+	// @ts-ignore
+	import Paragraph from "/src/components/Paragraph.svelte";
+
 	import { marked } from "marked";
-    // @ts-ignore
-    import Paragraph from "/src/components/Paragraph.svelte";
-    
-    // const renderer = {
-    //     image(href, title, text) {
-    //         if (href === null) {
-    //             return text;
-    //         }
-        
-    //         // let out = `<img src="${href}" alt="${text}" on:click={() => open = !open} class:img-closed={!open} class:img-open={open} class="h-auto duration-300"`;
-    //         let out = `<img src="a" alt="${text}" onclick="enlargeImg()" id="img1"`;
-    //         if (title) {
-    //             out += ` title="${title}"`;
-    //         }
-    //         out += this.options.xhtml ? '/>' : '>';
-    //         console.log(out)
-    //         return out;
-    //     }
-    // }
-    // marked.use({ renderer })
+	marked.setOptions({
+		gfm: true,
+		breaks: true,
+		sanitize: false,
+		smartLists: false,
+		smartypants: false,
+		xhtml: false
+	});
 
-    // doesn't even work
+	//  import removeMarkdown
+	 	import removeMd from "remove-markdown";
 
-    // img = document.getElementById("img1");
-    // function enlargeImg() {
-    //     Image.style.tran
-    // }   
-    // danovo prace
-    marked.setOptions({
-    gfm: true,
-    breaks: true,
-    sanitize: false,
-    smartLists: false,
-    smartypants: false,
-    xhtml: false
-    });
-    
-    // svelte template <img src="/uploads/axisflying-1-.png" alt="" on:click={() => open = !open} class:img-closed={!open} class:img-open={open} class="h-auto duration-300">
-    
-    const modules = import.meta.globEager("/modules/faqs/*.md");
-    // console.log(modules)
-    let grouped_modules = {};
+	// svelte template <img src="/uploads/axisflying-1-.png" alt="" on:click={() => open = !open} class:img-closed={!open} class:img-open={open} class="h-auto duration-300">
 
-    for (const k in modules) {
-        const cat = modules[k].metadata.Category;
-        if (grouped_modules[cat]) {
-        grouped_modules[cat].push(modules[k]);
-        } else {
+	const modules = import.meta.globEager("/modules/faqs/*.md");
+	// console.log(modules)
+	let grouped_modules = {};
+
+	for (const k in modules) {
+		const cat = modules[k].metadata.Category;
+		if (grouped_modules[cat]) {
+			grouped_modules[cat].push(modules[k]);
+		} else {
 			grouped_modules[cat] = [modules[k]];
-        }
-    }
-    
+		}
+	}
+	
+	let hash = $page.url.hash.replace("#", "");
+	console.log(hash)
+
+	// find the question with the id that matches the hash
+	let openQuestion = null;
+	for (const cat in grouped_modules) {
+		for (const question of grouped_modules[cat]) {
+			if (question.metadata.id === hash) {
+				openQuestion = question;
+				break;
+			}
+		}
+	}
+	console.log(openQuestion)
+
+	let questionTitle = openQuestion ? openQuestion.metadata.title : "";
+	console.log(questionTitle)
+
+	let questionAnswer = openQuestion ? removeMd(openQuestion.metadata.answer) : "";
+	let shortQuestionAnswer = questionAnswer.substring(0, 200) + "...";
+	console.log(shortQuestionAnswer)
+
 	let prefix = "VitroidFPV";
 	let title = " - FAQ";
 	let color = "#1cd167";
@@ -68,18 +68,18 @@
 </script>
 
 <svelte:head>
-    <title>VitroidFPV{title}</title>
+	<title>VitroidFPV{title}</title>
 	<meta name="author" content="VitroidFPV" />
-    <!-- <meta property="og:image" content="https://www.vitroidfpv.com/sources/cinewhoop_512.png"> -->
+	<!-- <meta property="og:image" content="https://www.vitroidfpv.com/sources/cinewhoop_512.png"> -->
 	<meta property="og:image:width" content="512" />
 	<meta property="og:image:height" content="512" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="VitroidFPV" />
-    <meta property="article:author" content="VitroidFPV" />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="VitroidFPV" />
+	<meta property="article:author" content="VitroidFPV" />
 	<meta property="og:title" content="{prefix}{title}" />
-	<meta name="description" content={description} />
-	<meta property="og:description" content={description} />
-    <meta content="https://vitroidfpv.com/" property="og:url" />
+	<meta name="description" content={shortQuestionAnswer} />
+	<meta property="og:description" content={shortQuestionAnswer} />
+	<meta content="https://vitroidfpv.com/" property="og:url" />
 	<meta name="theme-color" content={color} />
 </svelte:head>
 
@@ -94,7 +94,7 @@
         Keep in mind that this site is still in the works. Info here should be mostly reliable, but some may be unfinished and/or buggy"
 	/>
 
-    <ul class="mt-8 text-2xl w-fit">
+	<ul class="mt-8 text-2xl w-fit">
 		<CategoryIndex
 			icon="bg-[url('https://img.icons8.com/material-outlined/32/9550ba/plus--v1.png')]"
 			color="hover:text-violet"
@@ -131,13 +131,13 @@
 			text="Hardware"
 			link="Hardware"
 		/>
-    </ul>
+	</ul>
 
-    {#each Object.entries(grouped_modules) as [cat, contents]}
-    <div class="{cat} my-8 w-full h-fit text-justify">
+	{#each Object.entries(grouped_modules) as [cat, contents]}
+		<div class="{cat} my-8 w-full h-fit text-justify">
 			<div class="text-3xl tracking-tight border-b-2 w-fit px-1 cat {cat} pb-1" id={cat}>{cat}</div>
-        {#each contents as question}
-        <!-- <div class="w-full">
+			{#each contents as question}
+				<!-- <div class="w-full">
             <div class="w-[38rem] tracking-normal text-main-200 dark:text-contrast-100 border-none">
                 <div class="inline-flex text-3xl translate-y-0.5 text-black dark:text-white opacity-10 hover:opacity-30 duration-300 cursor-pointer copy-id">#</div>
                 <button type="button" class="collapsible duration-300 after:ml-1 text-[22px] hover:translate-x-1 duartion-150 {cat}">{question.metadata.title}</button>
@@ -147,18 +147,22 @@
             </div>
         </div> -->
 
-        <FaqQuestion 
+				<FaqQuestion
 					category={cat}
 					title={question.metadata.title}
 					content={marked.parse(question.metadata.answer)}
 					id={question.metadata.id}
 				/>
-        {/each}
-    </div>
-    {/each}
+			{/each}
+		</div>
+	{/each}
 </div>
 
 <style>
-    .img-closed { width: 50%}
-    .img-open { width: 100%}
+	.img-closed {
+		width: 50%;
+	}
+	.img-open {
+		width: 100%;
+	}
 </style>
