@@ -153,6 +153,10 @@
   }
   .Radio .content {@apply shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#5ad8e6]}
 
+  .form {
+    @apply order-last
+  }
+
   .Hardware.cat{@apply text-blue border-blue}.Hardware{@apply order-6}.Hardware.faq-active{@apply text-blue}.Hardware.collapsible{@apply hover:text-blue}
 
   .card.red {@apply shadow-[0px_-23px_0px_#d6395b,0px_15px_50px_#1818184d]}.bulge.red{@apply bg-red after:shadow-red before:shadow-red}
@@ -201,7 +205,6 @@
   .ml-4.md {
     @apply origin-top-left scale-90
   }
-
 
   /* markdown styles */
   code {@apply bg-gray-500/30 p-1 rounded-md}
