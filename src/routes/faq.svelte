@@ -167,7 +167,7 @@
 		<div class="mt-4 flex flex-col">
 			<div class="flex">
 				<label class="switch">
-					<input type="checkbox" id="useful" bind:checked={useful}>
+					<input type="checkbox" id="useful" bind:checked={useful} name="Useful">
 					<span class="slider round"></span>
 				</label>
 				<div class="relative w-4 ml-2">
@@ -187,7 +187,7 @@
 						<div transition:fade class="text-red text-lg absolute">I'm sorry you didn't find this site useful! Please tell me what to improve below</div>
 					{/if}
 				</div>
-				<textarea rows="3" type="text" class="w-96 h-32 mt-4 rounded-xl caret-green p-2 bg-contrast-100 dark:bg-main-300 outline-none hover:shadow-black/50 shadow-[0_25px_50px_-12px_#00000059] duration-300 focus-within:shadow-black/50" bind:value={feedback}></textarea>
+				<textarea rows="3" type="text" class="w-96 h-32 mt-4 rounded-xl caret-green p-2 bg-contrast-100 dark:bg-main-300 outline-none hover:shadow-black/50 shadow-[0_25px_50px_-12px_#00000059] duration-300 focus-within:shadow-black/50" name="Feedback" bind:value={feedback}></textarea>
 			</div>
 		</div>
 		<button type="submit" class="mt-4 rounded-2xl bg-contrast-100 dark:bg-main-300 hover:shadow-highlight/50 hover:translate-x-2 shadow-lg duration-300 w-fit p-2 px-4 border-4 border-highlight">Send!</button>
