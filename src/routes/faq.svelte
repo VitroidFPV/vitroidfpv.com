@@ -157,7 +157,7 @@
 	{/each}
 
 	<form class="flex flex-col form mt-10" method="post" name="faq" data-netlify="true">
-		<input type="hidden" name="form-name" value="faq" />
+
 		<Header text="Feedback" />
 		<Paragraph text="If you found this page useful (or not), or have any suggestions, ideas and so on, let me know here to help me improve the site!" />
 		<div class="mt-4 flex flex-col">
