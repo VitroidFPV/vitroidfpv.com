@@ -10,7 +10,8 @@ const config = {
 		prerender: {
 			crawl: true,
 			enabled: true,
-			pages: ['*'],
+			entries: ['*'],
+			onError: "continue",
 		},
 		vite: {
 			server: {
