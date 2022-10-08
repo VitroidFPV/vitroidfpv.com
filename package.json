@@ -6,7 +6,6 @@
     "build": "vite build",
     "package": "vite package",
     "preview": "vite preview",
-    "prepare": "vite sync",
     "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
     "format": "prettier --write --plugin-search-dir=. ."
   },
