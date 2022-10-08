@@ -53,11 +53,35 @@
 	let shortQuestionAnswer = questionAnswer.substring(0, 200) + "...";
 
 	let questionTitle = openQuestion ? openQuestion.metadata.title : "";
-	console.log(questionTitle)
-	console.log(shortQuestionAnswer)
+	// console.log(questionTitle)
+	// console.log(shortQuestionAnswer)	
 
 	let useful = true;
 	let feedback = ""
+
+	const upvotes = async() => {
+		let response = await fetch ("https://api.netlify.com/api/v1/forms/633def84b40b9d0008711757/submissions", 
+			{
+				method: "get",
+				headers: {
+					"Authorization": "Bearer haha no token for you"
+				}
+			}
+		)
+		let data = await response.json()
+		let novoted = data.length
+		let upvoted = 0
+		for (let i = 0; i < data.length; i++) {
+			if (data[i].data.Useful === "on") {
+				upvoted++
+			}
+		}
+		let downvoted = novoted - upvoted
+		let deltaVotes = upvoted - downvoted
+		return deltaVotes
+	}
+	
+	let deltaVotes = upvotes()
 
 	let prefix = "VitroidFPV";
 	let title = " - FAQ";
@@ -95,7 +119,17 @@
         You will find most of the common and easy to answer ones here. For more specific ones, there are tutorials planned<br>
         The questions are sorted into individual categories, and next to each one there is a button that will copy a link to the specific one if you want to send it to someone.<br>
         Keep in mind that this site is still in the works. Info here should be mostly reliable, but some may be unfinished and/or buggy"
-	/>
+	>
+		<div>
+			{#await deltaVotes}
+				<div></div>
+			{:then deltaVotes}
+				<div transition:fly={{ y: -10, duration: 300 }} class="text-[1.35rem] border-l-4 border-highlight dark:border-highlight-dark px-4 mb-4 bg-gray-500/10 py-2 rounded-r-xl"><span class="text-highlight dark:text-highlight-dark">{deltaVotes}</span> people have found this page helpful!</div>
+			{:catch err}
+				<div>Error while loading upvotes</div>
+			{/await}
+		</div>
+	</Paragraph>
 
 	<ul class="mt-8 text-2xl w-fit">
 		<CategoryIndex
@@ -187,7 +221,10 @@
 						<div transition:fade class="text-red text-lg absolute">I'm sorry you didn't find this site useful! Please tell me what to improve below</div>
 					{/if}
 				</div>
-				<textarea rows="3" type="text" class="w-96 h-32 mt-4 rounded-xl caret-green p-2 bg-contrast-100 dark:bg-main-300 outline-none hover:shadow-black/50 shadow-[0_25px_50px_-12px_#00000059] duration-300 focus-within:shadow-black/50" name="Feedback" bind:value={feedback}></textarea>
+				<textarea rows="3" type="text" 
+					class="w-96 h-32 mt-4 rounded-xl caret-green p-2 bg-contrast-100 dark:bg-main-300 
+					outline-none hover:shadow-black/50 shadow-[0_25px_50px_-12px_#00000059] duration-300 
+					focus-within:shadow-black/50" name="Feedback" bind:value={feedback}></textarea>
 			</div>
 		</div>
 		<button type="submit" class="mt-4 rounded-2xl bg-contrast-100 dark:bg-main-300 hover:shadow-highlight/50 hover:translate-x-2 shadow-lg duration-300 w-fit p-2 px-4 border-4 border-highlight">Send!</button>
