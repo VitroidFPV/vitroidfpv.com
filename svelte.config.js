@@ -12,13 +12,6 @@ const config = {
 			entries: ['*'],
 			onError: "continue",
 		},
-		vite: {
-			server: {
-				fs: {
-					allow: ["./modules/"]
-				}
-			}
-		}
 	},
 	extensions: [".svelte", ...mdsvexConfig.extensions],
 	preprocess: [mdsvex(mdsvexConfig)]

@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="description" content="" />
-		<link rel="icon" href="%svelte.assets%/favicon.png" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,10 +17,10 @@
 			rel="stylesheet"
 		/>
 		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-		%svelte.head%
+		%sveltekit.head%
 	</head>
 	<body>
-		%svelte.body%
+		%sveltekit.body%
 		<script>
 			if (window.netlifyIdentity) {
 				window.netlifyIdentity.on("init", (user) => {
