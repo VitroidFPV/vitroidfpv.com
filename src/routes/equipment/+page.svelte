@@ -1,8 +1,8 @@
 <script>
-	import BuildCard from "../components/buildsPage/buildCard.svelte";
-	import Header from "../components/Header.svelte";
-	import MainHeader from "../components/mainHeader.svelte";
-	import Paragraph from "../components/Paragraph.svelte";
+	import BuildCard from "../../components/buildsPage/buildCard.svelte";
+	import Header from "../../components/Header.svelte";
+	import MainHeader from "../../components/mainHeader.svelte";
+	import Paragraph from "../../components/Paragraph.svelte";
 
 	let descr =
 		"Everything that you will need to get building and flying. From goggles, cams, antennas, to radio transmitters and receivers, tools and soldering equipment";

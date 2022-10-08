@@ -1,9 +1,9 @@
 <script>
-	import Header from "../components/Header.svelte";
-	import MainHeader from "../components/mainHeader.svelte";
-	import CategoryIndex from "../components/faqPage/categoryIndex.svelte";
+	import Header from "../../components/Header.svelte";
+	import MainHeader from "../../components/mainHeader.svelte";
+	import CategoryIndex from "../../components/faqPage/categoryIndex.svelte";
 	// @ts-ignore
-	import FaqQuestion from "../components/faqPage/faqQuestion.svelte";
+	import FaqQuestion from "../../components/faqPage/faqQuestion.svelte";
 	import { onMount } from "svelte";
 	import { slide, fade, fly } from "svelte/transition";
 	import { page } from "$app/stores";
@@ -88,10 +88,6 @@
 	let color = "#1cd167";
 	let description =
 		"There's a lot of questions in FPV, doesn't matter if you're just starting or not. You will find most of the common and easy to answer ones here. For more specific ones, there are tutorials planned";
-</script>
-
-<script context="module">
-	export const prerender = true;
 </script>
 
 <svelte:head>
