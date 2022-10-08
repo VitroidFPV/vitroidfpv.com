@@ -4,3 +4,6 @@ export function load({ data }) {
 		votes: data.votes,
 	};
 }
+
+// enable preloading
+export const prerender = true;
