@@ -8,8 +8,8 @@ const config = {
 		adapter: adapter({
 			// default options are shown
 			edge: true,
-			platform: "node",
 		}),
+		platform: "node",
 		prerender: {
 			crawl: true,
 			enabled: true,
