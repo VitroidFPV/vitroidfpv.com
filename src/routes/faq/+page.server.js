@@ -3,7 +3,7 @@ dotenv.config()
 
 const NETLIFY_API_KEY = process.env.NETLIFY_API_KEY
 
-const upvotes = async() => {
+var upvotes = async() => {
 	let response = await fetch ("https://api.netlify.com/api/v1/forms/633def84b40b9d0008711757/submissions", 
 		{
 			method: "get",
