@@ -5,11 +5,7 @@ import mdsvexConfig from "./mdsvex.config.js";
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		adapter: adapter({
-			// default options are shown
-			edge: true,
-		}),
-		platform: "node",
+		adapter: adapter(),
 		prerender: {
 			crawl: true,
 			enabled: true,
