@@ -1,8 +1,7 @@
 <script>
-	export let color;
-	export let color1 = "";
-	export let size = "xl";
-	export let title;
+	export let color = "green";
+	export let color1 = "green";
+	export let size = "";
 	export let link = "";
 </script>
 
@@ -10,5 +9,5 @@
 	target="_blank"
 	rel="noopener noreferrer"
 	href={link}
-	class="{color} t-{color1} text-{size}xl link">{title}</a
->
+	class="{color} t-{color1} text-{size}xl link"><slot />
+</a>

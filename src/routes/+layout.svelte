@@ -1,5 +1,6 @@
 <script>
 	import "../app.css";
+	import "../form.css"
 	import { page } from "$app/stores";
 	import Nav from "../components/navbar/Nav.svelte";
 	import Footer from "../components/navbar/Footer.svelte";

@@ -29,6 +29,7 @@ var deltaVotes = upvotes()
 
 /** @type {import('./$types').PageServerLoad} */
 export function load() {
+	console.log(deltaVotes)
 	return {
 		votes: deltaVotes,
 	}

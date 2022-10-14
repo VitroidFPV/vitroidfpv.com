@@ -39,6 +39,16 @@
   }
 }
 
+::selection {
+  background-color: var(--range-handle-focus);
+  color: #292929;
+}
+
+.highlight-bg ::selection {
+  background-color: #292929 !important;
+  color: var(--range-handle-focus) !important;
+}
+
 @layer components {
   .nav-active {
     /* god is dead and we have killed him */

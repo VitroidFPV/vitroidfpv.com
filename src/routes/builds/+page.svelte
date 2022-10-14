@@ -4,7 +4,7 @@
 	import MainHeader from "../../components/mainHeader.svelte";
 	import Paragraph from "../../components/Paragraph.svelte";
 
-	const modules = import.meta.globEager("/modules/buildLists/*.md");
+	const modules = import.meta.glob("/modules/buildLists/*.md", {eager: true});
 	// console.log(modules)
 	let grouped_modules = {};
 
@@ -28,16 +28,14 @@
 	<MainHeader text="Builds" />
 	<Header text="Parts lists and build guides for any quad you'd want!" />
 
-	<Paragraph
-		text="If you're just a beginner wanting to get their first build, or a long-time pilot that just wants some build inspiration, this is the place for you!<br><br>
+	<Paragraph>If you're just a beginner wanting to get their first build, or a long-time pilot that just wants some build inspiration, this is the place for you!<br><br>
         The builds here are sorted by difficulty, so you can quickly decide if something is for you as a beginner, or to recommend to someone else. When you hover on a specifc build, it will pop up with some short info, and you can get to the build by clicking on the name<br>
-        Keep in mind that this site is still in the works. Info here should be mostly reliable, but some may be unfinished and/or buggy"
-	/>
-	<ul class="mt-2">
+        Keep in mind that this site is still in the works. Info here should be mostly reliable, but some may be unfinished and/or buggy
+	<ul class="mt-4">
 		<li>
 			<div class="flex items-center mb-4">
 				<div
-					class="dark:bg-main-300 bg-contrast-300 w-32 h-20 rounded-2xl flex items-center justify-around text-2xl shadow-[0px_-10px_0px_#87cc52] mr-2"
+					class="dark:bg-main-300 bg-contrast-300 w-32 h-20 rounded-2xl flex items-center justify-around text-2xl shadow-[0px_-10px_0px_#87cc52] mr-4"
 				>
 					Easy
 				</div>
@@ -50,7 +48,7 @@
 		<li>
 			<div class="flex items-center mb-4">
 				<div
-					class="dark:bg-main-300 bg-contrast-300 w-32 h-20 rounded-2xl flex items-center justify-around text-2xl shadow-[0px_-10px_0px_#ff9742] mr-2"
+					class="dark:bg-main-300 bg-contrast-300 w-32 h-20 rounded-2xl flex items-center justify-around text-2xl shadow-[0px_-10px_0px_#ff9742] mr-4"
 				>
 					Medium
 				</div>
@@ -61,9 +59,9 @@
 			</div>
 		</li>
 		<li>
-			<div class="flex items-center mb-4">
+			<div class="flex items-center">
 				<div
-					class="dark:bg-main-300 bg-contrast-300 w-32 h-20 rounded-2xl flex items-center justify-around text-2xl shadow-[0px_-10px_0px_#d6395b] mr-2"
+					class="dark:bg-main-300 bg-contrast-300 w-32 h-20 rounded-2xl flex items-center justify-around text-2xl shadow-[0px_-10px_0px_#d6395b] mr-4"
 				>
 					Hard
 				</div>
@@ -74,6 +72,7 @@
 			</div>
 		</li>
 	</ul>
+</Paragraph>
 	<div class="flex flex-row flex-wrap justify-around">
 		{#each Object.entries(grouped_modules) as [a, contents]}
 			{#each contents as build}

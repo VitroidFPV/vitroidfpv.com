@@ -18,7 +18,7 @@
 		xhtml: false
 	});
 
-	const modules = import.meta.globEager("/modules/equipmentLists/radioList/*.md");
+	const modules = import.meta.glob("/modules/equipmentLists/radioList/*.md", {eager: true});
 	let grouped_modules = {};
 
 	for (const k in modules) {
@@ -85,11 +85,25 @@
 <div class="content-box">
 	<MainHeader text={titleRaw} />
 	<Header text="Everything you need to control your quad" />
-	<Paragraph
-		text="{description}<br>
+	<Paragraph>
+		{description}<br>
     If you're trying to decide, or don't even have any prior experience, this list will hopefully help you!<br><br>
-    Prices may depend on where and when you source the parts, (prices and specs are sourced from the manufacturers website at the time of the writing when possible)"
-	/>
+    Prices may depend on where and when you source the parts, (prices and specs are sourced from the manufacturers website at the time of the writing when possible)
+	<ul class="flex flex-row justify-between w-full flex-wrap mt-4">
+		<li class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-green before:relative mb-2">
+			Budget
+		</li>
+		<li class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-orange before:relative mb-2">
+			Mid-range
+		</li>
+		<li class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-red before:relative mb-2">
+			High-end
+		</li>
+		<li class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-violet before:relative mb-2">
+			Highly varied
+		</li>
+	</ul>
+	</Paragraph>
 
 	{#each Object.entries(sorted_grouped_modules) as [cat, contents]}
 		<div class="{cat} category my-8 w-full h-fit flex flex-col">

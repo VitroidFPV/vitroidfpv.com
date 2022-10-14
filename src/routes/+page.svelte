@@ -43,7 +43,7 @@
 					xmlns:xlink="http://www.w3.org/1999/xlink"
 					version="1.1"
 				>
-					<rect x="0" y="0" width="2400" height="300" class="fill-transparent" />
+					<rect x="0" y="0" width="2400" height="300" class="hover:-translate-y-2 duration-300 fill-transparent" />
 					<path
 						d="M0 92L50 91.8C100 91.7 200 91.3 300 112.7C400 134 500 177 600 175.5C700 174 800 128 900 118.5C1000 109 1100 136 1200 151.8C1300 167.7
                 1400 172.3 1500 158C1600 143.7 1700 110.3 1800 97.7C1900 85 2000 93 2100 114.8C2200 136.7 2300 172.3 2350 190.2L2400 208L2400 301L2350 301C2300
@@ -52,12 +52,12 @@
 						fill=""
 						stroke-linecap="round"
 						stroke-linejoin="miter"
-						class="fill-highlight dark:fill-highlight-dark"
+						class="duration-300 fill-highlight dark:fill-highlight-dark"
 					/>
 				</svg>
 			</div>
 		</div>
-		<div class="w-full h-fit bg-highlight dark:bg-highlight-dark pl-8 -mb-1 flex flex-row">
+		<div class="w-full h-fit bg-highlight dark:bg-highlight-dark pl-8 -mb-1 flex flex-row highlight-bg">
 			<div class="flex flex-col md:w-1/2">
 				<div class="dark:text-main-200 text-main-100">
 					<h2 class="text-4xl font-semibold my-4 border-b-4 border-dotted w-fit border-main-100">
@@ -82,7 +82,7 @@
 				>
 					<path
 						id="prop-svg3"
-						class="fill-white/20"
+						class="hover:-translate-y-2 duration-300 fill-white/20"
 						d="M 74.892631,5.1711806 C 74.114473,5.18908
                     73.25665,5.3460323 72.669665,5.484156 71.539357,5.7501303 70.293619,6.4390845 69.831921,7.5045284 62.379721,24.701745 62.364833,46.64307
                     64.07051,66.534728 c 0.389939,4.547495 1.877487,10.798634 2.096519,13.59769 -0.902718,0.89215 -1.58203,1.984839 -1.982646,3.189139 -0.102305,0.04112 -0.124266,0.04931 -0.308784,0.108292
@@ -104,7 +104,7 @@
 				>
 					<path
 						id="prop-svg3"
-						class="fill-white/20"
+						class="hover:-translate-y-2 duration-300 fill-white/20"
 						d="M 74.892631,5.1711806 C 74.114473,5.18908
                     73.25665,5.3460323 72.669665,5.484156 71.539357,5.7501303 70.293619,6.4390845 69.831921,7.5045284 62.379721,24.701745 62.364833,46.64307
                     64.07051,66.534728 c 0.389939,4.547495 1.877487,10.798634 2.096519,13.59769 -0.902718,0.89215 -1.58203,1.984839 -1.982646,3.189139 -0.102305,0.04112 -0.124266,0.04931 -0.308784,0.108292
@@ -126,7 +126,7 @@
 				>
 					<path
 						id="prop-svg3"
-						class="fill-white/20"
+						class="hover:-translate-y-2 duration-300 fill-white/20"
 						d="M 74.892631,5.1711806 C 74.114473,5.18908
                     73.25665,5.3460323 72.669665,5.484156 71.539357,5.7501303 70.293619,6.4390845 69.831921,7.5045284 62.379721,24.701745 62.364833,46.64307
                     64.07051,66.534728 c 0.389939,4.547495 1.877487,10.798634 2.096519,13.59769 -0.902718,0.89215 -1.58203,1.984839 -1.982646,3.189139 -0.102305,0.04112 -0.124266,0.04931 -0.308784,0.108292
@@ -154,7 +154,7 @@
 					xmlns:xlink="http://www.w3.org/1999/xlink"
 					version="1.1"
 				>
-					<rect x="0" y="0" width="2400" height="300" class="fill-transparent" />
+					<rect x="0" y="0" width="2400" height="300" class="hover:-translate-y-2 duration-300 fill-transparent" />
 					<path
 						d="M0 92L50 91.8C100 91.7 200 91.3 300 112.7C400 134 500 177 600 175.5C700 174 800 128 900 118.5C1000 109 1100 136 1200 151.8C1300 167.7
                 1400 172.3 1500 158C1600 143.7 1700 110.3 1800 97.7C1900 85 2000 93 2100 114.8C2200 136.7 2300 172.3 2350 190.2L2400 208L2400 301L2350 301C2300
@@ -163,7 +163,7 @@
 						fill=""
 						stroke-linecap="round"
 						stroke-linejoin="miter"
-						class="fill-highlight dark:fill-highlight-dark"
+						class="duration-300 fill-highlight dark:fill-highlight-dark"
 					/>
 				</svg>
 			</div>
@@ -199,7 +199,7 @@
 			class="md:w-96 mr-8 w-1/3 flex md:flex-row flex-col md:justify-around justify-between items-center md:h-fit h-96 mt-16"
 		>
 			<svg
-				class="h-fit w-fit relative scale-50 -rotate-12 fill-black/20 dark:fill-white/20"
+				class="h-fit w-fit relative scale-50 -rotate-12 fill-black/20 hover:-translate-y-2 duration-300 dark:fill-white/20"
 				height="300"
 				width="300"
 				viewBox="0 0 500 500"
@@ -269,7 +269,7 @@
 				/>
 			</svg>
 			<svg
-				class="h-fit w-fit relative scale-50 rotate-12 fill-black/20 dark:fill-white/20 md:bottom-16"
+				class="h-fit w-fit relative scale-50 rotate-12 fill-black/20 hover:-translate-y-2 duration-300 dark:fill-white/20 md:bottom-16"
 				height="300"
 				width="300"
 				viewBox="0 0 512 512"
@@ -291,7 +291,7 @@
 				</g>
 			</svg>
 			<svg
-				class="h-fit w-fit relative scale-150 fill-black/20 dark:fill-white/20"
+				class="h-fit w-fit relative scale-150 fill-black/20 hover:-translate-y-2 duration-300 dark:fill-white/20"
 				viewBox="0 0 110 110"
 				width="110"
 				height="110"

@@ -2,8 +2,7 @@
 
 	/** @type {import('./$types').PageData} */
 	export let data;
-
-	let deltaVotes = data.votes
+	let deltaVotes = data.votes;
 	
 	import Header from "../../components/Header.svelte";
 	import MainHeader from "../../components/mainHeader.svelte";
@@ -32,7 +31,7 @@
 
 	// svelte template <img src="/uploads/axisflying-1-.png" alt="" on:click={() => open = !open} class:img-closed={!open} class:img-open={open} class="h-auto duration-300">
 
-	const modules = import.meta.globEager("/modules/faqs/*.md");
+	const modules = import.meta.glob("/modules/faqs/*.md", {eager: true});
 	// console.log(modules)
 	let grouped_modules = {};
 
@@ -92,17 +91,20 @@
 	<MainHeader text="FAQ" />
 	<Header text="If you need a quick answer, you might find it here!" />
 
-	<Paragraph
-		text="There's a lot of questions in FPV, doesn't matter if you're just starting or not<br>
+	<Paragraph>
+		There's a lot of questions in FPV, doesn't matter if you're just starting or not<br>
         You will find most of the common and easy to answer ones here. For more specific ones, there are tutorials planned<br>
         The questions are sorted into individual categories, and next to each one there is a button that will copy a link to the specific one if you want to send it to someone.<br>
-        Keep in mind that this site is still in the works. Info here should be mostly reliable, but some may be unfinished and/or buggy"
-	>
+        Keep in mind that this site is still in the works. Info here should be mostly reliable, but some may be unfinished and/or buggy
 		<div>
 			{#await deltaVotes}
 				<div></div>
 			{:then deltaVotes}
-				<div transition:fly={{ y: -10, duration: 300 }} class="text-[1.35rem] border-l-4 border-highlight dark:border-highlight-dark px-4 mb-4 bg-gray-500/10 py-2 rounded-r-xl"><span class="text-highlight dark:text-highlight-dark">{deltaVotes}</span> people have found this page helpful!</div>
+				<div 
+
+					class="text-[1.35rem] border-l-4 border-highlight dark:border-highlight-dark px-4 mb-4 bg-gray-500/10 py-2 rounded-r-xl mt-4 w-fit">
+					<span class="text-highlight dark:text-highlight-dark">{deltaVotes}</span> 
+					people have found this page helpful!</div>
 			{:catch err}
 				<div>Error while loading upvotes</div>
 			{/await}
@@ -215,92 +217,5 @@
 	}
 	.img-open {
 		width: 100%;
-	}
-
-	:root {
-		--toggle-color: #87cc52;
-		--toggle-color1: #d6395b;
-		--circle-color: #6ba142;
-		--circle-color1: #962a42;
-
-		--toggle-transition: 300ms;
-
-		--toggle-width: 2.5rem;
-		--toggle-height: 1.5rem;
-		--toggle-radius: 1rem;
-	}
-
-	/* The switch - the box around the slider */
-	.switch {
-		position: relative;
-		display: inline-block;
-		width: var(--toggle-width);
-		height: var(--toggle-height);
-		transition: filter 300ms;
-	}
-	.switch:hover {
-		filter: brightness(1.2);
-	}
-
-	/* Hide default HTML checkbox */
-	.switch input {
-		opacity: 0;
-		width: 0;
-		height: 0;
-	}
-
-	/* The slider */
-	.slider {
-		position: absolute;
-		cursor: pointer;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background-color: var(--toggle-color1);
-		-webkit-transition: var(--toggle-transition);
-		transition: var(--toggle-transition);
-	}
-
-	.slider:before {
-		position: absolute;
-		content: "";
-		height: var(--toggle-radius);
-		width: var(--toggle-radius);
-		left: 4px;
-		bottom: 4px;
-		background-color: var(--circle-color);
-		-webkit-transition: var(--toggle-transition);
-		transition: var(--toggle-transition);
-	}
-
-	input:checked + .slider {
-		background-color: var(--toggle-color);
-	}
-
-	input + .slider:before {
-		background-color: var(--circle-color1);
-	}
-	input:checked + .slider:before {
-		background-color: var(--circle-color);
-	}
-
-	input:focus + .slider {
-		box-shadow: 0 0 1px #2196F3;
-	}
-
-	input:checked + .slider:before {
-		-webkit-transform: translateX(var(--toggle-radius));
-		-ms-transform: translateX(var(--toggle-radius));
-		transform: translateX(var(--toggle-radius));
-	}
-
-	/* Rounded sliders */
-	.slider.round {
-		border-radius: 34px;
-	}
-
-	.slider.round:before {
-		border-radius: 50%;
 	}
 </style>

@@ -8,7 +8,7 @@
 	// @ts-ignore
 	import Paragraph from "/src/components/Paragraph.svelte";
 
-	const modules = import.meta.globEager("/modules/buildLists/3inchCinewhoop/*.md");
+	const modules = import.meta.glob("/modules/buildLists/3inchCinewhoop/*.md", {eager: true});
 	// console.log(modules)
 	let grouped_modules = {};
 
@@ -47,12 +47,11 @@
 <div class="content-box">
 	<MainHeader text="3'' Cinewhoop" />
 	<Header text="Slow, safe, cinematic flying, indoors and outdoors" />
-	<Paragraph
-		text="Meant to be used with a full size gopro, to carry it safely around hard, and soft targets alike, in close proximity. Wider, shorter motors, fully protected frames, and mini stacks or AIOs<br>
-    This list is specced for 4/6s, and includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br>
-    The price range for each part is highlighted, so you can quickly find something to suit your budget needs"
-	>
-		<ul class="flex flex-row justify-between w-full flex-wrap">
+	<Paragraph>
+		Meant to be used with a full size gopro, to carry it safely around hard, and soft targets alike, in close proximity. Wider, shorter motors, fully protected frames, and mini stacks or AIOs<br>
+		This list is specced for 4/6s, and includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br>
+		The price range for each part is highlighted, so you can quickly find something to suit your budget needs
+		<ul class="flex flex-row justify-between w-full flex-wrap mt-4">
 			<li
 				class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-green before:relative mb-2"
 			>

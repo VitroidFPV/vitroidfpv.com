@@ -10,7 +10,7 @@
 	let title = "VitroidFPV - Equipment";
 	let url = "";
 
-	const modules = import.meta.globEager("/modules/equipmentLists/*.md");
+	const modules = import.meta.glob("/modules/equipmentLists/*.md", {eager: true});
 	// console.log(modules)
 	let grouped_modules = {};
 
@@ -40,9 +40,7 @@
 	<MainHeader text="Equipment" />
 	<Header text="All the things you'll need to get in the air!" />
 
-	<Paragraph
-		text="Everything that you will need to get building and flying. <br>From goggles, cams, antennas, to radio transmitters and receivers, tools and soldering equipment, and some other minor things that could still make or break a new build"
-	/>
+	<Paragraph>Everything that you will need to get building and flying. <br>From goggles, cams, antennas, to radio transmitters and receivers, tools and soldering equipment, and some other minor things that could still make or break a new build</Paragraph>
 	<div class="flex flex-row flex-wrap justify-around">
 		{#each Object.entries(grouped_modules) as [a, contents]}
 			{#each contents as build}
