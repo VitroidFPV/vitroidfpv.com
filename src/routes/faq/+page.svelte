@@ -3,7 +3,6 @@
 	/** @type {import('./$types').PageData} */
 	export let data;
 	let deltaVotes = data.votes;
-	let serverModules = data.serverModules;
 	
 	import Header from "../../components/Header.svelte";
 	import MainHeader from "../../components/mainHeader.svelte";
@@ -47,8 +46,8 @@
 
 	let hash = $page.url.hash.replace("#", "");
 	let openQuestion = null;
-	for (const cat in serverModules) {
-		for (const question of serverModules[cat]) {
+	for (const cat in grouped_modules) {
+		for (const question of grouped_modules[cat]) {
 			if (question.metadata.id === hash) {
 				openQuestion = question;
 				break;
@@ -59,8 +58,8 @@
 	let shortQuestionAnswer = questionAnswer.substring(0, 200) + "...";
 
 	let questionTitle = openQuestion ? openQuestion.metadata.title : "";
-	console.log(questionTitle)
-	console.log(shortQuestionAnswer)	
+	// console.log(questionTitle)
+	// console.log(shortQuestionAnswer)	
 
 	let useful = true;
 	let feedback = ""
@@ -82,7 +81,7 @@
 	<meta property="og:site_name" content="VitroidFPV" />
 	<meta property="article:author" content="VitroidFPV" />
 	<meta property="og:title" content="{prefix}{title}" />
-	<meta name="description" content={shortQuestionAnswer} />
+	<meta name="description" content={description} />
 	<meta property="og:description" content={description} />
 	<meta content="https://vitroidfpv.com/" property="og:url" />
 	<meta name="theme-color" content={color} />
@@ -102,10 +101,10 @@
 				<div></div>
 			{:then deltaVotes}
 				<div 
+
 					class="text-[1.35rem] border-l-4 border-highlight dark:border-highlight-dark px-4 mb-4 bg-gray-500/10 py-2 rounded-r-xl mt-4 w-fit">
 					<span class="text-highlight dark:text-highlight-dark">{deltaVotes}</span> 
-					people have found this page helpful!
-				</div>
+					people have found this page helpful!</div>
 			{:catch err}
 				<div>Error while loading upvotes</div>
 			{/await}
