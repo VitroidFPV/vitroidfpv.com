@@ -28,7 +28,7 @@
 </svelte:head>
 
 <div class="content-box">
-	<MainHeader text="Oops!" />
+	<MainHeader>Oops!</MainHeader>
 	<Header text="There has been an error loading this page" />
 	<Paragraph>
 		Either it doesn't exist, or I messed something up. If it doesn't exist, you can go <Link>back</Link> to the main site, if you think it's the latter, please contact me

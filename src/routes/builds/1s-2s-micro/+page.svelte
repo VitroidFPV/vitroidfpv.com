@@ -23,9 +23,10 @@
 	}
 
 	let prefix = "Builds";
-	let title = " - 1s/2s Micro";
-	let titleRaw = title.slice(3);
+	let titleRaw = "1s/2s Micro";
+	let title = " - " + titleRaw;
 	let color = "#d6395b";
+	let img = "/uploads/images/1s_toothpick_512.png";
 	let description =
 		"Built to be very light, every gram matters here. Great park/backyard fliers, and basically silent. Mostly analog video, AIO flight controllers, with an external/integrated VTX, tiny motors, pico cams, and push-on props";
 </script>
@@ -33,7 +34,7 @@
 <svelte:head>
 	<title>VitroidFPV{title}</title>
 	<meta name="author" content="VitroidFPV" />
-	<meta property="og:image" content="https://www.vitroidfpv.com/sources/1s_toothpick_512.png" />
+	<meta property="og:image" content="https://vitroidfpv-sv.netlify.app{img}" />
 	<meta property="og:image:width" content="512" />
 	<meta property="og:image:height" content="512" />
 	<meta property="og:type" content="website" />
@@ -47,7 +48,7 @@
 </svelte:head>
 
 <div class="content-box">
-	<MainHeader text={titleRaw} />
+	<MainHeader>{titleRaw}</MainHeader>
 	<Header text="Every gram matters, for silent flying nearly anywhere" />
 	<Paragraph>
 		{description}<br>

@@ -58,10 +58,11 @@
 
 	console.log(JSON.stringify(sorted_grouped_modules));
 
-	let prefix = "Equipment";
-	let title = " - Radio Equipment";
-	let titleRaw = title.slice(3);
+	let prefix = "VitroidFPV";
+	let titleRaw = "Radio Equipment";
+	let title = " - " + titleRaw;
 	let color = "#5ad8e6";
+	let img = "/uploads/images/radio_512.png";
 	let description =
 		"Radios, TX modules, receivers, antennas, and any other misc accessories for radios, all you need to get control over your craft";
 </script>
@@ -69,7 +70,7 @@
 <svelte:head>
 	<title>VitroidFPV{title}</title>
 	<meta name="author" content="VitroidFPV" />
-	<meta property="og:image" content="https://vitroidfpv-sv.netlify.app/uploads/tx16s_512.png" />
+	<meta property="og:image" content="https://vitroidfpv-sv.netlify.app{img}" />
 	<meta property="og:image:width" content="512" />
 	<meta property="og:image:height" content="512" />
 	<meta property="og:type" content="website" />
@@ -83,7 +84,7 @@
 </svelte:head>
 
 <div class="content-box">
-	<MainHeader text={titleRaw} />
+	<MainHeader>{titleRaw}</MainHeader>
 	<Header text="Everything you need to control your quad" />
 	<Paragraph>
 		{description}<br>

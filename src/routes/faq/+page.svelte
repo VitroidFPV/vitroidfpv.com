@@ -88,7 +88,7 @@
 </svelte:head>
 
 <div class="content-box">
-	<MainHeader text="FAQ" />
+	<MainHeader>FAQ</MainHeader>
 	<Header text="If you need a quick answer, you might find it here!" />
 
 	<Paragraph>
@@ -177,7 +177,7 @@
 	<form class="flex flex-col form mt-10" method="post" name="faq" netlify netlify-honeypot="bot-field">
 		<input type="hidden" name="form-name" value="faq" />
 		<Header text="Feedback" />
-		<Paragraph text="If you found this page useful (or not), or have any suggestions, ideas and so on, let me know here to help me improve the site!" />
+		<Paragraph>If you found this page useful (or not), or have any suggestions, ideas and so on, let me know here to help me improve the site!</Paragraph>
 		<div class="mt-4 flex flex-col">
 			<div class="flex">
 				<label class="switch">

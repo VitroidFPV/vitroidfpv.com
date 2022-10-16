@@ -4,12 +4,6 @@
 	import MainHeader from "../../components/mainHeader.svelte";
 	import Paragraph from "../../components/Paragraph.svelte";
 
-	let descr =
-		"Everything that you will need to get building and flying. From goggles, cams, antennas, to radio transmitters and receivers, tools and soldering equipment";
-	let img = "";
-	let title = "VitroidFPV - Equipment";
-	let url = "";
-
 	const modules = import.meta.glob("/modules/equipmentLists/*.md", {eager: true});
 	// console.log(modules)
 	let grouped_modules = {};
@@ -22,25 +16,38 @@
 			grouped_modules[cat] = [modules[k]];
 		}
 	}
+
+	let prefix = "VitroidFPV";
+	let titleRaw = "Equipment";
+	let title = " - " + titleRaw;
+	let color = "#2ad162";
+	let img = "/uploads/images/1s_toothpick_512.png";
+	let description =
+		"Everything that you will need to get building and flying. From goggles, cams, antennas, to radio transmitters and receivers, to tools and soldering equipment";
+
 </script>
 
 <svelte:head>
-	<title>{title}</title>
-	<meta property="og:title" content={title} />
-	<meta property="og:description" content={descr} />
-	<meta property="og:image" content={img} />
-	<meta property="og:url" content={url} />
-	<meta name="twitter:title" content={title} />
-	<meta name="twitter:description" content={descr} />
-	<meta name="twitter:image" content={img} />
-	<meta name="twitter:card" content="summary_large_image" />
+	<title>VitroidFPV{title}</title>
+	<meta name="author" content="VitroidFPV" />
+	<!-- <meta property="og:image" content="https://www.vitroidfpv.com/sources/cinewhoop_512.png"> -->
+	<meta property="og:image:width" content="512" />
+	<meta property="og:image:height" content="512" />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="VitroidFPV" />
+	<meta property="article:author" content="VitroidFPV" />
+	<meta property="og:title" content="{prefix}{title}" />
+	<meta name="description" content={description} />
+	<meta property="og:description" content={description} />
+	<meta content="https://vitroidfpv.com/" property="og:url" />
+	<meta name="theme-color" content={color} />
 </svelte:head>
 
 <div class="content-box">
-	<MainHeader text="Equipment" />
+	<MainHeader>Equipment</MainHeader>
 	<Header text="All the things you'll need to get in the air!" />
 
-	<Paragraph>Everything that you will need to get building and flying. <br>From goggles, cams, antennas, to radio transmitters and receivers, tools and soldering equipment, and some other minor things that could still make or break a new build</Paragraph>
+	<Paragraph>{description} and some other minor things that could still make or break a new build<br>Keep in mind that this site is still in the works. Info here should be mostly reliable, but some may be unfinished and/or buggy</Paragraph>
 	<div class="flex flex-row flex-wrap justify-around">
 		{#each Object.entries(grouped_modules) as [a, contents]}
 			{#each contents as build}

@@ -22,8 +22,10 @@
 	}
 
 	let prefix = "Builds";
-	let title = ' - 3" Cinewhoop Build';
+	let titleRaw = "3\" Cinewhoop";
+	let title = " - " + titleRaw;
 	let color = "#ff9742";
+	let img = "/uploads/images/1s_toothpick_512.png";
 	let description =
 		"Meant to be used with a full size gopro, to carry it safely around hard, and soft targets alike, in close proximity. Wider, shorter motors, fully protected frames, and mini stacks or AIOs";
 </script>
@@ -31,7 +33,7 @@
 <svelte:head>
 	<title>VitroidFPV{title}</title>
 	<meta name="author" content="VitroidFPV" />
-	<meta property="og:image" content="https://www.vitroidfpv.com/sources/cinewhoop_512.png" />
+	<meta property="og:image" content="https://vitroidfpv-sv.netlify.app{img}" />
 	<meta property="og:image:width" content="512" />
 	<meta property="og:image:height" content="512" />
 	<meta property="og:type" content="website" />
@@ -45,7 +47,7 @@
 </svelte:head>
 
 <div class="content-box">
-	<MainHeader text="3'' Cinewhoop" />
+	<MainHeader>3" Cinewhoop</MainHeader>
 	<Header text="Slow, safe, cinematic flying, indoors and outdoors" />
 	<Paragraph>
 		Meant to be used with a full size gopro, to carry it safely around hard, and soft targets alike, in close proximity. Wider, shorter motors, fully protected frames, and mini stacks or AIOs<br>
