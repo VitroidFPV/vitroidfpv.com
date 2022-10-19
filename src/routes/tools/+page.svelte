@@ -50,7 +50,7 @@
 </script>
 
 <div class="content-box">
-	<MainHeader text="Tools" />
+	<MainHeader>Tools</MainHeader>
 
 	<div class="my-8 w-full h-fit">
 		<div class="green h-fit max-w-sm min-w-[18rem] border-l-4 product pl-2 my-4 mx-2" id="calc">
