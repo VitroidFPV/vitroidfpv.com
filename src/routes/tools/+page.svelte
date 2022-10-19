@@ -7,7 +7,7 @@
 	import Paragraph from "/src/components/Paragraph.svelte";
 
 	import domtoimage from "dom-to-image";
-	import { copyImageToClipboard } from "copy-image-clipboard";
+	import { copyImageToClipboard } from "copy-image-clipboard/dist/index.common.js";
 	import { onMount } from "svelte";
 
 	function copyVolume() {
