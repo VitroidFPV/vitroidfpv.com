@@ -5,6 +5,7 @@
 @layer base {
   html {
     font-family: Reem Kufi, Reem Kufi, sans-serif;
+    scroll-behavior: smooth;
   }
   .caveat {
     font-family: 'Caveat', cursive;
