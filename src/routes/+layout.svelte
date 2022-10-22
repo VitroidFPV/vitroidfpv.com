@@ -4,7 +4,7 @@
 	import { page } from "$app/stores";
 	import Nav from "../components/navbar/Nav.svelte";
 	import Footer from "../components/navbar/Footer.svelte";
-	import Analytics from "src/components/Analytics.svelte";
+	import Analytics from "../components/Analytics.svelte";
 	// @ts-ignore
 	import Transition from "/src/components/Transition.svelte";
 	import { onMount } from "svelte";
