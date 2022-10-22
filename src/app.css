@@ -217,7 +217,7 @@
   }
 
   /* markdown styles */
-  code {@apply bg-gray-500/30 p-1 rounded-md}
+  code {@apply dark:bg-neutral-800 bg-neutral-200 p-1 rounded-md}
   .md h1 {@apply text-4xl my-3 tracking-wide}
   .md h2 {@apply text-3xl my-3 tracking-wide}
   .md h3 {@apply text-2xl my-2 tracking-wide}
