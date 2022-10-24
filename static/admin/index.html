@@ -233,48 +233,81 @@
 	.css-1u78kww-StyledWrapper-ToolbarDropdown-buttonMargin .ei6fm2r1 {
 		color: var(--highlight) !important;
 	}
+
+	.css-182avcw {
+		background-color: var(--background-light1) !important;
+		border: none
+	}
+	.css-12fzmby {
+		color: var(--light) !important;
+		border-color: transparent !important;
+		border-width: 4px !important;
+		border-radius: 0px 10px 10px !important;
+	}
+	.css-1rsca1y-ControlContainer.css-pcief1-FieldLabel-fieldLabel {
+		background-color: var(--background-light1) !important;
+	}
+	.css-1rsca1y-ControlContainer.css-pcief1-FieldLabel-fieldLabel::after {
+		background-color: var(--background-light) !important;
+	}
+	.css-b6se59-StyledCode {
+		background-color: var(--background-light1) !important;
+		color: var(--light) !important;
+	}
+	.css-mrwfgl-FileWidgetButton-button-badge-backgroundBadge-badge {
+		color: var(--highlight);
+		background-color: var(--highlight-transparent);
+	}
+	.css-1xda84k-FileWidgetButtonRemove-button-badge-backgroundBadge-badgeDanger {
+		background-color: rgb(110, 37, 37);
+		color: rgb(255, 0, 59);
+		transition: filter 0.2s ease-in-out;
+	}
+	.css-mrwfgl-FileWidgetButton-button-badge-backgroundBadge-badge.css-1xda84k-FileWidgetButtonRemove-button-badge-backgroundBadge-badgeDanger:hover {
+		filter: brightness(1.2);
+	}
 </style>
 
 <body>
-  <!-- Include the script that builds the page and powers Netlify CMS -->
-  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-  <script>
-	CMS.registerPreviewStyle("cms.css");
+	<!-- Include the script that builds the page and powers Netlify CMS -->
+	<script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+	<script>
+		CMS.registerPreviewStyle("cms.css");
 
-	var PostPreview = createClass({
-		render: function() {
-			var entry = this.props.entry
-			var group = entry.getIn(['data', 'group'])
-			
-			return h("div", {className: "main-box"},
-				h("div", {className: "category"}, entry.getIn(["data", "Category"])),
-				h("div", {className: "container" + " " + entry.getIn(["data", "color"])},
-					h("div", {className: "title" + " " + entry.getIn(["data", "color"])}, entry.getIn(["data", "title" ])),
-					h("div", {className: "points"},
-						h("div", {className: "price"}, entry.getIn(["data", "price"])),
-						h("div", {className: "point1"}, entry.getIn(["data", "point1"])),
-						h("div", {className: "point2"}, entry.getIn(["data", "point2"])),
-						h("div", {className: "point3"}, entry.getIn(["data", "point3"])),
-						h("div", {className: "point4"}, entry.getIn(["data", "point4"])),
-						h("div", {className: "point5"}, entry.getIn(["data", "point5"])),
+		var PostPreview = createClass({
+			render: function() {
+				var entry = this.props.entry
+				var group = entry.getIn(['data', 'group'])
+				
+				return h("div", {className: "main-box"},
+					h("div", {className: "category"}, entry.getIn(["data", "Category"])),
+					h("div", {className: "container" + " " + entry.getIn(["data", "color"])},
+						h("div", {className: "title" + " " + entry.getIn(["data", "color"])}, entry.getIn(["data", "title" ])),
+						h("div", {className: "points"},
+							h("div", {className: "price"}, entry.getIn(["data", "price"])),
+							h("div", {className: "point1"}, entry.getIn(["data", "point1"])),
+							h("div", {className: "point2"}, entry.getIn(["data", "point2"])),
+							h("div", {className: "point3"}, entry.getIn(["data", "point3"])),
+							h("div", {className: "point4"}, entry.getIn(["data", "point4"])),
+							h("div", {className: "point5"}, entry.getIn(["data", "point5"])),
+						),
+						h("div", {className: "description"}, entry.getIn(["data", "text"]))
 					),
-					h("div", {className: "description"}, entry.getIn(["data", "text"]))
-				),
-				h("ul", {className: "misc-info list"},
-					// link, order, and group
-					h("li", {className: "order list-item"}, "Order: " + entry.getIn(["data", "order"])),
-					h("li", {className: "group list-item"}, "Group: " + entry.getIn(["data", "group"])),
-					h("li", {className: "link list-item"}, "Link: " +  entry.getIn(["data", "link"])),
+					h("ul", {className: "misc-info list"},
+						// link, order, and group
+						h("li", {className: "order list-item"}, "Order: " + entry.getIn(["data", "order"])),
+						h("li", {className: "group list-item"}, "Group: " + entry.getIn(["data", "group"])),
+						h("li", {className: "link list-item"}, "Link: " +  entry.getIn(["data", "link"])),
+					)
 				)
-			)
-      	}
-    })
+			}
+		})
 
-    CMS.registerPreviewTemplate('5" Beginner Build', PostPreview)
-	CMS.registerPreviewTemplate('3" Cinewhoop Build', PostPreview)
-	CMS.registerPreviewTemplate('1s - 2s Micro Build', PostPreview)
+		CMS.registerPreviewTemplate('5" Beginner Build', PostPreview)
+		CMS.registerPreviewTemplate('3" Cinewhoop Build', PostPreview)
+		CMS.registerPreviewTemplate('1s - 2s Micro Build', PostPreview)
 
-	CMS.registerPreviewTemplate('Equipment - Radio', PostPreview)
-  </script>
+		CMS.registerPreviewTemplate('Equipment - Radio', PostPreview)
+	</script>
 </body>
 </html>
