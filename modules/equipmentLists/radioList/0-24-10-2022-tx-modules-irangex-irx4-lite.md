@@ -2,7 +2,7 @@
 Category: TX Modules
 group: Misc
 color: orange
-order: 0
+order: 2
 title: iRangeX IRX4 Lite
 link: https://www.banggood.com/IRangeX-IRX4-LITE-CC2500-NRF24L01+-A7105-CYRF6936-4-IN-1-Multiprotocol-TX-Module-for-Frsky-X-lite-p-1346927.html?cur_warehouse=CN
 text: Pretty much a direct competitor to the TBS MPM, but (in my opinion) better
