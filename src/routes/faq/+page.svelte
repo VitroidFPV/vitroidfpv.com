@@ -4,17 +4,17 @@
 	export let data;
 	let deltaVotes = data.votes;
 	
-	import Header from "../../components/Header.svelte";
-	import MainHeader from "../../components/mainHeader.svelte";
-	import CategoryIndex from "../../components/faqPage/categoryIndex.svelte";
-	// @ts-ignore
-	import FaqQuestion from "../../components/faqPage/faqQuestion.svelte";
+	import Header from "$components/Header.svelte";
+	import MainHeader from "$components/mainHeader.svelte";
+	import CategoryIndex from "$components/faqPage/categoryIndex.svelte";
+	import FaqQuestion from "$components/faqPage/faqQuestion.svelte";
+	import Paragraph from "$components/Paragraph.svelte";
+	import Rating from "$components/Rating.svelte";
+
 	import { onMount } from "svelte";
 	import { slide, fade, fly } from "svelte/transition";
 	import { page } from "$app/stores";
 	import { bind } from "svelte/internal";
-	// @ts-ignore
-	import Paragraph from "../../components/Paragraph.svelte";
 
 	import { marked } from "marked";
 	marked.setOptions({
@@ -28,7 +28,6 @@
 
 	//  import removeMarkdown
 	import removeMd from "remove-markdown";
-	import Rating from "../../components/Rating.svelte";
 
 	// svelte template <img src="/uploads/axisflying-1-.png" alt="" on:click={() => open = !open} class:img-closed={!open} class:img-open={open} class="h-auto duration-300">
 

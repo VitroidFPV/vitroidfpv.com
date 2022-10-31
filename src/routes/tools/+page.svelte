@@ -1,10 +1,7 @@
 <script>
-	// @ts-ignore
-	import MainHeader from "/src/components/mainHeader.svelte";
-	// @ts-ignore
-	import Header from "/src/components/Header.svelte";
-	// @ts-ignore
-	import Paragraph from "/src/components/Paragraph.svelte";
+	import MainHeader from "$components/mainHeader.svelte";
+	import Header from "$components/Header.svelte";
+	import Paragraph from "$components/Paragraph.svelte";
 
 	import domtoimage from "dom-to-image";
 	import { copyImageToClipboard } from "copy-image-clipboard/dist/index.common.js";

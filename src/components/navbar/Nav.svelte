@@ -5,8 +5,7 @@
 </script>
 
 <nav
-	class="md:w-fit bottom-0 md:h-screen w-screen h-18 test-nav md:justify-start flex md:flex-col flex-row md:items-center border-highlight dark:border-highlight-dark md:border-r-8 md:border-t-0 border-t-[13px] fixed z-50 bg-contrast-100 dark:bg-main-400 md:shadow-2xl md:shadow-black/50 shadow-[0px_-25px_50px_-12px] shadow-black/30 dark:shadow-black/60"
->
+	class="md:w-fit bottom-0 md:h-screen w-screen h-18 test-nav md:justify-start flex md:flex-col flex-row md:items-center border-highlight dark:border-highlight-dark md:border-r-8 md:border-t-0 border-t-[13px] fixed z-50 bg-contrast-100 dark:bg-main-400 md:shadow-2xl md:shadow-black/50 shadow-[0px_-25px_50px_-12px] shadow-black/30 dark:shadow-black/60">
 	<ul
 		class="md:mt-8 md:pl-4 flex md:flex-col flex-row md:justify-start test-li justify-center h-fit md:px-0 w-full -translate-y-[1px] text-main-100 dark:text-contrast-100"
 	>

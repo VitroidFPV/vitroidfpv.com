@@ -1,8 +1,8 @@
 <script>
-	import BuildCard from "../../components/buildsPage/buildCard.svelte";
-	import Header from "../../components/Header.svelte";
-	import MainHeader from "../../components/mainHeader.svelte";
-	import Paragraph from "../../components/Paragraph.svelte";
+	import BuildCard from "$components/buildsPage/buildCard.svelte";
+	import Header from "$components/Header.svelte";
+	import MainHeader from "$components/mainHeader.svelte";
+	import Paragraph from "$components/Paragraph.svelte";
 
 	const modules = import.meta.glob("/modules/equipmentLists/*.md", {eager: true});
 	// console.log(modules)

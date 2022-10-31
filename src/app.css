@@ -63,8 +63,24 @@
         dark:after:shadow-[-18px_-12px_0px_#1cd167] after:shadow-[-18px_-12px_0px_#90d95b]
         before:content-[''] before:absolute before:bg-transparent before:right-12 before:bottom-[16px] before:w-8 before:h-8 before:rounded-full before:-z-10 
         dark:before:shadow-[18px_-12px_0px_#1cd167] before:shadow-[18px_-12px_0px_#90d95b]
-
   }
+
+  .prop-svg:hover {
+    animation-name: spin;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+  }
+
+  @keyframes spin {
+    0% {
+      rotate: 0deg;
+    }
+    100% {
+      rotate: 360deg;
+    }
+  }
+
   .nav {
     @apply md:h-14 md:w-32 md:min-h-[3.5rem] min-h-[3rem] min-w-[3rem] flex items-center md:pr-[60px] relative md:pl-4 md:my-2 mx-4 md:mx-0
   }
@@ -232,6 +248,7 @@
   .md ol li p {@apply pl-3}
   .md li {@apply my-2}
   .md a {@apply text-xl text-highlight bg-gradient-to-r bg-no-repeat bg-left-bottom from-highlight to-highlight bg-0w hover:bg-100w duration-300 w-fit pb-[-1rem] leading-tight}
+  .md pre {@apply whitespace-pre-line}
   .md pre code {@apply block}
   .md br+code {@apply block}
   .md img {@apply md:rounded-2xl rounded-xl shadow-2xl my-8 h-auto md:w-full mx-auto}

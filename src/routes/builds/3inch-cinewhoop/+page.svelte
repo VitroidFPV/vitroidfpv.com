@@ -1,12 +1,8 @@
 <script>
-	// @ts-ignore
-	import BuildProduct from "/src/components/buildsPage/buildProduct.svelte";
-	// @ts-ignore
-	import MainHeader from "/src/components/mainHeader.svelte";
-	// @ts-ignore
-	import Header from "/src/components/Header.svelte";
-	// @ts-ignore
-	import Paragraph from "/src/components/Paragraph.svelte";
+	import BuildProduct from "$components/buildsPage/buildProduct.svelte";
+	import MainHeader from "$components/mainHeader.svelte";
+	import Header from "$components/Header.svelte";
+	import Paragraph from "$components/Paragraph.svelte";
 
 	const modules = import.meta.glob("/modules/buildLists/3inchCinewhoop/*.md", {eager: true});
 	// console.log(modules)

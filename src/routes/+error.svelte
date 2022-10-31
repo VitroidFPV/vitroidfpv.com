@@ -1,9 +1,9 @@
 <script>
 	import { page } from '$app/stores';
-	import Header from '../components/Header.svelte';
-	import MainHeader from '../components/mainHeader.svelte';
-	import Paragraph from '../components/Paragraph.svelte';
-	import Link from '../components/Link.svelte';
+	import Header from '$components/Header.svelte';
+	import MainHeader from '$components/mainHeader.svelte';
+	import Paragraph from '$components/Paragraph.svelte';
+	import Link from '$components/Link.svelte';
 	import { slide } from 'svelte/transition';
 
 	let descr =

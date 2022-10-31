@@ -62,8 +62,7 @@
 	<div class="w-full min-h-32 dark:bg-[#171b18] bg-[#2C4938] md:pl-48 md:pb-8 pb-28 md:px-8">
 		<div class="text-contrast-100 flex md:flex-row flex-col md:items-start items-center">
 			<div
-				class="justify-self-center md:text-5xl text-6xl caveat text-contrast-200 md:w-64 w-fit md:m-0"
-			>
+				class="justify-self-center md:text-5xl text-6xl caveat text-contrast-200 md:w-64 w-fit md:m-0 my-4">
 				Vitroid FPV
 			</div>
 
@@ -88,7 +87,7 @@
 				</ul>
 			</div>
 
-			<div class="flex flex-col md:w-64">
+			<div class="flex flex-col md:w-64 my-4">
 				<div class="text-2xl md:text-left text-center">Socials:</div>
 				<div class="flex flex-row justify-center md:justify-start">
 					<ul class="flex justify-between md:flex-col">

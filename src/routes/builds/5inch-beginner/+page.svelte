@@ -1,14 +1,13 @@
 <script>
-	// @ts-ignore
-	import BuildProduct from "/src/components/buildsPage/buildProduct.svelte";
-	// @ts-ignore
-	import MainHeader from "/src/components/mainHeader.svelte";
-	// @ts-ignore
-	import Header from "/src/components/Header.svelte";
-	// @ts-ignore
-	import Paragraph from "/src/components/Paragraph.svelte";
-	// @ts-ignore
-	import Rating from "/src/components/Rating.svelte";
+	import BuildProduct from "$components/buildsPage/buildProduct.svelte";
+	import MainHeader from "$components/mainHeader.svelte";
+	import Header from "$components/Header.svelte";
+	import Paragraph from "$components/Paragraph.svelte";
+	import Rating from "$components/Rating.svelte";
+	import Link from "$components/Link.svelte";
+
+	import { priceSum, part } from "$components/buildsPage/stores.js"
+	import { slide } from "svelte/transition";
 
 	const modules = import.meta.glob("/modules/buildLists/5inchBeginner/*.md", {eager: true});
 
@@ -50,30 +49,26 @@
 </svelte:head>
 
 <div class="content-box">
-	<MainHeader>{titleRaw} <Rating formId="633def84b40b9d0008711757"/></MainHeader>
+	<MainHeader>{titleRaw}</MainHeader>
 	<Header text="Cheap, durable, and easy to put together and repair" />
 	<Paragraph>{description}<br>
 		This list is specced for 6s, and includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br>
 		The price range for each part is highlighted, so you can quickly find something to suit your budget. That doesn't mean the budget parts are bad and that the high-end ones are too expensive. It's all relative to the price avarage of the build itself, all of them here are great
 		<ul class="flex flex-row justify-between w-full flex-wrap mt-4">
 			<li
-				class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-green before:relative mb-2"
-			>
+				class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-green before:relative mb-2">
 				Budget
 			</li>
 			<li
-				class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-orange before:relative mb-2"
-			>
+				class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-orange before:relative mb-2">
 				Mid-range
 			</li>
 			<li
-				class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-red before:relative mb-2"
-			>
+				class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-red before:relative mb-2">
 				High-end
 			</li>
 			<li
-				class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-violet before:relative mb-2"
-			>
+				class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-violet before:relative mb-2">
 				Highly varied
 			</li>
 		</ul>
@@ -84,13 +79,11 @@
 			<div class="{cat} my-8 w-full h-fit">
 				<div
 					class="text-4xl tracking-tight md:w-fit f-full px-1 md:ml-1 ml-2 cat {cat} mb-2 text-center"
-					id={cat}
-				>
+					id={cat}>
 					{cat}
 				</div>
 				<div
-					class="ml-3 flex flex-col md:flex-row flex-wrap w-full md:justify-start md:items-start items-center border-b-[1px] border-white/10"
-				>
+					class="ml-3 flex flex-col md:flex-row flex-wrap w-full md:justify-start md:items-start items-center border-b-[1px] border-white/10">
 					{#each contents as info}
 						<BuildProduct
 							color={info.metadata.color}
@@ -103,6 +96,7 @@
 							point5={info.metadata.point5}
 							text={info.metadata.text}
 							link={info.metadata.link}
+							category={cat}
 						/>
 					{/each}
 				</div>

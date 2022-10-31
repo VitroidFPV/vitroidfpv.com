@@ -2,11 +2,11 @@
 	import "../app.css";
 	import "../form.css"
 	import { page } from "$app/stores";
-	import Nav from "../components/navbar/Nav.svelte";
-	import Footer from "../components/navbar/Footer.svelte";
-	import Analytics from "../components/Analytics.svelte";
+	import Nav from "$components/navbar/Nav.svelte";
+	import Footer from "$components/navbar/Footer.svelte";
+	import Analytics from "$components/Analytics.svelte";
 	// @ts-ignore
-	import Transition from "/src/components/Transition.svelte";
+	import Transition from "$components/Transition.svelte";
 	import { onMount } from "svelte";
 
 	let ready = false;
@@ -19,7 +19,7 @@
 	class:hidden={!ready}
 	class="dark:bg-main-400 bg-contrast-50 text-main-200 dark:text-contrast-50 text-lg scroll-smooth"
 >
-	<div class="flex md:flex-row flex-col-reverse h-fit overflow-visible">
+	<div class="flex md:flex-row flex-col-reverse h-fit w-full">
 		<Nav />
 		<Transition refresh={$page.url.pathname}>
 			<slot />
