@@ -6,7 +6,7 @@
 	import Rating from "$components/Rating.svelte";
 	import Link from "$components/Link.svelte";
 
-	import { priceSum, part } from "$components/buildsPage/stores.js"
+	// import { priceSum, part } from "$components/buildsPage/stores.js"
 	import { slide } from "svelte/transition";
 
 	const modules = import.meta.glob("/modules/buildLists/5inchBeginner/*.md", {eager: true});
