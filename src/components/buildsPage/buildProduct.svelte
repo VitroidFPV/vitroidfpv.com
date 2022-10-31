@@ -3,7 +3,7 @@
 	import Link from "$components/Link.svelte";
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { fade } from "svelte/transition";
-	import { priceSum, part } from "$components/buildsPage/stores.js"
+	// import { priceSum, part } from "$components/buildsPage/stores.js"
 
 	let element;
 	let intersecting;
