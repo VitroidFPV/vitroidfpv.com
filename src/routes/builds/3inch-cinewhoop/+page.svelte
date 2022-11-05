@@ -21,7 +21,7 @@
 	let titleRaw = "3\" Cinewhoop";
 	let title = " - " + titleRaw;
 	let color = "#ff9742";
-	let img = "/uploads/images/1s_toothpick_512.png";
+	let img = "/uploads/images/cinewhoop_512.png";
 	let description =
 		"Meant to be used with a full size gopro, to carry it safely around hard, and soft targets alike, in close proximity. Wider, shorter motors, fully protected frames, and mini stacks or AIOs";
 </script>
