@@ -83,8 +83,8 @@
 <svelte:head>
 	<title>VitroidFPV{title}</title>
 	<meta name="author" content="VitroidFPV" />
-	<!-- <meta property="og:image" content="https://vitroidfpv-sv.netlify.app{img}" /> -->
-	<meta name="twitter:card" content="https://vitroidfpv-sv.netlify.app{img}">
+	<meta property="og:image" content="https://vitroidfpv-sv.netlify.app{img}" />
+	<meta name="twitter:card" content="summary_large_image">
 	<meta property="og:type" content="website" />
 	<meta property="og:site_name" content="VitroidFPV" />
 	<meta property="article:author" content="VitroidFPV" />
