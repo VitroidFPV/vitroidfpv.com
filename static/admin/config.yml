@@ -141,7 +141,6 @@ collections:
           - { label: "TX Modules", value: "TX Modules" }
           - { label: "Receivers", value: "Receivers" }
           - { label: "Antennas", value: "Antennas" }
-
       - { label: "Group", name: "group", widget: "text" }
       - label: Price Range
         name: color
@@ -162,6 +161,27 @@ collections:
       - { label: "Point 3", name: "point3", widget: "text", required: false }
       - { label: "Point 4", name: "point4", widget: "text", required: false }
       - { label: "Point 5", name: "point5", widget: "text", required: false }
+
+  - name: Articles
+    label: Articles
+    folder: modules/articles
+    create: true
+    slug: "{{day}}-{{month}}-{{year}}-{{Category}}-{{title}}"
+    fields:
+      - { label: "Title", name: "title", widget: "text" }
+      - label: Category
+        name: category
+        widget: "select"
+        options:
+          - { label: "Guides", value: "Guides" }
+          - { label: "Tutorials", value: "Tutorials" }
+          - { label: "News", value: "News" }
+          - { label: "Reviews", value: "Reviews" }
+          - { label: "Mics", value: "Misc" }
+      - { label: "Author", name: "author", widget: "text" }
+      - { label: "Image", name: "img", widget: "image" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Content", name: "content", widget: "markdown" }
 
 media_folder: "/static/uploads/"
 public_folder: "/uploads/"
