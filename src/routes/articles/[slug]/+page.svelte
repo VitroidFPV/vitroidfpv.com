@@ -76,7 +76,7 @@
 	let titleRaw = slugModule.metadata.title;
 	let title = " - " + titleRaw;
 	let color = "#ff9742";
-	let img = "/uploads/images/cinewhoop_512.png";
+	let img = slugModule.metadata.img;
 	let description = slugModule.metadata.description;
 </script>
 
