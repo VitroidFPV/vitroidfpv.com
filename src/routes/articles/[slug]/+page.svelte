@@ -84,8 +84,6 @@
 	<title>VitroidFPV{title}</title>
 	<meta name="author" content="VitroidFPV" />
 	<meta property="og:image" content="https://vitroidfpv-sv.netlify.app{img}" />
-	<meta property="og:image:width" content="512" />
-	<meta property="og:image:height" content="512" />
 	<meta property="og:type" content="website" />
 	<meta property="og:site_name" content="VitroidFPV" />
 	<meta property="article:author" content="VitroidFPV" />
