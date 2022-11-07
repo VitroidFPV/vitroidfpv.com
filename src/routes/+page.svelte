@@ -25,7 +25,7 @@
 	<meta name="theme-color" content={color} />
 </svelte:head>
 
-<div class="flex flex-col w-full">
+<div class="flex flex-col w-full overflow-hidden">
 	<div class="md:mt-64 mt-16 md:mb-0 mb-16 w-fit">
 		<h1
 			class="md:text-[180px] text-[150px] caveat h-fit w-fit leading-none dark:text-highlight-dark">

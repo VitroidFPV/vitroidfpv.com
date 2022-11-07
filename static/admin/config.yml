@@ -178,7 +178,7 @@ collections:
           - { label: "Tutorials", value: "Tutorials" }
           - { label: "News", value: "News" }
           - { label: "Reviews", value: "Reviews" }
-          - { label: "Mics", value: "Misc" }
+          - { label: "Misc", value: "Misc" }
       - { label: "Author", name: "author", widget: "text" }
       - { label: "Image", name: "img", widget: "image" }
       - { label: "Date", name: "date", widget: "datetime" }

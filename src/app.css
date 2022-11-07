@@ -65,22 +65,6 @@
         dark:before:shadow-[18px_-12px_0px_#1cd167] before:shadow-[18px_-12px_0px_#90d95b]
   }
 
-  .prop-svg:hover {
-    animation-name: spin;
-    animation-duration: 500ms;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: both;
-  }
-
-  @keyframes spin {
-    0% {
-      rotate: 0deg;
-    }
-    100% {
-      rotate: 360deg;
-    }
-  }
-
   .nav {
     @apply md:h-14 md:w-32 md:min-h-[3.5rem] min-h-[3rem] min-w-[3rem] flex items-center md:pr-[60px] relative md:pl-4 md:my-2 mx-4 md:mx-0
   }
@@ -103,7 +87,7 @@
     @apply after:content-['+']
   }
 
-  .content-box {@apply w-full p-4 md:px-8 flex flex-col}
+  .content-box {@apply w-full p-4 md:p-8 flex flex-col items-center md:items-start}
   /* defeats the point of tailwind but idk any other way */
 
   .Starting.cat {
@@ -201,6 +185,7 @@
   .link.red {@apply from-red to-red} .link.t-red {@apply text-red}
   .link.green {@apply from-green to-green} .link.t-green {@apply text-green}
   .link.orange {@apply from-orange to-orange} .link.t-orange {@apply text-orange}
+  .link.yellow {@apply from-yellow to-yellow} .link.t-yellow {@apply text-yellow}
   .link.cyan {@apply from-cyan to-cyan} .link.t-cyan {@apply text-cyan}
   .link.blue {@apply from-blue to-blue} .link.t-blue {@apply text-blue}
   .link.violet {@apply from-violet to-violet} .link.t-violet {@apply text-violet}
@@ -233,6 +218,38 @@
     @apply origin-top-left scale-90
   }
 
+  .article-card.Guides {
+    @apply shadow-[0_10px_30px_#00000059,-6px_0px_0px_0px_#87cc52]
+  }
+  .article-card.Tutorials {
+    @apply shadow-[0_10px_30px_#00000059,-6px_0px_0px_0px_#5ad8e6]
+  }
+  .article-card.News {
+    @apply shadow-[0_10px_30px_#00000059,-6px_0px_0px_0px_#d6395b]
+  }
+  .article-card.Reviews {
+    @apply shadow-[0_10px_30px_#00000059,-6px_0px_0px_0px_#ffcc00]
+  }
+  .article-card.Misc {
+    @apply shadow-[0_10px_30px_#00000059,-6px_0px_0px_0px_#9550ba]
+  }
+
+  .card-gradient.Guides {
+    @apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-green/50 to-green/50
+  }
+  .card-gradient.Tutorials {
+    @apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-cyan/50 to-cyan/50
+  }
+  .card-gradient.News {
+    @apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-red/50 to-red/50
+  }
+  .card-gradient.Reviews {
+    @apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-yellow/50 to-yellow/50
+  }
+  .card-gradient.Misc {
+    @apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-violet/50 to-violet/50
+  }
+
   /* markdown styles */
   code {@apply dark:bg-neutral-800 bg-neutral-200 p-1 rounded-md}
   .md h1 {@apply text-4xl my-3 tracking-wide}
@@ -242,6 +259,7 @@
   .md h5 {@apply font-semibold text-green my-2 tracking-wide}
   .md h6 {@apply font-semibold text-red my-2 tracking-wide}
   .md hr {@apply border-t-2 border-gray-500/50 my-2}
+  .md p {@apply my-2}
   .md blockquote {@apply border-l-4 border-gray-500/50 pl-4}
   .md ul {@apply list-disc md:ml-6 ml-2 my-2}
   .md ol {@apply list-decimal md:ml-6 my-2}
