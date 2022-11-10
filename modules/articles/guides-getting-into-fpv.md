@@ -45,7 +45,7 @@ content: >-
      > hey guys can anyone help me with something?
 
      Instead, when asking, you should go straight to the point. Explain what you want to know, what you've done/found out so far, and any other ideas that you may have
-  4. On chat platforms like discord, don't mention (multiple) people unless it's specifically allowed. Don't send direct messages out to people who offer help, keep it in one place, and be patient if someone doesn't immediately respond. Someone will eventually see your questions, it's rude to be impatient (or even rude) to volunteer helpers 
+  4. On chat platforms like discord, don't mention (multiple) people unless it's specifically allowed. Don't send direct messages out to people who offer help, keep it in one place, and be patient if someone doesn't immediately respond. Someone will eventually see your questions, it's rude to be impatient at volunteer helpers, people have their own lives
 
 
   # Choosing what to buy
