@@ -17,6 +17,7 @@
 	let slugModule = modules[`/modules/articles/${slug}.md`]
 
 	let categoryColor
+	let hexColor
 	switch (slugModule.metadata.category) {
 		case "Guides":
 			categoryColor = "green"
