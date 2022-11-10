@@ -20,21 +20,27 @@
 	switch (slugModule.metadata.category) {
 		case "Guides":
 			categoryColor = "green"
+			hexColor = "#87cc52"
 			break
 		case "Tutorials":
 			categoryColor = "cyan"
+			hexColor = "#5ad8e6"
 			break
 		case "News":
 			categoryColor = "red"
+			hexColor = "#d6395b"
 			break
 		case "Reviews":
 			categoryColor = "yellow"
+			hexColor = "#ffcc00"
 			break
 		case "Misc":
 			categoryColor = "violet"
+			hexColor = "#9550ba"
 			break
 		default:
 			categoryColor = "violet"
+			hexColor = "#9550ba"
 	}
 	let postedDate = new Date(slugModule.metadata.date)
 	let postedDateFormatted = postedDate.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"})
@@ -75,7 +81,7 @@
 	let prefix = slugModule.metadata.category;
 	let titleRaw = slugModule.metadata.title;
 	let title = " - " + titleRaw;
-	let color = "#ff9742";
+	let color = hexColor;
 	let img = slugModule.metadata.img;
 	let description = slugModule.metadata.description;
 </script>
