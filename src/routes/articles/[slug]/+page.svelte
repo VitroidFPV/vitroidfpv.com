@@ -52,7 +52,7 @@
 
 	let intersecionOptions = {
 		root: null,
-		rootMargin: "8px",
+		rootMargin: "0px 0px -200px 0px",
 		threshold: 1
 	}
 	let intersectingHeader = ""
@@ -102,17 +102,19 @@
 			<div class="absolute card-gradient {slugModule.metadata.category} w-full h-full rounded-2xl opacity-100 group-hover:scale-x-0 origin-left group-hover:blur-sm blur-none duration-500 z-10 backdrop-saturate-0 hover:backdrop-saturate-100"></div>
 			<img src="{slugModule.metadata.img}" alt="" class="w-[64rem] m-0 h-96 object-cover rounded-2xl duration-500">
 		</div>
-		<div class="flex flex-col right-0 mr-24 mt-24 md:visible invisible fixed">
+
+		<div class="flex flex-col right-0 mr-12 mt-8 md:visible invisible fixed">
 			<div class="text-highlight dark:text-highlight-dark text-3xl font-semibold mb-8">Contents:</div>
 			{#each headers as header}
 				{#if header.heading < 5}
 				<a 	href="#{header.content.replaceAll(" ", "-").toLowerCase()}" 
 				class:intersecting-header={header.content === intersectingHeader} 
 				class:headeer={header.content != intersectingHeader}
-				class="text-xl mb-4 hover:translate-x-2 hover:text-highlight dark:hover:text-highlight-dark duration-300">{header.content}</a>
+				class="text-base mb-4 ml-{header.heading} contents-{header.heading} hover:translate-x-1 hover:text-highlight dark:hover:text-highlight-dark duration-300">{header.content}</a>
 				{/if}
 			{/each}
 		</div>
+
 	</div>
 	<div class="w-full flex-col items-start border-b-[1px] border-gray-700 mb-8">
 		<h1 class="text-{categoryColor} text-5xl mb-2">{slugModule.metadata.title}</h1>
@@ -130,11 +132,21 @@
 <style>
 	.header {
 		color: currentColor;
-		transform: translateX(0);
+		/* transform: translateX(0); */
 	}
 
 	.intersecting-header {
 		color: var(--range-handle);
-		transform: translateX(8px);
+		/* transform: translateX(8px); */
+	}
+
+	.contents-1 {
+		font-size: 1.25rem;
+	}
+	.contents-2 {
+		font-size: 1rem;
+	}
+	.contents-3 {
+		font-size: 0.75rem;
 	}
 </style>

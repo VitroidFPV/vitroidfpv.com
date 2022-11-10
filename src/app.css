@@ -252,22 +252,25 @@
 
   /* markdown styles */
   code {@apply dark:bg-neutral-800 bg-neutral-200 p-1 rounded-md}
-  .md h1 {@apply text-4xl my-3 tracking-wide}
-  .md h2 {@apply text-3xl my-3 tracking-wide}
+  .md h1 {@apply text-4xl my-3 tracking-wide mt-12}
+  .md h1:first-child {@apply mt-0}
+  .md h2 {@apply text-3xl my-3 tracking-wide mt-8}
+  .mď h2:first-child {@apply mt-0}
   .md h3 {@apply text-2xl my-2 tracking-wide}
   .md h4 {@apply font-semibold my-2 tracking-wide}
   .md h5 {@apply font-semibold text-green my-2 tracking-wide}
   .md h6 {@apply font-semibold text-red my-2 tracking-wide}
   .md hr {@apply border-t-2 border-gray-500/50 my-2}
   .md p {@apply my-2}
+  .md li p {@apply my-0}
   .md blockquote {@apply border-l-4 border-gray-500/50 pl-4}
-  .md ul {@apply list-disc md:ml-6 ml-2 my-2}
-  .md ol {@apply list-decimal md:ml-6 my-2}
+  .md ul {@apply list-disc md:ml-6 ml-2 my-4}
+  .md ol {@apply list-decimal md:ml-6 my-4 mb-6}
   .md ol li p {@apply pl-3}
   .md li {@apply my-2}
   .md a {@apply text-xl text-highlight bg-gradient-to-r bg-no-repeat bg-left-bottom from-highlight to-highlight bg-0w hover:bg-100w duration-300 w-fit pb-[-1rem] leading-tight}
   .md pre {@apply whitespace-pre-line}
   .md pre code {@apply block}
   .md br+code {@apply block}
-  .md img {@apply md:rounded-2xl rounded-xl shadow-2xl my-8 h-auto md:w-full mx-auto}
+  .md img {@apply rounded-md shadow-2xl my-8 h-auto origin-left w-3/5}
 }

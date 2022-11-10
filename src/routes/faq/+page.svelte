@@ -72,6 +72,17 @@
 	}
 	console.log(JSON.stringify(searched_grouped_modules, null, 2));
 
+	onMount(() => {
+		if (window.location.hash) {
+			setTimeout(() => {
+				const el = document.getElementById(window.location.hash.slice(1));
+				if (el) {
+					el.scrollIntoView();
+				}
+			}, 300);
+		}
+	});
+
 	let useful = true;
 	let feedback = ""
 	let pilotName = ""
