@@ -83,14 +83,22 @@
 	let titleRaw = slugModule.metadata.title;
 	let title = " - " + titleRaw;
 	let color = hexColor;
-	let img = slugModule.metadata.img;
+	let imgRaw = slugModule.metadata.img;
+	let img = ""
+	// if imgRaw is relative, add "https://vitroidfpv-sv.netlify.app" to the beginning
+	if (imgRaw.startsWith("/")) {
+		img = "https://vitroidfpv-sv.netlify.app" + imgRaw
+	}
 	let description = slugModule.metadata.description;
+	let category = slugModule.metadata.category;
+
+	let imgOg = `http://localhost:3000/og?title=${titleRaw}&description=${description}&category=${category}&img=${img}`
 </script>
 
 <svelte:head>
 	<title>VitroidFPV{title}</title>
 	<meta name="author" content="VitroidFPV" />
-	<meta property="og:image" content="https://vitroidfpv-sv.netlify.app{img}" />
+	<meta property="og:image" content="{imgOg}" />
 	<meta name="twitter:card" content="summary_large_image">
 	<meta property="og:type" content="website" />
 	<meta property="og:site_name" content="VitroidFPV" />
