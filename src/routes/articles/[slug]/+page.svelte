@@ -92,7 +92,7 @@
 	let description = slugModule.metadata.description;
 	let category = slugModule.metadata.category;
 
-	let imgOg = `http://localhost:3000/og?title=${titleRaw}&description=${description}&category=${category}&img=${img}`
+	let imgOg = `https://vitroidfpv-sv.netlify.app/og?title=${titleRaw}&description=${description}&category=${category}&img=${img}`
 </script>
 
 <svelte:head>

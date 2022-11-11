@@ -1,6 +1,6 @@
-// import { ImageResponse } from '@ethercorps/sveltekit-og';
-import { page } from '$app/stores';
-import url from 'url';
+import satori from 'satori';
+import {Resvg} from '@resvg/resvg-js';
+import {html as toReactElement} from 'satori-html';
 
 let title = "";
 let description = "";
@@ -8,20 +8,11 @@ let img = "";
 let category = "";
 let categoryColor
 
-// log current url
-
-
-
-
-// let categoryColor = ["#90D95B", "#56A94F", "#3F7B4E", "#2D5042", "#171b18"];
-// console.log(categoryColor[1]);
-
 function setTemplate(title, description, category, img) {
 	title = title;
 	description = description;
 	category = category;
 	img = img;
-	
 	switch (category) {
 		case "Guides":
 			categoryColor = ["#90D95B", "#56A94F", "#3F7B4E", "#2D5042", "#171b18"]
@@ -33,11 +24,9 @@ function setTemplate(title, description, category, img) {
 			categoryColor = ["#D6395B", "#9D3C51", "#6C3843", "#412D32", "#1E1B1C"]
 			break
 		case "Reviews":
-			// starts at #ffcc00
 			categoryColor = ["#FFCC00", "#B59617", "#776623", "#453E24", "#1D1C18"]
 			break
 		case "Misc":
-			// starts at #9550ba
 			categoryColor = ["#9550BA", "#754A8C", "#563F62", "#382F3D", "#1C1B1D"]
 			break
 		default:
@@ -66,31 +55,9 @@ function setTemplate(title, description, category, img) {
 		</div>
 	</div>
 	`
-
 	return template
 }
 
-// const fontFile = await fetch('https://og-playground.vercel.app/inter-latin-ext-400-normal.woff');
-// const fontData = await fontFile.arrayBuffer();
-
-// export const GET = async () => {
-// 	return new ImageResponse(template, {
-// 		height: 500,
-// 		width: 600,
-// 		fonts: [
-// 			{
-// 				name: 'Inter Latin',
-// 				data: fontData,
-// 				weight: 400
-// 			}
-// 		]
-// 	});
-// };
-
-
-import satori from 'satori';
-import {Resvg} from '@resvg/resvg-js';
-import {html as toReactElement} from 'satori-html';
 
 const ReemKufiFont = await fetch('http://localhost:3000/uploads/fonts/ReemKufi-Regular.ttf');
 const ReemKufi = await ReemKufiFont.arrayBuffer();
@@ -103,31 +70,30 @@ const width = 600;
 
 /** @type {import('./$types').RequestHandler} */
 export const GET = async ({ url }) => {
-
-	// get the query params
 	const params = new URLSearchParams(url.search);
 	const title = params.get('title');
 	const description = params.get('description');
 	const category = params.get('category');
 	const img = params.get('img');
 
-const html = toReactElement(setTemplate(title, description, category, img));
-const svg = await satori(html, {
-	fonts: [
-	{
-		name: 'Reem Kufi',
-		data: ReemKufi,
-		style: 'normal'
-	},
-	{
-		name: "Caveat",
-		data: Caveat,
-		style: 'normal'
+	const html = toReactElement(setTemplate(title, description, category, img));
+	const svg = await satori(html, {
+		fonts: [
+		{
+			name: 'Reem Kufi',
+			data: ReemKufi,
+			style: 'normal'
+		},
+		{
+			name: "Caveat",
+			data: Caveat,
+			style: 'normal'
+		}
+		],
+		height,
+		width
 	}
-	],
-	height,
-	width
-});
+);
 
 const resvg = new Resvg(svg, {
 	fitTo: {
@@ -135,9 +101,7 @@ const resvg = new Resvg(svg, {
 	value: width
 	}
 });
-
 const image = resvg.render();
-
 return new Response(image.asPng(), {
 	headers: {
 	'content-type': 'image/png'
