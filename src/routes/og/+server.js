@@ -59,9 +59,9 @@ function setTemplate(title, description, category, img) {
 }
 
 
-const ReemKufiFont = await fetch('http://localhost:3000/uploads/fonts/ReemKufi-Regular.ttf');
+const ReemKufiFont = await fetch('https://vitroidfpv-sv.netlify.app/uploads/fonts/ReemKufi-Regular.ttf');
 const ReemKufi = await ReemKufiFont.arrayBuffer();
-const CaveatFont = await fetch('http://localhost:3000/uploads/fonts/Caveat-Bold.ttf');
+const CaveatFont = await fetch('https://vitroidfpv-sv.netlify.app/uploads/fonts/Caveat-Bold.ttf');
 const Caveat = await CaveatFont.arrayBuffer();
 
 
