@@ -78,7 +78,7 @@
 			observer.observe(target)
 		})
 	})
-
+	
 	let prefix = slugModule.metadata.category;
 	let titleRaw = slugModule.metadata.title;
 	let title = " - " + titleRaw;
@@ -110,34 +110,33 @@
 	<meta name="theme-color" content={color} />
 </svelte:head>
 
-<div class="content-box md:pr-72">
+
+<div class="flex flex-col mr-12 md:visible invisible sticky top-0 -mt-[34rem] left-full w-fit">
+	<div class="text-highlight dark:text-highlight-dark text-3xl font-semibold mt-8 mb-4 border-b-2 border-current">Contents:</div>
+	{#each headers as header}
+		{#if header.heading < 5}
+		<a 	href="#{header.content.replaceAll(" ", "-").toLowerCase()}" 
+		class:intersecting-header={header.content === intersectingHeader} 
+		class:headeer={header.content != intersectingHeader}
+		class="text-base mb-3 ml-{header.heading} contents-{header.heading} hover:translate-x-1 hover:text-highlight dark:hover:text-highlight-dark duration-300">{header.content}</a>
+		{/if}
+	{/each}
+</div>
+<div class="content-box">
 	<!-- <img src={slugModule.metadata.img} alt="" class="w-3/4" /> -->
-	<div class="flex flex-col pr-0 article-card {slugModule.metadata.category} rounded-2xl mb-8 w-fit">
+	<div class="flex flex-col pr-0 article-card {slugModule.metadata.category} rounded-2xl mb-8 w-fit md:mr-72">
 		<div class="rounded-2xl {slugModule.metadata.category} relative select-none group overflow-hidden">
 			<div class="absolute card-gradient {slugModule.metadata.category} w-full h-full rounded-2xl opacity-100 group-hover:scale-x-0 origin-left group-hover:blur-sm blur-none duration-500 z-10 backdrop-saturate-0 hover:backdrop-saturate-100"></div>
 			<img src="{slugModule.metadata.img}" alt="" class="w-[64rem] m-0 h-96 object-cover rounded-2xl duration-500">
 		</div>
-
-		<div class="flex flex-col right-0 mr-12 mt-8 md:visible invisible fixed">
-			<div class="text-highlight dark:text-highlight-dark text-3xl font-semibold mb-8">Contents:</div>
-			{#each headers as header}
-				{#if header.heading < 5}
-				<a 	href="#{header.content.replaceAll(" ", "-").toLowerCase()}" 
-				class:intersecting-header={header.content === intersectingHeader} 
-				class:headeer={header.content != intersectingHeader}
-				class="text-base mb-4 ml-{header.heading} contents-{header.heading} hover:translate-x-1 hover:text-highlight dark:hover:text-highlight-dark duration-300">{header.content}</a>
-				{/if}
-			{/each}
-		</div>
-
 	</div>
-	<div class="w-full flex-col items-start border-b-[1px] border-gray-700 mb-8">
+	<div class="flex-col items-start border-b-[1px] border-gray-700 mb-8 md:mr-72">
 		<h1 class="text-{categoryColor} text-5xl mb-2">{slugModule.metadata.title}</h1>
 		<h2 class="text-3xl">{slugModule.metadata.description}</h2>
 		<div class="my-4">Posted on <span class="text-{categoryColor}">{postedDateFormatted}</span> by <span class="text-{categoryColor}">{slugModule.metadata.author}</span></div>
 	</div>
 
-	<div class="flex">
+	<div class="flex md:pr-72">
 		<div class="article md">
 			{@html marked.parse(slugModule.metadata.content)}
 		</div>

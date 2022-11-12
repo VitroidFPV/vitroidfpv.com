@@ -108,15 +108,24 @@ content: >-
      * Radiomaster Zorro - Small, gamepad style radio
      * Radiomaster TX12 MK II - Small radio with a more traditional shape
      * Radiomaster TX16S MK II - The best radio on the market, if you can afford it, get it
+      ![Radiomaster radios](/uploads/radiomaster_radios.png "Radiomaster radios")
+
   2. The quad itself - Depending on if it is a pre-built or not, it may take you a week or more to get all the parts, build it and set it up. This mostly applies for self-built quads, but even pre-builts will take some setup time
 
      * Happymodel Mobula 6/7 - The best micro quad on the market, great cheap option for flying indoors and lightly outdoors as well
+
      * Happymodel Crux 3 - A good 1s toothpick, great for flying outdoors in your backyard or at a park
+
      * DarwinFPV Babyape V2 Pro - Pretty much the cheapest quad that you can get that is actually good. It runs on 3s, so you will need a proper charger for it, unlike the other two that can use a simple 1s one
-     * HGLRC Petrel 120X (Specifically the 4s version) - If you're looking for something with a lot of power at this smaller size, this is a great pick. But it is more expensive than the other options, and also needs a proper charger
+
+     * HGLRC Petrel 120X (Specifically the 4s version) - If you're looking for something with a lot of power at this smaller size, this is a great pick, also the first one to have an option for DJI Digital. But it is more expensive, and will need a proper charger
+
      * Self-built micro quad - If you're looking for something that you can build yourself, I have a [guide](https://vitroidfpv-sv.netlify.app/building) on how to build one. It's a bit more expensive than the pre-built options, but you can customize it to your liking and it will teach you a lot about how quads work and go together
-     * IFlight Nazgul 5 V2/Evoque - Moving up to full-size 5" quads, these are great options. The Nazgul 5 V2 is cheaper, the Evoque is newer, but more expensive. Both are good entry-level quads that can haul a full-size GoPro
+
+     * IFlight Nazgul 5 V2/Evoque - Moving up to full-size 5" quads, these are great options for both DJI and Analog. The Nazgul 5 V2 is cheaper, the Evoque is newer, but more expensive. Both are good entry-level quads that can haul a full-size GoPro
+
      * Self-built 5" quad - I have build guides for 5" quads as well, currently a Beginner, Advanced, or a Race build, you can find them [here](https://vitroidfpv-sv.netlify.app/building)
+
   3. Tools, spare parts, and other accessories - You will need [tools](https://vitroidfpv-sv.netlify.app/faq#tools) to build, maintain, and fix up your quad, and some [spare parts and other odd bits](https://vitroidfpv-sv.netlify.app/faq#accessories) to replace broken ones if needed
 
   4. Batteries and a charger - You can't fly without batteries, and you can't charge them without a charger. They're not esential to the setup, but you will need them to actually fly and set up the ESC
@@ -125,8 +134,64 @@ content: >-
   5. Goggles - You can fly without goggles, but it's usually a lot harder. You can build and set up the quad while waiting for your goggles to arrive, and that leaves you with a lot less steps of setup to do when you get them
 
      * Eachine EV800D - The best budget option, and the one I recommend to most people. They're not the best, but they're good enough for most people that are just starting out
+
      * Skyzone Cobra S/X - The best box goggles on the market, but they're also the most expensive in this category
+
      * Skyzone Sky 02o - Cheapest that you can get slimline goggles, but they have pretty low FOV which may be a problem for some people
+
      * Eachine EV300o - Pretty much just a re-branded pair of Skyzone goggles that are pretty similar to the following 04L/X
+
      * Skyzone Sky 04L/X - The best slimline goggles on the market, but they're also the most expensive in this category. The 04L use slightly worse screens, but are cheaper
+
+     * DJI FPV Goggles - You'll need these if you want to get a quad with a DJI Digital VTX. The digital system is expensive, but allows for much better image quality. You can read more about the difference [here](https://vitroidfpv-sv.netlify.app/faq#fpvSystemDifference)
+
+   # After buying
+   Assuming that you have bought everything, it's time to actually set it up. This is a very important step, and you should take your time to do it right. If you rush it, you may end up with a quad that is not safe to fly, or just won't fly at all. I'll try to go through the steps in a logical order, but you may need to go back and forth between them a few times if you're stuck on something. If you're having trouble, feel free to ask for help in the discord servers like [Mr Steele](https://discord.gg/fpv) or [Drone Community](https://discord.gg/drones)
+
+   ## Verify that everything works
+
+   * Charge up the radio and make sure that it will connect to your computer and that the sticks work. You can do that in a simulator, and get straight to practicing. At least 10h of sim time is recommended before flying for the first time
+
+   * Plug the flight controller into your computer, and make sure that it will connect to Betaflight and that the gyro works before soldering stuff
+
+   * Charge your goggles and make sure that they turn on and that the screen works/isn't broken (if you have DJI, you can also update (and activate them) if needed)
+
+   * Plug the batteries into your charger and make sure that they came charged to storage voltage (3.7v/cell) if the charger supports voltage readout. If not, you can use a multimeter to check the voltage. Once you know they're safe to use, you can charge them to full if you know you'll be needing them soon
+
+   ## Assemble it
+   Most important for self-built quads (duh lol), but at times even a pre-built quad will require some assembly, like soldering on your own receiver or other hardware. You should also always make sure that every screw on the quad is tight
+
+   ## Setup it up
+   This is where you will set up the quad to fly. You will need to set up your radio, flight controller, VTX, ESC, receiver, and goggles to have them all communicate properly
+
+   * Radio - You will need to [bind](https://vitroidfpv-sv.netlify.app/faq#receiverBind) your radio to your receiver, and [set up the mixers](https://vitroidfpv-sv.netlify.app/faq#mixer) to include the switches and sliders that you want to use
+
+   * Flight controller - You will need to set up the FC to have the right settings for your quad. This usually involves setting up the receiver settings so that Betaflight can read the signals, setting up the motors and ESC so that the FC can talk to it and spin the motors in the right direction, and setting up the VTX so that the FC can control its settings like output power and frequency. With the necessary settings out of the way, you can go make the more personal changes such as OSD layout, modes, and PID tuning (if you understand what you're doing)
+
+   * ESC - If you have a BlHeli_S ESC, you should flash it with BlueJay firmware to get the most out of it (like bidirectional DShot and higher motor PWM frequencies). If it's a BlHeli_32 ESC, those features should already be in the stock firmware (unless it's really old)
+
+   * Goggles - If you're on analog, the process is pretty simple. You just need to set them to the same band and channel as the VTX, as analog doesn't need any kind of binding. If you're on DJI, you will need to pair the goggles to the VTX
+
+   ## Fly it
+   So now you hopefully have it working, and you can finally go fly it! Yay! But not so fast, you should still do a few checks before you go out and fly
+
+   * Put the props on the right way, that they're not hitting anything, and that they're on tight enough to not spin/fly off
+
+   * Make sure that the battery is charged up fully (4.2v/cell for flight)
+
+   * Absolutely make sure that you're in a safe area to fly, and that you're not going to fly over people or anything like that if something goes wrong (wrong gyro orientation, bad PID tuning or bad motor/prop direction causing a flip on take off or even a flyaway, etc)
+
+   * If all of that is good, you can go fly! Have fun, and try to not immediately crash it
+
+   * If all of that is not good, continue reading further
+
+   ## It doesn't fly, what do?
+
+   There are a few things that can cause your quad to not fly, and you should go through them one by one to figure out what's wrong. I'll list a few common problems and how to fix them
+
+   * Motors won't spin at all - Likely from the FC not being set up with the correct ESC protocol. It should be DShot300 or DShot600 for most setups
+
+   * Motors won't slow down after applying throttle - This is likely because you don't have the props on, answered [here](https://vitroidfpv-sv.netlify.app/faq#iTerm)
+
+   * Motors spin up, but the quad doesn't move as expected (flips/spins) - Often because the motors are spinning in the wrong direction, the gyro being misaligned, or the props being on the wrong way. You can change the motors in the motors tab in Betaflight. While you're there, the FC also expects the motors to spin in a certain direction and order, make sure that's correct and if needed, change it. Don't forget to remove the props when messing about with motor settings. As for the gyro, you can change the offset in the Configuration tab
 ---
