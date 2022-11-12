@@ -77,6 +77,15 @@
 		intersectingTargets.forEach(target => {
 			observer.observe(target)
 		})
+
+		if (window.location.hash) {
+			setTimeout(() => {
+				const el = document.getElementById(window.location.hash.slice(1));
+				if (el) {
+					el.scrollIntoView();
+				}
+			}, 300);
+		}
 	})
 	
 	let prefix = slugModule.metadata.category;
