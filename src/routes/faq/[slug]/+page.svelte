@@ -10,7 +10,7 @@
 	// slugModule is module that has a key id which's value matches the slug
 	let slugModule = Object.values(modules).find(module => module.metadata.id === slug)
 	console.log(slugModule.metadata.Category + " - " + slugModule.metadata.title)
-	let moduleContent = removeMarkdown(slugModule.metadata.answer, {useImgAltText: false}).slice(0, 500) + "..."
+	let moduleContent = removeMarkdown(slugModule.metadata.answer, {useImgAltText: false}).slice(0, 600) + "..."
 
 	// redirect to faq page
 	onMount(() => {
@@ -61,7 +61,7 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:site_name" content="VitroidFPV" />
 	<meta property="article:author" content="VitroidFPV" />
-	<meta property="og:title" content="VitroidFPV{title}" />
+	<meta property="og:title" content="{title}" />
 	<meta name="description" content={description} />
 	<meta property="og:description" content={description} />
 	<meta content="https://vitroidfpv.com/" property="og:url" />
