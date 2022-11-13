@@ -10,7 +10,7 @@
 	// slugModule is module that has a key id which's value matches the slug
 	let slugModule = Object.values(modules).find(module => module.metadata.id === slug)
 	console.log(slugModule.metadata.Category + " - " + slugModule.metadata.title)
-	let moduleContent = removeMarkdown(slugModule.metadata.answer, {useImgAltText: false}).slice(0, 400) + "..."
+	let moduleContent = removeMarkdown(slugModule.metadata.answer, {useImgAltText: false}).slice(0, 500) + "..."
 
 	// redirect to faq page
 	onMount(() => {
