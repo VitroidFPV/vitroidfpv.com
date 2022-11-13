@@ -32,7 +32,7 @@
 	function copyID() {
 		let id = this.nextElementSibling.id;
 		console.log(id);
-		navigator.clipboard.writeText($page.url.origin + $page.url.pathname + "#" + id);
+		navigator.clipboard.writeText($page.url.origin + $page.url.pathname + "/" + id);
 	}
 
 	// 	function handleParsed(event) {
