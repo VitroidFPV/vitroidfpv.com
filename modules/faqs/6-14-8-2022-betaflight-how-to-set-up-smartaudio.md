@@ -13,5 +13,5 @@ answer: >-
   ![betaflight ports tab vtx settings](/uploads/betaflight_ports_tab_sa.png "betaflight ports tab vtx settings")
 
 
-  You should see a new tab pop out, titled \`Video Transmitter\`. There you can load in a \`.json\` file for the VTX table often provided by manufacturers, or [here](https://github.com/Jackjan4/betaflight-vtx-tables), find your VTX in the `Presets` tab or use a CLI batch command to set it that way (also often provided by manufacturers).
+  You should see a new tab pop out, titled `Video Transmitter`. There you can load in a `.json` file for the VTX table often provided by manufacturers, or [here](https://github.com/Jackjan4/betaflight-vtx-tables), find your VTX in the `Presets` tab or use a CLI batch command to set it that way (also often provided by manufacturers).
 ---
