@@ -21,7 +21,7 @@
 
 	let prefix = slugModule.metadata.Category;
 	let titleRaw = slugModule.metadata.title;
-	let title = " - FAQ - " + titleRaw;
+	let title = "FAQ - " + titleRaw;
 	let description = moduleContent;
 	let category = slugModule.metadata.Category;
 
@@ -55,7 +55,7 @@
 </script>
 
 <svelte:head>
-	<title>VitroidFPV{title}</title>
+	<!-- <title>VitroidFPV{title}</title> -->
 	<meta name="author" content="VitroidFPV" />
 	<meta name="twitter:card" content="summary_large_image">
 	<meta property="og:type" content="website" />
