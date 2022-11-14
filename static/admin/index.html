@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VitroidFPV - CMS</title>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>VitroidFPV - CMS</title>
+	<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 
 <style>
@@ -332,11 +332,47 @@
 			}
 		})
 
+		var ArticlePreview = createClass({
+			render: function() {
+				var entry = this.props.entry
+				var date = new Date(entry.getIn(["data", "date"]))
+				var formattedDate = date.toLocaleDateString("en-US", {
+					year: "numeric",
+					month: "long",
+					day: "numeric"
+				})
+
+				return 
+				<article className={entry.getIn(["data", "img"]) + " article-preview"}>
+					<div className="article-top">
+						<div class="article-img">
+							<div className="img-cover"></div>
+							<img className="img" src={entry.getIn(["data", "img"])} alt=""></img>
+						</div>
+
+						<div className="article-info">
+							<h1 className="article-title">{entry.getIn(["data", "title"])}</h1>
+							<div className="article-description">{entry.getIn(["data", "description"])}</div>
+							<div className="article-credit">
+								<p>Posted on <span className="article-date">{formattedDate}</span> by <span className="article-author">{entry.getIn(["data", "author"])}</span></p>
+							</div>
+						</div>
+					</div>
+
+					<div className="article-content">
+						{entry.getIn(["data", "content"])}
+					</div>
+				</article>
+			}
+		})
+
 		CMS.registerPreviewTemplate('5" Beginner Build', PostPreview)
 		CMS.registerPreviewTemplate('3" Cinewhoop Build', PostPreview)
 		CMS.registerPreviewTemplate('1s - 2s Micro Build', PostPreview)
 
 		CMS.registerPreviewTemplate('Equipment - Radio', PostPreview)
+
+		CMS.registerPreviewTemplate('Articles', ArticlePreview)
 	</script>
 </body>
 </html>
