@@ -100,6 +100,7 @@ body {
 .article-preview {
 	display: flex;
 	flex-direction: column;
+	flex-wrap: wrap;
 }
 
 .article-top {
@@ -146,11 +147,23 @@ body {
 	margin-bottom: 0.5rem;
 }
 
-.article-preview.Guides .article-title,.article-date,.article-author {color: #87cc52;}
-.article-preview.Tutorials .article-title,.article-date,.article-author {color: #5ad8e6;}
-.article-preview.News .article-title,.article-date,.article-author {color: #d6395b;}
-.article-preview.Reviews .article-title,.article-date,.article-author {color: #ffcc00;}
-.article-preview.Misc .article-title,.article-date,.article-author {color: #9550ba;}
+.article-preview.Guides .article-title {color: #87cc52;}
+.article-preview.Tutorials .article-title {color: #5ad8e6;}
+.article-preview.News .article-title {color: #d6395b;}
+.article-preview.Reviews .article-title {color: #ffcc00;}
+.article-preview.Misc .article-title {color: #9550ba;}
+
+.article-preview.Guides .article-date {color: #87cc52;}
+.article-preview.Tutorials .article-date {color: #5ad8e6;}
+.article-preview.News .article-date {color: #d6395b;}
+.article-preview.Reviews .article-date {color: #ffcc00;}
+.article-preview.Misc .article-date {color: #9550ba;}
+
+.article-preview.Guides .article-author {color: #87cc52;}
+.article-preview.Tutorials .article-author {color: #5ad8e6;}
+.article-preview.News .article-author {color: #d6395b;}
+.article-preview.Reviews .article-author {color: #ffcc00;}
+.article-preview.Misc .article-author {color: #9550ba;}
 
 .article-description {
 	font-size: 1.875rem /* 30px */;
@@ -161,4 +174,12 @@ body {
 	line-height: 1.5rem /* 24px */;
 	margin-top: 0.5rem;
 	margin-bottom: 0.5rem;
+}
+
+.article-content {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	padding-right: 150px
 }
