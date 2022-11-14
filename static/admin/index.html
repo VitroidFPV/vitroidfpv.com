@@ -300,6 +300,8 @@
 <body>
 	<!-- Include the script that builds the page and powers Netlify CMS -->
 	<script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+	<!-- https://unpkg.com/react-markdown@5.0.3/react-markdown.min.js -->
+	<script src="https://unpkg.com/react-markdown@5.0.3/react-markdown.min.js"></script>
 	<script>
 		CMS.registerPreviewStyle("cms.css");
 
@@ -355,7 +357,7 @@
 							)
 						)
 					),
-					h("div", {className: "article-content"},
+					h(window.ReactMarkdown, {className: "article-content"},
 						entry.getIn(["data", "content"])
 					)
 				)
