@@ -129,8 +129,8 @@ body {
 }
 
 .article-img .img {
-	width: 900px;
-	height: 400px;
+	width: 700px;
+	height: 300px;
 	border-radius: 1rem/* 16px */;
 	object-fit: cover;
 }
