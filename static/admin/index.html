@@ -341,16 +341,12 @@
 					month: "long",
 					day: "numeric"
 				})
-
-				return 
-
-				h("article", {className: entry.getIn(["data", "img"]) + " article-preview"},
+				return h("article", {className: entry.getIn(["data", "img"]) + " article-preview"},
 					h("div", {className: "article-top"},
 						h("div", {className: "article-img"},
 							h("div", {className: "img-cover"}),
 							h("img", {className: "img", src: entry.getIn(["data", "img"]), alt: ""})
 						),
-
 						h("div", {className: "article-info"},
 							h("h1", {className: "article-title"}, entry.getIn(["data", "title"])),
 							h("div", {className: "article-description"}, entry.getIn(["data", "description"])),
@@ -359,7 +355,6 @@
 							)
 						)
 					),
-
 					h("div", {className: "article-content"},
 						entry.getIn(["data", "content"])
 					)
