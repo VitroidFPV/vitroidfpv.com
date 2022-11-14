@@ -95,3 +95,40 @@ body {
 	transform-origin: top left;
 	scale: 0.9;
 }
+
+
+.article-preview {
+	display: flex;
+	flex-direction: column;
+}
+
+.article-top {
+	display: flex;
+	flex-direction: column;
+}
+
+.article-img {
+	position: relative;
+	width: fit-content;
+	border-radius: 1rem/* 16px */;
+	user-select: none;
+	overflow: hidden;
+}
+
+.img-cover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 1rem/* 16px */;
+	background-image: linear-gradient(to right, rgb(0 0 0 / 0.5), rgb(135 204 82 / 0.5) );
+}
+
+.article-img .img {
+	width: 100%;
+	height: 100%;
+	border-radius: 1rem/* 16px */;
+	height: 24rem/* 384px */;
+	object-fit: cover;
+}
