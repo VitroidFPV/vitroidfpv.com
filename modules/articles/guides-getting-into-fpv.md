@@ -12,7 +12,7 @@ content: >-
   There are quite a lot of things that are important to know before even looking at actual products. In this article, I will at least try to list all of the important info you need to know when starting out
 
 
-  ## Fpv is expensive
+  ## FPV is expensive
 
 
   I feel like this is the most important thing to get out of the way. Having unrealistic price expectations that are then hard/impossible to achieve is the fastest way to get turned away. All the different prices are explained in the FAQ, but the main point is: 
@@ -46,7 +46,7 @@ content: >-
 
   2. There are no stupid questions - it's perfectly okay to not know something. Don't be afraid to ask, or worry that you're annoying others. It's better to just ask what you want rather than just going in blind and spending a lot of money on bad equipment
 
-  3. There are good and bad ways to ask - First of all: https://dontasktoask.com/ is a great page to show how not to approach things. This basically means that you shouldn't ask
+  3. There are good and bad ways to ask - First of all: https://dontasktoask.com/ is a great page to show how not to approach things. This basically means that you shouldn't ask:
 
      > hey guys can anyone help me with something?
 
@@ -113,7 +113,7 @@ content: >-
 
      * Radiomaster Zorro - Small, gamepad style radio
      * Radiomaster TX12 MK II - Small radio with a more traditional shape
-     * Radiomaster TX16S MK II - The best radio on the market, if you can afford it, get it
+     * Radiomaster TX16S MK II - The best radio on the market. If you can afford it, get it
       ![Radiomaster radios](/uploads/radiomaster_radios.png "Radiomaster radios")
 
   2. The quad itself - Depending on if it is a pre-built or not, it may take you a week or more to get all the parts, build it and set it up. This mostly applies for self-built quads, but even pre-builts will take some setup time
@@ -191,7 +191,7 @@ content: >-
 
    * If all of that is not good, continue reading further
 
-   ## It doesn't fly, what do?
+   ## It doesn't fly, what to do?
 
    There are a few things that can cause your quad to not fly, and you should go through them one by one to figure out what's wrong. I'll list a few common problems and how to fix them
 
