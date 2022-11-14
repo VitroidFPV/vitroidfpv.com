@@ -115,7 +115,6 @@ body {
 	border-radius: 1rem/* 16px */;
 	user-select: none;
 	overflow: hidden;
-	box-shadow: 0 10px 30px #00000059, -6px 0px 0px 0px #87cc52
 }
 
 .img-cover {
@@ -171,6 +170,12 @@ body {
 .article-preview.News .img-cover {background-image: linear-gradient(to right, rgb(0 0 0 / 0.5), rgb(214 57 91 / 0.5) );}
 .article-preview.Reviews .img-cover {background-image: linear-gradient(to right, rgb(0 0 0 / 0.5), rgb(255 204 0 / 0.5) );}
 .article-preview.Misc .img-cover {background-image: linear-gradient(to right, rgb(0 0 0 / 0.5), rgb(149 80 186 / 0.5) );}
+
+.article-preview.Guides .article-img {box-shadow: 0 10px 30px #00000059, -6px 0px 0px 0px #87cc52;}
+.article-preview.Tutorials .article-img {box-shadow: 0 10px 30px #00000059, -6px 0px 0px 0px #5ad8e6;}
+.article-preview.News .article-img {box-shadow: 0 10px 30px #00000059, -6px 0px 0px 0px #d6395b;}
+.article-preview.Reviews .article-img {box-shadow: 0 10px 30px #00000059, -6px 0px 0px 0px #ffcc00;}
+.article-preview.Misc .article-img {box-shadow: 0 10px 30px #00000059, -6px 0px 0px 0px #9550ba;}
 
 .article-description {
 	font-size: 1.875rem /* 30px */;
