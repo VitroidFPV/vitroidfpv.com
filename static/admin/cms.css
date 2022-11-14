@@ -132,3 +132,33 @@ body {
 	border-radius: 1rem/* 16px */;
 	object-fit: cover;
 }
+
+.article-info {
+	display: flex;
+	flex-direction: column;
+	padding-top: 1rem;
+	padding-left: 1rem;
+}
+
+.article-title {
+	font-size: 3rem /* 24px */;
+	line-height: 1;
+	margin-bottom: 0.5rem;
+}
+
+.article-preview.Guides .article-title,.article-date,.article-author {color: #87cc52;}
+.article-preview.Tutorials .article-title,.article-date,.article-author {color: #5ad8e6;}
+.article-preview.News .article-title,.article-date,.article-author {color: #d6395b;}
+.article-preview.Reviews .article-title,.article-date,.article-author {color: #ffcc00;}
+.article-preview.Misc .article-title,.article-date,.article-author {color: #9550ba;}
+
+.article-description {
+	font-size: 1.875rem /* 30px */;
+}
+
+.article-credit {
+	font-size: 1.25rem /* 20px */;
+	line-height: 1.5rem /* 24px */;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
