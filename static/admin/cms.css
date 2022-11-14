@@ -98,6 +98,7 @@ body {
 
 
 .article-preview {
+	padding-right: 150px;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
@@ -145,6 +146,7 @@ body {
 	font-size: 3rem /* 24px */;
 	line-height: 1;
 	margin-bottom: 0.5rem;
+	font-weight: 500;
 }
 
 .article-preview.Guides .article-title {color: #87cc52;}
@@ -181,5 +183,10 @@ body {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	padding-right: 150px
+}
+
+.article-content img {
+	max-width: 100%;
+	border-radius: 1rem/* 16px */;
+	display: block
 }
