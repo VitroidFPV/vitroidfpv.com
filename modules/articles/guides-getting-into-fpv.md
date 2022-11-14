@@ -27,7 +27,13 @@ content: >-
   As is with buying a car, a PC, a phone, or any other electronic device, you should know what you're buying, and what the basic names and terms mean. 
 
 
-  Watch build guides (ideally not ones that are over 2 years old if you're looking for parts recommendations as well), setup tutorials, and reviews to get an idea of what you need/want to buy. If you're unsure about your findings, don't know what something means, or just want opinions, it's fine to ask. That leads us to... 
+  Watch build guides (ideally not ones that are over 2 years old if you're looking for parts recommendations as well), setup tutorials, and reviews to get an idea of what you need/want to buy. 
+
+
+  You should also get at least 10h of sim time to see what kind of flight style you may prefer, to practice before flying in real life, and to see if FPV is even something you'd enjoy
+
+
+  If you're unsure about your findings, don't know what something means, or just want opinions, it's fine to ask. That leads us to... 
 
 
   ## Asking for help
@@ -103,7 +109,7 @@ content: >-
   Now that you know what to avoid and what to get, it's time to actually buy stuff. I will try to list the most important things that you need to get started, and then go into more detail about the different parts. Most of this info is also in the [FAQ](https://vitroidfpv-sv.netlify.app/faq#Building), but I will try to explain it in a short and concise way here, as well as some specific product recommendations
 
 
-  1. A radio - The first thing you should buy when starting FPV is a good radio. It will allow you to get in some sim time while waiting for the rest of your gear, and most modern ones do not require any additional things to run, except batteries. I would absolutely go with ELRS if possible, all of the radios listed below have ELRS versions
+  1. A radio - The first thing you should buy when starting FPV is a good radio. It will allow you to get in some sim time while waiting for the rest of your gear, and most modern ones do not require any additional things to run, except batteries. I would absolutely go with ELRS if possible (ELRS is a low-cost long-range, high-performance, open-source RC link protocol. This means that radio signal goes very far, very fast, and for very cheap). All of the radios listed below have ELRS versions
 
      * Radiomaster Zorro - Small, gamepad style radio
      * Radiomaster TX12 MK II - Small radio with a more traditional shape
