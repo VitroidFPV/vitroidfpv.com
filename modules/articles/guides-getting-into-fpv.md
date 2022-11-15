@@ -100,20 +100,22 @@ content: >-
   * TMotor - Great motors, and their ESCs are also very good. They're a bit more expensive than other options, but they're mostly all worth it
 
 
-  There are many more manufacturers that make good products, but these are the ones that I've had the most experience with. If you any suggestions, feel free to let me know or make a pull request on the GitHub repo
+  There are many more manufacturers that make good products, but these are the ones that I've had the most experience with. If you have any suggestions, feel free to let me know or make a pull request on the GitHub repo
 
 
   ## What to actually buy
 
 
-  Now that you know what to avoid and what to get, it's time to actually buy stuff. I will try to list the most important things that you need to get started, and then go into more detail about the different parts. Most of this info is also in the [FAQ](https://vitroidfpv-sv.netlify.app/faq#Building), but I will try to explain it in a short and concise way here, as well as some specific product recommendations
+  Now that you know what to avoid and what to get, it's time to actually buy stuff. I will try to list the most important things that you need to get started, and then go into more detail about the different parts. Most of this info is also in the [FAQ](https://vitroidfpv-sv.netlify.app/faq#Building), but I will try to explain it in a short and concise way here, while also giving some specific product recommendations
 
 
-  1. A radio - The first thing you should buy when starting FPV is a good radio. It will allow you to get in some sim time while waiting for the rest of your gear, and most modern ones do not require any additional things to run, except batteries. I would absolutely go with ELRS if possible (ELRS is a low-cost long-range, high-performance, open-source RC link protocol. This means that radio signal goes very far, very fast, and for very cheap). All of the radios listed below have ELRS versions
+  1. A radio - The first thing you should buy when starting FPV is a good radio. It will allow you to put in some sim time while waiting for the rest of your gear, and most modern ones do not require any additional things to run, except batteries. I would absolutely go with ELRS if possible (ELRS is a low-cost long-range, high-performance, open-source RC link protocol. This means that radio signal goes very far, very fast, and for very cheap). All of the radios listed below have ELRS versions
 
-     * Radiomaster Zorro - Small, gamepad style radio
+     * Radiomaster Zorro - Small gamepad style radio
      * Radiomaster TX12 MK II - Small radio with a more traditional shape
-     * Radiomaster TX16S MK II - The best radio on the market. If you can afford it, get it
+
+     * Radiomaster TX16S MK II - The best radio on the market, if you can afford it
+
       ![Radiomaster radios](/uploads/radiomaster_radios.png "Radiomaster radios")
 
   2. The quad itself - Depending on if it is a pre-built or not, it may take you a week or more to get all the parts, build it and set it up. This mostly applies for self-built quads, but even pre-builts will take some setup time
@@ -124,30 +126,30 @@ content: >-
 
      * DarwinFPV Babyape V2 Pro - Pretty much the cheapest quad that you can get that is actually good. It runs on 3s, so you will need a proper charger for it, unlike the other two that can use a simple 1s one
 
-     * HGLRC Petrel 120X (Specifically the 4s version) - If you're looking for something with a lot of power at this smaller size, this is a great pick, also the first one to have an option for DJI Digital. But it is more expensive, and will need a proper charger
+     * HGLRC Petrel 120X (Specifically the 4s version) - A great pick if you're looking for something with a lot of power in this smaller size, and also the first one to have an option for DJI Digital. However, it is more expensive, and will need a proper charger
 
      * Self-built micro quad - If you're looking for something that you can build yourself, I have a [guide](https://vitroidfpv-sv.netlify.app/building) on how to build one. It's a bit more expensive than the pre-built options, but you can customize it to your liking and it will teach you a lot about how quads work and go together
 
      * IFlight Nazgul 5 V2/Evoque - Moving up to full-size 5" quads, these are great options for both DJI and Analog. The Nazgul 5 V2 is cheaper, the Evoque is newer, but more expensive. Both are good entry-level quads that can haul a full-size GoPro
 
-     * Self-built 5" quad - I have build guides for 5" quads as well, currently a Beginner, Advanced, or a Race build, you can find them [here](https://vitroidfpv-sv.netlify.app/building)
+     * Self-built 5" quad - I have build guides for 5" quads as well, currently a Beginner, Advanced, or a Race build. You can find them [here](https://vitroidfpv-sv.netlify.app/building)
 
   3. Tools, spare parts, and other accessories - You will need [tools](https://vitroidfpv-sv.netlify.app/faq#tools) to build, maintain, and fix up your quad, and some [spare parts and other odd bits](https://vitroidfpv-sv.netlify.app/faq#accessories) to replace broken ones if needed
 
   4. Batteries and a charger - You can't fly without batteries, and you can't charge them without a charger. They're not esential to the setup, but you will need them to actually fly and set up the ESC
 
      * \[Pretend that I have a list of batteries and chargers, or a link to the equipment page]
-  5. Goggles - You can fly without goggles, but it's usually a lot harder. You can build and set up the quad while waiting for your goggles to arrive, and that leaves you with a lot less steps of setup to do when you get them
+  5. Goggles - You can fly without goggles, but it's usually a lot harder. You can build and set up the quad while waiting for your goggles to arrive, leaving you with a lot fewer steps of setup to do when you get them
 
-     * Eachine EV800D - The best budget option, and the one I recommend to most people. They're not the best, but they're good enough for most people that are just starting out
+     * Eachine EV800D - The best budget option and the one I recommend to most people. They're not the best, but they're good enough for most people who are just starting out
 
-     * Skyzone Cobra S/X - The best box goggles on the market, but they're also the most expensive in this category
+     * Skyzone Cobra S/X - The best box goggles on the market, but also the most expensive in this category
 
-     * Skyzone Sky 02o - Cheapest that you can get slimline goggles, but they have pretty low FOV which may be a problem for some people
+     * Skyzone Sky 02o - Cheapest usable slimline goggles you can get, but they have a fairly low FOV which may be a problem for some people
 
      * Eachine EV300o - Pretty much just a re-branded pair of Skyzone goggles that are pretty similar to the following 04L/X
 
-     * Skyzone Sky 04L/X - The best slimline goggles on the market, but they're also the most expensive in this category. The 04L use slightly worse screens, but are cheaper
+     * Skyzone Sky 04L/X - The best slimline goggles on the market, but also the most expensive in this category. The 04L use slightly worse screens, but are cheaper
 
      * DJI FPV Goggles - You'll need these if you want to get a quad with a DJI Digital VTX. The digital system is expensive, but allows for much better image quality. You can read more about the difference [here](https://vitroidfpv-sv.netlify.app/faq#fpvSystemDifference)
 
@@ -162,7 +164,7 @@ content: >-
 
    * Charge your goggles and make sure that they turn on and that the screen works/isn't broken (if you have DJI, you can also update (and activate them) if needed)
 
-   * Plug the batteries into your charger and make sure that they came charged to storage voltage (3.7v/cell) if the charger supports voltage readout. If not, you can use a multimeter to check the voltage. Once you know they're safe to use, you can charge them to full if you know you'll be needing them soon
+   * Plug the batteries into your charger and make sure that they came charged to storage voltage (around 3.7-3.85v/cell) if the charger supports voltage readout. If not, you can use a multimeter to check the voltage. Once you know they're safe to use, you can charge them to full if you know you'll be needing them soon
 
    ## Assemble it
    Most important for self-built quads (duh lol), but at times even a pre-built quad will require some assembly, like soldering on your own receiver or other hardware. You should also always make sure that every screw on the quad is tight
