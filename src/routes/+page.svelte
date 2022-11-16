@@ -128,6 +128,9 @@
 						Equipment - Everything else you'll need to get flying: Radios, goggles, and various
 						tools
 					</li>
+					<!-- articles -->
+					<li class="list-disc list-inside">
+						Articles - Anything that wouldn't go into the FAQ or builds for being too long. News about anything FPV, or anything else that I feel like writing about
 				</ul>
 			</div>
 		</div>

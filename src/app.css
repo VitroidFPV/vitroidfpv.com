@@ -66,7 +66,7 @@
   }
 
   .nav {
-    @apply md:h-14 md:w-32 md:min-h-[3.5rem] min-h-[3rem] min-w-[3rem] flex items-center md:pr-[60px] relative md:pl-4 md:my-2 mx-4 md:mx-0
+    @apply md:h-14 md:w-32 md:min-h-[3.5rem] min-h-[3rem] min-w-[3rem] flex items-center md:pr-[60px] relative md:pl-4 md:my-2 mx-2 md:mx-0
   }
 
   .nav-active > a {@apply md:translate-x-1 translate-x-0 dark:hover:text-main-100 hover:text-contrast-100 dark:text-main-100 text-contrast-100 dark:brightness-100}
@@ -261,16 +261,16 @@
   .md h5 {@apply font-semibold text-green my-2 tracking-wide}
   .md h6 {@apply font-semibold text-red my-2 tracking-wide}
   .md hr {@apply border-t-2 border-gray-500/50 my-2}
-  .md p {@apply my-2}
+  .md p {@apply my-2 text-base md:text-xl}
   .md li p {@apply my-0}
-  .md blockquote {@apply border-l-4 border-gray-500/50 pl-4}
-  .md ul {@apply list-disc md:ml-6 ml-2 my-4}
-  .md ol {@apply list-decimal md:ml-6 my-4 mb-6}
+  .md blockquote {@apply border-l-4 border-gray-500/50 p-2 ml-6 my-2 bg-neutral-500/10 w-fit}
+  .md ul {@apply list-disc ml-6 my-4}
+  .md ol {@apply list-decimal ml-6 my-4 mb-6}
   .md ol li p {@apply pl-3}
   .md li {@apply my-2}
-  .md a {@apply text-xl text-highlight bg-gradient-to-r bg-no-repeat bg-left-bottom from-highlight to-highlight bg-0w hover:bg-100w duration-300 w-fit pb-[-1rem] leading-tight}
+  .md a {@apply text-base md:text-xl text-highlight bg-gradient-to-r bg-no-repeat bg-left-bottom from-highlight to-highlight bg-0w hover:bg-100w duration-300 w-fit pb-[-1rem] leading-tight}
   .md pre {@apply whitespace-pre-line}
   .md pre code {@apply block}
   .md br+code {@apply block}
-  .md img {@apply rounded-md shadow-2xl my-8 h-auto origin-left w-3/5}
+  .md img {@apply rounded-md shadow-2xl my-8 h-auto origin-left md:w-3/5 w-full}
 }
