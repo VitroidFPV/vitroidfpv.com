@@ -67,7 +67,7 @@
 							mb-2 h-full min-w-fit max-w-[70vw]"
 				>
 					<!-- <div class="md:p-8 p-6 text-base md:text-lg leading-relaxed md"><SvelteMarkdown {source} on:parsed={handleParsed}/></div> -->
-					<div class="md:p-8 p-6 text-base md:text-lg leading-relaxed md">{@html content}</div>
+					<div class="md:p-8 p-4 text-base md:text-lg leading-relaxed md">{@html content}</div>
 				</div>
 			{/if}
 		</div>

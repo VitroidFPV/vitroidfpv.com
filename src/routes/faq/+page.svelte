@@ -188,16 +188,6 @@
 		<div class="{cat} my-8 w-full h-fit text-justify">
 			<div class="text-3xl tracking-tight border-b-2 w-fit px-1 cat {cat} pb-1" id={cat}>{cat}</div>
 			{#each contents as question}
-				<!-- <div class="w-full">
-            <div class="w-[38rem] tracking-normal text-main-200 dark:text-contrast-100 border-none">
-                <div class="inline-flex text-3xl translate-y-0.5 text-black dark:text-white opacity-10 hover:opacity-30 duration-300 cursor-pointer copy-id">#</div>
-                <button type="button" class="collapsible duration-300 after:ml-1 text-[22px] hover:translate-x-1 duartion-150 {cat}">{question.metadata.title}</button>
-                <div class="content text-xl bg-contrast-200 dark:bg-main-300 rounded-2xl shadow-xl dark:shadow-black mb-2">
-                    <p class="m-4">{@html question.metadata.answer}</p>
-                </div>
-            </div>
-        </div> -->
-
 				<FaqQuestion
 					category={cat}
 					title={question.metadata.title}
