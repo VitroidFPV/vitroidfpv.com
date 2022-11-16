@@ -31,7 +31,7 @@
 	}
 </script>
 
-<div class="article-card flex flex-col h-44 w-80 {category} rounded-[18px] md:mr-12 md:mx-0 mx-4 my-6 duration-300">
+<div class="article-card flex flex-col h-44 w-80 md:h-56 md:w-96 {category} rounded-[18px] md:mr-12 md:mx-0 mx-4 my-6 duration-300">
 	<a href={link} class="flex flex-col w-full h-full">
 	<div class="relative flex items-end h-full w-full group overflow-hidden rounded-2xl">
 			<div class="flex flex-col z-20 pb-4 pl-4 text-contrast-50 md:scale-100 scale-[0.85] origin-bottom-left">

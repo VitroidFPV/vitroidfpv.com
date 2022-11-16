@@ -261,14 +261,14 @@
   .md h5 {@apply font-semibold text-green my-2 tracking-wide}
   .md h6 {@apply font-semibold text-red my-2 tracking-wide}
   .md hr {@apply border-t-2 border-gray-500/50 my-2}
-  .md p {@apply my-2 text-base md:text-xl}
+  .md p {@apply my-2 text-base md:text-lg}
   .md li p {@apply my-0}
-  .md blockquote {@apply border-l-4 border-gray-500/50 p-2 ml-6 my-2 bg-neutral-500/10 w-fit}
+  .md blockquote {@apply border-l-4 border-gray-500/50 p-2 ml-6 my-2 bg-neutral-500/10 w-fit rounded-lg}
   .md ul {@apply list-disc ml-6 my-4}
   .md ol {@apply list-decimal ml-6 my-4 mb-6}
   .md ol li p {@apply pl-3}
   .md li {@apply my-2}
-  .md a {@apply text-base md:text-xl text-highlight bg-gradient-to-r bg-no-repeat bg-left-bottom from-highlight to-highlight bg-0w hover:bg-100w duration-300 w-fit pb-[-1rem] leading-tight}
+  .md a {@apply text-base md:text-lg text-highlight bg-gradient-to-r bg-no-repeat bg-left-bottom from-highlight to-highlight bg-0w hover:bg-100w duration-300 w-fit pb-[-1rem] leading-tight}
   .md pre {@apply whitespace-pre-line}
   .md pre code {@apply block}
   .md br+code {@apply block}
