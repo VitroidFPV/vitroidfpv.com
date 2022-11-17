@@ -5,6 +5,7 @@ category: Guides
 author: VitroidFPV
 img: /uploads/nazgul-evoque-f5d-analog-1000x1000.jpg
 date: 2022-11-08T19:05:19.289Z
+visible: true
 content: >-
   # Before you buy
 

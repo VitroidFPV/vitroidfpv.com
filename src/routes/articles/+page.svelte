@@ -60,15 +60,17 @@
 			<div class="ml-3 flex flex-col md:flex-row flex-wrap w-full md:justify-start md:items-start items-center border-b-[1px] border-white/10">
 
 				{#each date_sorted_modules as module}
-					<ArticlePreview
-						title={module.metadata.title}
-						description={module.metadata.description}
-						img={module.metadata.img}
-						category={module.metadata.category}
-						date={module.metadata.date}
-						author={module.metadata.author}
-						link={"/articles/" + module.metadata.category.toLowerCase() + "-" + module.metadata.title.replaceAll(" ", "-").toLowerCase()}
-					/>
+					{#if module.metadata.visible}
+						<ArticlePreview
+							title={module.metadata.title}
+							description={module.metadata.description}
+							img={module.metadata.img}
+							category={module.metadata.category}
+							date={module.metadata.date}
+							author={module.metadata.author}
+							link={"/articles/" + module.metadata.category.toLowerCase() + "-" + module.metadata.title.replaceAll(" ", "-").toLowerCase()}
+						/>
+					{/if}
 				{/each}
 			</div>
 		</div>

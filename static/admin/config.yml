@@ -170,6 +170,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "text" }
       - { label: "Description", name: "description", widget: "text" }
+      - {label: "Visible", name: "visible", widget: "boolean", default: false}
       - label: Category
         name: category
         widget: "select"
