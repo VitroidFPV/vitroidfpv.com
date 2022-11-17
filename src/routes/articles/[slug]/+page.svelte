@@ -124,7 +124,7 @@
 <div class="content-box">
 	<!-- <img src={slugModule.metadata.img} alt="" class="w-3/4" /> -->
 	<div class="flex justify-between">
-		<div class="flex flex-col mr-8">
+		<div class="flex flex-col md:mr-8 mr-0">
 			<div class="flex flex-col pr-0 article-card {slugModule.metadata.category} rounded-2xl mb-8 w-fit">
 				<div on:click={() => (imgOpen = !imgOpen)} class="rounded-2xl {slugModule.metadata.category} relative select-none group overflow-hidden">
 					<div class:img-open={imgOpen} enabled=true class="absolute card-gradient {slugModule.metadata.category} w-full h-full rounded-2xl opacity-100 origin-left group-hover:scale-x-0 group-hover:blur-sm hover:backdrop-saturate-100 blur-none duration-500 z-10 backdrop-saturate-0"></div>
@@ -143,7 +143,7 @@
 			</div>
 		</div>
 
-		<div class="flex flex-col md:visible invisible sticky h-full left-full top-0 pl-4">
+		<div class="md:flex md:flex-col hidden sticky h-full left-full top-0 pl-4">
 			<div class="text-highlight dark:text-highlight-dark text-3xl w-fit font-semibold mt-8 mb-4 border-b-2 border-current">Contents:</div>
 			{#each headers as header}
 				{#if header.heading < 5}
