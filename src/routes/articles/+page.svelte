@@ -14,6 +14,9 @@
 		value.metadata.date = formatted_date;
 		date_sorted_modules.push(value);
 	}
+	date_sorted_modules.sort((a, b) => {
+		return new Date(b.metadata.date) - new Date(a.metadata.date);
+	});
 	// let postedDate = new Date(slugModule.metadata.date)
 	// let postedDateFormatted = postedDate.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"})
 
