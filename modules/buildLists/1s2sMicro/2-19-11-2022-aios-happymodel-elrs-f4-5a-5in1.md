@@ -11,6 +11,6 @@ price: $57.99
 point1: "IO: 2 UARTs, BF LED control, USB Micro"
 point2: "Regulators: 5v 1A"
 point3: "Nominal current: 5A"
-point4: "Mounting: 25.5x25.5mm"
+point4: "Rated voltage: 1s"
 point5: "Weight: 4.57g"
 ---
