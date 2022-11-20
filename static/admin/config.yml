@@ -45,6 +45,7 @@ collections:
           - { label: "Mid-Range", value: "orange" }
           - { label: "High-end", value: "red" }
           - { label: "Varied", value: "violet" }
+      - {label: "Visible", name: "visible", widget: "boolean", default: true}
       - { label: "Order", name: "order", widget: "number" }
       - { label: "Title", name: "title", widget: "text" }
       - { label: "Link", name: "link", widget: "text" }
@@ -81,6 +82,7 @@ collections:
           - { label: "Mid-Range", value: "orange" }
           - { label: "High-end", value: "red" }
           - { label: "Varied", value: "violet" }
+      - {label: "Visible", name: "visible", widget: "boolean", default: true}
       - { label: "Order", name: "order", widget: "number" }
       - { label: "Title", name: "title", widget: "text" }
       - { label: "Link", name: "link", widget: "text" }
@@ -115,6 +117,7 @@ collections:
           - { label: "Mid-Range", value: "orange" }
           - { label: "High-end", value: "red" }
           - { label: "Varied", value: "violet" }
+      - {label: "Visible", name: "visible", widget: "boolean", default: true}
       - { label: "Order", name: "order", widget: "number" }
       - { label: "Title", name: "title", widget: "text" }
       - { label: "Link", name: "link", widget: "text" }
@@ -150,6 +153,7 @@ collections:
           - { label: "Mid-Range", value: "orange" }
           - { label: "High-end", value: "red" }
           - { label: "Varied", value: "violet" }
+      - {label: "Visible", name: "visible", widget: "boolean", default: true}
       - { label: "Order", name: "order", widget: "number" }
       - { label: "Title", name: "title", widget: "text" }
       - { label: "Link", name: "link", widget: "text" }

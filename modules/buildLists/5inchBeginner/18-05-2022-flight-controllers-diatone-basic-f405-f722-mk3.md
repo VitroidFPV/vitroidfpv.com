@@ -2,6 +2,7 @@
 Category: Flight Controllers
 color: green
 order: 1
+visible: false
 title: Diatone Basic F405 MK3
 link: https://www.diatone.us/collections/mamba-stack/products/mamba-stack-basic-f405-mk3-50a-6s-8bit
 text: Diatone recently made a mess with their new MK4 series so some links may

@@ -23,6 +23,15 @@
 		}
 	}
 
+	//  if key visible isn't in the metadata, set it to true, otherwise set it to the value in the metadata
+	for (const [key, value] of Object.entries(grouped_modules)) {
+		for (const [key2, value2] of Object.entries(value)) {
+			if (value2.metadata.visible == undefined) {
+				value2.metadata.visible = true;
+			}
+		}
+	}
+
 	let prefix = "Builds";
 	let titleRaw = "5\" Beginner Quad";
 	let title = " - " + titleRaw;
@@ -85,19 +94,21 @@
 				<div
 					class="ml-3 flex flex-col md:flex-row flex-wrap w-full md:justify-start md:items-start items-center border-b-[1px] border-white/10">
 					{#each contents as info}
-						<BuildProduct
-							color={info.metadata.color}
-							title={info.metadata.title}
-							price={info.metadata.price}
-							point1={info.metadata.point1}
-							point2={info.metadata.point2}
-							point3={info.metadata.point3}
-							point4={info.metadata.point4}
-							point5={info.metadata.point5}
-							text={info.metadata.text}
-							link={info.metadata.link}
-							category={cat}
-						/>
+						{#if info.metadata.visible}
+							<BuildProduct
+								color={info.metadata.color}
+								title={info.metadata.title}
+								price={info.metadata.price}
+								point1={info.metadata.point1}
+								point2={info.metadata.point2}
+								point3={info.metadata.point3}
+								point4={info.metadata.point4}
+								point5={info.metadata.point5}
+								text={info.metadata.text}
+								link={info.metadata.link}
+								category={cat}
+							/>
+						{/if}
 					{/each}
 				</div>
 			</div>
