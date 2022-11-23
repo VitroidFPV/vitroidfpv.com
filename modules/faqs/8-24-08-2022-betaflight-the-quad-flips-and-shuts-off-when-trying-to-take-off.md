@@ -19,4 +19,7 @@ answer: >-
   * Make sure the gyroscope is correctly aligned. This can easily be checked by moving the quad around, and seeing if every rotation responds correctly in the Betaflight model preview. If not, you can offset the gyro on each axis in the `Configuration` tab
 
   * Make sure that your radio channels are mapped correctly. If not, it can cause unexpected behavior
+
+
+  Contributed from Dihler™#1408, later edited
 ---
