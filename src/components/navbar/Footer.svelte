@@ -62,7 +62,7 @@
 	<div class="w-full min-h-32 dark:bg-[#171b18] bg-[#2C4938] md:pl-48 md:pb-8 pb-28 md:px-8">
 		<div class="text-contrast-100 flex md:flex-row flex-col md:items-start items-center">
 			<div
-				class="justify-self-center md:text-5xl text-6xl caveat text-contrast-200 md:w-64 w-fit md:m-0 my-4">
+				class="justify-self-center text-6xl caveat text-contrast-200 w-fit my-4 mr-12">
 				Vitroid FPV
 			</div>
 
@@ -70,72 +70,93 @@
 				<div class="text-2xl">Navigation:</div>
 				<ul class="text-lg">
 					<li>
-						<a href="/" class="underline font-thin opacity-90 hover:opacity-100 duration-100"
-							>Home</a
-						>
+						<a href="/" class="underline font-thin opacity-90 hover:opacity-100 duration-100">
+							Home
+						</a>
 					</li>
 					<li>
-						<a href="/faq" class="underline font-thin opacity-90 hover:opacity-100 duration-100"
-							>FAQ</a
-						>
+						<a href="/faq" class="underline font-thin opacity-90 hover:opacity-100 duration-100">
+							FAQ
+						</a>
 					</li>
 					<li>
-						<a href="/builds" class="underline font-thin opacity-90 hover:opacity-100 duration-100"
-							>Builds</a
-						>
+						<a href="/builds" class="underline font-thin opacity-90 hover:opacity-100 duration-100">
+							Builds
+						</a>
+					</li>
+					<li>
+						<a href="/equipment" class="underline font-thin opacity-90 hover:opacity-100 duration-100">
+							Equipment
+						</a>
+					</li>
+					<li>
+						<a href="/articles" class="underline font-thin opacity-90 hover:opacity-100 duration-100">
+							Articles
+						</a>
 					</li>
 				</ul>
 			</div>
 
 			<div class="flex flex-col md:w-64 my-4">
 				<div class="text-2xl md:text-left text-center">Socials:</div>
-				<div class="flex flex-row justify-center md:justify-start">
-					<ul class="flex justify-between md:flex-col">
-						<li class="w-fit flex mr-4">
-							<a
-								href="/"
-								class="w-fit h-fit flex flex-col opacity-90 hover:opacity-100 duration-100"
-							>
-								<div
-									class="h-12 w-12 bg-[url('https://img.icons8.com/material-rounded/64/eeeeee/discord-logo.png')] bg-no-repeat bg-contain bg-center"
-								/>
-								<div class="text-xs opacity-50">Mr Steele</div>
-							</a>
-						</li>
-						<li>
-							<a
-								href="/"
-								class="w-fit h-fit flex flex-col opacity-90 hover:opacity-100 duration-100"
-							>
-								<div
-									class="h-12 w-12 bg-[url('https://img.icons8.com/material-rounded/64/eeeeee/discord-logo.png')] bg-no-repeat bg-contain bg-center"
-								/>
-								<div class="text-xs opacity-50">UAV Futures</div>
-							</a>
-						</li>
-					</ul>
-					<ul class="flex justify-around md:flex-col">
-						<li class="w-fit flex">
-							<a
-								href="/"
-								class="w-fit h-fit flex flex-col items-center opacity-90 hover:opacity-100 duration-100 mr-4 text-[0px] leading-none"
-								>YouTube
-								<div
-									class="h-12 w-12 bg-[url('https://img.icons8.com/material-rounded/64/eeeeee/youtube-play.png')] bg-no-repeat bg-contain bg-center"
-								/>
-							</a>
-						</li>
-						<li class="w-fit flex">
-							<a
-								href="/"
-								class="w-fit h-fit flex flex-col items-center opacity-90 hover:opacity-100 duration-100 mr-4 mb-3 text-[0px] leading-none"
-								>Reddit
-								<div
-									class="h-12 w-12 bg-[url('https://img.icons8.com/ios-filled/64/eeeeee/reddit--v1.png')] bg-no-repeat bg-contain bg-center"
-								/>
-							</a>
-						</li>
-					</ul>
+				<div class="grid grid-rows-3 grid-cols-2 w-fit">
+					<div class="h-16 w-16 mr-2 mb-2">
+						<a
+							href="https://discord.gg/fpv"
+							class="w-fit h-fit flex flex-col opacity-90 hover:opacity-100 duration-100">
+							<div
+								class="h-12 w-12 bg-[url('https://img.icons8.com/material-rounded/64/eeeeee/discord-logo.png')] bg-no-repeat bg-contain bg-center"
+							/>
+							<div class="text-xs opacity-50">Mr Steele</div>
+						</a>
+					</div>
+					
+					<div class="w-16 mr-2 mb-2">
+						<a
+							href="https://discord.gg/uavfutures"
+							class="w-fit h-fit flex flex-col opacity-90 hover:opacity-100 duration-100">
+							<div
+								class="h-12 w-12 bg-[url('https://img.icons8.com/material-rounded/64/eeeeee/discord-logo.png')] bg-no-repeat bg-contain bg-center"
+							/>
+							<div class="text-xs opacity-50">UAVFutures</div>
+						</a>
+					</div>
+					<div class="w-16 mr-2 mb-2">
+						<a
+							href="https://discord.gg/drones"
+							class="w-fit h-fit flex flex-col opacity-90 hover:opacity-100 duration-100">
+							<div
+								class="h-12 w-12 bg-[url('https://img.icons8.com/material-rounded/64/eeeeee/discord-logo.png')] bg-no-repeat bg-contain bg-center"
+							/>
+							<div class="text-xs opacity-50">Drone Community</div>
+						</a>
+					</div>
+					<div class="w-16 mr-2 mb-2">
+						<a
+							href="https://discord.gg/n4E6ak4u3c"
+							class="w-fit h-fit flex flex-col opacity-90 hover:opacity-100 duration-100">
+							<div
+								class="h-12 w-12 bg-[url('https://img.icons8.com/material-rounded/64/eeeeee/discord-logo.png')] bg-no-repeat bg-contain bg-center"
+							/>
+							<div class="text-xs opacity-50">Betaflight</div>
+						</a>
+					</div>
+					<div class="w-16 mr-2 mb-2">
+						<a
+							href="/"
+							class="w-fit h-fit flex flex-col items-center opacity-90 hover:opacity-100 duration-100 mr-4 text-[0px] leading-none">
+							YouTube
+							<div class="h-12 w-12 bg-[url('https://img.icons8.com/material-rounded/64/eeeeee/youtube-play.png')] bg-no-repeat bg-contain bg-center"/>
+						</a>
+					</div>
+					<div class="w-16 mr-2 mb-2">
+						<a
+							href="/"
+							class="w-fit h-fit flex flex-col items-center opacity-90 hover:opacity-100 duration-100 mr-4 mb-3 text-[0px] leading-none">
+							Reddit
+							<div class="h-12 w-12 bg-[url('https://img.icons8.com/ios-filled/64/eeeeee/reddit--v1.png')] bg-no-repeat bg-contain bg-center"/>
+						</a>
+					</div>
 				</div>
 			</div>
 
@@ -144,43 +165,40 @@
 					<div class="text-2xl text-center md:text-left">Links:</div>
 					<ul class="text-base text-center md:text-left">
 						<li>
-							<a href="/" class="underline font-thin opacity-90 hover:opacity-100 duration-100"
-								>Site GitHub</a
-							>
+							<a href="/" class="underline font-thin opacity-90 hover:opacity-100 duration-100">
+								Site GitHub
+							</a>
 						</li>
 						<li>
-							<a href="/faq" class="underline font-thin opacity-90 hover:opacity-100 duration-100"
-								>Donate</a
-							>
+							<a href="/faq" class="underline font-thin opacity-90 hover:opacity-100 duration-100">
+								Donate
+							</a>
 						</li>
 						<li>
-							<a
-								href="/builds"
-								class="underline font-thin opacity-90 hover:opacity-100 duration-100">Icons</a
-							>
+							<a href="/builds" class="underline font-thin opacity-90 hover:opacity-100 duration-100">
+								Icons
+							</a>
 						</li>
 					</ul>
 				</div>
 
-				<div class="flex flex-col">
+				<div class="flex flex-col mt-2">
 					<div class="text-2xl text-center md:text-left">Other resources:</div>
 					<ul class="text-base text-center md:text-left">
 						<li>
-							<a href="/" class="underline font-thin opacity-90 hover:opacity-100 duration-100"
-								>Joshua Bardwell</a
-							>
+							<a href="https://www.youtube.com/@JoshuaBardwell" class="underline font-thin opacity-90 hover:opacity-100 duration-100">
+								Joshua Bardwell
+							</a> - Reviews and tutorials
 						</li>
 						<li>
-							<a href="/faq" class="underline font-thin opacity-90 hover:opacity-100 duration-100"
-								>Oscal Liang</a
-							>
+							<a href="https://oscarliang.com/" class="underline font-thin opacity-90 hover:opacity-100 duration-100">
+								Oscar Liang
+							</a> - Reviews and tutorials
 						</li>
 						<li>
-							<a
-								href="/builds"
-								class="underline font-thin opacity-90 hover:opacity-100 duration-100"
-								>FPV Market EU</a
-							>
+							<a href="https://fpvmarket.eu/" class="underline font-thin opacity-90 hover:opacity-100 duration-100">
+								FPV Market
+							</a> - EU FPV store search
 						</li>
 					</ul>
 				</div>

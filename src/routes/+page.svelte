@@ -69,8 +69,8 @@
 						This site is my project to keep FPV info easily and more importantly quickly readable when
 						needed. It's constantly getting updated, so expect new stuff (and maybe some bugs) to be
 						added here and there.<br /> If you wish to contribute, you can go to the GitHub
-						<a href="/" class="underline hover:brightness-125 duration-300">here</a>, and if you like what I do, you can donate
-						<a href="/" class="underline hover:brightness-125 duration-300">here</a>
+						<a href="https://github.com/VitroidFPV/VitroidFPV" class="underline hover:brightness-125 duration-300">here</a>, and if you like what I do, you can donate
+						<a href="https://www.patreon.com/VitroidFPV" class="underline hover:brightness-125 duration-300">here</a>
 					</p>
 				</div>
 			</div>
