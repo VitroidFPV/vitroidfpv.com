@@ -12,7 +12,10 @@ export const GET = async ({ url }) => {
 	console.log(params)
 	let adress = params.get('url')
 
-	return new Response(
-		await getData(adress)
-	)
+	return new Response(await getData(adress), {
+		headers: {
+			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Methods': 'GET',
+		}
+	})
 }
