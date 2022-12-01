@@ -12,6 +12,6 @@ text: Very similar to the bigger one in terms of features, in a Nano bay size.
 price: $39.99
 point1: "Freq: 2.4GHz"
 point2: "Output: 1W"
-point3: "Module bay: JR"
+point3: "Module bay: Lite"
 point4: "Weight: 48g"
 ---
