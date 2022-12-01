@@ -1,18 +1,16 @@
 ---
 Category: TX Modules
 group: ELRS
-color: orange
-visible: true
-order: 9
-title: Radiomaster Ranger Micro
-link: https://www.radiomasterrc.com/collections/ranger/products/ranger-micro-2-4ghz-elrs-module?variant=44725919842535
-text: Radiomaster's brand new ELRS module, with great build quality and
-  performance. Only having the features you actually need also makes it quite
-  reasonably priced, and even more so with the starter bundle that includes 3
-  receivers for only an extra $20
-price: $39.99
+color: green
+order: 1
+title: Happymodel ES24TX
+link: https://www.getfpv.com/happymodel-expresslrs-es24tx-2-4ghz-micro-tx-module.html
+text: The original ready-made ELRS module to hit the market. It still holds its
+  ground, as it's one of the best modules for the price if you're just getting
+  into ELRS without intent to go the full range with 1W of output power
+price: $28.99
 point1: "Freq: 2.4GHz"
-point2: "Output: 1W"
+point2: "Output: 250mW"
 point3: "Module bay: JR"
-point4: "Weight: 50g"
+point4: "Weight: 9.5g"
 ---
