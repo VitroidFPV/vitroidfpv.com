@@ -4,7 +4,7 @@ group: ELRS
 color: green
 visible: true
 order: 1
-title: Happymodel EP2 (TCXO)
+title: Happymodel EP1 (TCXO)
 link: https://www.getfpv.com/happymodel-expresslrs-nano-2-4ghz-ep1-rx.html
 text: One of the first ELRS receivers to hit the market, it is still widely used
   to this day. Good price-performance, well known, and now with the new TCXO
