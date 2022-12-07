@@ -9,7 +9,7 @@ date: 2022-12-07T22:59:01.339Z
 content: >-
   So... let's start off with some background. FlyFish is a very new FPV
   manufacturer, owned and ran by multiple different people from the FPV
-  business, including IFlight
+  industry, including IFlight
 
 
   The products they make (currently motors, antennas, and frames) are pretty good from everything I heard. A lot of amazing pilots that I know really like the motors, and had direct feedback when it came to making them. The antennas seem to be pretty average but not bad, and we can never have enough. Their frames are currently the newest options in their lineup, but similar to the motors, they are well-made and truly tested
