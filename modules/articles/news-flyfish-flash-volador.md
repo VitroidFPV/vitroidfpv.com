@@ -222,7 +222,7 @@ content: >-
 
   * 268mm wheelbase
 
-  * 211.1g VX6, 203.5g VD5 (with all of the TPU parts)
+  * 211.1g VX6, 216.1g VD6 (with all of the TPU parts)
 
   * $69.90 (nice) for black TPU, $74.90 for the multicolor "Tropical mix" TPU
 
