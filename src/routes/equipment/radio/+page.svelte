@@ -50,9 +50,20 @@
 		}
 	}
 
+	// if key visible isn't in the metadata, set it to true, otherwise set it to the value in the metadata
+	for (const cat in sorted_grouped_modules) {
+		for (const group in sorted_grouped_modules[cat]) {
+			for (const product of sorted_grouped_modules[cat][group]) {
+				if (product.metadata.visible === undefined) {
+					product.metadata.visible = true;
+				}
+			}
+		}
+	}		
+
 	// omfg copilot carries this shit
 
-	console.log(JSON.stringify(sorted_grouped_modules));
+	// console.log(JSON.stringify(sorted_grouped_modules));
 
 	let prefix = "VitroidFPV";
 	let titleRaw = "Radio Equipment";
@@ -117,20 +128,22 @@
 						{/if}
 						<div
 							class="ml-3 flex flex-col md:flex-row flex-wrap w-full md:justify-start md:items-start items-center border-white/10">
-							{#each info as product}
-								<BuildProduct
-									color={product.metadata.color}
-									title={product.metadata.title}
-									price={product.metadata.price}
-									point1={product.metadata.point1}
-									point2={product.metadata.point2}
-									point3={product.metadata.point3}
-									point4={product.metadata.point4}
-									point5={product.metadata.point5}
-									text={product.metadata.text}
-									link={product.metadata.link}
-								/>
-							{/each}
+								{#each info as product}
+									{#if product.metadata.visible}
+										<BuildProduct
+											color={product.metadata.color}
+											title={product.metadata.title}
+											price={product.metadata.price}
+											point1={product.metadata.point1}
+											point2={product.metadata.point2}
+											point3={product.metadata.point3}
+											point4={product.metadata.point4}
+											point5={product.metadata.point5}
+											text={product.metadata.text}
+											link={product.metadata.link}
+										/>
+									{/if}
+								{/each}
 						</div>
 					</div>
 				{:else}

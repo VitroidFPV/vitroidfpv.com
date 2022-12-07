@@ -3,6 +3,7 @@ Category: TX Modules
 group: ELRS
 color: green
 order: 6
+visible: false
 title: Jumper AION
 link: https://www.racedayquads.com/products/jumper-aion-nano-elrs-2-4ghz-transmitter-module
 text: Back to lower prices again, the Jumper AION is a very affordable module
