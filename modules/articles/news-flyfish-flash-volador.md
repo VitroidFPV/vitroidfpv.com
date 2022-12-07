@@ -1,11 +1,11 @@
 ---
 title: FlyFish Flash & Volador
 description: New FPV manufacturer on the block
-visible: false
+visible: true
 category: News
 author: VitroidFPV
 img: /uploads/flyfish_stuff.png
-date: 2022-12-07T18:01:49.821Z
+date: 2022-12-07T22:59:01.339Z
 content: >-
   So... let's start off with some background. FlyFish is a very new FPV
   manufacturer, owned and ran by multiple different people from the FPV
