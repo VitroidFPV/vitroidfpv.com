@@ -21,7 +21,7 @@ content: >-
   Coming in two color options, black & silver, and silver & purple. IMO a really nice niche to hit, both for people looking for stealth motors, as well as people looking to add a pop of color. Color variations of the silver ones are also planned, for blue and gold as the accents
 
 
-  They also offer replacement bells for every motor they sell, so you don't have to pay the full price if you just damage the bell. Though this is pretty unlikely, as they are pretty durable and run smooth even after heavy crashes from what I heard. 
+  They also offer replacement bells for every motor they sell, so you don't have to pay the full price if you just damage the bell. Though this is pretty unlikely, as they are pretty durable and run smoothly even after heavy crashes from what I heard. 
 
 
   Currently offered sizes are:
