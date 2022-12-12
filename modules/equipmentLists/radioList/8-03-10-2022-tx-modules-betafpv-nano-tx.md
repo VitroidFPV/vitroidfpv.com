@@ -2,6 +2,7 @@
 Category: TX Modules
 group: ELRS
 color: orange
+visible: false
 order: 8
 title: BetaFPV Nano TX
 link: https://betafpv.com/collections/module/products/elrs-nano-tx-module
