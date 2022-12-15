@@ -57,4 +57,16 @@ content: >-
 
 
   Wiring them up in parallel will add up the capacity of each cell. a 6s2p 2000mAh battery will be made out of two 1000mAh 6s packs
+
+
+  You can see an example of different series connections below
+
+
+  ![](/uploads/battery_anatomy_nominal.png)
+
+
+  ## Internal resistance
+
+
+  Not usually specified, it's still a very important measure. measured in mΩ \[milliohms], it can be used as a rough estimate of battery health, the lower the better. Most modern chargers will measure it while charging, or have a separate mode for its measurement. Under 10mΩ is great, under 20mΩ is fine, above 20 isn't great, and you should retire the battery
 ---
