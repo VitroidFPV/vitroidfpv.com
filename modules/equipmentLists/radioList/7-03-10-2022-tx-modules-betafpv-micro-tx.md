@@ -2,6 +2,7 @@
 Category: TX Modules
 group: ELRS
 color: orange
+visible: false
 order: 7
 title: BetaFPV Micro TX
 link: https://betafpv.com/collections/module/products/elrs-micro-tx-module

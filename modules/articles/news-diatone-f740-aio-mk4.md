@@ -8,8 +8,8 @@ img: https://cdn.shopify.com/s/files/1/0027/2708/4144/products/740WIFI_1_0659288
 date: 2022-11-17T14:14:24.309Z
 content: >-
   When I first saw this announced, I thought it was a full-on stack with 25x25
-  mounting... but it's not! Diatone has picked an interesting approach with
-  their new top-end AIO, choosing to add an additional I/O board on top
+  mounting... but it's not a full-on stack! Diatone has picked an interesting approach with
+  their new top-end 25x25 AIO, choosing to add an additional I/O board on top
 
 
   ![diatone f740 aio wifi](https://cdn.shopify.com/s/files/1/0027/2708/4144/products/740WIFI_1_0659288a-3e16-40a2-839b-3b3b8b89ac38_700x.jpg?v=1668576983 "diatone f740 aio wifi")
