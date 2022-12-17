@@ -94,7 +94,7 @@ collections:
       - { label: "Point 4", name: "point4", widget: "text", required: false }
       - { label: "Point 5", name: "point5", widget: "text", required: false }
 
-      - { label: "Recommended", name: "recommended", widget: "relation", collection: "5" Race Build", searchFields: ["title"], valueField: "title", displayFields: ["title"], multiple: true, required: false}
+      - { label: "Recommended", name: "recommended", widget: "relation", collection: '5" Race Build', searchFields: ["title"], valueField: "title", displayFields: ["title"], multiple: true, required: false}
 
   - name: 3" Cinewhoop Build
     label: 3" Cinewhoop Build
