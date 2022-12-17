@@ -11,4 +11,6 @@ text: "For the price, these are one of the best \"budget\" motors. They work
 price: $13.99
 point1: "Weight: 33.5g"
 point2: "KV: 1700/1900"
+recommended:
+  - Emax Eco II
 ---
