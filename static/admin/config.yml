@@ -81,7 +81,7 @@ collections:
           - { label: "Mid-Range", value: "orange" }
           - { label: "High-end", value: "red" }
           - { label: "Varied", value: "violet" }
-      - {label: "Visible", name: "visible", widget: "boolean", default: true}
+      - { label: "Visible", name: "visible", widget: "boolean", default: true}
       - { label: "Order", name: "order", widget: "number" }
       - { label: "Title", name: "title", widget: "text" }
       - { label: "Link", name: "link", widget: "text" }
@@ -94,6 +94,7 @@ collections:
       - { label: "Point 4", name: "point4", widget: "text", required: false }
       - { label: "Point 5", name: "point5", widget: "text", required: false }
 
+      - { label: "Recommended", name: "recommended", widget: "relation", collection: "5inchRaceBuild", searchFields: ["title"], valueField: "title", displayFields: ["title"], multiple: true, required: false}
 
   - name: 3" Cinewhoop Build
     label: 3" Cinewhoop Build
