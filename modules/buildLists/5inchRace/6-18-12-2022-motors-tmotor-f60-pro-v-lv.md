@@ -1,6 +1,6 @@
 ---
 Category: Motors
-color: orange
+color: red
 visible: true
 order: 6
 title: TMotor F60 Pro V-LV
