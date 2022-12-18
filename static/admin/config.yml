@@ -73,7 +73,7 @@ collections:
           - { label: "Flight Controllers", value: "Flight Controllers" }
           - { label: "ESCs", value: "ESCs" }
           - { label: "Video Transmitters", value: "Video Transmitters" }
-      - { label: "Group", name: "group", widget: "text" }
+      - { label: "Group", name: "group", widget: "text", required: false }
       - label: Price Range
         name: color
         widget: "select"
