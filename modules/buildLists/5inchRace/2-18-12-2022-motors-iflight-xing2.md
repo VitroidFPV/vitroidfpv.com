@@ -2,7 +2,7 @@
 Category: Motors
 color: orange
 visible: true
-order: 2
+order: 3
 title: IFlight Xing2
 link: https://www.getfpv.com/catalogsearch/result/?q=IFlight%20Xing2%202207
 text: IFlights refreshed its premium line of motors. They are lighter than their
