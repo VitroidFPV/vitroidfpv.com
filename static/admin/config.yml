@@ -60,6 +60,7 @@ collections:
 
   - name: 5" Race Build
     label: 5" Race Build
+    identifier_field: title
     folder: modules/buildLists/5inchRace/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Category}}-{{title}}"
