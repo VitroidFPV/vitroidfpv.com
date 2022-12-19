@@ -1,12 +1,12 @@
 ---
-Category: Build Recommendations
+Category: Recommended Builds
 group: Budget
 color: green
 visible: true
 order: 1
-title: Build Recommendations
+title: Recommended Builds
 link: /
-text: Build Recommendations
+text: Recommended Builds
 price: /
 recommended:
   - Emax Eco II

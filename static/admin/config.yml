@@ -74,7 +74,8 @@ collections:
           - { label: "Flight Controllers", value: "Flight Controllers" }
           - { label: "ESCs", value: "ESCs" }
           - { label: "Video Transmitters", value: "Video Transmitters" }
-          - { label: "Build Recommendations", value: "Build Recommendations" }
+          - { label: "Recommended Builds", value: "Recommended Builds" }
+
       - { label: "Group", name: "group", widget: "text", required: false }
       - label: Price Range
         name: color
@@ -84,11 +85,14 @@ collections:
           - { label: "Mid-Range", value: "orange" }
           - { label: "High-end", value: "red" }
           - { label: "Varied", value: "violet" }
+
       - { label: "Visible", name: "visible", widget: "boolean", default: true}
       - { label: "Order", name: "order", widget: "number" }
       - { label: "Title", name: "title", widget: "text" }
       - { label: "Link", name: "link", widget: "text" }
       - { label: "Description", name: "text", widget: "text" }
+
+      - { label: "Recommended", name: "recommended", widget: "relation", collection: '5" Race Build', searchFields: ["title"], valueField: "title", displayFields: ["title"], multiple: true, required: false}
 
       - { label: "Price", name: "price", widget: "string" }
       - { label: "Point 1", name: "point1", widget: "string", required: false }
@@ -97,7 +101,6 @@ collections:
       - { label: "Point 4", name: "point4", widget: "string", required: false }
       - { label: "Point 5", name: "point5", widget: "string", required: false }
 
-      - { label: "Recommended", name: "recommended", widget: "relation", collection: '5" Race Build', searchFields: ["title"], valueField: "title", displayFields: ["title"], multiple: true, required: false}
 
   - name: 3" Cinewhoop Build
     label: 3" Cinewhoop Build

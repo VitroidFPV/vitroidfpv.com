@@ -126,7 +126,7 @@
 
 	<div class="flex flex-col">
 		{#each Object.entries(grouped_modules) as [cat, contents]}
-			{#if cat !== "Recommended Builds"}
+			{#if cat != "Recommended Builds"}
 				<div class="{cat} my-8 w-full h-fit">
 					<div
 						class="text-4xl tracking-tight md:w-fit f-full px-1 md:ml-1 ml-2 cat {cat} mb-2 text-center"
@@ -159,9 +159,16 @@
 			{/if}
 		{/each}
 
+	<div class="my-8 w-full h-fit Recommended Builds">
+		<div
+			class="text-4xl tracking-tight md:w-fit f-full md:ml-1 ml-2 cat mb-2 text-center">
+			Recommended Builds
+		</div>
+		<p class="md:ml-1 ml-2">
+			There's multiple different specs and price ranges you can go for, so I've made a few different builds to suit different needs
+		</p>
 		{#each Object.entries(recommended_products) as [group, contents]}
 			<div class="group {group} my-4 w-full h-fit">
-
 				{#if group != "undefined"}
 					<div
 						class="text-xl tracking-tight w-full px-1 {group} mb-2 border-b-[1px] border-gray-700 text-main-50 dark:text-contrast-500"
@@ -177,12 +184,6 @@
 								color={info.metadata.color}
 								title={info.metadata.title}
 								price={info.metadata.price}
-								point1={info.metadata.point1}
-								point2={info.metadata.point2}
-								point3={info.metadata.point3}
-								point4={info.metadata.point4}
-								point5={info.metadata.point5}
-								text={info.metadata.text}
 								link={info.metadata.link}
 								category={group}
 							/>
@@ -191,5 +192,6 @@
 				</div>
 			</div>
 		{/each}
+		</div>
 	</div>
 </div>

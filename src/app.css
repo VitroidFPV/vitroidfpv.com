@@ -78,6 +78,7 @@
   .ESCs.my-8 {@apply order-4}
   .AIOs.my-8 {@apply order-5}
   .Video.my-8 {@apply order-6} 
+  .Recommended.my-8 {@apply order-last}
 
 
   .collapsible.faq-active {
