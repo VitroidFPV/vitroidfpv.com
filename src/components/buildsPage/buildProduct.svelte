@@ -31,7 +31,7 @@
 			<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point4}</div>
 			<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point5}</div>
 		</div>
-		<div>{text}</div>
+		<div>{@html text}</div>
 	</div>
 </IntersectionObserver>
 
