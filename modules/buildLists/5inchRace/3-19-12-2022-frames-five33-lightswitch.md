@@ -1,7 +1,7 @@
 ---
 Category: Frames
 color: orange
-visible: false
+visible: true
 order: 3
 title: Five33 Lightswitch
 link: https://flyfive33.com/product/lightswitch-frame-kit/
