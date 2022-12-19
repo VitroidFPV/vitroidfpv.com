@@ -8,7 +8,7 @@ link: https://pyrodrone.com/collections/20x20mm-flight-controllers/products/aiko
 text: Among Hobbywing and Foxeer, Aikon is another brand that's well-liked by
   racers, and for good reason. All the features you need, without all the stuff
   you don't, and great durability
-price: $52.99
+price: $57.99
 point1: "IO: 5 UARTs, I2C, BF LED control, USB Micro"
 point2: "Regulators: 3.3V, 2A 5V, 10V"
 point3: "Weight: 5.4g"
