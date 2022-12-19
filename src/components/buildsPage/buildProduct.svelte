@@ -21,7 +21,7 @@
 </script>
 
 <IntersectionObserver {element} bind:intersecting>
-	<div class="{color} h-fit max-w-sm min-w-[12rem] border-l-4 product pl-2 my-4 md:mr-8 not-intersecting" bind:this={element} class:intersecting={intersecting}>
+	<div class="{color} h-fit max-w-sm md:min-w-[12rem] min-w-[16rem] border-l-4 product pl-2 my-4 md:mr-8 not-intersecting" bind:this={element} class:intersecting={intersecting}>
 		<Link {color} color1={color} size="2" {link} external=true>{title}</Link>
 		{#if price !== undefined}
 			<div class="flex justify-between mt-3 mb-3 flex-wrap tracking-[0.01em]">

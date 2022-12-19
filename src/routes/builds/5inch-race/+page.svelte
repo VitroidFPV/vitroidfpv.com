@@ -171,7 +171,10 @@
 		<ul class="mt-4 md:w-3/4">
 			<li class="mb-2"><strong>Budget</strong> - Basic parts to build an inexpensive rig for non-spec races and self-practice</li>
 			<li class="mb-2"><strong>Mid-range</strong> - A good balance between price and performance, good for most racers for open races</li>
-			<li class="mb-2"><strong class="md">High-end 1 (<a href="https://freedomspec.com/">Freedom Spec</a>)</strong> - "in pursuit of the perfect spec class.  Our goal is to spec the components that are absolutely necessary and pull the performance of the drones as close as possible.  All while having the easiest transition possible between our spec and open class racing"</li>
+			<li class="mb-2"><strong class="md">High-end 1 (<a href="https://freedomspec.com/">Freedom Spec</a>)</strong> - "in pursuit of the perfect spec class.  
+				Our goal is to spec the components that are absolutely necessary and pull the performance of the drones as close as possible.  All while having the 
+				easiest transition possible between our spec and open class racing".<br>
+				TL;DR: Freedom spec dictates what motors, props, and frame you have to use, the rest is up to you. Apparently, 6" arms are very popular for Freedom spec</li>
 			<li class="mb-2"><strong>High-end 2</strong> - The best of the best for open spec, for the most demanding pilots to cut tenths of seconds</li>
 		</ul>
 		{#each Object.entries(recommended_products) as [group, contents]}
@@ -184,7 +187,7 @@
 					</div>
 				{/if}
 
-				<div class="flex flex-col md:flex-row flex-wrap w-full md:justify-start md:items-start items-center pl-0.5">
+				<div class="flex md:flex-row flex-wrap w-full md:justify-start md:items-start items-center pl-0.5">
 					{#each contents as info}
 						{#if info.metadata.visible}
 							<BuildProduct
