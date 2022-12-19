@@ -159,25 +159,32 @@
 			{/if}
 		{/each}
 
-	<div class="my-8 w-full h-fit Recommended Builds">
+	<div class="my-8 w-full h-fit Recommended Builds pl-2 md:pl-1">
 		<div
-			class="text-4xl tracking-tight md:w-fit f-full md:ml-1 ml-2 cat mb-2 text-center">
+			class="text-4xl tracking-tight md:w-fit f-full cat mb-2 text-center">
 			Recommended Builds
 		</div>
-		<p class="md:ml-1 ml-2">
+		<p class="md:w-3/4">
 			There's multiple different specs and price ranges you can go for, so I've made a few different builds to suit different needs
+			
 		</p>
+		<ul class="mt-4 md:w-3/4">
+			<li class="mb-2"><strong>Budget</strong> - Basic parts to build an inexpensive rig for non-spec races and self-practice</li>
+			<li class="mb-2"><strong>Mid-range</strong> - A good balance between price and performance, good for most racers for open races</li>
+			<li class="mb-2"><strong class="md">High-end 1 (<a href="https://freedomspec.com/">Freedom Spec</a>)</strong> - "in pursuit of the perfect spec class.  Our goal is to spec the components that are absolutely necessary and pull the performance of the drones as close as possible.  All while having the easiest transition possible between our spec and open class racing"</li>
+			<li class="mb-2"><strong>High-end 2</strong> - The best of the best for open spec, for the most demanding pilots to cut tenths of seconds</li>
+		</ul>
 		{#each Object.entries(recommended_products) as [group, contents]}
 			<div class="group {group} my-4 w-full h-fit">
 				{#if group != "undefined"}
 					<div
-						class="text-xl tracking-tight w-full px-1 {group} mb-2 border-b-[1px] border-gray-700 text-main-50 dark:text-contrast-500"
+						class="text-xl tracking-tight w-full {group} mb-2 border-b-[1px] border-gray-700 text-main-50 dark:text-contrast-500"
 						id={group}>
 						{group}
 					</div>
 				{/if}
 
-				<div class="flex flex-col md:flex-row flex-wrap w-full md:justify-start md:items-start items-center">
+				<div class="flex flex-col md:flex-row flex-wrap w-full md:justify-start md:items-start items-center pl-0.5">
 					{#each contents as info}
 						{#if info.metadata.visible}
 							<BuildProduct
