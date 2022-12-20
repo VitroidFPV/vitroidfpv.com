@@ -1,6 +1,6 @@
 ---
 Category: Video Transmitters
-color: green
+color: orange
 visible: true
 order: 2
 title: Foxeer Reaper Nano
