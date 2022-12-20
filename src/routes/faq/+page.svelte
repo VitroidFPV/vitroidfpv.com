@@ -1,9 +1,4 @@
-<script>
-
-	/** @type {import('./$types').PageData} */
-	export let data;
-	let deltaVotes = data.votes;
-	
+<script>	
 	import Header from "$components/Header.svelte";
 	import MainHeader from "$components/mainHeader.svelte";
 	import CategoryIndex from "$components/faqPage/categoryIndex.svelte";
@@ -28,6 +23,22 @@
 
 	//  import removeMarkdown
 	import removeMd from "remove-markdown";
+
+	async function getUpvotes(formId) {
+		const res = await fetch(`https://vitroidfpv-sv.netlify.app/cors?url=http://195.88.87.150:5678/webhook/0963ddbf-a472-4a54-bff7-f37c43d8a64e?id=${formId}`)
+		const data = await res.json()
+		let novoted = data.length
+		let upvoted = 0
+		for (let i = 0; i < data.length; i++) {
+			if (data[i].data.Useful === "on") {
+				upvoted++
+			}
+		}
+		let downvoted = novoted - upvoted
+		let deltaVotes = upvoted - downvoted
+		return deltaVotes
+	}
+	let deltaVotes = getUpvotes("633def84b40b9d0008711757")
 
 	// svelte template <img src="/uploads/axisflying-1-.png" alt="" on:click={() => open = !open} class:img-closed={!open} class:img-open={open} class="h-auto duration-300">
 
