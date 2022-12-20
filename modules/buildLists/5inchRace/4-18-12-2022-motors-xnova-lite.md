@@ -1,6 +1,6 @@
 ---
 Category: Motors
-color: orange
+color: red
 visible: true
 order: 4
 title: XNova Lite
