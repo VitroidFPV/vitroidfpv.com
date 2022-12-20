@@ -11,4 +11,5 @@ text: Probably the most versatile VTX, having 16x16, 20x20, and 25x25 mounting.
 price: $14.99
 point1: "Output Power: 350mW"
 point2: "Connector: IPEX"
+point3: "Weight: 2.4g"
 ---
