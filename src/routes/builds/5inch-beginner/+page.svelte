@@ -62,10 +62,6 @@
 		"Specced out to be easy to assemble, with affordable and accessible parts, and electronics that should be easy to solder, this build should be perfect to get you started in the world of FPV";
 </script>
 
-<script context="module">
-	export const prerender = true;
-</script>
-
 <svelte:head>
 	<title>VitroidFPV{title}</title>
 	<meta name="author" content="VitroidFPV" />
