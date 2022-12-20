@@ -176,9 +176,10 @@
 				easiest transition possible between our spec and open class racing".<br>
 				TL;DR: Freedom spec dictates what motors, props, and frame you have to use, the rest is up to you. Apparently, 6" arms are very popular for Freedom spec</li>
 			<li class="mb-2"><strong>High-end 2</strong> - The best of the best for open spec, for the most demanding pilots to cut tenths of seconds</li>
+			<li class="mb-2"><strong>High-end 3 (EU Edition)</strong> - If you're in the EU, certain parts may be hard to come by. I've checked the main stores in Central Europe, so shipping should be similar across the whole continent</li>
 		</ul>
 		{#each Object.entries(recommended_products) as [group, contents]}
-			<div class="group {group} my-4 w-full h-fit">
+			<div class="group {group} mt-4 mb-8 w-full h-fit">
 				{#if group != "undefined"}
 					<div
 						class="text-xl tracking-tight w-full {group} mb-2 border-b-[1px] border-gray-700 text-main-50 dark:text-contrast-500"
@@ -190,13 +191,17 @@
 				<div class="flex md:flex-row flex-wrap w-full md:justify-start md:items-start items-center pl-0.5">
 					{#each contents as info}
 						{#if info.metadata.visible}
-							<BuildProduct
+							<!-- <BuildProduct
 								color={info.metadata.color}
 								title={info.metadata.title}
 								price={info.metadata.price}
 								link={info.metadata.link}
 								category={group}
-							/>
+							/> -->
+							<div class="h-fit max-w-sm {info.metadata.color} border-l-4 product pl-2 my-4 md:mr-8 md:w-1/6 w-1/3">
+								<Link color={info.metadata.color} size="2" color1={info.metadata.color} link={info.metadata.link} external="true">{info.metadata.title}</Link>
+								<div class="text-base text-main-100 dark:text-contrast-300 mr-2">{info.metadata.price}</div>
+							</div>
 						{/if}
 					{/each}
 				</div>
