@@ -73,6 +73,7 @@
 					text4={build.metadata.text4}
 					text5={build.metadata.text5}
 					img={build.metadata.img}
+					short={build.metadata.short}
 				/>
 			{/each}
 		{/each}

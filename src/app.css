@@ -215,6 +215,10 @@
     @apply order-2
   }
 
+  .category.Receivers {
+	@apply order-3
+  }
+
   .ml-4.md {
     @apply origin-top-left scale-90
   }
