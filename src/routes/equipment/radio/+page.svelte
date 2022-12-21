@@ -141,6 +141,7 @@
 											point5={product.metadata.point5}
 											text={product.metadata.text}
 											link={product.metadata.link}
+											img={info.metadata.img}
 										/>
 									{/if}
 								{/each}
