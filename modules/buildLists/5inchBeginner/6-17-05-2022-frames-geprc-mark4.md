@@ -1,9 +1,12 @@
 ---
 Category: Frames
 color: orange
+visible: true
+order: 6
 title: GepRC Mark4
 link: https://geprc.com/product/gep-mark4-frame/
-text: a lighter frame, not made to be crashed too hard. But it still holds up,
+img: https://geprc.com/wp-content/uploads/2019/06/03-1989605466.jpg
+text: A lighter frame, not made to be crashed too hard. But it still holds up,
   flies well, has lots of space, and stands out. If you want to go for weight
   savings for longer flight time, it's the way to go
 price: $51.90
