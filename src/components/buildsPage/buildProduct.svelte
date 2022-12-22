@@ -38,8 +38,8 @@
 
 {#if visible}
 	<div in:fade={{duration: 300, delay: 0}} out:fade={{delay: 200}} class="fixed w-screen h-screen top-0 left-0 z-30 flex items-center justify-center bg-black bg-opacity-80">
-		<div transition:fly={{duration: 300, y: 200, delay: 100}} class="w-fit h-3/4 flex justify-center z-10 select-none" use:clickOutside on:click_outside={handleClickOutside}>
-			<img class="select-none rounded-2xl" src="{img}" alt="">
+		<div transition:fly={{duration: 300, y: 200, delay: 100}} class="md:h-3/4 h-min md:w-min w-3/4 aspect-square flex justify-center z-10 select-none" use:clickOutside on:click_outside={handleClickOutside}>
+			<img class="select-none rounded-2xl object-contain" src="{img}" alt="">
 		</div>
 	</div>
 {/if}

@@ -127,7 +127,7 @@
 							</div>
 						{/if}
 						<div
-							class="ml-3 flex flex-col md:flex-row flex-wrap w-full md:justify-start md:items-start items-center border-white/10">
+							class="md:ml-3 flex flex-col md:flex-row flex-wrap w-full md:justify-start md:items-start items-center border-white/10">
 								{#each info as product}
 									{#if product.metadata.visible}
 										<BuildProduct

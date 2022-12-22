@@ -91,7 +91,7 @@
 					{cat}
 				</div>
 				<div
-					class="ml-3 flex flex-col md:flex-row flex-wrap w-full md:justify-start md:items-start items-center border-b-[1px] border-white/10"
+					class="md:ml-3 flex flex-col md:flex-row flex-wrap w-full md:justify-start md:items-start items-center border-b-[1px] border-white/10"
 				>
 					{#each contents as info}
 						{#if info.metadata.visible}

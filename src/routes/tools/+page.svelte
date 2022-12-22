@@ -103,7 +103,7 @@
 		<div class="Calculators category mb-4 w-full h-fit flex flex-col">
 			<div class="text-4xl tracking-tight w-fit px-1 cat Calculators mb-2" id=Calculators>Calculators</div>
 			<!-- a lot of nested divs for actual content -->
-			<div class="ml-3 flex flex-col md:flex-row flex-wrap w-full md:justify-start md:items-start items-center border-white/10">
+			<div class="md:ml-3 flex flex-col md:flex-row flex-wrap w-full md:justify-start md:items-start items-center border-white/10">
 				<div class="green h-fit max-w-sm min-w-[18rem] border-l-4 product pl-2 my-4 mx-2" id="calc">
 					<p class="text-2xl text-green">Stator Volume</p>
 					<div>
