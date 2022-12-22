@@ -389,7 +389,7 @@
 						// link, order, and group
 						h("li", {className: "order list-item"}, "Order: " + entry.getIn(["data", "order"])),
 						h("li", {className: "group list-item"}, "Group: " + entry.getIn(["data", "group"])),
-						h("li", {className: "link list-item"}, "Link: " +  entry.getIn(["data", "link"])),
+						h("li", {className: "link list-item"}, "Link: ", h("a", {href: entry.getIn(["data", "link"])}, entry.getIn(["data", "link"]))),
 					)
 				)
 			}
