@@ -2,7 +2,7 @@
 Category: Cameras
 group: Analog
 color: green
-visible: false
+visible: true
 order: 1
 title: Foxeer Razer Micro
 link: https://www.foxeer.com/1200tvl-foxeer-micro-razer-fpv-camera-pal-ntsc-switchable-1-8mm-lens-4ms-latency-g-265
