@@ -1,15 +1,16 @@
 ---
 Category: ESCs
-color: green
+color: red
+visible: true
 order: 4
-title: IFlight SucceX-E 45A V2
-link: https://shop.iflight-rc.com/quad-parts-cat20/electronics-cat27/succex-esc-cat136/succex-e-45a-v2-2-6s-blheli-s-4-in-1-esc-pro1413?sort=p.price&order=ASC
-text: A newer version of the original, coming with the motor pads angled out
-  towards the arms for easier wire routing. The integrated large capacitor
-  removes the necessity for an external one, but it can make it hard to mount in
-  certain builds
-price: $40.99
+title: IFlight Blitz E45
+link: https://shop.iflight-rc.com/electronics-cat27/BLITZ-E45S-4-IN-1-45A-2-6S-ESC-Pro1737
+img: https://i.ebayimg.com/images/g/vjsAAOSwUhFiqumR/s-l1600.jpg
+text: A newer version of the Succex, with the motor pads angled out towards the
+  arms for easier wire routing. The integrated capacitor removes the necessity
+  for an extra one, but it can make it hard to mount in certain builds
+price: $55.99
 point1: "Nominal Current: 45A"
-point2: "Peak Current: 50A"
+point2: "Peak Current: 55A"
 point3: "Firmware: BLHeli_S"
 ---
