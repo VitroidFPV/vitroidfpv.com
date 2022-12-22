@@ -10,4 +10,8 @@ img: https://inew.foxeer.com//upload/s/goods/201910/1570775687857405709.images.4
 text: A great budget cam, available in pretty much any size you'd want. I run it
   on all my main 5" quads, and it's been serving me great for over a year
 price: $17.9
+point1: "TVL: 1200"
+point2: "FOV: 155°"
+point3: "Size: 19x19"
+point4: "Weight: 4.5g"
 ---
