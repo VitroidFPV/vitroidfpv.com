@@ -1,19 +1,19 @@
 ---
 Category: Cameras
 group: Analog
-color: orange
+color: red
 visible: true
-order: 5
-title: Runcam Phoenix 2
-link: https://pyrodrone.com/pages/search-results-page?q=Runcam+Phoenix+2+camera
-img: https://cdn.shopify.com/s/files/1/2778/6650/products/2-2__46858.1644892341.1280.1280_d5918abd-71b0-4d8a-9db2-4bb6687eb2fb_1200x1200.jpg?v=1650319926
-text: Even though it has a lower resolution than the T Rex, a lot of people like
-  the image of the Phoenix more, especially given the lower price. Even JB has
-  his own version, so it's gotta be at least somewhat good
-price: $29.99
-point1: "TVL: 1000"
-point2: "FOV: 155°"
+order: 4
+title: Foxeer T Rex
+link: https://www.foxeer.com/search?keywords=T+Rex+1500TVL&size=12
+img: https://inew.foxeer.com//upload/s/goods/2020-10-12/11-27-09-5f83cd0decf5c.images.400x400.jpg
+text: To my knowledge, this cam has the highest resolution that's available on
+  the market for analog... and the price matches that well. However, if you're
+  looking for the best of the best, this might just be it
+price: $44.9
+point1: "TVL: 1500"
+point2: "FOV: 150°"
 point3: "Size: Mini/Micro"
-point4: 'Sensor Size: 1/2"'
-point5: "Weight: 9/5g"
+point4: "Sensor Size: n/a"
+point5: "Weight: 10.2/8.6g"
 ---
