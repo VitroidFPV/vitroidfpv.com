@@ -1,7 +1,7 @@
 ---
 Category: Cameras
 group: Analog
-color: red
+color: orange
 visible: true
 order: 6
 title: Runcam Phoenix 2
