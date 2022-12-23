@@ -3,7 +3,7 @@ Category: Cameras
 group: Analog
 color: orange
 visible: true
-order: 6
+order: 5
 title: Runcam Phoenix 2
 link: https://pyrodrone.com/pages/search-results-page?q=Runcam+Phoenix+2+camera
 img: https://cdn.shopify.com/s/files/1/2778/6650/products/2-2__46858.1644892341.1280.1280_d5918abd-71b0-4d8a-9db2-4bb6687eb2fb_1200x1200.jpg?v=1650319926
