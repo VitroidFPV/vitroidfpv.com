@@ -12,7 +12,7 @@ answer: >-
 
   * Horizon - Acts like angle mode, but after a certain stick threshold, it will switch to acro, and when bought back, it will switch back to how angle mode works, allowing flips
 
-  * Acro - The stick position dictates how fast the quad will spin at that axis. This can be changed with rates, changing how fast it will spin at a set point of the stick travel
+  * Acro - The stick position dictates how fast the quad will spin at that axis. This can be changed with rates, changing how fast it will spin at a set point of the stick travel. Only active when no other flight mode is set
 
   * Acro Trainer - Functionally the same as acro, but won't tilt further than set, basically the best of both angle and acro
 
