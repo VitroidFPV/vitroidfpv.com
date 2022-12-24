@@ -12,7 +12,7 @@ text: These have been the best cheap goggles for pretty much as long as I have
   much for under $200
 price: $119.99
 point1: "Screen: LCD 800x420"
-point2: "FOV: 184"
+point2: "FOV: 82°"
 point3: "Weight: 362g"
 point4: ""
 ---
