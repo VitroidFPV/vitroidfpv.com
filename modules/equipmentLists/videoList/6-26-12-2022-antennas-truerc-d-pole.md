@@ -13,4 +13,5 @@ price: $6.99
 point1: "Gain: 2.5dB"
 point2: "Weight: n/a"
 point3: "Polarization: Linear"
+point4: "Connector: u.Fl/MMCX"
 ---
