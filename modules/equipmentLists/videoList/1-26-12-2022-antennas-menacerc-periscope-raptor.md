@@ -13,4 +13,6 @@ text: Old but good - This antenna is using the classic "pagoda" construction
 price: $13.49
 point1: "Gain: 1.09dB"
 point2: "Weight: 14g"
+point3: "Polarization: R/LHCP"
+point4: "Connector: SMA"
 ---
