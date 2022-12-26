@@ -14,4 +14,6 @@ text: TrueRC is hands-down the best antenna manufacturer. Most of the following
 price: $12.99
 point1: "Gain: 1.6dB"
 point2: "Weight: n/a"
+point3: "Polarization: R/LHCP"
+point4: "Connector: u.Fl/MMCX/SMA"
 ---
