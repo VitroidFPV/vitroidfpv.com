@@ -1,7 +1,7 @@
 ---
 Category: Antennas
 group: Omnidirectional
-color: orange
+color: red
 visible: true
 order: 5
 title: TrueRC Matchstick
@@ -13,4 +13,6 @@ text: At its heart, it is using the Singularity internals, and even the case
 price: $25.99
 point1: "Gain: 1.9dB"
 point2: "Weight: 6.2-7.8g"
+point3: "Polarization: R/LHCP"
+point4: "Connector: u.Fl/SMA"
 ---
