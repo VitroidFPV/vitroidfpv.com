@@ -6,7 +6,7 @@ visible: true
 order: 6
 title: TrueRC D-Pole
 link: https://www.truerc.ca/shop/5-8ghz-2/transmitter/d-pole-5g
-img: https://www.truerc.ca/wp-content/uploads/7CE4C549-D95B-497E-9AA7-A4E45B4DA844-e1632424273687.jpeg
+img: https://www.truerc.ca/wp-content/uploads/CE8D7B6E-47E0-41B4-8A96-9093B416C694-e1630343369187.jpeg
 text: TrueRC's shot at a dipole linear antenna, it's ideal for ultralight crafts
   and tinywhoops
 price: $6.99
