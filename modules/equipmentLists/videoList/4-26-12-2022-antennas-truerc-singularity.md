@@ -13,4 +13,6 @@ text: Claimed by TrueRC to be their best antenna, and it certainly lives up to
 price: $19.99
 point1: "Gain: 1.9dB"
 point2: "Weight: 1.03-3.55g"
+point3: "Polarization: R/LHCP"
+point4: "Connector: u.Fl/MMCX/SMA"
 ---
