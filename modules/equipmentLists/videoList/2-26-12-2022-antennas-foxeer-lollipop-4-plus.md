@@ -14,4 +14,6 @@ text: Foxeer stuff has been on the market for a while, and now they have
 price: $19(29).99 for 2
 point1: "Gain: 2.6dB"
 point2: "Weight: 2.8-13.9g"
+point3: "Polarization: R/LHCP"
+point4: "Connector: u.Fl/MMCX/SMA"
 ---
