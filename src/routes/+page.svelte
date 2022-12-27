@@ -26,14 +26,53 @@
 </svelte:head>
 
 <div class="flex flex-col w-full overflow-hidden">
-	<div class="md:mt-64 mt-16 md:mb-0 mb-16 w-fit">
-		<h1
-			class="md:text-[180px] text-[150px] caveat h-fit w-fit leading-none dark:text-highlight-dark">
-			Vitroid FPV
-		</h1>
+	<div class="flex flex-col w-full relative">
+		<div class="mt-64 md:mb-24 mb-16 w-fit z-10">
+			<h1
+				class="md:text-[180px] text-[100px] caveat h-fit w-fit leading-none dark:text-highlight-dark">
+				Vitroid FPV
+			</h1>
+		</div>
+		<div class="absolute w-full h-full flex top-20">
+			<div style="-webkit-mask-image: linear-gradient(transparent, black, transparent);"
+				class="absolute w-full h-full dark:bg-grid-dark bg-grid-light bg-repeat dark:opacity-[.15] opacity-60">
+				<!-- <div class="h-full aspect-square bg-red/5"></div> -->
+			</div>
+			<div class="absolute w-full h-full">
+				<svg width="1024" height="360" viewBox="0 0 1024 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full blur-3xl h-full scale-x-125 dark:saturate-100 saturate-[3] dark:opacity-70 opacity-100">
+					<g opacity="0.5" clip-path="url(#clip0_1_2)">
+						<rect width="433.919" height="307.42" transform="matrix(0.652501 0.757788 -0.918405 0.395643 223.833 -50.3698)" fill="url(#paint0_radial_1_2)" />
+						<rect width="539.073" height="235.273" transform="matrix(0.979338 0.202229 -0.381519 0.924361 132.254 83.877)" fill="url(#paint1_radial_1_2)" />
+						<rect width="404.121" height="312.353" transform="matrix(-0.658984 -0.752157 0.946257 -0.323417 846.453 402.448)" fill="url(#paint2_radial_1_2)" />
+						<rect width="513.135" height="262.577" rx="109.572" transform="matrix(-0.977818 -0.209455 0.481307 -0.876552 861.081 275.469)" fill="url(#paint3_radial_1_2)" />
+					</g>
+					<defs>
+						<radialGradient id="paint0_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(216.96 153.71) scale(216.96 153.71)">
+							<stop stop-color="#2AD162" />
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<radialGradient id="paint1_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(269.537 117.636) scale(269.537 117.636)">
+							<stop stop-color="#90d95b"/>
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<radialGradient id="paint2_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(202.06 156.176) scale(202.06 156.176)">
+							<stop stop-color="#2AD162"/>
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<radialGradient id="paint3_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256.567 131.288) scale(256.567 131.288)">
+							<stop stop-color="#5AD8E6"/>
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<clipPath id="clip0_1_2">
+							<rect width="1024" height="360" fill="white" />
+						</clipPath>
+					</defs>
+				</svg>
+			</div>
+		</div>
 	</div>
 	<div>
-		<div class="h-fit max-w-full">
+		<div class="h-fit max-w-full relative z-20">
 			<div>
 				<svg
 					class="max-w-full h-fit"
@@ -58,9 +97,9 @@
 				</svg>
 			</div>
 		</div>
-		<div class="w-full h-fit bg-highlight dark:bg-highlight-dark px-8 -mb-1 flex md:flex-row flex-col highlight-bg duration-300">
+		<div class="w-full h-fit bg-highlight dark:bg-highlight-dark relative -mb-1 flex md:flex-row flex-col highlight-bg duration-300">
 			<div class="flex flex-col md:w-1/2">
-				<div class="dark:text-main-200 text-main-100">
+				<div class="dark:text-main-200 text-main-100 px-8 z-10">
 					<h2 class="text-4xl font-semibold my-4 border-b-4 border-dotted w-fit border-main-100">
 						Your source for quick FPV info!
 					</h2>
@@ -73,11 +112,12 @@
 						<a href="https://www.patreon.com/VitroidFPV" class="underline hover:brightness-125 duration-300">here</a>
 					</p>
 				</div>
+				<div class="absolute w-full h-full bg-grid-dark opacity-50" style="-webkit-mask-image: linear-gradient(transparent, black, transparent);"></div>
 			</div>
 			<div class="w-full flex h-fit md:flex-col flex-row justify-between md:pt-0 pt-4 md:w-1/2">
-				<PropSvg pathClass="fill-white/20 prop" svgClass="prop-svg h-fit w-fit relative md:top-10 md:left-10 rotate-12"/>
-				<PropSvg pathClass="fill-white/20 prop" svgClass="prop-svg h-fit w-fit relative md:left-96 md:bottom-10 -rotate-12"/>
-				<PropSvg pathClass="fill-white/20 prop" svgClass="prop-svg h-fit w-fit relative md:left-32 md:bottom-10 rotate-45"/>
+				<PropSvg pathClass="fill-[#a6e17c] dark:fill-[#65dd8d] prop" svgClass="prop-svg h-fit w-fit relative md:top-10 md:left-10 rotate-12"/>
+				<PropSvg pathClass="fill-[#a6e17c] dark:fill-[#65dd8d] prop" svgClass="prop-svg h-fit w-fit relative md:left-96 md:bottom-10 -rotate-12"/>
+				<PropSvg pathClass="fill-[#a6e17c] dark:fill-[#65dd8d] prop" svgClass="prop-svg h-fit w-fit relative md:left-32 md:bottom-10 rotate-45"/>
 			</div>
 		</div>
 		<div class="h-fit max-w-full rotate-180">

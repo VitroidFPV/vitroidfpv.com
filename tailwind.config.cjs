@@ -32,7 +32,11 @@ module.exports = {
 			backgroundSize: {
 				"0w": "0% 3px",
 				"100w": "100% 3px"
-			}
+			},
+			backgroundImage: {
+				"grid-dark": "url(/uploads/grid-dark.svg)",
+				"grid-light": "url(/uploads/grid-light.svg)"
+			},
 		}
 	},
 	plugins: []

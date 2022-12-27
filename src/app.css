@@ -3,279 +3,306 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    font-family: Reem Kufi, Reem Kufi, sans-serif;
-    scroll-behavior: smooth;
-  }
-  .caveat {
-    font-family: 'Caveat', cursive;
-  }
+	html {
+		font-family: Reem Kufi, Reem Kufi, sans-serif;
+		scroll-behavior: smooth;
+	}
+	.caveat {
+		font-family: 'Caveat', cursive;
+	}
 
-  #sliderCell, #sliderCell1 {
-    width: 16rem;
-  }
-  :root {
-    --range-slider:          #d7dada; /* slider main background color */
-    --range-handle-inactive: #99a2a2; /* inactive handle color */
-    --range-handle:          #90d95b; /* non-focussed handle color */
-    --range-handle-focus:    #90d95b; /* focussed handle color */
-    --range-handle-border:   var(--range-handle);
-    --range-range-inactive:  var(--range-handle-inactive); /* inactive range bar background color */
-    --range-range:           var(--range-handle-focus); /* active range bar background color */
-    --range-float-inactive:  var(--range-handle-inactive); /* inactive floating label background color */
-    --range-float:           var(--range-handle-focus); /* floating label background color */
-    --range-float-text:      white; /* text color on floating label */
-  }
-  .dark {
-    --range-slider:          #1e1e1e; /* slider main background color */
-    --range-handle-inactive: #292929; /* inactive handle color */
-    --range-handle:          #2ad162; /* non-focussed handle color */
-    --range-handle-focus:    #2ad162; /* focussed handle color */
-    --range-handle-border:   var(--range-handle);
-    --range-range-inactive:  var(--range-handle-inactive); /* inactive range bar background color */
-    --range-range:           var(--range-handle-focus); /* active range bar background color */
-    --range-float-inactive:  var(--range-handle-inactive); /* inactive floating label background color */
-    --range-float:           var(--range-handle-focus); /* floating label background color */
-    --range-float-text:      white; /* text color on floating label */
-  }
-}
+	#sliderCell, #sliderCell1 {
+		width: 16rem;
+	}
+	:root {
+		--range-slider:          #d7dada; /* slider main background color */
+		--range-handle-inactive: #99a2a2; /* inactive handle color */
+		--range-handle:          #90d95b; /* non-focussed handle color */
+		--range-handle-focus:    #90d95b; /* focussed handle color */
+		--range-handle-border:   var(--range-handle);
+		--range-range-inactive:  var(--range-handle-inactive); /* inactive range bar background color */
+		--range-range:           var(--range-handle-focus); /* active range bar background color */
+		--range-float-inactive:  var(--range-handle-inactive); /* inactive floating label background color */
+		--range-float:           var(--range-handle-focus); /* floating label background color */
+		--range-float-text:      white; /* text color on floating label */
+	}
+	.dark {
+		--range-slider:          #1e1e1e; /* slider main background color */
+		--range-handle-inactive: #292929; /* inactive handle color */
+		--range-handle:          #2ad162; /* non-focussed handle color */
+		--range-handle-focus:    #2ad162; /* focussed handle color */
+		--range-handle-border:   var(--range-handle);
+		--range-range-inactive:  var(--range-handle-inactive); /* inactive range bar background color */
+		--range-range:           var(--range-handle-focus); /* active range bar background color */
+		--range-float-inactive:  var(--range-handle-inactive); /* inactive floating label background color */
+		--range-float:           var(--range-handle-focus); /* floating label background color */
+		--range-float-text:      white; /* text color on floating label */
+	}
 
-::selection {
-  background-color: var(--range-handle-focus);
-  color: #292929;
-}
+	/* width */
+	::-webkit-scrollbar {
+		width: 10px;
+	}
 
-.highlight-bg ::selection {
-  background-color: #292929 !important;
-  color: var(--range-handle-focus) !important;
+	/* Track */
+	.dark::-webkit-scrollbar-track {
+		background: #0f0f0f;
+	}
+	::-webkit-scrollbar-track {
+		background: #eeeeee;
+	}
+
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		width: 10px;
+		background: var(--range-handle-inactive);
+		border-radius: 10px;
+		/* transition for 300ms */
+		transition: background 300ms ease-in-out;
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: var(--range-handle);
+	}
+
+	::selection {
+	background-color: var(--range-handle-focus);
+	color: #292929;
+	}
+
+	.highlight-bg ::selection {
+		background-color: #292929 !important;
+		color: var(--range-handle-focus) !important;
+	}
 }
 
 @layer components {
-  .nav-active {
-    /* god is dead and we have killed him */
-    @apply  bg-highlight dark:bg-highlight-dark md:rounded-l-2xl md:rounded-br-none rounded-b-3xl relative shadow-highlight dark:shadow-highlight-dark
-        md:after:content-[''] md:after:absolute md:after:bg-transparent md:after:left-24 md:after:bottom-14 md:after:w-8 md:after:h-8 md:after:rounded-full md:after:-z-10 
-        md:dark:after:shadow-[-1rem_1rem_0px_#0f0f0f,8px_13px_0px_#1cd167] md:after:shadow-[-1rem_1rem_0px_#eeeeee,8px_13px_0px_#90d95b]
-        md:before:content-[''] md:before:absolute md:before:bg-transparent md:before:left-24 md:before:top-14 md:before:w-8 md:before:h-8 md:before:rounded-full md:before:-z-10 
-        md:dark:before:shadow-[-1rem_-1rem_0px_#0f0f0f,8px_-13px_0px_#1cd167] md:before:shadow-[-1rem_-1rem_0px_#eeeeee,8px_-13px_0px_#90d95b]
+	.nav-active {
+		/* god is dead and we have killed him */
+		@apply  bg-highlight dark:bg-highlight-dark md:rounded-l-2xl md:rounded-br-none rounded-b-3xl relative shadow-highlight dark:shadow-highlight-dark
+			md:after:content-[''] md:after:absolute md:after:bg-transparent md:after:left-24 md:after:bottom-14 md:after:w-8 md:after:h-8 md:after:rounded-full md:after:-z-10 
+			md:dark:after:shadow-[-1rem_1rem_0px_#0f0f0f,8px_13px_0px_#1cd167] md:after:shadow-[-1rem_1rem_0px_#eeeeee,8px_13px_0px_#90d95b]
+			md:before:content-[''] md:before:absolute md:before:bg-transparent md:before:left-24 md:before:top-14 md:before:w-8 md:before:h-8 md:before:rounded-full md:before:-z-10 
+			md:dark:before:shadow-[-1rem_-1rem_0px_#0f0f0f,8px_-13px_0px_#1cd167] md:before:shadow-[-1rem_-1rem_0px_#eeeeee,8px_-13px_0px_#90d95b]
 
-        after:content-[''] after:absolute after:bg-transparent after:left-12 after:bottom-[16px] after:w-8 after:h-8 after:rounded-full after:-z-10 
-        dark:after:shadow-[-18px_-12px_0px_#1cd167] after:shadow-[-18px_-12px_0px_#90d95b]
-        before:content-[''] before:absolute before:bg-transparent before:right-12 before:bottom-[16px] before:w-8 before:h-8 before:rounded-full before:-z-10 
-        dark:before:shadow-[18px_-12px_0px_#1cd167] before:shadow-[18px_-12px_0px_#90d95b]
-  }
+			after:content-[''] after:absolute after:bg-transparent after:left-12 after:bottom-[16px] after:w-8 after:h-8 after:rounded-full after:-z-10 
+			dark:after:shadow-[-18px_-12px_0px_#1cd167] after:shadow-[-18px_-12px_0px_#90d95b]
+			before:content-[''] before:absolute before:bg-transparent before:right-12 before:bottom-[16px] before:w-8 before:h-8 before:rounded-full before:-z-10 
+			dark:before:shadow-[18px_-12px_0px_#1cd167] before:shadow-[18px_-12px_0px_#90d95b]
+	}
 
-  .nav {
-    @apply md:h-14 md:w-32 md:min-h-[3.5rem] min-h-[3rem] min-w-[3rem] flex items-center md:pr-[60px] relative md:pl-4 md:my-2 mx-2 md:mx-0
-  }
+	.nav {
+		@apply md:h-14 md:w-32 md:min-h-[3.5rem] min-h-[3rem] min-w-[3rem] flex items-center md:pr-[60px] relative md:pl-4 md:my-2 mx-2 md:mx-0
+	}
 
-  .nav-active > a {@apply md:translate-x-1 translate-x-0 dark:hover:text-main-100 hover:text-contrast-100 dark:text-main-100 text-contrast-100 dark:brightness-100}
-
-
-  .Motors.my-8 {@apply order-1} 
-  .Frames.my-8 {@apply order-2} 
-  .Flight.Controllers.my-8 {@apply order-3} 
-  .ESCs.my-8 {@apply order-4}
-  .AIOs.my-8 {@apply order-5}
-  .Video.my-8 {@apply order-6} 
-  .Recommended.my-8 {@apply order-last}
+	.nav-active > a {@apply md:translate-x-1 translate-x-0 dark:hover:text-main-100 hover:text-contrast-100 dark:text-main-100 text-contrast-100 dark:brightness-100}
 
 
-  .collapsible.faq-active {
-    @apply after:content-['-'] translate-x-1
-  }
-  .collapsible {
-    @apply after:content-['+']
-  }
-
-  .content-box {@apply w-full p-4 md:p-8 flex flex-col items-center md:items-start}
-  /* defeats the point of tailwind but idk any other way */
-
-  .Starting.cat {
-    @apply text-violet border-violet
-  }
-  .Starting {
-    @apply order-1
-  }
-  .Starting.faq-active  {
-    @apply text-violet
-  }
-  .Starting.collapsible {
-    @apply hover:text-violet
-  }
-  .Starting .content {@apply shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#9550ba]}
+	.Motors.my-8 {@apply order-1} 
+	.Frames.my-8 {@apply order-2} 
+	.Flight.Controllers.my-8 {@apply order-3} 
+	.ESCs.my-8 {@apply order-4}
+	.AIOs.my-8 {@apply order-5}
+	.Video.my-8 {@apply order-6} 
+	.Recommended.my-8 {@apply order-last}
 
 
-  .Building.cat {
-    @apply text-red border-red
-  }
-  .Building {
-    @apply order-2
-  }
-  .Building.faq-active  {
-    @apply text-red
-  }
-  .Building.collapsible {
-    @apply hover:text-red
-  }
-  .Building .content {@apply shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#d6395b]}
+	.collapsible.faq-active {
+		@apply after:content-['-'] translate-x-1
+	}
+	.collapsible {
+		@apply after:content-['+']
+	}
 
-  .Betaflight.cat {
-    @apply text-yellow border-yellow
-  }
-  .Betaflight {
-    @apply order-3
-  }
-  .Betaflight.faq-active  {
-    @apply text-yellow
-  }
-  .Betaflight.collapsible {
-    @apply hover:text-yellow
-  }
-  .Betaflight .content {@apply shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#ffcc00]}
+	.content-box {@apply w-full p-4 md:p-8 flex flex-col items-center md:items-start}
+	/* defeats the point of tailwind but idk any other way */
 
-  .Video.cat {
-    @apply text-green border-green
-  }
-  .Transmitters.cat {
-    @apply text-main-200 dark:text-contrast-100
-  }
-  .Video.text-justify {
-    @apply order-4
-  }
-  .Video.faq-active  {
-    @apply text-green
-  }
-  .Video.collapsible {
-    @apply hover:text-green
-  }
-  .Video .content {@apply shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#87cc52]}
+	.Starting.cat {
+		@apply text-violet border-violet
+	}
+	.Starting {
+		@apply order-1
+	}
+	.Starting.faq-active  {
+		@apply text-violet
+	}
+	.Starting.collapsible {
+		@apply hover:text-violet
+	}
+	.Starting .content {@apply shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#9550ba]}
 
-  .Radio.cat {
-    @apply text-cyan border-cyan
-  }
-  .Radio.text-justify {
-    @apply order-5
-  }
-  .Radio.faq-active  {
-    @apply text-cyan
-  }
-  .Radio.collapsible {
-    @apply hover:text-cyan
-  }
-  .Radio .content {@apply shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#5ad8e6]}
 
-  .form {
-    @apply order-last
-  }
+	.Building.cat {
+		@apply text-red border-red
+	}
+	.Building {
+		@apply order-2
+	}
+	.Building.faq-active  {
+		@apply text-red
+	}
+	.Building.collapsible {
+		@apply hover:text-red
+	}
+	.Building .content {@apply shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#d6395b]}
 
-  .Hardware.cat{@apply text-blue border-blue}.Hardware{@apply order-6}.Hardware.faq-active{@apply text-blue}.Hardware.collapsible{@apply hover:text-blue}
+	.Betaflight.cat {
+		@apply text-yellow border-yellow
+	}
+	.Betaflight {
+		@apply order-3
+	}
+	.Betaflight.faq-active  {
+		@apply text-yellow
+	}
+	.Betaflight.collapsible {
+		@apply hover:text-yellow
+	}
+	.Betaflight .content {@apply shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#ffcc00]}
 
-  .card.red {@apply shadow-[0px_-23px_0px_#d6395b,0px_15px_50px_#1818184d]}.bulge.red{@apply bg-red after:shadow-red before:shadow-red}
-  .card.green {@apply shadow-[0px_-23px_0px_#87cc52,0px_15px_50px_#1818184d]}.bulge.green{@apply bg-green after:shadow-green before:shadow-green}
-  .card.orange {@apply shadow-[0px_-23px_0px_#ff9742,0px_15px_50px_#1818184d]}.bulge.orange{@apply bg-orange after:shadow-orange before:shadow-orange}
-  .card.blue {@apply shadow-[0px_-23px_0px_#00a0ff,0px_15px_50px_#1818184d]}.bulge.blue{@apply bg-blue after:shadow-blue before:shadow-blue}
-  .card.violet {@apply shadow-[0px_-23px_0px_#8c73ff,0px_15px_50px_#1818184d]}.bulge.violet{@apply bg-violet after:shadow-violet before:shadow-violet}
-  .card.yellow {@apply shadow-[0px_-23px_0px_#ffd600,0px_15px_50px_#1818184d]}.bulge.yellow{@apply bg-yellow after:shadow-yellow before:shadow-yellow}
-  .card.cyan {@apply shadow-[0px_-23px_0px_#5ad8e6,0px_15px_50px_#1818184d]}.bulge.cyan{@apply bg-cyan after:shadow-cyan before:shadow-cyan}
+	.Video.cat {
+		@apply text-green border-green
+	}
+	.Transmitters.cat {
+		@apply text-main-200 dark:text-contrast-100
+	}
+	.Video.text-justify {
+		@apply order-4
+	}
+	.Video.faq-active  {
+		@apply text-green
+	}
+	.Video.collapsible {
+		@apply hover:text-green
+	}
+	.Video .content {@apply shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#87cc52]}
 
-  .card.true {@apply hover:h-72}
+	.Radio.cat {
+		@apply text-cyan border-cyan
+	}
+	.Radio.text-justify {
+		@apply order-5
+	}
+	.Radio.faq-active  {
+		@apply text-cyan
+	}
+	.Radio.collapsible {
+		@apply hover:text-cyan
+	}
+	.Radio .content {@apply shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#5ad8e6]}
 
-  .link {@apply text-2xl bg-gradient-to-r bg-no-repeat bg-left-bottom bg-0w hover:bg-100w duration-300 w-fit pb-[-1rem] leading-tight}
+	.form {
+		@apply order-last
+	}
 
-  .link.red {@apply from-red to-red} .link.t-red {@apply text-red}
-  .link.green {@apply from-green to-green} .link.t-green {@apply text-green}
-  .link.orange {@apply from-orange to-orange} .link.t-orange {@apply text-orange}
-  .link.yellow {@apply from-yellow to-yellow} .link.t-yellow {@apply text-yellow}
-  .link.cyan {@apply from-cyan to-cyan} .link.t-cyan {@apply text-cyan}
-  .link.blue {@apply from-blue to-blue} .link.t-blue {@apply text-blue}
-  .link.violet {@apply from-violet to-violet} .link.t-violet {@apply text-violet}
+	.Hardware.cat{@apply text-blue border-blue}.Hardware{@apply order-6}.Hardware.faq-active{@apply text-blue}.Hardware.collapsible{@apply hover:text-blue}
 
-  .product.red {@apply border-red} .product.green {@apply border-green} .product.orange {@apply border-orange} 
-  .product.cyan {@apply border-cyan} .product.blue {@apply border-blue} .product.violet {@apply border-violet}
+	.card.red {@apply shadow-[0px_-23px_0px_#d6395b,0px_15px_50px_#1818184d]}.bulge.red{@apply bg-red after:shadow-red before:shadow-red}
+	.card.green {@apply shadow-[0px_-23px_0px_#87cc52,0px_15px_50px_#1818184d]}.bulge.green{@apply bg-green after:shadow-green before:shadow-green}
+	.card.orange {@apply shadow-[0px_-23px_0px_#ff9742,0px_15px_50px_#1818184d]}.bulge.orange{@apply bg-orange after:shadow-orange before:shadow-orange}
+	.card.blue {@apply shadow-[0px_-23px_0px_#00a0ff,0px_15px_50px_#1818184d]}.bulge.blue{@apply bg-blue after:shadow-blue before:shadow-blue}
+	.card.violet {@apply shadow-[0px_-23px_0px_#8c73ff,0px_15px_50px_#1818184d]}.bulge.violet{@apply bg-violet after:shadow-violet before:shadow-violet}
+	.card.yellow {@apply shadow-[0px_-23px_0px_#ffd600,0px_15px_50px_#1818184d]}.bulge.yellow{@apply bg-yellow after:shadow-yellow before:shadow-yellow}
+	.card.cyan {@apply shadow-[0px_-23px_0px_#5ad8e6,0px_15px_50px_#1818184d]}.bulge.cyan{@apply bg-cyan after:shadow-cyan before:shadow-cyan}
 
-  .group.Gamepad {
-    @apply order-1
-  }
-  .group.Compact {
-    @apply order-2
-  }
-  .group.Full {
-    @apply order-3
-  }
-  .group.Info {
-    @apply order-last
-  }
+	.card.true {@apply hover:h-72}
 
-  .category.Radios {
-    @apply order-1
-  }
+	.link {@apply text-2xl bg-gradient-to-r bg-no-repeat bg-left-bottom bg-0w hover:bg-100w duration-300 w-fit pb-[-1rem] leading-tight}
 
-  .category.TX {
-    @apply order-2
-  }
+	.link.red {@apply from-red to-red} .link.t-red {@apply text-red}
+	.link.green {@apply from-green to-green} .link.t-green {@apply text-green}
+	.link.orange {@apply from-orange to-orange} .link.t-orange {@apply text-orange}
+	.link.yellow {@apply from-yellow to-yellow} .link.t-yellow {@apply text-yellow}
+	.link.cyan {@apply from-cyan to-cyan} .link.t-cyan {@apply text-cyan}
+	.link.blue {@apply from-blue to-blue} .link.t-blue {@apply text-blue}
+	.link.violet {@apply from-violet to-violet} .link.t-violet {@apply text-violet}
 
-  .category.Receivers {
-	@apply order-3
-  }
+	.product.red {@apply border-red} .product.green {@apply border-green} .product.orange {@apply border-orange} 
+	.product.cyan {@apply border-cyan} .product.blue {@apply border-blue} .product.violet {@apply border-violet}
 
-  .ml-4.md {
-    @apply origin-top-left scale-90
-  }
+	.group.Gamepad {
+		@apply order-1
+	}
+	.group.Compact {
+		@apply order-2
+	}
+	.group.Full {
+		@apply order-3
+	}
+	.group.Info {
+		@apply order-last
+	}
 
-  .article-card.Guides {
-    @apply shadow-[0_10px_30px_#00000059,-6px_0px_0px_0px_#87cc52]
-  }
-  .article-card.Tutorials {
-    @apply shadow-[0_10px_30px_#00000059,-6px_0px_0px_0px_#5ad8e6]
-  }
-  .article-card.News {
-    @apply shadow-[0_10px_30px_#00000059,-6px_0px_0px_0px_#d6395b]
-  }
-  .article-card.Reviews {
-    @apply shadow-[0_10px_30px_#00000059,-6px_0px_0px_0px_#ffcc00]
-  }
-  .article-card.Misc {
-    @apply shadow-[0_10px_30px_#00000059,-6px_0px_0px_0px_#9550ba]
-  }
+	.category.Radios {
+		@apply order-1
+	}
 
-  .card-gradient.Guides {
-    @apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-green/50 to-green/50
-  }
-  .card-gradient.Tutorials {
-    @apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-cyan/50 to-cyan/50
-  }
-  .card-gradient.News {
-    @apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-red/50 to-red/50
-  }
-  .card-gradient.Reviews {
-    @apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-yellow/50 to-yellow/50
-  }
-  .card-gradient.Misc {
-    @apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-violet/50 to-violet/50
-  }
+	.category.TX {
+		@apply order-2
+	}
 
-  /* markdown styles */
-  code {@apply dark:bg-neutral-800 bg-neutral-200 p-1 rounded-md}
-  .md h1 {@apply text-4xl my-3 tracking-wide mt-12}
-  .md h1:first-child {@apply mt-0}
-  .md h2 {@apply text-3xl my-3 tracking-wide mt-8}
-  .mď h2:first-child {@apply mt-0}
-  .md h3 {@apply text-2xl my-2 tracking-wide}
-  .md h4 {@apply font-semibold my-2 tracking-wide}
-  .md h5 {@apply font-semibold text-green my-2 tracking-wide}
-  .md h6 {@apply font-semibold text-red my-2 tracking-wide}
-  .md hr {@apply border-t-2 border-gray-500/50 my-2}
-  .md p {@apply my-2 text-base md:text-lg}
-  .md li p {@apply my-0}
-  .md blockquote {@apply border-l-4 border-gray-500/50 p-2 ml-6 my-2 bg-neutral-500/10 w-fit rounded-lg}
-  .md ul {@apply list-disc ml-6 my-4}
-  .md ol {@apply list-decimal ml-6 my-4 mb-6}
-  .md ol li p {@apply pl-3}
-  .md li {@apply my-2}
-  .md a {@apply text-base md:text-lg text-highlight bg-gradient-to-r bg-no-repeat bg-left-bottom from-highlight to-highlight bg-0w hover:bg-100w duration-300 w-fit pb-[-1rem] leading-tight}
-  .md pre {@apply whitespace-pre-line}
-  .md pre code {@apply block}
-  .md br+code {@apply block}
-  .md img {@apply rounded-md shadow-2xl my-8 h-auto origin-left md:w-3/5 w-full}
+	.category.Receivers {
+		@apply order-3
+	}
+
+	.ml-4.md {
+		@apply origin-top-left scale-90
+	}
+
+	.article-card.Guides {
+		@apply shadow-[0_10px_30px_#00000059,-6px_0px_0px_0px_#87cc52]
+	}
+	.article-card.Tutorials {
+		@apply shadow-[0_10px_30px_#00000059,-6px_0px_0px_0px_#5ad8e6]
+	}
+	.article-card.News {
+		@apply shadow-[0_10px_30px_#00000059,-6px_0px_0px_0px_#d6395b]
+	}
+	.article-card.Reviews {
+		@apply shadow-[0_10px_30px_#00000059,-6px_0px_0px_0px_#ffcc00]
+	}
+	.article-card.Misc {
+		@apply shadow-[0_10px_30px_#00000059,-6px_0px_0px_0px_#9550ba]
+	}
+
+	.card-gradient.Guides {
+		@apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-green/50 to-green/50
+	}
+	.card-gradient.Tutorials {
+		@apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-cyan/50 to-cyan/50
+	}
+	.card-gradient.News {
+		@apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-red/50 to-red/50
+	}
+	.card-gradient.Reviews {
+		@apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-yellow/50 to-yellow/50
+	}
+	.card-gradient.Misc {
+		@apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-violet/50 to-violet/50
+	}
+
+	/* markdown styles */
+	code {@apply dark:bg-neutral-800 bg-neutral-200 p-1 rounded-md}
+	.md h1 {@apply text-4xl my-3 tracking-wide mt-12}
+	.md h1:first-child {@apply mt-0}
+	.md h2 {@apply text-3xl my-3 tracking-wide mt-8}
+	.mď h2:first-child {@apply mt-0}
+	.md h3 {@apply text-2xl my-2 tracking-wide}
+	.md h4 {@apply font-semibold my-2 tracking-wide}
+	.md h5 {@apply font-semibold text-green my-2 tracking-wide}
+	.md h6 {@apply font-semibold text-red my-2 tracking-wide}
+	.md hr {@apply border-t-2 border-gray-500/50 my-2}
+	.md p {@apply my-2 text-base md:text-lg}
+	.md li p {@apply my-0}
+	.md blockquote {@apply border-l-4 border-gray-500/50 p-2 ml-6 my-2 bg-neutral-500/10 w-fit rounded-lg}
+	.md ul {@apply list-disc ml-6 my-4}
+	.md ol {@apply list-decimal ml-6 my-4 mb-6}
+	.md ol li p {@apply pl-3}
+	.md li {@apply my-2}
+	.md a {@apply text-base md:text-lg text-highlight bg-gradient-to-r bg-no-repeat bg-left-bottom from-highlight to-highlight bg-0w hover:bg-100w duration-300 w-fit pb-[-1rem] leading-tight}
+	.md pre {@apply whitespace-pre-line}
+	.md pre code {@apply block}
+	.md br+code {@apply block}
+	.md img {@apply rounded-md shadow-2xl my-8 h-auto origin-left md:w-3/5 w-full}
 }
