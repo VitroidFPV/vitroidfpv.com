@@ -29,7 +29,7 @@
 	<div class="flex flex-col w-full relative">
 		<div class="mt-64 md:mb-24 mb-16 w-fit z-20">
 			<h1
-				class="md:text-[180px] text-[90px] caveat h-fit w-fit leading-none dark:text-highlight-dark hover:ml-4 duration-500">
+				class="md:text-[180px] text-[90px] font-caveat h-fit w-fit leading-none dark:text-highlight-dark hover:ml-4 duration-500">
 				Vitroid FPV
 			</h1>
 		</div>

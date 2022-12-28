@@ -3,6 +3,10 @@ module.exports = {
 	content: ["./src/**/*.{html,js,svelte}"],
 	theme: {
 		extend: {
+			fontFamily: {
+				"reem-kufi": ["Reem Kufi", "sans-serif"],
+				"caveat": ["Caveat-Bold"],
+			},
 			colors: {
 				highlight: "#90d95b",
 				"highlight-dark": "#2ad162",

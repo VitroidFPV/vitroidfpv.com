@@ -3,15 +3,25 @@
 @tailwind utilities;
 
 @layer base {
+
+	@font-face {
+		font-family: 'Reem Kufi';
+		src: url('/fonts/ReemKufi-Regular.ttf') format('truetype');
+		font-weight: 400;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: "Caveat-Bold";
+		src: url("uploads/fonts/Caveat-Bold.ttf") format("truetype");
+		font-weight: 400;
+		font-style: normal;
+	}
 	html {
 		font-family: Reem Kufi, Reem Kufi, sans-serif;
 		scroll-behavior: smooth;
 	}
 	body {
 		overscroll-behavior-y: none;
-	}
-	.caveat {
-		font-family: 'Caveat', cursive;
 	}
 
 	#sliderCell, #sliderCell1 {
