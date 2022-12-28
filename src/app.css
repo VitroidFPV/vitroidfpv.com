@@ -6,7 +6,7 @@
 
 	@font-face {
 		font-family: 'Reem Kufi';
-		src: url('/fonts/ReemKufi-Regular.ttf') format('truetype');
+		src: url('/uploads/fonts/ReemKufi-Regular.ttf') format('truetype');
 		font-weight: 400;
 		font-style: normal;
 	}
