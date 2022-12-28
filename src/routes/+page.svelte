@@ -27,19 +27,19 @@
 
 <div class="flex flex-col w-full overflow-hidden">
 	<div class="flex flex-col w-full relative">
-		<div class="mt-64 md:mb-24 mb-16 w-fit z-10">
+		<div class="mt-64 md:mb-24 mb-16 w-fit z-20">
 			<h1
-				class="md:text-[180px] text-[100px] caveat h-fit w-fit leading-none dark:text-highlight-dark">
+				class="md:text-[180px] text-[90px] caveat h-fit w-fit leading-none dark:text-highlight-dark hover:ml-4 duration-500">
 				Vitroid FPV
 			</h1>
 		</div>
-		<div class="absolute w-full h-full flex top-20">
+		<div class="absolute w-full h-full flex md:top-20 top-28">
 			<div style="-webkit-mask-image: linear-gradient(transparent, black, transparent);"
-				class="absolute w-full h-full dark:bg-grid-dark bg-grid-light bg-repeat dark:opacity-[.15] opacity-60">
+				class="absolute w-full h-full dark:bg-grid-dark bg-grid-light bg-repeat dark:opacity-[.15] opacity-60 z-10 pointer-events-none">
 				<!-- <div class="h-full aspect-square bg-red/5"></div> -->
 			</div>
 			<div class="absolute w-full h-full">
-				<svg width="1024" height="360" viewBox="0 0 1024 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full blur-3xl h-full scale-x-125 dark:saturate-100 saturate-[3] dark:opacity-70 opacity-100">
+				<svg width="1024" height="360" viewBox="0 0 1024 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full md:blur-3xl blur-2xl md:h-full md:scale-x-125 md:dark:saturate-100 saturate-[3] dark:opacity-70 opacity-100">
 					<g opacity="0.5" clip-path="url(#clip0_1_2)">
 						<rect width="433.919" height="307.42" transform="matrix(0.652501 0.757788 -0.918405 0.395643 223.833 -50.3698)" fill="url(#paint0_radial_1_2)" />
 						<rect width="539.073" height="235.273" transform="matrix(0.979338 0.202229 -0.381519 0.924361 132.254 83.877)" fill="url(#paint1_radial_1_2)" />
@@ -175,7 +175,7 @@
 			</div>
 		</div>
 		<div
-			class="md:w-96 mr-8 w-1/3 flex md:flex-row flex-col md:justify-around justify-between items-center md:h-fit h-96 mt-16">
+			class="md:w-96 mr-8 w-1/4 flex md:flex-row flex-col md:justify-around justify-between items-center md:h-fit h-96 mt-16">
 			<svg
 				class="h-fit w-fit relative scale-50 -rotate-12 fill-black/20 hover:-translate-y-2 duration-300 dark:fill-white/20"
 				height="300"

@@ -7,6 +7,9 @@
 		font-family: Reem Kufi, Reem Kufi, sans-serif;
 		scroll-behavior: smooth;
 	}
+	body {
+		overscroll-behavior-y: none;
+	}
 	.caveat {
 		font-family: 'Caveat', cursive;
 	}
