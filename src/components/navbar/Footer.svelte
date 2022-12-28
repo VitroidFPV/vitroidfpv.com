@@ -62,7 +62,7 @@
 	<div class="w-full min-h-32 dark:bg-[#171b18] bg-[#2C4938] md:pl-48 md:pb-8 pb-28 md:px-8">
 		<div class="text-contrast-100 flex md:flex-row flex-col md:items-start items-center">
 			<div
-				class="justify-self-center text-6xl caveat text-contrast-200 w-fit my-4 md:mr-12">
+				class="justify-self-center text-6xl font-caveat text-contrast-200 w-fit my-4 md:mr-12">
 				Vitroid FPV
 			</div>
 
