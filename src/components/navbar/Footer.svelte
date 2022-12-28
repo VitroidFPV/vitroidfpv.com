@@ -62,7 +62,7 @@
 	<div class="w-full min-h-32 dark:bg-[#171b18] bg-[#2C4938] md:pl-48 md:pb-8 pb-28 md:px-8">
 		<div class="text-contrast-100 flex md:flex-row flex-col md:items-start items-center">
 			<div
-				class="justify-self-center text-6xl caveat text-contrast-200 w-fit my-4 mr-12">
+				class="justify-self-center text-6xl caveat text-contrast-200 w-fit my-4 md:mr-12">
 				Vitroid FPV
 			</div>
 
@@ -99,7 +99,7 @@
 
 			<div class="flex flex-col md:w-64 my-4">
 				<div class="text-2xl md:text-left text-center">Socials:</div>
-				<div class="grid grid-rows-3 grid-cols-2 w-fit">
+				<div class="grid grid-rows-2 grid-cols-3 w-fit">
 					<div class="h-16 w-16 mr-2 mb-2">
 						<a
 							href="https://discord.gg/fpv"
@@ -119,6 +119,14 @@
 								class="h-12 w-12 bg-[url('https://img.icons8.com/material-rounded/64/eeeeee/discord-logo.png')] bg-no-repeat bg-contain bg-center"
 							/>
 							<div class="text-xs opacity-50">UAVFutures</div>
+						</a>
+					</div>
+					<div class="w-16 mr-2 mb-2">
+						<a
+							href="https://www.youtube.com/@VitroidFPV"
+							class="w-fit h-fit flex flex-col items-center opacity-90 hover:opacity-100 duration-100 mr-4 text-[0px] leading-none">
+							YouTube
+							<div class="h-12 w-12 bg-[url('https://img.icons8.com/material-rounded/64/eeeeee/youtube-play.png')] bg-no-repeat bg-contain bg-center"/>
 						</a>
 					</div>
 					<div class="w-16 mr-2 mb-2">
@@ -143,25 +151,17 @@
 					</div>
 					<div class="w-16 mr-2 mb-2">
 						<a
-							href="/"
-							class="w-fit h-fit flex flex-col items-center opacity-90 hover:opacity-100 duration-100 mr-4 text-[0px] leading-none">
-							YouTube
-							<div class="h-12 w-12 bg-[url('https://img.icons8.com/material-rounded/64/eeeeee/youtube-play.png')] bg-no-repeat bg-contain bg-center"/>
-						</a>
-					</div>
-					<div class="w-16 mr-2 mb-2">
-						<a
-							href="/"
+							href="https://github.com/VitroidFPV/VitroidFPV"
 							class="w-fit h-fit flex flex-col items-center opacity-90 hover:opacity-100 duration-100 mr-4 mb-3 text-[0px] leading-none">
-							Reddit
-							<div class="h-12 w-12 bg-[url('https://img.icons8.com/ios-filled/64/eeeeee/reddit--v1.png')] bg-no-repeat bg-contain bg-center"/>
+							GitHub
+							<div class="h-12 w-12 bg-[url('https://img.icons8.com/ios-filled/64/eeeeee/github--v1.png')] bg-no-repeat bg-contain bg-center"/>
 						</a>
 					</div>
 				</div>
 			</div>
 
 			<div class="flex md:flex-col">
-				<div class="flex flex-col mr-8">
+				<!-- <div class="flex flex-col mr-8">
 					<div class="text-2xl text-center md:text-left">Links:</div>
 					<ul class="text-base text-center md:text-left">
 						<li>
@@ -180,7 +180,7 @@
 							</a>
 						</li>
 					</ul>
-				</div>
+				</div> -->
 
 				<div class="flex flex-col mt-2">
 					<div class="text-2xl text-center md:text-left">Other resources:</div>
