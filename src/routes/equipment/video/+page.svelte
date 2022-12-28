@@ -69,9 +69,9 @@
 	let titleRaw = "Video Equipment";
 	let title = " - " + titleRaw;
 	let color = "#87cc52";
-	let img = "/uploads/images/radio_512.png";
+	let img = "/uploads/images/goggles_512.png";
 	let description =
-		"Cameras, goggles, antennas, video receivers, and any other misc accessories for all of your video equipment. Can't have FPV without the \"view\" part (sorry I'll stop)";
+		"Cameras, goggles, antennas, video receivers, and any other misc accessories for all of your video equipment. Can't have FPV without the \"view\" part";
 </script>
 
 <svelte:head>
