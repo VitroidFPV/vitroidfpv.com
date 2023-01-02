@@ -87,4 +87,44 @@ content: >-
 
 
   Taking the maximum possible C rating (75C), multiplying by 2 to give us 150C, and thus we need at least a 1000mAh battery to be able to output that 150A of current that's being drawn by the motors. You can of course pick a higher C-rated battery, but as said earlier, anything above ~75C is usually just for marketing. You can also go up in capacity, but there are diminishing returns with extra weight
+
+
+  # Charging
+
+
+  Now that you know the basic battery information, let's get into how to charge them without starting a fire. Battery misuse (especially during charging) can easily and very quickly result in a lot of damage. Knowing what you're doing is very important
+
+
+  Hopefully, you have a decent charger by now. If you do not, you can find a list of some decent ones here (if I remember to put in the link). So, let's get into the basics:
+
+
+  ## Basic charging principles
+
+
+  The charger is pretty much a more intelligent power supply. In goes a regulated 12-24V from a PSU, and out goes at a set voltage with a set current until the battery is at the set voltage. But you should know that there are a few charging modes that you will inevitably use:
+
+
+  * Balance Charge - What you should be using most of the time. It checks every cell using the balance plug of the battery and charges each one to the set voltage. A non-balanced battery is a dangerous battery
+
+  * Storage charge - Will either charge or discharge depending on the voltage of the cell to get it down to the set storage voltage. The storage voltage is often times equal to the nominal voltage (3.7V) and is used to preserve the life of the battery
+
+  * Discharge - Hopefully self-explanatory. Discharges the battery either to a set minimum voltage or until 0V to practically kill it. Useful for safely getting rid of old batteries
+
+
+  ## Charger paramaters
+
+
+  There are basic values you should set before charging and watch out for during charging. Some of these may be repeated from the battery info section, but specified for charging:
+
+
+  * Chemistry - Refers to the battery you're charging, likely LiPo or Li-Ion, or some other exotic battery you may want to charge
+
+  * Max cell voltage - For LiPo's and most Li-Ion's is 4.2V which should be the default on the charger. The voltage most often printed on batteries is the nominal voltage, but you don't want to enter this as the max cell voltage. It wouldn't cause any harm, but you'd end up with a half-full battery
+
+  * Cell count - The cell count on batteries is in series. A 1s battery has only one cell, 6s has 6 cells, and so on. This is what you enter as the Cell count. See the image below once again for a simple explanation of series connection and its effects on voltage
+
+    ![](/uploads/battery_anatomy_nominal.png)
+  * Charge current - Depends on the capacity of the battery (usually in mAh) and the C rate. Also above for the battery info, but I'll throw it here too, specifically for charging: \
+    To get the charge current, multiply the battery capacity in Ah with the C rate (ideally use 1C, but you can go higher if time constrained). A 1300mAh battery at 1C will be charged at 1.3A `(1.3 × 1)`, at 2C it'll be 2.6A `(1.3 × 2)`, etc...
+  * Internal resistance - Usually measured while charging, some chargers may have a dedicated IR measuring mode. Used as a rough estimate of battery health - Under 10mΩ is great, under 20mΩ is fine, above 20 isn't great, and you should retire the battery
 ---
