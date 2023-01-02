@@ -125,6 +125,6 @@ content: >-
 
     ![](/uploads/battery_anatomy_nominal.png)
   * Charge current - Depends on the capacity of the battery (usually in mAh) and the C rate. Also above for the battery info, but I'll throw it here too, specifically for charging: \
-    To get the charge current, multiply the battery capacity in Ah with the C rate (ideally use 1C, but you can go higher if time constrained). A 1300mAh battery at 1C will be charged at 1.3A `(1.3 × 1)`, at 2C it'll be 2.6A `(1.3 × 2)`, etc...
+    To get the charge current, multiply the battery capacity in Ah with the C rate (ideally use 1C, but you can go higher if time constrained). A 1300mAh battery at 1C will be charged at 1.3A (1.3 × 1), at 2C it'll be 2.6A (1.3 × 2), etc...
   * Internal resistance - Usually measured while charging, some chargers may have a dedicated IR measuring mode. Used as a rough estimate of battery health - Under 10mΩ is great, under 20mΩ is fine, above 20 isn't great, and you should retire the battery
 ---
