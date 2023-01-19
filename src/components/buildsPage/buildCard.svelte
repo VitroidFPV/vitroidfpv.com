@@ -16,7 +16,7 @@
 </script>
 
 <div
-	class="bg-contrast-300 dark:bg-main-300 my-8 mx-4 w-72 h-36 hover:h-96 rounded-[1.5rem] card {color} {short} shadow-[0px_-22px_0px,0px_25px_50px_-15px_#181818] duration-500 relative flex flex-col items-center group hover:delay-[0ms] delay-500">
+	class="bg-contrast-300 dark:bg-main-300 my-8 md:mr-8 mr-4 md:ml-0 ml-4 w-72 h-36 hover:h-96 rounded-[1.5rem] card {color} {short} shadow-[0px_-22px_0px,0px_25px_50px_-15px_#181818] duration-500 relative flex flex-col items-center group hover:delay-[0ms] delay-500">
 	<div
 		class="bulge {color} w-40 h-20 rounded-b-[2rem] absolute
 			before:content-[''] before:absolute before:bg-transparent before:rounded-full before:w-12 before:h-12 before:-left-12 before:shadow-[22px_-22px_0px]

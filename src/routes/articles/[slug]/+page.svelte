@@ -127,7 +127,6 @@
 		<div class="flex flex-col md:mr-8 mr-0">
 			<div class="flex flex-col pr-0 article-card {slugModule.metadata.category} rounded-2xl mb-8 w-fit">
 				<div on:click={() => (imgOpen = !imgOpen)} class="rounded-2xl {slugModule.metadata.category} relative select-none group overflow-hidden">
-					<div class:img-open={imgOpen} enabled=true class="absolute card-gradient {slugModule.metadata.category} w-full h-full rounded-2xl opacity-100 origin-left group-hover:scale-x-0 group-hover:blur-sm hover:backdrop-saturate-100 blur-none duration-500 z-10 backdrop-saturate-0"></div>
 					<img src="{slugModule.metadata.img}" alt="" class="aspect-[2/1] h-[34rem] object-cover object-center rounded-2xl duration-500">
 				</div>
 			</div>

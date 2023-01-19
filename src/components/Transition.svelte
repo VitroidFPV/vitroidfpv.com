@@ -1,10 +1,10 @@
 <script>
-	import { fly } from "svelte/transition";
+	import { fly, fade } from "svelte/transition";
 	export let refresh = "";
 </script>
 
 {#key refresh}
-	<div in:fly={{ x: -10, duration: 500 }}>
+	<div in:fade={{duration: 500 }} class="w-full">
 		<slot />
 	</div>
 {/key}

@@ -13,6 +13,7 @@
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/adapter-static": "^1.0.0-next.34",
     "@sveltejs/kit": "next",
+    "@types/color": "^3.0.3",
     "autoprefixer": "^10.4.4",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
@@ -40,6 +41,7 @@
     "svelte-collapsible": "^0.2.1",
     "svelte-intersection-observer": "^0.10.0",
     "svelte-markdown": "^0.2.3",
-    "svelte-range-slider-pips": "^2.0.3"
+    "svelte-range-slider-pips": "^2.0.3",
+    "tinycolor2": "^1.5.2"
   }
 }

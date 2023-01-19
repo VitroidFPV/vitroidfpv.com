@@ -19,7 +19,7 @@
 	class:hidden={!ready}
 	class="dark:bg-main-400 bg-contrast-50 text-main-200 dark:text-contrast-50 text-lg scroll-smooth body-box"
 >
-	<div class="flex md:flex-row flex-col-reverse h-fit w-full page-box">
+	<div class="flex md:flex-row flex-col-reverse h-fit page-box min-w-full">
 		<Nav />
 		<Transition refresh={$page.url.pathname}>
 			<slot />

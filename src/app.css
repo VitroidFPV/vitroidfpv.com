@@ -128,7 +128,9 @@
 		@apply after:content-['+']
 	}
 
-	.content-box {@apply w-full p-4 md:p-8 flex flex-col items-center md:items-start}
+	.content-box {
+		@apply w-full p-4 md:p-8 flex flex-col items-center md:items-start
+		}
 	/* defeats the point of tailwind but idk any other way */
 
 	.Starting.cat {
