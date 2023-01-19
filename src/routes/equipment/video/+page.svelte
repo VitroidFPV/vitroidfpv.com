@@ -3,6 +3,7 @@
 	import MainHeader from "$components/mainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
+	import tinycolor from "tinycolor2";
 
 	import { marked } from "marked";
 	marked.setOptions({
@@ -69,6 +70,8 @@
 	let titleRaw = "Video Equipment";
 	let title = " - " + titleRaw;
 	let color = "#87cc52";
+	let color1 = tinycolor(color).lighten(20).spin(10).toHexString();
+	let color2 = tinycolor(color).darken(20).spin(10).toHexString();
 	let img = "/uploads/images/goggles_512.png";
 	let description =
 		"Cameras, goggles, antennas, video receivers, and any other misc accessories for all of your video equipment. Can't have FPV without the \"view\" part";
@@ -90,8 +93,81 @@
 	<meta name="theme-color" content={color} />
 </svelte:head>
 
+<div class="overflow-x-clip h-fit">
+	<div class="flex flex-col w-full relative">
+		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
+			<div class="flex flex-col md:flex-row items-center w-fit">
+				<h1
+					class="md:text-[130px] text-[70px] h-min w-fit mb-2 md:-ml-3 leading-none text-green duration-500">
+					{titleRaw}
+				</h1>
+			</div>
+			<Header text={"Put the \"V\" in FPV"} />
+			<p class="text-xl md:w-1/2 md:px-0 px-4">
+				{description}<br><br>
+				If you're trying to decide, or don't even have any prior experience, this list will hopefully help you!<br><br>
+				Prices may depend on where and when you source the parts, (prices and specs are sourced from the manufacturers website at the time of the writing when possible)
+				<ul class="flex flex-row justify-between w-fit flex-wrap mt-4">
+					<li
+						class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-green before:relative mb-2 mr-8">
+						Budget
+					</li>
+					<li
+						class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-orange before:relative mb-2 mr-8">
+						Mid-range
+					</li>
+					<li
+						class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-red before:relative mb-2 mr-8">
+						High-end
+					</li>
+					<li
+						class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-violet before:relative mb-2">
+						Highly varied
+					</li>
+				</ul>
+		</div>
+		<div class="absolute w-full h-full pointer-events-none">
+			<div style="-webkit-mask-image: linear-gradient(transparent, black, transparent);"
+				class="absolute w-full h-[150%] dark:bg-grid-dark bg-grid-light bg-repeat dark:opacity-[.15] opacity-60 z-10 pointer-events-none">
+				<!-- <div class="h-full aspect-square bg-red/5"></div> -->
+			</div>
+			<div class="absolute w-full top-20">
+				<svg width="1024" height="360" viewBox="0 0 1024 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full -rotate-12 md:blur-3xl blur-2xl md:h-full md:scale-x-125 md:scale-y-100 scale-y-200 dark:saturate-100 dark:opacity-70 opacity-200">
+					<g opacity="0.5" clip-path="url(#clip0_1_2)">
+						<rect width="433.919" height="307.42" transform="matrix(0.652501 0.757788 -0.918405 0.395643 223.833 -50.3698)" fill="url(#paint0_radial_1_2)" />
+						<rect width="539.073" height="235.273" transform="matrix(0.979338 0.202229 -0.381519 0.924361 132.254 83.877)" fill="url(#paint1_radial_1_2)" />
+						<rect width="404.121" height="312.353" transform="matrix(-0.658984 -0.752157 0.946257 -0.323417 846.453 402.448)" fill="url(#paint2_radial_1_2)" />
+						<rect width="513.135" height="262.577" rx="109.572" transform="matrix(-0.977818 -0.209455 0.481307 -0.876552 861.081 275.469)" fill="url(#paint3_radial_1_2)" />
+					</g>
+					<defs>
+						<radialGradient id="paint0_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(216.96 153.71) scale(216.96 153.71)">
+							<stop stop-color="{color1}" />
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<radialGradient id="paint1_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(269.537 117.636) scale(269.537 117.636)">
+							<stop stop-color="{color}"/>
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<radialGradient id="paint2_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(202.06 156.176) scale(202.06 156.176)">
+							<stop stop-color="{color}"/>
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<radialGradient id="paint3_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256.567 131.288) scale(256.567 131.288)">
+							<stop stop-color="{color2}"/>
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<clipPath id="clip0_1_2">
+							<rect width="1024" height="360" fill="white" />
+						</clipPath>
+					</defs>
+				</svg>
+			</div>
+		</div>
+	</div>
+</div>
+
 <div class="content-box">
-	<MainHeader>{titleRaw}</MainHeader>
+	<!-- <MainHeader>{titleRaw}</MainHeader>
 	<Header text={"Put the \"V\" in FPV"} />
 	<Paragraph>
 		{description}<br>
@@ -111,7 +187,7 @@
 			Highly varied
 		</li>
 	</ul>
-	</Paragraph>
+	</Paragraph> -->
 
 	{#each Object.entries(sorted_grouped_modules) as [cat, contents]}
 		<div class="{cat} category my-8 w-full h-fit flex flex-col">
