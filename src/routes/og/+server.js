@@ -46,12 +46,12 @@ function setTemplate(title, description, category, img) {
 		<path d="M0 204L57.2 205.7C114.3 207.3 228.7 210.7 343 216.2C457.3 221.7 571.7 229.3 686 232.7C800.3 236 914.7 235 1028.8 232.2C1143 229.3 1257 224.7 1371.2 222.8C1485.3 221 1599.7 222 1714 220.8C1828.3 219.7 1942.7 216.3 2057 219.2C2171.3 222 2285.7 231 2342.8 235.5L2400 240L2400 301L2342.8 301C2285.7 301 2171.3 301 2057 301C1942.7 301 1828.3 301 1714 301C1599.7 301 1485.3 301 1371.2 301C1257 301 1143 301 1028.8 301C914.7 301 800.3 301 686 301C571.7 301 457.3 301 343 301C228.7 301 114.3 301 57.2 301L0 301Z" fill="${categoryColor[3]}"/>
 		<path d="M0 267L57.2 261.2C114.3 255.3 228.7 243.7 343 242C457.3 240.3 571.7 248.7 686 253.7C800.3 258.7 914.7 260.3 1028.8 262.8C1143 265.3 1257 268.7 1371.2 264.8C1485.3 261 1599.7 250 1714 245.8C1828.3 241.7 1942.7 244.3 2057 246.8C2171.3 249.3 2285.7 251.7 2342.8 252.8L2400 254L2400 301L2342.8 301C2285.7 301 2171.3 301 2057 301C1942.7 301 1828.3 301 1714 301C1599.7 301 1485.3 301 1371.2 301C1257 301 1143 301 1028.8 301C914.7 301 800.3 301 686 301C571.7 301 457.3 301 343 301C228.7 301 114.3 301 57.2 301L0 301Z" fill="${categoryColor[4]}"/>
 		</svg>
-		<div tw="flex justify-between max-h-56 h-fit w-full items-start p-8" style="background-color: ${categoryColor[4]};">
+		<div tw="flex justify-between max-h-64 h-fit w-full items-start p-8" style="background-color: ${categoryColor[4]};">
 			<div tw="flex flex-col">
-				<div tw="text-6xl flex" style="color: ${categoryColor[0]}">${title}</div>
-				<div tw="text-4xl text-white flex">${description}</div>
+				<div tw="text-6xl flex max-w-[50rem]" style="color: ${categoryColor[0]}">${title}</div>
+				<div tw="text-4xl text-white flex pb-2">${description}</div>
 			</div>
-			<div tw="mx-3 flex h-full items-center text-6xl" style="font-family: "Caveat"; color: ${categoryColor[0]}">VitroidFPV</div>
+			<div tw="mx-3 px-3 flex h-full items-center text-[70px]" style="font-family: "Caveat"; color: ${categoryColor[0]}">VitroidFPV</div>
 		</div>
 	</div>
 	`

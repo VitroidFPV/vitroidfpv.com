@@ -1,13 +1,14 @@
 <script>
-	import { page } from '$app/stores';
+	import { page } from "$app/stores";
 	import BuildProduct from "$components/buildsPage/buildProduct.svelte";
 	import MainHeader from "$components/mainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
 
-	import { marked } from 'marked';
-	import { onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
+	import { marked } from "marked";
+	import { onMount } from "svelte";
+	import { fade } from "svelte/transition";
+	import removeMarkdown from "remove-markdown";
 
 	const modules = import.meta.glob("/modules/articles/*.md", {eager: true});
 	// console.log(JSON.stringify(modules, null, 2));
@@ -55,7 +56,7 @@
 			heading: `${ flag.length }`,
 			content,
 		}))
-	console.log(headers)
+	// console.log(headers)
 
 	let intersecionOptions = {
 		root: null,
@@ -100,8 +101,13 @@
 	if (imgRaw.startsWith("/")) {
 		img = "https://vitroidfpv-sv.netlify.app" + imgRaw
 	}
-	let description = slugModule.metadata.description;
+	let description = `
+		${slugModule.metadata.description}
+		${removeMarkdown(slugModule.metadata.content).slice(0, 250) + "..."}
+		`;
 	let category = slugModule.metadata.category;
+
+	console.log(description)
 
 	let imgOg = `https://vitroidfpv-sv.netlify.app/og?title=${titleRaw}&description=${description}&category=${category}&img=${img}`
 </script>
@@ -136,7 +142,7 @@
 				<div class="my-4">Posted on <span class="text-{categoryColor}">{postedDateFormatted}</span> by <span class="text-{categoryColor}">{slugModule.metadata.author}</span></div>
 			</div>
 			<div class="flex">
-				<div class="article md">
+				<div class="article md {categoryColor}">
 					{@html marked.parse(slugModule.metadata.content)}
 				</div>
 			</div>
