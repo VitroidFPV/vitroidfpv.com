@@ -103,7 +103,7 @@
 	}
 	let description = `
 		${slugModule.metadata.description}
-		${removeMarkdown(slugModule.metadata.content).slice(0, 250) + "..."}
+		${removeMarkdown(slugModule.metadata.content).slice(0, 200) + "..."}
 		`;
 	let category = slugModule.metadata.category;
 
