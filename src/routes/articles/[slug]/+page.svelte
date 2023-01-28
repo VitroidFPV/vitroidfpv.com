@@ -178,12 +178,12 @@
 	}
 
 	.contents-1 {
-		font-size: 1.25rem;
+		@apply text-[1.25rem] mb-4;
 	}
 	.contents-2 {
-		font-size: 1rem;
+		@apply text-[1.1rem];
 	}
 	.contents-3 {
-		font-size: 0.75rem;
+		@apply ml-4 text-[0.9rem];
 	}
 </style>
