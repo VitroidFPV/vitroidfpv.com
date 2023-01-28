@@ -13,13 +13,13 @@ content: >-
   basic safety rules *should* prevent anything drastic from happening
 
 
-  # Basic info
+  # Basic Info
 
 
   Every battery will have a few important specifications that you should look out for when buying/using/charging. I'll try to summarize it as best as I can
 
 
-  ## Voltage, capacity, C rating
+  ## Voltage, Capacity, C Rating
 
 
   Every battery cell has its own rated voltage, capacity, and C rating, these three are pretty much the most important specifications, usually written right on the battery and in the product specifications
@@ -34,7 +34,7 @@ content: >-
   And lastly, the C rating determines the rate at which you can input/output current. `C × Capacity [in Ah] = Current in/out` For charging, you should charge it at 1C, for a 2000mAh battery that would be 2A, 2C for 200mAh would be 4A, and so on. Most batteries should list the output current rate as around 70-120C. Anything above ~75C is technically impossible, so the higher values are often just marketing and/or different ways of measuring the current rate. Make sure to pick a battery that has a current output higher than the maximum draw of all 4 of your motors
 
 
-  ## Cell type
+  ## Cell Type
 
 
   We mostly use 3 types of cells for our crafts and equipment. LiPo, LiHV, and Li-Ion
@@ -47,7 +47,7 @@ content: >-
   * Li-Ion (Lithium-Ion) - Optimized for capacity, they're mostly used for stuff that doesn't need as much current. Radios, goggles, or lightweight/current-efficient crafts. Usually cylindrical cells. Usually 4.2V max (with older cells it may be 4.1V, be careful), 3.7V nominal, 2.8-3V min
 
 
-  ## Cell count
+  ## Cell Count
 
 
   Tells you how many cells are in the battery, connected in series or parallel. A 1s battery is just a singular cell, a 6s battery is 6 cells connected in series, and a 6s2p battery is 12 cells, 6 in series, 2 of those series packs in parallel
@@ -65,13 +65,13 @@ content: >-
   ![](/uploads/battery_anatomy_nominal.png)
 
 
-  ## Internal resistance
+  ## Internal Resistance
 
 
   Not usually specified, it's still a very important measure. measured in mΩ \[milliohms], it can be used as a rough estimate of battery health, the lower the better. Most modern chargers will measure it while charging, or have a separate mode for its measurement. Under 10mΩ is great, under 20mΩ is fine, above 20 isn't great, and you should retire the battery
 
 
-  # Choosing the correct battery
+  # Choosing the Correct Battery
 
 
   We're lucky that for most sizes and types of crafts, there are tried-and-true capacities and cell counts that work best. Say for example, on a 5" freestyle/race quad, you will ideally be running a 1000-1500mAh 6s battery that is rated at least for 75C of current output. Or for a toothpick, you will have a range of different cell counts, usually around 300-600mAh
@@ -98,7 +98,7 @@ content: >-
   Hopefully, you have a decent charger by now. If you do not, you can find a list of some decent ones here (if I remember to put in the link). So, let's get into the basics:
 
 
-  ## Basic charging principles
+  ## Basic Charging Principles
 
 
   The charger is pretty much a more intelligent power supply. In goes a regulated 12-24V from a PSU, and out goes at a set voltage with a set current until the battery is at the set voltage. But you should know that there are a few charging modes that you will inevitably use:
@@ -111,7 +111,17 @@ content: >-
   * Discharge - Hopefully self-explanatory. Discharges the battery either to a set minimum voltage or until 0V to practically kill it. Useful for safely getting rid of old batteries
 
 
-  ## Charger paramaters
+  There are also different ways to charge depending on battery connection:
+
+
+  * Single-battery charging - Only one battery per charger port, usually the simplest and safest
+
+  * Series charging - Multiple batteries connected in series with a special series charging board. Usually for 1s batteries, most larger chargers make it somewhat hard to charge these small 1s packs. Plugging 4 1s 300mAh batteries into a series charging board will make it look like a single 4s 300mAh battery to the charger
+
+  * Parallel charging - Multiple batteries connected in parallel with a special parallel charging board. Usually for >2s batteries. Plugging in 4 1300mAh 6s batteries into a parallel charging board will make it look like a single 6s 5200mAh battery to the charger. You have to be very careful to make sure that all batteries are within 0.1V per cell of each other before plugging them in, otherwise they will **violently** equalize
+
+
+  ## Charger Parameters
 
 
   There are basic values you should set before charging and watch out for during charging. Some of these may be repeated from the battery info section, but specified for charging:
@@ -127,4 +137,61 @@ content: >-
   * Charge current - Depends on the capacity of the battery (usually in mAh) and the C rate. Also above for the battery info, but I'll throw it here too, specifically for charging: \
     To get the charge current, multiply the battery capacity in Ah with the C rate (ideally use 1C, but you can go higher if time constrained). A 1300mAh battery at 1C will be charged at 1.3A (1.3 × 1), at 2C it'll be 2.6A (1.3 × 2), etc...
   * Internal resistance - Usually measured while charging, some chargers may have a dedicated IR measuring mode. Used as a rough estimate of battery health - Under 10mΩ is great, under 20mΩ is fine, above 20 isn't great, and you should retire the battery
+
+
+  ## Charging Example
+
+
+  ### Single-battery Charging
+
+
+  Say we have a 1300mAh 6s LiPo, and we want to charge it alone just by plugging it right into the charger:
+
+
+  * Our charging current will be your desired C rate - 1 or 2C, multiplied by the capacity, which gives us 1.3 or 2.6A
+
+  * The chemistry should be set to LiPo
+
+  * The maximum cell voltage should be 4.2V
+
+  * The cell count should be 6
+
+
+  With those settings, you can plug both of the battery plugs into the charger, and start charging. The charger should stop automatically when all of the cells are full and have been balanced. You can then exit back out of the charging mode, unplug the battery, and go fly!
+
+
+  ### Parallel Charging
+
+
+  Say we have 4 1300mAh 6s LiPos that you want to charge all at one time using a parallel charging board:
+
+
+  * Charging current will be your desired C rate, multiplied by the capacity and the number of batteries, giving us 1.3 (or 2.6A) × 4 = 5.2 (or 10.4A)
+
+  * Chemistry should still be LiPo
+
+  * Maximum cell voltage still 4.2V
+
+  * Cell count still the same - 6
+
+
+  With those settings set, you can start. Make sure that all batteries are within 0.1V per cell of each other before plugging them in. Plug the parallel charging board into the charger, and then plug all of the batteries in, XT60 first, then all of the balance plugs. Double-check that everything is correct, and you can then charge as you would normally, see above
+
+
+  ### Series Charging
+
+
+  Say we have 4 1s 300mAh HV LiPos that you want to charge all at one time using a series charging board:
+
+
+  * Our charging current will be your desired C rate - 1 or 2C, multiplied by the capacity, which gives us 0.3 or 0.6A
+
+  * Battery chemistry should be LiPo (or LiPo HV/LiHV if your charger has that distinction)
+
+  * Maximum cell voltage should be 4.35V
+
+  * Cell count will be the number of batteries you're plugging in series, in this case 4
+
+
+  Once you have the settings set, you can start. As all of the cells will act as multiple in one 4s battery, their voltage doesn't need to match, the balancing will take care of that. There is no order of plugging stuff in, and you can charge as normal, see above
 ---
