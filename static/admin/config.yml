@@ -104,6 +104,51 @@ collections:
       - { label: "Point 5", name: "point5", widget: "string", required: false }
 
 
+  - name: 5" Advanced Build
+    label: 5" Advanced Build
+    identifier_field: title
+    folder: modules/buildLists/5inch-advanced/
+    create: true
+    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Category}}-{{title}}"
+    fields:
+      - label: Category
+        name: Category
+        widget: "select"
+        options:
+          - { label: "Frames", value: "Frames" }
+          - { label: "Motors", value: "Motors" }
+          - { label: "Flight Controllers", value: "Flight Controllers" }
+          - { label: "ESCs", value: "ESCs" }
+          - { label: "Video Transmitters", value: "Video Transmitters" }
+          - { label: "Recommended Builds", value: "Recommended Builds" }
+
+      - { label: "Group", name: "group", widget: "text", required: false }
+      - label: Price Range
+        name: color
+        widget: "select"
+        options:
+          - { label: "Budget", value: "green" }
+          - { label: "Mid-Range", value: "orange" }
+          - { label: "High-end", value: "red" }
+          - { label: "Varied", value: "violet" }
+
+      - { label: "Visible", name: "visible", widget: "boolean", default: true}
+      - { label: "Order", name: "order", widget: "number" }
+      - { label: "Title", name: "title", widget: "text" }
+      - { label: "Link", name: "link", widget: "text" }
+      - { label: "Image", name: "img", widget: "image"}
+      - { label: "Description", name: "text", widget: "text" }
+
+      - { label: "Recommended", name: "recommended", widget: "relation", collection: '5" Advanced Build', searchFields: ["title"], valueField: "title", displayFields: ["title"], multiple: true, required: false}
+
+      - { label: "Price", name: "price", widget: "string" }
+      - { label: "Point 1", name: "point1", widget: "string", required: false }
+      - { label: "Point 2", name: "point2", widget: "string", required: false }
+      - { label: "Point 3", name: "point3", widget: "string", required: false }
+      - { label: "Point 4", name: "point4", widget: "string", required: false }
+      - { label: "Point 5", name: "point5", widget: "string", required: false }
+
+
   - name: 3" Cinewhoop Build
     label: 3" Cinewhoop Build
     folder: modules/buildLists/3inch-cinewhoop/
