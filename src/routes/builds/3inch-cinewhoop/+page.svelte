@@ -5,7 +5,7 @@
 	import Paragraph from "$components/Paragraph.svelte";
 	import tinycolor from "tinycolor2";
 
-	const modules = import.meta.glob("/modules/buildLists/3inchCinewhoop/*.md", {eager: true});
+	const modules = import.meta.glob("/modules/buildLists/3inch-cinewhoop/*.md", {eager: true});
 	// console.log(modules)
 	let grouped_modules = {};
 

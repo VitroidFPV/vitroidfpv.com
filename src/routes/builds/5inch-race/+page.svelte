@@ -10,7 +10,7 @@
 	import { slide } from "svelte/transition";
 	import tinycolor from "tinycolor2";
 
-	const modules = import.meta.glob("/modules/buildLists/5inchRace/*.md", {eager: true});
+	const modules = import.meta.glob("/modules/buildLists/5inch-race/*.md", {eager: true});
 
 	// console.log(modules)
 	let grouped_modules = {};

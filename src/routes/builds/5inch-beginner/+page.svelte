@@ -31,7 +31,7 @@
 	// import { priceSum, part } from "$components/buildsPage/stores.js"
 	import { slide } from "svelte/transition";
 
-	const modules = import.meta.glob("/modules/buildLists/5inchBeginner/*.md", {eager: true});
+	const modules = import.meta.glob("/modules/buildLists/5inch-beginner/*.md", {eager: true});
 
 	// console.log(modules)
 	let grouped_modules = {};
