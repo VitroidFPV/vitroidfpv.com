@@ -24,7 +24,7 @@ collections:
 
   - name: 5" Beginner Build
     label: 5" Beginner Build
-    folder: modules/buildLists/5inchBeginner/
+    folder: modules/buildLists/5inch-beginner/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Category}}-{{title}}"
     fields:
@@ -62,7 +62,7 @@ collections:
   - name: 5" Race Build
     label: 5" Race Build
     identifier_field: title
-    folder: modules/buildLists/5inchRace/
+    folder: modules/buildLists/5inch-race/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Category}}-{{title}}"
     fields:
@@ -106,7 +106,7 @@ collections:
 
   - name: 3" Cinewhoop Build
     label: 3" Cinewhoop Build
-    folder: modules/buildLists/3inchCinewhoop/
+    folder: modules/buildLists/3inch-cinewhoop/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Category}}-{{title}}"
     fields:
@@ -144,7 +144,7 @@ collections:
 
   - name: 1s - 2s Micro Build
     label: 1s - 2s Micro Build
-    folder: modules/buildLists/1s2sMicro/
+    folder: modules/buildLists/1s-2s-micro/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Category}}-{{title}}"
     fields:
