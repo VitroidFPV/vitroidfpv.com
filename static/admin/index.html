@@ -400,16 +400,11 @@
 	}
 </style>
 
-<head>
-	<link href=/admin/config.yml type=text/yaml rel=cms-config-url>
-</head>
-
 <body>
-    <!-- Include the script that builds the page and powers Static CMS -->
-    <script src="https://unpkg.com/@staticcms/app@^1.0.0/dist/static-cms-app.js"></script>
-    <script>
-      window.CMS.init();
-    </script>
+	<!-- Include the script that builds the page and powers Netlify CMS -->
+	<script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+	<!-- https://unpkg.com/react-markdown@5.0.3/react-markdown.min.js -->
+	<script src="https://unpkg.com/react-markdown@5.0.3/react-markdown.min.js"></script>
 	<script>
 		CMS.registerPreviewStyle("cms.css");
 
