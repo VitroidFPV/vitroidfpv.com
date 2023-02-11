@@ -16,7 +16,7 @@
 			class="max-w-full h-fit"
 			id="visual"
 			viewBox="0 0 2400 300"
-			width="2400"
+			width="100%"
 			height="300"
 			xmlns="http://www.w3.org/2000/svg"
 			xmlns:xlink="http://www.w3.org/1999/xlink"
