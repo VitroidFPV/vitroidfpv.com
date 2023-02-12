@@ -12,11 +12,11 @@ function setTemplate(title, description) {
 	var template = `
 		<div tw="bg-red-500 w-full h-full flex relative" height=${height} width=${width} style="font-family: "Segoe-Bold">
 			<img tw="flex absolute" src="https://vitroidfpv-sv.netlify.app/uploads/images/embed_frame.png"></img>
-			<div tw="w-full h-full flex flex-col p-50">
-				<div tw="w-full h-full flex flex-col justify-between -mt-8">
+			<div tw="w-full h-full flex flex-col px-50 py-42">
+				<div tw="w-full h-full flex flex-col justify-between">
 					<div tw="flex flex-col">
 						<div tw="flex text-[2.25rem] text-white font-bold">Betaflight Docs</div>
-						<div tw="flex text-[6rem] text-[#FFBB00]">${title}</div>
+						<div tw="flex text-[6rem] text-[#FFBB00] w-[64rem]">${title}</div>
 					</div>
 					<div tw="flex text-[2.25rem] text-white font-bold pr-48" style="font-family: "Segoe">${description}</div>
 				</div>
