@@ -1,3 +1,10 @@
+@font-face {
+	font-family: 'Reem Kufi';
+	src: url('/uploads/fonts/ReemKufi-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
 html,
 body {
 	background-color: #0f0f0f;
