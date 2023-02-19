@@ -207,3 +207,399 @@ body {
 	border-radius: 1rem/* 16px */;
 	display: block
 }
+
+
+/* A lot of messy bodged CMS styles */
+
+/* Don't touch unless needed */
+
+[data-slate-editor] { 
+	-webkit-user-modify: read-write !important; 
+}
+
+:root {
+	--background: #0f0f0f;
+	--background-light: #1e1e1e;
+	--background-light1: #292929;
+	--light: #f7f7f7;
+	--highlight: #90d95b;
+	--highlight-transparent: #90d95b5e;
+}
+
+html,
+	#nc-root {
+	background-color: var(--background);
+}
+
+.css-12b66la-AppHeaderContent,
+.css-y7r3-AppHeader {
+	background-color: var(--background-light);
+}
+
+.css-y7r3-AppHeader {
+	background-color: var(--background-light) !important;
+}
+
+.css-5wgw3f-ListCard-card {
+	background-color: var(--background-light) !important;
+	color: var(--light) !important;
+	transition: all 300ms !important;
+}
+.css-5wgw3f-ListCard-card:hover {
+	background-color: var(--highlight-transparent) !important;
+	color: var(--background) !important;
+}
+.css-1t9i08i-ListCardLink {
+	background-color: transparent !important;
+}
+.css-1t9i08i-ListCardLink:hover {
+	background-color: transparent !important;
+}
+
+.css-1hvrgvd-CollectionTopContainer-card-cardTop {
+	background-color: var(--background-light) !important;
+}
+h1,
+h2 {
+	color: var(--light) !important;
+}
+
+.css-1gj57a0-SidebarContainer-card {
+	background-color: var(--background-light) !important;
+	color: var(--light) !important;
+}
+.css-u2webi-SidebarNavLink-sidebarNavLinkActive-SidebarNavLink {
+	border: none !important;
+	transition: all 300ms !important;
+}
+.css-u2webi-SidebarNavLink-sidebarNavLinkActive-SidebarNavLink:hover {
+	background-color: var(--highlight-transparent) !important;
+	color: var(--light) !important;
+}
+.css-u2webi-SidebarNavLink-sidebarNavLinkActive-SidebarNavLink.sidebar-active {
+	background-color: var(--highlight-transparent) !important;
+	color: var(--light) !important;
+	border-left: 4px solid var(--highlight) !important;
+}
+
+.css-1blbyw7-SearchInput {
+	background-color: var(--background-light1) !important;
+	color: var(--light) !important;
+}
+
+.css-2oej7z-ToolbarContainer,
+.css-8s5rs3-ToolbarContainer,
+.css-1b0jsy4 {
+	background-color: var(--background-light) !important;
+	color: var(--light) !important;
+}
+
+.css-1b0jsy4 {
+	border: none !important;
+}
+
+.css-8s5rs3-ToolbarContainer {
+	border-bottom: 1px solid var(--background-light1) !important;
+}
+
+.css-15ugu1-StyledP {
+	color: var(--light) !important;
+}
+
+.css-6o0rf-PreviewPaneContainer-ControlPaneContainer {
+	background-color: var(--background) !important;
+	color: var(--light) !important;
+	transition: color 300ms !important;
+	transition: background-color 300ms !important;
+}
+.css-11r6p0f-BackStatus-BackStatusUnchanged-badge-textBadge-textBadgeSuccess {
+	color: var(--highlight) !important;
+}
+.css-1whurdv-BackCollection {
+	color: var(--light) !important;
+}
+.css-1ixjrmh-ToolbarButton-button-default-buttonMargin-noOverflow-DeleteButton-lightRed {
+	background-color: rgb(84 27 27) !important;
+}
+.css-1ixjrmh-ToolbarButton-button-default-buttonMargin-noOverflow-DeleteButton-lightRed:hover {
+	background-color: rgb(110, 37, 37) !important;
+}
+.css-16pehfe-StyledDropdownButton-button-default-caret-caretDown-DropdownButton-noOverflow-PublishedToolbarButton-publishedButton {
+	background-color: rgb(30 58 63) !important;
+}
+.css-16pehfe-StyledDropdownButton-button-default-caret-caretDown-DropdownButton-noOverflow-PublishedToolbarButton-publishedButton:hover {
+	background-color: rgb(35, 75, 82) !important;
+}
+.css-abwcjt-ToolbarSectionBackLink-toolbarSection,
+.css-1acatj1-ToolbarSectionMeta-toolbarSection {
+	border: none !important;
+}
+.css-abwcjt-ToolbarSectionBackLink-toolbarSection:hover,
+.css-abwcjt-ToolbarSectionBackLink-toolbarSection:focus {
+	background-color: rgb(255 255 255 / 15%) !important;
+}
+
+.css-pcief1-FieldLabel-fieldLabel {
+	background-color: var(--background-light) !important;
+}
+.css-pcief1-FieldLabel-fieldLabel::after {
+	background-color: var(--background) !important;
+}
+.css-1vur7zs-FieldLabel-fieldLabel {
+	background-color: var(--highlight) !important;
+}
+.css-1vur7zs-FieldLabel-fieldLabel::after {
+	background-color: var(--background) !important;
+}
+
+.css-n3v41w-control,
+.css-wesa1q-TextControl,
+.css-83wr9v,
+.css-83wr9v {
+	background-color: var(--background-light) !important;
+	color: var(--light) !important;
+	border-color: transparent !important;
+	border-width: 4px !important;
+	border-radius: 0px 10px 10px !important;
+}
+
+.css-d5zfyc-control,
+.css-3yr7zq-TextControl,
+.css-188efjc {
+	border-color: var(--highlight) !important;
+	border-width: 4px !important;
+	background-color: var(--background-light) !important;
+	color: var(--light) !important;
+	border-radius: 0px 10px 10px !important;
+}
+
+.css-1uccc91-singleValue {
+	color: var(--light) !important;
+}
+
+.css-1ixc7c5-menu {
+	background-color: var(--background-light1) !important;
+	color: var(--light) !important;
+	background-color: #0000003d !important;
+	backdrop-filter: blur(8px) !important;
+}
+
+.css-11unzgr {
+	border-radius: 10px !important;
+	padding: 0px !important;
+	background-color: transparent !important;
+}
+
+.css-11unzgr:first-child {
+	border-top-left-radius: 10px !important;
+	border-top-right-radius: 10px !important;
+}
+.css-11unzgr:last-child {
+	border-bottom-left-radius: 10px !important;
+	border-bottom-right-radius: 10px !important;
+}
+
+.css-u267yo-option {
+	background-color: var(--highlight-transparent) !important;
+	color: var(--light) !important;
+}
+
+.css-1sqg7rp-option {
+	background-color: var(--highlight-transparent) !important;
+	color: var(--light) !important;
+	border-left: solid 4px !important;
+	border-color: var(--highlight) !important;
+}
+
+.Resizer.vertical {
+	background-color: var(--background) !important;
+}
+
+.Resizer.vertical::before {
+	background-color: var(--background-light1) !important;
+}
+
+.css-1jl34xb-PreviewPaneFrame {
+	border-radius: 0px !important;
+}
+
+.css-tsu4ds-DropdownList-dropdownList-DropdownList {
+	color: var(--light) !important;
+	background-color: #0000003d !important;
+	backdrop-filter: blur(8px) !important;
+}
+.css-1hu7ve8-button-dropdownItem-StyledMenuItem {
+	border-bottom: none !important;
+}
+.css-1hu7ve8-button-dropdownItem-StyledMenuItem:hover {
+	background-color: var(--highlight-transparent) !important;
+	color: var(--light) !important;
+}
+.css-1u78kww-StyledWrapper-ToolbarDropdown-buttonMargin .ei6fm2r1 {
+	color: var(--highlight) !important;
+}
+
+.css-182avcw {
+	background-color: var(--background-light1) !important;
+	border: 4px solid transparent !important;
+}
+.css-12fzmby {
+	color: var(--light) !important;
+	border-color: var(--highlight) !important;
+	border-width: 4px !important;
+	border-radius: 0px 10px 10px !important;
+	background-color: var(--background-light1) !important;
+}
+.css-1rsca1y-ControlContainer.css-pcief1-FieldLabel-fieldLabel {
+	background-color: var(--background-light1) !important;
+}
+.css-1rsca1y-ControlContainer.css-pcief1-FieldLabel-fieldLabel::after {
+	background-color: var(--background-light1) !important;
+}
+.css-b6se59-StyledCode {
+	background-color: var(--background-light) !important;
+	color: var(--light) !important;
+	padding: 0.25rem !important;
+}
+.css-mrwfgl-FileWidgetButton-button-badge-backgroundBadge-badge {
+	color: var(--highlight) !important;
+	background-color: var(--highlight-transparent) !important;
+}
+.css-1xda84k-FileWidgetButtonRemove-button-badge-backgroundBadge-badgeDanger {
+	background-color: rgb(110, 37, 37) !important;
+	color: rgb(255, 0, 59) !important;
+	transition: filter 0.2s ease-in-out !important;
+}
+.css-mrwfgl-FileWidgetButton-button-badge-backgroundBadge-badge, .css-1xda84k-FileWidgetButtonRemove-button-badge-backgroundBadge-badgeDanger:hover {
+	filter: brightness(1.4) !important;
+}
+.css-1265b6l-TopBarContainer {
+	border-radius: 0px 6px 0px 0px !important;
+	background-color: var(--background-light1) !important;
+}
+
+.css-1iqjs8m-ControlContainer-Shortcode > .css-pcief1-FieldLabel-fieldLabel {
+	background-color: var(--background-light1) !important;
+}
+.css-1iqjs8m-ControlContainer-Shortcode > .css-pcief1-FieldLabel-fieldLabel::after {
+	background-color: var(--background-light) !important;
+}
+.css-182avcw .css-pcief1-FieldLabel-fieldLabel::after {
+	background: var(--background-light1) !important;
+}
+.css-12fzmby .css-pcief1-FieldLabel-fieldLabel::after {
+	background: var(--background-light1) !important;
+}
+.css-1iqjs8m-ControlContainer-Shortcode .css-1vur7zs-FieldLabel-fieldLabel::after {
+	background: var(--background-light) !important;
+}
+.css-118di0z-StyledH4 {
+	color: var(--light) !important;
+}
+.css-isnoua {
+	background-color: var(--background-light) !important;
+	color: var(--light) !important;
+}
+
+.css-zfnuhu-ToggleBackground-BooleanBackground, .css-1uwwzhh-ToggleBackground {
+	background-color: var(--highlight) !important;
+}
+
+.css-we3pzg-ToggleBackground-BooleanBackground {
+	background-color: var(--background-light1) !important;
+}
+
+.css-mj84iz-DropdownList-dropdownList-DropdownList.e1d27pw02 {
+	background-color: var(--background-light1) !important;
+	color: var(--light) !important;
+	background-color: #0000003d !important;
+	backdrop-filter: blur(8px) !important;
+}
+
+
+.css-19jgu1s-ToolbarToggleLabel-ToolbarToggleLabel.e169jtoy3 {
+	color: var(--highlight) !important;
+}
+
+.css-1wgdcls-ToolbarToggleLabel-ToolbarToggleLabel {
+	color: var(--highlight) !important;
+}
+
+a.css-6gjfue-StyledA.e19otniy11 {
+	color: var(--highlight) !important;
+}
+
+.css-1tp47zl-multiValue {
+	background-color: rgb(126 126 126 / 0.2) !important;
+	transition: all 300ms;
+}
+
+.css-1tp47zl-multiValue:hover {
+	background-color: rgb(126 126 126 / 0.25) !important;
+}
+
+.css-8l997j {
+	color: var(--light) !important;
+}
+
+.css-1tp47zl-multiValue.css-8l997j:hover {
+	color: var(--highlight) !important;
+}
+
+.css-8l997j:hover {
+	color: var(--highlight) !important;
+}
+
+.css-1tp47zl-multiValue:hover.css-8l997j {
+	color: var(--light) !important;
+}
+
+.css-h5hswg {
+	margin-left: 2px !important;
+}
+
+.css-h5hswg:hover {
+	background-color: rgb(110, 37, 37) !important;
+}
+.css-14hxnzs-TextControl {
+	background-color: var(--background-light) !important;
+	border-width: 4px !important;
+	border-radius: 0px 10px 10px !important;
+}
+
+.css-1eeq9l0-TextControl {
+	background-color: var(--background-light) !important;
+	border-width: 4px !important;
+	border-radius: 0px 10px 10px !important;
+}
+
+.css-1noq96f-FieldLabel-fieldLabel::after {
+	background-color: var(--background) !important;
+}
+
+.css-1i85phj-CloseButton-button {
+	background-color: var(--background-light) !important;
+	color: var(--highlight) !important;
+}
+
+.css-1f3mf5k-StyledModal {
+	background-color: var(--background) !important;
+}
+
+.css-1ztge6 {
+	backdrop-filter: blur(8px) !important;
+}
+
+.css-1er4xqr-Card {
+	border-color: var(--background-light) !important;
+}
+
+.css-ch614s-CardImageWrapper-checkerboard {
+	background-color: var(--background-light) !important;
+	background-image: linear-gradient(45deg, rgb(50, 50, 50) 25%, transparent 25%, transparent 75%, rgb(50, 50, 50) 75%, rgb(50, 50, 50)), linear-gradient(45deg, rgb(50, 50, 50) 25%, transparent 25%, transparent 75%, rgb(50, 50, 50) 75%, rgb(50, 50, 50)) !important;
+	border-bottom-color: var(--background-light) !important;
+}
+
+.css-1v1y2wn-Card {
+	border: 2px solid var(--highlight) !important;
+}
