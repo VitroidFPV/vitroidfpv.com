@@ -231,6 +231,10 @@ html,
 	background-color: var(--background);
 }
 
+body {
+	padding: 0px !important;
+}
+
 .css-12b66la-AppHeaderContent,
 .css-y7r3-AppHeader {
 	background-color: var(--background-light);
