@@ -87,6 +87,11 @@ body {
 }
 .list-item.link {
 	overflow-wrap: anywhere;
+	color: var(--light);
+}
+.list-item.link:hover {
+	color: var(--highlight);
+	text-decoration: none;
 }
 
 .point1,
