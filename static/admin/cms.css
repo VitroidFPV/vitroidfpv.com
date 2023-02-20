@@ -96,6 +96,8 @@ body {
 .list-item.link a:hover {
 	background-color: var(--highlight-transparent);
 	text-decoration: none;
+	transition-duration: 300ms;
+	border-radius: 0.25rem;
 }
 
 .point1,
