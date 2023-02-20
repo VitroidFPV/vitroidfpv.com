@@ -89,11 +89,11 @@ body {
 	overflow-wrap: anywhere;
 }
 
-.list-item.link-text {
+.list-item.link a {
 	color: var(--highlight);
 }
 
-.list-item.link-text:hover {
+.list-item.link a:hover {
 	background-color: var(--highlight-transparent);
 	text-decoration: none;
 }
