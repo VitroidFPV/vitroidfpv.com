@@ -63,7 +63,7 @@
 			{#if open}
 				<div
 					transition:slide
-					class="content text-xl bg-contrast-100 dark:bg-main-300 rounded-2xl
+					class="content text-xl bg-neutral-500/10 border-2 border-neutral-500/20 rounded-2xl
 							mb-2 h-full min-w-fit max-w-[70vw]"
 				>
 					<!-- <div class="md:p-8 p-6 text-base md:text-lg leading-relaxed md"><SvelteMarkdown {source} on:parsed={handleParsed}/></div> -->

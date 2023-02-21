@@ -1,4 +1,4 @@
-<div class="flex flex-col">
+<div class="flex flex-col z-[50] relative">
 	<!-- <div class="flex flex-col justify-start h-32">
         <div class="max-h-fit max-w-full scale-y-50">
             <svg class="max-w-full h-fit" id="visual" viewBox="0 0 2400 300" width="2400" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">

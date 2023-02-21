@@ -60,11 +60,42 @@
 		</div>
 		<div class="absolute w-full h-full pointer-events-none">
 			<div style="-webkit-mask-image: linear-gradient(transparent, black, transparent);"
-				class="absolute w-full h-[150%] dark:bg-grid-dark bg-grid-light bg-repeat dark:opacity-[.15] opacity-60 z-10 pointer-events-none">
+				class="absolute w-full h-[200%] dark:bg-grid-dark bg-grid-light bg-repeat dark:opacity-[.15] opacity-60 z-10 pointer-events-none">
 				<!-- <div class="h-full aspect-square bg-red/5"></div> -->
 			</div>
 			<div class="absolute w-full top-20">
-				<svg width="1024" height="360" viewBox="0 0 1024 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full -rotate-12 md:blur-3xl blur-2xl md:h-full md:scale-x-125 md:scale-y-100 scale-y-200 dark:saturate-100 dark:opacity-70 opacity-200">
+				<svg width="1024" height="360" viewBox="0 0 1024 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full -rotate-12 md:blur-[128px] blur-2xl md:h-full md:scale-x-125 md:scale-y-100 scale-y-200 dark:saturate-75 dark:opacity-70 opacity-200">
+					<g opacity="0.5" clip-path="url(#clip0_1_2)">
+						<rect width="433.919" height="307.42" transform="matrix(0.652501 0.757788 -0.918405 0.395643 223.833 -50.3698)" fill="url(#paint0_radial_1_2)" />
+						<rect width="539.073" height="235.273" transform="matrix(0.979338 0.202229 -0.381519 0.924361 132.254 83.877)" fill="url(#paint1_radial_1_2)" />
+						<rect width="404.121" height="312.353" transform="matrix(-0.658984 -0.752157 0.946257 -0.323417 846.453 402.448)" fill="url(#paint2_radial_1_2)" />
+						<rect width="513.135" height="262.577" rx="109.572" transform="matrix(-0.977818 -0.209455 0.481307 -0.876552 861.081 275.469)" fill="url(#paint3_radial_1_2)" />
+					</g>
+					<defs>
+						<radialGradient id="paint0_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(216.96 153.71) scale(216.96 153.71)">
+							<stop stop-color="#911f37" />
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<radialGradient id="paint1_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(269.537 117.636) scale(269.537 117.636)">
+							<stop stop-color="#d6395b"/>
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<radialGradient id="paint2_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(202.06 156.176) scale(202.06 156.176)">
+							<stop stop-color="#d6395b"/>
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<radialGradient id="paint3_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256.567 131.288) scale(256.567 131.288)">
+							<stop stop-color="#f5365f"/>
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<clipPath id="clip0_1_2">
+							<rect width="1024" height="360" fill="white" />
+						</clipPath>
+					</defs>
+				</svg>
+			</div>
+			<div class="absolute w-full top-full dark:visible invisible rotate-180">
+				<svg width="1024" height="360" viewBox="0 0 1024 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full -rotate-12 md:blur-[96px] blur-2xl md:h-full md:scale-x-125 md:scale-y-100 scale-y-200 dark:saturate-75 dark:opacity-70 opacity-200">
 					<g opacity="0.5" clip-path="url(#clip0_1_2)">
 						<rect width="433.919" height="307.42" transform="matrix(0.652501 0.757788 -0.918405 0.395643 223.833 -50.3698)" fill="url(#paint0_radial_1_2)" />
 						<rect width="539.073" height="235.273" transform="matrix(0.979338 0.202229 -0.381519 0.924361 132.254 83.877)" fill="url(#paint1_radial_1_2)" />
@@ -126,7 +157,7 @@
 		</ul>
 	</Paragraph> -->
 
-	<div class="flex flex-row flex-wrap justify-around z-20">
+	<div class="flex flex-row flex-wrap justify-around z-[99]">
 		{#each Object.entries(grouped_modules) as [a, contents]}
 			{#each contents as build}
 				<BuildCard

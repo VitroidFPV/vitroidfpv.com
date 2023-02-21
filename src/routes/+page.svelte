@@ -39,7 +39,7 @@
 				<!-- <div class="h-full aspect-square bg-red/5"></div> -->
 			</div>
 			<div class="absolute w-full h-full">
-				<svg width="1024" height="360" viewBox="0 0 1024 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full md:blur-3xl blur-2xl md:h-full md:scale-x-125 md:dark:saturate-100 saturate-[3] dark:opacity-70 opacity-100">
+				<svg width="1024" height="360" viewBox="0 0 1024 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full  md:blur-[96px] blur-2xl md:h-full md:scale-x-125 md:dark:saturate-100 saturate-[3] dark:opacity-70 opacity-100">
 					<g opacity="0.5" clip-path="url(#clip0_1_2)">
 						<rect width="433.919" height="307.42" transform="matrix(0.652501 0.757788 -0.918405 0.395643 223.833 -50.3698)" fill="url(#paint0_radial_1_2)" />
 						<rect width="539.073" height="235.273" transform="matrix(0.979338 0.202229 -0.381519 0.924361 132.254 83.877)" fill="url(#paint1_radial_1_2)" />
