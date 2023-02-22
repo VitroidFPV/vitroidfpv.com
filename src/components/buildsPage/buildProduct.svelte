@@ -44,30 +44,32 @@
 	</div>
 {/if}
 <IntersectionObserver {element} bind:intersecting>
-	<div class="{color} relative h-fit w-full border-l-4 product pl-2 my-4 md:mr-8 not-intersecting" bind:this={element} class:intersecting={intersecting}>
-		<div class="flex w-full justify-between link t-{color}">
-			<div>
-				<Link {color} color1={color} size="2" {link} external=true>{title}</Link>
+	<div class="h-full flex flex-col not-intersecting" bind:this={element} class:intersecting={intersecting}>
+		<div class="{color} relative h-fit w-full border-l-4 product pl-2 my-4 md:mr-8">
+			<div class="flex w-full justify-between link t-{color}">
+				<div>
+					<Link {color} color1={color} size="2" {link} external=true>{title}</Link>
+				</div>
+				{#if img}
+					<svg xmlns="http://www.w3.org/2000/svg" on:click={() => visible = true} viewBox="0 0 24 24" fill="none" stroke-width="2" class="w-7 h-7 hover:stroke-current stroke-contrast-500 duration-300 cursor-pointer">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+					</svg>
+				{/if}
 			</div>
-			{#if img}
-				<svg xmlns="http://www.w3.org/2000/svg" on:click={() => visible = true} viewBox="0 0 24 24" fill="none" stroke-width="2" class="w-7 h-7 hover:stroke-current stroke-contrast-500 duration-300 cursor-pointer">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-				</svg>
+			{#if price !== undefined}
+				<div class="flex justify-between mt-3 mb-3 flex-wrap tracking-[0.01em]">
+					<div class="text-base text-main-100 dark:text-contrast-300 mr-2">{price}</div>
+					<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point1}</div>
+					<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point2}</div>
+					<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point3}</div>
+					<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point4}</div>
+					<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point5}</div>
+				</div>
+			{/if}
+			{#if text !== undefined}
+				<div>{@html text}</div>
 			{/if}
 		</div>
-		{#if price !== undefined}
-			<div class="flex justify-between mt-3 mb-3 flex-wrap tracking-[0.01em]">
-				<div class="text-base text-main-100 dark:text-contrast-300 mr-2">{price}</div>
-				<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point1}</div>
-				<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point2}</div>
-				<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point3}</div>
-				<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point4}</div>
-				<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point5}</div>
-			</div>
-		{/if}
-		{#if text !== undefined}
-			<div>{@html text}</div>
-		{/if}
 	</div>
 </IntersectionObserver>
 
