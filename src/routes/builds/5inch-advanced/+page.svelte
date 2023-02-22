@@ -63,16 +63,27 @@
 	}
 	console.log(JSON.stringify(recommended_products, null, 1));
 
-	//  if key visible isn't in the metadata, set it to true, otherwise set it to the value in the metadata
+	//  if there is not a key "visible" in the metadata, set it to true
+	// if there is a key "visible" in the metadata, keep it
+	// for (const cat in grouped_modules) {
+	// 	for (const group in grouped_modules[cat]) {
+	// 		for (const product in grouped_modules[cat][group]) {
+	// 			if (!grouped_modules[cat][group][product].metadata.visible) {
+	// 				grouped_modules[cat][group][product].metadata.visible = true;
+	// 			}
+	// 		}
+	// 	}
+	// }
+
+	// sort grouped_modules by order
 	for (const cat in grouped_modules) {
 		for (const group in grouped_modules[cat]) {
-			for (const product in grouped_modules[cat][group]) {
-				if (!grouped_modules[cat][group][product].metadata.visible) {
-					grouped_modules[cat][group][product].metadata.visible = true;
-				}
-			}
+			grouped_modules[cat][group].sort((a, b) => a.metadata.order - b.metadata.order);
 		}
 	}
+
+	console.log(JSON.stringify(grouped_modules, null, 1));
+
 	let prefix = "Builds";
 	let titleRaw = "Advanced 5\"";
 	let title = " - " + titleRaw;
