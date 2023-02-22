@@ -90,7 +90,7 @@
 	let color = "#ff9742";
 	let color1 = tinycolor(color).lighten(20).spin(10).toHexString();
 	let color2 = tinycolor(color).darken(20).spin(10).toHexString();
-	let img = "/uploads/images/race_512.png";
+	let img = "/uploads/images/advanced_512.png";
 	let description =
 		"High end parts for great performance and durability (or just for the looks), or even some more \"exotic\" parts for a unique build.";
 </script>
