@@ -1,7 +1,7 @@
 ---
 title: All you should know about batteries
 description: With great power (output) comes great responsibility
-visible: false
+visible: true
 category: Guides
 author: VitroidFPV
 img: /uploads/battery_stuff.png
