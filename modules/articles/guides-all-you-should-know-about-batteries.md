@@ -1,11 +1,11 @@
 ---
 title: All you should know about batteries
 description: With great power (output) comes great responsibility
-visible: false
+visible: true
 category: Guides
 author: VitroidFPV
 img: /uploads/battery_stuff.png
-date: 2022-12-14T18:07:40.359Z
+date: 2023-02-22T22:16:50.957Z
 content: >-
   When it comes to LiPo (and similar) batteries, you ***have*** to know what
   you're doing when handling them. Any mistake can potentially result in a
