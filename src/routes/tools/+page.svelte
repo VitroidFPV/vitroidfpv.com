@@ -1,17 +1,18 @@
-<script>
+<script lang="ts">
 	import MainHeader from "$components/mainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
 
 	import domtoimage from "dom-to-image";
+	// @ts-ignore
 	import { copyImageToClipboard } from "copy-image-clipboard/dist/index.common.js";
 	import { onMount } from "svelte";
 
-	function copyCalc(id) {
+	function copyCalc(id: string) {
 		var node = document.getElementById(id);
 
 		domtoimage
-			.toPng(node, { height: 100, width: 400, bgcolor: "#0f0f0f" })
+			.toPng(node as HTMLElement, { height: 100, width: 400, bgcolor: "#0f0f0f" })
 			.then(function (dataUrl) {
 				var img = new Image();
 				img.src = dataUrl;
@@ -21,7 +22,7 @@
 					.then(() => {
 						console.log("Image Copied");
 					})
-					.catch((e) => {
+					.catch((e: any) => {
 						console.log("Error: ", e.message);
 					});
 			})
@@ -30,7 +31,7 @@
 			});
 	}
 
-	let size = "";
+	let size: string = "";
 	let rounded = false;
 
 	let dbmToMw = true;
@@ -45,7 +46,7 @@
 	let mw = 0;
 	console.log(dbmToMw);
 
-	function calculateVolume(size) {
+	function calculateVolume(size: string) {
 		let sizeP = size.replace(",", ".");
 		let sizeRadius = parseFloat(sizeP.substr(0, 2));
 		let sizeHeight = parseFloat(sizeP.substr(2, 5));
@@ -112,7 +113,7 @@
 								<p>Motor Size:</p>
 								<input
 									bind:value={size}
-									on:input={calculateVolume}
+									on:input={() => calculateVolume(size)}
 									type="text"
 									class="bg-gray-500/30 w-16 h-8 ml-2 rounded-md p-2 text-base duration-300
 								outline-none focus-within:outline-highlight outline-[3px]"
@@ -137,12 +138,9 @@
 							<code>π × r<sup>2</sup> × h</code>
 						</p>
 						<div class="flex mt-2">
-							<div
-								class="h-fit w-fit bg-green/90 rounded-md py-1 px-2 cursor-pointer"
-								on:click={() => (copyCalc("calc"))}
-							>
-								Copy!
-							</div>
+							<button on:click={() => (copyCalc("calc"))}>
+								<div class="h-fit w-fit bg-green/90 rounded-md py-1 px-2 cursor-pointer">Copy!</div>
+							</button>
 							<!-- <input type="checkbox" on:change={console.log(rounded)} on:input={calculateVolume} name="Rounded" id="Rounded" class="ml-4" bind:checked={rounded}> -->
 						</div>
 					</div>
@@ -161,7 +159,8 @@
 								/>
 								<p>dBm</p>
 							</div>
-							<div style="transform: rotate({dbmToMwRotated}deg)" class="duration-300 text-2xl hover:text-highlight dark:hover:text-highlight-dark" on:click={toggleDbmToMw} on:click={console.log(dbmToMwRotated)}>→</div>
+							<!-- svelte-ignore a11y-click-events-have-key-events -->
+							<div style="transform: rotate({dbmToMwRotated}deg)" class="duration-300 text-2xl hover:text-highlight dark:hover:text-highlight-dark" on:click={() => toggleDbmToMw()}>→</div>
 							<div class="flex items-end ml-4">
 								<input
 								bind:value={mw}
@@ -188,12 +187,9 @@
 							the calculation to get the power in <code class="text-green">dBm</code> is
 							<code><span class="text-green">dBm</span> = 10 × (log10 <span class="text-yellow">mW</span>)
 						</p>
-						<div
-						class="h-fit w-fit bg-green/90 rounded-md py-1 px-2 cursor-pointer"
-						on:click={() => (copyCalc("power"))}
-					>
-						Copy!
-					</div>
+						<button on:click={() => (copyCalc("power"))}>
+							<div class="h-fit w-fit bg-green/90 rounded-md py-1 px-2 cursor-pointer">Copy!</div>
+						</button>
 					</div>
 				</div>
 			</div>

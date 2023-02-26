@@ -1,9 +1,11 @@
-<script>
+<script lang="ts">
 	import BuildProduct from "$components/buildsPage/buildProduct.svelte";
 	import MainHeader from "$components/mainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
 	import tinycolor from "tinycolor2";
+
+	import type { Module } from "$lib/types/module";
 
 	import { marked } from "marked";
 	marked.setOptions({
@@ -16,28 +18,25 @@
 	});
 
 	const modules = import.meta.glob("/modules/equipmentLists/videoList/*.md", {eager: true});
-	let grouped_modules = {};
+	let grouped_modules: {[category: string]: {[group: string]: Array<Module>}} = {};
 
 	for (const k in modules) {
-		const cat = modules[k].metadata.Category;
-		const group = modules[k].metadata.group;
+	const cat = (modules[k] as Module).metadata.Category;
+	const group = (modules[k] as Module).metadata.group;
 
-		// construct object as {cat: {group: [metadata]}}
-
-		if (grouped_modules[cat]) {
-			if (grouped_modules[cat][group]) {
-				grouped_modules[cat][group].push(modules[k]);
-			} else {
-				grouped_modules[cat][group] = [modules[k]];
-			}
+	if (grouped_modules[cat]) {
+		if (grouped_modules[cat][group]) {
+			grouped_modules[cat][group].push(modules[k] as Module);
 		} else {
-			grouped_modules[cat] = {};
-			grouped_modules[cat][group] = [modules[k]];
+			grouped_modules[cat][group] = [modules[k] as Module];
 		}
-	}
+	} else {
+		grouped_modules[cat] = {};
+		grouped_modules[cat][group] = [modules[k] as Module];
+	}}
 
 	// sort the products in each category by the "order" key, and have the group "Info" be last while keeping the same structure
-	let sorted_grouped_modules = {};
+	let sorted_grouped_modules: {[category: string]: {[group: string]: Array<Module>}} = {};
 	for (const cat in grouped_modules) {
 		sorted_grouped_modules[cat] = {};
 		const groups = Object.keys(grouped_modules[cat]);
@@ -52,16 +51,15 @@
 	}
 
 	// if key visible isn't in the metadata, set it to true, otherwise set it to the value in the metadata
-	for (const cat in sorted_grouped_modules) {
-		for (const group in sorted_grouped_modules[cat]) {
-			for (const product of sorted_grouped_modules[cat][group]) {
-				if (product.metadata.visible === undefined) {
-					product.metadata.visible = true;
+	for (const cat in grouped_modules) {
+		for (const group in grouped_modules[cat]) {
+			for (const product in grouped_modules[cat][group]) {
+				if (!grouped_modules[cat][group][product].metadata.visible) {
+					grouped_modules[cat][group][product].metadata.visible = true;
 				}
 			}
 		}
-	}		
-
+	}
 	// omfg copilot carries this shit
 
 	// console.log(JSON.stringify(sorted_grouped_modules));

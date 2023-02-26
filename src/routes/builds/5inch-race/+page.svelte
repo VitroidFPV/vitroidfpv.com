@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import BuildProduct from "$components/buildsPage/buildProduct.svelte";
 	import MainHeader from "$components/mainHeader.svelte";
 	import Header from "$components/Header.svelte";
@@ -10,31 +10,31 @@
 	import { slide } from "svelte/transition";
 	import tinycolor from "tinycolor2";
 
+	import type { Module } from "$lib/types/module";
+
 	const modules = import.meta.glob("/modules/buildLists/5inch-race/*.md", {eager: true});
 
-	// console.log(modules)
-	let grouped_modules = {};
+	console.log(modules)
+	let grouped_modules: {[category: string]: {[group: string]: Array<Module>}} = {};
 
 	for (const k in modules) {
-		// construct object as {category: {group: [metadata]}}
-		const cat = modules[k].metadata.Category;
-		const group = modules[k].metadata.group;
+	const cat = (modules[k] as Module).metadata.Category;
+	const group = (modules[k] as Module).metadata.group;
 
-		if (grouped_modules[cat]) {
-			if (grouped_modules[cat][group]) {
-				grouped_modules[cat][group].push(modules[k]);
-			} else {
-				grouped_modules[cat][group] = [modules[k]];
-			}
+	if (grouped_modules[cat]) {
+		if (grouped_modules[cat][group]) {
+			grouped_modules[cat][group].push(modules[k] as Module);
 		} else {
-			grouped_modules[cat] = {};
-			grouped_modules[cat][group] = [modules[k]];
+			grouped_modules[cat][group] = [modules[k] as Module];
 		}
-	}
+	} else {
+		grouped_modules[cat] = {};
+		grouped_modules[cat][group] = [modules[k] as Module];
+	}}
 	// console.log(JSON.stringify(grouped_modules, null, 1));
 
 	// in grouped_modules, from the category "Recommended Builds", log all of the groups, and the value of the key "recommended"
-	let recommended_titles = {};
+	let recommended_titles: { [key: string]: string } = {};
 	for (const cat in grouped_modules) {
 		if (cat === "Recommended Builds") {
 			for (const group in grouped_modules[cat]) {
@@ -46,7 +46,7 @@
 
 	// for each group in recommended_titles, in the arrays there are titles
 	//  find the product in the grouped_modules object that matches the title and log it in its group
-	let recommended_products = {};
+	let recommended_products: {[group: string]: Array<Module>} = {};
 	for (const group in recommended_titles) {
 		recommended_products[group] = [];
 		for (const title of recommended_titles[group]) {
@@ -61,7 +61,7 @@
 			}
 		}
 	}
-	console.log(JSON.stringify(recommended_products, null, 1));
+	// console.log(JSON.stringify(recommended_products, null, 1));
 
 	//  if key visible isn't in the metadata, set it to true, otherwise set it to the value in the metadata
 	for (const cat in grouped_modules) {
@@ -113,7 +113,7 @@
 			<p class="text-xl md:w-1/2 md:px-0 px-4">
 				{description}<br><br>
 				This list is specced for 6s, and includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br><br>
-				I try my best to keep up with modern specs and builds, but I'm not a racer... So thanks a lot to <Link external=true link="https://www.instagram.com/august_fpv/">August FPV</Link> for all of the help and advice on this build
+				I try my best to keep up with modern specs and builds, but I'm not a racer... So thanks a lot to <Link external={true} link="https://www.instagram.com/august_fpv/">August FPV</Link> for all of the help and advice on this build
 				<ul class="flex flex-row justify-between w-fit flex-wrap mt-4">
 					<li
 						class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-green before:relative mb-2 mr-8">
@@ -198,6 +198,7 @@
 										point5={info.metadata.point5}
 										text={info.metadata.text}
 										link={info.metadata.link}
+										img={info.metadata.img}
 										category={cat}
 									/>
 								{/if}
@@ -248,7 +249,7 @@
 								category={group}
 							/> -->
 							<div class="h-fit max-w-sm {info.metadata.color} border-l-4 product pl-2 my-4 md:mr-8 md:w-1/6 w-1/3">
-								<Link color={info.metadata.color} size="2" color1={info.metadata.color} link={info.metadata.link} external="true">{info.metadata.title}</Link>
+								<Link color={info.metadata.color} size="2" color1={info.metadata.color} link={info.metadata.link} external={true}>{info.metadata.title}</Link>
 								<div class="text-base text-main-100 dark:text-contrast-300 mr-2">{info.metadata.price}</div>
 							</div>
 						{/if}

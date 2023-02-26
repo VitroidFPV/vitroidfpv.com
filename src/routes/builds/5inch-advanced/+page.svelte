@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import BuildProduct from "$components/buildsPage/buildProduct.svelte";
 	import MainHeader from "$components/mainHeader.svelte";
 	import Header from "$components/Header.svelte";
@@ -9,32 +9,31 @@
 	// import { priceSum, part } from "$components/buildsPage/stores.js"
 	import { slide } from "svelte/transition";
 	import tinycolor from "tinycolor2";
+	import type { Module } from "$lib/types/module";
 
 	const modules = import.meta.glob("/modules/buildLists/5inch-advanced/*.md", {eager: true});
 
 	// console.log(modules)
-	let grouped_modules = {};
+	let grouped_modules: {[category: string]: {[group: string]: Array<Module>}} = {};
 
 	for (const k in modules) {
-		// construct object as {category: {group: [metadata]}}
-		const cat = modules[k].metadata.Category;
-		const group = modules[k].metadata.group;
+	const cat = (modules[k] as Module).metadata.Category;
+	const group = (modules[k] as Module).metadata.group;
 
-		if (grouped_modules[cat]) {
-			if (grouped_modules[cat][group]) {
-				grouped_modules[cat][group].push(modules[k]);
-			} else {
-				grouped_modules[cat][group] = [modules[k]];
-			}
+	if (grouped_modules[cat]) {
+		if (grouped_modules[cat][group]) {
+			grouped_modules[cat][group].push(modules[k] as Module);
 		} else {
-			grouped_modules[cat] = {};
-			grouped_modules[cat][group] = [modules[k]];
+			grouped_modules[cat][group] = [modules[k] as Module];
 		}
-	}
+	} else {
+		grouped_modules[cat] = {};
+		grouped_modules[cat][group] = [modules[k] as Module];
+	}}
 	// console.log(JSON.stringify(grouped_modules, null, 1));
 
 	// in grouped_modules, from the category "Recommended Builds", log all of the groups, and the value of the key "recommended"
-	let recommended_titles = {};
+	let recommended_titles: { [key: string]: string } = {};
 	for (const cat in grouped_modules) {
 		if (cat === "Recommended Builds") {
 			for (const group in grouped_modules[cat]) {
@@ -46,7 +45,7 @@
 
 	// for each group in recommended_titles, in the arrays there are titles
 	//  find the product in the grouped_modules object that matches the title and log it in its group
-	let recommended_products = {};
+	let recommended_products: {[group: string]: Array<Module>} = {};
 	for (const group in recommended_titles) {
 		recommended_products[group] = [];
 		for (const title of recommended_titles[group]) {

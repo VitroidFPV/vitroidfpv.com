@@ -12,6 +12,7 @@ const config = {
     resolve: {
         alias: {
             $components: "/src/components/",
+			$lib: "/src/lib/",
         },
     },
 };

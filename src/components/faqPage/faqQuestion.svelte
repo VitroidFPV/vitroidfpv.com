@@ -1,16 +1,16 @@
-<script>
+<script lang="ts">
 	let open = false;
-	export let title;
-	export let content;
-	export let category;
+	export let title: string;
+	export let content: string;
+	export let category: string;
 	export let id = "";
 	import { onMount } from "svelte";
 	import { slide, fade, fly } from "svelte/transition";
 	import { page } from "$app/stores";
 	// import SvelteMarkdown from 'svelte-markdown'
 	import IntersectionObserver from "svelte-intersection-observer";
-	let element;
-	let intersecting;
+	let element: HTMLElement;
+	let intersecting: boolean;
 
 	let source = content;
 
@@ -29,7 +29,7 @@
 		}
 	}
 
-	function copyID() {
+	function copyID(this: {nextElementSibling: any; "on:click": () => void; class: string; }) {
 		let id = this.nextElementSibling.id;
 		console.log(id);
 		navigator.clipboard.writeText($page.url.origin + $page.url.pathname + "/" + id);
@@ -47,11 +47,12 @@
 			bind:this={element}
 			transition:fly={{ y: 10, duration: 300 }}>
 			<div class="flex align-start">
-				<div
-					on:click={copyID}
-					class="text-3xl text-black dark:text-white opacity-20 hover:opacity-40 duration-300
-						cursor-pointer copy-id mr-2">#
-				</div>
+				<button on:click={copyID}>
+					<div
+						class="text-3xl text-black dark:text-white opacity-20 hover:opacity-40 duration-300
+							cursor-pointer copy-id mr-2">#
+					</div>
+				</button>
 				<button
 					type="button"
 					on:click={() => (open = !open)}

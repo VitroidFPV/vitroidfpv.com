@@ -1,9 +1,11 @@
-<script>
+<script lang="ts">
 	import { page } from "$app/stores";
 	import BuildProduct from "$components/buildsPage/buildProduct.svelte";
 	import MainHeader from "$components/mainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
+
+	import type { Module } from "$lib/types/module";
 
 	import { marked } from "marked";
 	import { onMount } from "svelte";
@@ -15,10 +17,10 @@
 
 	let slug = $page.params.slug
 	// console.log(slug)
-	let slugModule = modules[`/modules/articles/${slug}.md`]
+	let slugModule = modules[`/modules/articles/${slug}.md`] as Module
 
-	let categoryColor
-	let hexColor
+	let categoryColor: string;
+	let hexColor: string;
 	switch (slugModule.metadata.category) {
 		case "Guides":
 			categoryColor = "green"
@@ -52,26 +54,28 @@
 	let headers = 
 		Array
 		.from(slugModule.metadata.content.matchAll(headerRegex))
-		.map(({ groups: { flag, content } }) => ({
-			heading: `${ flag.length }`,
-			content,
+		.map(({ groups }) => ({
+			heading: `${ groups?.flag?.length ?? 0 }`,
+			content: groups?.content ?? '',
 		}))
-	// console.log(headers)
+
 
 	let intersecionOptions = {
 		root: null,
 		rootMargin: "0px 0px -200px 0px",
 		threshold: 1
 	}
+
 	let intersectingHeader = ""
-	let	callback = (entries, observer) => {
+	let	callback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
 		entries.forEach(entry => {
 			if (entry.isIntersecting) {
-				// console.log(entry.target.innerHTML)
 				intersectingHeader = entry.target.innerHTML
 			}
 		})
 	}
+
+
 	onMount(() => {
 		let intersectingTargets = document.querySelectorAll(".article.md h1, .article.md h2, .article.md h3, .article.md h4")
 		let observer = new IntersectionObserver(callback, intersecionOptions);
@@ -135,9 +139,7 @@
 	<div class="flex justify-between">
 		<div class="flex flex-col md:mr-8 mr-0">
 			<div class="flex flex-col pr-0 article-card {slugModule.metadata.category} rounded-2xl mb-8 w-fit">
-				<div on:click={() => (imgOpen = !imgOpen)} class="rounded-2xl {slugModule.metadata.category} relative select-none group overflow-hidden">
-					<img src="{slugModule.metadata.img}" alt="" class="aspect-[2/1] h-[34rem] object-cover object-center rounded-2xl duration-500">
-				</div>
+				<img src="{slugModule.metadata.img}" alt="" class="aspect-[2/1] h-[34rem] object-cover object-center rounded-2xl duration-500">
 			</div>
 			<div class="flex-col items-start border-b-[1px] border-gray-700 mb-8">
 				<h1 class="text-{categoryColor} text-5xl mb-2">{slugModule.metadata.title}</h1>
@@ -154,7 +156,7 @@
 		<div class="md:flex md:flex-col hidden sticky h-full left-full top-0 pl-4">
 			<div class="text-highlight dark:text-highlight-dark text-3xl w-fit font-semibold mt-8 mb-4 border-b-2 border-current">Contents:</div>
 			{#each headers as header}
-				{#if header.heading < 5}
+				{#if +header.heading < 5}
 				<a 	href="#{header.content.replaceAll(" ", "-").toLowerCase()}"
 				class:intersecting-header={header.content === intersectingHeader}
 				class:headeer={header.content != intersectingHeader}

@@ -1,20 +1,23 @@
-<script>
+<script lang="ts">
 	import BuildProduct from "$components/buildsPage/buildProduct.svelte";
 	import MainHeader from "$components/mainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
 	import tinycolor from "tinycolor2";
 
+	import type { Module } from "$lib/types/module";
+
 	const modules = import.meta.glob("/modules/buildLists/3inch-cinewhoop/*.md", {eager: true});
+
 	// console.log(modules)
-	let grouped_modules = {};
+	let grouped_modules: {[category: string]: Array<Module>} = {};
 
 	for (const k in modules) {
-		const cat = modules[k].metadata.Category;
+		const cat = (modules[k] as Module).metadata.Category;
 		if (grouped_modules[cat]) {
-			grouped_modules[cat].push(modules[k]);
+			grouped_modules[cat].push(modules[k] as Module);
 		} else {
-			grouped_modules[cat] = [modules[k]];
+			grouped_modules[cat] = [modules[k] as Module];
 		}
 	}
 

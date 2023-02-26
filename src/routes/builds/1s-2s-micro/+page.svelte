@@ -1,21 +1,22 @@
-<script>
+<script lang="ts">
 	import BuildProduct from "$components/buildsPage/buildProduct.svelte";
 	import MainHeader from "$components/mainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
 	import tinycolor from "tinycolor2";
+	import type { Module } from "$lib/types/module";
 
 	const modules = import.meta.glob("/modules/buildLists/1s-2s-micro/*.md", {eager: true});
 
 	// console.log(modules)
-	let grouped_modules = {};
+	let grouped_modules: {[category: string]: Array<Module>} = {};
 
 	for (const k in modules) {
-		const cat = modules[k].metadata.Category;
+		const cat = (modules[k] as Module).metadata.Category;
 		if (grouped_modules[cat]) {
-			grouped_modules[cat].push(modules[k]);
+			grouped_modules[cat].push(modules[k] as Module);
 		} else {
-			grouped_modules[cat] = [modules[k]];
+			grouped_modules[cat] = [modules[k] as Module];
 		}
 	}
 
@@ -195,16 +196,14 @@
 		{/each}
 	</div>
 
-	<div class="flex flex-col">
+	<!-- <div class="flex flex-col">
 		<div class="my-8 w-full h-fit">
 			<div class="text-4xl tracking-tight md:w-fit f-full px-1 md:ml-1 ml-2 cat mb-2 text-center">
 				Recommended builds:
 			</div>
 			<div class="ml-2">
-				<Paragraph
-					text="As there is a lot of variety in this class of builds, you will find some recommended build combinations for specific quads below:"
-				/>
+				<Paragraph>As there is a lot of variety in this class of builds, you will find some recommended build combinations for specific quads below:</Paragraph>
 			</div>
 		</div>
-	</div>
+	</div> -->
 </div>

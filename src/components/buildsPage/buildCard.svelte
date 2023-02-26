@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
 	import Link from "$components/Link.svelte";
 
-	export let short = "false";
-	export let color;
-	export let title;
-	export let link;
+	export let short = false;
+	export let color: string;
+	export let title: string;
+	export let link: string;
 	export let img = "";
 	export let text1 = "";
 	export let text2 = "";

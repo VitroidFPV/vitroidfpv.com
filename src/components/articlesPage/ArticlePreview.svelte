@@ -1,15 +1,15 @@
-<script>
+<script lang="ts">
 	import Link from "$components/Link.svelte";
 
-	export let title
-	export let description
-	export let img
+	export let title: string
+	export let description: string
+	export let img: string
 	export let link = ""
-	export let category
-	export let date
-	export let author
+	export let category: string
+	export let date: string
+	// export let author: string
 
-	let categoryColor
+	let categoryColor: string
 	switch (category) {
 		case "Guides":
 			categoryColor = "green"

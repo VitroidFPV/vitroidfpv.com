@@ -1,10 +1,12 @@
-<script>	
+<script lang="ts">
 	import Header from "$components/Header.svelte";
 	import MainHeader from "$components/mainHeader.svelte";
 	import CategoryIndex from "$components/faqPage/categoryIndex.svelte";
 	import FaqQuestion from "$components/faqPage/faqQuestion.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
 	import Rating from "$components/Rating.svelte";
+
+	import type { Module } from "$lib/types/module";
 
 	import { onMount } from "svelte";
 	import { slide, fade, fly } from "svelte/transition";
@@ -24,7 +26,7 @@
 	//  import removeMarkdown
 	import removeMd from "remove-markdown";
 
-	async function getUpvotes(formId) {
+	async function getUpvotes(formId: string) {
 		const res = await fetch(`https://vitroidfpv-sv.netlify.app/cors?url=http://195.88.87.150:5678/webhook/0963ddbf-a472-4a54-bff7-f37c43d8a64e?id=${formId}`)
 		const data = await res.json()
 		let novoted = data.length
@@ -44,18 +46,18 @@
 
 	const modules = import.meta.glob("/modules/faqs/*.md", {eager: true});
 	// console.log(modules)
-	let grouped_modules = {};
+	let grouped_modules: {[category: string]: Array<Module>} = {};
 
 	for (const k in modules) {
-		const cat = modules[k].metadata.Category;
+		const cat = (modules[k] as Module).metadata.Category;
 		if (grouped_modules[cat]) {
-			grouped_modules[cat].push(modules[k]);
+			grouped_modules[cat].push(modules[k] as Module);
 		} else {
-			grouped_modules[cat] = [modules[k]];
+			grouped_modules[cat] = [modules[k] as Module];
 		}
 	}
 
-	let sorted_grouped_modules = {};
+	let sorted_grouped_modules: {[category: string]: Array<Module>} = {};
 	// sort grouped_modules in each category by the "order" key into sorted_grouped_modules
 	for (const cat in grouped_modules) {
 		sorted_grouped_modules[cat] = grouped_modules[cat];
@@ -66,7 +68,7 @@
 	// console.log(JSON.stringify(sorted_grouped_modules, null, 2));
 	
 	let search = "";
-	let searched_grouped_modules = {};
+	let searched_grouped_modules: { [key: string]: any[] } = {};
 	$: { 
 		// match search string to each module title in each category, if category is empty, remove it
 		for (const cat in sorted_grouped_modules) {
@@ -304,7 +306,14 @@
 		<div class="text-3xl tracking-tight w-fit px-1 cat pb-1 my-32">Nothing matching your search results has been found</div>
 	{/if}
 
-	<form class="w-fit flex flex-col form mt-10 bg-gray-500/10 p-4 rounded-2xl dark:shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#2ad162] shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#90d95b]" method="post" name="faq" netlify netlify-honeypot="bot-field">
+	<form 
+		class="w-fit flex flex-col form mt-10 bg-gray-500/10 p-4 rounded-2xl dark:shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#2ad162] 
+			shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#90d95b]" 
+		method="post" 
+		name="faq" 
+		data-netlify 
+		data-netlify-honeypot="bot-field"
+	>
 		<input type="hidden" name="form-name" value="faq" />
 		<Header text="Feedback" />
 		<Paragraph>If you found this page useful (or not), or have any suggestions, ideas and so on, let me know here to help me improve the site!
@@ -332,7 +341,7 @@
 						<div transition:fade class="text-red text-lg absolute">I'm sorry you didn't find this site useful! Please tell me what to improve below</div>
 					{/if}
 				</div>
-				<textarea rows="3" type="text" 
+				<textarea rows="3" 
 					class="w-full h-32 my-4 rounded-xl caret-green p-2 bg-contrast-100 dark:bg-main-200 
 					outline-none hover:shadow-black/50 shadow-[0_25px_50px_-12px_#00000059] duration-300 focus-within:outline-highlight outline-[3px]
 					focus-within:shadow-black/50" name="Feedback" bind:value={feedback}></textarea>

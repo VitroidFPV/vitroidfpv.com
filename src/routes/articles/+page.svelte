@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Header from "$components/Header.svelte";
 	import MainHeader from "$components/mainHeader.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
@@ -7,15 +7,31 @@
 	const modules = import.meta.glob("/modules/articles/*.md", {eager: true});
 	// console.log(JSON.stringify(modules, null, 2));
 	// sort grouped_modules by date, newest first, add formatted date
-	let date_sorted_modules = [];
-	for (const [key, value] of Object.entries(modules)) {
-		let date = new Date(value.metadata.date);
-		let formatted_date = date.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"});
-		value.metadata.date = formatted_date;
-		date_sorted_modules.push(value);
+	let date_sorted_modules: any[] = [];
+	
+	interface Module {
+		metadata: {
+			title: string;
+			description: string;
+			img: string;
+			category: string;
+			date: string;
+			author: string;
+		};
 	}
+
+
+	for (const [key, value] of Object.entries(modules)) {
+		const moduleValue = value as unknown as Module;
+		const date = new Date(moduleValue.metadata.date);
+		const formattedDate = date.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"});
+		moduleValue.metadata.date = formattedDate;
+		date_sorted_modules.push(moduleValue);
+	}
+
+
 	date_sorted_modules.sort((a, b) => {
-		return new Date(b.metadata.date) - new Date(a.metadata.date);
+		return new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime();
 	});
 
 	console.log("/articles/" + date_sorted_modules[0].metadata.category.toLowerCase() + "-" + date_sorted_modules[0].metadata.title.toLowerCase().replace(/[^a-zA-Z0-9]/g, "-").replace("---", "-"));

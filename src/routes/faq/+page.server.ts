@@ -1,4 +1,5 @@
 import * as dotenv from 'dotenv'
+import type { PageServerLoad } from './$types';
 dotenv.config()
 
 const NETLIFY_API_KEY = process.env.NETLIFY_API_KEY
@@ -27,10 +28,9 @@ var upvotes = async() => {
 
 var deltaVotes = upvotes()
 
-/** @type {import('./$types').PageServerLoad} */
-export function load() {
+export const load = (async ({params}) => {
 	console.log(deltaVotes)
 	return {
 		votes: deltaVotes,
 	}
-}
+}) satisfies PageServerLoad

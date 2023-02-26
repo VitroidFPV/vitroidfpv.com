@@ -1,19 +1,21 @@
-<script>
+<script lang="ts">
 	import BuildCard from "$components/buildsPage/buildCard.svelte";
 	import Header from "$components/Header.svelte";
 	import MainHeader from "$components/mainHeader.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
 
+	import type { Module } from "$lib/types/module";
+
 	const modules = import.meta.glob("/modules/equipmentLists/*.md", {eager: true});
 	// console.log(modules)
-	let grouped_modules = {};
+	let grouped_modules: {[category: string]: Array<Module>} = {};
 
 	for (const k in modules) {
-		const cat = modules[k].metadata.Category;
+		const cat = (modules[k] as Module).metadata.Category;
 		if (grouped_modules[cat]) {
-			grouped_modules[cat].push(modules[k]);
+			grouped_modules[cat].push(modules[k] as Module);
 		} else {
-			grouped_modules[cat] = [modules[k]];
+			grouped_modules[cat] = [modules[k] as Module];
 		}
 	}
 

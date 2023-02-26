@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import BuildProduct from "$components/buildsPage/buildProduct.svelte";
 	import MainHeader from "$components/mainHeader.svelte";
 	import Header from "$components/Header.svelte";
@@ -8,7 +8,9 @@
 	import { fly, fade } from "svelte/transition";
 	import tinycolor from "tinycolor2";
 
-	async function getUpvotes(formId) {
+	import type { Module } from "$lib/types/module";
+
+	async function getUpvotes(formId: string) {
 		const res = await fetch(`https://vitroidfpv-sv.netlify.app/cors?url=http://195.88.87.150:5678/webhook/0963ddbf-a472-4a54-bff7-f37c43d8a64e?id=${formId}`)
 		const data = await res.json()
 		let novoted = data.length
@@ -34,25 +36,20 @@
 	const modules = import.meta.glob("/modules/buildLists/5inch-beginner/*.md", {eager: true});
 
 	// console.log(modules)
-	let grouped_modules = {};
+	let grouped_modules: {[Category: string]: Array<Module>} = {};
 
-	for (const k in modules) {
-		const cat = modules[k].metadata.Category;
-		if (grouped_modules[cat]) {
-			grouped_modules[cat].push(modules[k]);
-		} else {
-			grouped_modules[cat] = [modules[k]];
+	for (const [, modules] of Object.entries(grouped_modules)) {
+		for (const module of modules) {
+				module.metadata = { 
+					...module.metadata, 
+					visible: module.metadata?.visible ?? true 
+				};
 		}
 	}
+
 
 	//  if key visible isn't in the metadata, set it to true, otherwise set it to the value in the metadata
-	for (const [key, value] of Object.entries(grouped_modules)) {
-		for (const [key2, value2] of Object.entries(value)) {
-			if (value2.metadata.visible == undefined) {
-				value2.metadata.visible = true;
-			}
-		}
-	}
+
 
 	let prefix = "Builds";
 	let titleRaw = "5\" Beginner Quad";
@@ -231,7 +228,15 @@
 			</div>
 		{/each}
 	</div>
-	<form class="w-fit flex flex-col form mt-10 bg-gray-500/10 p-4 rounded-2xl dark:shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#2ad162] shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#90d95b]" method="post" name="5inchBeginner" netlify netlify-honeypot="bot-field">
+
+	<form 
+		class="w-fit flex flex-col form mt-10 bg-gray-500/10 p-4 rounded-2xl dark:shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#2ad162] 
+		shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#90d95b]" 
+		method="post" 
+		name="5inchBeginner" 
+		data-netlify="true" 
+		data-netlify-honeypot="bot-field"
+	>
 		<input type="hidden" name="form-name" value="5inchBeginner" />
 		<Header text="Feedback" />
 		<Paragraph>If you found this page useful (or not), or have any suggestions for parts, ideas and so on, let me know here to help me improve the site!
@@ -259,7 +264,7 @@
 						<div transition:fade class="text-red text-lg absolute">I'm sorry you didn't find this site useful! Please tell me what to improve below</div>
 					{/if}
 				</div>
-				<textarea rows="3" type="text" 
+				<textarea rows="3"
 					class="w-full h-32 my-4 rounded-xl caret-green p-2 bg-contrast-100 dark:bg-main-200 
 					outline-none hover:shadow-black/50 shadow-[0_25px_50px_-12px_#00000059] duration-300 focus-within:outline-highlight outline-[3px]
 					focus-within:shadow-black/50" name="Feedback" bind:value={feedback}></textarea>
