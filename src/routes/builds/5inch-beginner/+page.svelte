@@ -38,17 +38,23 @@
 	// console.log(modules)
 	let grouped_modules: {[Category: string]: Array<Module>} = {};
 
-	for (const [, modules] of Object.entries(grouped_modules)) {
-		for (const module of modules) {
-				module.metadata = { 
-					...module.metadata, 
-					visible: module.metadata?.visible ?? true 
-				};
+	for (const k in modules) {
+		const cat = (modules[k] as Module).metadata?.Category;
+		if (grouped_modules[cat]) {
+			grouped_modules[cat].push(modules[k] as Module);
+		} else {
+			grouped_modules[cat] = [modules[k] as Module];
 		}
 	}
 
-
 	//  if key visible isn't in the metadata, set it to true, otherwise set it to the value in the metadata
+	for (const k in grouped_modules) {
+		for (const i in grouped_modules[k]) {
+			if (grouped_modules[k][i].metadata?.visible === undefined) {
+				grouped_modules[k][i].metadata.visible = true;
+			}
+		}
+	}
 
 
 	let prefix = "Builds";
