@@ -47,7 +47,7 @@
 	</div>
 {/if}
 <IntersectionObserver {element} bind:intersecting>
-	<div class="h-full flex flex-col not-intersecting" bind:this={element} class:intersecting={intersecting}>
+	<div class="product-box h-full flex flex-col not-intersecting" bind:this={element} class:intersecting={intersecting}>
 		<div class="{color} {category} relative h-fit w-full border-l-4 product pl-2 my-4 md:mr-8">
 			<div class="flex w-full justify-between link t-{color}">
 				<div>
@@ -90,5 +90,53 @@
 		opacity: 1;
 		transform: translateX(0%);
 		/* filter: blur(0px); */
+	}
+
+	@media (min-width: 2000px) {
+		.product-box:nth-of-type(4n+1) {
+			transition-delay: 0ms;
+		}
+
+		.product-box:nth-of-type(4n+2) {
+			transition-delay: 50ms;
+		}
+
+		.product-box:nth-of-type(4n+3) {
+			transition-delay: 100ms;
+		}
+
+		.product-box:nth-of-type(4n+4) {
+			transition-delay: 150ms;
+		}
+	}
+	
+	@media (min-width: 1280px) and (max-width: 1999px) {
+		.product-box:nth-of-type(3n+1) {
+			transition-delay: 0ms;
+		}
+
+		.product-box:nth-of-type(3n+2) {
+			transition-delay: 50ms;
+		}
+
+		.product-box:nth-of-type(3n+3) {
+			transition-delay: 100ms;
+		}
+	}
+
+	@media (min-width: 768px) and (max-width: 1279px) {
+		.product-box:nth-of-type(2n+1) {
+			transition-delay: 0ms;
+		}
+
+		.product-box:nth-of-type(2n+2) {
+			transition-delay: 50ms;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.product-box:nth-of-type(1n+1) {
+			transition-delay: 0ms;
+		}
 	}
 </style>
