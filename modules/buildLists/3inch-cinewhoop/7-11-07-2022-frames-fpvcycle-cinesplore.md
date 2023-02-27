@@ -1,5 +1,5 @@
 ---
-Category: Frames
+category: Frames
 color: red
 order: 7
 title: FPVCycle Cinesplore

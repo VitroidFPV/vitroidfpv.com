@@ -1,5 +1,5 @@
 ---
-Category: ESCs
+category: ESCs
 color: violet
 visible: true
 order: 3

@@ -1,5 +1,5 @@
 ---
-Category: Motors
+category: Motors
 color: green
 order: 1
 title: Diatone Toka 2004

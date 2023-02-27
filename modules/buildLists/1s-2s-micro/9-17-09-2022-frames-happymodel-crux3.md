@@ -1,5 +1,5 @@
 ---
-Category: Frames
+category: Frames
 color: green
 order: 9
 title: Happymodel Crux3

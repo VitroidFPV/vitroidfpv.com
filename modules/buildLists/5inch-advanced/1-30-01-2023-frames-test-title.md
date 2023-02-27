@@ -1,5 +1,5 @@
 ---
-Category: Frames
+category: Frames
 group: Test Group
 color: red
 visible: true

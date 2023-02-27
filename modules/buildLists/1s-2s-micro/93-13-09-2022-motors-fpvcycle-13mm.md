@@ -1,5 +1,5 @@
 ---
-Category: Motors
+category: Motors
 color: red
 order: 93
 title: FPVCycle 13mm

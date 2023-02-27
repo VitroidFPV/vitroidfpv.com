@@ -1,5 +1,5 @@
 ---
-Category: AIOs
+category: AIOs
 color: green
 order: 1
 title: Diatone F411 35A AIO

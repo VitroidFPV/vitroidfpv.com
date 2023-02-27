@@ -1,5 +1,5 @@
 ---
-Category: ESCs
+category: ESCs
 color: green
 order: 1
 title: Diatone F40 Mini Series

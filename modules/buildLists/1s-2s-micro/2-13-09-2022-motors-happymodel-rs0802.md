@@ -1,5 +1,5 @@
 ---
-Category: Motors
+category: Motors
 color: green
 order: 2
 title: Happymodel RS0802

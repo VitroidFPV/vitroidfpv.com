@@ -1,5 +1,5 @@
 ---
-Category: Building
+category: Building
 order: 2
 title: What quad should I get?
 id: whatQuad

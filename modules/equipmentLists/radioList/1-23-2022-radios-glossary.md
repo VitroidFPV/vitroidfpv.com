@@ -1,5 +1,5 @@
 ---
-Category: Radios
+category: Radios
 group: Info
 color: green
 order: -1

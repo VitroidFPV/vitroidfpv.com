@@ -1,5 +1,5 @@
 ---
-Category: Starting Out
+category: Starting Out
 title: How much does it cost to start with FPV?
 id: startingOutCost
 order: 1

@@ -1,5 +1,5 @@
 ---
-Category: Radios
+category: Radios
 group: Compact style
 color: green
 order: 1

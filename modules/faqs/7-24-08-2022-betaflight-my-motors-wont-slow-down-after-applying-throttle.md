@@ -1,5 +1,5 @@
 ---
-Category: Betaflight
+category: Betaflight
 order: 7
 title: My motors won't slow down after applying throttle
 id: iTerm

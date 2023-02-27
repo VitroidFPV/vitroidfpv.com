@@ -1,5 +1,5 @@
 ---
-Category: Radio
+category: Radio
 order: 1
 title: How to connect and bind my receiver?
 id: receiverBind

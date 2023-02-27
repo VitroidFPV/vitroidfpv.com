@@ -1,5 +1,5 @@
 ---
-Category: AIOs
+category: AIOs
 color: orange
 order: 4
 title: Happymodel X12 AIO 5in1

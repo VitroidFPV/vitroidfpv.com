@@ -1,5 +1,5 @@
 ---
-Category: Frames
+category: Frames
 color: green
 order: 7
 title: NewBeeDrone Mosquito XL

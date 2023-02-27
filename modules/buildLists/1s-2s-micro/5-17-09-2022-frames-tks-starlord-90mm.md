@@ -1,5 +1,5 @@
 ---
-Category: Frames
+category: Frames
 color: red
 order: 5
 title: TKS Starlord 90mm

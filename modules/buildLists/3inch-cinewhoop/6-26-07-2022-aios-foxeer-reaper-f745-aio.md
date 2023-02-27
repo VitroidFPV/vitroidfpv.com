@@ -1,5 +1,5 @@
 ---
-Category: AIOs
+category: AIOs
 color: red
 order: 6
 title: Flywoo GOKU GN722 EVO

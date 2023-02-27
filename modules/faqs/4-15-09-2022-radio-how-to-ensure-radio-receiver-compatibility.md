@@ -1,5 +1,5 @@
 ---
-Category: Radio
+category: Radio
 order: 4
 title: How to ensure Radio-Receiver compatibility?
 id: compatibleRadio

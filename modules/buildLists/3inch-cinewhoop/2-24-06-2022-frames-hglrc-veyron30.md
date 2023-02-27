@@ -1,5 +1,5 @@
 ---
-Category: Frames
+category: Frames
 color: orange
 order: 2
 title: HGLRC Veyron30

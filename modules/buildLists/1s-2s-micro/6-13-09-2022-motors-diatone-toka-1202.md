@@ -1,5 +1,5 @@
 ---
-Category: Motors
+category: Motors
 color: orange
 order: 6
 title: Diatone TOKA 1202

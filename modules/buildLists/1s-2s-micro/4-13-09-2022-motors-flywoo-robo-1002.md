@@ -1,5 +1,5 @@
 ---
-Category: Motors
+category: Motors
 color: orange
 order: 4
 title: Flywoo Robo 1002

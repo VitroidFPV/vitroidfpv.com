@@ -1,5 +1,5 @@
 ---
-Category: Video
+category: Video
 order: 2
 title: I'm only getting a black screen in my goggles
 id: blackScreen

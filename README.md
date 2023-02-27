@@ -58,7 +58,7 @@ The site is designed in a way that all of the repeatable content is modular, the
 
 ```markdown
 ---
-Category: Video
+category: Video
 order: 6
 title: I'm barely getting any video range
 id: videoRange

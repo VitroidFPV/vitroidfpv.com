@@ -1,5 +1,5 @@
 ---
-Category: Motors
+category: Motors
 color: orange
 order: 7
 title: Diatone TOKA 1103

@@ -1,5 +1,5 @@
 ---
-Category: Motors
+category: Motors
 color: orange
 order: 5
 title: RCinpower GTS V3 1002

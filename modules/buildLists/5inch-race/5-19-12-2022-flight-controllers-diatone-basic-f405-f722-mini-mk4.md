@@ -1,5 +1,5 @@
 ---
-Category: Flight Controllers
+category: Flight Controllers
 color: red
 visible: true
 order: 5

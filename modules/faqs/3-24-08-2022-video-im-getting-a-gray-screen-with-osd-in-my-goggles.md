@@ -1,5 +1,5 @@
 ---
-Category: Video
+category: Video
 order: 3
 title: I'm getting a gray screen with OSD in my goggles
 id: grayScreen

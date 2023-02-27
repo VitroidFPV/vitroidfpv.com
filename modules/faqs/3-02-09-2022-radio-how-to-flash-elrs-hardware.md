@@ -1,5 +1,5 @@
 ---
-Category: Radio
+category: Radio
 order: 3
 title: How to flash ELRS hardware?
 id: flashElrs

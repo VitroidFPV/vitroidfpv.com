@@ -3,7 +3,6 @@ export interface Module {
 		title: string
 		date: string
 		category: string
-		Category: string
 		img: string
 		description: string
 		content: string
@@ -17,11 +16,6 @@ export interface Module {
 		point3?: string
 		point4?: string
 		point5?: string
-		text1?: string
-		text2?: string
-		text3?: string
-		text4?: string
-		text5?: string
 		group: string
 		id: string
 		answer: string

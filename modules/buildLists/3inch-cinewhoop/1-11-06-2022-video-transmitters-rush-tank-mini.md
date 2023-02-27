@@ -1,5 +1,5 @@
 ---
-Category: Video Transmitters
+category: Video Transmitters
 color: orange
 order: 1
 title: RUSH Tank Mini

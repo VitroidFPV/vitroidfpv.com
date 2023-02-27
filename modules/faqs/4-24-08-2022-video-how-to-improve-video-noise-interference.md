@@ -1,5 +1,5 @@
 ---
-Category: Video
+category: Video
 order: 4
 title: How to improve video noise/interference
 id: noise

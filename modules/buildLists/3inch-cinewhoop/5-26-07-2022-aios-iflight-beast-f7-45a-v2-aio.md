@@ -1,5 +1,5 @@
 ---
-Category: AIOs
+category: AIOs
 color: red
 order: 5
 title: IFlight Beast F7 45A V2 AIO

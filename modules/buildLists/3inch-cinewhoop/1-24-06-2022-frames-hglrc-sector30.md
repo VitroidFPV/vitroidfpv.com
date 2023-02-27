@@ -1,5 +1,5 @@
 ---
-Category: Frames
+category: Frames
 color: green
 order: 1
 title: HGLRC Sector30

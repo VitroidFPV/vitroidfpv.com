@@ -1,5 +1,5 @@
 ---
-Category: AIOs
+category: AIOs
 color: orange
 order: 4
 title: HGLRC Zeus35 Pro F722 AIO

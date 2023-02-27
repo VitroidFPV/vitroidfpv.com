@@ -1,5 +1,5 @@
 ---
-Category: Starting Out
+category: Starting Out
 order: 7
 title: What are the different flight modes?
 id: flightModes

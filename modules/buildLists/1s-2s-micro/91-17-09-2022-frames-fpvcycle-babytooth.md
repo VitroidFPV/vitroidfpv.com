@@ -1,5 +1,5 @@
 ---
-Category: Frames
+category: Frames
 color: green
 order: 91
 title: FPVCycle Babytooth

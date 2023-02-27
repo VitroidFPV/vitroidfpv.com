@@ -1,5 +1,5 @@
 ---
-Category: TX Modules
+category: TX Modules
 group: TBS
 color: red
 order: 4

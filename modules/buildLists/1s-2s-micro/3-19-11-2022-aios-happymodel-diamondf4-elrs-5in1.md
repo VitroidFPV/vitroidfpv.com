@@ -1,5 +1,5 @@
 ---
-Category: AIOs
+category: AIOs
 color: orange
 order: 3
 title: Happymodel DiamondF4 ELRS 5in1

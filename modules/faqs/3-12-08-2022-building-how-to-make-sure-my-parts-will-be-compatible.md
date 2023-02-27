@@ -1,5 +1,5 @@
 ---
-Category: Building
+category: Building
 order: 3
 title: How to check for mechanical compatibility?
 id: compatibleMechanically

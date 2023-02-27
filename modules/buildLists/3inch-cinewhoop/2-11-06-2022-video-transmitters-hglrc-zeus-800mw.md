@@ -1,5 +1,5 @@
 ---
-Category: Video Transmitters
+category: Video Transmitters
 color: green
 order: 2
 title: HGLRC Zeus 800mW

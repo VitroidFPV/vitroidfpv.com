@@ -1,5 +1,5 @@
 ---
-Category: Flight Controllers
+category: Flight Controllers
 color: red
 order: 4
 title: Flywoo GOKU Versatile F745

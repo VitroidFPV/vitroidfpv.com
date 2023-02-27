@@ -49,7 +49,7 @@
 	let grouped_modules: {[category: string]: Array<Module>} = {};
 
 	for (const k in modules) {
-		const cat = (modules[k] as Module).metadata.Category;
+		const cat = (modules[k] as Module).metadata.category;
 		if (grouped_modules[cat]) {
 			grouped_modules[cat].push(modules[k] as Module);
 		} else {

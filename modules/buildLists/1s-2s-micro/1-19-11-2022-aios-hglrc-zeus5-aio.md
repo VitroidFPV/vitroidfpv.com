@@ -1,5 +1,5 @@
 ---
-Category: AIOs
+category: AIOs
 color: green
 order: 1
 title: HGLRC Zeus5 AIO

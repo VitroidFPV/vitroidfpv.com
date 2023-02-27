@@ -1,5 +1,5 @@
 ---
-Category: Frames
+category: Frames
 color: orange
 order: 4
 title: IFlight ProTek35

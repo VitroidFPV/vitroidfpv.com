@@ -1,5 +1,5 @@
 ---
-Category: Flight Controllers
+category: Flight Controllers
 color: red
 order: 6
 title: Zeez F2 V2 2020

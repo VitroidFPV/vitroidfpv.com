@@ -1,5 +1,5 @@
 ---
-Category: Flight Controllers
+category: Flight Controllers
 color: green
 order: 2
 title: Diatone Basic F722 Mini MK3

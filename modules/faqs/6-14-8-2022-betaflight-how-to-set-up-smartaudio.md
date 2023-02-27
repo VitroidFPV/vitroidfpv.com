@@ -1,5 +1,5 @@
 ---
-Category: Betaflight
+category: Betaflight
 order: 6
 title: How to set up SmartAudio?
 id: smartaudio

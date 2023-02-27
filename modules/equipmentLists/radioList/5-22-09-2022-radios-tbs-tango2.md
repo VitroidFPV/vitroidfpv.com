@@ -1,5 +1,5 @@
 ---
-Category: Radios
+category: Radios
 group: Gamepad style
 color: red
 order: 5

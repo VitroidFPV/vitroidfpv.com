@@ -1,5 +1,5 @@
 ---
-Category: Motors
+category: Motors
 color: orange
 order: 9
 title: Happymodel EX12025

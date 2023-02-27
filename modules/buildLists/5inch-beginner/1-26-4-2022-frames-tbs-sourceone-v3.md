@@ -1,5 +1,5 @@
 ---
-Category: Frames
+category: Frames
 color: green
 visible: true
 order: 1

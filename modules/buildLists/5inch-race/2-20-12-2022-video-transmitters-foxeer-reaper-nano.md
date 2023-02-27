@@ -1,5 +1,5 @@
 ---
-Category: Video Transmitters
+category: Video Transmitters
 color: orange
 visible: true
 order: 2

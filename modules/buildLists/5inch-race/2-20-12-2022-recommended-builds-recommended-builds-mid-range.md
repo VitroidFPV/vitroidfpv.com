@@ -1,5 +1,5 @@
 ---
-Category: Recommended Builds
+category: Recommended Builds
 group: Mid-range
 color: orange
 visible: true

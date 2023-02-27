@@ -1,5 +1,5 @@
 ---
-Category: ESCs
+category: ESCs
 color: orange
 visible: true
 order: 5

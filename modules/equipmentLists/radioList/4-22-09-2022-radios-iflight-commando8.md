@@ -1,5 +1,5 @@
 ---
-Category: Radios
+category: Radios
 group: Gamepad style
 color: orange
 order: 4

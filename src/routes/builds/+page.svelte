@@ -11,7 +11,7 @@
 	let grouped_modules: {[category: string]: Array<Module>} = {};
 
 	for (const k in modules) {
-		const cat = (modules[k] as Module).metadata.Category;
+		const cat = (modules[k] as Module).metadata.category;
 		if (grouped_modules[cat]) {
 			grouped_modules[cat].push(modules[k] as Module);
 		} else {
@@ -166,11 +166,11 @@
 					title={build.metadata.title}
 					color={build.metadata.difficulty}
 					link={build.metadata.link}
-					text1={build.metadata.text1}
-					text2={build.metadata.text2}
-					text3={build.metadata.text3}
-					text4={build.metadata.text4}
-					text5={build.metadata.text5}
+					point1={build.metadata.point1}
+					point2={build.metadata.point2}
+					point3={build.metadata.point3}
+					point4={build.metadata.point4}
+					point5={build.metadata.point5}
 					img={build.metadata.img}
 				/>
 			{/each}

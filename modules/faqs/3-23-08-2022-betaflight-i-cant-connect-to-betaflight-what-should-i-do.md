@@ -1,5 +1,5 @@
 ---
-Category: Betaflight
+category: Betaflight
 order: 3
 title: I can't connect to Betaflight, what should I do?
 id: betaflightConnect

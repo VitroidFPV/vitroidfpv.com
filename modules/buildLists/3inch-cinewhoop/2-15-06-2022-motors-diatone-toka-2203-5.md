@@ -1,5 +1,5 @@
 ---
-Category: Motors
+category: Motors
 color: red
 order: 1
 title: Diatone Toka 2203.5

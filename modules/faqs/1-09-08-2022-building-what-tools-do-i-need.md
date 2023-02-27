@@ -1,5 +1,5 @@
 ---
-Category: Building
+category: Building
 order: 1
 title: What tools do I need?
 id: tools

@@ -1,5 +1,5 @@
 ---
-Category: Motors
+category: Motors
 color: red
 visible: true
 order: 7

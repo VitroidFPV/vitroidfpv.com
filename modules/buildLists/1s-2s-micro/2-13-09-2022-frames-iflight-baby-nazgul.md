@@ -1,5 +1,5 @@
 ---
-Category: Frames
+category: Frames
 color: green
 order: 2
 title: IFlight Baby Nazgul

@@ -1,5 +1,5 @@
 ---
-Category: Motors
+category: Motors
 color: green
 order: 3
 title: Happymodel EX802

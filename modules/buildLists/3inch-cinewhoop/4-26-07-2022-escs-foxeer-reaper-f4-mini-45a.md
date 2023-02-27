@@ -1,5 +1,5 @@
 ---
-Category: ESCs
+category: ESCs
 color: orange
 order: 4
 title: Foxeer Reaper F4 Mini 45A

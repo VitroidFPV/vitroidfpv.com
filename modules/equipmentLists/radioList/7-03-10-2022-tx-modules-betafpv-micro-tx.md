@@ -1,5 +1,5 @@
 ---
-Category: TX Modules
+category: TX Modules
 group: ELRS
 color: orange
 visible: false

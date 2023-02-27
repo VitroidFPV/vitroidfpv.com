@@ -1,5 +1,5 @@
 ---
-Category: TX Modules
+category: TX Modules
 group: Misc
 color: orange
 order: 1

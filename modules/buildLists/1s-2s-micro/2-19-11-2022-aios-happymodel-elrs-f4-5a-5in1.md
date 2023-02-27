@@ -1,5 +1,5 @@
 ---
-Category: AIOs
+category: AIOs
 color: green
 order: 2
 title: Happymodel ELRS F4 5A 5in1

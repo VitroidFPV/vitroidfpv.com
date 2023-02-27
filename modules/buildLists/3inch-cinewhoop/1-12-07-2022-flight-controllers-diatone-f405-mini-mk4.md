@@ -1,5 +1,5 @@
 ---
-Category: Flight Controllers
+category: Flight Controllers
 color: green
 order: 1
 title: Diatone Basic F405/F722 Mini MK4

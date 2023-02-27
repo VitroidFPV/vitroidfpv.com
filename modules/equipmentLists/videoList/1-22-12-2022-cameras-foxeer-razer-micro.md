@@ -1,5 +1,5 @@
 ---
-Category: Cameras
+category: Cameras
 group: Analog
 color: green
 visible: true

@@ -1,5 +1,5 @@
 ---
-Category: AIOs
+category: AIOs
 color: orange
 order: 2
 title: Diatone F722 35A AIO

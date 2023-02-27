@@ -6,9 +6,10 @@ collections:
     label: FAQ
     folder: modules/faqs/
     create: true
-    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Category}}-{{title}}"
+    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
     fields:
-      - name: Category
+      - name: category
+        label: Category
         widget: "select"
         options:
           - { label: "Starting Out", value: "Starting Out" }
@@ -26,10 +27,10 @@ collections:
     label: 5" Beginner Build
     folder: modules/buildLists/5inch-beginner/
     create: true
-    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Category}}-{{title}}"
+    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
     fields:
       - label: Category
-        name: Category
+        name: category
         widget: "select"
         options:
           - { label: "Frames", value: "Frames" }
@@ -64,10 +65,10 @@ collections:
     identifier_field: title
     folder: modules/buildLists/5inch-race/
     create: true
-    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Category}}-{{title}}"
+    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
     fields:
       - label: Category
-        name: Category
+        name: category
         widget: "select"
         options:
           - { label: "Frames", value: "Frames" }
@@ -109,10 +110,10 @@ collections:
     identifier_field: title
     folder: modules/buildLists/5inch-advanced/
     create: true
-    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Category}}-{{title}}"
+    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
     fields:
       - label: Category
-        name: Category
+        name: category
         widget: "select"
         options:
           - { label: "Frames", value: "Frames" }
@@ -153,10 +154,10 @@ collections:
     label: 3" Cinewhoop Build
     folder: modules/buildLists/3inch-cinewhoop/
     create: true
-    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Category}}-{{title}}"
+    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Categcategoryory}}-{{title}}"
     fields:
       - label: Category
-        name: Category
+        name: category
         widget: "select"
         options:
           - { label: "Frames", value: "Frames" }
@@ -191,10 +192,10 @@ collections:
     label: 1s - 2s Micro Build
     folder: modules/buildLists/1s-2s-micro/
     create: true
-    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Category}}-{{title}}"
+    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
     fields:
       - label: Category
-        name: Category
+        name: category
         widget: "select"
         options:
           - { label: "Frames", value: "Frames" }
@@ -227,10 +228,10 @@ collections:
     label: Equipment - Radio
     folder: modules/equipmentLists/radioList
     create: true
-    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Category}}-{{title}}"
+    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
     fields:
       - label: Category
-        name: Category
+        name: category
         widget: "select"
         options:
           - { label: "Radios", value: "Radios" }
@@ -264,10 +265,10 @@ collections:
     label: Equipment - Video
     folder: modules/equipmentLists/videoList
     create: true
-    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Category}}-{{title}}"
+    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
     fields:
       - label: Category
-        name: Category
+        name: category
         widget: "select"
         options:
           - { label: "Cameras", value: "Cameras" }

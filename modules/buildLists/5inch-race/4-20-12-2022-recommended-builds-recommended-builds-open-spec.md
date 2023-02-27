@@ -1,5 +1,5 @@
 ---
-Category: Recommended Builds
+category: Recommended Builds
 group: High-end 2 (Open spec)
 color: red
 visible: true

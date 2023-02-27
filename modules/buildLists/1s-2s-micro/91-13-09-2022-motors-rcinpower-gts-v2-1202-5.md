@@ -1,5 +1,5 @@
 ---
-Category: Motors
+category: Motors
 color: green
 order: 10
 title: RCinpower GTS V2 1202.5

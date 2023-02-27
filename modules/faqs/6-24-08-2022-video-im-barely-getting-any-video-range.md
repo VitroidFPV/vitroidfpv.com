@@ -1,5 +1,5 @@
 ---
-Category: Video
+category: Video
 order: 6
 title: I'm barely getting any video range
 id: videoRange

@@ -1,5 +1,5 @@
 ---
-Category: Frames
+category: Frames
 color: orange
 order: 1
 title: Armattan Odonata

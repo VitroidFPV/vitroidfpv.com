@@ -1,5 +1,5 @@
 ---
-Category: Recommended Builds
+category: Recommended Builds
 group: High-end 1 (Freedom Spec)
 color: red
 visible: true

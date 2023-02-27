@@ -26,7 +26,7 @@
 				var group = entry.getIn(['data', 'group'])
 				
 				return h("div", {className: "main-box"},
-					h("div", {className: "category"}, entry.getIn(["data", "Category"])),
+					h("div", {className: "category"}, entry.getIn(["data", "category"])),
 					h("div", {className: "container" + " " + entry.getIn(["data", "color"])},
 						h("div", {className: "title" + " " + entry.getIn(["data", "color"])}, entry.getIn(["data", "title" ])),
 						h("div", {className: "points"},

@@ -1,5 +1,5 @@
 ---
-Category: Flight Controllers
+category: Flight Controllers
 color: orange
 order: 3
 title: Hobbywing XRotor F7 Convertible

@@ -1,5 +1,5 @@
 ---
-Category: ESCs
+category: ESCs
 color: red
 order: 5
 title: Hobbywing XRotor 40A

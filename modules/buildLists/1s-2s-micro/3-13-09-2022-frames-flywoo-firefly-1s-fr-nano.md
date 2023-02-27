@@ -1,5 +1,5 @@
 ---
-Category: Frames
+category: Frames
 color: green
 order: 3
 title: Flywoo Firefly 1S FR Nano

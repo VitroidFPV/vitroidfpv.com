@@ -1,5 +1,5 @@
 ---
-Category: Motors
+category: Motors
 color: green
 order: 6
 title: IFlight Xing 2205

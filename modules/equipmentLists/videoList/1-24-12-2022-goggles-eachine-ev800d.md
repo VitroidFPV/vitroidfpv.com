@@ -1,5 +1,5 @@
 ---
-Category: Goggles
+category: Goggles
 group: Analog
 color: green
 visible: true

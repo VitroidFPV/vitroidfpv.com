@@ -1,5 +1,5 @@
 ---
-Category: ESCs
+category: ESCs
 color: red
 visible: true
 order: 7

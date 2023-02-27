@@ -6,13 +6,13 @@
 	export let title: string;
 	export let link: string;
 	export let img = "";
-	export let text1 = "";
-	export let text2 = "";
-	export let text3 = "";
-	export let text4 = "";
-	export let text5 = "";
+	export let point1 = "";
+	export let point2 = "";
+	export let point3 = "";
+	export let point4 = "";
+	export let point5 = "";
 
-	let info = [text1, text2, text3, text4, text5];
+	let info = [point1, point2, point3, point4, point5];
 </script>
 
 <div
@@ -30,11 +30,11 @@
 		<Link {color} color1="inherit" {link} size="3">{title}</Link>
 		<div class="text-[19px] mt-4">
 			<ul class="list-disc list-inside h-0 invisible group-hover:visible">
-				<!-- <li class="text-transparent group-hover:text-main-200 dark:group-hover:text-contrast-100 duration-300 delay-[100ms]">{text1}</li>
-				<li class="text-transparent group-hover:text-main-200 dark:group-hover:text-contrast-100 duration-300 delay-[175ms]">{text2}</li>
-				<li class="text-transparent group-hover:text-main-200 dark:group-hover:text-contrast-100 duration-300 delay-[250ms]">{text3}</li>
-				<li class="text-transparent group-hover:text-main-200 dark:group-hover:text-contrast-100 duration-300 delay-[325ms]">{text4}</li>
-				<li class="text-transparent group-hover:text-main-200 dark:group-hover:text-contrast-100 duration-300 delay-[400ms]">{text5}</li> -->
+				<!-- <li class="text-transparent group-hover:text-main-200 dark:group-hover:text-contrast-100 duration-300 delay-[100ms]">{point1}</li>
+				<li class="text-transparent group-hover:text-main-200 dark:group-hover:text-contrast-100 duration-300 delay-[175ms]">{point2}</li>
+				<li class="text-transparent group-hover:text-main-200 dark:group-hover:text-contrast-100 duration-300 delay-[250ms]">{point3}</li>
+				<li class="text-transparent group-hover:text-main-200 dark:group-hover:text-contrast-100 duration-300 delay-[325ms]">{point4}</li>
+				<li class="text-transparent group-hover:text-main-200 dark:group-hover:text-contrast-100 duration-300 delay-[400ms]">{point5}</li> -->
 				{#each info as text}
 					{#if text}
 						<li class="text-transparent group-hover:text-main-200 dark:group-hover:text-contrast-100 duration-300 delay-[{100 + 75 * (info.indexOf(text))}ms]">{text}</li>

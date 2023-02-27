@@ -1,5 +1,5 @@
 ---
-Category: Video
+category: Video
 order: 11
 title: What's the difference between the video systems?
 id: fpvSystemDifference

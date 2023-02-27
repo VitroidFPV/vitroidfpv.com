@@ -1,5 +1,5 @@
 ---
-Category: Antennas
+category: Antennas
 group: Directional
 color: orange
 visible: false

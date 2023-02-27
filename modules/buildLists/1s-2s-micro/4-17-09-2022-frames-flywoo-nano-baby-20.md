@@ -1,5 +1,5 @@
 ---
-Category: Frames
+category: Frames
 color: red
 order: 4
 title: Flywoo Nano Baby 20

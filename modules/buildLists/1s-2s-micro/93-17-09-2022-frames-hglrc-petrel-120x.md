@@ -1,5 +1,5 @@
 ---
-Category: Frames
+category: Frames
 color: red
 order: 93
 title: HGLRC Petrel 120X

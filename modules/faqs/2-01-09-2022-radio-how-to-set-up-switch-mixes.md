@@ -1,5 +1,5 @@
 ---
-Category: Radio
+category: Radio
 order: 2
 title: How to set up switch mixes?
 id: mixer

@@ -1,5 +1,5 @@
 ---
-Category: Frames
+category: Frames
 color: red
 order: 8
 title: DarwinFPV TinyApe Freestyle

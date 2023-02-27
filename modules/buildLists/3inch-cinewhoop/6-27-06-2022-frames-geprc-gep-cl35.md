@@ -1,5 +1,5 @@
 ---
-Category: Frames
+category: Frames
 color: orange
 order: 6
 title: GEPRC GEP-CL35

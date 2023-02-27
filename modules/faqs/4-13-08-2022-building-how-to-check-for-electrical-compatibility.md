@@ -1,5 +1,5 @@
 ---
-Category: Building
+category: Building
 order: 4
 title: How to check for electrical compatibility?
 id: compatibleElectrically

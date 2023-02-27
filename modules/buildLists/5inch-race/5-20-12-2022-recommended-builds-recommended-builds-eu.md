@@ -1,5 +1,5 @@
 ---
-Category: Recommended Builds
+category: Recommended Builds
 group: High-end 3 (EU Edition)
 color: red
 visible: true

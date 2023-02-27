@@ -1,5 +1,5 @@
 ---
-Category: Radios
+category: Radios
 group: Compact style
 color: orange
 order: 2

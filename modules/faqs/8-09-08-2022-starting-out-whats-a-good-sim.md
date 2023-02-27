@@ -1,5 +1,5 @@
 ---
-Category: Starting Out
+category: Starting Out
 order: 8
 title: What's a good sim?
 id: sim

@@ -1,5 +1,5 @@
 ---
-Category: Betaflight
+category: Betaflight
 order: 5
 title: How to set up my receiver?
 id: receiverSetup

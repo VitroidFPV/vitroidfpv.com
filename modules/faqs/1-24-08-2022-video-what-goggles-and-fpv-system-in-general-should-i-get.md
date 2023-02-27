@@ -1,5 +1,5 @@
 ---
-Category: Video
+category: Video
 order: 1
 title: What goggles and FPV system in general should I get?
 id: fpvSystem

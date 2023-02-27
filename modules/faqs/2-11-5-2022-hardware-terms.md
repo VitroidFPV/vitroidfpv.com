@@ -1,5 +1,5 @@
 ---
-Category: Starting Out
+category: Starting Out
 title: What do the hardware terms mean?
 id: hardwareTerms
 order: 2

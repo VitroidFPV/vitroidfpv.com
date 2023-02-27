@@ -17,7 +17,7 @@
 	let grouped_modules: {[category: string]: {[group: string]: Array<Module>}} = {};
 
 	for (const k in modules) {
-	const cat = (modules[k] as Module).metadata.Category;
+	const cat = (modules[k] as Module).metadata.category;
 	const group = (modules[k] as Module).metadata.group;
 
 	if (grouped_modules[cat]) {

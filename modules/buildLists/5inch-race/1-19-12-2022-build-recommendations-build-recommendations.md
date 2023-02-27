@@ -1,5 +1,5 @@
 ---
-Category: Recommended Builds
+category: Recommended Builds
 group: Budget
 color: green
 visible: true

@@ -1,5 +1,5 @@
 ---
-Category: Flight Controllers
+category: Flight Controllers
 color: red
 order: 5
 title: Foxeer Mini F722 V3 (Pro)

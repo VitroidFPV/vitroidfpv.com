@@ -1,5 +1,5 @@
 ---
-Category: Building
+category: Building
 order: 7
 title: How to choose the correct battery?
 id: batteries

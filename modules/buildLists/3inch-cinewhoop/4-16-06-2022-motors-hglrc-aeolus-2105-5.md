@@ -1,5 +1,5 @@
 ---
-Category: Motors
+category: Motors
 color: red
 order: 5
 title: HGLRC Aeolus 2105.5

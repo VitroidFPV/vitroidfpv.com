@@ -1,5 +1,5 @@
 ---
-Category: Receivers
+category: Receivers
 group: ELRS
 color: orange
 visible: true

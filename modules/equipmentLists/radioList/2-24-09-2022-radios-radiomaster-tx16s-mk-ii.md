@@ -1,5 +1,5 @@
 ---
-Category: Radios
+category: Radios
 group: Full size
 color: red
 order: 2

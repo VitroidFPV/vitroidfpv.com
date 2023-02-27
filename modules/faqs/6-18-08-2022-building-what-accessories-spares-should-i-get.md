@@ -1,5 +1,5 @@
 ---
-Category: Building
+category: Building
 order: 6
 title: What accessories/spares should I get?
 id: accessories

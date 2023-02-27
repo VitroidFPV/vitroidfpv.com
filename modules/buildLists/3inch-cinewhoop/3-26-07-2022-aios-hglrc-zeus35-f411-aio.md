@@ -1,5 +1,5 @@
 ---
-Category: AIOs
+category: AIOs
 color: green
 order: 3
 title: HGLRC Zeus35 F411 AIO

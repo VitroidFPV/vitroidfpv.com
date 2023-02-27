@@ -1,5 +1,5 @@
 ---
-Category: Motors
+category: Motors
 color: green
 order: 11
 title: HGLRC Aeolus 1202.5

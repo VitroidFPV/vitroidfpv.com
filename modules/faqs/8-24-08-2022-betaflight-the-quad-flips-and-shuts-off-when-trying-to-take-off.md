@@ -1,5 +1,5 @@
 ---
-Category: Betaflight
+category: Betaflight
 order: 8
 title: The quad flips and shuts off when trying to take off
 id: runaway

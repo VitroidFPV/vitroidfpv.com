@@ -1,5 +1,5 @@
 ---
-Category: Building
+category: Building
 order: 5
 title: How to solder properly?
 id: soldering

@@ -1,5 +1,5 @@
 ---
-Category: Video
+category: Video
 order: 5
 title: How to fly with other people with the least interference?
 id: socializing

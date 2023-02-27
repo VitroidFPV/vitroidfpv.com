@@ -1,5 +1,5 @@
 ---
-Category: ESCs
+category: ESCs
 color: green
 order: 2
 title: SkyStars KM35

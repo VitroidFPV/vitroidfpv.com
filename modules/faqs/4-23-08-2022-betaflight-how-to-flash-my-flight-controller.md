@@ -1,5 +1,5 @@
 ---
-Category: Betaflight
+category: Betaflight
 order: 4
 title: How to flash my Flight Controller?
 id: flash

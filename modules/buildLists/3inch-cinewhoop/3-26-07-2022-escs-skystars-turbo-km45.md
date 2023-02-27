@@ -1,5 +1,5 @@
 ---
-Category: ESCs
+category: ESCs
 color: orange
 order: 3
 title: SkyStars Turbo KM45

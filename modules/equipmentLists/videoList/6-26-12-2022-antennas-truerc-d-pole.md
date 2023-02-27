@@ -1,5 +1,5 @@
 ---
-Category: Antennas
+category: Antennas
 group: Omnidirectional
 color: green
 visible: true

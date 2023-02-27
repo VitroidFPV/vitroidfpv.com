@@ -1,5 +1,5 @@
 ---
-Category: Motors
+category: Motors
 color: red
 order: 8
 title: FPVCycle 23mm Short

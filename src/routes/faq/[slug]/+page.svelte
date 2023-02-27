@@ -9,7 +9,7 @@
 	console.log(slug)
 	// slugModule is module that has a key id which's value matches the slug
 	let slugModule = Object.values(modules).find(module => module.metadata.id === slug)
-	console.log(slugModule.metadata.Category + " - " + slugModule.metadata.title)
+	console.log(slugModule.metadata.category + " - " + slugModule.metadata.title)
 	let moduleContent = removeMarkdown(slugModule.metadata.answer, {useImgAltText: false}).slice(0, 600) + "..."
 
 	// redirect to faq page
@@ -19,11 +19,11 @@
 		}
 	})
 
-	let prefix = slugModule.metadata.Category;
+	let prefix = slugModule.metadata.category;
 	let titleRaw = slugModule.metadata.title;
 	let title = "FAQ - " + titleRaw;
 	let description = moduleContent;
-	let category = slugModule.metadata.Category;
+	let category = slugModule.metadata.category;
 
 	let categoryColor
 	let hexColor
