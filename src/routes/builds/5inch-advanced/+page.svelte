@@ -193,7 +193,7 @@
 					</div>
 					{#each Object.entries(contents) as [group, products]}
 						<div
-							class="md:ml-3 grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 border-b-[1px] border-neutral-500/30">
+							class="md:ml-3 grid 3xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 border-b-[1px] border-neutral-500/30">
 							{#each products as info}
 								{#if info.metadata.visible}
 									<BuildProduct

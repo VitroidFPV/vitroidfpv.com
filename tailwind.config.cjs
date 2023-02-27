@@ -41,6 +41,9 @@ module.exports = {
 				"grid-dark": "url(/uploads/grid-dark.svg)",
 				"grid-light": "url(/uploads/grid-light.svg)"
 			},
+			screens: {
+				"3xl": "2000px"
+			}
 		}
 	},
 	plugins: []
