@@ -1,27 +1,20 @@
 <script lang="ts">
-	import { page } from "$app/stores";
-	import BuildProduct from "$components/buildsPage/buildProduct.svelte";
-	import MainHeader from "$components/mainHeader.svelte";
-	import Header from "$components/Header.svelte";
-	import Paragraph from "$components/Paragraph.svelte";
-
+	import type { PageData } from './$types';
+	import type { SvelteComponentTyped } from 'svelte/internal';
+	import { onMount } from 'svelte/internal';
 	import type { Module } from "$lib/types/module";
-
-	import { marked } from "marked";
-	import { onMount } from "svelte";
-	import { fade } from "svelte/transition";
+	import { browser } from '$app/environment';
 	import removeMarkdown from "remove-markdown";
+	import { html } from 'satori-html';
 
-	const modules = import.meta.glob("/modules/articles/*.md", {eager: true});
-	// console.log(JSON.stringify(modules, null, 2));
+	export let data: PageData;
 
-	let slug = $page.params.slug
-	// console.log(slug)
-	let slugModule = modules[`/modules/articles/${slug}.md`] as Module
+	type C = $$Generic<typeof SvelteComponentTyped<any, any, any>>;
+	$: component = data.component as unknown as C;
 
 	let categoryColor: string;
 	let hexColor: string;
-	switch (slugModule.metadata.category) {
+	switch (data.frontmatter.category) {
 		case "Guides":
 			categoryColor = "green"
 			hexColor = "#87cc52"
@@ -46,23 +39,28 @@
 			categoryColor = "violet"
 			hexColor = "#9550ba"
 	}
-	let postedDate = new Date(slugModule.metadata.date)
+
+	let postedDate = new Date(data.frontmatter.date)
 	let postedDateFormatted = postedDate.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"})
-	// console.log(postedDateFormatted)
 
-	const headerRegex = /(?<flag>#{1,6})\s+(?<content>.+)/g
-	let headers = 
-		Array
-		.from(slugModule.metadata.content.matchAll(headerRegex))
-		.map(({ groups }) => ({
-			heading: `${ groups?.flag?.length ?? 0 }`,
-			content: groups?.content ?? '',
-		}))
+	// const headerRegex = /(?<flag>#{1,6})\s+(?<content>.+)/g
+	// let headers = 
+	// 	Array
+	// 	.from(raw.matchAll(headerRegex))
+	// 	.map(({ groups }) => ({
+	// 		heading: `${ groups?.flag?.length ?? 0 }`,
+	// 		content: groups?.content ?? '',
+	// 	}))
+	let htmlString = ""
 
+	const headerRegex = /<h([1-6])[^>]*>(.*?)<\/h\1>/gi;
+	let headers: any = []
+
+	console.log(headers)
 
 	let intersecionOptions = {
 		root: null,
-		rootMargin: "0px 0px -200px 0px",
+		rootMargin: "0px 0px -50% 0px",
 		threshold: 1
 	}
 
@@ -75,12 +73,27 @@
 		})
 	}
 
+	function removeSpecial(string: string) {
+		// spaces should be replaced with dashes
+		// special characters should be removed
+		// all letters should be lowercase
+		return string.replaceAll(" ", "-").replaceAll(/[^a-zA-Z0-9-]/g, "").toLowerCase()
+	}
 
 	onMount(() => {
+		htmlString = document.getElementsByClassName("article md")[0].innerHTML
+		headers = Array.from(htmlString.matchAll(headerRegex), match => {
+			const level = match[1];
+			const content = match[2];
+			return { level, content };
+		});
+
 		let intersectingTargets = document.querySelectorAll(".article.md h1, .article.md h2, .article.md h3, .article.md h4")
+		// console.log(intersectingTargets)
 		let observer = new IntersectionObserver(callback, intersecionOptions);
 		intersectingTargets.forEach(target => {
 			observer.observe(target)
+			// console.log(target)
 		})
 
 		if (window.location.hash) {
@@ -93,26 +106,24 @@
 		}
 	})
 
-	let imgOpen = false
-	
-	let prefix = slugModule.metadata.category;
-	let titleRaw = slugModule.metadata.title;
+	let prefix = data.frontmatter.category;
+	let titleRaw = data.frontmatter.title;
 	let title = " - " + titleRaw;
 	let color = hexColor;
-	let imgRaw = slugModule.metadata.img;
+	let imgRaw = data.frontmatter.img;
 	let img = imgRaw
 	// if imgRaw is relative, add "https://vitroidfpv-sv.netlify.app" to the beginning
 	if (imgRaw.startsWith("/")) {
 		img = "https://vitroidfpv-sv.netlify.app" + imgRaw
 	}
 
-	let description = slugModule.metadata.description
+	let description = data.frontmatter.description
 
 	let descriptionLong = `
-		${slugModule.metadata.description}
-		${removeMarkdown(slugModule.metadata.content).slice(0, 200) + "..."}
+		${data.frontmatter.description}
+		${removeMarkdown(data.frontmatter.content).slice(0, 200) + "..."}
 		`;
-	let category = slugModule.metadata.category;
+	let category = data.frontmatter.category;
 
 	console.log(description)
 
@@ -135,57 +146,48 @@
 </svelte:head>
 
 <div class="content-box">
-	<!-- <img src={slugModule.metadata.img} alt="" class="w-3/4" /> -->
-	<div class="flex justify-between">
-		<div class="flex flex-col md:mr-8 mr-0">
-			<div class="flex flex-col pr-0 article-card {slugModule.metadata.category} rounded-2xl mb-8 w-fit">
-				<img src="{slugModule.metadata.img}" alt="" class="aspect-[2/1] h-[34rem] object-cover object-center rounded-2xl duration-500">
+	<div class="flex justify-between w-full">
+		<div class="flex flex-col md:mr-8 mr-0 w-full">
+			<div class="flex flex-col pr-0 article-card {data.frontmatter.category} rounded-2xl mb-8 w-fit">
+				<img src="{data.frontmatter.img}" alt="" class="aspect-[2/1] h-[28rem] object-cover object-center rounded-2xl duration-500">
 			</div>
-			<div class="flex-col items-start border-b-[1px] border-gray-700 mb-8">
-				<h1 class="text-{categoryColor} text-5xl mb-2">{slugModule.metadata.title}</h1>
-				<h2 class="text-3xl">{slugModule.metadata.description}</h2>
-				<div class="my-4">Posted on <span class="text-{categoryColor}">{postedDateFormatted}</span> by <span class="text-{categoryColor}">{slugModule.metadata.author}</span></div>
+			<div class="flex-col items-start border-b-[1px] border-gray-700 mb-8 w-fit">
+				<h1 class="text-{categoryColor} text-5xl mb-2">{data.frontmatter.title}</h1>
+				<h2 class="text-3xl">{data.frontmatter.description}</h2>
+				<div class="my-4">Posted on <span class="text-{categoryColor}">{postedDateFormatted}</span> by <span class="text-{categoryColor}">{data.frontmatter.author}</span></div>
 			</div>
-			<div class="flex">
-				<div class="article md {categoryColor}">
-					{@html marked.parse(slugModule.metadata.content)}
-				</div>
+			<div class="article md {categoryColor}">
+				<svelte:component this={component} />
 			</div>
 		</div>
-
-		<div class="md:flex md:flex-col hidden sticky h-full left-full top-0 pl-4">
+		<div class="md:flex md:flex-col hidden sticky h-full left-full top-0 pl-4 w-fit">
 			<div class="text-highlight dark:text-highlight-dark text-3xl w-fit font-semibold mt-8 mb-4 border-b-2 border-current">Contents:</div>
 			{#each headers as header}
-				{#if +header.heading < 5}
-				<a 	href="#{header.content.replaceAll(" ", "-").toLowerCase()}"
-				class:intersecting-header={header.content === intersectingHeader}
-				class:headeer={header.content != intersectingHeader}
-				class="text-base mb-3 ml-{header.heading} contents-{header.heading} hover:translate-x-1 hover:text-highlight dark:hover:text-highlight-dark duration-300 w-max">{header.content}</a>
+				{#if +header.level < 5}
+				<a 	href="#{removeSpecial(header.content)}"
+					class={
+					`text-base mb-1 heading-${header.level} hover:translate-x-1 hover:text-highlight dark:hover:text-highlight-dark duration-300 w-max`
+					+ (header.content === intersectingHeader ? " dark:text-highlight-dark text-highlight" : "")}
+				>
+					{header.content}
+				</a>
 				{/if}
 			{/each}
 		</div>
 	</div>
 </div>
 
-
 <style>
-	.header {
-		color: currentColor;
-		/* transform: translateX(0); */
+	.heading-1 {
+		margin-left: 0rem;
 	}
-
-	.intersecting-header {
-		color: var(--range-handle);
-		/* transform: translateX(8px); */
+	.heading-2 {
+		margin-left: 0.5rem;
 	}
-
-	.contents-1 {
-		@apply text-[1.25rem] mb-4;
+	.heading-3 {
+		margin-left: 1rem;
 	}
-	.contents-2 {
-		@apply text-[1.1rem];
-	}
-	.contents-3 {
-		@apply ml-4 text-[0.9rem];
+	.heading-4 {
+		margin-left: 1.5rem;
 	}
 </style>
