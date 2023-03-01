@@ -7,23 +7,34 @@ author: VitroidFPV
 img: /uploads/battery_stuff.png
 date: 2023-02-22T22:16:50.957Z
 ---
+
+<script>
+	import Tablist from "$components/articlesPage/Tablist.svelte";
+	import Tab from "$components/articlesPage/Tab.svelte";
+	import Admonition from "$components/articlesPage/Admonition.svelte";
+</script>
+
+<Admonition type="danger">
+
 When it comes to LiPo (and similar) batteries, you ***have*** to know what
 you're doing when handling them. Any mistake can potentially result in a
 lithium fire, which isn't so easy to put out. That said though, following
 basic safety rules *should* prevent anything drastic from happening
 
+</Admonition>
 
 # Basic Info
-
 
 Every battery will have a few important specifications that you should look out for when buying/using/charging. I'll try to summarize it as best as I can
 
 
-## Voltage, Capacity, C Rating
+## Main Specifications
 
+<Admonition type="info">
 
 Every battery cell has its own rated voltage, capacity, and C rating, these three are pretty much the most important specifications, usually written right on the battery and in the product specifications
 
+</Admonition>
 
 The voltage specified on most batteries is `Nominal`, which means it's like the average voltage throughout the whole voltage range. You'll most often see this listed as 3.7V for most batteries. There's also a `Maximum` and `Minimum` safe voltage. For 3.7V nominal batteries, that is 4.2V and 3.5V in that order. **You should not charge a cell over 4.2V** or it could go up in smoke. **You should not discharge it under 3.5V**, any lower will start to damage the internal chemistry
 
@@ -52,12 +63,12 @@ We mostly use 3 types of cells for our crafts and equipment. LiPo, LiHV, and Li-
 
 Tells you how many cells are in the battery, connected in series or parallel. A 1s battery is just a singular cell, a 6s battery is 6 cells connected in series, and a 6s2p battery is 12 cells, 6 in series, 2 of those series packs in parallel
 
+<Admonition type="info" title="Series vs Parallel">
 
-Wiring them up in series will add up the voltage of each cell, a 2s battery will have a max voltage of 8.4V, 6s will be 25.2V
+* Wiring the cells up in series will add up the voltage of each cell, a 2s battery will have a max voltage of 8.4V, 6s will be 25.2V
+* Wiring them up in parallel will add up the capacity of each cell. a 6s2p 2000mAh battery will be made out of two 1000mAh 6s packs
 
-
-Wiring them up in parallel will add up the capacity of each cell. a 6s2p 2000mAh battery will be made out of two 1000mAh 6s packs
-
+</Admonition>
 
 You can see an example of different series connections below
 
@@ -68,8 +79,13 @@ You can see an example of different series connections below
 ## Internal Resistance
 
 
-Not usually specified, it's still a very important measure. measured in mΩ \[milliohms], it can be used as a rough estimate of battery health, the lower the better. Most modern chargers will measure it while charging, or have a separate mode for its measurement. Under 10mΩ is great, under 20mΩ is fine, above 20 isn't great, and you should retire the battery
+Not usually specified, it's still a very important measure. measured in mΩ \[milliohms], it can be used as a rough estimate of battery health, the lower the better. Most modern chargers will measure it while charging, or have a separate mode for its measurement. 
 
+<Admonition type="caution">
+
+Internal resistance under 10mΩ is great, under 20mΩ is fine, above 20 isn't great, and you should retire the battery
+
+</Admonition>
 
 # Choosing the Correct Battery
 
@@ -140,11 +156,8 @@ To get the charge current, multiply the battery capacity in Ah with the C rate (
 
 
 ## Charging Example
-
-
-### Single-battery Charging
-
-
+<Tablist>
+<Tab title="Single-battery Charging" open>
 Say we have a 1300mAh 6s LiPo, and we want to charge it alone just by plugging it right into the charger:
 
 
@@ -158,11 +171,8 @@ Say we have a 1300mAh 6s LiPo, and we want to charge it alone just by plugging i
 
 
 With those settings, you can plug both of the battery plugs into the charger, and start charging. The charger should stop automatically when all of the cells are full and have been balanced. You can then exit back out of the charging mode, unplug the battery, and go fly!
-
-
-### Parallel Charging
-
-
+</Tab>
+<Tab title="Parallel Charging">
 Say we have 4 1300mAh 6s LiPos that you want to charge all at one time using a parallel charging board:
 
 
@@ -176,11 +186,8 @@ Say we have 4 1300mAh 6s LiPos that you want to charge all at one time using a p
 
 
 With those settings set, you can start. Make sure that all batteries are within 0.1V per cell of each other before plugging them in. Plug the parallel charging board into the charger, and then plug all of the batteries in, XT60 first, then all of the balance plugs. Double-check that everything is correct, and you can then charge as you would normally, see above
-
-
-### Series Charging
-
-
+</Tab>
+<Tab title="Series Charging">
 Say we have 4 1s 300mAh HV LiPos that you want to charge all at one time using a series charging board:
 
 
@@ -194,3 +201,5 @@ Say we have 4 1s 300mAh HV LiPos that you want to charge all at one time using a
 
 
 Once you have the settings set, you can start. As all of the cells will act as multiple in one 4s battery, their voltage doesn't need to match, the balancing will take care of that. There is no order of plugging stuff in, and you can charge as normal, see above
+</Tab>
+</Tablist>
