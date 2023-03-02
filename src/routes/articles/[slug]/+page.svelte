@@ -139,8 +139,8 @@
 	<meta property="og:site_name" content="VitroidFPV" />
 	<meta property="article:author" content="VitroidFPV" />
 	<meta property="og:title" content="{prefix}{title}" />
-	<meta name="description" content={descriptionLong} />
-	<meta property="og:description" content={descriptionLong} />
+	<!-- <meta name="description" content={descriptionLong} />
+	<meta property="og:description" content={descriptionLong} /> -->
 	<meta content="https://vitroidfpv.com/" property="og:url" />
 	<meta name="theme-color" content={color} />
 </svelte:head>
