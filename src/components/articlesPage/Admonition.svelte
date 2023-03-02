@@ -74,7 +74,7 @@
 
 </script>
 
-<div class="{color["bg-transparent"]} {color.outline} outline outline-2  rounded-2xl overflow-clip my-2">
+<div class="admonition type-{type} {color["bg-transparent"]} {color.outline} outline outline-2  rounded-2xl overflow-clip my-2">
 	<div class="{color.bg} w-fit p-2 pr-4 rounded-br-2xl flex items-center text-main-300">
 		<div class="mr-2">{@html icon}</div>
 		{title}

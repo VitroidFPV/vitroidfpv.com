@@ -307,6 +307,15 @@
 	.md h4 {@apply font-semibold my-2 tracking-wide}
 	.md h5 {@apply font-semibold text-green my-2 tracking-wide}
 	.md h6 {@apply font-semibold text-red my-2 tracking-wide}
+
+	.md .admonition h1 {@apply mt-0}
+	.md .admonition h2 {@apply mt-0}
+	.md .admonition h3 {@apply mt-0}
+	.md .admonition h4 {@apply mt-0}
+	.md .admonition h5 {@apply mt-0}
+	.md .admonition h6 {@apply mt-0}
+
+	
 	.md.green h1, .md.green h2, .md.green h3 {@apply text-green}
 	.md.yellow h1, .md.yellow h2, .md.yellow h3 {@apply text-yellow}
 	.md.red h1, .md.red h2, .md.red h3 {@apply text-red}
@@ -314,6 +323,31 @@
 	.md.cyan h1, .md.cyan h2, .md.cyan h3 {@apply text-cyan}
 	.md.violet h1, .md.violet h2, .md.violet h3 {@apply text-violet}
 	.md.orange h1, .md.orange h2, .md.orange h3 {@apply text-orange}
+	.admonition.type-note h1,
+	.admonition.type-note h2,
+	.admonition.type-note h3,
+	.admonition.type-note h4 {@apply text-yellow}
+
+	.admonition.type-caution h1,
+	.admonition.type-caution h2,
+	.admonition.type-caution h3,
+	.admonition.type-caution h4 {@apply text-orange}
+
+	.admonition.type-danger h1,
+	.admonition.type-danger h2,
+	.admonition.type-danger h3,
+	.admonition.type-danger h4 {@apply text-red}
+
+	.admonition.type-tip h1,
+	.admonition.type-tip h2,
+	.admonition.type-tip h3,
+	.admonition.type-tip h4 {@apply text-green}
+
+	.admonition.type-info h1,
+	.admonition.type-info h2,
+	.admonition.type-info h3,
+	.admonition.type-info h4 {@apply text-cyan}
+
 	.md hr {@apply border-t-2 border-gray-500/50 my-2}
 	.md p {@apply my-4 text-base md:text-lg}
 	.md p:first-of-type {@apply my-0}
