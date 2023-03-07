@@ -56,7 +56,7 @@
 	const headerRegex = /<h([1-6])[^>]*>(.*?)<\/h\1>/gi;
 	let headers: any = []
 
-	console.log(headers)
+	// console.log(headers)
 
 	let intersecionOptions = {
 		root: null,
@@ -125,7 +125,7 @@
 		`;
 	let category = data.frontmatter.category;
 
-	console.log(description)
+	// console.log(description)
 
 	let imgOg = `https://vitroidfpv-sv.netlify.app/og?title=${titleRaw}&description=${description}&category=${category}&img=${img}`
 </script>
@@ -156,7 +156,7 @@
 				<h2 class="text-3xl">{data.frontmatter.description}</h2>
 				<div class="my-4">Posted on <span class="text-{categoryColor}">{postedDateFormatted}</span> by <span class="text-{categoryColor}">{data.frontmatter.author}</span></div>
 			</div>
-			<div class="article md {categoryColor}">
+			<div class="article md !duration-300 transition-colors {categoryColor}">
 				<svelte:component this={component} />
 			</div>
 		</div>
