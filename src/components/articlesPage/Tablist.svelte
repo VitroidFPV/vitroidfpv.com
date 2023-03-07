@@ -23,8 +23,10 @@
     return { destroy };
   }
 </script>
-
-<ul class="flex !list-none">
-  <slot />
-</ul>
-<div role="tabpanel" aria-labelledby="id-tab" use:init />
+<div class="dark:bg-main-300 bg-contrast-100 rounded-2xl border-t-8 border-highlight 
+dark:border-highlight-dark overflow-clip outline outline-2 outline-neutral-500/10 shadow-lg">
+	<ul class="flex !list-none w-full !m-0 md:px-2">
+	  	<slot />
+	</ul>
+	<div class="md:p-4 p-2 !mt-0 duration-300 tab-body text-[15px] md:text-lg" role="tabpanel" aria-labelledby="id-tab" use:init />
+</div>

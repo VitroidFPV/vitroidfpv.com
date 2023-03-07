@@ -307,6 +307,7 @@
 	.md h4 {@apply font-semibold my-2 tracking-wide}
 	.md h5 {@apply font-semibold text-green my-2 tracking-wide}
 	.md h6 {@apply font-semibold text-red my-2 tracking-wide}
+	.md {@apply text-[15px] md:text-lg}
 
 	.md .admonition h1 {@apply mt-0}
 	.md .admonition h2 {@apply mt-0}
@@ -349,7 +350,7 @@
 	.admonition.type-info h4 {@apply text-cyan}
 
 	.md hr {@apply border-t-2 border-gray-500/50 my-2}
-	.md p {@apply my-4 text-base md:text-lg}
+	.md p {@apply my-4}
 	.md p:first-of-type {@apply my-0}
 	.md li p {@apply my-0}
 	.md blockquote {@apply border-l-4 border-gray-500/50 p-2 ml-6 my-2 bg-neutral-500/10 w-fit rounded-lg}

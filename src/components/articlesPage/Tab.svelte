@@ -5,6 +5,7 @@
 	import { fade } from "svelte/transition";
 	import { onMount } from "svelte";
 	import { queryParam } from "sveltekit-search-params";
+	import Corner from "$components/Corner.svelte";
 
 	export let open: boolean = false;
 	export let title: string = "Tab title";
@@ -53,17 +54,24 @@
 	})
 </script>
 
-<li role="presentation">
-	<div class="flex" id="{sanitizedTitle}">
+<li role="presentation" class="!m-0" class:tab-open={open}>
+	<div class="flex flex-row items-start h-fit">
+		{#key open}
+		<Corner fill={open ? "highlight" : "transparent"} rotation={270} invisible/>
+		{/key}
 		<button
 			type="button"
 			on:click={updateURL}
 			role="tab"
-			class={"mr-4 px-1 text-xl hover:text-highlight dark:hover:text-highlight-dark duration-300 border-b-2 border-transparent" + (open ?
-			" dark:text-highlight-dark text-highlight dark:border-highlight-dark border-highlight" : "")}
+			id="{sanitizedTitle}"
+			class={"tab md:p-4 p-3 rounded-b-3xl md:text-xl text-base md:hover:text-highlight md:dark:hover:text-highlight-dark hover:-translate-y-0.5 duration-300 transition-transform" + (open ?
+			" dark:bg-highlight-dark bg-highlight z-10 tab-open hover:text-inherit -translate-y-0.5 hover:!text-main-200 dark:hover:!text-contrast-50" : "")}
 			{...$$restProps}>
 			<slot name="title">{title}</slot>
 		</button>
+		{#key open}
+		<Corner fill={open ? "highlight" : "transparent"} rotation={180} invisible/>
+		{/key}
 	</div>
 
 	{#if open}
