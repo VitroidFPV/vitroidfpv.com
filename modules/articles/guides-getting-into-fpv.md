@@ -9,6 +9,8 @@ visible: true
 ---
 
 <script>
+	import Tablist from "$components/articlesPage/Tablist.svelte";
+	import Tab from "$components/articlesPage/Tab.svelte";
 	import Admonition from "$components/articlesPage/Admonition.svelte"
 </script>
 
@@ -122,11 +124,11 @@ Now that you know what to avoid and what to get, it's time to actually buy stuff
 
 1. A radio - The first thing you should buy when starting FPV is a good radio. It will allow you to put in some sim time while waiting for the rest of your gear, and most modern ones do not require any additional things to run, except batteries. I would absolutely go with ELRS if possible (ELRS is a low-cost long-range, high-performance, open-source RC link protocol. This means that radio signal goes very far, very fast, and for very cheap). All of the radios listed below have ELRS versions
 
-	* Radiomaster Zorro - Small gamepad style radio
+	<!-- * Radiomaster Zorro - Small gamepad style radio
 	* Radiomaster TX12 MK II - Small radio with a more traditional shape
 	* Radiomaster TX16S MK II - The best radio on the market, if you can afford it
 
-	![Radiomaster radios](/uploads/radiomaster_radios.png "Radiomaster radios")
+	![Radiomaster radios](/uploads/radiomaster_radios.png "Radiomaster radios") -->
 	<Admonition type="tip" title="Sim Time">
 
 	At least 10 hours of sime time is recommended. This can vary from person to person, so if you feel like you're not making much progress, you can always do more. The more you practice, the better you'll get. If you want to know what sim to use, you can find a couple of recommendations [here](https://www.vitroidfpv.com/faq#sim)
@@ -135,32 +137,135 @@ Now that you know what to avoid and what to get, it's time to actually buy stuff
 
 2. The quad itself - Depending on if it is a pre-built or not, it may take you a week or more to get all the parts, build it and set it up. This mostly applies for self-built quads, but even pre-builts will take some setup time
 
-	* [Happymodel Mobula 6/7](https://www.racedayquads.com/products/happymodel-bnf-mobula6-elrs-65mm-brushless-whoop-choose-rx) - The best micro quad on the market, great cheap option for flying indoors and lightly outdoors as well ($101.99)
+	<!-- * [Happymodel Mobula 6/7](https://www.racedayquads.com/products/happymodel-bnf-mobula6-elrs-65mm-brushless-whoop-choose-rx) - The best micro quad on the market, great cheap option for flying indoors and lightly outdoors as well ($101.99)
 	* [Happymodel Crux 3](https://www.getfpv.com/happymodel-crux3-1s-elrs-3-toothpick-racing-drone-bnf.html) - A good 1s toothpick, great for flying outdoors in your backyard or at a park ($118.89)
 	* [DarwinFPV Babyape Pro V2](https://www.racedayquads.com/products/darwinfpv-baby-ape-pro-v2-3-quad-choose-version?keyword=darwindpv%20bab) - Pretty much the cheapest quad that you can get that is actually good. It runs on 3s, so you will need a proper charger for it, unlike the other two that can use a simple 1s one ($111.99)
 	* [HGLRC Petrel 120X](https://www.hglrc.com/collections/toothpicks/products/hglrc-petrel-120x-3-inch-toothpick-machine-fpv-racing-drone-zeus5-aio-flight-controller-1202-5-motor-vtx-350mw4s-6s) (Specifically the 4s version) - A great pick if you're looking for something with a lot of power in this smaller size, and also the first one to have an option for DJI Digital. However, it is more expensive, and will need a proper charger ($159.99)
 	* Self-built micro quad - If you're looking for something that you can build yourself, I have a [guide](https://vitroidfpv.com/building) on how to build one. It's a bit more expensive than the pre-built options, but you can customize it to your liking and it will teach you a lot about how quads work and go together
 	* [IFlight Nazgul 5 V2/Evoque](https://shop.iflight-rc.com/nazgul5-v2-4s-6s-fpv-drone-bnf-pro1306) - Moving up to full-size 5" quads, these are great options for both DJI and Analog. The Nazgul 5 V2 is cheaper, the Evoque is newer, but more expensive. Both are good entry-level quads that can haul a full-size GoPro ($259.99+)
-	* Self-built 5" quad - I have build guides for 5" quads as well, currently a Beginner, Advanced, or a Race build. You can find them [here](https://vitroidfpv.com/building) ($230+)
+	* Self-built 5" quad - I have build guides for 5" quads as well, currently a Beginner, Advanced, or a Race build. You can find them [here](https://vitroidfpv.com/building) ($230+) -->
 
 3. Tools, spare parts, and other accessories - You will need [tools](https://vitroidfpv.com/faq#tools) to build, maintain, and fix up your quad, and some [spare parts and other odd bits](https://vitroidfpv.com/faq#accessories) to replace broken ones if needed
 
 4. Batteries and a charger - You can't fly without batteries, and you can't charge them without a charger. They're not esential to the setup, but you will need them to actually fly and set up the ESC
 
-	* [ViFly Whoopstor V2](https://www.getfpv.com/vifly-whoopstor-v2-6-port-1s-battery-charger-and-discharger-lihv-lipo.html) - Pretty much the best 1s charger you can get. Unlike with most 1s options, it comes with both PH2.0 and BT2.0 connectors, a discharge/storage option, an OLED display for voltage readout, and being able to power it from USB C ($29.99
+	<!-- * [ViFly Whoopstor V2](https://www.getfpv.com/vifly-whoopstor-v2-6-port-1s-battery-charger-and-discharger-lihv-lipo.html) - Pretty much the best 1s charger you can get. Unlike with most 1s options, it comes with both PH2.0 and BT2.0 connectors, a discharge/storage option, an OLED display for voltage readout, and being able to power it from USB C ($29.99
 	* [ToolkitRC M4AC](https://www.getfpv.com/toolkitrc-m4ac-30w-2-5a-compact-ac-balance-charger-xt30.html) - A decently cheap 4s charger that can be plugged straight into the wall and charge up your micro batteries, comes in both XT30 and XT60 options
 	* [ToolkitRC M7](https://www.getfpv.com/toolkitrc-m7-200w-10a-2-6s-multifunctional-balance-charger.html) - IMO the best way to go without spending too much. An all-round good charger, with a lot of neat features as well. Kep in mind that you will need a [PSU](https://www.getfpv.com/toolkitrc-adp100-100w-20-0v-5a-power-supply-unit-w-xt60-output.html) for it as well
 	* [Hota P6](https://www.getfpv.com/hota-p6-600w-15a-1-6s-dc-smart-charger.html) - Hota chargers are pretty much the best you can get. Less fancy features, but they have a pretty much spotless track record. Similar to the ToolkitRC M7, it needs an external PSU, you can use the same one
-	* [Hota D6 Pro](https://www.getfpv.com/hota-d6-pro-325w-15a-1-6s-dual-channel-ac-dc-smart-charger-w-wireless-charging.html) - Likely the best charger you can get if you have the money to spare. An actual usable integrated PSU makes it one of the few good "AIO" chargers on the market
+	* [Hota D6 Pro](https://www.getfpv.com/hota-d6-pro-325w-15a-1-6s-dual-channel-ac-dc-smart-charger-w-wireless-charging.html) - Likely the best charger you can get if you have the money to spare. An actual usable integrated PSU makes it one of the few good "AIO" chargers on the market -->
 
 5. Goggles - You can fly without goggles, but it's usually a lot harder. You can build and set up the quad while waiting for your goggles to arrive, leaving you with a lot fewer steps of setup to do when you get them
 
-	* [Eachine EV800D](https://www.getfpv.com/eachine-ev800d-5-8g-40ch-diversity-fpv-goggles-with-dvr.html) - The best budget option and the one I recommend to most people. They're not the best, but they're good enough for most people who are just starting out ($119.99)
+	<!-- * [Eachine EV800D](https://www.getfpv.com/eachine-ev800d-5-8g-40ch-diversity-fpv-goggles-with-dvr.html) - The best budget option and the one I recommend to most people. They're not the best, but they're good enough for most people who are just starting out ($119.99)
 	* [Skyzone Cobra S/X](https://www.racedayquads.com/products/skyzone-cobra-x-v2-diversity-5-8ghz-fpv-goggles-w-60-fps-dvr?keyword=skyzone%20cobra) - The best box goggles on the market, but also the most expensive in this category ($249.99)
 	* [Skyzone Sky 02o](https://www.racedayquads.com/products/skyzone-sky020-fpv-goggles-white?keyword=skyzone%20sky) - Cheapest usable slimline goggles you can get, but they have a fairly low FOV which may be a problem for some people ($234.99)
 	* [Eachine EV300o](https://www.banggood.com/Eachine-EV300O-1024x768-5_8Ghz-48CH-OLED-HD-3D-FPV-Goggles-Diversity-RX-Built-in-DVR-60fps-Headtracker-Focal-Adjustable-for-RC-Racing-Drone-p-1705594.html?createTmp=1&ad_id=&cur_warehouse=USA&ID=6290661) - Pretty much just a re-branded pair of Skyzone goggles that are pretty similar to the following 04L/X ($399)
 	* [Skyzone Sky 04L/X](https://www.getfpv.com/skyzone-sky04l-v2-lite-lcos-5-8ghz-48ch-fpv-goggles-w-steadyview-receiver.html) - The best slimline goggles on the market, but also the most expensive in this category. The 04L use slightly worse screens, but are cheaper ($379.99/$589.99)
-	* [DJI FPV Goggles](https://www.getfpv.com/dji-fpv-goggles-v2.html) - You'll need these if you want to get a quad with a DJI Digital VTX. The digital system is expensive, but allows for much better image quality. You can read more about the difference [here](https://vitroidfpv.com/faq#fpvSystemDifference) ($429)
+	* [DJI FPV Goggles](https://www.getfpv.com/dji-fpv-goggles-v2.html) - You'll need these if you want to get a quad with a DJI Digital VTX. The digital system is expensive, but allows for much better image quality. You can read more about the difference [here](https://vitroidfpv.com/faq#fpvSystemDifference) ($429) -->
+
+You can find some recommendations for different price points below. They may intersect with each other a bit, but some things just fit into multiple price ranges. Feel free to mix and match items from the different price ranges, to a certain extent. For example, you can get a cheap radio and a more expensive set of goggles, or a cheap set of goggles and a more expensive radio
+
+<Tablist>
+<Tab title="$350 - $450" open>
+
+Some of the most basic things to get you started. Tinywhoops or toothpicks, and an inexpensive radio and goggles. You can get a lot of fun out of these, and they're a great way to get into the hobby
+
+1. Radios: 
+	* [Radiomaster TX12 MK II](https://www.getfpv.com/radiomaster-tx12-mkii-2-4ghz-16ch-radio-transmitter-w-hall-gimbals-elrs.html) ($99.99) - A great compact radio with a lot of things that are possible to upgrade in the future
+	* [Radiomaster Zorro](https://www.getfpv.com/radiomaster-zorro-radio-controller-elrs.html) ($129.99) - Similar in features to the TX12, but has a game controller style layout, so it's a bit more ergonomic if you're used to that
+2. Goggles:
+	* [Eachine EV800D](https://www.getfpv.com/eachine-ev800d-5-8g-40ch-diversity-fpv-goggles-with-dvr.html) ($119.99) - The best (and likely only good) budget option at this price. They're not the best, but they're good enough for most people who are just starting out
+	* [Skyzone Cobra S/X](https://www.racedayquads.com/products/skyzone-cobra-x-v2-diversity-5-8ghz-fpv-goggles-w-60-fps-dvr?keyword=skyzone%20cobra) ($249.99) - The best box goggles on the market, but also the most expensive in this category
+3. Quads:
+	* Happymodel Mobula6/7 ($99.99) - Pretty much the standard beginner recommendation. They're great for learning, given that they're pretty durable, and a lot of fun to fly indoors even if you move onto something bigger later on
+	* [Happymodel Crux3](https://www.getfpv.com/happymodel-crux3-1s-elrs-3-toothpick-racing-drone-bnf.html) ($118.99) - A good 1s toothpick, great for flying outdoors in your backyard or at a park. Being a 1s quad, it's still pretty cheap to maintain
+	* [DarwinFPV Babyape Pro V2](https://www.racedayquads.com/products/darwinfpv-baby-ape-pro-v2-3-quad-choose-version?keyword=darwindpv%20bab) ($111.99) - If you're after something more durable and/or faster, it's not a bad optino. It runs on 3s, so you will need a proper charger for it, unlike the other two that can use a simple 1s one
+
+4. Chargers:
+	* [ViFly Whoopstor V2](https://www.getfpv.com/vifly-whoopstor-v2-6-port-1s-battery-charger-and-discharger-lihv-lipo.html) ($29.99) - Pretty much the best 1s charger you can get. Unlike with most 1s options, it comes with both PH2.0 and BT2.0 connectors, a discharge/storage option, an OLED display for voltage readout, and being able to power it from USB C
+	* [ToolkitRC M4AC](https://www.getfpv.com/toolkitrc-m4ac-30w-2-5a-compact-ac-balance-charger-xt30.html) ($29.99) - A decently cheap 4s charger that can be plugged straight into the wall and charge up your micro batteries, comes in both XT30 and XT60 options
+	* [ToolkitRC M7](https://www.getfpv.com/toolkitrc-m7-200w-10a-2-6s-multifunctional-balance-charger.html) ($39.99) - IMO the best way to go without spending too much. An all-round good charger, with a lot of neat features as well. Kep in mind that you will need a [PSU](https://www.getfpv.com/toolkitrc-adp100-100w-20-0v-5a-power-supply-unit-w-xt60-output.html) for it as well
+
+5. Batteries:
+
+	This will be less of a specific product recommendation, and more of a general guideline for the different batteries to get for each quad I listed above. There are simply too many individual battery options to list every different one
+
+	Just as a general rule of thumb, you should get at least 2 batteries for each quad, and ideally even more. I'd recommend batteries from GNB, CNHL, or DOGCOM
+
+	* Happymodel Mobula6/7: 1s 300mAh - 500mAh
+	* Happymodel Crux3: 1s 450mAh - 650mAh
+	* DarwinFPV Babyape Pro V2: 3s 450mAh - 650mAh
+
+	All ideally 75C or higher
+
+</Tab>
+
+<Tab title="$450 - $600">
+
+Starting to get into more expensive options, you start to see more performant quads, and higher-end equipment. Also a good place to start if you're looking to fly with a small HD camera
+
+1. Radios:
+	* [Radiomaster TX12 MK II](https://www.getfpv.com/radiomaster-tx12-mkii-2-4ghz-16ch-radio-transmitter-w-hall-gimbals-elrs.html) ($99.99) - A great compact radio with a lot of things that are possible to upgrade in the future
+	* [Radiomaster Zorro](https://www.getfpv.com/radiomaster-zorro-radio-controller-elrs.html) ($129.99) - Similar in features to the TX12, but has a game controller style layout, so it's a bit more ergonomic if you're used to that
+	* [Radiomaster Boxer](https://www.getfpv.com/radiomaster-boxer-radio-transmitter-4-in-1-multi-protocol-cc2500-elrs-2-ghz.html) ($139.99) - Similar in siz to the TX12, but has the full size gimbals you will find on a full size radio
+	<!-- * [Radiomaster TX16S mk II](https://www.radiomasterrc.com/products/tx16s-mark-ii-radio-controller) ($199.99) - Likely the best radio you can get, and to last you for a long time. It's a bit more expensive, but it's also a lot more capable, and has some really nice extra features, including a color touch screen -->
+2. Goggles:
+	* [Eachine EV800D](https://www.getfpv.com/eachine-ev800d-5-8g-40ch-diversity-fpv-goggles-with-dvr.html) ($119.99) - The best (and likely only good) budget option at this price. They're not the best, but they're good enough for most people who are just starting out
+	* [Skyzone Cobra S/X](https://www.racedayquads.com/products/skyzone-cobra-x-v2-diversity-5-8ghz-fpv-goggles-w-60-fps-dvr?keyword=skyzone%20cobra) ($249.99) - The best box goggles on the market, with better ergonomics and a better screen than the EV800D, with room for easy VRX upgrades in the future
+	* [Skyzone Sky 02o](https://www.getfpv.com/skyzone-sky02o-oled-5-8ghz-fpv-goggles-w-steadyview-diversity-rx.html) ($319.99) - Cheapest usable slimline goggles you can get, but they have a fairly low FOV which may be a problem for some people
+3. Quads:
+	* [HGLRC Petrel 120X 4s](https://www.hglrc.com/collections/toothpicks/products/hglrc-petrel-120x-3-inch-toothpick-machine-fpv-racing-drone-zeus5-aio-flight-controller-1202-5-motor-vtx-350mw4s-6s) ($159.99) - A great pick if you're looking for something with a lot of power in this smaller size, and also the first one to have an option for DJI Digital. Great for larger backyards and parks
+	* [Happymodel Crux35](https://www.getfpv.com/happymodel-crux35-4s-analog-freestyle-racing-drone-w-caddx-ant-camera.html) ($144.99) - An extra half inch may not sound like much, but it'll handle a standalone HD camera (Runcam Thumb Pro, Insta360 Go2, naked gopro) a lot better, and fly more like a regular 5" quad
+4. Chargers:
+	* [ToolkitRC M7](https://www.getfpv.com/toolkitrc-m7-200w-10a-2-6s-multifunctional-balance-charger.html) ($39.99) - IMO the best way to go without spending too much. An all-round good charger, with a lot of neat features as well. Kep in mind that you will need a [PSU](https://www.getfpv.com/toolkitrc-adp100-100w-20-0v-5a-power-supply-unit-w-xt60-output.html) for it as well
+	* [Hota P6](https://www.getfpv.com/hota-p6-600w-15a-1-6s-dc-smart-charger.html) ($79.99) - Hota chargers are pretty much the best you can get. Less fancy features, but they have a pretty much spotless track record. Similar to the ToolkitRC M7, it needs an external PSU, you can use the same one
+5. Batteries
+	This will be less of a specific product recommendation, and more of a general guideline for the different batteries to get for each quad I listed above. There are simply too many individual battery options to list every different one
+
+	Just as a general rule of thumb, you should get at least 2 batteries for each quad, and ideally even more. I'd recommend batteries from GNB or CNHL
+
+	* HGLRC Petrel 120X 4s: 4s 450mAh - 750mAh
+	* Happymodel Crux35: 4s 750mAh - 1000mAh
+	
+	Ideally 75C or higher
+
+</Tab>
+
+<Tab title="$600-$1000">
+
+Now going firmly into the 5" analog quad setups, you'll find a range of radios going from budget to high-end, and nice slimline goggles
+
+1. Radios:
+	<!-- * [Radiomaster TX12 MK II](https://www.getfpv.com/radiomaster-tx12-mkii-2-4ghz-16ch-radio-transmitter-w-hall-gimbals-elrs.html) ($99.99) - A great compact radio with a lot of things that are possible to upgrade in the future -->
+	* [Radiomaster Zorro](https://www.getfpv.com/radiomaster-zorro-radio-controller-elrs.html) ($129.99) - Similar in features to the TX12, but has a game controller style layout, so it's a bit more ergonomic if you're used to that
+	* [Radiomaster Boxer](https://www.getfpv.com/radiomaster-boxer-radio-transmitter-4-in-1-multi-protocol-cc2500-elrs-2-ghz.html) ($139.99) - Similar in siz to the TX12, but has the full size gimbals you will find on a full size radio
+	* [Radiomaster TX16S mk II](https://www.radiomasterrc.com/products/tx16s-mark-ii-radio-controller) ($199.99) - Likely the best radio you can get, and to last you for a long time. It's a bit more expensive, but it's also a lot more capable, and has some really nice extra features, including a color touch screen
+2. Goggles:
+	* [Skyzone Sky 02o](https://www.getfpv.com/skyzone-sky02o-oled-5-8ghz-fpv-goggles-w-steadyview-diversity-rx.html) ($319.99) - Cheapest usable slimline goggles you can get, but they have a fairly low FOV which may be a problem for some people
+	* [Fatshark Attitude V6](https://www.getfpv.com/fat-shark-attitude-v6-fpv-goggles.html) ($349.99) - Going up in price a little gets you a much larger FOV, and screens with higher resoltion, to allow a future transition to a digital system
+	* [Skyzone Sky 04L](https://www.getfpv.com/skyzone-sky04l-v2-lite-lcos-5-8ghz-48ch-fpv-goggles-w-steadyview-receiver.html) (379.99) - Very similar to the Attitude V6, but they come with a better integrated video receiver
+	* [Skyzone Sky 04X](https://www.getfpv.com/skyzone-sky04x-v2-oled-5-8ghz-48ch-fpv-goggles-w-steadyview-receiver.html) ($589.99) - Likely the best purely-analog goggles you can get. They have a very large FOV, focus adjustment, and really nice OLED screens
+	* [HDZero Goggle](https://www.hd-zero.com/product-page/hdzero-goggle) ($599.99) - Technically not an analog goggle, but weirdly enough it may be the best at at it. While it is meant to be used with the HDZero digital system, it has a deinterlacer for the video feed, giving it a very nice image quality
+3. Quads:
+	* [IFlight Nazgul 5 V2](https://shop.iflight-rc.com/Nazgul5-Analog-V2-6S-BNF-Pro1820) ($259.99) - The Nazgul 5 V2 is a long-proven quad that is still very popular, and IFlight continues to update it
+	* [IFlight Nazgul Evoque](https://shop.iflight-rc.com/Nazgul-Evoque-F5-6S-Analog-BNF-Pro1821) ($309.99) - A newer version of the Nazgul 5, with a few improvements, both in terms of components and design. It has better motors, flight stack, but weirdly a less powerful VTX
+	* [GEPRC Mark5](https://geprc.com/product/geprc-mark5-analog-freestyle-fpv-drone/) ($349.99) - In my opinion you are overpaying a little too much for the Mark5, but a lot of people really like it. It has a stack that supports wireless configuration, and a powerful 1.6W VTX
+	* Self-built 5" quad - I have build guides for 5" quads as well, currently a Beginner, Advanced, or a Race build. You can find them [here](https://vitroidfpv.com/builds) ($230+)
+4. Chargers:
+	* [ToolkitRC M7](https://www.getfpv.com/toolkitrc-m7-200w-10a-2-6s-multifunctional-balance-charger.html) ($39.99) - IMO the best way to go without spending too much. An all-round good charger, with a lot of neat features as well. Kep in mind that you will need a [PSU](https://www.getfpv.com/toolkitrc-adp100-100w-20-0v-5a-power-supply-unit-w-xt60-output.html) for it as well
+	* [Hota P6](https://www.getfpv.com/hota-p6-600w-15a-1-6s-dc-smart-charger.html) ($79.99) - Hota chargers are pretty much the best you can get. Less fancy features, but they have a pretty much spotless track record. Similar to the ToolkitRC M7, it needs an external PSU, you can use the same one
+	* [Hota D6 Pro](https://www.getfpv.com/hota-d6-pro-325w-15a-1-6s-dual-channel-ac-dc-smart-charger-w-wireless-charging.html) ($$124.99) - Likely the best charger you can get if you have the money to spare. An actual usable integrated PSU makes it one of the few good "AIO" chargers on the market
+5. Batteries:
+
+	This will be less of a specific product recommendation, and more of a general guideline for the different batteries to get for each quad I listed above. There are simply too many individual battery options to list every different one
+
+	Just as a general rule of thumb, you should get at least 2 batteries for each quad, and ideally even more. I'd recommend batteries from GNB or CNHL
+
+	* Any of the 5" quads - 6S 1100mAh - 1500mAh, at least 75C
+	
+</Tab>
+</Tablist>
 
 # After buying
 
