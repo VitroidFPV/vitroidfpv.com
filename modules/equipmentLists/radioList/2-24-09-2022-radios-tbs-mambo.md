@@ -2,9 +2,11 @@
 category: Radios
 group: Compact style
 color: orange
-order: 2
+visible: true
+order: 3
 title: TBS Mambo
 link: https://www.team-blacksheep.com/products/prod:tbs_mambo
+img: https://www.team-blacksheep.com/img/gallery/A7301739.JPG
 text: The larger sibling to the Tango2, like the TX12, but more premium. Focused
   on giving users the features of full-size radios in a small form factor.
   Full-size module bay and plenty of switches...  and Tracer internally. That's

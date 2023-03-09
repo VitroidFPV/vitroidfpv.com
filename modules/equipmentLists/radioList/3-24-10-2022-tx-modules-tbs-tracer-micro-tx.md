@@ -2,9 +2,11 @@
 category: TX Modules
 group: TBS
 color: red
+visible: true
 order: 3
 title: TBS Tracer Micro TX
 link: https://www.team-blacksheep.com/products/prod:tbs_tracer_mtx
+img: https://www.team-blacksheep.com/img/gallery/TracerMtx1.jpg
 text: Similar to ELRS (and other modern radio systems), Tracer is running on
   2.4GHz but uses a different modulation, called FLRC. This offers it higher
   update rates up to 250Hz, and range up to about ~5km (both still lower than
