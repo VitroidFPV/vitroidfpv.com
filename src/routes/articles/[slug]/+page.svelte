@@ -160,13 +160,13 @@
 				<svelte:component this={component} />
 			</div>
 		</div>
-		<div class="md:flex md:flex-col hidden sticky h-full left-full top-0 pl-4 w-fit">
+		<div class="md:flex md:flex-col hidden sticky h-full left-full top-0 pl-4 w-fit max-w-[24rem]">
 			<div class="text-highlight dark:text-highlight-dark text-3xl w-fit font-semibold mt-8 mb-4 border-b-2 border-current">Contents:</div>
 			{#each headers as header}
 				{#if +header.level < 5}
 				<a 	href="#{removeSpecial(header.content)}"
 					class={
-					`text-base mb-1 heading-${header.level} hover:translate-x-1 hover:text-highlight dark:hover:text-highlight-dark duration-300 w-max`
+					`text-base mb-3 leading-tight heading-${header.level} hover:translate-x-1 hover:text-highlight dark:hover:text-highlight-dark duration-300 w-fit`
 					+ (header.content === intersectingHeader ? " dark:text-highlight-dark text-highlight" : "")}
 				>
 					{header.content}
