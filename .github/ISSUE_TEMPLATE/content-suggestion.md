@@ -8,7 +8,7 @@ assignees: VitroidFPV
 ---
 
 **What page?**
-Tick one that best suits your suggestion
+Pick one that best suits your suggestion
 
 * FAQ 
 * Builds 
