@@ -3,9 +3,11 @@
 	import MainHeader from "$components/mainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
-	import tinycolor from "tinycolor2";
 
-	import type { Module } from "$lib/types/module";
+	import { getModules } from "$lib/getModules";
+	let modules = getModules("/equipment/video")
+
+	import tinycolor from "tinycolor2";
 
 	import { marked } from "marked";
 	marked.setOptions({
@@ -16,53 +18,6 @@
 		smartypants: false,
 		xhtml: false
 	});
-
-	const modules = import.meta.glob("/modules/equipmentLists/videoList/*.md", {eager: true});
-	let grouped_modules: {[category: string]: {[group: string]: Array<Module>}} = {};
-
-	for (const k in modules) {
-	const cat = (modules[k] as Module).metadata.category;
-	const group = (modules[k] as Module).metadata.group;
-
-	if (grouped_modules[cat]) {
-		if (grouped_modules[cat][group]) {
-			grouped_modules[cat][group].push(modules[k] as Module);
-		} else {
-			grouped_modules[cat][group] = [modules[k] as Module];
-		}
-	} else {
-		grouped_modules[cat] = {};
-		grouped_modules[cat][group] = [modules[k] as Module];
-	}}
-
-	// sort the products in each category by the "order" key, and have the group "Info" be last while keeping the same structure
-	let sorted_grouped_modules: {[category: string]: {[group: string]: Array<Module>}} = {};
-	for (const cat in grouped_modules) {
-		sorted_grouped_modules[cat] = {};
-		const groups = Object.keys(grouped_modules[cat]);
-		groups.sort((a, b) => {
-			if (a === "Info") return 1;
-			if (b === "Info") return -1;
-			return grouped_modules[cat][a][0].metadata.order - grouped_modules[cat][b][0].metadata.order;
-		});
-		for (const group of groups) {
-			sorted_grouped_modules[cat][group] = grouped_modules[cat][group];
-		}
-	}
-
-	// if key visible isn't in the metadata, set it to true, otherwise set it to the value in the metadata
-	for (const cat in grouped_modules) {
-		for (const group in grouped_modules[cat]) {
-			for (const product in grouped_modules[cat][group]) {
-				if (!grouped_modules[cat][group][product].metadata.visible) {
-					grouped_modules[cat][group][product].metadata.visible = true;
-				}
-			}
-		}
-	}
-	// omfg copilot carries this shit
-
-	// console.log(JSON.stringify(sorted_grouped_modules));
 
 	let prefix = "VitroidFPV";
 	let titleRaw = "Video Equipment";
@@ -187,7 +142,7 @@
 	</ul>
 	</Paragraph> -->
 
-	{#each Object.entries(sorted_grouped_modules) as [cat, contents]}
+	{#each Object.entries(modules.groupedModules) as [cat, contents]}
 		<div class="{cat} category my-8 w-full h-fit flex flex-col">
 			<div class="text-4xl tracking-tight w-fit px-1 cat {cat} mb-2" id={cat}>{cat}</div>
 			{#each Object.entries(contents) as [group, info]}

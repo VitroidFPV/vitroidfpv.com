@@ -6,73 +6,14 @@
 	import Rating from "$components/Rating.svelte";
 	import Link from "$components/Link.svelte";
 
+	import { getModules } from "$lib/getModules";
+
+	// console.log(getModules("5inch-race"))
+	let modules = getModules("/builds/5inch-race")
+
 	// import { priceSum, part } from "$components/buildsPage/stores.js"
 	import { slide } from "svelte/transition";
 	import tinycolor from "tinycolor2";
-
-	import type { Module } from "$lib/types/module";
-
-	const modules = import.meta.glob("/modules/buildLists/5inch-race/*.md", {eager: true});
-
-	console.log(modules)
-	let grouped_modules: {[category: string]: {[group: string]: Array<Module>}} = {};
-
-	for (const k in modules) {
-	const cat = (modules[k] as Module).metadata.category;
-	const group = (modules[k] as Module).metadata.group;
-
-	if (grouped_modules[cat]) {
-		if (grouped_modules[cat][group]) {
-			grouped_modules[cat][group].push(modules[k] as Module);
-		} else {
-			grouped_modules[cat][group] = [modules[k] as Module];
-		}
-	} else {
-		grouped_modules[cat] = {};
-		grouped_modules[cat][group] = [modules[k] as Module];
-	}}
-	// console.log(JSON.stringify(grouped_modules, null, 1));
-
-	// in grouped_modules, from the category "Recommended Builds", log all of the groups, and the value of the key "recommended"
-	let recommended_titles: { [key: string]: string } = {};
-	for (const cat in grouped_modules) {
-		if (cat === "Recommended Builds") {
-			for (const group in grouped_modules[cat]) {
-				recommended_titles[group] = grouped_modules[cat][group][0].metadata.recommended;
-			}
-		}
-	}
-	// console.log(JSON.stringify(recommended_titles, null, 1));
-
-	// for each group in recommended_titles, in the arrays there are titles
-	//  find the product in the grouped_modules object that matches the title and log it in its group
-	let recommended_products: {[group: string]: Array<Module>} = {};
-	for (const group in recommended_titles) {
-		recommended_products[group] = [];
-		for (const title of recommended_titles[group]) {
-			for (const cat in grouped_modules) {
-				for (const group2 in grouped_modules[cat]) {
-					for (const product in grouped_modules[cat][group2]) {
-						if (grouped_modules[cat][group2][product].metadata.title === title) {
-							recommended_products[group].push(grouped_modules[cat][group2][product]);
-						}
-					}
-				}
-			}
-		}
-	}
-	// console.log(JSON.stringify(recommended_products, null, 1));
-
-	//  if key visible isn't in the metadata, set it to true, otherwise set it to the value in the metadata
-	for (const cat in grouped_modules) {
-		for (const group in grouped_modules[cat]) {
-			for (const product in grouped_modules[cat][group]) {
-				if (!grouped_modules[cat][group][product].metadata.visible) {
-					grouped_modules[cat][group][product].metadata.visible = true;
-				}
-			}
-		}
-	}
 	let prefix = "Builds";
 	let titleRaw = "5\" Race Quad";
 	let title = " - " + titleRaw;
@@ -174,7 +115,7 @@
 </div>
 <div class="content-box">
 	<div class="flex flex-col">
-		{#each Object.entries(grouped_modules) as [cat, contents]}
+		{#each Object.entries(modules.groupedModules) as [cat, contents]}
 			{#if cat != "Recommended Builds"}
 				<div class="{cat} my-8 w-full h-fit">
 					<div
@@ -228,7 +169,7 @@
 			<li class="mb-2"><strong>High-end 2</strong> - The best of the best for open spec, for the most demanding pilots to cut tenths of seconds</li>
 			<li class="mb-2"><strong>High-end 3 (EU Edition)</strong> - If you're in the EU, certain parts may be hard to come by. I've checked the main stores in Central Europe, so shipping should be similar across the whole continent</li>
 		</ul>
-		{#each Object.entries(recommended_products) as [group, contents]}
+		{#each Object.entries(modules.recommendedProducts) as [group, contents]}
 			<div class="group {group} mt-4 mb-8 w-full h-fit">
 				{#if group != "undefined"}
 					<div

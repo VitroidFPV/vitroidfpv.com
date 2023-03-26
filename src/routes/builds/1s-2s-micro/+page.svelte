@@ -3,30 +3,11 @@
 	import MainHeader from "$components/mainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
+
+	import { getModules } from "$lib/getModules";
+	let modules = getModules("/builds/1s-2s-micro")
+
 	import tinycolor from "tinycolor2";
-	import type { Module } from "$lib/types/module";
-
-	const modules = import.meta.glob("/modules/buildLists/1s-2s-micro/*.md", {eager: true});
-
-	// console.log(modules)
-	let grouped_modules: {[category: string]: Array<Module>} = {};
-
-	for (const k in modules) {
-		const cat = (modules[k] as Module).metadata.category;
-		if (grouped_modules[cat]) {
-			grouped_modules[cat].push(modules[k] as Module);
-		} else {
-			grouped_modules[cat] = [modules[k] as Module];
-		}
-	}
-
-	for (const [key, value] of Object.entries(grouped_modules)) {
-		for (const [key2, value2] of Object.entries(value)) {
-			if (value2.metadata.visible == undefined) {
-				value2.metadata.visible = true;
-			}
-		}
-	}
 
 	let prefix = "Builds";
 	let titleRaw = "1s/2s Micro";
@@ -162,37 +143,39 @@
 	</Paragraph> -->
 
 	<div class="flex flex-col">
-		{#each Object.entries(grouped_modules) as [cat, contents]}
-			<div class="{cat} my-8 w-full h-fit">
-				<div
-					class="text-4xl tracking-tight md:w-fit f-full px-1 md:ml-1 ml-2 cat {cat} mb-2 text-center"
-					id={cat}
-				>
-					{cat}
-				</div>
-				<div
-					class="md:ml-3 grid 3xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 border-b-[1px] border-neutral-500/30"
-				>
-					{#each contents as info}
-						{#if info.metadata.visible}
-							<BuildProduct
-								color={info.metadata.color}
-								title={info.metadata.title}
-								price={info.metadata.price}
-								point1={info.metadata.point1}
-								point2={info.metadata.point2}
-								point3={info.metadata.point3}
-								point4={info.metadata.point4}
-								point5={info.metadata.point5}
-								text={info.metadata.text}
-								link={info.metadata.link}
-								img={info.metadata.img}
-								category={cat}
-							/>
-						{/if}
+		{#each Object.entries(modules.groupedModules) as [cat, contents]}
+			{#if cat != "Recommended Builds"}
+				<div class="{cat} my-8 w-full h-fit">
+					<div
+						class="text-4xl tracking-tight md:w-fit f-full px-1 md:ml-1 ml-2 cat {cat} mb-2 text-center"
+						id={cat}>
+						{cat}
+					</div>
+					{#each Object.entries(contents) as [group, products]}
+						<div
+							class="md:ml-3 grid 3xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 border-b-[1px] border-neutral-500/30">
+							{#each products as info}
+								{#if info.metadata.visible}
+									<BuildProduct
+										color={info.metadata.color}
+										title={info.metadata.title}
+										price={info.metadata.price}
+										point1={info.metadata.point1}
+										point2={info.metadata.point2}
+										point3={info.metadata.point3}
+										point4={info.metadata.point4}
+										point5={info.metadata.point5}
+										text={info.metadata.text}
+										link={info.metadata.link}
+										img={info.metadata.img}
+										category={cat}
+									/>
+								{/if}
+							{/each}
+						</div>
 					{/each}
 				</div>
-			</div>
+			{/if}
 		{/each}
 	</div>
 
