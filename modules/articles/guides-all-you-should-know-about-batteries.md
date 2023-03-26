@@ -93,7 +93,7 @@ Internal resistance under 10mΩ is great, under 20mΩ is fine, above 20 isn't gr
 We're lucky that for most sizes and types of crafts, there are tried-and-true capacities and cell counts that work best. Say for example, on a 5" freestyle/race quad, you will ideally be running a 1000-1500mAh 6s battery that is rated at least for 75C of current output. Or for a toothpick, you will have a range of different cell counts, usually around 300-600mAh
 
 
-But standards aren't everything. You should still know ***why*** and ***how*** those values are selected. The main thing you should watch out for is the maximum current draw. The manufacturer should provide datasheets with motor tests that will show a maximum current draw **per motor.** Obviously, if they're in a quadcopter, you have to multiply that current rating by 4 for each motor to get the total. Let's say a typical 2207 1850kv motor from FlyFish RC that I recently [wrote about](https://vitroidfpv-sv.netlify.app/articles/news-flyfish-flash-volador#flash-motors)
+But standards aren't everything. You should still know ***why*** and ***how*** those values are selected. The main thing you should watch out for is the maximum current draw. The manufacturer should provide datasheets with motor tests that will show a maximum current draw **per motor.** Obviously, if they're in a quadcopter, you have to multiply that current rating by 4 for each motor to get the total. Let's say a typical 2207 1850kv motor from FlyFish RC that I recently [wrote about](https://www.vitroidfpv.com/articles/news-flyfish-flash-volador#flash-motors)
 
 
 ![](/uploads/motor_test.png)
