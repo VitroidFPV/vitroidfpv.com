@@ -159,7 +159,7 @@
 		</ul>
 	</Paragraph> -->
 
-	<div class="flex flex-row flex-wrap justify-around z-[99]">
+	<div class="flex flex-row flex-wrap justify-around z-20">
 		{#each Object.entries(grouped_modules) as [a, contents]}
 			{#each contents as build}
 				<BuildCard
