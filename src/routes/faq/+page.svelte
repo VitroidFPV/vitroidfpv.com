@@ -176,7 +176,7 @@
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
 			<div class="flex flex-col md:flex-row items-center w-fit">
 				<h1
-					class="md:text-[130px] text-[70px] h-min w-fit mb-2 md:-ml-3 leading-none text-violet duration-500">
+					class="md:text-[130px] text-[70px] h-min w-fit mb-2 md:-ml-3 ml-3 leading-none text-violet duration-500">
 					FAQ
 				</h1>
 				<div>
