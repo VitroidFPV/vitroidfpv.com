@@ -72,7 +72,7 @@
 					Articles
 				</h1>
 			</div>
-			<Header text="Parts lists and build guides for any quad you'd want!" />
+			<Header text="Totally not a blog" />
 			<p class="text-xl md:w-1/2 md:px-0 px-4">
 				{description}<br>
 				Pretty much anything that wouldn't go into the FAQ for being too long, into the builds for not fitting the format, news about anything FPV, or anything else that I feel like writing about<br><br>
