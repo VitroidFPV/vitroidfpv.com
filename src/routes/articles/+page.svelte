@@ -130,11 +130,11 @@
 	<div class="flex flex-col">
 		<div class="Category my-8 w-full h-fit">
 			<div
-				class="text-4xl tracking-tight md:w-fit f-full px-1 md:ml-1 ml-2 cat Category mb-2 text-center"
+				class="text-4xl tracking-tight md:w-fit f-full px-1 md:ml-0 ml-2 cat Category mb-2 text-center"
 				id=Category>
 				Newest
 			</div>
-			<div class="md:ml-3 flex flex-col md:flex-row flex-wrap w-full md:justify-start md:items-start items-center border-b-[1px] border-white/10">
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full">
 
 				{#each date_sorted_modules as module}
 					{#if module.metadata.visible}
