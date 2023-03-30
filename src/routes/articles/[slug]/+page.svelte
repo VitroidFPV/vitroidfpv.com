@@ -42,6 +42,8 @@
 
 	let postedDate = new Date(data.frontmatter.date)
 	let postedDateFormatted = postedDate.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"})
+	let updatedDate = new Date(data.frontmatter.updated)
+	let updatedDateFormatted = updatedDate.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"})
 
 	// const headerRegex = /(?<flag>#{1,6})\s+(?<content>.+)/g
 	// let headers = 
@@ -149,12 +151,15 @@
 	<div class="flex justify-between w-full">
 		<div class="flex flex-col md:mr-8 mr-0 w-full">
 			<div class="flex flex-col pr-0 article-card {data.frontmatter.category} rounded-2xl mb-8 w-fit shadow-lg">
-				<img src="{data.frontmatter.img}" alt="" class="aspect-[2.5/1] h-[32rem] object-cover object-center rounded-2xl duration-500">
+				<img src="{data.frontmatter.img}" alt="" class="md:aspect-[2.5/1] md:h-[32rem] object-cover object-center rounded-2xl duration-500">
 			</div>
 			<div class="flex-col items-start w-fit">
 				<h1 class="text-{categoryColor} text-5xl mb-2">{data.frontmatter.title}</h1>
 				<h2 class="text-3xl">{data.frontmatter.description}</h2>
 				<div class="mt-4">Posted on <span class="text-{categoryColor}">{postedDateFormatted}</span> by <span class="text-{categoryColor}">{data.frontmatter.author}</span></div>
+				{#if data.frontmatter.updated}
+					<div class="mb-4 text-neutral-500">Last updated on {updatedDateFormatted}</div>
+				{/if}
 			</div>
 			<div class="article md !duration-300 transition-colors {categoryColor}">
 				<svelte:component this={component} />

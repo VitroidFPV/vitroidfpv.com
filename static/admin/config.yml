@@ -319,6 +319,7 @@ collections:
       - { label: "Author", name: "author", widget: "text" }
       - { label: "Image", name: "img", widget: "image" }
       - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Updated on", name: "updated", widget: "datetime" }
       - { label: "Content", name: "body", widget: "markdown" }
 
 media_folder: "/static/uploads/"
