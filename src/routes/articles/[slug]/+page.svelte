@@ -148,13 +148,13 @@
 <div class="content-box">
 	<div class="flex justify-between w-full">
 		<div class="flex flex-col md:mr-8 mr-0 w-full">
-			<div class="flex flex-col pr-0 article-card {data.frontmatter.category} rounded-2xl mb-8 w-fit">
-				<img src="{data.frontmatter.img}" alt="" class="aspect-[2/1] h-[28rem] object-cover object-center rounded-2xl duration-500">
+			<div class="flex flex-col pr-0 article-card {data.frontmatter.category} rounded-2xl mb-8 w-fit shadow-lg">
+				<img src="{data.frontmatter.img}" alt="" class="aspect-[2.5/1] h-[32rem] object-cover object-center rounded-2xl duration-500">
 			</div>
-			<div class="flex-col items-start border-b-[1px] border-gray-700 mb-8 w-fit">
+			<div class="flex-col items-start w-fit">
 				<h1 class="text-{categoryColor} text-5xl mb-2">{data.frontmatter.title}</h1>
 				<h2 class="text-3xl">{data.frontmatter.description}</h2>
-				<div class="my-4">Posted on <span class="text-{categoryColor}">{postedDateFormatted}</span> by <span class="text-{categoryColor}">{data.frontmatter.author}</span></div>
+				<div class="mt-4">Posted on <span class="text-{categoryColor}">{postedDateFormatted}</span> by <span class="text-{categoryColor}">{data.frontmatter.author}</span></div>
 			</div>
 			<div class="article md !duration-300 transition-colors {categoryColor}">
 				<svelte:component this={component} />

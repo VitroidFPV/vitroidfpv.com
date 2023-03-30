@@ -265,22 +265,6 @@
 		@apply origin-top-left scale-90
 	}
 
-	.article-card.Guides {
-		@apply shadow-[0_10px_30px_#00000059,-6px_0px_0px_0px_#87cc52]
-	}
-	.article-card.Tutorials {
-		@apply shadow-[0_10px_30px_#00000059,-6px_0px_0px_0px_#5ad8e6]
-	}
-	.article-card.News {
-		@apply shadow-[0_10px_30px_#00000059,-6px_0px_0px_0px_#d6395b]
-	}
-	.article-card.Reviews {
-		@apply shadow-[0_10px_30px_#00000059,-6px_0px_0px_0px_#ffcc00]
-	}
-	.article-card.Misc {
-		@apply shadow-[0_10px_30px_#00000059,-6px_0px_0px_0px_#9550ba]
-	}
-
 	.card-gradient.Guides {
 		@apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-green/50 to-green/50
 	}
@@ -304,9 +288,9 @@
 	.md h2 {@apply text-3xl my-3 tracking-wide mt-8}
 	.mď h2:first-child {@apply mt-0}
 	.md h3 {@apply text-2xl my-2 tracking-wide}
-	.md h4 {@apply font-semibold my-2 tracking-wide}
-	.md h5 {@apply font-semibold text-green my-2 tracking-wide}
-	.md h6 {@apply font-semibold text-red my-2 tracking-wide}
+	.md h4 {@apply my-2 tracking-wide}
+	.md h5 {@apply text-green my-2 tracking-wide}
+	.md h6 {@apply text-red my-2 tracking-wide}
 	.md {@apply text-[15px] md:text-lg}
 
 	.md .admonition h1 {@apply mt-0}
@@ -317,13 +301,13 @@
 	.md .admonition h6 {@apply mt-0}
 
 	
-	.md.green h1, .md.green h2, .md.green h3 {@apply text-green}
-	.md.yellow h1, .md.yellow h2, .md.yellow h3 {@apply text-yellow}
-	.md.red h1, .md.red h2, .md.red h3 {@apply text-red}
-	.md.blue h1, .md.blue h2, .md.blue h3 {@apply text-blue}
-	.md.cyan h1, .md.cyan h2, .md.cyan h3 {@apply text-cyan}
-	.md.violet h1, .md.violet h2, .md.violet h3 {@apply text-violet}
-	.md.orange h1, .md.orange h2, .md.orange h3 {@apply text-orange}
+	.md.green h1, .md.green h2, .md.green h3, .md.green .colored {@apply text-green}
+	.md.yellow h1, .md.yellow h2, .md.yellow h3, .md.yellow .colored {@apply text-yellow}
+	.md.red h1, .md.red h2, .md.red h3, .md.red .colored {@apply text-red}
+	.md.blue h1, .md.blue h2, .md.blue h3, .md.blue .colored {@apply text-blue}
+	.md.cyan h1, .md.cyan h2, .md.cyan h3, .md.cyan .colored {@apply text-cyan}
+	.md.violet h1, .md.violet h2, .md.violet h3, .md.violet .colored {@apply text-violet}
+	.md.orange h1, .md.orange h2, .md.orange h3, .md.orange .colored {@apply text-orange}
 	.admonition.type-note h1,
 	.admonition.type-note h2,
 	.admonition.type-note h3,
@@ -351,6 +335,7 @@
 
 	.md hr {@apply border-t-2 border-gray-500/50 my-2}
 	.md p {@apply my-4}
+	.md .grid-item p {@apply my-0}
 	.md p:first-of-type {@apply my-0}
 	.md li p {@apply my-0}
 	.md blockquote {@apply border-l-4 border-gray-500/50 p-2 ml-6 my-2 bg-neutral-500/10 w-fit rounded-lg}
