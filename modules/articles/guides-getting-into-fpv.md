@@ -183,7 +183,7 @@ Some of the most basic things to get you started. Tinywhoops or toothpicks, and 
 3. Quads:
 	* Happymodel Mobula6/7 ($99.99) - Pretty much the standard beginner recommendation. They're great for learning, given that they're pretty durable, and a lot of fun to fly indoors even if you move onto something bigger later on
 	* [Happymodel Crux3](https://www.getfpv.com/happymodel-crux3-1s-elrs-3-toothpick-racing-drone-bnf.html) ($118.99) - A good 1s toothpick, great for flying outdoors in your backyard or at a park. Being a 1s quad, it's still pretty cheap to maintain
-	* [DarwinFPV Babyape Pro V2](https://www.racedayquads.com/products/darwinfpv-baby-ape-pro-v2-3-quad-choose-version?keyword=darwindpv%20bab) ($111.99) - If you're after something more durable and/or faster, it's not a bad optino. It runs on 3s, so you will need a proper charger for it, unlike the other two that can use a simple 1s one
+	* [DarwinFPV Babyape Pro V2](https://www.racedayquads.com/products/darwinfpv-baby-ape-pro-v2-3-quad-choose-version?keyword=darwindpv%20bab) ($111.99) - If you're after something more durable and/or faster, it's not a bad option. It runs on 3s, so you will need a proper charger for it, unlike the other two that can use a simple 1s one
 
 4. Chargers:
 	* [ViFly Whoopstor V2](https://www.getfpv.com/vifly-whoopstor-v2-6-port-1s-battery-charger-and-discharger-lihv-lipo.html) ($29.99) - Pretty much the best 1s charger you can get. Unlike with most 1s options, it comes with both PH2.0 and BT2.0 connectors, a discharge/storage option, an OLED display for voltage readout, and being able to power it from USB C
