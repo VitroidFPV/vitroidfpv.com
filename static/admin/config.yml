@@ -28,6 +28,7 @@ collections:
     folder: modules/buildLists/5inch-beginner/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
+    sortable_fields: [order, title, category, color]
     fields:
       - label: Category
         name: category
