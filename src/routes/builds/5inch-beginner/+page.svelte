@@ -5,6 +5,7 @@
 	import Paragraph from "$components/Paragraph.svelte";
 	import Rating from "$components/Rating.svelte";
 	import Link from "$components/Link.svelte";
+	import { onMount } from "svelte";
 
 	import { getModules } from "$lib/getModules";
 	let modules = getModules("/builds/5inch-beginner")
@@ -12,21 +13,22 @@
 	import { fly, fade } from "svelte/transition";
 	import tinycolor from "tinycolor2";
 
-	async function getUpvotes(formId: string) {
-		const res = await fetch(`https://vitroidfpv-sv.netlify.app/cors?url=http://195.88.87.150:5678/webhook/0963ddbf-a472-4a54-bff7-f37c43d8a64e?id=${formId}`)
+	async function getUpvotes() {
+		const res = await fetch("/api/forms?id=63a234bd85496d0008335b10")
 		const data = await res.json()
-		let novoted = data.length
-		let upvoted = 0
-		for (let i = 0; i < data.length; i++) {
-			if (data[i].data.Useful === "on") {
-				upvoted++
-			}
-		}
-		let downvoted = novoted - upvoted
-		let deltaVotes = upvoted - downvoted
-		return deltaVotes
+
+		console.log(data)
+
+		return data
 	}
-	let deltaVotes = getUpvotes("63a234bd85496d0008335b10")
+
+	let deltaVotes: number
+
+	onMount(() => {
+		getUpvotes().then((data) => {
+			deltaVotes = data.votes
+		})
+	})
 
 	let useful = true
 	let feedback = ""
@@ -71,13 +73,9 @@
 					{titleRaw}
 				</h1>
 				<div>
-					{#await deltaVotes}
-						<div></div>
-					{:then deltaVotes}
+					{#if deltaVotes != undefined}
 						<Rating>{deltaVotes}</Rating>
-					{:catch err}
-						<div></div>
-					{/await}
+					{/if}
 				</div>
 			</div>
 			<Header text="Cheap, durable, and easy to put together and repair" />

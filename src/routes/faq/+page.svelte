@@ -26,24 +26,6 @@
 	//  import removeMarkdown
 	import removeMd from "remove-markdown";
 
-	async function getUpvotes(formId: string) {
-		const res = await fetch(`https://vitroidfpv-sv.netlify.app/cors?url=http://195.88.87.150:5678/webhook/0963ddbf-a472-4a54-bff7-f37c43d8a64e?id=${formId}`)
-		const data = await res.json()
-		let novoted = data.length
-		let upvoted = 0
-		for (let i = 0; i < data.length; i++) {
-			if (data[i].data.Useful === "on") {
-				upvoted++
-			}
-		}
-		let downvoted = novoted - upvoted
-		let deltaVotes = upvoted - downvoted
-		return deltaVotes
-	}
-	let deltaVotes = getUpvotes("633def84b40b9d0008711757")
-
-	// svelte template <img src="/uploads/axisflying-1-.png" alt="" on:click={() => open = !open} class:img-closed={!open} class:img-open={open} class="h-auto duration-300">
-
 	const modules = import.meta.glob("/modules/faqs/*.md", {eager: true});
 	// console.log(modules)
 	let grouped_modules: {[category: string]: Array<Module>} = {};
@@ -96,6 +78,23 @@
 		}
 	});
 
+	async function getUpvotes() {
+		const res = await fetch("/api/forms?id=633def84b40b9d0008711757")
+		const data = await res.json()
+
+		console.log(data)
+
+		return data
+	}
+
+	let deltaVotes: number
+
+	onMount(() => {
+		getUpvotes().then((data) => {
+			deltaVotes = data.votes
+		})
+	})
+
 	let useful = true;
 	let feedback = ""
 	let pilotName = ""
@@ -123,54 +122,6 @@
 	<meta name="theme-color" content={color} />
 </svelte:head>
 
-<!-- <div class="text-main-200 highlight-bg">
-	<div class="bg-highlight-dark p-8">
-		<MainHeader>FAQ
-			<div>
-				{#await deltaVotes}
-					<div></div>
-				{:then deltaVotes}
-					<Rating>{deltaVotes}</Rating>
-				{:catch err}
-					<div></div>
-				{/await}
-			</div>
-		</MainHeader>
-		<Header text="If you need a quick answer, you might find it here!" />
-		<Paragraph>
-			There's a lot of questions in FPV, doesn't matter if you're just starting or not<br>
-			You will find most of the common and easy to answer ones here. For more specific ones, there are tutorials planned<br>
-			The questions are sorted into individual categories, and you can search for various keywords to find exactly what you need! (please keep in mind that this function has been implemented in like 30mins so it isn't perfect) Next to each question, there is a button that will copy a link to the specific one if you want to send it to someone.<br>
-			Keep in mind that this site is still in the works. Info here should be mostly reliable, but some may be unfinished and/or buggy
-		</Paragraph>
-	</div>
-	<div class="h-32 max-w-full relative z-20 rotate-180">
-		<div>
-			<svg
-				class="w-full h-min"
-				id="visual"
-				viewBox="0 0 2400 300"
-				width="100%"
-				height="300"
-				xmlns="http://www.w3.org/2000/svg"
-				xmlns:xlink="http://www.w3.org/1999/xlink"
-				version="1.1">
-				<rect x="0" y="0" width="2400" height="300" class="hover:-translate-y-2 duration-300 fill-transparent" />
-				<path
-					d="M0 92L50 91.8C100 91.7 200 91.3 300 112.7C400 134 500 177 600 175.5C700 174 800 128 900 118.5C1000 109 1100 136 1200 151.8C1300 167.7
-			1400 172.3 1500 158C1600 143.7 1700 110.3 1800 97.7C1900 85 2000 93 2100 114.8C2200 136.7 2300 172.3 2350 190.2L2400 208L2400 301L2350 301C2300
-			301 2200 301 2100 301C2000 301 1900 301 1800 301C1700 301 1600 301 1500 301C1400 301 1300 301 1200 301C1100 301 1000 301 900 301C800 301 700 301
-			600 301C500 301 400 301 300 301C200 301 100 301 50 301L0 301Z"
-					fill=""
-					stroke-linecap="round"
-					stroke-linejoin="miter"
-					class="duration-300 fill-highlight dark:fill-highlight-dark"
-				/>
-			</svg>
-		</div>
-	</div>
-</div> -->
-
 <div class="overflow-x-clip h-fit">
 	<div class="flex flex-col w-full relative">
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
@@ -180,13 +131,9 @@
 					FAQ
 				</h1>
 				<div>
-					{#await deltaVotes}
-						<div></div>
-					{:then deltaVotes}
+					{#if deltaVotes != undefined}
 						<Rating>{deltaVotes}</Rating>
-					{:catch err}
-						<div></div>
-					{/await}
+					{/if}
 				</div>
 			</div>
 			<Header text="If you need a quick answer, you might find it here!" />
