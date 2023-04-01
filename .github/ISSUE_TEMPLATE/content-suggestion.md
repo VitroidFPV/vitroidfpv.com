@@ -18,7 +18,7 @@ Pick one that best suits your suggestion
 Products for `Builds` or `Equipment`, questions/troubleshooting for `FAQ`, news/guides/tutorials for `Articles`:
 
 **Describe the suggestion idea**
-A clear and concise description of what you would like to suggest:
+A clear and concise description of what you would like to suggest (question title for the FAQ, product name):
 
 **Describe the content (if applicable)**
 Describe anything relevant to your suggestion, or anything you'd like to specifically be mentioned:
