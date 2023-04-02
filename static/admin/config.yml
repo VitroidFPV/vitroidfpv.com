@@ -29,6 +29,7 @@ collections:
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
     sortable_fields: [order, title, category, color]
+    view_groups: [category, color]
     fields:
       - label: Category
         name: category
