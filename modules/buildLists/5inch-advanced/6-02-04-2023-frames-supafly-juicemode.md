@@ -13,5 +13,5 @@ point1: "Wheelbase: 220mm"
 point2: "Weight: 130g"
 point3: "Arms: 5mm"
 point4: "Top/Bottom/Mid: 2/3mm"
-point5: "Camera size: 28mm"
+point5: "Camera size: 19/21mm"
 ---
