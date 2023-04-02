@@ -448,8 +448,8 @@ collections:
     folder: modules/articles
     create: true
     slug: "{{category}}-{{title}}"
-        sortable_fields: [order, title, category, color]
-    view_groups: 
+    sortable_fields: [order, title, category, color]
+    view_groups:
       - label: Category
         field: category
       - label: Price Range
