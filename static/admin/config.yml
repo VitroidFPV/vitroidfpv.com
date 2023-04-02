@@ -88,6 +88,28 @@ collections:
     folder: modules/buildLists/5inch-race/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
+    sortable_fields: [order, title, category, color]
+    view_groups: 
+      - label: Category
+        field: category
+      - label: Price Range
+        field: color
+    view_filters: 
+      - label: Frames
+        field: category
+        pattern: "Frames"
+      - label: Motors
+        field: category
+        pattern: "Motors"
+      - label: Flight Controllers
+        field: category
+        pattern: "Flight Controllers"
+      - label: ESCs
+        field: category
+        pattern: "ESCs"
+      - label: Video Transmitters
+        field: category
+        pattern: "Video Transmitters"
     fields:
       - label: Category
         name: category
@@ -133,6 +155,28 @@ collections:
     folder: modules/buildLists/5inch-advanced/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
+    sortable_fields: [order, title, category, color]
+    view_groups: 
+      - label: Category
+        field: category
+      - label: Price Range
+        field: color
+    view_filters: 
+      - label: Frames
+        field: category
+        pattern: "Frames"
+      - label: Motors
+        field: category
+        pattern: "Motors"
+      - label: Flight Controllers
+        field: category
+        pattern: "Flight Controllers"
+      - label: ESCs
+        field: category
+        pattern: "ESCs"
+      - label: Video Transmitters
+        field: category
+        pattern: "Video Transmitters"
     fields:
       - label: Category
         name: category
@@ -177,6 +221,28 @@ collections:
     folder: modules/buildLists/3inch-cinewhoop/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Categcategoryory}}-{{title}}"
+    sortable_fields: [order, title, category, color]
+    view_groups: 
+      - label: Category
+        field: category
+      - label: Price Range
+        field: color
+    view_filters: 
+      - label: Frames
+        field: category
+        pattern: "Frames"
+      - label: Motors
+        field: category
+        pattern: "Motors"
+      - label: Flight Controllers
+        field: category
+        pattern: "Flight Controllers"
+      - label: ESCs
+        field: category
+        pattern: "ESCs"
+      - label: Video Transmitters
+        field: category
+        pattern: "Video Transmitters"
     fields:
       - label: Category
         name: category
@@ -215,6 +281,25 @@ collections:
     folder: modules/buildLists/1s-2s-micro/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
+    sortable_fields: [order, title, category, color]
+    view_groups: 
+      - label: Category
+        field: category
+      - label: Price Range
+        field: color
+    view_filters: 
+      - label: Frames
+        field: category
+        pattern: "Frames"
+      - label: Motors
+        field: category
+        pattern: "Motors"
+      - label: AIOs
+        field: category
+        pattern: "AIOs"
+      - label: Video Transmitters
+        field: category
+        pattern: "Video Transmitters"
     fields:
       - label: Category
         name: category
@@ -251,6 +336,25 @@ collections:
     folder: modules/equipmentLists/radioList
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
+    sortable_fields: [order, title, category, color]
+    view_groups: 
+      - label: Category
+        field: category
+      - label: Price Range
+        field: color
+    view_filters: 
+      - label: Radios
+        field: category
+        pattern: "Radios"
+      - label: TX Modules
+        field: category
+        pattern: "TX Modules"
+      - label: Receivers
+        field: category
+        pattern: "Receivers"
+      - label: Antennas
+        field: category
+        pattern: "Antennas"
     fields:
       - label: Category
         name: category
@@ -288,6 +392,25 @@ collections:
     folder: modules/equipmentLists/videoList
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
+    sortable_fields: [order, title, category, color]
+    view_groups: 
+      - label: Category
+        field: category
+      - label: Price Range
+        field: color
+    view_filters: 
+      - label: Cameras
+        field: category
+        pattern: "Cameras"
+      - label: Goggles
+        field: category
+        pattern: "Goggles"
+      - label: Antennas
+        field: category
+        pattern: "Antennas"
+      - label: Video Receivers
+        field: category
+        pattern: "Video Receivers"
     fields:
       - label: Category
         name: category
@@ -325,6 +448,28 @@ collections:
     folder: modules/articles
     create: true
     slug: "{{category}}-{{title}}"
+        sortable_fields: [order, title, category, color]
+    view_groups: 
+      - label: Category
+        field: category
+      - label: Price Range
+        field: color
+    view_filters: 
+      - label: Guides
+        field: category
+        pattern: "Guides"
+      - label: Tutorials
+        field: category
+        pattern: "Tutorials"
+      - label: News
+        field: category
+        pattern: "News"
+      - label: Reviews
+        field: category
+        pattern: "Reviews"
+      - label: Misc
+        field: category
+        pattern: "Misc"
     fields:
       - { label: "Title", name: "title", widget: "text" }
       - { label: "Description", name: "description", widget: "text" }
