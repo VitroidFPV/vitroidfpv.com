@@ -618,3 +618,27 @@ a.css-6gjfue-StyledA.e19otniy11 {
 .css-1v1y2wn-Card {
 	border: 2px solid var(--highlight) !important;
 }
+
+.css-58ai8s-StyledDropdownButton-button-default-caret-caretDown-Button-button-medium-grayText-ControlButton {
+    color: var(--highlight);
+}
+
+.css-1fh4556-ViewControlsButton-button {
+    color: var(--highlight);
+}
+
+.css-12yqrwa-AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton {
+    color: var(--highlight) !important;
+}
+
+.css-12yqrwa-AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton.header-link-active .ei6fm2r1 {
+    color: inherit;
+}
+
+.css-104dqk8-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:hover, .css-104dqk8-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:active, .css-104dqk8-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:focus {
+    color: var(--highlight);
+}
+
+.css-104dqk8-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:hover .ei6fm2r1, .css-104dqk8-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:active .ei6fm2r1, .css-104dqk8-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:focus .ei6fm2r1 {
+    color: inherit;
+}
