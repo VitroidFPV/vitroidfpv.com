@@ -29,7 +29,18 @@ collections:
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
     sortable_fields: [order, title, category, color]
-    view_groups: [category, color]
+    view_groups: 
+      - label: Category
+        field: category
+      - label: Price Range
+        field: color
+    view_filters: 
+      - label: Category
+        field: category
+        options: [Frames, Motors, Flight Controllers, ESCs, Video Transmitters]
+      - label: Price Range
+        field: color
+        options: [Budget, Mid-Range, High-end, Varied]
     fields:
       - label: Category
         name: category
