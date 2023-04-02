@@ -35,12 +35,21 @@ collections:
       - label: Price Range
         field: color
     view_filters: 
-      - label: Category
+      - label: Frames
         field: category
-        options: [Frames, Motors, Flight Controllers, ESCs, Video Transmitters]
-      - label: Price Range
-        field: color
-        options: [Budget, Mid-Range, High-end, Varied]
+        pattern: "Frames"
+      - label: Motors
+        field: category
+        pattern: "Motors"
+      - label: Flight Controllers
+        field: category
+        pattern: "Flight Controllers"
+      - label: ESCs
+        field: category
+        pattern: "ESCs"
+      - label: Video Transmitters
+        field: category
+        pattern: "Video Transmitters"
     fields:
       - label: Category
         name: category
