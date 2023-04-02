@@ -642,3 +642,41 @@ a.css-6gjfue-StyledA.e19otniy11 {
 .css-104dqk8-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:hover .ei6fm2r1, .css-104dqk8-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:active .ei6fm2r1, .css-104dqk8-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:focus .ei6fm2r1 {
     color: inherit !important;
 }
+
+.css-pp9jk1-DropdownList-dropdownList-DropdownList {
+    background-color: var(--background-light1) !important;
+    color: var(--light) !important;
+    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px !important;
+}
+
+.css-1gbg97n-button-dropdownItem-StyledMenuItem:focus, .css-1gbg97n-button-dropdownItem-StyledMenuItem:active, .css-1gbg97n-button-dropdownItem-StyledMenuItem:not(:focus), .css-1gbg97n-button-dropdownItem-StyledMenuItem:not(:active) {
+    background: var(--highlight-transparent) !important;
+    color: var(--highlight) !important;
+    border-left: 4px solid var(--highlight) !important;
+    border-bottom: 0px !important;
+}
+
+.css-1hu7ve8-button-dropdownItem-StyledMenuItem {
+    border-left: 4px solid transparent !important;
+}
+
+.css-rm5zaq-DropdownList-dropdownList-DropdownList {
+    background-color: var(--background-light1) !important;
+}
+
+.css-xsmg2p-button-dropdownItem-StyledMenuItem:focus, .css-xsmg2p-button-dropdownItem-StyledMenuItem:active, .css-xsmg2p-button-dropdownItem-StyledMenuItem:not(:focus), .css-xsmg2p-button-dropdownItem-StyledMenuItem:not(:active) {
+    border-bottom: 0px !important;
+    border-left: 4px solid transparent !important;
+    color: var(--light) !important;
+}
+
+.css-xsmg2p-button-dropdownItem-StyledMenuItem:hover {
+    background: var(--highlight-transparent) !important;
+}
+
+.css-13uciye-button-dropdownItem-StyledMenuItem:focus, .css-13uciye-button-dropdownItem-StyledMenuItem:active, .css-13uciye-button-dropdownItem-StyledMenuItem:not(:focus), .css-13uciye-button-dropdownItem-StyledMenuItem:not(:active) {
+    background-color: var(--highlight-transparent) !important;
+    border-bottom: 0px !important;
+    border-left: 4px solid var(--highlight) !important;
+    color: var(--highlight) !important;
+}
