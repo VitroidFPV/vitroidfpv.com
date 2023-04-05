@@ -644,9 +644,11 @@ a.css-6gjfue-StyledA.e19otniy11 {
 }
 
 .css-pp9jk1-DropdownList-dropdownList-DropdownList {
-    background-color: var(--background-light1) !important;
     color: var(--light) !important;
+    background-color: #0000003d !important;
+    backdrop-filter: blur(8px) !important;
     box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px !important;
+    outline: 2px solid #ffffff0f;
 }
 
 .css-1gbg97n-button-dropdownItem-StyledMenuItem:focus, .css-1gbg97n-button-dropdownItem-StyledMenuItem:active, .css-1gbg97n-button-dropdownItem-StyledMenuItem:not(:focus), .css-1gbg97n-button-dropdownItem-StyledMenuItem:not(:active) {
@@ -661,7 +663,11 @@ a.css-6gjfue-StyledA.e19otniy11 {
 }
 
 .css-rm5zaq-DropdownList-dropdownList-DropdownList {
-    background-color: var(--background-light1) !important;
+    color: var(--light) !important;
+    background-color: #0000003d !important;
+    backdrop-filter: blur(8px) !important;
+    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px !important;
+    outline: 2px solid #ffffff0f;
 }
 
 .css-xsmg2p-button-dropdownItem-StyledMenuItem:focus, .css-xsmg2p-button-dropdownItem-StyledMenuItem:active, .css-xsmg2p-button-dropdownItem-StyledMenuItem:not(:focus), .css-xsmg2p-button-dropdownItem-StyledMenuItem:not(:active) {
