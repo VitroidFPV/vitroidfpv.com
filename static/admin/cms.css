@@ -393,10 +393,11 @@ h2 {
 }
 
 .css-1ixc7c5-menu {
-	background-color: var(--background-light1) !important;
-	color: var(--light) !important;
-	background-color: #0000003d !important;
-	backdrop-filter: blur(8px) !important;
+    color: var(--light) !important;
+    background-color: #0000003d !important;
+    backdrop-filter: blur(8px) !important;
+    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px !important;
+    outline: 2px solid #ffffff0f;
 }
 
 .css-11unzgr {
@@ -439,16 +440,18 @@ h2 {
 }
 
 .css-tsu4ds-DropdownList-dropdownList-DropdownList {
-	color: var(--light) !important;
-	background-color: #0000003d !important;
-	backdrop-filter: blur(8px) !important;
+    color: var(--light) !important;
+    background-color: #0000003d !important;
+    backdrop-filter: blur(8px) !important;
+    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px !important;
+    outline: 2px solid #ffffff0f;
 }
 .css-1hu7ve8-button-dropdownItem-StyledMenuItem {
 	border-bottom: none !important;
 }
 .css-1hu7ve8-button-dropdownItem-StyledMenuItem:hover {
 	background-color: var(--highlight-transparent) !important;
-	color: var(--light) !important;
+	color: var(--highlight) !important;
 }
 .css-1u78kww-StyledWrapper-ToolbarDropdown-buttonMargin .ei6fm2r1 {
 	color: var(--highlight) !important;
@@ -525,10 +528,11 @@ h2 {
 }
 
 .css-mj84iz-DropdownList-dropdownList-DropdownList.e1d27pw02 {
-	background-color: var(--background-light1) !important;
-	color: var(--light) !important;
-	background-color: #0000003d !important;
-	backdrop-filter: blur(8px) !important;
+    color: var(--light) !important;
+    background-color: #0000003d !important;
+    backdrop-filter: blur(8px) !important;
+    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px !important;
+    outline: 2px solid #ffffff0f;
 }
 
 
@@ -714,4 +718,21 @@ a.css-6gjfue-StyledA.e19otniy11 {
 
 .css-1njtcvy-column-WorkflowList::before, .css-1njtcvy-column-WorkflowList::after {
     background: var(--background-light) !important;
+}
+
+.css-16uwhlf-DropdownList-dropdownList-DropdownList {
+    color: var(--light) !important;
+    background-color: #0000003d !important;
+    backdrop-filter: blur(8px) !important;
+    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px !important;
+    outline: 2px solid #ffffff0f;
+}
+
+.css-3x8bm8-StyledDropdownButton-button-default-caret-caretDown {
+    background-color: var(--background-light1);
+    box-shadow: none !important;
+}
+
+.css-3x8bm8-StyledDropdownButton-button-default-caret-caretDown:hover, .css-3x8bm8-StyledDropdownButton-button-default-caret-caretDown[aria-expanded="true"] {
+    color: var(--highlight);
 }
