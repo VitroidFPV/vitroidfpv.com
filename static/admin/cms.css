@@ -627,10 +627,6 @@ a.css-6gjfue-StyledA.e19otniy11 {
     color: var(--highlight) !important;
 }
 
-.css-12yqrwa-AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton {
-    color: var(--highlight) !important;
-}
-
 .css-12yqrwa-AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton.header-link-active .ei6fm2r1 {
     color: inherit !important;
 }
@@ -679,4 +675,43 @@ a.css-6gjfue-StyledA.e19otniy11 {
     border-bottom: 0px !important;
     border-left: 4px solid var(--highlight) !important;
     color: var(--highlight) !important;
+}
+
+.css-12yqrwa-AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:hover .ei6fm2r1, .css-12yqrwa-AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:active .ei6fm2r1, .css-12yqrwa-AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:focus .ei6fm2r1 {
+    color: inherit !important;
+}
+
+.css-12yqrwa-AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton.header-link-active {
+    color: var(--highlight) !important;
+}
+
+.css-12yqrwa-AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:hover, .css-12yqrwa-AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:active, .css-12yqrwa-AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:focus {
+    color: var(--highlight) !important;
+}
+
+.css-1r8q2q6-WorkflowTop-card-cardTop {
+    background-color: var(--background-light) !important;
+}
+
+.css-1k769dv-ColumnHeader-ColumnHeader {
+    background-color: #d6395b !important;
+    color: var(--background) !important;
+}
+
+.css-j7m31j-ColumnHeader-ColumnHeader {
+    background-color: #ffcc00 !important;
+    color: var(--background) !important;
+}
+
+.css-15quhec-ColumnHeader-ColumnHeader {
+    background-color: #87cc52;
+    color: var(--background) !important;
+}
+
+.css-1hjavr2-WorkflowTopHeading-cardTopHeading {
+    color: var(--light) !important;
+}
+
+.css-1njtcvy-column-WorkflowList::before, .css-1njtcvy-column-WorkflowList::after {
+    background: var(--background-light) !important;
 }
