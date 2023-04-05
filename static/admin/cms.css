@@ -708,7 +708,7 @@ a.css-6gjfue-StyledA.e19otniy11 {
 }
 
 .css-15quhec-ColumnHeader-ColumnHeader {
-    background-color: #87cc52;
+    background-color: #87cc52 !important;;
     color: var(--background) !important;
 }
 
@@ -729,10 +729,10 @@ a.css-6gjfue-StyledA.e19otniy11 {
 }
 
 .css-3x8bm8-StyledDropdownButton-button-default-caret-caretDown {
-    background-color: var(--background-light1);
+    background-color: var(--background-light1) !important;
     box-shadow: none !important;
 }
 
 .css-3x8bm8-StyledDropdownButton-button-default-caret-caretDown:hover, .css-3x8bm8-StyledDropdownButton-button-default-caret-caretDown[aria-expanded="true"] {
-    color: var(--highlight);
+    color: var(--highlight) !important;
 }
