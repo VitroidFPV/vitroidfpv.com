@@ -24,7 +24,7 @@ collections:
       - { label: "ID", name: "id", widget: "text" }
       - { label: "Answer", name: "answer", widget: "markdown" }
 
-  - name: 5" Beginner Build
+  - name: 5inch-beginner
     label: 5" Beginner Build
     folder: modules/buildLists/5inch-beginner/
     create: true
@@ -83,7 +83,7 @@ collections:
       - { label: "Point 4", name: "point4", widget: "text", required: false }
       - { label: "Point 5", name: "point5", widget: "text", required: false }
 
-  - name: 5" Race Build
+  - name: 5inch-race
     label: 5" Race Build
     identifier_field: title
     folder: modules/buildLists/5inch-race/
@@ -217,7 +217,7 @@ collections:
       - { label: "Point 5", name: "point5", widget: "string", required: false }
 
 
-  - name: 3" Cinewhoop Build
+  - name: 3inch-cinewhoop
     label: 3" Cinewhoop Build
     folder: modules/buildLists/3inch-cinewhoop/
     create: true
@@ -277,7 +277,7 @@ collections:
       - { label: "Point 4", name: "point4", widget: "text", required: false }
       - { label: "Point 5", name: "point5", widget: "text", required: false }
 
-  - name: 1s - 2s Micro Build
+  - name: 1s-2s-micro
     label: 1s - 2s Micro Build
     folder: modules/buildLists/1s-2s-micro/
     create: true
@@ -332,9 +332,9 @@ collections:
       - { label: "Point 4", name: "point4", widget: "text", required: false }
       - { label: "Point 5", name: "point5", widget: "text", required: false }
 
-  - name: Equipment - Radio
+  - name: radioList
     label: Equipment - Radio
-    folder: modules/equipmentLists/radioList
+    folder: modules/equipmentLists/radioList/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
     sortable_fields: [order, title, category, color]
@@ -388,9 +388,9 @@ collections:
       - { label: "Point 4", name: "point4", widget: "text", required: false }
       - { label: "Point 5", name: "point5", widget: "text", required: false }
 
-  - name: Equipment - Video
+  - name: videoList
     label: Equipment - Video
-    folder: modules/equipmentLists/videoList
+    folder: modules/equipmentLists/videoList/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
     sortable_fields: [order, title, category, color]
@@ -444,9 +444,9 @@ collections:
       - { label: "Point 4", name: "point4", widget: "text", required: false }
       - { label: "Point 5", name: "point5", widget: "text", required: false }
 
-  - name: Articles
+  - name: articles
     label: Articles
-    folder: modules/articles
+    folder: modules/articles/
     create: true
     slug: "{{category}}-{{title}}"
     sortable_fields: [order, title, category, color]
