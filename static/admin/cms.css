@@ -780,6 +780,11 @@ a.css-6gjfue-StyledA.e19otniy11 {
 	background-color: #90d95b99 !important;
 }
 
+.css-xwbujn-PublishButton-button-button-disabled[disabled] {
+    background: var(--background-light1) !important;
+    color: #8b8b8b !important;
+}
+
 .css-lhns9r-column-columnHovered-WorkflowList {
     border-color: #fc0 !important;
 }
