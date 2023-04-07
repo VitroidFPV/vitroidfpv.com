@@ -134,7 +134,7 @@ Now that you know what to avoid and what to get, it's time to actually buy stuff
 	![Radiomaster radios](/uploads/radiomaster_radios.png "Radiomaster radios") -->
 	<Admonition type="tip" title="Sim Time">
 
-	At least 10 hours of sime time is recommended. This can vary from person to person, so if you feel like you're not making much progress, you can always do more. The more you practice, the better you'll get. If you want to know what sim to use, you can find a couple of recommendations [here](https://www.vitroidfpv.com/faq#sim)
+	At least 10 hours of sim time is recommended. This can vary from person to person, so if you feel like you're not making much progress, you can always do more. The more you practice, the better you'll get. If you want to know what sim to use, you can find a couple of recommendations [here](https://www.vitroidfpv.com/faq#sim)
 
 	</Admonition>
 
