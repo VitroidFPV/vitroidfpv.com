@@ -742,3 +742,55 @@ a.css-6gjfue-StyledA.e19otniy11 {
 .css-3x8bm8-StyledDropdownButton-button-default-caret-caretDown:hover, .css-3x8bm8-StyledDropdownButton-button-default-caret-caretDown[aria-expanded="true"] {
     color: var(--highlight) !important;
 }
+
+.css-mq9k9r-WorkflowCardContainer-card {
+    background-color: var(--background-light) !important;
+    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px !important;
+}
+
+.css-1c38qq-CardCollection {
+    color: var(--light) !important;
+}
+
+.css-ttavbp-CardTitle {
+    color: var(--highlight) !important;
+}
+
+.css-1owkb8p-CardButtonContainer {
+    background-color: var(--background-light) !important;
+}
+
+.css-14ow4vo-DeleteButton-button-button {
+    background-color: rgb(71 24 24) !important;
+    color: rgb(255, 0, 59) !important;
+    transition: background-color 0.2s ease-in-out !important;
+}
+
+.css-14ow4vo-DeleteButton-button-button:hover {
+    background-color: hsl(0 49% 25% / 1) !important;
+}
+
+.css-xwbujn-PublishButton-button-button-disabled {
+    background-color: var(--highlight-transparent) !important;
+    color: #90d95b !important;
+    transition: background-color 0.2s ease-in-out !important;
+}
+
+.css-xwbujn-PublishButton-button-button-disabled:hover {
+	background-color: #90d95b99 !important;
+}
+
+.css-lhns9r-column-columnHovered-WorkflowList {
+    border-color: #fc0 !important;
+}
+.css-67qw53-column-columnHovered-WorkflowList {
+    border-color: #d6395b !important;
+}
+
+.css-16ehlzb-column-columnHovered-WorkflowList {
+	border-color: #87cc52 !important
+}
+
+.css-lhns9r-column-columnHovered-WorkflowList::before, .css-lhns9r-column-columnHovered-WorkflowList::after {
+    background-color: var(--highlight-transparent) !important;
+}
