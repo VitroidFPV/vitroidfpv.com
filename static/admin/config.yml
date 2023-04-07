@@ -150,7 +150,7 @@ collections:
       - { label: "Point 5", name: "point5", widget: "string", required: false }
 
 
-  - name: 5" Advanced Build
+  - name: 5inch-advanced
     label: 5" Advanced Build
     identifier_field: title
     folder: modules/buildLists/5inch-advanced/
