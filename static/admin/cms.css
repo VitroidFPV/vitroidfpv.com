@@ -794,3 +794,31 @@ a.css-6gjfue-StyledA.e19otniy11 {
 .css-lhns9r-column-columnHovered-WorkflowList::before, .css-lhns9r-column-columnHovered-WorkflowList::after {
     background-color: var(--highlight-transparent) !important;
 }
+
+.css-fkrj39-ToolbarButton-button-default-buttonMargin-noOverflow-SaveButton-lightBlue-disabled {
+    background-color: #ffcc0030;
+    color: #ffcc00;
+}
+
+.css-16yjsp8-StyledDropdownButton-button-default-caret-caretDown-DropdownButton-noOverflow-StatusButton {
+    background-color: #5ad8e630;
+    color: #5ad8e6;
+}
+
+.css-o6hjv6-StyledDropdownButton-button-default-caret-caretDown-DropdownButton-noOverflow-PublishButton {
+    background-color: var(--highlight-transparent);
+    color: var(--highlight);
+}
+
+.css-1v85yfi-DropdownList-dropdownList-DropdownList {
+    color: var(--light) !important;
+    background-color: #0000003d !important;
+    backdrop-filter: blur(8px) !important;
+    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px !important;
+    outline: 2px solid #ffffff0f;
+}
+
+.css-emf8sj-button-dropdownItem-StyledMenuItem-StatusDropdownItem:focus, .css-emf8sj-button-dropdownItem-StyledMenuItem-StatusDropdownItem:active, .css-emf8sj-button-dropdownItem-StyledMenuItem-StatusDropdownItem:not(:focus), .css-emf8sj-button-dropdownItem-StyledMenuItem-StatusDropdownItem:not(:active) {
+    border-bottom: none;
+    border-left: 4px solid transparent;
+}
