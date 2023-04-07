@@ -14,4 +14,5 @@ point1: "Wheelbase: 218mm (226 for DJI)"
 point2: "Weight: 120g"
 point3: "Arms: 5mm"
 point4: "Top/Bottom/Mid: 2.5mm"
+point5: "Camera size: 19/20mm"
 ---
