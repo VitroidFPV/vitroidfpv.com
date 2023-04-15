@@ -7,10 +7,22 @@ author: VitroidFPV
 img: /uploads/flyfish_stuff.png
 date: 2022-12-07T22:59:01.339Z
 ---
+
+<script>
+	import GridBox from "$components/articlesPage/GridBox.svelte";
+	import GridItem from "$components/articlesPage/GridItem.svelte";
+	import Tablist from "$components/articlesPage/Tablist.svelte";
+	import Tab from "$components/articlesPage/Tab.svelte";
+	import Admonition from "$components/articlesPage/Admonition.svelte";
+</script>
+
+<Admonition type="info" title="Background">
+
 So... let's start off with some background. FlyFish is a very new FPV
 manufacturer, owned and ran by multiple different people from the FPV
 industry, including IFlight
 
+</Admonition>
 
 The products they make (currently motors, antennas, and frames) are pretty good from everything I heard. A lot of amazing pilots that I know really like the motors, and had direct feedback when it came to making them. The antennas seem to be pretty average but not bad, and we can never have enough. Their frames are currently the newest options in their lineup, but similar to the motors, they are well-made and truly tested
 
@@ -26,8 +38,8 @@ They also offer replacement bells for every motor they sell, so you don't have t
 
 Currently offered sizes are:
 
-
-## 2207
+<Tablist>
+<Tab title="2207" open>
 
 
 Available options:
@@ -38,28 +50,40 @@ Available options:
 * [Black/Silver](https://www.flyfish-rc.com/collections/flash-series/products/flash-2207-motor-black)
 
 
-Specs:
+<GridBox title="Specs" level={6}>
 
+<GridItem title="KV">
+1850, 1950, 2005, 2750
+</GridItem>
 
-* 1850/1950/2005/2750kv
+<GridItem title="Construction">
 
-* 7075 Aluminum unibell bells
+7075 Aluminum bells
 
-* N52HS Magnets
+N52HS Magnets
 
-* 34.2g (including 150mm wires)
+NMB bearings
 
-* 16x16 Mounting pattern
+</GridItem>
 
-* NMB bearings
+<GridItem title="Weight">
+34.2g (including 150mm wires)
+</GridItem>
 
-* $20.90/21.90
+<GridItem title="Mounting">
+16x16
+</GridItem>
 
+<GridItem title="Price">
+$20.90/21.90
+</GridItem>
+
+</GridBox>
 
 ![](/uploads/flyfish-2207.png)
+</Tab>
 
-
-## 2306
+<Tab title="2306">
 
 
 Available options:
@@ -69,96 +93,130 @@ Available options:
 
 * [Black/Silver](https://www.flyfish-rc.com/collections/motors/products/flash-2306-5-1750kv-motor-black)
 
+<GridBox title="Specs" level={6}>
 
-Specs:
+<GridItem title="KV">
+1750, 2550
+</GridItem>
 
+<GridItem title="Construction">
 
-* 1750/2550kv
+7075 Aluminum bells
 
-* 7075 Aluminum unibell bells
+N52HS Magnets
 
-* N52HS Magnets
+NMB bearings
 
-* 32.2g (including 150mm wires)
+</GridItem>
 
-* 16x16 Mounting pattern
+<GridItem title="Weight">
+32.2g (including 150mm wires)
+</GridItem>
 
-* NMB bearings
+<GridItem title="Mounting">
+16x16
+</GridItem>
 
-* $20.90/21.90
+<GridItem title="Price">
+$20.90/21.90
+</GridItem>
 
+</GridBox>
 
 ![](/uploads/flyfish_2306.png)
 
+</Tab>
 
-## 1404
-
+<Tab title="1404">
 
 Available options:
 
-
 * [Silver/Purple](https://www.flyfish-rc.com/collections/motors/products/flash-1404-4500kv-fpv-motor)
 
+<GridBox title="Specs" level={6}>
 
-Specs:
+<GridItem title="KV">
+4500
+</GridItem>
 
+<GridItem title="Construction">
 
-* 4500kv
+7075 Aluminum bells
 
-* 7075 Aluminum unibell bells
+N52HS Magnets
 
-* N52HS Magnets
+NMB bearings
 
-* 8.7g (with short wire)
+</GridItem>
 
-* 9x9 Mounting pattern
+<GridItem title="Weight">
+8.7g (with short wire)
+</GridItem>
 
-* NMB bearings
+<GridItem title="Mounting">
+9x9
+</GridItem>
 
-* $14.90
+<GridItem title="Price">
+$14.99
+</GridItem>
 
+</GridBox>
 
 ![](https://cdn.shopify.com/s/files/1/0618/1811/0132/products/Flash-1404-motor-2.jpg?v=1665123558)
 
+</Tab>
 
-## 2806.5
-
+<Tab title="2806.5">
 
 Available options:
 
 
 * [Silver/Purple](https://www.flyfish-rc.com/products/flash-2806-5-fpv-long-range-motor)
 
+<GridBox title="Specs" level={6}>
 
-Specs:
+<GridItem title="KV">
+1350, 1850
+</GridItem>
 
+<GridItem title="Construction">
 
-* 1350/1850kv
+7075 Aluminum bells
 
-* 7075 Aluminum unibell bells
+N52HS Magnets
 
-* N52HS Magnets
+NMB bearings
 
-* 48g (with short wire)
+</GridItem>
 
-* 19x19 Mounting pattern
+<GridItem title="Weight">
+48g (with short wire)
+</GridItem>
 
-* NMB bearings
+<GridItem title="Mounting">
+19x19
+</GridItem>
 
-* $26.90
+<GridItem title="Price">
+$26.90
+</GridItem>
 
+</GridBox>
 
 ![](https://cdn.shopify.com/s/files/1/0618/1811/0132/products/Flash-2806.5-motor-3.jpg?v=1664266390)
 
+</Tab>
+
+</Tablist>
 
 # Volador frames
 
 
 Slick aluminum-on-carbon frames with fancy colors, reasonable pricing, 3d milled carbon, and integrated XT60 holders
 
-
-## Volador VX5/VD5
-
+<Tablist>
+<Tab title="Volador VX5/VD5" open>
 
 Not your typical boxy frames, they have full 7075 aluminum cam cages for a really nice look and all-round camera protection, and durable T700 carbon. Coming in a Squash-X and Deadcat configurations for freestyle and cinematic uses. Heavier than usual, but with the thick carbon plates and 6mm arms that are extra thick in the center, it makes sense
 
@@ -170,31 +228,47 @@ Available options:
 
 * [Volador VD5](https://www.flyfish-rc.com/collections/frames/products/volador-vd5-deadcat-fpv-lr-t700-frame-kit) Black/Tropical Mix
 
+<GridBox title="Specs" level={6}>
 
-Specs:
+<GridItem title="Material">
+7075 Aluminum and T700 Carbon
+</GridItem>
 
-
-* 7075 Aluminum and T700 Carbon:
+<GridItem title="Carbon Plates">
 
 * 6mm arms
 * 2.5mm top plate
 * 3mm middle plate
 * 3mm bottom plate
-* 19/20mm camera mounts (Micro/DJI)
 
-* up to 5.1" props
+</GridItem>
 
-* 225mm wheelbase
+<GridItem title="Sizing">
 
-* 199.5g VX5, 203.5g VD5 (with all of the TPU parts)
+* Camera: 19x19 / 20x20
+* Stack: 20x20/30x30 + 20x20/25x25
+* Prop: 5.1"
+* Wheelbase: 225mm
 
-* $64.90 for black TPU, $69.90 (nice) for the multicolor "Tropical mix" TPU
+</GridItem>
 
-* (The Tropical mix TPU looks really nice, I'd pay extra for that)
+<GridItem title="Weight">
+199.5g VX5, 203.5g VD5 (including TPU parts)
+</GridItem>
 
+<GridItem title="Price">
 
-## Volador VX6/VD6
+* $64.90 black TPU
 
+* $69.90 (nice) multicolor "Tropical mix" TPU
+
+</GridItem>
+
+</GridBox>
+
+</Tab>
+
+<Tab title="Volador VX6/VD6">
 
 Very similar in principle to the 5" frames, but with longer 6" arms for mid-range shots, and/or for comfortably carrying slightly heavier cameras (think heavy GoPro 10/11). Could also use 5.5" props as a nice in-between, as the extra 1" of the arms does not add much weight
 
@@ -207,28 +281,52 @@ Available options:
 * [Volador VD6](https://www.flyfish-rc.com/collections/frames/products/volador-vd6-deadcat-fpv-lr-t700-frame-kit) Black/Tropical Mix
 
 
-Specs:
+<GridBox title="Specs" level={6}>
 
+<GridItem title="Material">
 
-* 7075 Aluminum and T700 Carbon:
+7075 Aluminum and T700 Carbon
+
+</GridItem>
+
+<GridItem title="Carbon Plates">
 
 * 6mm arms
 * 2.5mm top plate
 * 3mm middle plate
 * 3mm bottom plate
-* 19/20mm camera mounts (Micro/DJI)
 
-* up to 6.1" props
+</GridItem>
 
-* 268mm wheelbase
+<GridItem title="Sizing">
 
-* 211.1g VX6, 216.1g VD6 (with all of the TPU parts)
+* Camera: 19x19 / 20x20
+* Stack: 20x20/30x30 + 20x20/25x25
+* Prop: 6.1"
+* Wheelbase: 268mm
 
-* $69.90 (nice) for black TPU, $74.90 for the multicolor "Tropical mix" TPU
+</GridItem>
 
+<GridItem title="Weight">
+
+211.1g VX6, 216.1g VD6 (including TPU parts)
+
+</GridItem>
+
+<GridItem title="Price">
+
+* $69.90 (nice) for black TPU
+* $74.90 for the multicolor “Tropical mix” TPU
+
+</GridItem>
+
+</GridBox>
 
 ![](/uploads/flyfish_volador.png)
 
+</Tab>
+
+</Tablist>
 
 # Osprey antennas
 
