@@ -1,6 +1,17 @@
 <script>
 	import PropSvg from "$components/PropSvg.svelte";
 	import Link from "$components/Link.svelte";
+	import Button from "$components/Button.svelte";
+	import { onMount } from "svelte";
+	import { fly } from "svelte/transition";
+
+	let index = 0;
+
+	onMount(() => {
+		setInterval(() => {
+			index = index < 3 ? index + 1 : 0;
+		}, 5000);
+	})
 
 	let prefix = "VitroidFPV";
 	let title = "";
@@ -27,11 +38,26 @@
 
 <div class="flex flex-col w-full overflow-hidden">
 	<div class="flex flex-col w-full relative">
-		<div class="mt-64 md:mb-24 mb-16 w-fit z-20">
+		<div class="mt-64 md:mb-24 mb-16 w-full z-30">
 			<h1
-				class="md:text-[180px] text-[90px] font-caveat h-fit w-fit leading-none dark:text-highlight-dark hover:ml-4 duration-500">
+				class="md:text-[180px] text-[90px] font-caveat h-fit w-fit leading-none dark:text-highlight-dark duration-500">
 				Vitroid FPV
 			</h1>
+			<div class="transition-container md:ml-8 ml-4 mt-8">
+				{#key index}
+					<div in:fly|local={{duration:750, y:0, x:100}} out:fly|local={{duration:750, y:0, x:-100}}>
+						{#if index == 0}
+							<Button isLink={true} href="/articles/guides-getting-into-fpv" color="yellow">Get Started in FPV</Button>
+						{:else if index == 1}
+							<Button isLink={true} href="/faq" color="violet">Get Answers in the FAQ</Button>
+						{:else if index == 2}
+							<Button isLink={true} href="/builds" color="green">Visit Build Guides</Button>
+						{:else if index == 3}
+							<Button isLink={true} href="/equipment" color="cyan">Find Equipment Recommendations</Button>
+						{/if}
+					</div>
+				{/key}
+			</div>
 		</div>
 		<div class="absolute w-full h-full flex md:top-20 top-28">
 			<div style="-webkit-mask-image: linear-gradient(transparent, black, transparent);"
@@ -323,3 +349,16 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.transition-container {
+		display: grid;
+		grid-template-rows: 1fr;
+		grid-template-columns: 1fr;
+	}
+
+	.transition-container > * {
+		grid-row: 1;
+		grid-column: 1;
+	}
+</style>
