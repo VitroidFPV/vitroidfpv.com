@@ -166,7 +166,7 @@
 										point4={info.metadata.point4}
 										point5={info.metadata.point5}
 										text={info.metadata.text}
-										link={info.metadata.link}
+										href={info.metadata.link}
 										img={info.metadata.img}
 										category={cat}
 									/>

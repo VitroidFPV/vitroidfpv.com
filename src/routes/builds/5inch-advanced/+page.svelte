@@ -136,7 +136,7 @@
 										point4={info.metadata.point4}
 										point5={info.metadata.point5}
 										text={info.metadata.text}
-										link={info.metadata.link}
+										href={info.metadata.link}
 										img={info.metadata.img}
 										category={cat}
 									/>
@@ -181,7 +181,7 @@
 					{#each contents as info}
 						{#if info.metadata.visible}
 							<div class="h-fit max-w-sm {info.metadata.color} border-l-4 product pl-2 my-4 md:mr-8 md:w-1/6 w-1/3">
-								<Link color={info.metadata.color} size="2" color1={info.metadata.color} link={info.metadata.link} external="true">{info.metadata.title}</Link>
+								<Link color={info.metadata.color} size="2" color1={info.metadata.color} href={info.metadata.link} external="true">{info.metadata.title}</Link>
 								<div class="text-base text-main-100 dark:text-contrast-300 mr-2">{info.metadata.price}</div>
 							</div>
 						{/if}

@@ -19,7 +19,7 @@
 	export let point4 = "";
 	export let point5 = "";
 	export let text: string;
-	export let link: string;
+	export let href: string;
 	export let img: string;
 	export let category: string = "";
 
@@ -51,7 +51,7 @@
 		<div class="{color} {category} relative h-fit w-full border-l-4 product pl-2 my-4 md:mr-8">
 			<div class="flex w-full justify-between link t-{color}">
 				<div>
-					<Link {color} color1={color} size="2" {link} external={true}>{title}</Link>
+					<Link {color} color1={color} size="2" {href} external={true}>{title}</Link>
 				</div>
 				{#if img}
 					<button on:click={() => visible = true}>

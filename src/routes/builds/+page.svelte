@@ -165,7 +165,7 @@
 				<BuildCard
 					title={build.metadata.title}
 					color={build.metadata.difficulty}
-					link={build.metadata.link}
+					href={build.metadata.link}
 					point1={build.metadata.point1}
 					point2={build.metadata.point2}
 					point3={build.metadata.point3}

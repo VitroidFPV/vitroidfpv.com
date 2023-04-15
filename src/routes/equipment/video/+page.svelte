@@ -169,7 +169,7 @@
 											point4={product.metadata.point4}
 											point5={product.metadata.point5}
 											text={product.metadata.text}
-											link={product.metadata.link}
+											href={product.metadata.link}
 											img={product.metadata.img}
 										/>
 									{/if}

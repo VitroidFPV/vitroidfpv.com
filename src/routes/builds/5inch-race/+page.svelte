@@ -54,7 +54,7 @@
 			<p class="text-xl md:w-1/2 md:px-0 px-4">
 				{description}<br><br>
 				This list is specced for 6s, and includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br><br>
-				I try my best to keep up with modern specs and builds, but I'm not a racer... So thanks a lot to <Link external={true} link="https://www.instagram.com/august_fpv/">August FPV</Link> for all of the help and advice on this build
+				I try my best to keep up with modern specs and builds, but I'm not a racer... So thanks a lot to <Link external={true} href="https://www.instagram.com/august_fpv/">August FPV</Link> for all of the help and advice on this build
 				<ul class="flex flex-row justify-between w-fit flex-wrap mt-4">
 					<li
 						class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-green before:relative mb-2 mr-8">
@@ -138,7 +138,7 @@
 										point4={info.metadata.point4}
 										point5={info.metadata.point5}
 										text={info.metadata.text}
-										link={info.metadata.link}
+										href={info.metadata.link}
 										img={info.metadata.img}
 										category={cat}
 									/>
@@ -186,11 +186,11 @@
 								color={info.metadata.color}
 								title={info.metadata.title}
 								price={info.metadata.price}
-								link={info.metadata.link}
+								href={info.metadata.link}
 								category={group}
 							/> -->
 							<div class="h-fit max-w-sm {info.metadata.color} border-l-4 product pl-2 my-4 md:mr-8 md:w-1/6 w-1/3">
-								<Link color={info.metadata.color} size="2" color1={info.metadata.color} link={info.metadata.link} external={true}>{info.metadata.title}</Link>
+								<Link color={info.metadata.color} size="2" color1={info.metadata.color} href={info.metadata.link} external={true}>{info.metadata.title}</Link>
 								<div class="text-base text-main-100 dark:text-contrast-300 mr-2">{info.metadata.price}</div>
 							</div>
 						{/if}

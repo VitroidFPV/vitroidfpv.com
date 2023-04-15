@@ -4,7 +4,7 @@
 	export let title: string
 	export let description: string
 	export let img: string
-	export let link = ""
+	export let href = ""
 	export let category: string
 	export let date: string
 	// export let author: string
@@ -32,12 +32,12 @@
 </script>
 
 <div class="article-card flex flex-col md:aspect-[3.5/2] aspect-[2/3] {category} rounded-[18px] duration-300 w-full">
-	<a href={link} class="flex flex-col w-full h-full">
+	<a href={href} class="flex flex-col w-full h-full">
 	<div class="relative flex items-end h-full w-full group overflow-hidden rounded-2xl">
 			<div class="flex flex-col z-20 pb-4 pl-4 text-contrast-50 origin-bottom-left">
 				<div>
 					<div>{category}</div>
-					<Link {link} size="2" color={categoryColor} color1="">{title}</Link>
+					<Link {href} size="2" color={categoryColor} color1="">{title}</Link>
 				</div>
 				<div class="">{description}</div>
 				<div class="md:opacity-0 md:h-0 mt-0 group-hover:opacity-100 md:group-hover:h-6 md:group-hover:mt-2 duration-300 text-base">{date}</div>

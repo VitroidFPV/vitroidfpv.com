@@ -186,37 +186,37 @@
 			icon="bg-[url('https://img.icons8.com/material-outlined/32/9550ba/plus--v1.png')]"
 			color="hover:text-violet"
 			text="Starting out"
-			link="Starting"
+			href="Starting"
 		/>
 		<CategoryIndex
 			icon="bg-[url('https://img.icons8.com/material-outlined/32/d6395b/plus--v1.png')]"
 			color="hover:text-red"
 			text="Building"
-			link="Building"
+			href="Building"
 		/>
 		<CategoryIndex
 			icon="bg-[url('https://img.icons8.com/material-outlined/32/ffcc00/plus--v1.png')]"
 			color="hover:text-yellow"
 			text="Betaflight"
-			link="Betaflight"
+			href="Betaflight"
 		/>
 		<CategoryIndex
 			icon="bg-[url('https://img.icons8.com/material-outlined/32/87cc52/plus--v1.png')]"
 			color="hover:text-green"
 			text="Video"
-			link="Video"
+			href="Video"
 		/>
 		<CategoryIndex
 			icon="bg-[url('https://img.icons8.com/material-outlined/32/5ad8e6/plus--v1.png')]"
 			color="hover:text-cyan"
 			text="Radio"
-			link="Radio"
+			href="Radio"
 		/>
 		<CategoryIndex
 			icon="bg-[url('https://img.icons8.com/material-outlined/32/5a6fe6/plus--v1.png')]"
 			color="hover:text-blue"
 			text="Hardware"
-			link="Hardware"
+			href="Hardware"
 		/>
 		
 		<div class="flex items-center my-4">

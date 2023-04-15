@@ -8,6 +8,7 @@ export interface Module {
 		content: string
 		author: string
 		visible: boolean
+		href: string
 		link: string
 		text: string
 		price: string

@@ -145,7 +145,7 @@
 							category={module.metadata.category}
 							date={module.metadata.date}
 							author={module.metadata.author}
-							link={"/articles/" + module.metadata.category.toLowerCase() + "-" + module.metadata.title.toLowerCase().replace(/[^a-zA-Z0-9]/g, "-").replace("---", "-")}
+							href={"/articles/" + module.metadata.category.toLowerCase() + "-" + module.metadata.title.toLowerCase().replace(/[^a-zA-Z0-9]/g, "-").replace("---", "-")}
 						/>
 					{/if}
 				{/each}
