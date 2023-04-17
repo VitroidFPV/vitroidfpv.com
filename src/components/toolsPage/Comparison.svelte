@@ -19,7 +19,7 @@
 <div class="flex w-full justify-between">
 	<div class="flex justify-between w-full mr-2">
 		<div class="text-highlight dark:text-highlight-dark">{size}</div>
-		<div class="ml-2">{calculateVolume(size)}mm³</div>
+		<div class:invisible={isNaN(calculateVolume(size)) || calculateVolume(size) == 0} class="ml-2">{calculateVolume(size)}mm³</div>
 	</div>
 	<button
 		class="text-red"
