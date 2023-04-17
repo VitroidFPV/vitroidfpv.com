@@ -13,8 +13,13 @@ const config = {
         alias: {
             $components: "/src/components/",
 			$lib: "/src/lib/",
+			$routes: "/src/routes/",
         },
     },
+
+	rollupInputOptions: {
+    	external: ['@resvg/resvg-js-win32-x64-msvc'],
+  	},
 };
 
 export default config;

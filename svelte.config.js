@@ -15,6 +15,7 @@ const config = {
 		alias: {
 			$components: "./src/components",
 			$lib: "./src/lib",
+			$routes: "./src/routes",
 		},
 	},
 	extensions: [".svelte", ...mdsvexConfig.extensions],
