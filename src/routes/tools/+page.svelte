@@ -118,7 +118,7 @@
 
 	let compareOpen = false;
 	import { backInOut } from 'svelte/easing';
-	import Comparison from "$components/toolsPage/Comparison.svelte";
+	import SizeComparison from "$components/toolsPage/SizeComparison.svelte";
 
 	function expand(node:HTMLElement, {
 		delay = 0,
@@ -211,10 +211,10 @@
 							</svg>
 						</button>
 					</div>
-					<!-- #each block for $compareArray that updates with the array, and contains a Comparison {size} element -->
+					<!-- #each block for $compareArray that updates with the array, and contains a SizeComparison {size} element -->
 					{#each $compareArray as size}
 						<div transition:slide|local>
-							<Comparison {size}/>
+							<SizeComparison {size}/>
 						</div>
 					{/each}
 				</div>
