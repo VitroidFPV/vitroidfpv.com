@@ -1,4 +1,16 @@
 import { writable } from 'svelte/store';
+import type { Writable } from 'svelte/store';
 
-export const priceSum = writable(0);
-export const part = writable([]);
+interface Part {
+	title: string;
+	price: string;
+	color: string;
+	category: string;
+	url: string;
+	quantity: number;
+	href: string;
+}
+
+type PartsMap = Record<string, Part[]>;
+
+export const parts: Writable<PartsMap> = writable({});

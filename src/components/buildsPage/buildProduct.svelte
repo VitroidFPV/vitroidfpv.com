@@ -4,8 +4,12 @@
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { clickOutside } from '$lib/clickOut.js';
 	import { fade, fly } from "svelte/transition";
-	// import { priceSum, part } from "$components/buildsPage/stores.js"
+	import { parts } from "$components/buildsPage/stores"
 	import type { Module } from "$lib/types/module";
+	import { addPart } from "$lib/addPart";
+	import { page } from "$app/stores";
+
+	const url = $page.url.pathname;
 
 	let element: HTMLElement;
 	let intersecting: boolean;
@@ -34,7 +38,6 @@
 	function handleClickOutside() {
 		visible = false;
 	}
-
 </script>
 
 <svelte:window on:keydown={esc}/>
@@ -53,13 +56,22 @@
 				<div>
 					<Link {color} color1={color} size="2" {href} external={true}>{title}</Link>
 				</div>
-				{#if img}
-					<button on:click={() => visible = true}>
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" class="w-7 h-7 hover:stroke-current stroke-contrast-500 duration-300 cursor-pointer">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+				<div>
+					<button 
+						on:click={() => addPart(title, price, color, category, url, href)}
+						class="mr-2 hover:stroke-current stroke-contrast-500 duration-300">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" class="w-7 h-7">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
 						</svg>
 					</button>
-				{/if}
+					{#if img}
+						<button on:click={() => visible = true} class=" hover:stroke-current stroke-contrast-500 duration-300">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" class="w-7 h-7">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+							</svg>
+						</button>
+					{/if}
+				</div>
 			</div>
 			{#if price !== undefined}
 				<div class="flex justify-between mt-3 mb-3 flex-wrap tracking-[0.01em]">

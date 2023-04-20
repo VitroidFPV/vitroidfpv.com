@@ -14,6 +14,7 @@
 	// import { priceSum, part } from "$components/buildsPage/stores.js"
 	import { slide } from "svelte/transition";
 	import tinycolor from "tinycolor2";
+	import PriceCompBox from "$components/buildsPage/PriceCompBox.svelte";
 	let prefix = "Builds";
 	let titleRaw = "5\" Race Quad";
 	let title = " - " + titleRaw;
@@ -40,6 +41,8 @@
 	<meta content="https://vitroidfpv.com/" property="og:url" />
 	<meta name="theme-color" content={color} />
 </svelte:head>
+
+<PriceCompBox />
 
 <div class="overflow-x-clip h-fit">
 	<div class="flex flex-col w-full relative">

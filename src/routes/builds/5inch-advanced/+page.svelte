@@ -5,6 +5,7 @@
 	import Paragraph from "$components/Paragraph.svelte";
 	import Rating from "$components/Rating.svelte";
 	import Link from "$components/Link.svelte";
+	import PriceCompBox from "$components/buildsPage/PriceCompBox.svelte";
 
 	import { getModules } from "$lib/getModules";
 	let modules = getModules("/builds/5inch-advanced")
@@ -39,6 +40,8 @@
 	<meta content="https://vitroidfpv.com/" property="og:url" />
 	<meta name="theme-color" content={color} />
 </svelte:head>
+
+<PriceCompBox />
 
 <div class="overflow-x-clip h-fit">
 	<div class="flex flex-col w-full relative">

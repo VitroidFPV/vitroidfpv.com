@@ -5,6 +5,7 @@
 	import Paragraph from "$components/Paragraph.svelte";
 	import Rating from "$components/Rating.svelte";
 	import Link from "$components/Link.svelte";
+	import PriceCompBox from "$components/buildsPage/PriceCompBox.svelte";
 	import { onMount } from "svelte";
 
 	import { getModules } from "$lib/getModules";
@@ -64,7 +65,9 @@
 	<meta name="theme-color" content={color} />
 </svelte:head>
 
-<div class="overflow-x-clip h-fit">
+<PriceCompBox />
+
+<div class="overflow-x-clip h-fit relative">
 	<div class="flex flex-col w-full relative">
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
 			<div class="flex flex-col md:flex-row items-center w-fit">

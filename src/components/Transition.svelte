@@ -4,7 +4,7 @@
 </script>
 
 {#key refresh}
-	<div in:fade={{duration: 500 }} class="w-full">
+	<div in:fade={{duration: 500 }} class="w-full min-h-full relative">
 		<slot />
 	</div>
 {/key}
