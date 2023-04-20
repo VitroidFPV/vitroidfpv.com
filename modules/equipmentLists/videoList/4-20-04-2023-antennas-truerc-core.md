@@ -11,7 +11,7 @@ text: Right between the OCP and Singularity in terms of price, these are
   TrueRC's newest offerings. They hit a great price point while increasing the
   performance and durability of the OCP. The colors are also a nice addition, as
   well as the very wide range of connectors
-price: $12.99
+price: $14.99
 point1: "Gain: 1.9dB"
 point2: "Weight: Varied"
 point3: "Polarization: R/LHCP"
