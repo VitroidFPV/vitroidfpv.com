@@ -3,7 +3,7 @@ category: Antennas
 group: Omnidirectional
 color: orange
 visible: true
-order: 8
+order: 9
 title: Lumenier Micro Axii
 link: https://www.racedayquads.com/pages/rapid-search-results?q=axii+micro
 img: https://www.truerc.ca/wp-content/uploads/434DDF87-3722-4132-AC78-C10E078AEAC0-e1654053363464.jpeg

@@ -3,7 +3,7 @@ category: Antennas
 group: Omnidirectional
 color: red
 visible: true
-order: 5
+order: 6
 title: TrueRC Matchstick
 link: https://www.truerc.ca/shop/5-8ghz-2/transmitter/matchstick-5-8
 img: https://www.truerc.ca/wp-content/uploads/7CE4C549-D95B-497E-9AA7-A4E45B4DA844-e1632424273687.jpeg

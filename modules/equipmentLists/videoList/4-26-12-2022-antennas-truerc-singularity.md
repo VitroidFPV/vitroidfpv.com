@@ -3,7 +3,7 @@ category: Antennas
 group: Omnidirectional
 color: orange
 visible: true
-order: 4
+order: 5
 title: TrueRC Singularity
 link: https://www.truerc.ca/shop/5-8ghz-2/transmitter/singularity-5-8
 img: https://www.truerc.ca/wp-content/uploads/A2858081-349D-4701-ADF5-BE7056A3A1DB-scaled-e1632505637758.jpeg

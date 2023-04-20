@@ -3,7 +3,7 @@ category: Antennas
 group: Omnidirectional
 color: red
 visible: true
-order: 9
+order: 10
 title: Lumenier Double Axii 2
 link: https://pyrodrone.com/pages/search-results-page?q=double+axii+2
 img: https://www.truerc.ca/wp-content/uploads/434DDF87-3722-4132-AC78-C10E078AEAC0-e1654053363464.jpeg

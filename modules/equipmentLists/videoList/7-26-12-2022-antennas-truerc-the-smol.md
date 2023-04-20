@@ -3,7 +3,7 @@ category: Antennas
 group: Omnidirectional
 color: orange
 visible: true
-order: 7
+order: 8
 title: TrueRC The Smol
 link: https://www.truerc.ca/shop/5-8ghz-2/transmitter/the-smol
 img: https://www.truerc.ca/wp-content/uploads/434DDF87-3722-4132-AC78-C10E078AEAC0-e1654053363464.jpeg

@@ -3,7 +3,7 @@ category: Antennas
 group: Omnidirectional
 color: green
 visible: true
-order: 6
+order: 7
 title: TrueRC D-Pole
 link: https://www.truerc.ca/shop/5-8ghz-2/transmitter/d-pole-5g
 img: https://www.truerc.ca/wp-content/uploads/CE8D7B6E-47E0-41B4-8A96-9093B416C694-e1630343369187.jpeg
