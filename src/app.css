@@ -91,8 +91,8 @@
 }
 
 @layer components {
-	.nav-active {
-		/* god is dead and we have killed him */
+	/* .nav-active {
+		god is dead and we have killed him
 		@apply  bg-highlight dark:bg-highlight-dark md:rounded-l-2xl md:rounded-br-none rounded-b-3xl relative shadow-highlight dark:shadow-highlight-dark
 			md:after:content-[''] md:after:absolute md:after:bg-transparent md:after:left-24 md:after:bottom-14 md:after:w-8 md:after:h-8 md:after:rounded-full md:after:-z-10 
 			md:dark:after:shadow-[-1rem_1rem_0px_#0f0f0f,8px_13px_0px_#1cd167] md:after:shadow-[-1rem_1rem_0px_#eeeeee,8px_13px_0px_#90d95b]
@@ -103,14 +103,35 @@
 			dark:after:shadow-[-18px_-12px_0px_#1cd167] after:shadow-[-18px_-12px_0px_#90d95b]
 			before:content-[''] before:absolute before:bg-transparent before:right-12 before:bottom-[16px] before:w-8 before:h-8 before:rounded-full before:-z-10 
 			dark:before:shadow-[18px_-12px_0px_#1cd167] before:shadow-[18px_-12px_0px_#90d95b]
+	} */
+
+	/* .nav {
+		@apply md:h-14 md:w-36 md:min-h-[3.5rem] min-h-[3rem] min-w-[3rem] flex flex-col justify-center relative md:pl-2 md:my-2 mx-2 md:mx-0
+	} */
+
+	/* .nav-active > a {@apply md:translate-x-1 translate-x-0 dark:hover:text-main-100 hover:text-contrast-100 dark:text-main-100 text-contrast-100 dark:brightness-100} */
+
+	/* let's just pretend that the code above never existed */
+
+	.nav-active {
+		@apply text-main-400
 	}
 
-	.nav {
-		@apply md:h-14 md:w-32 md:min-h-[3.5rem] min-h-[3rem] min-w-[3rem] flex items-center md:pr-[60px] relative md:pl-4 md:my-2 mx-2 md:mx-0
+	.nav-active svg {
+		@apply fill-highlight dark:fill-highlight-dark
 	}
 
-	.nav-active > a {@apply md:translate-x-1 translate-x-0 dark:hover:text-main-100 hover:text-contrast-100 dark:text-main-100 text-contrast-100 dark:brightness-100}
+	.nav-active .nav-content {
+		@apply bg-highlight dark:bg-highlight-dark
+	}
 
+	.nav-link {
+		@apply hover:text-highlight dark:hover:text-highlight-dark
+	}
+
+	.nav-active .nav-link {
+		@apply hover:text-current md:translate-x-1
+	}
 
 	.Motors.my-8 {@apply order-1} 
 	.Frames.my-8 {@apply order-2} 
