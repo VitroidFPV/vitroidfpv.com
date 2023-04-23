@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 	import { page } from '$app/stores'
 
 	$: {
@@ -23,4 +23,8 @@
 		gtag('js', new Date())
 		gtag('config', 'G-YYT7E26JTN')
 	</script>
+</svelte:head> -->
+
+<svelte:head>
+	<script defer data-domain="vitroidfpv.com" src="https://plausible.newtly.eu/js/script.js"></script>
 </svelte:head>
