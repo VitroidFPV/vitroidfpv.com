@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BuildProduct from "$components/buildsPage/buildProduct.svelte";
-	import MainHeader from "$components/mainHeader.svelte";
+	import MainHeader from "$components/MainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
 	import Rating from "$components/Rating.svelte";
@@ -70,18 +70,8 @@
 <div class="overflow-x-clip h-fit relative">
 	<div class="flex flex-col w-full relative">
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
-			<div class="flex flex-col md:flex-row items-center w-fit">
-				<h1
-					class="md:text-[130px] text-[70px] h-min w-fit mb-2 md:-ml-3 ml-3 leading-none text-green duration-500">
-					{titleRaw}
-				</h1>
-				<div>
-					{#if deltaVotes != undefined}
-						<Rating>{deltaVotes}</Rating>
-					{/if}
-				</div>
-			</div>
-			<Header text="Cheap, durable, and easy to put together and repair" />
+			<MainHeader title={titleRaw} color="green" {deltaVotes}/>
+			<Header title="Cheap, durable, and easy to put together and repair" />
 			<p class="text-xl md:w-1/2 md:px-0 px-4">
 				{description}<br><br>
 				This list is specced for 6s, and includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br><br>
@@ -157,7 +147,7 @@
 			{/await}
 		</div>
 	</MainHeader>
-	<Header text="Cheap, durable, and easy to put together and repair" />
+	<Header title="Cheap, durable, and easy to put together and repair" />
 	<Paragraph>{description}<br>
 		This list is specced for 6s, and includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br>
 		The price range for each part is highlighted, so you can quickly find something to suit your budget. That doesn't mean the budget parts are bad and that the high-end ones are too expensive. It's all relative to the price avarage of the build itself, all of them here are great
@@ -227,7 +217,7 @@
 		data-netlify-honeypot="bot-field"
 	>
 		<input type="hidden" name="form-name" value="5inchBeginner" />
-		<Header text="Feedback" />
+		<Header title="Feedback" />
 		<Paragraph>If you found this page useful (or not), or have any suggestions for parts, ideas and so on, let me know here to help me improve the site!
 		</Paragraph>
 		<div class="mt-12 flex flex-col">

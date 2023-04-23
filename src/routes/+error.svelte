@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
 	import Header from '$components/Header.svelte';
-	import MainHeader from '$components/mainHeader.svelte';
+	import MainHeader from '$components/MainHeader.svelte';
 	import Paragraph from '$components/Paragraph.svelte';
 	import Link from '$components/Link.svelte';
 	import { slide } from 'svelte/transition';
@@ -12,7 +12,7 @@
 	let title = "VitroidFPV - Error";
 	let url = "";
 
-	let open
+	let open: boolean = false;
 </script>
 
 <svelte:head>
@@ -28,8 +28,8 @@
 </svelte:head>
 
 <div class="content-box">
-	<MainHeader>Oops!</MainHeader>
-	<Header text="There has been an error loading this page" />
+	<MainHeader title="Oops!" color="red"></MainHeader>
+	<Header title="There has been an error loading this page" />
 	<Paragraph>
 		Either it doesn't exist, or I messed something up. If it doesn't exist, you can go <Link>back</Link> to the main site, if you think it's the latter, please contact me
 		<div class="tracking-normal not-intersecting text-main-200 dark:text-contrast-100 border-none flex flex-col mt-2">
@@ -46,7 +46,7 @@
 		</div>
 			{#if open}
 				<div transition:slide class="content text-xl h-full min-w-fit max-w-[70vw] border-l-4 border-highlight dark:border-highlight-dark">
-					<div class="p-4 text-base md:text-lg leading-relaxed md">{$page.status}: {$page.error.message}</div>
+					<div class="p-4 text-base md:text-lg leading-relaxed md">{$page.status}: {$page.error?.message}</div>
 				</div>
 			{/if}
 		</div>

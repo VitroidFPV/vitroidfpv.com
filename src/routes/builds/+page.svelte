@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BuildCard from "$components/buildsPage/buildCard.svelte";
 	import Header from "$components/Header.svelte";
-	import MainHeader from "$components/mainHeader.svelte";
+	import MainHeader from "$components/MainHeader.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
 
 	import type { Module } from "$lib/types/module";
@@ -47,13 +47,8 @@
 <div class="overflow-x-clip h-fit">
 	<div class="flex flex-col w-full relative">
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
-			<div class="flex flex-col md:flex-row items-center w-fit">
-				<h1
-					class="md:text-[130px] text-[70px] h-min w-fit mb-2 md:-ml-3 ml-3 leading-none text-red duration-500">
-					Builds
-				</h1>
-			</div>
-			<Header text="Parts lists and build guides for any quad you'd want!" />
+			<MainHeader title="Builds" color="red" />
+			<Header title="Parts lists and build guides for any quad you'd want!" />
 			<p class="text-xl md:w-1/2 md:px-0 px-4">
 				If you're just a beginner wanting to get their first build, or a long-time pilot that just wants some build inspiration, this is the place for you!<br><br>
 				The builds here are sorted by difficulty, so you can quickly decide if something is for you as a beginner, or to recommend to someone else. Hover over any card to get more info, and click on the name to go to the build page<br><br>
@@ -132,7 +127,7 @@
 </div>
 <div class="content-box">
 	<!-- <MainHeader>Builds</MainHeader>
-	<Header text="Parts lists and build guides for any quad you'd want!" />
+	<Header title="Parts lists and build guides for any quad you'd want!" />
 
 	<Paragraph>If you're just a beginner wanting to get their first build, or a long-time pilot that just wants some build inspiration, this is the place for you!<br><br>
 		The builds here are sorted by difficulty, so you can quickly decide if something is for you as a beginner, or to recommend to someone else. When you hover on a specifc build, it will pop up with some short info, and you can get to the build by clicking on the name<br>

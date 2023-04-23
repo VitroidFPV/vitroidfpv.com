@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BuildCard from "$components/buildsPage/buildCard.svelte";
 	import Header from "$components/Header.svelte";
-	import MainHeader from "$components/mainHeader.svelte";
+	import MainHeader from "$components/MainHeader.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
 
 	import type { Module } from "$lib/types/module";
@@ -48,13 +48,8 @@
 <div class="overflow-x-clip h-fit">
 	<div class="flex flex-col w-full relative">
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
-			<div class="flex flex-col md:flex-row items-center w-fit">
-				<h1
-					class="md:text-[130px] text-[70px] h-min w-fit mb-2 md:-ml-3 ml-3 leading-none text-blue duration-500">
-					Equipment
-				</h1>
-			</div>
-			<Header text="All the things you'll need to get in the air, and more!" />
+			<MainHeader title={titleRaw} color="blue"/>
+			<Header title="All the things you'll need to get in the air, and more!" />
 			<p class="text-xl md:w-1/2 md:px-0 px-4">
 				{description} and some other minor things that could still make or break a new build<br><br>
 				The equipment is sorted into categories, so you can quickly find anything you need. Hover over any card to get more info about what is listed, and click on the name to go to the page<br><br>
@@ -103,7 +98,7 @@
 
 <div class="content-box">
 	<!-- <MainHeader>Equipment</MainHeader>
-	<Header text="All the things you'll need to get in the air!" />
+	<Header title="All the things you'll need to get in the air!" />
 
 	<Paragraph>{description} and some other minor things that could still make or break a new build<br>Keep in mind that this site is still in the works. Info here should be mostly reliable, but some may be unfinished and/or buggy</Paragraph> -->
 	<div class="flex flex-row flex-wrap justify-around z-20">

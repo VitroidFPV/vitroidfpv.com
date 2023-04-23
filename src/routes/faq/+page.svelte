@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Header from "$components/Header.svelte";
-	import MainHeader from "$components/mainHeader.svelte";
+	import MainHeader from "$components/MainHeader.svelte";
 	import CategoryIndex from "$components/faqPage/categoryIndex.svelte";
 	import FaqQuestion from "$components/faqPage/faqQuestion.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
@@ -100,7 +100,8 @@
 	let pilotName = ""
 
 	let prefix = "VitroidFPV";
-	let title = " - FAQ";
+	let titleRaw = "FAQ";
+	let title = " - " + titleRaw;
 	let color = "#1cd167";
 	let description =
 		"There's a lot of questions in FPV, doesn't matter if you're just starting or not. You will find most of the common and easy to answer ones here. For more specific ones, there are tutorials planned";
@@ -125,7 +126,7 @@
 <div class="overflow-x-clip h-fit">
 	<div class="flex flex-col w-full relative">
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
-			<div class="flex flex-col md:flex-row items-center w-fit">
+			<!-- <div class="flex flex-col md:flex-row items-center w-fit">
 				<h1
 					class="md:text-[130px] text-[70px] h-min w-fit mb-2 md:-ml-3 ml-3 leading-none text-violet duration-500">
 					FAQ
@@ -135,8 +136,9 @@
 						<Rating>{deltaVotes}</Rating>
 					{/if}
 				</div>
-			</div>
-			<Header text="If you need a quick answer, you might find it here!" />
+			</div> -->
+			<MainHeader title="{titleRaw}" color="violet" {deltaVotes} />
+			<Header title="If you need a quick answer, you might find it here!" />
 			<p class="text-xl md:w-1/2 md:px-0 px-4">
 				There's a lot of questions in FPV, doesn't matter if you're just starting or not<br><br>
 				I hope that you'll find answers to most of them. These are mostly mean as quick answers, you can even copy a link to any question to send it to someone! For longer sutff, there are articles planned<br><br>
@@ -262,7 +264,7 @@
 		data-netlify-honeypot="bot-field"
 	>
 		<input type="hidden" name="form-name" value="faq" />
-		<Header text="Feedback" />
+		<Header title="Feedback" />
 		<Paragraph>If you found this page useful (or not), or have any suggestions, ideas and so on, let me know here to help me improve the site!
 		</Paragraph>
 		<div class="mt-12 flex flex-col">

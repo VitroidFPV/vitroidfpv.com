@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BuildProduct from "$components/buildsPage/buildProduct.svelte";
-	import MainHeader from "$components/mainHeader.svelte";
+	import MainHeader from "$components/MainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
 
@@ -49,13 +49,8 @@
 <div class="overflow-x-clip h-fit">
 	<div class="flex flex-col w-full relative">
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
-			<div class="flex flex-col md:flex-row items-center w-fit">
-				<h1
-					class="md:text-[130px] text-[70px] h-min w-fit mb-2 md:-ml-3 ml-3 leading-none text-green duration-500">
-					{titleRaw}
-				</h1>
-			</div>
-			<Header text={"Put the \"V\" in FPV"} />
+			<MainHeader title={titleRaw} color="green"/>
+			<Header title={"Put the \"V\" in FPV"} />
 			<p class="text-xl md:w-1/2 md:px-0 px-4">
 				{description}<br><br>
 				If you're trying to decide, or don't even have any prior experience, this list will hopefully help you!<br><br>
@@ -121,7 +116,7 @@
 
 <div class="content-box">
 	<!-- <MainHeader>{titleRaw}</MainHeader>
-	<Header text={"Put the \"V\" in FPV"} />
+	<Header title={"Put the \"V\" in FPV"} />
 	<Paragraph>
 		{description}<br>
     If you're trying to decide, or don't even have any prior experience, this list will hopefully help you!<br><br>

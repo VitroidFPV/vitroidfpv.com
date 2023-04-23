@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BuildProduct from "$components/buildsPage/buildProduct.svelte";
-	import MainHeader from "$components/mainHeader.svelte";
+	import MainHeader from "$components/MainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
 	import Rating from "$components/Rating.svelte";
@@ -53,7 +53,7 @@
 					{titleRaw}
 				</h1>
 			</div>
-			<Header text="Light, fast, and agile" />
+			<Header title="Light, fast, and agile" />
 			<p class="text-xl md:w-1/2 md:px-0 px-4">
 				{description}<br><br>
 				This list is specced for 6s, and includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br><br>

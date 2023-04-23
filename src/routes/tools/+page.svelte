@@ -1,5 +1,5 @@
 <script lang="ts">
-	import MainHeader from "$components/mainHeader.svelte";
+	import MainHeader from "$components/MainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
 	import { compareArray } from "./stores";
@@ -34,6 +34,7 @@
 	}
 
 	function copyCompare() {
+		// @ts-ignore
 		let node: HTMLElement = document.getElementById("compare");
 
 		// get the height and width of the node
@@ -221,8 +222,8 @@
 			{/if}
 		</div>
 	</div>
-	<MainHeader>{titleRaw}</MainHeader>
-	<Header text="A collection of various calculators and other stuff™"/>
+	<MainHeader title="Tools" color="green" />
+	<Header title="A collection of various calculators and other stuff™"/>
 	<Paragraph>{description}</Paragraph>
 
 	<div class="my-8 w-full h-fit relative">

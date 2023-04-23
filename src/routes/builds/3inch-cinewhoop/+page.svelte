@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BuildProduct from "$components/buildsPage/buildProduct.svelte";
-	import MainHeader from "$components/mainHeader.svelte";
+	import MainHeader from "$components/MainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
 	import PriceCompBox from "$components/buildsPage/PriceCompBox.svelte";
@@ -42,13 +42,8 @@
 <div class="overflow-x-clip h-fit">
 	<div class="flex flex-col w-full relative">
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
-			<div class="flex flex-col md:flex-row items-center w-fit">
-				<h1
-					class="md:text-[130px] text-[70px] h-min w-fit mb-2 md:-ml-3 ml-3 leading-none text-orange duration-500">
-					{titleRaw}
-				</h1>
-			</div>
-			<Header text="Slow, safe, cinematic flying, indoors and outdoors" />
+			<MainHeader title={titleRaw} color="orange" />
+			<Header title="Slow, safe, cinematic flying, indoors and outdoors" />
 			<p class="text-xl md:w-1/2 md:px-0 px-4">
 				{description}<br><br>
 				This list is specced for 4/6s, and includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br><br>
@@ -114,7 +109,7 @@
 
 <div class="content-box">
 	<!-- <MainHeader>3" Cinewhoop</MainHeader>
-	<Header text="Slow, safe, cinematic flying, indoors and outdoors" />
+	<Header title="Slow, safe, cinematic flying, indoors and outdoors" />
 	<Paragraph>
 		Meant to be used with a full size gopro, to carry it safely around hard, and soft targets alike, in close proximity. Wider, shorter motors, fully protected frames, and mini stacks or AIOs<br>
 		This list is specced for 4/6s, and includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br>

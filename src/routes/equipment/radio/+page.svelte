@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BuildProduct from "$components/buildsPage/buildProduct.svelte";
-	import MainHeader from "$components/mainHeader.svelte";
+	import MainHeader from "$components/MainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
 	import tinycolor from "tinycolor2";
@@ -50,13 +50,8 @@
 <div class="overflow-x-clip h-fit">
 	<div class="flex flex-col w-full relative">
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
-			<div class="flex flex-col md:flex-row items-center w-fit">
-				<h1
-					class="md:text-[130px] text-[70px] h-min w-fit mb-2 md:-ml-3 ml-3 leading-none text-cyan duration-500">
-					{titleRaw}
-				</h1>
-			</div>
-			<Header text="Everything you need to control your quad" />
+			<MainHeader title={titleRaw} color="cyan" />
+			<Header title="Everything you need to control your quad" />
 			<p class="text-xl md:w-1/2 md:px-0 px-4">
 				{description}<br><br>
 				If you're trying to decide, or don't even have any prior experience, this list will hopefully help you!<br><br>
@@ -122,7 +117,7 @@
 
 <div class="content-box">
 	<!-- <MainHeader>{titleRaw}</MainHeader>
-	<Header text="Everything you need to control your quad" />
+	<Header title="Everything you need to control your quad" />
 	<Paragraph>
 		{description}<br>
     If you're trying to decide, or don't even have any prior experience, this list will hopefully help you!<br><br>

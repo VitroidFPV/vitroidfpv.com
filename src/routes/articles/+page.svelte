@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Header from "$components/Header.svelte";
-	import MainHeader from "$components/mainHeader.svelte";
+	import MainHeader from "$components/MainHeader.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
 	import ArticlePreview from "$components/articlesPage/ArticlePreview.svelte";
 
@@ -66,13 +66,8 @@
 <div class="overflow-x-clip h-fit">
 	<div class="flex flex-col w-full relative">
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
-			<div class="flex flex-col md:flex-row items-center w-fit">
-				<h1
-					class="md:text-[130px] text-[70px] h-min w-fit mb-2 md:-ml-3 ml-3 leading-none text-yellow duration-500">
-					Articles
-				</h1>
-			</div>
-			<Header text="Totally not a blog" />
+			<MainHeader title={titleRaw} color="yellow" />
+			<Header title="Totally not a blog" />
 			<p class="text-xl md:w-1/2 md:px-0 px-4">
 				{description}<br>
 				Pretty much anything that wouldn't go into the FAQ for being too long, into the builds for not fitting the format, news about anything FPV, or anything else that I feel like writing about<br><br>
@@ -121,7 +116,7 @@
 
 <div class="content-box">
 	<!-- <MainHeader>{titleRaw}</MainHeader>
-	<Header text="Totally not a blog™" />
+	<Header title="Totally not a blog™" />
 
 	<Paragraph>{description}<br>
 		Pretty much anything that wouldn't go into the FAQ for being too long, into the builds for not fitting the format, news about anything FPV, or anything else that I feel like writing about
@@ -144,7 +139,6 @@
 							img={module.metadata.img}
 							category={module.metadata.category}
 							date={module.metadata.date}
-							author={module.metadata.author}
 							href={"/articles/" + module.metadata.category.toLowerCase() + "-" + module.metadata.title.toLowerCase().replace(/[^a-zA-Z0-9]/g, "-").replace("---", "-")}
 						/>
 					{/if}
