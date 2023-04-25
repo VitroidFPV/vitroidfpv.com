@@ -6,7 +6,7 @@
 
 <li 
 	class:nav-active={active}
-	class="flex md:flex-col md:w-full md:-mt-6"
+	class="flex md:flex-col md:w-full md:-mt-6 mt-0 md:-mx-0 -mx-4"
 >
 	<svg 
 		width="32" 
@@ -14,7 +14,7 @@
 		viewBox="0 0 32 32" 
 		fill="transparent"
 		xmlns="http://www.w3.org/2000/svg"
-		class="h-6 w-6 flex-shrink-0 md:self-end md:rotate-0 rotate-[270deg] md:-mb-px"
+		class="h-6 w-6 flex-shrink-0 md:self-end md:rotate-0 rotate-[270deg] md:-mb-px corner"
 	>
 		<path d="M32 0C32 16 16 32 0 32L32 32V0Z"/>
 	</svg>
@@ -33,7 +33,7 @@
 		viewBox="0 0 32 32" 
 		fill="transparent"
 		xmlns="http://www.w3.org/2000/svg" 
-		class="h-6 w-6 flex-shrink-0 md:self-end md:rotate-[270deg] rotate-180 md:-mt-px"
+		class="h-6 w-6 flex-shrink-0 md:self-end md:rotate-[270deg] rotate-180 md:-mt-px corner"
 	>
 		<path d="M32 0C32 16 16 32 0 32L32 32V0Z"/>
 	</svg>
