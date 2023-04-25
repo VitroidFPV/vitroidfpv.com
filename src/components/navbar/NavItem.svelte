@@ -8,7 +8,7 @@
 <li 
 	class:nav-active={active}
 	class:nav-hidden-sm={hidden}
-	class="flex md:flex-col md:w-full md:-mt-6 mt-0 md:-mx-0 -mx-4"
+	class="flex md:flex-col md:w-full md:-mt-6 mt-0 md:-mx-0 -mx-5"
 >
 	<svg 
 		width="32" 
@@ -18,7 +18,7 @@
 		xmlns="http://www.w3.org/2000/svg"
 		class="h-6 w-6 flex-shrink-0 md:self-end md:rotate-0 rotate-[270deg] md:-mb-px corner"
 	>
-		<path d="M32 0C32 16 16 32 0 32L32 32V0Z"/>
+		<path d="M32 0C32 16 16 32 0 32L32 32V0Z" class="md:scale-100 scale-75 origin-bottom-right"/>
 	</svg>
 	<div class="nav-content md:py-4 py-2 px-2 md:pr-4 md:mb-0 md:rounded-l-full rounded-tl-none rounded-b-full md:rounded-br-none w-full">
 		<a
@@ -37,6 +37,6 @@
 		xmlns="http://www.w3.org/2000/svg" 
 		class="h-6 w-6 flex-shrink-0 md:self-end md:rotate-[270deg] rotate-180 md:-mt-px corner"
 	>
-		<path d="M32 0C32 16 16 32 0 32L32 32V0Z"/>
+		<path d="M32 0C32 16 16 32 0 32L32 32V0Z" class="md:scale-100 scale-75 origin-bottom-right"/>
 	</svg>
 </li>

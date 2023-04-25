@@ -6,96 +6,9 @@
 </script>
 
 <nav
-	class="md:w-fit bottom-0 md:h-screen w-screen test-nav md:justify-start flex md:flex-col flex-row md:items-center border-highlight dark:border-highlight-dark md:border-r-8 md:border-t-0 border-t-[13px] fixed z-[60] bg-contrast-100 dark:bg-main-400 md:shadow-2xl md:shadow-black/50 shadow-[0px_-25px_50px_-12px] shadow-black/30 dark:shadow-black/60">
+	class="md:w-fit bottom-0 md:h-screen w-screen test-nav md:justify-start flex md:flex-col flex-row md:items-center border-highlight dark:border-highlight-dark md:border-r-8 md:border-t-0 border-t-8 fixed z-[60] bg-contrast-100 dark:bg-main-400 md:shadow-2xl md:shadow-black/50 shadow-[0px_-25px_50px_-12px] shadow-black/30 dark:shadow-black/60">
 	<ul
-		class="md:mt-8 md:pl-2 flex md:flex-col flex-row md:justify-start test-li justify-center px-4 h-fit md:px-0 w-full -translate-y-[1px] text-main-100 dark:text-contrast-100">
-		<!-- <li class="nav" class:nav-active={$page.url.pathname === "/"}>
-			<a
-				href="/"
-				class="flex hover:translate-x-1 hover:text-highlight dark:hover:text-highlight-dark duration-300 md:text-lg text-[0px] w-full md:justify-start justify-center"
-			>
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7 md:mr-2">
-  					<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-				</svg>
-				Home
-			</a>
-		</li>
-		<li class="nav" class:nav-active={$page.url.pathname === "/faq"}>
-			<a
-				href="/faq"
-				class="flex hover:translate-x-1 hover:text-highlight dark:hover:text-highlight-dark duration-300 md:text-lg text-[0px] w-full md:justify-start justify-center"
-			>
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 md:mr-2">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
-				</svg>
-				FAQ
-			</a>
-		</li>
-		<li class="nav" class:nav-active={$page.url.pathname.startsWith("/builds")}>
-			<a
-				href="/builds"
-				class="bg-[url('https://i.imgur.com/rbaaSaJ.png')] md:bg-none 
-            md:dark:bg-none bg-no-repeat bg-center md:text-lg text-[0px] h-full 
-            w-full md:h-fit md:w-fit md:bg-[length:32px_32px] md:hover:text-highlight dark:hover:text-highlight-dark 
-            duration-200 md:hover:translate-x-1 bg-[length:24px_24px] md:dark:brightness-100 dark:brightness-[4.5] md:dark:saturate-100 dark:saturate-[0.25]"
-				>Builds
-			</a>
-		</li>
-		<li class="nav" class:nav-active={$page.url.pathname.startsWith("/equipment")}>
-			<a
-				href="/equipment"
-				class="flex hover:translate-x-1 hover:text-highlight dark:hover:text-highlight-dark duration-300 md:text-lg text-[0px] w-full md:justify-start justify-center"
-			>
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 md:mr-2">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
-				</svg>
-
-				Equipment
-			</a>
-		</li>
-		<li class="nav" class:nav-active={$page.url.pathname.startsWith("/articles")}>
-			<a
-				href="/articles"
-				class="bg-[url('https://img.icons8.com/material-outlined/64/292929/news.png')]
-				md:bg-none md:dark:bg-none bg-no-repeat bg-center md:text-lg text-[0px] h-full 
-				w-full md:h-fit md:w-fit md:bg-[length:32px_32px] hover:text-highlight dark:hover:text-highlight-dark 
-				duration-200 md:hover:translate-x-1 bg-[length:24px_24px] md:dark:brightness-100 dark:brightness-[5]"
-				>Articles
-			</a>
-		</li> -->
-		<!-- <li class="flex flex-col w-full">
-			<svg 
-				width="32" 
-				height="32" 
-				viewBox="0 0 32 32" 
-				fill="none"
-				xmlns="http://www.w3.org/2000/svg" 
-				class="h-6 w-6 flex-shrink-0 fill-highlight dark:fill-highlight-dark self-end -mb-px"
-			>
-				<path d="M32 0C32 16 16 32 0 32L32 32V0Z"/>
-			</svg>
-			<div class="bg-highlight dark:bg-highlight-dark py-4 pl-2 rounded-l-full w-full">
-				<a
-					href="/faq"
-					class="flex hover:translate-x-1 hover:text-highlight dark:hover:text-highlight-dark duration-300 md:text-lg text-[0px] w-full md:justify-start justify-center"
-				>
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 md:mr-2">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
-					</svg>
-					FAQ
-				</a>
-			</div>
-			<svg 
-				width="32" 
-				height="32" 
-				viewBox="0 0 32 32" 
-				fill="none"
-				xmlns="http://www.w3.org/2000/svg" 
-				class="h-6 w-6 flex-shrink-0 fill-highlight dark:fill-highlight-dark self-end rotate-[270deg] -mt-px"
-			>
-				<path d="M32 0C32 16 16 32 0 32L32 32V0Z"/>
-			</svg>
-		</li> -->
+		class="md:mt-8 md:pl-2 flex md:flex-col flex-row md:justify-start test-li justify-center px-4 h-fit md:px-0 w-full -translate-y-[1px] text-main-100 dark:text-contrast-100 pb-1">
 		<NavItem href="/" title="Home" active={$page.url.pathname === "/"}>
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7 md:mr-2">
 				<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
