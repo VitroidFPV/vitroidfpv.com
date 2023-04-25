@@ -3,6 +3,7 @@
 	import Header from "$components/Header.svelte";
 	import MainHeader from "$components/MainHeader.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
+	import tinycolor from "tinycolor2";
 
 	import type { Module } from "$lib/types/module";
 
@@ -22,7 +23,9 @@
 	let prefix = "VitroidFPV";
 	let titleRaw = "Equipment";
 	let title = " - " + titleRaw;
-	let color = "#2ad162";
+	let color = "#d1288d";
+	let color1 = tinycolor(color).lighten(20).spin(10).toHexString();
+	let color2 = tinycolor(color).darken(20).spin(10).toHexString();
 	let img = "/uploads/images/1s_toothpick_512.png";
 	let description =
 		"Everything that you will need to get building and flying. From goggles, cams, antennas, to radio transmitters and receivers, to tools and soldering equipment";
@@ -48,7 +51,7 @@
 <div class="overflow-x-clip h-fit">
 	<div class="flex flex-col w-full relative">
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
-			<MainHeader title={titleRaw} color="blue"/>
+			<MainHeader title={titleRaw} color="pink"/>
 			<Header title="All the things you'll need to get in the air, and more!" />
 			<p class="text-xl md:w-1/2 md:px-0 px-4">
 				{description} and some other minor things that could still make or break a new build<br><br>
@@ -71,19 +74,19 @@
 					</g>
 					<defs>
 						<radialGradient id="paint0_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(216.96 153.71) scale(216.96 153.71)">
-							<stop stop-color="#293996" />
+							<stop stop-color="{color1}" />
 							<stop offset="1" stop-opacity="0" />
 						</radialGradient>
 						<radialGradient id="paint1_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(269.537 117.636) scale(269.537 117.636)">
-							<stop stop-color="#5a6fe6"/>
+							<stop stop-color="{color}"/>
 							<stop offset="1" stop-opacity="0" />
 						</radialGradient>
 						<radialGradient id="paint2_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(202.06 156.176) scale(202.06 156.176)">
-							<stop stop-color="#5a6fe6"/>
+							<stop stop-color="{color}"/>
 							<stop offset="1" stop-opacity="0" />
 						</radialGradient>
 						<radialGradient id="paint3_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256.567 131.288) scale(256.567 131.288)">
-							<stop stop-color="#4761f5"/>
+							<stop stop-color="{color2}"/>
 							<stop offset="1" stop-opacity="0" />
 						</radialGradient>
 						<clipPath id="clip0_1_2">
