@@ -48,11 +48,11 @@
 </svelte:head>
 
 <div class="overflow-x-clip h-fit">
-	<div class="flex flex-col w-full relative">
+	<div class="flex flex-col w-full relative px-4 md:px-0">
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
 			<MainHeader title={titleRaw} color="cyan" />
 			<Header title="Everything you need to control your quad" />
-			<p class="text-xl md:w-1/2 md:px-0 px-4">
+			<p class="text-xl md:w-1/2">
 				{description}<br><br>
 				If you're trying to decide, or don't even have any prior experience, this list will hopefully help you!<br><br>
 				Prices may depend on where and when you source the parts, (prices and specs are sourced from the manufacturers website at the time of the writing when possible)

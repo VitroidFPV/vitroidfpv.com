@@ -64,11 +64,11 @@
 </svelte:head>
 
 <div class="overflow-x-clip h-fit">
-	<div class="flex flex-col w-full relative">
+	<div class="flex flex-col w-full relative px-4 md:px-0">
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
 			<MainHeader title={titleRaw} color="yellow" />
 			<Header title="Totally not a blog" />
-			<p class="text-xl md:w-1/2 md:px-0 px-4">
+			<p class="text-xl md:w-1/2">
 				{description}<br>
 				Pretty much anything that wouldn't go into the FAQ for being too long, into the builds for not fitting the format, news about anything FPV, or anything else that I feel like writing about<br><br>
 				Please keep in mind that this site is still in the works, you may see some things change here and there

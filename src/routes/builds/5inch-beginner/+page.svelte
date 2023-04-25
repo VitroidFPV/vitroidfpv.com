@@ -68,15 +68,15 @@
 <PriceCompBox />
 
 <div class="overflow-x-clip h-fit relative">
-	<div class="flex flex-col w-full relative">
-		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
+	<div class="flex flex-col w-full relative px-4 md:px-0">
+		<div class="mt-20 mb-10 w-fit z-20 md:pl-8 px-4">
 			<MainHeader title={titleRaw} color="green" {deltaVotes}/>
 			<Header title="Cheap, durable, and easy to put together and repair" />
-			<p class="text-xl md:w-1/2 md:px-0 px-4">
+			<p class="text-xl md:w-1/2 md:px-0">
 				{description}<br><br>
 				This list is specced for 6s, and includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br><br>
 				The parts are sorted by price, but they are still relatively cheap without sacrificing on quality
-				<ul class="flex flex-row justify-between w-fit flex-wrap mt-4">
+				<ul class="mt-4 grid md:grid-cols-4 grid-cols-2 w-full justify-between">
 					<li
 						class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-green before:relative mb-2 mr-8">
 						Budget

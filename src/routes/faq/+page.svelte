@@ -124,7 +124,7 @@
 </svelte:head>
 
 <div class="overflow-x-clip h-fit">
-	<div class="flex flex-col w-full relative">
+	<div class="flex flex-col w-full relative px-4 md:px-0">
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
 			<!-- <div class="flex flex-col md:flex-row items-center w-fit">
 				<h1
@@ -139,7 +139,7 @@
 			</div> -->
 			<MainHeader title="{titleRaw}" color="violet" {deltaVotes} />
 			<Header title="If you need a quick answer, you might find it here!" />
-			<p class="text-xl md:w-1/2 md:px-0 px-4">
+			<p class="text-xl md:w-1/2">
 				There's a lot of questions in FPV, doesn't matter if you're just starting or not<br><br>
 				I hope that you'll find answers to most of them. These are mostly mean as quick answers, you can even copy a link to any question to send it to someone! For longer sutff, there are articles planned<br><br>
 				Please keep in mind that this site is still in the works, you may see questions come and go

@@ -44,11 +44,11 @@
 <PriceCompBox />
 
 <div class="overflow-x-clip h-fit">
-	<div class="flex flex-col w-full relative">
+	<div class="flex flex-col w-full relative px-4 md:px-0">
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
 			<MainHeader title={titleRaw} color="orange"/>
 			<Header title="Advanced builds for advanced pilots" />
-			<p class="text-xl md:w-1/2 md:px-0 px-4">
+			<p class="text-xl md:w-1/2">
 				{description}<br><br>
 				This list is specced for 6s, and includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br><br>
 				<ul class="flex flex-row justify-between w-fit flex-wrap mt-4">

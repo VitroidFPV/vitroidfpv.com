@@ -37,7 +37,7 @@
 </svelte:head>
 
 <div class="flex flex-col w-full overflow-hidden">
-	<div class="flex flex-col w-full relative">
+	<div class="flex flex-col w-full relative px-4 md:px-0">
 		<div class="mt-64 md:mb-24 mb-16 w-full z-30">
 			<h1
 				class="md:text-[180px] text-[90px] font-caveat h-fit w-fit leading-none dark:text-highlight-dark duration-500">

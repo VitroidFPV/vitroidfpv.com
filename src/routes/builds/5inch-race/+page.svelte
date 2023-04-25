@@ -45,7 +45,7 @@
 <PriceCompBox />
 
 <div class="overflow-x-clip h-fit">
-	<div class="flex flex-col w-full relative">
+	<div class="flex flex-col w-full relative px-4 md:px-0">
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
 			<div class="flex flex-col md:flex-row items-center w-fit">
 				<h1
@@ -54,7 +54,7 @@
 				</h1>
 			</div>
 			<Header title="Light, fast, and agile" />
-			<p class="text-xl md:w-1/2 md:px-0 px-4">
+			<p class="text-xl md:w-1/2">
 				{description}<br><br>
 				This list is specced for 6s, and includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br><br>
 				I try my best to keep up with modern specs and builds, but I'm not a racer... So thanks a lot to <Link external={true} href="https://www.instagram.com/august_fpv/">August FPV</Link> for all of the help and advice on this build

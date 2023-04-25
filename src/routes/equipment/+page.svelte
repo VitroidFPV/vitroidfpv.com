@@ -49,11 +49,11 @@
 </svelte:head>
 
 <div class="overflow-x-clip h-fit">
-	<div class="flex flex-col w-full relative">
+	<div class="flex flex-col w-full relative px-4 md:px-0">
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
 			<MainHeader title={titleRaw} color="pink"/>
 			<Header title="All the things you'll need to get in the air, and more!" />
-			<p class="text-xl md:w-1/2 md:px-0 px-4">
+			<p class="text-xl md:w-1/2">
 				{description} and some other minor things that could still make or break a new build<br><br>
 				The equipment is sorted into categories, so you can quickly find anything you need. Hover over any card to get more info about what is listed, and click on the name to go to the page<br><br>
 				Please keep in mind that this site is still in the works, you may see some things change here and there

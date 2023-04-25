@@ -45,11 +45,11 @@
 </svelte:head>
 
 <div class="overflow-x-clip h-fit">
-	<div class="flex flex-col w-full relative">
+	<div class="flex flex-col w-full relative px-4 md:px-0">
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
 			<MainHeader title="Builds" color="red" />
 			<Header title="Parts lists and build guides for any quad you'd want!" />
-			<p class="text-xl md:w-1/2 md:px-0 px-4">
+			<p class="text-xl md:w-1/2">
 				If you're just a beginner wanting to get their first build, or a long-time pilot that just wants some build inspiration, this is the place for you!<br><br>
 				The builds here are sorted by difficulty, so you can quickly decide if something is for you as a beginner, or to recommend to someone else. Hover over any card to get more info, and click on the name to go to the build page<br><br>
 				Please keep in mind that this site is still in the works, you may see some things change here and there
