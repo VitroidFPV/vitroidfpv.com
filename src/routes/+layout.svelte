@@ -27,6 +27,8 @@
 	</div>
 	<Footer />
 </div>
+
+<div class="hidden bg-pink text-pink border-pink"></div>
 <div class="hidden bg-red text-red border-red"></div>
 <div class="hidden bg-orange text-orange border-orange"></div>
 <div class="hidden bg-yellow text-yellow border-yellow"></div>
