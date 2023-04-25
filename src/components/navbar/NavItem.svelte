@@ -2,10 +2,12 @@
 	export let title: string = "";
 	export let href: string = "";
 	export let active: boolean = false;
+	export let hidden: boolean = false;
 </script>
 
 <li 
 	class:nav-active={active}
+	class:nav-hidden-sm={hidden}
 	class="flex md:flex-col md:w-full md:-mt-6 mt-0 md:-mx-0 -mx-4"
 >
 	<svg 

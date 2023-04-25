@@ -133,6 +133,10 @@
 		@apply hover:text-current md:translate-x-1
 	}
 
+	.nav-hidden-sm {
+		@apply md:flex-col !hidden
+	}
+
 	.Motors.my-8 {@apply order-1} 
 	.Frames.my-8 {@apply order-2} 
 	.Flight.Controllers.my-8 {@apply order-3} 
