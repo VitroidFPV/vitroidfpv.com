@@ -5,6 +5,7 @@
 	import Paragraph from "$components/Paragraph.svelte";
 	import tinycolor from "tinycolor2";
 	import { marked } from "marked";
+	import Link from "$components/Link.svelte";
 	marked.setOptions({
 		gfm: true,
 		breaks: true,
@@ -14,7 +15,7 @@
 		xhtml: false,
 	});
 
-	export let data: any;
+	// export let data: any;
 
 	// console.log(data.data)
 	// log data.data as string
@@ -22,13 +23,13 @@
 	// data.data is structured as {"/modules/support/test1.md":"---\r\ntitle: A\r\n---\r\naaaaa","/modules/support/test2.md":"---\r\ntitle: B\r\n---\r\nbbbbb"}
 
 	// get the data into an object with two keys, title and content
-	let content = Object.keys(data.data).map((key) => {
-		let title = data.data[key].split("---")[1].split("title: ")[1].split("\r\n")[0];
-		let content = data.data[key].split("---")[2];
-		return { title, content };
-	});
+	// let content = Object.keys(data.data).map((key) => {
+	// 	let title = data.data[key].split("---")[1].split("title: ")[1].split("\r\n")[0];
+	// 	let content = data.data[key].split("---")[2];
+	// 	return { title, content };
+	// });
 
-	console.log(content)
+	// console.log(content)
 
 	let prefix = "VitroidFPV";
 	let titleRaw = "Support me";
@@ -115,7 +116,12 @@
 			<h1 class="text-blue md:text-6xl text-5xl font-bold mb-4">Share</h1>
 			<div class="flex md:flex-row flex-col">
 				<div class="md:w-1/2 mb-4">
-					{@html marked.parse(content.find(item => item.title == "Share")?.content)}
+					<p>
+						One of the easiest ways you can help is by sharing this very site with others who may benefit from
+						the info. By sharing the site, you are not only helping me to continue providing FPV support but
+						also helping others who may be struggling with the issues listed here. So, please consider sharing
+						the site with those around you
+					</p>
 				</div>
 				<div class="w-full grid grid-cols-3 md:grid-rows-2 grid-rows-1 text-neutral-500/30 md:ml-32">
 					<div class="md:row-start-2 md:row-end-3 rotate-[-23deg]">
@@ -140,7 +146,26 @@
 			<h1 class="text-blue md:text-6xl text-5xl font-bold mb-4 md:self-end">Shop</h1>
 			<div class="flex flex-col md:flex-row-reverse">
 				<div class="md:w-2/3 mb-4">
-					{@html marked.parse(content.find(item => item.title == "Shop")?.content)}
+					<p>
+						Affiliate links... I decided to never use affiliate links in the build guides. Some people hate them
+						or find them annoying, and I don't want someone buying something they don't need just because I want
+						a quick commission. I would never recommend something I don't believe in or use myself. However, I do
+						have some here if you want to support me and the further development of this site, and it won't cost
+						you anything:
+					</p>
+
+					<ul>
+						<li><Link href="https://www.flyfish-rc.com/?ref=VitroidFPV">FlyFishRC</Link></li>
+						<li>
+							<Link href="https://chinahobbyline.com?referral_code=erKL7Zy8TX8DJqd6j">CNHL</Link> - $20 discount on your order as well
+						</li>
+						<li>
+							<Link href="https://www.diatone.us?sca_ref=2692838.eWbS2DQnk0&sca_source=VitroidFPV%20Site">Diatone</Link>
+						</li>
+						<li>
+							<Link href="https://geprc.com/?ref=VitroidFPV">GEPRC</Link>
+						</li>
+					</ul>
 				</div>
 				<div class="md:w-1/3 w-full grid grid-cols-3 md:grid-rows-2 grid-rows-1 text-neutral-500/30 md:mr-32">
 					<div class="md:row-start-2 md:row-end-3 rotate-[-23deg]">
