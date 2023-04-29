@@ -9,8 +9,13 @@
 	import Transition from "$components/Transition.svelte";
 	import { onMount } from "svelte";
 
+	import netlifyIdentity from "netlify-identity-widget";
+
 	let ready = false;
-	onMount(() => (ready = true));
+	onMount(() => {
+		ready = true;
+		netlifyIdentity.init();
+	});
 </script>
 
 <Analytics />

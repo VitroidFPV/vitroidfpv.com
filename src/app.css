@@ -88,6 +88,24 @@
 		background-color: #292929 !important;
 		color: var(--range-handle-focus) !important;
 	}
+
+	.listbox-options {
+		scrollbar-width: none;
+	}
+
+	.listbox-options::-webkit-scrollbar {
+		display: none;
+	}
+	.transition-container {
+		display: grid;
+		grid-template-rows: 1fr;
+		grid-template-columns: 1fr;
+	}
+
+	.transition-container > * {
+		grid-row: 1;
+		grid-column: 1;
+	}
 }
 
 @layer components {
@@ -304,6 +322,24 @@
 	}
 	.card-gradient.Misc {
 		@apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-violet/50 to-violet/50
+	}
+
+	.listbox {
+		@apply absolute bg-neutral-500/10 dark:hover:bg-neutral-400/10 hover:bg-neutral-700/10 
+			rounded-2xl backdrop-blur-md outline outline-2 outline-neutral-500/40 flex flex-col duration-300 
+			cursor-pointer z-[60] w-40 shadow-lg
+	}
+
+	.listbox-options {
+		@apply h-64 overflow-y-scroll
+	}
+
+	.listbox-option {
+		@apply hover:text-blue duration-300 px-2 py-1 rounded-2xl
+	}
+
+	.listbox-selected {
+		@apply text-blue bg-blue/30
 	}
 
 	/* markdown styles */

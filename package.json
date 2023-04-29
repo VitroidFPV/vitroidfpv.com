@@ -10,6 +10,7 @@
     "format": "prettier --write --plugin-search-dir=. ."
   },
   "devDependencies": {
+    "@rgossiaux/svelte-headlessui": "^1.0.2",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/adapter-static": "^1.0.0-next.34",
     "@sveltejs/kit": "next",
@@ -31,18 +32,23 @@
     "svelte-preprocess": "^5.0.1",
     "sveltekit-search-params": "^1.0.7",
     "tailwindcss": "^3.0.23",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "vite-plugin-cross-origin-isolation": "^0.1.6"
   },
   "type": "module",
   "dependencies": {
     "@ethercorps/sveltekit-og": "^0.1.7",
+    "@ffmpeg/core": "^0.11.0",
+    "@ffmpeg/ffmpeg": "^0.11.6",
     "@macfja/svelte-persistent-store": "=1.2.0",
     "@resvg/resvg-js": "^2.1.0",
     "@sveltejs/adapter-netlify": "^2.0.5",
+    "@types/netlify-identity-widget": "^1.9.3",
     "copy-image-clipboard": "^2.1.2",
     "dom-to-image": "^2.6.0",
     "dotenv": "^16.0.3",
     "marked": "^4.0.18",
+    "netlify-identity-widget": "^1.9.2",
     "rehype-slug": "^5.1.0",
     "remark-admonitions": "^1.2.1",
     "remark-gfm": "^3.0.1",
