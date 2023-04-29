@@ -6,5 +6,5 @@
 [[headers]]
   for = "/*"
   [headers.values]
-      Cross-Origin-Opener-Policy = "same-origin"
+      Cross-Origin-Opener-Policy = "credentialless"
       Cross-Origin-Embedder-Policy = "require-corp"
