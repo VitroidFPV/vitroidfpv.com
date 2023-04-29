@@ -8,7 +8,7 @@
 <nav
 	class="md:w-fit bottom-0 md:h-screen w-screen test-nav md:justify-start flex md:flex-col flex-row md:items-center border-highlight dark:border-highlight-dark md:border-r-8 md:border-t-0 border-t-8 fixed z-[60] bg-contrast-100 dark:bg-main-400 md:shadow-2xl md:shadow-black/50 shadow-[0px_-25px_50px_-12px] shadow-black/30 dark:shadow-black/60">
 	<ul
-		class="md:mt-8 md:pl-2 flex md:flex-col flex-row md:justify-start test-li justify-center px-4 h-fit md:px-0 w-full -translate-y-[1px] text-main-100 dark:text-contrast-100 pb-1">
+		class="md:mt-8 md:pl-2 flex md:flex-col flex-row md:justify-start test-li justify-center px-4 md:h-full h-fit md:px-0 w-full -translate-y-[1px] text-main-100 dark:text-contrast-100 pb-1">
 		<NavItem href="/" title="Home" active={$page.url.pathname === "/"}>
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7 md:mr-2">
 				<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
