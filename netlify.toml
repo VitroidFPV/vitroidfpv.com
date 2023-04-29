@@ -4,13 +4,7 @@
   functions = "functions/"
 
 [[headers]]
-	# "Cross-Origin-Embedder-Policy": "require-corp",
-	# "Cross-Origin-Opener-Policy": "same-origin",
-	# "Cross-Origin-Resource-Policy": "cross-origin",
-	# add those headers for /tools/edgetx-sounds
-
-	for = "/*"
-	[headers.values]
-		Cross-Origin-Embedder-Policy = "require-corp"
-		Cross-Origin-Opener-Policy = "same-origin"
-		Cross-Origin-Resource-Policy = "cross-origin"
+  for = "/*"
+  [headers.values]
+      Cross-Origin-Opener-Policy = "same-origin"
+      Cross-Origin-Embedder-Policy = "require-corp"
