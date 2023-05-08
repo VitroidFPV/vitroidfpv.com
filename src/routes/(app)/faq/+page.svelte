@@ -65,7 +65,7 @@
 			}
 		}
 	}
-	console.log(JSON.stringify(searched_grouped_modules, null, 2));
+	// console.log(JSON.stringify(searched_grouped_modules, null, 2));
 
 	onMount(() => {
 		if (window.location.hash) {
@@ -82,7 +82,7 @@
 		const res = await fetch("/api/forms?id=633def84b40b9d0008711757")
 		const data = await res.json()
 
-		console.log(data)
+		// console.log(data)
 
 		return data
 	}

@@ -20,7 +20,7 @@
 		if (duration && duration !== Infinity && currentTime && play) {
 			progressPercent = (currentTime / duration) * 100;
 		}
-		console.log(progressPercent)
+		// console.log(progressPercent)
 	}
 
 	onMount(() => {

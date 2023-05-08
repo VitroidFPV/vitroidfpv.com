@@ -12,7 +12,7 @@
 
 	// $: console.log($parts[url])
 	// log the stringified version 
-	$: console.log(JSON.stringify($parts[url]))
+	// $: console.log(JSON.stringify($parts[url]))
 
 	function sumPrices(items: { price: string, quantity: number }[]) {
 	let total = 0;

@@ -29,7 +29,7 @@ var upvotes = async() => {
 var deltaVotes = upvotes()
 
 export const load = (async ({params}) => {
-	console.log(deltaVotes)
+	// console.log(deltaVotes)
 	return {
 		votes: deltaVotes,
 	}

@@ -34,7 +34,7 @@
 		return new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime();
 	});
 
-	console.log("/articles/" + date_sorted_modules[0].metadata.category.toLowerCase() + "-" + date_sorted_modules[0].metadata.title.toLowerCase().replace(/[^a-zA-Z0-9]/g, "-").replace("---", "-"));
+	// console.log("/articles/" + date_sorted_modules[0].metadata.category.toLowerCase() + "-" + date_sorted_modules[0].metadata.title.toLowerCase().replace(/[^a-zA-Z0-9]/g, "-").replace("---", "-"));
 	// let postedDate = new Date(slugModule.metadata.date)
 	// let postedDateFormatted = postedDate.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"})
 

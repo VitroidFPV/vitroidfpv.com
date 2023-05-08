@@ -12,7 +12,7 @@
 	let modules = getModules("/builds/5inch-beginner")
 	// console.log(modules.groupedModules)
 	// log as string
-	console.log(JSON.stringify(modules, null, 2))
+	// console.log(JSON.stringify(modules, null, 2))
 
 	import { fly, fade } from "svelte/transition";
 	import tinycolor from "tinycolor2";
@@ -21,7 +21,7 @@
 		const res = await fetch("/api/forms?id=63a234bd85496d0008335b10")
 		const data = await res.json()
 
-		console.log(data)
+		// console.log(data)
 
 		return data
 	}

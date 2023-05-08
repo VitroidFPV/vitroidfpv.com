@@ -8,7 +8,7 @@
 	import { getModules } from "$lib/getModules";
 	let modules = getModules("/equipment/radio")
 
-	console.log(modules)
+	// console.log(modules)
 
 	import { marked } from "marked";
 	marked.setOptions({

@@ -31,7 +31,7 @@
 
 	function copyID(this: {nextElementSibling: any; "on:click": () => void; class: string; }) {
 		let id = this.nextElementSibling.id;
-		console.log(id);
+		// console.log(id);
 		navigator.clipboard.writeText($page.url.origin + $page.url.pathname + "/" + id);
 	}
 

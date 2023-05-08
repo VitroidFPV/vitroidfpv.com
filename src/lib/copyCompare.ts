@@ -15,7 +15,7 @@ export function copyCompare() {
 		.then(function (dataUrl) {
 			var img = new Image();
 			img.src = dataUrl;
-			console.log(dataUrl);
+			// console.log(dataUrl);
 
 			copyImageToClipboard(dataUrl)
 				.then(() => {

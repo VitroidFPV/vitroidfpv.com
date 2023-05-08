@@ -67,7 +67,7 @@
 		// console.log(destinationSrc)
 	}
 
-	$: console.log(selectedSound)
+	// $: console.log(selectedSound)
 
 	// @ts-ignore
 	const transcode = async (files): Promise<void> => {
@@ -75,7 +75,7 @@
 		if (!ffmpeg.isLoaded()) {
 			await ffmpeg.load();
 		}
-		console.log("FFMPEG Loaded: " + name)
+		// console.log("FFMPEG Loaded: " + name)
 		ffmpeg.FS("writeFile", name, await fetchFile(files[0]));
 		// ffmpeg -i input.mp3 -ac 1 -ar 32000 -sample_fmt s16 -c:a pcm_s16le -y 123456.wav
 		await ffmpeg.run("-i", name, "-ac", "1", "-ar", "32000", "-sample_fmt", "s16", "-c:a", "pcm_s16le", "-y", "output.wav");
@@ -84,7 +84,7 @@
 			// const output = document.getElementById("audioPrev") as HTMLAudioElement;
 			// output.src = URL.createObjectURL(new Blob([data.buffer], { type: "audio/wav" }));
 			prevSrc = URL.createObjectURL(new Blob([data.buffer], { type: "audio/wav" }));
-			console.log(prevSrc)
+			// console.log(prevSrc)
 		}
 		setTimeout(() => {
 			ffmpeg.exit(); // ffmpeg.exit() is callable only after load() stage.

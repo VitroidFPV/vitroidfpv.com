@@ -18,7 +18,7 @@
 			.then(function (dataUrl) {
 				var img = new Image();
 				img.src = dataUrl;
-				console.log(dataUrl);
+				// console.log(dataUrl);
 
 				copyImageToClipboard(dataUrl)
 					.then(() => {
@@ -46,7 +46,7 @@
 			.then(function (dataUrl) {
 				var img = new Image();
 				img.src = dataUrl;
-				console.log(dataUrl);
+				// console.log(dataUrl);
 
 				copyImageToClipboard(dataUrl)
 					.then(() => {
@@ -74,7 +74,7 @@
 	}
 	let dbm = 0;
 	let mw = 0;
-	console.log(dbmToMw);
+	// console.log(dbmToMw);
 
 	function calculateVolume(size: string) {
 		let sizeP = size.replace(",", ".");
@@ -114,7 +114,7 @@
 				}
 			});
 		}
-		console.log($compareArray);
+		// console.log($compareArray);
 	}
 
 	let compareOpen = false;
