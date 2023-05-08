@@ -10,15 +10,6 @@
 
 	onMount(() => {
 		netlifyIdentity.init();
-		// netlifyIdentity.open();
-
-		// netlifyIdentity.on("init", (user) => {
-		// 	if (!user) {
-				netlifyIdentity.on("login", () => {
-					document.location.href = "/admin/";
-				});
-		// 	}
-		// });
 	});
 
 	// import CMS from 'netlify-cms-app'
@@ -40,10 +31,10 @@
 		}
 	</script> -->
 
-	<!-- <div data-netlify-identity-menu></div> -->
+	<div data-netlify-identity-menu></div>
 
 	<!-- Add a simpler button:
 		Simple button that will open the modal.
 	-->
-	<div data-netlify-identity-button>Login with Netlify Identity</div>
+	<!-- <div data-netlify-identity-button>Login with Netlify Identity</div> -->
 </div>
