@@ -1,6 +1,6 @@
 <script>
-	import "../app.css";
-	import "../form.css"
+	import "../../app.css";
+	import "../../form.css"
 	import { page } from "$app/stores";
 	import Nav from "$components/navbar/Nav.svelte";
 	import Footer from "$components/navbar/Footer.svelte";
@@ -14,7 +14,7 @@
 	let ready = false;
 	onMount(() => {
 		ready = true;
-		netlifyIdentity.init();
+		// netlifyIdentity.init();
 	});
 </script>
 

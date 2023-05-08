@@ -17,7 +17,7 @@ const config = {
 	],
 	server: {
 		fs: {
-			allow: ["./modules/"]
+			allow: ["./modules/", "./admin/"]
 		},
 		port: 3000,
 		headers: {

@@ -3,26 +3,27 @@ backend:
   name: git-gateway
   branch: main
 collections:
-  - name: FAQ
-    label: FAQ
-    folder: modules/faqs/
-    create: true
-    slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
-    fields:
-      - name: category
-        label: Category
-        widget: "select"
-        options:
-          - { label: "Starting Out", value: "Starting Out" }
-          - { label: "Building", value: "Building" }
-          - { label: "Betaflight", value: "Betaflight" }
-          - { label: "Video", value: "Video" }
-          - { label: "Radio", value: "Radio" }
-          - { label: "Hardware", value: "Hardware" }
-      - { label: "Order", name: "order", widget: "number" }
-      - { label: "Question", name: "title", widget: "text" }
-      - { label: "ID", name: "id", widget: "text" }
-      - { label: "Answer", name: "answer", widget: "markdown" }
+
+  # - name: FAQ
+  #   label: FAQ
+  #   folder: modules/faqs/
+  #   create: true
+  #   slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
+  #   fields:
+  #     - name: category
+  #       label: Category
+  #       widget: "select"
+  #       options:
+  #         - { label: "Starting Out", value: "Starting Out" }
+  #         - { label: "Building", value: "Building" }
+  #         - { label: "Betaflight", value: "Betaflight" }
+  #         - { label: "Video", value: "Video" }
+  #         - { label: "Radio", value: "Radio" }
+  #         - { label: "Hardware", value: "Hardware" }
+  #     - { label: "Order", name: "order", widget: "number" }
+  #     - { label: "Title", name: "title", widget: "text" }
+  #     - { label: "ID", name: "id", widget: "text" }
+  #     - { label: "Answer", name: "answer", widget: "markdown" }
 
   - name: 5inch-beginner
     label: 5" Beginner Build
@@ -140,7 +141,7 @@ collections:
       - { label: "Image", name: "img", widget: "image"}
       - { label: "Description", name: "text", widget: "text" }
 
-      - { label: "Recommended", name: "recommended", widget: "relation", collection: '5" Race Build', searchFields: ["title"], valueField: "title", displayFields: ["title"], multiple: true, required: false}
+      - { label: "Recommended", name: "recommended", widget: "relation", collection: '5" Race Build', search_fields: ["title"], value_field: "title", display_fields: ["title"], multiple: true, required: false}
 
       - { label: "Price", name: "price", widget: "string" }
       - { label: "Point 1", name: "point1", widget: "string", required: false }
@@ -207,7 +208,7 @@ collections:
       - { label: "Image", name: "img", widget: "image"}
       - { label: "Description", name: "text", widget: "text" }
 
-      - { label: "Recommended", name: "recommended", widget: "relation", collection: '5" Advanced Build', searchFields: ["title"], valueField: "title", displayFields: ["title"], multiple: true, required: false}
+      - { label: "Recommended", name: "recommended", widget: "relation", collection: '5" Advanced Build', search_fields: ["title"], value_field: "title", display_fields: ["title"], multiple: true, required: false}
 
       - { label: "Price", name: "price", widget: "string" }
       - { label: "Point 1", name: "point1", widget: "string", required: false }
@@ -493,4 +494,4 @@ public_folder: "/uploads/"
 
 site_url: https://www.vitroidfpv.com/
 display_url: https://www.vitroidfpv.com/
-logo_url: https://www.vitroidfpv.com/favicon.png
+# logo_url: https://www.vitroidfpv.com/favicon.png

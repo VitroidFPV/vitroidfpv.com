@@ -56,7 +56,60 @@ export function getModules(path: string) {
 			groupedModules[cat][group] = [modules[k] as Module];
 		}
 	}
-	// write the above in a single loop
+
+	let videoModules = import.meta.glob("/modules/equipmentLists/videoList/*.md", {eager: true});
+	let radioModules = import.meta.glob("/modules/equipmentLists/radioList/*.md", {eager: true});
+	let linkedTitles: Array<string> = [];
+	for (const cat in groupedModules) {
+		for (const group in groupedModules[cat]) {
+			for (const product in groupedModules[cat][group]) {
+				if (groupedModules[cat][group][product].metadata.linked) {
+					for (const title of groupedModules[cat][group][product].metadata.linked) {
+						linkedTitles.push(title);
+					}
+				}
+			}
+		}
+	}
+
+	for (const k in videoModules) {
+		const title = (videoModules[k] as Module).metadata.title;
+		if (linkedTitles.includes(title)) {
+			const cat = (videoModules[k] as Module).metadata.category;
+			const group = (videoModules[k] as Module).metadata.group;
+			if (groupedModules[cat]) {
+				if (groupedModules[cat][group]) {
+					groupedModules[cat][group].push(videoModules[k] as Module);
+				} else {
+					groupedModules[cat][group] = [videoModules[k] as Module];
+				}
+			} else {
+				groupedModules[cat] = {};
+				groupedModules[cat][group] = [videoModules[k] as Module];
+			}
+		}
+	}
+	for (const k in radioModules) {
+		const title = (radioModules[k] as Module).metadata.title;
+		if (linkedTitles.includes(title)) {
+			const cat = (radioModules[k] as Module).metadata.category;
+			const group = (radioModules[k] as Module).metadata.group;
+			if (groupedModules[cat]) {
+				if (groupedModules[cat][group]) {
+					groupedModules[cat][group].push(radioModules[k] as Module);
+				} else {
+					groupedModules[cat][group] = [radioModules[k] as Module];
+				}
+			} else {
+				groupedModules[cat] = {};
+				groupedModules[cat][group] = [radioModules[k] as Module];
+			}
+		}
+	}
+	delete groupedModules["Linked Parts"];
+
+	// I'm not even gonna lie, Copilot wrote this part, I am absolutely clueless with object manipulation
+
 	let recommendedProducts: {[group: string]: Array<Module>} = {};
 	for (const cat in groupedModules) {
 		for (const group in groupedModules[cat]) {
@@ -79,6 +132,9 @@ export function getModules(path: string) {
 		}
 	}
 
+	// if the "visible" key doesn't exist in each module, add it and set it to true
+	// if it does exist, leave it as the value it already has
+
 	for (const cat in groupedModules) {
 		for (const group in groupedModules[cat]) {
 			for (const product in groupedModules[cat][group]) {
@@ -96,6 +152,30 @@ export function getModules(path: string) {
 			groupedModules[cat][group].sort((a, b) => a.metadata.order - b.metadata.order);
 		}
 	}
+
+	let categoryOrder = [
+		"Motors",
+		"Frames",
+		"Flight Controllers",
+		"ESCs",
+		"Video Transmitters",
+		"Radios",
+		"TX Modules",
+		"Receivers",
+		"Cameras",
+		"Goggles",
+		"Antennas",
+	]
+
+	// sort the categories in groupedModules by their position in categoryOrder
+	let sortedGroupedModules: {[category: string]: {[group: string]: Array<Module>}} = {};
+	for (const cat of categoryOrder) {
+		if (groupedModules[cat]) {
+			sortedGroupedModules[cat] = groupedModules[cat];
+		}
+	}
+
+	groupedModules = sortedGroupedModules;
 
 	let res = {groupedModules, recommendedProducts};
 

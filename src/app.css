@@ -160,12 +160,6 @@
 		@apply md:flex-col !hidden
 	}
 
-	.Motors.my-8 {@apply order-1} 
-	.Frames.my-8 {@apply order-2} 
-	.Flight.Controllers.my-8 {@apply order-3} 
-	.ESCs.my-8 {@apply order-4}
-	.AIOs.my-8 {@apply order-5}
-	.Video.my-8 {@apply order-6} 
 	.Recommended.my-8 {@apply order-last}
 
 
@@ -295,18 +289,6 @@
 	}
 	.group.Info {
 		@apply order-last
-	}
-
-	.category.Radios {
-		@apply order-1
-	}
-
-	.category.TX {
-		@apply order-2
-	}
-
-	.category.Receivers {
-		@apply order-3
 	}
 
 	.ml-4.md {

@@ -10,6 +10,9 @@
 
 	import { getModules } from "$lib/getModules";
 	let modules = getModules("/builds/5inch-beginner")
+	// console.log(modules.groupedModules)
+	// log as string
+	console.log(JSON.stringify(modules, null, 2))
 
 	import { fly, fade } from "svelte/transition";
 	import tinycolor from "tinycolor2";

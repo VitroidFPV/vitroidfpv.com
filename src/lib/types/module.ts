@@ -24,6 +24,7 @@ export interface Module {
 		color: string
 		difficulty: string
 		recommended: string
+		linked: string
 		short: boolean
 	}
 }
