@@ -10,6 +10,10 @@
 
 	onMount(() => {
 		netlifyIdentity.init();
+
+		netlifyIdentity.on("login", (user) => {
+			console.log("login ", user);
+		});
 	});
 
 	// import CMS from 'netlify-cms-app'
