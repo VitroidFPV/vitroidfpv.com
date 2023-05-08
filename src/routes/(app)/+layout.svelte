@@ -8,22 +8,10 @@
 	// @ts-ignore
 	import Transition from "$components/Transition.svelte";
 	import { onMount } from "svelte";
-
-	import netlifyIdentity from "netlify-identity-widget";
-
+	
 	let ready = false;
 	onMount(() => {
 		ready = true;
-		// netlifyIdentity.init();
-		if (netlifyIdentity) {
-			netlifyIdentity.on("init", (user) => {
-				if (!user) {
-					netlifyIdentity.on("login", () => {
-						document.location.href = "/admin/";
-					});
-				}
-			});
-		}
 	});
 </script>
 

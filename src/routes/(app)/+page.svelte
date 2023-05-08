@@ -4,6 +4,9 @@
 	import Button from "$components/Button.svelte";
 	import { onMount } from "svelte";
 	import { fly } from "svelte/transition";
+	import netlifyIdentity from "netlify-identity-widget";
+
+
 
 	let index = 0;
 
@@ -11,6 +14,17 @@
 		setInterval(() => {
 			index = index < 3 ? index + 1 : 0;
 		}, 5000);
+
+		netlifyIdentity.init();
+		if (netlifyIdentity) {
+			netlifyIdentity.on("init", (user) => {
+				if (!user) {
+					netlifyIdentity.on("login", () => {
+						document.location.href = "/admin/";
+					});
+				}
+			});
+		}
 	})
 
 	let prefix = "VitroidFPV";
