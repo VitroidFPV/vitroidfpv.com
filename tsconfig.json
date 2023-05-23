@@ -9,5 +9,6 @@
 		"strict": true,
 		"outDir": "build",
 		"forceConsistentCasingInFileNames": false,
+		"jsx": "react",
 	}
 }

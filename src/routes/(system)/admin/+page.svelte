@@ -21,8 +21,10 @@
 
 <svelte:head>
 	<link href="config.yml" type="text/yaml" rel="cms-config-url">
+	<link href="cms.css" rel="stylesheet">
+	<script src="https://unpkg.com/react-markdown@5.0.3/react-markdown.min.js"></script>
 </svelte:head>
 
-<div class="flex justify-center items-center">
+<!-- <div class="flex justify-center items-center">
 	<div data-netlify-identity-button class="p-4 bg-highlight dark:bg-highlight-dark">Login with Netlify Identity</div>
-</div>
+</div> -->
