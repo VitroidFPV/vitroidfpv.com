@@ -139,7 +139,7 @@
 							img={module.metadata.img}
 							category={module.metadata.category}
 							date={module.metadata.date}
-							href={"/articles/" + module.metadata.category.toLowerCase() + "-" + module.metadata.title.toLowerCase().replace(/[^a-zA-Z0-9]/g, "-").replace("---", "-")}
+							href={"/articles/" + module.metadata.category.toLowerCase() + "-" + module.metadata.title.toLowerCase().replace(`'`, ``).replace(/[^a-zA-Z0-9]/g, "-").replace("---", "-")}
 						/>
 					{/if}
 				{/each}

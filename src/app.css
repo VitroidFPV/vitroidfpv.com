@@ -336,10 +336,14 @@
 	.md h2 {@apply text-3xl my-3 tracking-wide mt-8}
 	.mď h2:first-child {@apply mt-0}
 	.md h3 {@apply text-2xl my-2 tracking-wide}
-	.md h4 {@apply my-2 tracking-wide}
+	.md h4 {@apply text-xl my-2 tracking-wide}
 	.md h5 {@apply text-green my-2 tracking-wide}
-	.md h6 {@apply text-red my-2 tracking-wide}
+	.md h6 {@apply inline w-fit float-left mr-1}
 	.md {@apply text-[15px] md:text-lg}
+
+	.md ul h6 {
+		@apply font-bold inline w-fit float-left after:mr-1
+	}
 
 	.md .admonition h1 {@apply mt-0}
 	.md .admonition h2 {@apply mt-0}
@@ -349,13 +353,13 @@
 	.md .admonition h6 {@apply mt-0}
 
 	
-	.md.green h1, .md.green h2, .md.green h3, .md.green .colored {@apply text-green}
-	.md.yellow h1, .md.yellow h2, .md.yellow h3, .md.yellow .colored {@apply text-yellow}
-	.md.red h1, .md.red h2, .md.red h3, .md.red .colored {@apply text-red}
-	.md.blue h1, .md.blue h2, .md.blue h3, .md.blue .colored {@apply text-blue}
-	.md.cyan h1, .md.cyan h2, .md.cyan h3, .md.cyan .colored {@apply text-cyan}
-	.md.violet h1, .md.violet h2, .md.violet h3, .md.violet .colored {@apply text-violet}
-	.md.orange h1, .md.orange h2, .md.orange h3, .md.orange .colored {@apply text-orange}
+	.md.green h1, .md.green h2, .md.green h3, .md.green h4, .md.green .colored {@apply text-green}
+	.md.yellow h1, .md.yellow h2, .md.yellow h3, .md.yellow h4, .md.yellow .colored {@apply text-yellow}
+	.md.red h1, .md.red h2, .md.red h3, .md.red h4, .md.red .colored {@apply text-red}
+	.md.blue h1, .md.blue h2, .md.blue h3, .md.blue h4, .md.blue .colored {@apply text-blue}
+	.md.cyan h1, .md.cyan h2, .md.cyan h3, .md.cyan h4, .md.cyan .colored {@apply text-cyan}
+	.md.violet h1, .md.violet h2, .md.violet h3, .md.violet h4, .md.violet .colored {@apply text-violet}
+	.md.orange h1, .md.orange h2, .md.orange h3, .md.orange h4, .md.orange .colored {@apply text-orange}
 	.admonition.type-note h1,
 	.admonition.type-note h2,
 	.admonition.type-note h3,
@@ -390,10 +394,12 @@
 	.md ul {@apply list-disc ml-6 my-4}
 	.md ol {@apply list-decimal ml-6 my-4 mb-6}
 	.md ol li p {@apply pl-3}
-	.md li {@apply my-2}
+	.md li {@apply mb-3}
 	.md a {@apply text-base md:text-lg text-highlight bg-gradient-to-r bg-no-repeat bg-left-bottom from-highlight to-highlight bg-0w hover:bg-100w duration-300 w-fit pb-[-1rem] leading-tight}
 	.md pre {@apply whitespace-pre-line}
 	.md pre code {@apply block}
 	.md br+code {@apply block}
 	.md img {@apply rounded-md shadow-2xl my-8 h-auto origin-left md:w-3/5 w-full}
+
+	.md .img-grid img {@apply w-full}
 }

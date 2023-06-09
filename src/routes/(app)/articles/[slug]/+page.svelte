@@ -156,7 +156,7 @@
 			<div class="flex-col items-start w-fit">
 				<h1 class="text-{categoryColor} text-5xl mb-2">{data.frontmatter.title}</h1>
 				<h2 class="text-3xl">{data.frontmatter.description}</h2>
-				<div class="mt-4">Posted on <span class="text-{categoryColor}">{postedDateFormatted}</span> by <span class="text-{categoryColor}">{data.frontmatter.author}</span></div>
+				<div class="mt-4 mb-12">Posted on <span class="text-{categoryColor}">{postedDateFormatted}</span> by <span class="text-{categoryColor}">{data.frontmatter.author}</span></div>
 				{#if data.frontmatter.updated}
 					<div class="mb-4 text-neutral-500">Last updated on {updatedDateFormatted}</div>
 				{/if}
@@ -165,14 +165,14 @@
 				<svelte:component this={component} />
 			</div>
 		</div>
-		<div class="md:flex md:flex-col hidden sticky h-full left-full top-0 pl-4 w-fit max-w-[24rem]">
+		<div class="md:flex md:flex-col hidden sticky h-fit left-full top-0 pl-4 w-fit max-w-[24rem]">
 			<div class="text-highlight dark:text-highlight-dark text-3xl w-fit font-semibold mt-8 mb-4 border-b-2 border-current">Contents:</div>
 			{#each headers as header}
 				{#if +header.level < 5}
 				<a 	href="#{removeSpecial(header.content)}"
 					class={
-					`text-base mb-3 leading-tight heading-${header.level} hover:translate-x-1 hover:text-highlight dark:hover:text-highlight-dark duration-300 w-fit`
-					+ (header.content === intersectingHeader ? " dark:text-highlight-dark text-highlight" : "")}
+					`text-[0.95rem] mb-3 leading-tight heading-${header.level} hover:translate-x-1 hover:text-highlight dark:hover:text-highlight-dark duration-300 w-fit border-l-2 border-transparent`
+					+ (header.content === intersectingHeader ? " dark:text-highlight-dark text-highlight !border-current" : "")}
 				>
 					{header.content}
 				</a>
@@ -184,15 +184,15 @@
 
 <style>
 	.heading-1 {
-		margin-left: 0rem;
+		padding-left: 0.25rem;
 	}
 	.heading-2 {
-		margin-left: 0.5rem;
+		padding-left: 0.5rem;
 	}
 	.heading-3 {
-		margin-left: 1rem;
+		padding-left: 1rem;
 	}
 	.heading-4 {
-		margin-left: 1.5rem;
+		padding-left: 1.5rem;
 	}
 </style>
