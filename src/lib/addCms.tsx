@@ -31,7 +31,7 @@ export async function addCms() {
 			<ul className="misc-info list">
 				<li className="order list-item">Order: {entry.getIn(["data", "order"])}</li>
 				<li className="group list-item">Group: {group}</li>
-				<li className="link list-item bg-blue">Link: <a href={entry.getIn(["data", "link"])}>{entry.getIn(["data", "link"])}</a></li>
+				<li className="link list-item !bg-blue">Link: <a href={entry.getIn(["data", "link"])}>{entry.getIn(["data", "link"])}</a></li>
 			</ul>
 			</div>
 		);
