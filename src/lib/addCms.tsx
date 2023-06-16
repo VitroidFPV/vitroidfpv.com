@@ -93,7 +93,7 @@ export async function addCms() {
 				</div>
 				</div>
 			</div>
-			<window.ReactMarkdown className="article-content">{entry.getIn(["data", "content"])}</window.ReactMarkdown>
+			<window.ReactMarkdown className="article-content">{entry.getIn(["data", "body"])}</window.ReactMarkdown>
 			</article>
 		);
 	}
