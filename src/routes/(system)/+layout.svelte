@@ -1,5 +1,5 @@
 <script lang="ts">
-	import "/src/app.css";
+	import "../../app.css";
 </script>
 
 <main>
