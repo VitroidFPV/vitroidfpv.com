@@ -36,7 +36,77 @@ export async function addCms() {
 			</div>
 		);
 	}
+		// var ArticlePreview = createClass({
+		// 	render: function() {
+		// 		var entry = this.props.entry
+		// 		var date = new Date(entry.getIn(["data", "date"]))
+		// 		var formattedDate = date.toLocaleDateString("en-US", {
+		// 			year: "numeric",
+		// 			month: "long",
+		// 			day: "numeric"
+		// 		})
+		// 		return h("article", {className: entry.getIn(["data", "category"]) + " article-preview"},
+		// 			h("div", {className: "article-top"},
+		// 				h("div", {className: "article-img"},
+		// 					h("div", {className: "img-cover"}),
+		// 					h("img", {className: "img", src: entry.getIn(["data", "img"]), alt: ""})
+		// 				),
+		// 				h("div", {className: "article-info"},
+		// 					h("h1", {className: "article-title"}, entry.getIn(["data", "title"])),
+		// 					h("div", {className: "article-description"}, entry.getIn(["data", "description"])),
+		// 					h("div", {className: "article-credit"},
+		// 						h("p", null, "Posted on ", h("span", {className: "article-date"}, formattedDate), " by ", h("span", {className: "article-author"}, entry.getIn(["data", "author"])))
+		// 					)
+		// 				)
+		// 			),
+		// 			h(window.ReactMarkdown, {className: "article-content"},
+		// 				entry.getIn(["data", "content"])
+		// 			)
+		// 		)
+		// 	}
+		// })
+
+	function ArticlePreview(props) {
+		const { entry } = props;
+		const date = new Date(entry.getIn(["data", "date"]));
+		const formattedDate = date.toLocaleDateString("en-US", {
+			year: "numeric",
+			month: "long",
+			day: "numeric"
+		});
+
+		return (
+			<article className={`${entry.getIn(["data", "category"])} article-preview`}>
+			<div className="article-top">
+				<div className="article-img">
+				<div className="img-cover"></div>
+				<img className="img" src={entry.getIn(["data", "img"])} alt="" />
+				</div>
+				<div className="article-info">
+				<h1 className="article-title">{entry.getIn(["data", "title"])}</h1>
+				<div className="article-description">{entry.getIn(["data", "description"])}</div>
+				<div className="article-credit">
+					<p>
+					Posted on <span className="article-date">{formattedDate}</span> by{" "}
+					<span className="article-author">{entry.getIn(["data", "author"])}</span>
+					</p>
+				</div>
+				</div>
+			</div>
+			<window.ReactMarkdown className="article-content">{entry.getIn(["data", "content"])}</window.ReactMarkdown>
+			</article>
+		);
+	}
 
 	// CMS.registerPreviewTemplate("posts", PostPreview);
 	CMS.registerPreviewTemplate("5inch-beginner", PostPreview)
+	CMS.registerPreviewTemplate("5inch-race", PostPreview)
+	CMS.registerPreviewTemplate("5inch-advanced", PostPreview)
+	CMS.registerPreviewTemplate("3inch-cinewhoop", PostPreview)
+	CMS.registerPreviewTemplate("1s-2s-micro", PostPreview)
+
+	CMS.registerPreviewTemplate("videoList", PostPreview);
+	CMS.registerPreviewTemplate("radioList", PostPreview);
+
+	CMS.registerPreviewTemplate("articles", ArticlePreview);
 }
