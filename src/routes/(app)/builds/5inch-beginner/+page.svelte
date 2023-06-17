@@ -1,5 +1,6 @@
 <script lang="ts">
 	import BuildProduct from "$components/buildsPage/buildProduct.svelte";
+	import ProductList from "$components/ProductList.svelte";
 	import MainHeader from "$components/MainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
@@ -174,90 +175,55 @@
 		</ul>
 	</Paragraph> -->
 
-	<div class="flex flex-col">
-		{#each Object.entries(modules.groupedModules) as [cat, contents]}
-			{#if cat != "Recommended Builds"}
-				<div class="{cat} my-8 w-full h-fit">
-					<div
-						class="text-4xl tracking-tight md:w-fit f-full px-1 md:ml-1 ml-2 cat {cat} mb-2 text-center"
-						id={cat}>
-						{cat}
+	<ProductList modules={modules.groupedModules}/>
+
+	<div class="p-4 md:p-8 w-full h-full">
+		<form
+			class="w-fit flex flex-col form mt-10 bg-gray-500/10 p-4 rounded-2xl dark:shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#2ad162]
+			shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#90d95b]"
+			method="post"
+			name="5inchBeginner"
+			data-netlify="true"
+			data-netlify-honeypot="bot-field"
+		>
+			<input type="hidden" name="form-name" value="5inchBeginner" />
+			<Header title="Feedback" />
+			<Paragraph>If you found this page useful (or not), or have any suggestions for parts, ideas and so on, let me know here to help me improve the site!
+			</Paragraph>
+			<div class="mt-12 flex flex-col">
+				<div class="flex">
+					<label class="switch">
+						<input type="checkbox" id="useful" bind:checked={useful} name="Useful">
+						<span class="slider round"></span>
+					</label>
+					<div class="relative w-4 ml-2">
+						{#if useful}
+							<div transition:fly={{ y: 10, duration: 300 }} class="text-xl text-green w-4 absolute">✔</div>
+						{:else}
+							<div transition:fly={{ y: 10, duration: 300 }} class="text-xl text-red w-4 absolute">✘</div>
+						{/if}
 					</div>
-					{#each Object.entries(contents) as [group, products]}
-						<div
-							class="md:ml-3 grid 3xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 border-b-[1px] border-neutral-500/30">
-							{#each products as info}
-								{#if info.metadata.visible}
-									<BuildProduct
-										color={info.metadata.color}
-										title={info.metadata.title}
-										price={info.metadata.price}
-										point1={info.metadata.point1}
-										point2={info.metadata.point2}
-										point3={info.metadata.point3}
-										point4={info.metadata.point4}
-										point5={info.metadata.point5}
-										text={info.metadata.text}
-										href={info.metadata.link}
-										img={info.metadata.img}
-										category={cat}
-									/>
-								{/if}
-							{/each}
-						</div>
-					{/each}
+					<label for="useful" class="ml-4">Did you find this page helpful?</label>
 				</div>
-			{/if}
-		{/each}
+				<div class="mt-4">
+					<div class="relative h-8">
+						{#if useful}
+							<div transition:fade class="text-green text-lg absolute">I'm glad you found this site it useful! You can give me some more part ideas below</div>
+						{:else}
+							<div transition:fade class="text-red text-lg absolute">I'm sorry you didn't find this site useful! Please tell me what to improve below</div>
+						{/if}
+					</div>
+					<textarea rows="3"
+						class="w-full h-32 my-4 rounded-xl caret-green p-2 bg-contrast-100 dark:bg-main-200
+						outline-none hover:shadow-black/50 shadow-[0_25px_50px_-12px_#00000059] duration-300 focus-within:outline-highlight outline-[3px]
+						focus-within:shadow-black/50" name="Feedback" bind:value={feedback}></textarea>
+						<input type="text" name="pilotName" bind:value={pilotName} class="w-40 h-8 mt-4 mr-4 rounded-xl caret-green p-2 bg-contrast-100 dark:bg-main-200
+						outline-none hover:shadow-black/50 shadow-[0_25px_50px_-12px_#00000059] duration-300 focus-within:outline-highlight outline-[3px]
+						focus-within:shadow-black/50" />
+						<label for="pilotName">Pilot Name (optional, for crediting)</label>
+				</div>
+			</div>
+			<button type="submit" class="mt-4 rounded-2xl bg-contrast-100 dark:bg-main-300 hover:shadow-highlight/50 dark:hover:shadow-highlight-dark/50 hover:translate-x-2 hover:brightness-125 shadow-md duration-300 w-fit p-2 px-4 border-4 border-highlight dark:border-highlight-dark">Send!</button>
+		</form>
 	</div>
-
-	<form 
-		class="w-fit flex flex-col form mt-10 bg-gray-500/10 p-4 rounded-2xl dark:shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#2ad162] 
-		shadow-[0_25px_50px_-12px_#00000059,-6px_0px_0px_0px_#90d95b]" 
-		method="post" 
-		name="5inchBeginner" 
-		data-netlify="true" 
-		data-netlify-honeypot="bot-field"
-	>
-		<input type="hidden" name="form-name" value="5inchBeginner" />
-		<Header title="Feedback" />
-		<Paragraph>If you found this page useful (or not), or have any suggestions for parts, ideas and so on, let me know here to help me improve the site!
-		</Paragraph>
-		<div class="mt-12 flex flex-col">
-			<div class="flex">
-				<label class="switch">
-					<input type="checkbox" id="useful" bind:checked={useful} name="Useful">
-					<span class="slider round"></span>
-				</label>
-				<div class="relative w-4 ml-2">
-					{#if useful}
-						<div transition:fly={{ y: 10, duration: 300 }} class="text-xl text-green w-4 absolute">✔</div>
-					{:else}
-						<div transition:fly={{ y: 10, duration: 300 }} class="text-xl text-red w-4 absolute">✘</div>
-					{/if}
-				</div>
-				<label for="useful" class="ml-4">Did you find this page helpful?</label>
-			</div>
-			<div class="mt-4">
-				<div class="relative h-8">
-					{#if useful}
-						<div transition:fade class="text-green text-lg absolute">I'm glad you found this site it useful! You can give me some more part ideas below</div>
-					{:else}
-						<div transition:fade class="text-red text-lg absolute">I'm sorry you didn't find this site useful! Please tell me what to improve below</div>
-					{/if}
-				</div>
-				<textarea rows="3"
-					class="w-full h-32 my-4 rounded-xl caret-green p-2 bg-contrast-100 dark:bg-main-200 
-					outline-none hover:shadow-black/50 shadow-[0_25px_50px_-12px_#00000059] duration-300 focus-within:outline-highlight outline-[3px]
-					focus-within:shadow-black/50" name="Feedback" bind:value={feedback}></textarea>
-
-					<input type="text" name="pilotName" bind:value={pilotName} class="w-40 h-8 mt-4 mr-4 rounded-xl caret-green p-2 bg-contrast-100 dark:bg-main-200
-					outline-none hover:shadow-black/50 shadow-[0_25px_50px_-12px_#00000059] duration-300 focus-within:outline-highlight outline-[3px]
-					focus-within:shadow-black/50" />
-					<label for="pilotName">Pilot Name (optional, for crediting)</label>
-			</div>
-		</div>
-		<button type="submit" class="mt-4 rounded-2xl bg-contrast-100 dark:bg-main-300 hover:shadow-highlight/50 dark:hover:shadow-highlight-dark/50 hover:translate-x-2 hover:brightness-125 shadow-md duration-300 w-fit p-2 px-4 border-4 border-highlight dark:border-highlight-dark">Send!</button>
-
-	</form>
 </div>

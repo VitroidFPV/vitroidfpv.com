@@ -1,5 +1,6 @@
 <script lang="ts">
 	import BuildProduct from "$components/buildsPage/buildProduct.svelte";
+	import ProductList from "$components/ProductList.svelte";
 	import MainHeader from "$components/MainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
@@ -109,82 +110,5 @@
 </div>
 
 <div class="content-box">
-	<!-- <MainHeader>{titleRaw}</MainHeader>
-	<Header title="Every gram matters, for silent flying nearly anywhere" />
-	<Paragraph>
-		{description}<br>
-    This list is specced for 1/2s, and includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br>
-    The price range for each part is highlighted, so you can quickly find something to suit your budget needs<br><br>
-    As this class of builds is pretty diverse from 1.6'' to 3'', and there are sizing differences you should watch out for, there will be some spec examples of different builds to choose from
-		<ul class="flex flex-row justify-between w-full flex-wrap mt-4">
-			<li
-				class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-green before:relative mb-2"
-			>
-				Budget
-			</li>
-			<li
-				class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-orange before:relative mb-2"
-			>
-				Mid-range
-			</li>
-			<li
-				class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-red before:relative mb-2"
-			>
-				High-end
-			</li>
-			<li
-				class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-violet before:relative mb-2"
-			>
-				Highly varied
-			</li>
-		</ul>
-	</Paragraph> -->
-
-	<div class="flex flex-col">
-		{#each Object.entries(modules.groupedModules) as [cat, contents]}
-			{#if cat != "Recommended Builds"}
-				<div class="{cat} my-8 w-full h-fit">
-					<div
-						class="text-4xl tracking-tight md:w-fit f-full px-1 md:ml-1 ml-2 cat {cat} mb-2 text-center"
-						id={cat}>
-						{cat}
-					</div>
-					{#each Object.entries(contents) as [group, products]}
-						<div
-							class="md:ml-3 grid 3xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 border-b-[1px] border-neutral-500/30">
-							{#each products as info}
-								{#if info.metadata.visible}
-									<BuildProduct
-										color={info.metadata.color}
-										title={info.metadata.title}
-										price={info.metadata.price}
-										point1={info.metadata.point1}
-										point2={info.metadata.point2}
-										point3={info.metadata.point3}
-										point4={info.metadata.point4}
-										point5={info.metadata.point5}
-										text={info.metadata.text}
-										href={info.metadata.link}
-										img={info.metadata.img}
-										category={cat}
-									/>
-								{/if}
-							{/each}
-						</div>
-					{/each}
-				</div>
-			{/if}
-		{/each}
-	</div>
-
-	<!-- <div class="flex flex-col">
-		<div class="my-8 w-full h-fit">
-			<div class="text-4xl tracking-tight md:w-fit f-full px-1 md:ml-1 ml-2 cat mb-2 text-center">
-				Recommended builds:
-			</div>
-			<div class="ml-2">
-				<Paragraph>As there is a lot of variety in this class of builds, you will find some recommended build combinations for specific quads below:</Paragraph>
-			</div>
-		</div>
-	</div> -->
+	<ProductList modules={modules.groupedModules}/>
 </div>

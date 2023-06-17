@@ -20,7 +20,6 @@
 </script>
 
 <svelte:head>
-	<link href="config.yml" type="text/yaml" rel="cms-config-url">
 	<link href="cms.css" rel="stylesheet">
 	<script src="https://unpkg.com/react-markdown@5.0.3/react-markdown.min.js"></script>
 </svelte:head>

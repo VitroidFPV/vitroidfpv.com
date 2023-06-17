@@ -114,7 +114,7 @@
 	</div>
 </div>
 
-<div class="content-box">
+<div class="p-4 md:p-8 content-box">
 	<!-- <MainHeader>{titleRaw}</MainHeader>
 	<Header title="Totally not a blog™" />
 

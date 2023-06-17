@@ -234,7 +234,7 @@
 		</div>
 	</ul>
 </div>
-<div class="content-box">
+<div class="p-4 md:p-8 content-box">
 
 	<!-- if searched_grouped_modules is not empty, show below -->
 	{#if Object.keys(searched_grouped_modules).length > 0}

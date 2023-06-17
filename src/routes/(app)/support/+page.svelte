@@ -110,7 +110,7 @@
 	</div>
 </div>
 
-<div class="content-box md">
+<div class="p-4 md:p-8 content-box md">
 	<div class="">
 		<div class="flex flex-col md:mb-16 mb-12 border-b-2 border-neutral-500/20 pb-16">
 			<h1 class="text-blue md:text-6xl text-5xl font-bold mb-4">Share</h1>

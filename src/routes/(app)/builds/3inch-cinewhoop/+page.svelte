@@ -1,5 +1,6 @@
 <script lang="ts">
 	import BuildProduct from "$components/buildsPage/buildProduct.svelte";
+	import ProductList from "$components/ProductList.svelte";
 	import MainHeader from "$components/MainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
@@ -108,70 +109,5 @@
 </div>
 
 <div class="content-box">
-	<!-- <MainHeader>3" Cinewhoop</MainHeader>
-	<Header title="Slow, safe, cinematic flying, indoors and outdoors" />
-	<Paragraph>
-		Meant to be used with a full size gopro, to carry it safely around hard, and soft targets alike, in close proximity. Wider, shorter motors, fully protected frames, and mini stacks or AIOs<br>
-		This list is specced for 4/6s, and includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br>
-		The price range for each part is highlighted, so you can quickly find something to suit your budget needs
-		<ul class="flex flex-row justify-between w-full flex-wrap mt-4">
-			<li
-				class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-green before:relative mb-2"
-			>
-				Budget
-			</li>
-			<li
-				class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-orange before:relative mb-2"
-			>
-				Mid-range
-			</li>
-			<li
-				class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-red before:relative mb-2"
-			>
-				High-end
-			</li>
-			<li
-				class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-violet before:relative mb-2"
-			>
-				Highly varied
-			</li>
-		</ul>
-	</Paragraph> -->
-
-	<div class="flex flex-col">
-		{#each Object.entries(modules.groupedModules) as [cat, contents]}
-			{#if cat != "Recommended Builds"}
-				<div class="{cat} my-8 w-full h-fit">
-					<div
-						class="text-4xl tracking-tight md:w-fit f-full px-1 md:ml-1 ml-2 cat {cat} mb-2 text-center"
-						id={cat}>
-						{cat}
-					</div>
-					{#each Object.entries(contents) as [group, products]}
-						<div
-							class="md:ml-3 grid 3xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 border-b-[1px] border-neutral-500/30">
-							{#each products as info}
-								{#if info.metadata.visible}
-									<BuildProduct
-										color={info.metadata.color}
-										title={info.metadata.title}
-										price={info.metadata.price}
-										point1={info.metadata.point1}
-										point2={info.metadata.point2}
-										point3={info.metadata.point3}
-										point4={info.metadata.point4}
-										point5={info.metadata.point5}
-										text={info.metadata.text}
-										href={info.metadata.link}
-										img={info.metadata.img}
-										category={cat}
-									/>
-								{/if}
-							{/each}
-						</div>
-					{/each}
-				</div>
-			{/if}
-		{/each}
-	</div>
+	<ProductList modules={modules.groupedModules}/>
 </div>

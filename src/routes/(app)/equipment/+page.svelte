@@ -99,7 +99,7 @@
 	</div>
 </div>
 
-<div class="content-box">
+<div class="p-4 md:p-8 content-box">
 	<!-- <MainHeader>Equipment</MainHeader>
 	<Header title="All the things you'll need to get in the air!" />
 

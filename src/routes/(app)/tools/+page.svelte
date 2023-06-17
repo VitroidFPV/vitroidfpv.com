@@ -181,7 +181,7 @@
 </svelte:head>
 
 
-<div class="content-box relative">
+<div class="p-4 md:p-8 content-box relative">
 	<div class="absolute w-full h-full -ml-8 pr-8">
 		<div class="sticky top-8 flex justify-end z-20">
 			<button 

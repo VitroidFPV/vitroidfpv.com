@@ -125,7 +125,7 @@
 		</div>
 	</div>
 </div>
-<div class="content-box">
+<div class="p-4 md:p-8 content-box">
 	<!-- <MainHeader>Builds</MainHeader>
 	<Header title="Parts lists and build guides for any quad you'd want!" />
 

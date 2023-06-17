@@ -147,7 +147,7 @@
 	<meta name="theme-color" content={color} />
 </svelte:head>
 
-<div class="content-box">
+<div class="p-4 md:p-8 content-box">
 	<div class="flex justify-between w-full">
 		<div class="flex flex-col md:mr-8 mr-0 w-full">
 			<div class="flex flex-col pr-0 article-card {data.frontmatter.category} rounded-2xl mb-8 w-fit shadow-lg">

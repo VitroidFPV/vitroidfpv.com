@@ -1,5 +1,6 @@
 <script lang="ts">
 	import BuildProduct from "$components/buildsPage/buildProduct.svelte";
+	import ProductList from "$components/ProductList.svelte";
 	import MainHeader from "$components/MainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
@@ -115,68 +116,5 @@
 </div>
 
 <div class="content-box">
-	<!-- <MainHeader>{titleRaw}</MainHeader>
-	<Header title={"Put the \"V\" in FPV"} />
-	<Paragraph>
-		{description}<br>
-    If you're trying to decide, or don't even have any prior experience, this list will hopefully help you!<br><br>
-    Prices may depend on where and when you source the parts, (prices and specs are sourced from the manufacturers website at the time of the writing when possible)
-	<ul class="flex flex-row justify-between w-full flex-wrap mt-4">
-		<li class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-green before:relative mb-2">
-			Budget
-		</li>
-		<li class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-orange before:relative mb-2">
-			Mid-range
-		</li>
-		<li class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-red before:relative mb-2">
-			High-end
-		</li>
-		<li class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-violet before:relative mb-2">
-			Highly varied
-		</li>
-	</ul>
-	</Paragraph> -->
-
-	{#each Object.entries(modules.groupedModules) as [cat, contents]}
-		<div class="{cat} category my-8 w-full h-fit flex flex-col">
-			<div class="text-4xl tracking-tight w-fit px-1 cat {cat} mb-2" id={cat}>{cat}</div>
-			{#each Object.entries(contents) as [group, info]}
-				{#if group != "Info"}
-					<div class="group {group} my-4 w-full h-fit">
-						{#if group != "undefined"}
-							<div
-								class="text-xl tracking-tight w-full px-1 {group} mb-2 border-b-[1px] border-gray-700 text-main-50 dark:text-contrast-500"
-								id={group}>
-								{group}
-							</div>
-						{/if}
-						<div
-							class="md:ml-3 grid 3xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 border-b-[1px] border-neutral-500/30">
-								{#each info as product}
-									{#if product.metadata.visible}
-										<BuildProduct
-											color={product.metadata.color}
-											title={product.metadata.title}
-											price={product.metadata.price}
-											point1={product.metadata.point1}
-											point2={product.metadata.point2}
-											point3={product.metadata.point3}
-											point4={product.metadata.point4}
-											point5={product.metadata.point5}
-											text={product.metadata.text}
-											href={product.metadata.link}
-											img={product.metadata.img}
-										/>
-									{/if}
-								{/each}
-						</div>
-					</div>
-				{:else}
-					{#each info as product}
-						<div class="md ml-4 group {group}">{@html marked.parse(product.metadata.text)}</div>
-					{/each}
-				{/if}
-			{/each}
-		</div>
-	{/each}
+	<ProductList modules={modules.groupedModules}/>
 </div>
