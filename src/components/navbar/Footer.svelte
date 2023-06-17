@@ -220,6 +220,16 @@
 							</li> -->
 							<li>
 								<LinkDetail
+									href="/tools"
+									description="Various tools and calculators"
+									color="red"
+									color1="red"
+								>
+									Tools
+								</LinkDetail>
+							</li>
+							<li>
+								<LinkDetail
 									href="https://github.com/VitroidFPV/VitroidFPV/graphs/contributors"
 									description="People that have contributed content"
 									external
