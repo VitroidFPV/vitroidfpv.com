@@ -187,6 +187,7 @@ export let config = {
 						{ label: "Antennas", value: "Antennas" }
 					]
 				},
+				{ label: "Group", name: "group", widget: "text" },
 				{ label: "Order", name: "order", widget: "number" },
 				{ label: "Title", name: "title", widget: "text" },
 				{ label: "Link", name: "link", widget: "text" },
@@ -252,6 +253,7 @@ export let config = {
 						{ label: "Video Receivers", value: "Video Receivers" }
 					]
 				},
+				{ label: "Group", name: "group", widget: "text" },
 				{ label: "Order", name: "order", widget: "number" },
 				{ label: "Title", name: "title", widget: "text" },
 				{ label: "Link", name: "link", widget: "text" },
