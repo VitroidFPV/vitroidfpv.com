@@ -145,14 +145,6 @@ export function getModules(path: string) {
 		}
 	}
 
-	// if the group called "Info" exists in the object, move it to the end of the object
-
-	for (const cat in groupedModules) {
-		for (const group in groupedModules[cat]) {
-			groupedModules[cat][group].sort((a, b) => a.metadata.order - b.metadata.order);
-		}
-	}
-
 	let categoryOrder = [
 		"Motors",
 		"Frames",
@@ -175,7 +167,55 @@ export function getModules(path: string) {
 		}
 	}
 
+	let groupOrder = [
+		"Analog",
+		"DJI",
+		"Walksnail",
+		"HDZero",
+		"Omnidirectional",
+		"Directional",
+		"Gamepad style",
+		"Compact style",
+		"Full size",
+		"Info",
+	]
+
+	// sort the groups in each category in groupedModules by their position in groupOrder
+	// for (const cat in sortedGroupedModules) {
+	// 	let sortedGroups: {[group: string]: Array<Module>} = {};
+	// 	for (const group of groupOrder) {
+	// 		if (sortedGroupedModules[cat][group]) {
+	// 			sortedGroups[group] = sortedGroupedModules[cat][group];
+	// 		}
+	// 	}
+	// 	sortedGroupedModules[cat] = sortedGroups;
+	// }
+	// the above but keep the groups that aren't in groupOrder at the end
+	for (const cat in sortedGroupedModules) {
+		let sortedGroups: {[group: string]: Array<Module>} = {};
+		for (const group in sortedGroupedModules[cat]) {
+			if (groupOrder.includes(group)) {
+				sortedGroups[group] = sortedGroupedModules[cat][group];
+			}
+		}
+		for (const group in sortedGroupedModules[cat]) {
+			if (!groupOrder.includes(group)) {
+				sortedGroups[group] = sortedGroupedModules[cat][group];
+			}
+		}
+		sortedGroupedModules[cat] = sortedGroups;
+	}
+
+	// // if the group called "Info" exists in the object, put it in the end of the category
+	// for (const cat in sortedGroupedModules) {
+	// 	if (sortedGroupedModules[cat]["Info"]) {
+	// 		sortedGroupedModules[cat]["Info"] = sortedGroupedModules[cat]["Info"];
+	// 	}
+	// }
+	
 	groupedModules = sortedGroupedModules;
+
+	console.log(groupedModules);
 
 	let res = {groupedModules, recommendedProducts};
 

@@ -55,7 +55,7 @@
 				</svg>
 			</div>
 		{/if}
-		<div class={i % 2 !== 0 ? "px-4 md:px-8 dark:bg-main-300 bg-contrast-100" : "px-4 md:px-8"}>
+		<div class={i % 2 !== 0 ? "px-4 md:px-8 dark:bg-main-300 bg-contrast-100 flex flex-col" : "px-4 md:px-8 flex flex-col"}>
 			<div class="text-4xl tracking-tight w-fit px-1 cat {cat} mb-2" id={cat}>{cat}</div>
 			{#each Object.entries(contents) as [group, info]}
 				{#if group != "Info"}
