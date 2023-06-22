@@ -180,44 +180,26 @@ export function getModules(path: string) {
 		"Info",
 	]
 
-	// sort the groups in each category in groupedModules by their position in groupOrder
-	// for (const cat in sortedGroupedModules) {
-	// 	let sortedGroups: {[group: string]: Array<Module>} = {};
-	// 	for (const group of groupOrder) {
-	// 		if (sortedGroupedModules[cat][group]) {
-	// 			sortedGroups[group] = sortedGroupedModules[cat][group];
-	// 		}
-	// 	}
-	// 	sortedGroupedModules[cat] = sortedGroups;
-	// }
-	// the above but keep the groups that aren't in groupOrder at the end
 	for (const cat in sortedGroupedModules) {
 		let sortedGroups: {[group: string]: Array<Module>} = {};
-		for (const group in sortedGroupedModules[cat]) {
-			if (groupOrder.includes(group)) {
+		for (const group of groupOrder) {
+			if (sortedGroupedModules[cat][group]) {
 				sortedGroups[group] = sortedGroupedModules[cat][group];
 			}
 		}
 		for (const group in sortedGroupedModules[cat]) {
-			if (!groupOrder.includes(group)) {
+			if (!sortedGroups[group]) {
 				sortedGroups[group] = sortedGroupedModules[cat][group];
 			}
 		}
 		sortedGroupedModules[cat] = sortedGroups;
 	}
-
-	// // if the group called "Info" exists in the object, put it in the end of the category
-	// for (const cat in sortedGroupedModules) {
-	// 	if (sortedGroupedModules[cat]["Info"]) {
-	// 		sortedGroupedModules[cat]["Info"] = sortedGroupedModules[cat]["Info"];
-	// 	}
-	// }
 	
 	groupedModules = sortedGroupedModules;
 
-	console.log(groupedModules);
-
 	let res = {groupedModules, recommendedProducts};
+
+	// console.log(JSON.stringify(res.groupedModules.Cameras, null, 2));
 
 	return res;
 }

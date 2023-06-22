@@ -278,15 +278,6 @@
 	.product.red {@apply border-red} .product.green {@apply border-green} .product.orange {@apply border-orange} 
 	.product.cyan {@apply border-cyan} .product.blue {@apply border-blue} .product.violet {@apply border-violet}
 
-	.group.Gamepad {
-		@apply order-1
-	}
-	.group.Compact {
-		@apply order-2
-	}
-	.group.Full {
-		@apply order-3
-	}
 	.group.Info {
 		@apply order-last
 	}
