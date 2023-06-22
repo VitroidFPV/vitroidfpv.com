@@ -189,6 +189,17 @@ export let config = {
 				},
 				{ label: "Group", name: "group", widget: "text" },
 				{ label: "Order", name: "order", widget: "number" },
+				{
+					label: "Price Range",
+					name: "color",
+					widget: "select",
+					options: [
+						{ label: "Budget", value: "green" },
+						{ label: "Mid-Range", value: "orange" },
+						{ label: "High-End", value: "red" },
+						{ label: "Varied", value: "violet" }
+					]
+				},
 				{ label: "Title", name: "title", widget: "text" },
 				{ label: "Link", name: "link", widget: "text" },
 				{ label: "Image", name: "image", widget: "image" },
@@ -255,6 +266,17 @@ export let config = {
 				},
 				{ label: "Group", name: "group", widget: "text" },
 				{ label: "Order", name: "order", widget: "number" },
+				{
+					label: "Price Range",
+					name: "color",
+					widget: "select",
+					options: [
+						{ label: "Budget", value: "green" },
+						{ label: "Mid-Range", value: "orange" },
+						{ label: "High-End", value: "red" },
+						{ label: "Varied", value: "violet" }
+					]
+				},
 				{ label: "Title", name: "title", widget: "text" },
 				{ label: "Link", name: "link", widget: "text" },
 				{ label: "Image", name: "image", widget: "image" },
