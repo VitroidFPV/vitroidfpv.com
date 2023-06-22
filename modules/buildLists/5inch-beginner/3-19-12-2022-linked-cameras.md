@@ -10,5 +10,6 @@ text: Linked Parts
 linked:
   - Foxeer Razer
   - Caddx Ratel 2
+  - Runcam Phoenix 2
 price: /
 ---
