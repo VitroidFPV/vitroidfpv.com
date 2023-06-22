@@ -159,12 +159,12 @@ export function getModules(path: string) {
 		"Flight Controllers",
 		"ESCs",
 		"Video Transmitters",
-		"Radios",
-		"TX Modules",
-		"Receivers",
 		"Cameras",
 		"Goggles",
 		"Antennas",
+		"Radios",
+		"TX Modules",
+		"Receivers",
 	]
 
 	// sort the categories in groupedModules by their position in categoryOrder
