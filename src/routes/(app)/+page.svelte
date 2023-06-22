@@ -145,7 +145,7 @@
 						Your source for quick FPV info!
 					</h2>
 					<p class="text-xl leading-normal">
-						Heyo! I'm a 17y/o FPV pilot, Betaflight and Front-End developer<br /><br />
+						Heyo! I'm a 18y/o FPV pilot, Betaflight and Front-End developer<br /><br />
 						This site is my project to keep FPV info easily and more importantly quickly readable when
 						needed. It's constantly getting updated, so expect new stuff (and maybe some bugs) to be
 						added here and there.<br /> If you wish to contribute, you can go to the GitHub
