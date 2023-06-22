@@ -1,4 +1,5 @@
 publish_mode: editorial_workflow
+local_backend: true
 backend:
   name: git-gateway
   branch: main

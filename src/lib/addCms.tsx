@@ -1,13 +1,14 @@
 import React from "react";
 import { render } from "react-dom";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { config } from "/src/routes/(system)/admin/config.js"
 
 export async function addCms() {
 	// if (typeof window !== "undefined") return;
 
 	const { default: CMS } = await import("netlify-cms-app");
 
-	CMS.init();
+	CMS.init({config});
 	CMS.registerPreviewStyle("cms.css");
 	function PostPreview(props) {
 		const { entry } = props;
