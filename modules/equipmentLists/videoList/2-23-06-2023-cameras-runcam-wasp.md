@@ -3,7 +3,7 @@ category: Cameras
 group: DJI
 order: 2
 color: green
-title: RunCam Wasp
+title: Caddx Polar
 link: https://www.getfpv.com/caddx-polar-micro-camera.html
 image: https://cdn.getfpv.com/media/catalog/product/cache/3979b3fd908fbb12b31974edb6316b2e/c/a/caddx-polar-micro_camera-silver_1.jpg
 text: The only 720 60fps DJI camera on this list. Those specs aren't great
