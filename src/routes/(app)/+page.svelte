@@ -150,7 +150,7 @@
 						needed. It's constantly getting updated, so expect new stuff (and maybe some bugs) to be
 						added here and there.<br /> If you wish to contribute, you can go to the GitHub
 						<a href="https://github.com/VitroidFPV/VitroidFPV" class="underline hover:brightness-125 duration-300">here</a>
-						<!-- , and if you like what I do, you can donate <a href="https://www.patreon.com/VitroidFPV" class="underline hover:brightness-125 duration-300">here</a> -->
+						, and if you like what I do, you can support me <a href="/support" class="underline hover:brightness-125 duration-300">here</a>
 					</p>
 				</div>
 				<div class="absolute w-full h-full bg-grid-dark opacity-50" style="-webkit-mask-image: linear-gradient(transparent, black, transparent);"></div>

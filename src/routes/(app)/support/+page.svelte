@@ -113,6 +113,31 @@
 <div class="p-4 md:p-8 content-box md">
 	<div class="">
 		<div class="flex flex-col md:mb-16 mb-12 border-b-2 border-neutral-500/20 pb-16">
+			<h1 class="text-blue md:text-6xl text-5xl font-bold mb-4 md:self-end">Coffeine</h1>
+			<div class="flex flex-col md:flex-row-reverse">
+				<div class="md:w-2/3 mb-4">
+					<p>
+						Apart from Svelte, the development of this site is mostly powered by coffeine. If you like 
+						what I do and want to support me, you can 
+						<Link href="https://www.ko-fi.com/vitroid">buy me a coffee</Link> to help me keep this site up
+						and keep me awake (as I'm writing this it is well past 1am)
+					</p>
+				</div>
+				<div class="md:w-1/3 w-full grid grid-cols-3 grid-rows-1 text-neutral-500/30 md:mr-32">
+					<div class="rotate-[-23deg]">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="md:h-24 h-20 aspect-square">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+						</svg>
+					</div>
+					<div class="col-start-3 col-end-4 rotate-[23deg]">
+						<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke="currentColor" class="md:h-24 h-20 aspect-square">
+							<path d="M5.50549 3.81162L5.49796 3.80478L5.4903 3.79809C4.76209 3.16265 4 2.46548 4 1.125C4 1.05385 4.05385 1 4.125 1C4.19615 1 4.25 1.05385 4.25 1.125C4.25 1.69008 4.39127 2.16842 4.69741 2.61344C4.96238 2.99863 5.33732 3.33189 5.70076 3.6486L5.74451 3.68838L5.75204 3.69522L5.7597 3.70191C6.48791 4.33735 7.25 5.03452 7.25 6.375C7.25 6.44615 7.19615 6.5 7.125 6.5C7.05385 6.5 7 6.44615 7 6.375C7 5.80991 6.85873 5.33158 6.55259 4.88656C6.28761 4.50137 5.91268 4.1681 5.54924 3.8514L5.50549 3.81162ZM18 18.5H17V19.5C17 21.4321 15.4321 23 13.5 23H4.5C2.56791 23 1 21.4321 1 19.5V10.5C1 10.2226 1.2226 10 1.5 10H18.75C21.0993 10 23 11.9007 23 14.25C23 16.5993 21.0993 18.5 18.75 18.5H18ZM18 11H17V12V16.5V17.5H18H19.266C21.0605 17.5 22.516 16.0445 22.516 14.25C22.516 12.4555 21.0605 11 19.266 11H18ZM10.7555 3.81163L10.748 3.80478L10.7403 3.79809C10.0121 3.16265 9.25 2.46548 9.25 1.125C9.25 1.05385 9.30385 1 9.375 1C9.44615 1 9.5 1.05385 9.5 1.125C9.5 1.69009 9.64127 2.16842 9.94741 2.61344C10.2124 2.99863 10.5873 3.33189 10.9508 3.6486L10.9945 3.68837L11.002 3.69522L11.0097 3.70191C11.7379 4.33735 12.5 5.03452 12.5 6.375C12.5 6.44615 12.4462 6.5 12.375 6.5C12.3038 6.5 12.25 6.44615 12.25 6.375C12.25 5.80991 12.1087 5.33158 11.8026 4.88656C11.5376 4.50137 11.1627 4.1681 10.7992 3.8514L10.7555 3.81163Z"/>
+						</svg>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="flex flex-col md:mb-16 mb-12 border-b-2 border-neutral-500/20 pb-16">
 			<h1 class="text-blue md:text-6xl text-5xl font-bold mb-4">Share</h1>
 			<div class="flex md:flex-row flex-col">
 				<div class="md:w-1/2 mb-4">
