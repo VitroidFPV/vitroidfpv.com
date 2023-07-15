@@ -1,10 +1,43 @@
-<script>
+<script lang="ts">
+	import { onMount } from "svelte";
+	import { goto } from '$app/navigation';
 	export let svgClass = "";
 	export let pathClass = "";
+
+	let hovered = false;
+	let degrees = 0;
+
+	function animateRotation() {
+		if (hovered) {
+			degrees -= 7;
+			if (degrees >= 360) {
+				degrees = 0;
+			}
+		}
+		requestAnimationFrame(animateRotation);
+	}
+
+	let timer: ReturnType<typeof setTimeout>;
+	$: {
+		if (hovered) {
+			timer = setTimeout(() => {
+				// open link in new tab to https://www.youtube.com/watch?v=dQw4w9WgXcQ
+				goto("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+			}, 5000);
+		} else {
+			clearTimeout(timer);
+		}
+	}
+
+	// Start the animation when the component is mounted
+	onMount(() => {
+		animateRotation();
+	});
+		
 </script>
 
-<svg width="150" height="150" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="{svgClass} md:scale-150">
-	<path class="{pathClass}" fill-rule="evenodd" clip-rule="evenodd" d="M92.8079 95.1565C92.9816 94.8991 93.0481 94.5859 92.9687 
+<svg width="150" height="150" on:mouseenter={() => hovered = true} on:mouseleave={() => hovered = false} viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="{svgClass} md:scale-150">
+	<path class="{pathClass} origin-center will-change-transform" style="transform: rotate({degrees}deg)" fill-rule="evenodd" clip-rule="evenodd" d="M92.8079 95.1565C92.9816 94.8991 93.0481 94.5859 92.9687 
 	94.2857C83.8268 59.7442 94.1948 4.97097 99.6692 3.70844C105.241 2.42341 106.009 3.43176 106.009 6.9173C106.009 
 	7.74605 105.962 8.95909 105.902 10.5199V10.52C105.708 15.5238 105.375 24.1017 106.009 35.0506C106.566 44.6669 
 	107.308 48.1922 108.188 52.3745C108.622 54.4396 109.09 56.6648 109.587 59.8625C111.791 74.0627 110.482 80.6871 
@@ -20,21 +53,3 @@
 	114.777 58.2348 113.259 60.7559 111.231C71.9294 102.24 78.3176 100.052 91.5041 96.7802C91.8114 96.704 92.0661 
 	96.4841 92.205 96.1996C92.3822 95.837 92.5838 95.4886 92.8079 95.1565Z"/>
 </svg>
-
-<style>
-	.prop-svg:hover {
-		animation-name: spin;
-		animation-duration: 500ms;
-		animation-timing-function: ease-in-out;
-		animation-fill-mode: both;
-	}
-
-	@keyframes spin {
-		0% {
-		rotate: 0deg;
-		}
-		100% {
-		rotate: 360deg;
-		}
-	}
-</style>
