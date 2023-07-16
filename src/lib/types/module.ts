@@ -17,6 +17,7 @@ export interface Module {
 		point3?: string
 		point4?: string
 		point5?: string
+		info?: string
 		group: string
 		id: string
 		answer: string

@@ -1,6 +1,7 @@
 <script lang="ts">
 	// @ts-ignore
 	import Link from "$components/Link.svelte";
+	import Chip from "$components/Chip.svelte";
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { clickOutside } from '$lib/clickOut.js';
 	import { fade, fly } from "svelte/transition";
@@ -22,6 +23,7 @@
 	export let point3 = "";
 	export let point4 = "";
 	export let point5 = "";
+	export let info: string = "";
 	export let text: string;
 	export let href: string;
 	export let img: string;
@@ -38,13 +40,26 @@
 	function handleClickOutside() {
 		visible = false;
 	}
+
+	let infoObjects: { text: string; tooltip: string }[] = [];
+	if (info) {
+		const infoArray = info.split(";");
+		infoObjects = infoArray.map((item) => {
+			const split = item.split("<");
+			if (split.length === 1) {
+				return { text: split[0], tooltip: "" };
+			} else {
+				return { text: split[0], tooltip: split[1].slice(0, -1) };
+			}
+		});
+	}
 </script>
 
 <svelte:window on:keydown={esc}/>
 
 {#if visible}
 	<div in:fade={{duration: 300, delay: 0}} out:fade={{delay: 200}} class="fixed w-screen h-screen top-0 left-0 z-[60] backdrop-blur-sm flex items-center justify-center bg-black bg-opacity-80">
-		<div transition:fly={{duration: 300, y: 200, delay: 100}} class="md:h-3/4 h-min md:w-min w-3/4 aspect-square flex justify-center z-10 select-none" use:clickOutside on:click_outside={handleClickOutside}>
+		<div transition:fly={{duration: 300, y: 200, delay: 100}} class="md:h-3/4 h-min md:w-min w-3/4 aspect-square flex justify-center z-10 select-none" use:clickOutside on:clickOutside={handleClickOutside}>
 			<img class="select-none rounded-2xl object-contain" src="{img}" alt="">
 		</div>
 	</div>
@@ -74,14 +89,22 @@
 				</div>
 			</div>
 			{#if price !== undefined}
-				<div class="flex justify-between mt-3 mb-3 flex-wrap tracking-[0.01em]">
-					<div class="text-base text-main-100 dark:text-contrast-300 mr-2">{price}</div>
-					<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point1}</div>
-					<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point2}</div>
-					<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point3}</div>
-					<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point4}</div>
-					<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point5}</div>
-				</div>
+				{#if info === ""}
+					<div class="flex justify-between mt-3 mb-3 flex-wrap tracking-[0.01em]">
+						<div class="text-base text-main-100 dark:text-contrast-300 mr-2">{price}</div>
+						<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point1}</div>
+						<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point2}</div>
+						<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point3}</div>
+						<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point4}</div>
+						<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point5}</div>
+					</div>
+				{:else}
+					<div class="relative flex flex-wrap w-fit gap-2 chip-box">
+						{#each infoObjects as infoObject}
+							<Chip classes="text-sm" color={color} tooltip={infoObject.tooltip}>{infoObject.text}</Chip>
+						{/each}
+					</div>
+				{/if}
 			{/if}
 			{#if text !== undefined}
 				<div>{@html text}</div>

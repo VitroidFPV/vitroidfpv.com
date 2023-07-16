@@ -81,6 +81,7 @@
 										point3={product.metadata.point3}
 										point4={product.metadata.point4}
 										point5={product.metadata.point5}
+										info={product.metadata.info}
 										text={product.metadata.text}
 										href={product.metadata.link}
 										img={product.metadata.img}

@@ -1,6 +1,12 @@
 module.exports = {
 	darkMode: "class",
 	content: ["./src/**/*.{html,js,svelte,tsx}"],
+	safelist: [
+		{
+			pattern: /(bg|text)-(highlight|highlight-dark|pink|red|orange|yellow|green|cyan|blue|violet)/,
+			variants: ["dark", "group-first-of-type/tooltip", "dark:group-first-of-type/tooltip"]
+		}
+	],
 	theme: {
 		extend: {
 			fontFamily: {
