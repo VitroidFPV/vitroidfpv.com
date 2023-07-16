@@ -71,7 +71,7 @@
 							class="md:ml-3 grid 3xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8"
 						>
 							{#each info as product}
-								{#if product.metadata.visible}
+								{#if product.metadata.visible != false}
 									<BuildProduct
 										color={product.metadata.color}
 										title={product.metadata.title}

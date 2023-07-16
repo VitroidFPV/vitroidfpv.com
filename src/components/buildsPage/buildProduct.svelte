@@ -88,23 +88,21 @@
 					{/if}
 				</div>
 			</div>
-			{#if price !== undefined}
-				{#if info === ""}
-					<div class="flex justify-between mt-3 mb-3 flex-wrap tracking-[0.01em]">
-						<div class="text-base text-main-100 dark:text-contrast-300 mr-2">{price}</div>
-						<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point1}</div>
-						<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point2}</div>
-						<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point3}</div>
-						<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point4}</div>
-						<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point5}</div>
-					</div>
-				{:else}
-					<div class="relative flex flex-wrap w-fit gap-2 chip-box my-2">
-						{#each infoObjects as infoObject}
-							<Chip classes="text-sm" color={color} tooltip={infoObject.tooltip}>{infoObject.text}</Chip>
-						{/each}
-					</div>
-				{/if}
+			{#if info === ""}
+				<div class="flex justify-between mt-3 mb-3 flex-wrap tracking-[0.01em]">
+					<div class="text-base text-main-100 dark:text-contrast-300 mr-2">{price}</div>
+					<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point1}</div>
+					<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point2}</div>
+					<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point3}</div>
+					<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point4}</div>
+					<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point5}</div>
+				</div>
+			{:else}
+				<div class="relative flex flex-wrap w-fit gap-2 chip-box my-2">
+					{#each infoObjects as infoObject}
+						<Chip classes="text-sm" color={color} tooltip={infoObject.tooltip}>{infoObject.text}</Chip>
+					{/each}
+				</div>
 			{/if}
 			{#if text !== undefined}
 				<div>{@html text}</div>

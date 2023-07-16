@@ -9,8 +9,9 @@ img: https://cdn.shopify.com/s/files/1/0027/2708/4144/products/03_09bfb75f-c892-
 text: Coming with WiFi for wireless configuration from your phone, it's a great
   FC if you want quick access to your settings on the fly (lol), is PnP with
   DJI, and a ton of other cool features
-price: $58.99
-point1: "IO: 6 UARTs, I2C, BF/MB LED control, USB C"
-point2: "Regulators: 0.5A 3.3V, 3A 5v, 3A 9v"
-point3: "Weight: 9.0g"
+# price: $58.99
+# point1: "IO: 6 UARTs, I2C, BF/MB LED control, USB C"
+# point2: "Regulators: 0.5A 3.3V, 3A 5v, 3A 9v"
+# point3: "Weight: 9.0g"
+info: "$58.99;30x30;USB C;MPU6000<Gyro/Accelerometer>;6 UARTs;I2C;LED Control<Betaflight & Onboard>;3.3V 0.5A;5V 3A;9V 3A; 9.0g"
 ---

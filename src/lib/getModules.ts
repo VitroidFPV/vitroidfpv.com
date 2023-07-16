@@ -135,15 +135,15 @@ export function getModules(path: string) {
 	// if the "visible" key doesn't exist in each module, add it and set it to true
 	// if it does exist, leave it as the value it already has
 
-	for (const cat in groupedModules) {
-		for (const group in groupedModules[cat]) {
-			for (const product in groupedModules[cat][group]) {
-				if (!groupedModules[cat][group][product].metadata.visible) {
-					groupedModules[cat][group][product].metadata.visible = true;
-				}
-			}
-		}
-	}
+	// for (const cat in groupedModules) {
+	// 	for (const group in groupedModules[cat]) {
+	// 		for (const product in groupedModules[cat][group]) {
+	// 			if (!groupedModules[cat][group][product].metadata.visible) {
+	// 				groupedModules[cat][group][product].metadata.visible = true;
+	// 			}
+	// 		}
+	// 	}
+	// }
 
 	let categoryOrder = [
 		"Motors",

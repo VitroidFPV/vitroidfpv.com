@@ -1,7 +1,7 @@
 ---
 category: Frames
 color: red
-visible: true
+visible: false
 order: 5
 title: IFlight Titan DC5
 link: https://shop.iflight-rc.com/titan-dc5-v1-4-hd-frame-pro1074

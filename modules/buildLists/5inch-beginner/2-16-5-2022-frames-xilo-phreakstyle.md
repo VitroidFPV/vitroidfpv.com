@@ -9,9 +9,10 @@ img: https://cdn.getfpv.com/media/catalog/product/cache/b4872d6d0ceb3d2181c291dd
 text: A good all round frame for a pretty good price, part of a build kit that
   Joshua Bardwell has a full video series on, so  you can get an idea of how to
   lay it out
-price: $39.99
-point1: "Wheelbase: 218mm"
-point2: "Weight: 121g"
-point3: "Arms: 4mm"
-point4: "Bottom/Top/Mid: 2.5mm"
+# price: $39.99
+# point1: "Wheelbase: 218mm"
+# point2: "Weight: 121g"
+# point3: "Arms: 4mm"
+# point4: "Bottom/Top/Mid: 2.5mm"
+info: "$39.99;218mm<Wheelbase>;121g;4mm Arms;2.5mm Plates<Bottom/Top/Mid>;21mm Cams;30x30/20x20 Stacks;30x30/20x20 VTXs"
 ---

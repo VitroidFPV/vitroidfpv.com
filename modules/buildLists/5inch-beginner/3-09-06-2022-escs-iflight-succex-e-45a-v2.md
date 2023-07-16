@@ -9,8 +9,9 @@ img: https://i.ebayimg.com/images/g/vjsAAOSwUhFiqumR/s-l1600.jpg
 text: A newer version of the Succex, with the motor pads angled out towards the
   arms for easier wire routing. The integrated capacitor removes the necessity
   for an extra one, but it can make it hard to mount in certain builds
-price: $55.99
-point1: "Nominal Current: 45A"
-point2: "Peak Current: 55A"
-point3: "Firmware: BLHeli_S"
+# price: $55.99
+# point1: "Nominal Current: 45A"
+# point2: "Peak Current: 55A"
+# point3: "Firmware: BLHeli_S"
+info: "$55.99;45A Nominal;55A Peak;BLHeli_S;30x30"
 ---

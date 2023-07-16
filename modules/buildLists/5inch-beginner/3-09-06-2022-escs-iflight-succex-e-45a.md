@@ -9,8 +9,9 @@ img: https://imgaz1.staticbg.com/thumb/large/oaupload/banggood/images/3D/96/6062
 text: It's a good ESC, for a reasonable price, now sadly less and less
   available. I've been flying one in my basher quad for a while, and it's done
   well so far. More traditional layout, easy to fit in most builds
-price: $39.99
-point1: "Nominal Current: 45A"
-point2: "Peak Current: 45A"
-point3: "Firmware: BLHeli_S"
+# price: $39.99
+# point1: "Nominal Current: 45A"
+# point2: "Peak Current: 45A"
+# point3: "Firmware: BLHeli_S"
+info: "$39.99;45A Nominal;45A Peak;BLHeli_S;30x30"
 ---

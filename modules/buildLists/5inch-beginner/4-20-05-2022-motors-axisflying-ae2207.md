@@ -9,8 +9,9 @@ img: https://images.51microshop.com/14152/product/20221012/Axisflying_brushless_
 text: Axis is relatively new on the fpv market, but since they split from T
   Motor they have all the capability to make motors of similar quality, these
   are not an exception
-price: $15.90
-point1: "Size: 2207"
-point2: "Weight: 32.1g"
-point3: "KV: 1850/1960"
+# price: $15.90
+# point1: "Size: 2207"
+# point2: "Weight: 32.1g"
+# point3: "KV: 1850/1960"
+info: "$15.90;2207<Stator size>;1850/1960KV;32.1g"
 ---

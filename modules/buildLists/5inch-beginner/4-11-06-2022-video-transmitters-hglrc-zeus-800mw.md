@@ -9,7 +9,8 @@ img: https://cdn.shopify.com/s/files/1/2672/8290/products/hglrc-zeus-800mw-smart
 text: HGLRC's new line of VTXs is quite good. You have an option to mount it on
   both 30x and 20x stacks, the quality is pretty nice, and it won't break the
   bank
-price: $29.99
-point1: "Output Power: 800mW"
-point2: "Connector: MMCX"
+# price: $29.99
+# point1: "Output Power: 800mW"
+# point2: "Connector: MMCX"
+info: "$29.99;800mW;MMCX;20x20/30x30"
 ---

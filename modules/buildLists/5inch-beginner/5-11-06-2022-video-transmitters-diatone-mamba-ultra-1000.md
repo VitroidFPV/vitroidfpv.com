@@ -9,7 +9,8 @@ img: https://cdn.shopify.com/s/files/1/0027/2708/4144/products/1000X1000_2_3d1da
 text: "\"Ultra 1000\" is a pretty funny name for a VTX, but it lives up to it.
   If you want more range and don't want to spend more on a better VTX, it will
   do the job. Not the best quality, but it gets you extra range"
-price: $29.99
-point1: "Output Power: 1000mW"
-point2: "Connector: MMCX"
+# price: $29.99
+# point1: "Output Power: 1000mW"
+# point2: "Connector: MMCX"
+info: "$29.99;1000mW;MMCX;30x30"
 ---

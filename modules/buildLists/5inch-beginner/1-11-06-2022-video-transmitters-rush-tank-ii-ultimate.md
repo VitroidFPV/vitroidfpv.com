@@ -9,7 +9,8 @@ img: https://cdn.shopify.com/s/files/1/1285/4651/products/f2023c5e-e7a5-44f2-a66
 text: Rush makes really good VTXs, and this is their newest one. 30x30 mounting
   holes for direct installation on the flight stack, and excellent video output
   quality
-price: $36.99
-point1: "Output Power: 800mW"
-point2: "Connector: MMCX"
+# price: $36.99
+# point1: "Output Power: 800mW"
+# point2: "Connector: MMCX"
+info: "$36.99;30x30;MMCX;800mW"
 ---

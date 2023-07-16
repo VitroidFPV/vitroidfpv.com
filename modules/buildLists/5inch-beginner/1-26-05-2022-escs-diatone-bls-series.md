@@ -9,8 +9,9 @@ img: https://cdn.shopify.com/s/files/1/0027/2708/4144/products/F50_BLS_8_9a72340
 text: Diatone's more budget line of ESCs running BLHeli_S firmware. They have
   recently simplified their ESC lines so that the only real difference between
   the BLS and 128K lines is the current rating
-price: $39.99/40.99
-point1: "Nominal Current: 40A/50A"
-point2: "Peak Current: 50A/60A"
-point3: ""
+# price: $39.99/40.99
+# point1: "Nominal Current: 40A/50A"
+# point2: "Peak Current: 50A/60A"
+# point3: ""
+info: "$39.99/40.99;40A/50A Nominal;50A/60A Peak;BLHeli_S;30x30"
 ---

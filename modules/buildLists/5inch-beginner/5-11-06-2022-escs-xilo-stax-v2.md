@@ -9,8 +9,9 @@ img: https://cdn.getfpv.com/media/catalog/product/cache/3979b3fd908fbb12b31974ed
 text: As said for the STAX FC, my main reason for including it is JB's tutorial
   series, where he goes over all you need to set up, and it's ready to go with
   the FC. Overall a good ESC as well
-price: $54
-point1: "Nominal Current: 45A"
-point2: "Peak Current: 55A"
-point3: "Firmware: BLHeli_32"
+# price: $54
+# point1: "Nominal Current: 45A"
+# point2: "Peak Current: 55A"
+# point3: "Firmware: BLHeli_32"
+info: "$54;45A Nominal;55A Peak;BLHeli_32;30x30"
 ---
