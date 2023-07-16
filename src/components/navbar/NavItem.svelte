@@ -23,6 +23,7 @@
 	<div class="nav-content md:py-4 py-2 px-2 md:pr-4 md:mb-0 md:rounded-l-full rounded-tl-none rounded-b-full md:rounded-br-none w-full">
 		<a
 			{href}
+			data-sveltekit-preload-data="hover"
 			class="flex md:hover:translate-x-1 nav-link duration-300 md:text-lg text-[0px] w-full md:justify-start justify-center"
 		>
 			<slot />

@@ -27,7 +27,7 @@
 		</div>
 	</div>
 	<div class="top-20 relative self-start pl-3">
-		<Link {color} color1="inherit" {href} size="3">{title}</Link>
+		<Link preload {color} color1="inherit" {href} size="3">{title}</Link>
 		<div class="text-[19px] mt-4">
 			<ul class="list-disc list-inside h-0 invisible group-hover:visible">
 				<!-- <li class="text-transparent group-hover:text-main-200 dark:group-hover:text-contrast-100 duration-300 delay-[100ms]">{point1}</li>
