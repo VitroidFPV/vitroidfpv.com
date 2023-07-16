@@ -76,13 +76,13 @@
 				</div>
 				<!-- #each block for $compareArray that updates with the array, and contains a SizeComparison {size} element -->
 				<!-- {#each $compareArray as size}
-					<div transition:slide|local>
+					<div transition:slide>
 						<SizeComparison {size}/>
 					</div>
 				{/each} -->
 				{#each $parts[url] as part}
 					<!-- {#key $parts[url]} -->
-					<div transition:slide|local>
+					<div transition:slide>
 						<PriceComparison title={part.title} {url} color={part.color} price={part.price} href={part.href}, quantity={part.quantity}/>
 					</div>
 					<!-- {/key} -->
