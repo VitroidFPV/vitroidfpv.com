@@ -99,7 +99,7 @@
 						<div class="text-base text-main-50 dark:text-contrast-500 mr-2">{point5}</div>
 					</div>
 				{:else}
-					<div class="relative flex flex-wrap w-fit gap-2 chip-box">
+					<div class="relative flex flex-wrap w-fit gap-2 chip-box my-2">
 						{#each infoObjects as infoObject}
 							<Chip classes="text-sm" color={color} tooltip={infoObject.tooltip}>{infoObject.text}</Chip>
 						{/each}
