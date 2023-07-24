@@ -25,32 +25,32 @@ There are quite a lot of things that are important to know before even looking a
 ## FPV is expensive
 
 
-I feel like this is the most important thing to get out of the way. Having unrealistic price expectations that are then hard/impossible to achieve is the fastest way to get turned away. All the different prices are explained in the FAQ, but the main point is: 
+I feel like this is the most important thing to get out of the way. Having unrealistic price expectations that are then hard/impossible to achieve is the fastest way to get turned away. All the different prices are explained in the FAQ, but the main point is:
 
 
-The minimal upfront cost to get a quad and all the equipment needed to get it in the air is about $300, and another $300 if you want to have something that will carry a full-size action camera like a GoPro. It could be cheaper, but most things that will take the price lower than that are usually not worth buying 
+The minimal upfront cost to get a quad and all the equipment needed to get it in the air is about $300, and another $300 if you want to have something that will carry a full-size action camera like a GoPro. It could be cheaper, but most things that will take the price lower than that are usually not worth buying
 
 </Admonition>
 
 ## Do your research
 
 
-As is with buying a car, a PC, a phone, or any other electronic device, you should know what you're buying, and what the basic names and terms mean. 
+As is with buying a car, a PC, a phone, or any other electronic device, you should know what you're buying, and what the basic names and terms mean.
 
 
-Watch build guides (ideally not ones that are over 2 years old if you're looking for parts recommendations as well), setup tutorials, and reviews to get an idea of what you need/want to buy. 
+Watch build guides (ideally not ones that are over 2 years old if you're looking for parts recommendations as well), setup tutorials, and reviews to get an idea of what you need/want to buy.
 
 
 I go into more detail about this a little further down, but you should also get at least 10h of sim time to see what kind of flight style you may prefer, to practice before flying in real life, and to see if FPV is even something you'd enjoy
 
 
-If you're unsure about your findings, don't know what something means, or just want opinions, it's fine to ask. That leads us to... 
+If you're unsure about your findings, don't know what something means, or just want opinions, it's fine to ask. That leads us to...
 
 
 ## Asking for help
 
 
-A good rule of thumb is that if it can't be found on Google in less than a minute, it's probably something worth asking others. There are many places where you can get help, be it forums, Reddit communities (r/fpv, r/multicopter), or Discord servers ([Mr Steele](https://discord.gg/fpv), [Drone Community](https://discord.gg/drones)). Before you ask, there are a few things that you should know: 
+A good rule of thumb is that if it can't be found on Google in less than a minute, it's probably something worth asking others. There are many places where you can get help, be it forums, Reddit communities (r/fpv, r/multicopter), or Discord servers ([Mr Steele](https://discord.gg/fpv), [Drone Community](https://discord.gg/drones)). Before you ask, there are a few things that you should know:
 
 
 1. Ask in the appropriate way and/or place - most forums/discord servers have dedicated places for specific questions. Putting your questions in the appropriate place will go a long way for the people that help out others
@@ -76,7 +76,7 @@ Before you go invest your time, effort, and money into the hobby, making educate
 ## Stuff to stay away from
 
 
-Sadly there are many manufacturers that make less-than-desirable, or even outright dangerous products. This is often hard to spot as a beginner. I will list some manufacturers/products below that shouldn't be considered unless specifically said otherwise: 
+Sadly there are many manufacturers that make less-than-desirable, or even outright dangerous products. This is often hard to spot as a beginner. I will list some manufacturers/products below that shouldn't be considered unless specifically said otherwise:
 
 
 * Eachine - with the exception of the EV800D goggles and some products that they only re-brand, most of their products are low in quality at best. Namely the EV100 goggles, and the Wizzard/Tyro series drones, which are unfortunately still the among the highest on banggood. The EV100 tend to overheat and go out of RF calibration, sometimes even melting the plastics and starting to burn. The Wizard/Tyro quads are often unreliable at best, the electronics are known to just stop working or even catch fire out of nowhere
@@ -174,7 +174,7 @@ You can find some recommendations for different price points below. They may int
 
 Some of the most basic things to get you started. Tinywhoops or toothpicks, and an inexpensive radio and goggles. You can get a lot of fun out of these, and they're a great way to get into the hobby
 
-1. Radios: 
+1. Radios:
 	* [Radiomaster TX12 MK II](https://www.getfpv.com/radiomaster-tx12-mkii-2-4ghz-16ch-radio-transmitter-w-hall-gimbals-elrs.html) ($99.99) - A great compact radio with a lot of things that are possible to upgrade in the future
 	* [Radiomaster Zorro](https://www.getfpv.com/radiomaster-zorro-radio-controller-elrs.html) ($129.99) - Similar in features to the TX12, but has a game controller style layout, so it's a bit more ergonomic if you're used to that
 2. Goggles:
@@ -186,7 +186,7 @@ Some of the most basic things to get you started. Tinywhoops or toothpicks, and 
 	* [DarwinFPV Babyape Pro V2](https://www.racedayquads.com/products/darwinfpv-baby-ape-pro-v2-3-quad-choose-version?keyword=darwindpv%20bab) ($111.99) - If you're after something more durable and/or faster, it's not a bad option. It runs on 3s, so you will need a proper charger for it, unlike the other two that can use a simple 1s one
 
 4. Chargers:
-	* [ViFly Whoopstor V2](https://www.getfpv.com/vifly-whoopstor-v2-6-port-1s-battery-charger-and-discharger-lihv-lipo.html) ($29.99) - Pretty much the best 1s charger you can get. Unlike with most 1s options, it comes with both PH2.0 and BT2.0 connectors, a discharge/storage option, an OLED display for voltage readout, and being able to power it from USB C
+	* [ViFly Whoopstor V3](https://www.getfpv.com/vifly-whoopstor-v3-6-port-1s-battery-charger-and-discharger-lihv-lipo.html) ($32.99) - Pretty much the best 1s charger you can get. Unlike with most 1s options, it comes with both PH2.0 and BT2.0 connectors, a discharge/storage option, an OLED display for voltage readout, and being able to power it from USB C
 	* [ToolkitRC M4AC](https://www.getfpv.com/toolkitrc-m4ac-30w-2-5a-compact-ac-balance-charger-xt30.html) ($29.99) - A decently cheap 4s charger that can be plugged straight into the wall and charge up your micro batteries, comes in both XT30 and XT60 options
 	* [ToolkitRC M7](https://www.getfpv.com/toolkitrc-m7-200w-10a-2-6s-multifunctional-balance-charger.html) ($39.99) - IMO the best way to go without spending too much. An all-round good charger, with a lot of neat features as well. Kep in mind that you will need a [PSU](https://www.getfpv.com/toolkitrc-adp100-100w-20-0v-5a-power-supply-unit-w-xt60-output.html) for it as well
 
@@ -230,7 +230,7 @@ Starting to get into more expensive options, you start to see more performant qu
 
 	* HGLRC Petrel 120X 4s: 4s 450mAh - 750mAh
 	* Happymodel Crux35: 4s 750mAh - 1000mAh
-	
+
 	Ideally 75C or higher
 
 </Tab>
@@ -266,7 +266,7 @@ Now going firmly into the 5" analog quad setups, you'll find a range of radios g
 	Just as a general rule of thumb, you should get at least 2 batteries for each quad, and ideally even more. I'd recommend batteries from GNB or CNHL
 
 	* Any of the 5" quads - 6S 1100mAh - 1500mAh, at least 75C
-	
+
 </Tab>
 </Tablist>
 
