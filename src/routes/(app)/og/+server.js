@@ -37,7 +37,7 @@ function setTemplate(title, description, category, img) {
 	<div style="display: flex; flex-direction: column; justify-content: flex-end; width: ${width}; height: ${height}; background-color: #000; color: #fff;">>
 		<div tw="relative flex flex-col w-full">
 			<div tw="bg-red-500 absolute flex"></div>
-			<img src="${img}" alt="" tw="absolute -bottom-36 object-cover w-full" width="${width}"/>
+			<img src="${img}" alt="" tw="absolute -bottom-24 object-cover w-full" width="${width}"/>
 		</div>
 		<svg tw="h-24 max-w-full m-0 flex" id="visual" viewBox="0 0 2400 300" width="100%" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 		<path d="M0 63L57.2 72.2C114.3 81.3 228.7 99.7 343 104.7C457.3 109.7 571.7 101.3 686 106C800.3 110.7 914.7 128.3 1028.8 132.3C1143 136.3 1257 126.7 1371.2 112.2C1485.3 97.7 1599.7 78.3 1714 77.3C1828.3 76.3 1942.7 93.7 2057 94.7C2171.3 95.7 2285.7 80.3 2342.8 72.7L2400 65L2400 301L2342.8 301C2285.7 301 2171.3 301 2057 301C1942.7 301 1828.3 301 1714 301C1599.7 301 1485.3 301 1371.2 301C1257 301 1143 301 1028.8 301C914.7 301 800.3 301 686 301C571.7 301 457.3 301 343 301C228.7 301 114.3 301 57.2 301L0 301Z" fill="${categoryColor[0]}"/>
