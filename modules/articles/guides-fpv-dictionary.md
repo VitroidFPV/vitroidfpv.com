@@ -73,6 +73,12 @@ Lithium Ion - Similar to [LiPo](#lipo) batteries, with a higher capacity, but lo
 * ###### Bando:
 An abandoned building that is used as a flying spot
 
+* ###### CC3D:
+CopterControl 3D - An old flight controller that was used in the early days of the hobby. It's not used anymore, and is only mentioned here for historical purposes
+
+* ###### KK:
+Old flight controllers that were configured using an LCD screen and buttons. Again, mostly just a historical mention
+
 * ###### Mode 1/2/3/4:
 Unlike the modes listed above, these are used to describe the stick layout on a radio
 
@@ -435,7 +441,7 @@ Battery Eliminator Circuit - A voltage regulator that takes the battery voltage,
 (Metal-Oxide-Semiconductor) Field-Effect Transistor - A transistor that is used to switch the current to the motor phases on and off
 
 # Software
-Programs, applications and protocols used in the hobby
+Programs, applications, protocols, and software terms used in the hobby
 
 * ###### SW:
 Short for software
@@ -443,13 +449,49 @@ Short for software
 * ###### FW:
 Short for firmware
 
+* ###### PID:
+Proportional-Integral-Derivative - A control loop that is used to control the craft. It takes the error between the desired and actual position of the craft, and outputs a value that is used to correct the error
+
+* ###### Bootloader:
+A small program stored on the flight controller that is used to flash new firmware to the flight controller
+
+* ###### DFU:
+Device Firmware Upgrade - A process of flashing new firmware to a device. It's usually activated by holding down a button on the flight controller, or by sending `bl` into the [CLI](#cli) of most firmwares
+
+* ###### CLI:
+Command Line Interface - A way to send commands to the flight controller, can be used to completely configure the craft without using grahpical interfaces. It's usually accessed through the configurator, but can also be accessed through a serial terminal like PuTTY
+
+* ###### Diff:
+An output from the `diff all` command that contains all the settings of the flight controller that are changed from the default values. It's used to share settings between people, or to save your settings for later use (between firmware flashes for example)
+
+* ###### Dump:
+An output from the CLI command `dump` that contains all the settings of the flight controller, regardless of whether they are changed from the default values. Given a completely empty MCU-level target, a dump can be used to completely configure the flight controller into a functional state
+
 ## Firmware
+
+* ###### MultiWii:
+The original flight controller firmware, literally using [gyroscopes](#gyro) from the Nintendo Wii controllers on Arduino boards. It's nowhere near modern standards, and should not be used. But it can be interesting to play around with
+
+* ###### Baseflight:
+A Port of MultiWii to 32-bit MCUs. Very similar situation as with MultiWii
+
+* ###### Cleanflight:
+Due to some disagreements in the Baseflight development, Cleanflight was forked from Baseflight and was the norm for a while. Yet now it has met the same fate as the previous firmwares
 
 * ###### Betaflight:
 The most popular flight controller firmware. It's open-source, and is used on most flight controllers. It's highly configurable, and has a lot of features for high-performance flight
 
 * ###### INav:
 A flight controller firmware based on Betaflight, but with a focus on long-range/autonomous flight (and not only for multirotors). It has a lot of features for GPS navigation and offers better support for planes and wings
+
+* ###### Emuflight:
+A flight controller firmware based on Betaflight, but with a focus on freestyle flight. Nowadays I'd recommend just using Betaflight, as it has improved a lot in that regard
+
+* ###### Butterflight:
+A fork of Betaflight which re-introduced some filtering features that were removed from Betaflight. It's not developed anymore
+
+* ###### OpenPilot/LibrePilot:
+Projects entirely separate from the "xflight" firmwares, with a focus on ease of use and user experience. LibrePilot followed OpenPilot, but is now no longer developed
 
 * ###### Ardupilot:
 Autopilot firmware that is used on a lot of different platforms - multirotors, planes, boats, rovers, and more. It's open-source, and has a lot of features for autonomous movement and navigation
