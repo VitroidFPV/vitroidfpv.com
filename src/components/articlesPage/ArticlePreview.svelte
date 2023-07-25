@@ -35,7 +35,7 @@
 	<link rel="preload" href={img} as="image" />
 </svelte:head>
 
-<div class="article-card flex flex-col md:aspect-[3.5/2] aspect-[2/3] {category} rounded-[18px] duration-300 w-full">
+<div class="article-card flex flex-col md:aspect-[3.5/2] aspect-[2/3] {category} rounded-[18px] duration-300 w-full h-full">
 	<a href={href} class="flex flex-col w-full h-full">
 	<div class="relative flex items-end h-full w-full group overflow-hidden rounded-2xl">
 			<div class="flex flex-col z-20 pb-4 pl-4 text-contrast-50 origin-bottom-left">

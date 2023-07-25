@@ -3,6 +3,7 @@
 	import MainHeader from "$components/MainHeader.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
 	import ArticlePreview from "$components/articlesPage/ArticlePreview.svelte";
+	import { slide } from "svelte/transition";
 
 	const modules = import.meta.glob("/modules/articles/*.md", {eager: true});
 	// console.log(JSON.stringify(modules, null, 2));
@@ -33,6 +34,21 @@
 	date_sorted_modules.sort((a, b) => {
 		return new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime();
 	});
+
+	const categories = [
+		{name: "News", color: "red"},
+		{name: "Reviews", color: "yellow"},
+		{name: "Guides", color: "green"},
+		{name: "Tutorials", color: "cyan"},
+		{name: "Misc", color: "violet"},
+	]
+
+	let selectedCategories = ["News"] 
+
+	$: console.log(selectedCategories)
+
+	let selectedModules = date_sorted_modules.filter(module => selectedCategories.includes(module.metadata.category))
+	$: selectedModules = date_sorted_modules.filter(module => selectedCategories.includes(module.metadata.category))
 
 	// console.log("/articles/" + date_sorted_modules[0].metadata.category.toLowerCase() + "-" + date_sorted_modules[0].metadata.title.toLowerCase().replace(/[^a-zA-Z0-9]/g, "-").replace("---", "-"));
 	// let postedDate = new Date(slugModule.metadata.date)
@@ -115,23 +131,51 @@
 </div>
 
 <div class="p-4 md:p-8 content-box">
-	<!-- <MainHeader>{titleRaw}</MainHeader>
-	<Header title="Totally not a blog™" />
-
-	<Paragraph>{description}<br>
-		Pretty much anything that wouldn't go into the FAQ for being too long, into the builds for not fitting the format, news about anything FPV, or anything else that I feel like writing about
-	</Paragraph> -->
-
-	<div class="flex flex-col">
+	<div class="flex flex-col w-full">
 		<div class="Category my-8 w-full h-fit">
 			<div
-				class="text-4xl tracking-tight md:w-fit f-full px-1 md:ml-0 ml-2 cat Category mb-2 text-center"
+				class="text-4xl tracking-tight md:w-fit f-full px-1 md:ml-0 ml-2 cat Category mb-4 text-center"
 				id=Category>
 				Newest
 			</div>
 			<div class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full">
 
-				{#each date_sorted_modules as module}
+				{#each date_sorted_modules.slice(0, 3) as module}
+					{#if module.metadata.visible}
+						<ArticlePreview
+							title={module.metadata.title}
+							description={module.metadata.description}
+							img={module.metadata.img}
+							category={module.metadata.category}
+							date={module.metadata.date}
+							href={"/articles/" + module.metadata.category.toLowerCase() + "-" + module.metadata.title.toLowerCase().replace(`'`, ``).replace(/[^a-zA-Z0-9]/g, "-").replace("---", "-")}
+						/>
+					{/if}
+				{/each}
+			</div>
+		</div>
+		<div class="Category my-8 w-full h-fit">
+			<div
+				class="text-4xl tracking-tight md:w-fit f-full px-1 md:ml-0 ml-2 cat Category mb-4 text-center"
+				id=Category>
+				Categories
+			</div>
+			<div class="flex gap-4 pl-2 mb-4 flex-wrap">
+				<!-- <input type="radio" name="category" id="category"> -->
+				{#each categories as category, i}
+					<div class="flex items-center justify-center group">
+						<input type="checkbox" value={category.name} bind:group={selectedCategories} checked={i == 0} name="category" id={category.name} class="hidden peer" required>
+						<label for={category.name} class="flex items-center cursor-pointer ring-2 ring-current px-2 py-1 rounded-full stroke-main-200 dark:stroke-contrast-50 peer-checked:text-{category.color} peer-checked:stroke-{category.color} peer-checked:bg-{category.color}/20 group-hover:text-{category.color} group-hover:stroke-{category.color} duration-300">
+							{category.name}
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="4" class="w-4 h-4 ml-2 transition-transform" class:rotate-45={selectedCategories.includes(category.name)}>
+								<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+							</svg>
+						</label>
+					</div>
+				{/each}
+			</div>
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full">
+				{#each selectedModules as module}
 					{#if module.metadata.visible}
 						<ArticlePreview
 							title={module.metadata.title}
