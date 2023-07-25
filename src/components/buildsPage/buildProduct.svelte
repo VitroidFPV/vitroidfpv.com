@@ -5,7 +5,7 @@
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { clickOutside } from '$lib/clickOut.js';
 	import { fade, fly } from "svelte/transition";
-	import { parts } from "$components/buildsPage/stores"
+	import { parts } from "$lib/stores/buildsStore";
 	import type { Module } from "$lib/types/module";
 	import { addPart } from "$lib/addPart";
 	import { page } from "$app/stores";

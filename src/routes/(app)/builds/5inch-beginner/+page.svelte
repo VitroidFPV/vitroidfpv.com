@@ -39,7 +39,6 @@
 	let feedback = ""
 	let pilotName = ""
 
-	// import { priceSum, part } from "$components/buildsPage/stores.js"
 	import { slide } from "svelte/transition";
 
 	let prefix = "Builds";

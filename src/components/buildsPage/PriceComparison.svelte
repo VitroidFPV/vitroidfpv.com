@@ -7,7 +7,7 @@
 	export let quantity: number;
 	import { slide } from "svelte/transition"
 
-	import { parts } from "$components/buildsPage/stores";
+	import { parts } from "$lib/stores/buildsStore";
 	import Link from "$components/Link.svelte";
 
 

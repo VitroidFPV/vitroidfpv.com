@@ -1,7 +1,7 @@
 <script lang="ts">
 	export let size: string
 
-	import { compareArray } from "$routes/(app)/tools/stores"
+	import { compareArray } from "$lib/stores/toolsStore"
 
 	function calculateVolume(size: string) {
 		let sizeP = size.replace(",", ".");

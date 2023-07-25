@@ -2,7 +2,7 @@
 	import MainHeader from "$components/MainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
-	import { compareArray } from "./stores";
+	import { compareArray } from "$lib/stores/toolsStore";
 	import { slide } from "svelte/transition";
 
 	import domtoimage from "dom-to-image";

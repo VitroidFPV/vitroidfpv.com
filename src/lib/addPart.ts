@@ -1,4 +1,4 @@
-import { parts } from "$components/buildsPage/stores";
+import { parts } from "$lib/stores/buildsStore";
 
 interface Part {
 	title: string;

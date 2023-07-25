@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { parts } from "$components/buildsPage/stores";
+	import { parts } from "$lib/stores/buildsStore";
 	import { copyCompare } from "$lib/copyCompare";
 	import { expand } from "$lib/transition"
 	import { page } from "$app/stores";
