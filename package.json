@@ -44,7 +44,7 @@
     "@ethercorps/sveltekit-og": "^0.1.7",
     "@ffmpeg/core": "^0.11.0",
     "@ffmpeg/ffmpeg": "^0.11.6",
-    "@macfja/svelte-persistent-store": "=1.2.0",
+    "@macfja/svelte-persistent-store": "^2.3.2",
     "@resvg/resvg-js": "^2.1.0",
     "@sveltejs/adapter-netlify": "^2.0.5",
     "@types/netlify-identity-widget": "^1.9.3",
