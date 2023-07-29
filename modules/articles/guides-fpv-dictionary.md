@@ -80,7 +80,7 @@ CopterControl 3D - An old flight controller that was used in the early days of t
 Old flight controllers that were configured using an LCD screen and buttons. Again, mostly just a historical mention
 
 * ###### Mode 1/2/3/4:
-Unlike the modes listed above, these are used to describe the stick layout on a radio
+Unlike the modes listed below, these are used to describe the stick layout on a radio
 
 ## Flight Modes
 Toggleable modes in flight controller firmware that change the behavior of the drone in one way or another
