@@ -379,6 +379,7 @@
 	.md hr {@apply border-t-2 border-gray-500/50 my-2}
 	.md p {@apply my-4}
 	.md .grid-item p {@apply my-0}
+	.md .grid img {@apply w-full h-full}
 	.md p:first-of-type {@apply my-0}
 	.md li p {@apply my-0}
 	.md blockquote {@apply border-l-4 border-gray-500/50 p-2 ml-6 my-2 bg-neutral-500/10 w-fit rounded-lg}
@@ -390,7 +391,7 @@
 	.md pre {@apply whitespace-pre-line}
 	.md pre code {@apply block}
 	.md br+code {@apply block}
-	.md img {@apply rounded-md shadow-2xl my-8 h-auto origin-left md:w-3/5 w-full}
+	.md img {@apply rounded-md shadow-lg my-8 h-auto origin-left md:w-3/5 w-full}
 
 	.md .img-grid img {@apply w-full}
 }

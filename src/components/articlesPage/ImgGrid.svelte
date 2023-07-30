@@ -19,6 +19,6 @@
 	}
 </script>
 
-<div class="grid {classes} gap-8 img-grid">
+<div class="grid {classes} gap-4 img-grid items-center justify-center">
 	<slot />
 </div>
