@@ -12,7 +12,7 @@
     "article": "node ./src/lib/articleWizard.js"
   },
   "devDependencies": {
-    "@rgossiaux/svelte-headlessui": "^1.0.2",
+    "@rgossiaux/svelte-headlessui": "^2.0.0",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/adapter-static": "^1.0.0-next.34",
     "@sveltejs/kit": "^1.20.4",
@@ -31,7 +31,7 @@
     "postcss": "^8.4.12",
     "prettier": "^2.5.1",
     "prettier-plugin-svelte": "^2.10.1",
-    "svelte": "^4.1.1",
+    "svelte": "^4.1.2",
     "svelte-check": "^3.4.3",
     "svelte-preprocess": "^5.0.3",
     "sveltekit-search-params": "^1.0.7",
