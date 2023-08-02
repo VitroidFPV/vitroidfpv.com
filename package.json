@@ -39,6 +39,11 @@
     "typescript": "^5.0.0",
     "vite-plugin-cross-origin-isolation": "^0.1.6"
   },
+  "overrides": {
+    "@rgossiaux/svelte-headlessui": {
+      "svelte": "$svelte"
+    }
+  },
   "type": "module",
   "dependencies": {
     "@ethercorps/sveltekit-og": "^0.1.7",
