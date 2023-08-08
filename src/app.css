@@ -391,7 +391,6 @@
 	.md pre {@apply whitespace-pre-line}
 	.md pre code {@apply block}
 	.md br+code {@apply block}
-	.md img {@apply rounded-md shadow-lg my-8 h-auto origin-left md:w-3/5 w-full}
 
-	.md .img-grid img {@apply w-full}
+	.md .img-grid button {@apply !w-full}
 }

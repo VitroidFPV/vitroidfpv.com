@@ -9,7 +9,10 @@ const config = {
 		dashes: "oldschool"
 	},
 	remarkPlugins: [remarkGfm],
-	rehypePlugins: [rehypeSlug]
+	rehypePlugins: [rehypeSlug],
+	layout: {
+		_: "/src/components/articlesPage/ArticleLayout.svelte"
+	}
 };
 
 export default config;

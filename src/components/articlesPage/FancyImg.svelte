@@ -1,0 +1,75 @@
+<script lang="ts">
+	import { fade, fly } from "svelte/transition";
+	import { clickOutside } from '$lib/clickOut.js';
+	import { spring } from "svelte/motion";
+
+	export let src: string;
+	export let alt: string;
+
+	let open = false;
+	let zoomed = false;
+
+	function handleClickOutside() {
+		open = false;
+	}
+
+	let x = spring(0);
+	let y = spring(0);
+	function zoom(event: MouseEvent) {
+		if (zoomed) {
+			var zoomer = event.currentTarget;
+			// console.log(zoomer)
+
+			let offsetX, offsetY;
+
+			event.offsetX ? offsetX = event.offsetX : offsetX = event.touches[0].pageX
+			event.offsetY ? offsetY = event.offsetY : offsetY = event.touches[0].pageY
+			$x = offsetX/zoomer.offsetWidth*100
+			$y = offsetY/zoomer.offsetHeight*100
+			zoomer.style.transformOrigin = $x + '% ' + $y + '%';
+		}
+	}
+
+	function keydown(event: KeyboardEvent) {
+		if (event.key === "Escape") {
+			open = false;
+		}
+
+		if (event.key === "Shift") {
+			zoomed = true
+		}
+	}
+
+	function keyup(event: KeyboardEvent) {
+		if (event.key === "Shift") {
+			zoomed = false
+		}
+	}
+
+</script>
+
+<svelte:window on:keydown={keydown} on:keyup={keyup}/>
+
+{#if open}
+	<div in:fade={{duration: 300, delay: 0}} out:fade={{delay: 200}} class="fixed w-screen h-screen top-0 left-0 z-[60] backdrop-blur-sm md:flex hidden items-center justify-center bg-black bg-opacity-80">
+		<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+		<div 
+			transition:fly={{duration: 300, y: 200, delay: 100}} 
+			class="h-full aspect-auto flex flex-col py-8 justify-center z-10 select-none" 
+			use:clickOutside 
+			on:clickOutside={handleClickOutside}
+		>
+			<img 
+				class="select-none rounded-2xl object-contain h-full" 
+				style="transform: scale({zoomed ? "300%" : "100%"});"
+				{src} {alt} 
+				on:mousemove={(event) => zoom(event)}
+			>
+		</div>
+		<div class="absolute bottom-1 left-1 text-sm opacity-60 md:visible invisible">Press Shift to zoom</div>
+	</div>
+{/if}
+
+<button on:click={() => open = !open} class="rounded-md shadow-lg my-8 h-auto origin-left md:w-3/5 w-full overflow-clip outline-0 ring-0">
+	<img {src} {alt} />
+</button>
