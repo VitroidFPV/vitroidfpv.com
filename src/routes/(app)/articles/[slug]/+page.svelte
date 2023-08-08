@@ -122,7 +122,7 @@
 	let img = imgRaw
 	// if imgRaw is relative, add "https://vitroidfpv-sv.netlify.app" to the beginning
 	if (imgRaw.startsWith("/")) {
-		img = "/" + imgRaw
+		img = "https://vitroidfpv.com" + imgRaw
 	}
 
 	let description = data.frontmatter.description
@@ -135,7 +135,7 @@
 
 	// console.log(description)
 
-	let imgOg = `/og?title=${titleRaw}&description=${description}&category=${category}&img=${img}`
+	let imgOg = `https://vitroidfpv.com/og?title=${titleRaw}&description=${description}&category=${category}&img=${img}`
 </script>
 
 <svelte:head>
