@@ -175,6 +175,7 @@ You can find some recommendations for different price points below. They may int
 Some of the most basic things to get you started. Tinywhoops or toothpicks, and an inexpensive radio and goggles. You can get a lot of fun out of these, and they're a great way to get into the hobby
 
 1. Radios:
+	* [Radiomaster Pocket](https://www.radiomasterrc.com/products/pocket-radio-controller-m2?variant=47236836327655) ($65) - The best budget radio you can get right now. Has some features that even the higher end radios don't have, and is a great option for anyone, even if you want to get one for a kid
 	* [Radiomaster TX12 MK II](https://www.getfpv.com/radiomaster-tx12-mkii-2-4ghz-16ch-radio-transmitter-w-hall-gimbals-elrs.html) ($99.99) - A great compact radio with a lot of things that are possible to upgrade in the future
 	* [Radiomaster Zorro](https://www.getfpv.com/radiomaster-zorro-radio-controller-elrs.html) ($129.99) - Similar in features to the TX12, but has a game controller style layout, so it's a bit more ergonomic if you're used to that
 2. Goggles:
@@ -183,6 +184,7 @@ Some of the most basic things to get you started. Tinywhoops or toothpicks, and 
 3. Quads:
 	* Happymodel Mobula6/7 ($99.99) - Pretty much the standard beginner recommendation. They're great for learning, given that they're pretty durable, and a lot of fun to fly indoors even if you move onto something bigger later on
 	* [Happymodel Crux3](https://www.getfpv.com/happymodel-crux3-1s-elrs-3-toothpick-racing-drone-bnf.html) ($118.99) - A good 1s toothpick, great for flying outdoors in your backyard or at a park. Being a 1s quad, it's still pretty cheap to maintain
+	* [Happymodel Bassline](https://www.getfpv.com/happymodel-bassline-2s-toothpick-analog-drone.html) ($123.99) - It's a great option if you want something a little more nimble than the Crux3, and it's even smaller! It runs on 2s batteries so you will need a proper charger for it though
 	* [DarwinFPV Babyape Pro V2](https://www.racedayquads.com/products/darwinfpv-baby-ape-pro-v2-3-quad-choose-version?keyword=darwindpv%20bab) ($111.99) - If you're after something more durable and/or faster, it's not a bad option. It runs on 3s, so you will need a proper charger for it, unlike the other two that can use a simple 1s one
 
 4. Chargers:
@@ -198,6 +200,7 @@ Some of the most basic things to get you started. Tinywhoops or toothpicks, and 
 
 	* Happymodel Mobula6/7: 1s 300mAh - 500mAh
 	* Happymodel Crux3: 1s 450mAh - 650mAh
+	* Happymodel Crux3: 2s 450mAh - 650mAh
 	* DarwinFPV Babyape Pro V2: 3s 450mAh - 650mAh
 
 	All ideally 75C or higher
