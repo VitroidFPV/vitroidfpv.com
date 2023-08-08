@@ -1,6 +1,6 @@
 module.exports = {
 	darkMode: "class",
-	content: ["./src/**/*.{html,js,svelte,tsx}"],
+	content: ["./src/**/*.{html,js,svelte,tsx,md}"],
 	safelist: [
 		{
 			pattern: /(bg|text|stroke)-(highlight|highlight-dark|pink|red|orange|yellow|green|cyan|blue|violet)/,

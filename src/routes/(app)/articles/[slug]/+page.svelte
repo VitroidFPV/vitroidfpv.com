@@ -54,6 +54,7 @@
 	// 		content: groups?.content ?? '',
 	// 	}))
 	let htmlString = ""
+	let readTime = 1
 
 	const headerRegex = /<h([1-6])[^>]*>(.*?)<\/h\1>/gi;
 	let headers: any = []
@@ -83,7 +84,8 @@
 	}
 
 	onMount(() => {
-		htmlString = document.getElementsByClassName("article md")[0].innerHTML
+		let html = document.getElementsByClassName("article md")[0]
+		htmlString = html.innerHTML
 		headers = Array.from(htmlString.matchAll(headerRegex), match => {
 			const level = match[1];
 			const content = match[2];
@@ -97,6 +99,10 @@
 			observer.observe(target)
 			// console.log(target)
 		})
+
+		// calculate read time from html.textContent
+		let readTimeRaw = html.textContent?.split(" ").length ?? 0
+		readTime = Math.ceil(readTimeRaw / 200)
 
 		if (window.location.hash) {
 			setTimeout(() => {
@@ -116,7 +122,7 @@
 	let img = imgRaw
 	// if imgRaw is relative, add "https://vitroidfpv-sv.netlify.app" to the beginning
 	if (imgRaw.startsWith("/")) {
-		img = "https://vitroidfpv-sv.netlify.app" + imgRaw
+		img = "/" + imgRaw
 	}
 
 	let description = data.frontmatter.description
@@ -129,7 +135,7 @@
 
 	// console.log(description)
 
-	let imgOg = `https://vitroidfpv-sv.netlify.app/og?title=${titleRaw}&description=${description}&category=${category}&img=${img}`
+	let imgOg = `/og?title=${titleRaw}&description=${description}&category=${category}&img=${img}`
 </script>
 
 <svelte:head>
@@ -150,29 +156,57 @@
 <div class="p-4 md:p-8 content-box">
 	<div class="flex justify-between w-full">
 		<div class="flex flex-col md:mr-8 mr-0 w-full">
-			<div class="flex flex-col pr-0 article-card {data.frontmatter.category} rounded-2xl mb-8 w-fit shadow-lg">
-				<img src="{data.frontmatter.img}" alt="" class="md:aspect-[2.5/1] md:h-[32rem] object-cover object-center rounded-2xl duration-500">
+			<div class="md:order-1 order-2 grid md:grid-cols-4 grid-cols-2 justify-center grid-rows-2 gap-4 p-0 article-card {data.frontmatter.category} rounded-2xl mb-8 w-full">
+				<img 
+					src="{data.frontmatter.img}" 
+					alt="Article Header" 
+					class="md:h-[28rem] object-cover object-center rounded-2xl duration-500 md:col-span-3 col-span-2 
+					md:row-span-2 aspect-[2/1] shadow-lg"
+				>
+				<div class="bg-neutral-400/5 gap-4 flex flex-col justify-center rounded-2xl outline outline-2 outline-neutral-500/10 shadow-lg md:p-8 p-4 md:text-xl text-lg">
+					<div>
+						A <span 
+							class="md:text-3xl text-{categoryColor}"
+						>
+							{data.frontmatter.category == "News" || data.frontmatter.category == "Misc" ? data.frontmatter.category : data.frontmatter.category.slice(0, -1)}
+						</span> Article
+					</div>
+					<div>
+						By <span
+							class="md:text-3xl text-{categoryColor}"
+						>
+							{data.frontmatter.author}
+						</span>
+					</div>
+				</div>
+				<div class="bg-neutral-400/5 gap-4 flex flex-col justify-center rounded-2xl outline outline-2 outline-neutral-500/10 shadow-lg md:p-8 p-4 md:text-xl text-lg">
+					<div>
+						Posted on <span class="text-{categoryColor}">{postedDateFormatted}</span>
+						{#if data.frontmatter.updated}
+							, last updated <span class="text-{categoryColor}">{updatedDateFormatted}</span>
+						{/if}
+					</div>
+					<div>
+						Taking <span class="text-{categoryColor}">{readTime}min</span> to read
+					</div>
+				</div>
 			</div>
-			<div class="flex-col items-start w-fit">
-				<h1 class="text-{categoryColor} text-5xl mb-2">{data.frontmatter.title}</h1>
-				<h2 class="text-3xl">{data.frontmatter.description}</h2>
-				<div class="mt-4 mb-12">Posted on <span class="text-{categoryColor}">{postedDateFormatted}</span> by <span class="text-{categoryColor}">{data.frontmatter.author}</span></div>
-				{#if data.frontmatter.updated}
-					<div class="mb-4 text-neutral-500">Last updated on {updatedDateFormatted}</div>
-				{/if}
+			<div class="md:order-2 order-1 flex-col items-start w-fit mb-4 md:mt-0 mt-8">
+				<h1 class="text-{categoryColor} md:text-5xl text-4xl mb-2">{data.frontmatter.title}</h1>
+				<h2 class="md:text-3xl text-xl">{data.frontmatter.description}</h2>
 			</div>
-			<div class="article md !duration-300 transition-colors {categoryColor}">
+			<div class="order-3 article md !duration-300 transition-colors {categoryColor}">
 				<svelte:component this={component} />
 			</div>
 		</div>
 		<div class="md:flex md:flex-col hidden sticky h-fit left-full top-0 pl-4 w-fit max-w-[24rem]">
-			<div class="text-highlight dark:text-highlight-dark text-3xl w-fit font-semibold mt-8 mb-4 border-b-2 border-current">Contents:</div>
+			<div class="text-{categoryColor} text-3xl w-fit font-semibold mt-8 mb-4 border-b-2 border-current">Contents:</div>
 			{#each headers as header}
 				{#if +header.level < 5}
 				<a 	href="#{removeSpecial(header.content)}"
 					class={
-					`text-[0.95rem] mb-3 leading-tight heading-${header.level} hover:translate-x-1 hover:text-highlight dark:hover:text-highlight-dark duration-300 w-fit border-l-2 border-transparent`
-					+ (header.content === intersectingHeader ? " dark:text-highlight-dark text-highlight !border-current" : "")}
+					`text-[0.95rem] mb-3 leading-tight heading-${header.level} hover:translate-x-1 hover:text-${categoryColor} duration-300 w-fit border-l-2 border-transparent`
+					+ (header.content === intersectingHeader ? ` text-${categoryColor} !border-current` : "")}
 				>
 					{header.content}
 				</a>
