@@ -43,7 +43,7 @@
     "@rgossiaux/svelte-headlessui": {
       "svelte": "$svelte"
     },
-	"svelte-confetti": {
+	"mdsvex": {
 		"svelte": "$svelte"
 	}
   },
