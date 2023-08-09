@@ -43,7 +43,10 @@
   "overrides": {
     "@rgossiaux/svelte-headlessui": {
       "svelte": "$svelte"
-    }
+    },
+	"svelte-confetti": {
+		"svelte": "$svelte"
+	}
   },
   "type": "module",
   "dependencies": {
