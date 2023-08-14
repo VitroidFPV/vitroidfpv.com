@@ -35,15 +35,18 @@
 	<link rel="preload" href={img} as="image" />
 </svelte:head>
 
-<div class="article-card flex flex-col md:aspect-[3.5/2] aspect-[2/3] {category} rounded-[18px] duration-300 w-full h-full">
+<div class="article-card flex flex-col xl:aspect-[3.5/2] aspect-[1.5/1] {category} rounded-2xl duration-300 w-full h-full shadow-lg">
 	<a href={href} class="flex flex-col w-full h-full">
 	<div class="relative flex items-end h-full w-full group overflow-hidden rounded-2xl">
 			<div class="flex flex-col z-20 pb-4 pl-4 text-contrast-50 origin-bottom-left">
 				<div>
-					<div>{category}</div>
-					<Link {href} size="2" color={categoryColor} color1="">{title}</Link>
+					<div class="flex items-center w-fit mb-2 h-5">
+						<div class="w-0 group-hover:w-1 group-hover:mr-1 bg-{categoryColor} h-0 group-hover:h-full duration-300 rounded-full"></div>
+						<div class="group-hover:text-{categoryColor} duration-300">{category}</div>
+					</div>
+					<Link {href} size="1" color={categoryColor} color1="">{title}</Link>
 				</div>
-				<div class="">{description}</div>
+				<div class="xl:text-lg text-base">{description}</div>
 				<div class="md:opacity-0 md:h-0 mt-0 group-hover:opacity-100 md:group-hover:h-6 md:group-hover:mt-2 duration-300 text-base">{date}</div>
 			</div>
 			<div class="card-gradient {category} w-full h-full absolute z-10 duration-300 rounded-2xl"></div>

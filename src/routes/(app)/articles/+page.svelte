@@ -139,7 +139,7 @@
 				id=Category>
 				Newest
 			</div>
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full">
+			<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 w-full">
 
 				{#each date_sorted_modules.slice(0, 3) as module}
 					{#if module.metadata.visible}
@@ -175,7 +175,7 @@
 					</div>
 				{/each}
 			</div>
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full">
+			<div class="grid md:grid-cols-2 xl:grid-cols-3 xl:gap-12 gap-6 w-full">
 				{#each selectedModules as module}
 					{#if module.metadata.visible}
 						<ArticlePreview
