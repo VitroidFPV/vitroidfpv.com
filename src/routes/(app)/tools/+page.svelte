@@ -391,7 +391,7 @@
 								type="number"
 								min=1
 								max=69
-								class="bg-gray-500/30 w-10 h-8 rounded-md p-2 mr-1 text-base duration-300
+								class="bg-gray-500/30 w-12 h-8 rounded-md p-2 mr-1 text-base duration-300
 								outline-none focus-within:outline-highlight outline-[3px] no-spinner"
 								/>
 								<p>cell</p>
