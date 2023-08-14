@@ -369,7 +369,7 @@
 				</div>
 
 				<div class="green h-fit max-w-sm min-w-[18rem] border-l-4 product pl-2 my-4 mx-2" id="wh">
-					<p class="text-2xl text-green">Battery Wh</p>
+					<p class="text-2xl text-green">LiPo Wh</p>
 					<div>
 						<div class="flex my-4">
 							<div class="h-8 flex flex-col justify-between mr-1 text-neutral-400/40">
@@ -442,7 +442,7 @@
 							<code>
 								<span class="text-yellow">mW</span> = 10<sup>(<span class="text-green">dBm</span>/10)</sup>
 							</code> -->
-							The calculation to get the <code class="text-green">Wh</code> of a battery is:<br>
+							The calculation to get the <code class="text-green">Wh</code> of a LiPo is:<br>
 							<code><span class="text-yellow">Ah</span> × 3.7 (nominal voltage) × <span class="text-green"># of cells</span></code>
 						</p>
 						<button on:click={() => (copyCalc("wh"))}>
