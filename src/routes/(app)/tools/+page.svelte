@@ -4,6 +4,7 @@
 	import Paragraph from "$components/Paragraph.svelte";
 	import { compareArray } from "$lib/stores/toolsStore";
 	import { slide } from "svelte/transition";
+	import { Switch } from "@rgossiaux/svelte-headlessui";
 
 	import domtoimage from "dom-to-image";
 	// @ts-ignore
@@ -13,8 +14,15 @@
 	function copyCalc(id: string) {
 		var node = document.getElementById(id);
 
+		let height = 100
+		let width = 400
+
+		if (id = "wh") {
+			height = 150
+		}
+
 		domtoimage
-			.toPng(node as HTMLElement, { height: 100, width: 400, bgcolor: "#0f0f0f" })
+			.toPng(node as HTMLElement, { height, width, bgcolor: "#0f0f0f" })
 			.then(function (dataUrl) {
 				var img = new Image();
 				img.src = dataUrl;
@@ -155,6 +163,37 @@
 		}
 	}
 
+	let cellCount = 1;
+	let isHv = false;
+	let capacity = 0;
+	let wh: number
+
+	function updateCellCount(increment: boolean) {
+		if (increment) {
+			if (cellCount < 69) {
+				cellCount++;
+			}
+		} else {
+			if (cellCount > 1) {
+				cellCount--;
+			}
+		}
+	}
+
+	function calculateWh() {
+		if (isHv) {
+			wh = capacity / 1000 * 3.85;
+		} else {
+			wh = capacity / 1000 * 3.7;
+		}
+		wh = parseFloat((wh * cellCount).toFixed(2));
+	}
+
+	$: {
+		isHv = isHv
+		calculateWh();
+	}
+
 	let prefix = "VitroidFPV";
 	let titleRaw = "Tools";
 	let title = " - " + titleRaw;
@@ -280,6 +319,7 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="green h-fit max-w-sm min-w-[18rem] border-l-4 product pl-2 my-4 mx-2" id="power">
 					<p class="text-2xl text-green">dBm &lt;―&gt; mW</p>
 					<div>
@@ -327,7 +367,101 @@
 						</button>
 					</div>
 				</div>
+
+				<div class="green h-fit max-w-sm min-w-[18rem] border-l-4 product pl-2 my-4 mx-2" id="wh">
+					<p class="text-2xl text-green">Battery Wh</p>
+					<div>
+						<div class="flex my-4">
+							<div class="h-8 flex flex-col justify-between mr-1 text-neutral-400/40">
+								<button on:click={() => updateCellCount(true)} on:click={calculateWh} class="hover:text-highlight dark:hover:text-highlight-dark duration-300">
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="4" stroke="currentColor" class="w-3 h-3">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+									</svg>
+								</button>
+								<button on:click={() => updateCellCount(false)} on:click={calculateWh} class="hover:text-highlight dark:hover:text-highlight-dark duration-300">
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="4" stroke="currentColor" class="w-3 h-3 rotate-180">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+									</svg>
+								</button>
+							</div>
+							<div class="flex items-end">
+								<input
+								bind:value={cellCount}
+								on:input={calculateWh}
+								type="number"
+								min=1
+								max=69
+								class="bg-gray-500/30 w-10 h-8 rounded-md p-2 mr-1 text-base duration-300
+								outline-none focus-within:outline-highlight outline-[3px] no-spinner"
+								/>
+								<p>cell</p>
+							</div>
+							<div class="flex items-end">
+								<input
+								bind:value={capacity}
+								on:input={calculateWh}
+								type="text"
+								class="bg-gray-500/30 w-16 h-8 ml-2 rounded-md p-2 mr-1 text-base duration-300
+								outline-none focus-within:outline-highlight outline-[3px]"
+								/>
+								<p>mAh</p>
+							</div>
+							<div class="flex items-end ml-4">
+								<p>Result:</p>
+								<div
+									class:invisible={isNaN(wh) || wh == 0}
+									class="bg-gray-500/30 flex items-center align-middle min-w-[2rem] h-8 ml-2 rounded-md p-2 text-base text-green w-fit duration-300"
+								>
+									{wh > 1000 ? (wh / 1000).toFixed(2) : wh}
+								</div>
+								{#if wh > 1000}
+									<p class:invisible={isNaN(wh) || wh == 0}>KWh</p>
+								{:else}
+									<p class:invisible={isNaN(wh) || wh == 0}>Wh</p>
+								{/if}
+							</div>
+						</div>
+						<div class="flex items-end mb-4 text-base">
+							<Switch 
+								bind:checked={isHv}
+								class={"relative inline-flex items-center rounded-full h-6 w-12 outline outline-2 outline-neutral-400/20 mr-2 duration-300 " + (isHv ? "text-highlight/20 dark:bg-highlight-dark/20 outline-highlight dark:outline-highlight-dark" : "bg-neutral-400/10")}
+							>
+								<span 
+									class={"toggle inline-block w-4 rounded-full aspect-square bg-neutral-400/50 duration-300 " + (isHv ? " bg-highlight dark:bg-highlight-dark translate-x-7" : "translate-x-1")}
+								/>
+							</Switch>
+							HV LiPo
+						</div>
+						<p class="mb-4">
+							<code>Wh</code> is a unit of energy measurement. It denotes the power over time, and is 
+							used to compare the energy capacity of different batteries.
+						</p>
+						<p class="mb-4">
+							<!-- Given power in <code class="text-green">dBm</code>, 
+							the calculation to get the power in <code class="text-yellow">mW</code> is 
+							<code>
+								<span class="text-yellow">mW</span> = 10<sup>(<span class="text-green">dBm</span>/10)</sup>
+							</code> -->
+							The calculation to get the <code class="text-green">Wh</code> of a battery is:<br>
+							<code><span class="text-yellow">Ah</span> × 3.7 (nominal voltage) × <span class="text-green"># of cells</span></code>
+						</p>
+						<button on:click={() => (copyCalc("wh"))}>
+							<div class="h-fit w-fit bg-green/90 rounded-md py-1 px-2 cursor-pointer">Copy!</div>
+						</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<style>
+	.no-spinner::-webkit-outer-spin-button, .no-spinner::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+	.no-spinner {
+		-moz-appearance: textfield;
+		appearance: textfield;
+	}
+</style>
