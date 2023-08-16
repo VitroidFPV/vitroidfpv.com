@@ -52,6 +52,7 @@
 				return { text: split[0], tooltip: split[1].slice(0, -1) };
 			}
 		});
+		price = infoObjects[0].text;
 	}
 </script>
 
