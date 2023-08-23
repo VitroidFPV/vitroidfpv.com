@@ -14,5 +14,5 @@ answer: >-
   For the 18650 (or any other cylinder cell Li-Ion batteries), the four listed manufacturers are likely to perform about the same for their respective use (lower power, high capacity)
 
 
-  As for selecting the capacity, it depends on the size and use of the craft. For a tinywhoop, you may pick around 250-350mAh for 2-3" micros about 350-550mAh. Going up in weight to a cinewhoop or a 4" quad, about 650-100mAh, 5" would be 1000-1500mAh, and going up in size the capacity starts to vary more and more. All of these should be kept to the cell count as well, for higher cell count you usually don't need too high of a capacity, 4s 5" is \~1500mAh, 6s \~1300mAh
+  As for selecting the capacity, it depends on the size and use of the craft. For a tinywhoop, you may pick around 250-350mAh for 2-3" micros about 350-550mAh. Going up in weight to a cinewhoop or a 4" quad, about 650-1000mAh, 5" would be 1000-1500mAh, and going up in size the capacity starts to vary more and more. All of these should be kept to the cell count as well, for higher cell count you usually don't need too high of a capacity, 4s 5" is \~1500mAh, 6s \~1300mAh
 ---

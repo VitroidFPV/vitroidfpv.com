@@ -42,7 +42,7 @@ The voltage specified on most batteries is `Nominal`, which means it's like the 
 The capacity, usually measured in mAh \[milliamp hours] tells you how much current you can draw for an hour until the battery is "empty" and needs to be re-charged. 2000mAh is 2A for one hour, 1A for two hours, or 20A for 1/10th of an hour
 
 
-And lastly, the C rating determines the rate at which you can input/output current. `C × Capacity [in Ah] = Current in/out` For charging, you should charge it at 1C, for a 2000mAh battery that would be 2A, 2C for 200mAh would be 4A, and so on. Most batteries should list the output current rate as around 70-120C. Anything above ~75C is technically impossible, so the higher values are often just marketing and/or different ways of measuring the current rate. Make sure to pick a battery that has a current output higher than the maximum draw of all 4 of your motors
+And lastly, the C rating determines the rate at which you can input/output current. `C × Capacity [in Ah] = Current in/out` For charging, you should charge it at 1C, for a 2000mAh battery that would be 2A, 2C for 2000mAh would be 4A, and so on. Most batteries should list the output current rate as around 70-120C. Anything above ~75C is technically impossible, so the higher values are often just marketing and/or different ways of measuring the current rate. Make sure to pick a battery that has a current output higher than the maximum draw of all 4 of your motors
 
 
 ## Cell Type
