@@ -393,4 +393,5 @@
 	.md br+code {@apply block}
 
 	.md .img-grid button {@apply !w-full}
+	.md video {@apply w-full h-full rounded-2xl shadow-lg}
 }
