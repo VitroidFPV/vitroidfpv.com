@@ -148,6 +148,10 @@ BLHeli_32 has long been the standard for high-end ESCs in the hobby. Unlike BLHe
 
 The ESC is driven by a special standalone QF32MTF4AK8U7 chiplet board that has all of the MCUs and passive components on it. It's then soldered to the actual AIO board and drives the FETs directly. It allows a much more simple and compact design.
 
+### LPUART
+
+In the wiring diagram below, there's a UART with pads labeled L-TX1/L-RX1. Those are pads for a special type of UART called LPUART. It's a low power version that can be used to communicate with low power peripherals. For our use case though, it can be thought of as just another UART, and Betaflight treats it as such.
+
 ## Features
 
 Now that you're more familiar with the new things introduced here, let's take a look at the rest of the features.
