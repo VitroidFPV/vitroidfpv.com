@@ -20,7 +20,9 @@ date: 2023-09-1T22:40:37.705Z
 
 If you've been in the hobby long enough, you may remember using Airbot hardware at one point or another. Does Omnibus F4 ring a bell? Yeah, that Airbot! Their boards were great back in the day, so great infact that they were cloned by many other manufacturers. They had to retreat from the market for a while, instead focusing on designing and manufacturing hardware for other companies.
 
-Well that time is over, and Airbot is back with a couple of new amazing boards, and we're going to take a look at one of them today: the Airbot Fenix G4 AM32 AIO. Like a literal pheonix they are rising back from the ashes (idk I thought this was kinda neat too lol). Sorry for the history lesson, but I thought it appropriate to give some context to the company and their products, and why it's kind of a big deal :)
+Like a phoenix, they have risen from the ashes with a new lineup of products, and in this article, we'll be taking a look at one!
+
+The Fenix G4 is a 25x25 AIO flight controller with 4 onboard 35A ESCs running AM32 firmware. It's powered by an STM32G473 MCU, and uses the ICM42688P gyro/accelerometer. They even managed to fit a DSP310 barometer and a bunch of RGB LEDs on it! It's a pretty packed board, so let's take a look at it!
 
 # Where to Buy
 * [Official Airbot Store](https://store.airbot.racing/products/airbot-am32-aio) - $89.99
@@ -35,21 +37,6 @@ Well that time is over, and Airbot is back with a couple of new amazing boards, 
 
 </Admonition>
 
-# The Unusual Stuff
-
-> Wait, isn't G4 only for KISS boards? Does thing even run Betaflight?
-
-I've seen this question asked a bunch when talking about the development of this board. While yes, G4 has mainly been used on KISS hardware and that's possibly where the confusion comes from, the G4 MCUs are fully supported by Betaflight. This board is likely one of the first to use the G4 MCU in a Betaflight flight controller however, so it's understandable why people would be confused.
-
-With that confusion out of the way, let's take a look at the new things that this thing has to offer! 
-
-## G4 MCU
-
-The STM32G473 is a relatively new chip to Betaflight boards as already mentioned. It's main use going forward will most likely be an F411 replacement - it comes in a small package size, has more UARTs (2 on the F411 really isn't enough), and still comes in at around the same price. I hope to see it take off on more boards (specifically AIOs) in the future.
-
-## AM32 ESCs
-
-BLHeli_32 has long been the standard for high-end ESCs in the hobby. Unlike BLHeli_S, it isn't open source, and requires a license fee to use. AM32 is a relatively new open source alternative firmware to BLHeli_32, and it's slowly gaining traction. It can already run on many chipsets used in BLHeli_32 ESCs, but requires some special tooling to flash "over" BLHeli_32. However, some manufacturers have already started shipping ESCs with AM32 pre-flashed. Airbot is one of them, and the Fenix G4 AIO has 4 35A AM32 ESCs that are rated up to 6s!
 
 # Specifications
 
@@ -141,7 +128,57 @@ BLHeli_32 has long been the standard for high-end ESCs in the hobby. Unlike BLHe
 
 # Overview
 
-With the few new things and specs out of the way, let's take a look at the board itself!
+With all the technical stuff out of the way, let's take a closer look at the board itself, and what it can offer:
+
+## The Unusual Stuff
+
+This AIO has some new and rarely-seen features in the hobby. It's great that it's pushing the commonly used hardware and software forward, but it can be confusing to newer pilots, or even just someone that doesn't keep up with the bleeding edge of tech. Let's take a look at some of the new stuff:
+
+### G4 MCU
+
+> Wait, isn't G4 only for KISS boards? Does thing even run Betaflight?
+
+I've seen this question asked a bunch when talking about the development of this board. While yes, G4 has mainly been used on KISS hardware and that's possibly where the confusion comes from, the G4 MCUs are fully supported by Betaflight. This board is likely one of the first to use the G4 MCU in a Betaflight flight controller however, so it's understandable why people would be confused.
+
+The STM32G473 is a relatively new chip to Betaflight boards as already mentioned. It's main use going forward will most likely be an F411 replacement - it comes in a small package size, has more UARTs (2, rarely 3 on most F411 boards really isn't enough), and still comes in at around the same price. I hope to see it take off more,  specifically on AIOs in the future.
+
+### AM32 ESCs
+
+BLHeli_32 has long been the standard for high-end ESCs in the hobby. Unlike BLHeli_S, it isn't open source, and requires a license fee to use. AM32 is a relatively new open source alternative firmware to BLHeli_32, and it's slowly gaining traction. It can already run on many chipsets used in BLHeli_32 ESCs, but requires some special tooling to flash "over" BLHeli_32. However, some manufacturers have already started shipping ESCs with AM32 pre-flashed. Airbot is one of them, and the Fenix G4 AIO has 4 35A AM32 ESCs that are rated up to 6s!
+
+The ESC is driven by a special standalone QF32MTF4AK8U7 chiplet board that has all of the MCUs and passive components on it. It's then soldered to the actual AIO board and drives the FETs directly. It allows a much more simple and compact design.
+
+## Features
+
+Now that you're more familiar with the new things introduced here, let's take a look at the rest of the features.
+
+### Gyro/Accelerometer
+
+The ICM42688P is not completely new, you may have already used it on some other boards. It had a bit of a rocky start, as it tends to need a more careful design, and up until recently it wasn't performing as well as it could. In the newest Betaflight versions, the software issues have been addressed, and manufacturers have had time to design better boards around it. Nowadays it should perform as well as the good old MPU6000, and some people even prefer it, mainly racers. 
+
+### Barometer
+
+The barometer that they managed to fit on this already full board is a DSP310. It's a pretty standard one, you'll find it on many other boards. It's a great addition to have, especially if you're planning on using this board in a long range build using advanced GPS features which need a barometer for accurate functionality - GPS rescue, altitude hold, even full autonomous flight.
+
+### Power Regulation
+
+There are two main voltage regulators onboard - one for 5V and one for 10V - both rated at 2.5A each. The 10V one will power your VTX, and it's even powerful enough to run the DJI O3 Air Unit at full tilt. The 5V one will power all of the other peripherals, and also the onboard LEDs
+
+### RGB LEDs
+
+LEDs should be a standard feature on all boards if it was up to me. Useful for races, and just a bunch of extra style points on top! The board has 16 RGB LEDs on it, 4 on each corner. There's a small set of bridge pads that you solder together to enable them, and they can be fully controlled through Betaflight. They're pretty small, but are more than bright enough!
+
+<video controls>
+
+<source src="/uploads/airbot_fenix_leds.mp4" type="video/mp4">
+
+</video>
+
+### Blackbox
+
+You have 16MB of onboard flash memory for Blackbox logs. Any amount of onboard flash is a great addition on an AIO, and 16MB is plenty when you're not recording everything at the full rate. You can log multiple full flights for troubleshooting, or tuning your PIDs and filters.
+
+## Board Layout
 
 <ImgGrid cols={2}>
 
@@ -176,16 +213,6 @@ Mine, because I'm all fancy like that:
 
 [Official one from Airbot](https://cdn.shopify.com/s/files/1/0741/5378/7685/files/AIRBOT_Fenix_G4_35amp_AM32_Aio_pinout.pdf?v=1692993975) for reference
 
-## LEDs
-
-The board has 16 RGB LEDs on it, 4 on each corner. There's a small set of bridge pads that you solder together to enable them, and they can be fully controlled through Betaflight. They're pretty small, but are more than bright enough! I love to cram LEDs into my builds, but micros generally don't have the space for them. This board solves that problem, and I love it!
-
-<video controls>
-
-<source src="/uploads/airbot_fenix_leds.mp4" type="video/mp4">
-
-</video>
-
 # Closing Thoughts
 
-This board is really cool. To have Airbot of all the manufacturers come back with something like this is great to see. They have a couple of other boards in the works, and I can't wait to review them as well! For now, this is the only one publicly available of the future lineup, and I highly recommend it. It's a great board for anything from a 3.5" freestyle build, cinewhoop, or even an ultralight 5-6".
+This board is really cool. To have Airbot of all the manufacturers come back with something like this is great to see. A fully waterproof 35A AIO with a bunch of LEDs, blackbox, a nice gyro and barometer is a strong re-entry to the market. They have a couple of other boards in the works, and I can't wait to review them as well! For now, this is the only one publicly available of the future lineup, and I highly recommend it. It's a great board for anything from a 3.5" freestyle build, cinewhoop, or even an ultralight 5-6".
