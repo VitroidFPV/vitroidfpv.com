@@ -1,21 +1,18 @@
 ---
-category: Frames
+category: Motors
 color: green
 visible: true
 order: 1
-title: Example Frame
+title: Example Motor
 link: link
 img: img
 text: Example text description
-info: "$47.69;5.1\" Props;6mm Arms;2/2/2.5mm Plates<Bottom/Top/Mid>;14mm Cams;20x20 Stacks;45g"
+info: "$15.90;2207<Stator size>;1850/1960KV;32.1g"
 ---
 
 Info string format:
 
 * Price
-* Prop Size
-* Arm Thickness
-* Other Plate Thickness
-* Camera Mounting Size
-* Stack Mounting Size
+* Stator size
+* KV
 * Weight
