@@ -33,10 +33,12 @@ const config = {
 			$routes: "/src/routes/",
 		},
 	},
-
 	rollupInputOptions: {
 		external: ['@resvg/resvg-js-win32-x64-msvc'],
 	},
+	ssr: {
+		noExternal: ['three']
+	}
 };
 
 export default config;

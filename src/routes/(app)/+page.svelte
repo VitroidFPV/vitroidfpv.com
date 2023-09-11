@@ -6,8 +6,6 @@
 	import { fly } from "svelte/transition";
 	import netlifyIdentity from "netlify-identity-widget";
 
-
-
 	let index = 0;
 
 	onMount(() => {
@@ -26,7 +24,14 @@
 				}
 			});
 		}
-	})
+	});
+
+	import { Canvas } from '@threlte/core'
+	import HomeProp from "$components/three/HomeProp.svelte";
+	import HomeFc from "$components/three/HomeFc.svelte";
+	import HomeIron from "$components/three/HomeIron.svelte";
+	import HomeFrame from "$components/three/HomeFrame.svelte";
+	import HomeMonitor from "$components/three/HomeMonitor.svelte";
 
 	let prefix = "VitroidFPV";
 	let title = "";
@@ -53,25 +58,32 @@
 
 <div class="flex flex-col w-full overflow-hidden">
 	<div class="flex flex-col w-full relative px-4 md:px-0">
-		<div class="mt-64 md:mb-24 mb-16 w-full z-30">
-			<h1
-				class="md:text-[180px] text-[90px] font-caveat h-fit w-fit leading-none dark:text-highlight-dark duration-500">
-				Vitroid FPV
-			</h1>
-			<div class="transition-container md:ml-8 ml-4 mt-8">
-				{#key index}
-					<div in:fly|local={{duration:750, y:0, x:100}} out:fly|local={{duration:750, y:0, x:-100}}>
-						{#if index == 0}
-							<Button isLink={true} href="/articles/guides-getting-into-fpv" color="yellow">Get Started in FPV</Button>
-						{:else if index == 1}
-							<Button isLink={true} href="/faq" color="violet">Get Answers in the FAQ</Button>
-						{:else if index == 2}
-							<Button isLink={true} href="/builds" color="green">Visit Build Guides</Button>
-						{:else if index == 3}
-							<Button isLink={true} href="/equipment" color="cyan">Find Equipment Recommendations</Button>
-						{/if}
-					</div>
-				{/key}
+		<div class="flex h-full w-full items-center">
+			<div class="mt-64 md:mb-24 mb-16 w-full z-30 h-full">
+				<h1
+					class="md:text-[180px] whitespace-nowrap text-[90px] font-caveat h-fit w-fit leading-none dark:text-highlight-dark duration-500">
+					Vitroid FPV
+				</h1>
+				<!-- <div class="transition-container md:ml-8 ml-4 mt-8">
+					{#key index}
+						<div in:fly|local={{duration:750, y:0, x:100}} out:fly|local={{duration:750, y:0, x:-100}}>
+							{#if index == 0}
+								<Button isLink={true} href="/articles/guides-getting-into-fpv" color="yellow">Get Started in FPV</Button>
+							{:else if index == 1}
+								<Button isLink={true} href="/faq" color="violet">Get Answers in the FAQ</Button>
+							{:else if index == 2}
+								<Button isLink={true} href="/builds" color="green">Visit Build Guides</Button>
+							{:else if index == 3}
+								<Button isLink={true} href="/equipment" color="cyan">Find Equipment Recommendations</Button>
+							{/if}
+						</div>
+					{/key}
+				</div> -->
+			</div>
+			<div class="h-full w-2/3 hidden md:block aspect-square z-10 mt-16">
+				<Canvas>
+					<HomeProp />
+				</Canvas>
 			</div>
 		</div>
 		<div class="absolute w-full h-full flex md:top-20 top-28">
@@ -127,9 +139,9 @@
 					<rect x="0" y="0" width="2400" height="300" class="hover:-translate-y-2 duration-300 fill-transparent" />
 					<path
 						d="M0 92L50 91.8C100 91.7 200 91.3 300 112.7C400 134 500 177 600 175.5C700 174 800 128 900 118.5C1000 109 1100 136 1200 151.8C1300 167.7
-                1400 172.3 1500 158C1600 143.7 1700 110.3 1800 97.7C1900 85 2000 93 2100 114.8C2200 136.7 2300 172.3 2350 190.2L2400 208L2400 301L2350 301C2300
-                301 2200 301 2100 301C2000 301 1900 301 1800 301C1700 301 1600 301 1500 301C1400 301 1300 301 1200 301C1100 301 1000 301 900 301C800 301 700 301
-                600 301C500 301 400 301 300 301C200 301 100 301 50 301L0 301Z"
+				1400 172.3 1500 158C1600 143.7 1700 110.3 1800 97.7C1900 85 2000 93 2100 114.8C2200 136.7 2300 172.3 2350 190.2L2400 208L2400 301L2350 301C2300
+				301 2200 301 2100 301C2000 301 1900 301 1800 301C1700 301 1600 301 1500 301C1400 301 1300 301 1200 301C1100 301 1000 301 900 301C800 301 700 301
+				600 301C500 301 400 301 300 301C200 301 100 301 50 301L0 301Z"
 						fill=""
 						stroke-linecap="round"
 						stroke-linejoin="miter"
@@ -153,7 +165,7 @@
 						, and if you like what I do, you can support me <a href="/support" class="underline hover:brightness-125 duration-300">here</a>
 					</p>
 				</div>
-				<div class="absolute w-full h-full bg-grid-dark opacity-50" style="-webkit-mask-image: linear-gradient(transparent, black, transparent);"></div>
+				<!-- <div class="absolute w-full h-full bg-grid-dark opacity-50" style="-webkit-mask-image: linear-gradient(transparent, black, transparent);"></div> -->
 			</div>
 			<div class="w-full flex h-fit md:flex-col flex-row justify-between md:pt-0 pt-4 md:w-1/2">
 				<PropSvg pathClass="fill-[#a6e17c] dark:fill-[#65dd8d] prop" svgClass="prop-svg h-fit w-fit relative md:top-10 md:left-10 rotate-12"/>
@@ -175,9 +187,9 @@
 					<rect x="0" y="0" width="2400" height="300" class="hover:-translate-y-2 duration-300 fill-transparent" />
 					<path
 						d="M0 92L50 91.8C100 91.7 200 91.3 300 112.7C400 134 500 177 600 175.5C700 174 800 128 900 118.5C1000 109 1100 136 1200 151.8C1300 167.7
-                1400 172.3 1500 158C1600 143.7 1700 110.3 1800 97.7C1900 85 2000 93 2100 114.8C2200 136.7 2300 172.3 2350 190.2L2400 208L2400 301L2350 301C2300
-                301 2200 301 2100 301C2000 301 1900 301 1800 301C1700 301 1600 301 1500 301C1400 301 1300 301 1200 301C1100 301 1000 301 900 301C800 301 700 301
-                600 301C500 301 400 301 300 301C200 301 100 301 50 301L0 301Z"
+				1400 172.3 1500 158C1600 143.7 1700 110.3 1800 97.7C1900 85 2000 93 2100 114.8C2200 136.7 2300 172.3 2350 190.2L2400 208L2400 301L2350 301C2300
+				301 2200 301 2100 301C2000 301 1900 301 1800 301C1700 301 1600 301 1500 301C1400 301 1300 301 1200 301C1100 301 1000 301 900 301C800 301 700 301
+				600 301C500 301 400 301 300 301C200 301 100 301 50 301L0 301Z"
 						fill=""
 						stroke-linecap="round"
 						stroke-linejoin="miter"
@@ -187,180 +199,286 @@
 			</div>
 		</div>
 	</div>
-	<div
-		class="w-full h-fit mb-1 flex flex-row-reverse text-xl pb-16 dark:shadow-main-400 shadow-contrast-100"
-	>
-		<div class="flex flex-col md:w-fit h-fit mr-8">
-			<div class="text-main-100 dark:text-contrast-100">
-				<h2
-					class="text-4xl font-semibold my-4 border-b-4 border-dotted w-fit border-main-100 dark:border-contrast-100">
-					What can you find here?
-				</h2>
-				<p class="leading-normal">
-					This site is mainly going to be a quick way to share and find useful resources. What you
-					can find here right now:
-				</p>
-				<ul>
-					<li class="list-disc list-inside">FAQ - Shorter answers to frequently asked questions</li>
-					<li class="list-disc list-inside">
-						Builds - Build guides/lists for a variety of quads, sorted by difficulty
-					</li>
-					<li class="list-disc list-inside">
-						Equipment - Everything else you'll need to get flying: Radios, goggles, and various
-						tools
-					</li>
-					<!-- articles -->
-					<li class="list-disc list-inside">
-						Articles - Anything that wouldn't go into the FAQ or builds for being too long. News about anything FPV, or anything else that I feel like writing about
-				</ul>
+	
+	<!-- <div class="w-full flex items-center md:md:my-32 my-16 pl-8">
+		<h2 class="text-6xl">What Can You Find Here?</h2>
+	</div> -->
+
+	<div class="relative md:my-32 my-16">
+		<div class="absolute w-full h-full pointer-events-none">
+			<div style="-webkit-mask-image: linear-gradient(transparent, black, transparent);"
+				class="absolute w-full h-[150%] dark:bg-grid-dark bg-grid-light bg-repeat dark:opacity-[.15] opacity-60 z-10 pointer-events-none">
+			</div>
+			<div class="absolute w-full">
+				<svg width="1024" height="360" viewBox="0 0 1024 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full rotate-180 md:blur-[96px] blur-2xl md:h-full md:scale-x-125 md:scale-y-75 scale-y-200 md:dark:saturate-100 saturate-[2] dark:opacity-70 opacity-100">
+					<g opacity="0.5" clip-path="url(#clip0_1_2)">
+						<rect width="433.919" height="307.42" transform="matrix(0.652501 0.757788 -0.918405 0.395643 223.833 -50.3698)" fill="url(#paint0_radial_2_2)" />
+						<rect width="539.073" height="235.273" transform="matrix(0.979338 0.202229 -0.381519 0.924361 132.254 83.877)" fill="url(#paint1_radial_2_2)" />
+						<rect width="404.121" height="312.353" transform="matrix(-0.658984 -0.752157 0.946257 -0.323417 846.453 402.448)" fill="url(#paint2_radial_2_2)" />
+						<rect width="513.135" height="262.577" rx="109.572" transform="matrix(-0.977818 -0.209455 0.481307 -0.876552 861.081 275.469)" fill="url(#paint3_radial_2_2)" />
+					</g>
+					<defs>
+						<radialGradient id="paint0_radial_2_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(216.96 153.71) scale(216.96 153.71)">
+							<stop stop-color="#6e378c" />
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<radialGradient id="paint1_radial_2_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(269.537 117.636) scale(269.537 117.636)">
+							<stop stop-color="#9550ba"/>
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<radialGradient id="paint2_radial_2_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(202.06 156.176) scale(202.06 156.176)">
+							<stop stop-color="#9550ba"/>
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<radialGradient id="paint3_radial_2_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256.567 131.288) scale(256.567 131.288)">
+							<stop stop-color="#8f30c2"/>
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+					</defs>
+				</svg>
 			</div>
 		</div>
-		<div
-			class="md:w-96 mr-8 w-1/4 flex md:flex-row flex-col md:justify-around justify-between items-center md:h-fit h-96 mt-16">
-			<svg
-				class="h-fit w-fit relative scale-50 -rotate-12 fill-black/20 hover:-translate-y-2 duration-300 dark:fill-white/20"
-				height="300"
-				width="300"
-				viewBox="0 0 500 500">
-				<path
-					d="M111.25,222.803c12.77,0,25.305-2.154,37.259-6.403c3.903-1.387,5.942-5.676,4.556-9.579
-                            c-1.388-3.903-5.678-5.94-9.579-4.555c-10.337,3.674-21.183,5.537-32.235,5.537c-53.072,0-96.25-43.178-96.25-96.25
-                            c0-53.072,43.178-96.25,96.25-96.25c53.072,0,96.25,43.178,96.25,96.25c0,10.754-1.765,21.32-5.244,31.404
-                            c-1.352,3.916,0.728,8.185,4.644,9.536c3.914,1.35,8.186-0.728,9.536-4.644c4.024-11.662,6.064-23.874,6.064-36.297
-                            c0-61.343-49.906-111.25-111.25-111.25S0,50.209,0,111.553S49.906,222.803,111.25,222.803z"
-				/>
-				<path
-					d="M207.314,317.675c-3.909,1.37-5.968,5.648-4.599,9.558c3.576,10.211,5.39,20.917,5.39,31.82
-                            c0,53.072-43.178,96.25-96.25,96.25c-53.072,0-96.25-43.178-96.25-96.25c0-53.072,43.178-96.25,96.25-96.25
-                            c10.9,0,21.605,1.813,31.82,5.39c3.912,1.369,8.188-0.69,9.557-4.6c1.369-3.909-0.69-8.188-4.6-9.557
-                            c-11.812-4.136-24.185-6.233-36.777-6.233c-61.344,0-111.25,49.907-111.25,111.25s49.906,111.25,111.25,111.25
-                            s111.25-49.907,111.25-111.25c0-12.595-2.097-24.969-6.233-36.778C215.503,318.365,211.224,316.305,207.314,317.675z"
-				/>
-				<path
-					d="M359.355,247.803c-12.593,0-24.966,2.097-36.777,6.233c-3.909,1.369-5.969,5.648-4.6,9.557
-                            c1.368,3.91,5.649,5.968,9.557,4.6c10.215-3.577,20.92-5.39,31.82-5.39c53.072,0,96.25,43.178,96.25,96.25
-                            c0,53.072-43.178,96.25-96.25,96.25c-53.072,0-96.25-43.178-96.25-96.25c0-10.9,1.813-21.606,5.39-31.82
-                            c1.369-3.909-0.69-8.188-4.6-9.557c-3.91-1.368-8.188,0.691-9.557,4.6c-4.137,11.812-6.233,24.185-6.233,36.777
-                            c0,61.343,49.906,111.25,111.25,111.25s111.25-49.907,111.25-111.25S420.699,247.803,359.355,247.803z"
-				/>
-				<path
-					d="M263.896,152.93c3.909-1.369,5.969-5.648,4.6-9.557c-3.576-10.214-5.39-20.92-5.39-31.82
-                            c0-53.072,43.178-96.25,96.25-96.25c53.072,0,96.25,43.178,96.25,96.25s-43.178,96.25-96.25,96.25
-                            c-10.901,0-21.607-1.813-31.82-5.39c-3.909-1.368-8.188,0.691-9.557,4.6c-1.369,3.91,0.689,8.188,4.6,9.558
-                            c11.81,4.136,24.184,6.233,36.777,6.233c61.344,0,111.25-49.907,111.25-111.25S420.699,0.303,359.355,0.303
-                            s-111.25,49.907-111.25,111.25c0,12.592,2.097,24.966,6.233,36.777C255.707,152.24,259.987,154.3,263.896,152.93z"
-				/>
-				<path
-					d="M332.272,363.789c0.54,3.094,1.595,6.012,3.08,8.66l-33.426,33.427c-2.929,2.929-2.929,7.678,0,10.606
-                            c1.465,1.464,3.385,2.197,5.304,2.197c1.919,0,3.839-0.732,5.304-2.197l33.426-33.426c3.967,2.223,8.535,3.497,13.397,3.497
-                            c15.163,0,27.5-12.336,27.5-27.5c0-4.862-1.273-9.43-3.496-13.397l33.427-33.427c2.929-2.929,2.929-7.678,0-10.606
-                            c-2.929-2.929-7.677-2.929-10.607,0l-33.427,33.426c-2.649-1.484-5.566-2.54-8.66-3.08l-82.101-82.101
-                            c1.448-4.601,2.231-9.493,2.231-14.565c0-5.072-0.784-9.965-2.232-14.566l82.101-82.101c3.094-0.54,6.011-1.595,8.66-3.08
-                            l33.427,33.426c1.465,1.464,3.385,2.197,5.304,2.197c1.919,0,3.839-0.732,5.304-2.197c2.929-2.929,2.929-7.678,0-10.606
-                            l-33.427-33.427c2.223-3.967,3.496-8.535,3.496-13.397c0-15.164-12.337-27.5-27.5-27.5c-4.862,0-9.429,1.273-13.397,3.496
-                            l-33.426-33.426c-2.93-2.929-7.678-2.929-10.607,0c-2.929,2.929-2.929,7.678,0,10.606l33.426,33.427
-                            c-1.484,2.649-2.54,5.566-3.08,8.66l-82.101,82.101c-4.601-1.448-9.493-2.231-14.565-2.231c-5.072,0-9.965,0.784-14.565,2.231
-                            l-82.101-82.101c-0.54-3.094-1.595-6.011-3.08-8.66l33.427-33.427c2.929-2.929,2.929-7.678,0-10.606
-                            c-2.929-2.929-7.677-2.929-10.607,0l-33.427,33.426c-3.967-2.223-8.535-3.496-13.397-3.496c-15.163,0-27.5,12.336-27.5,27.5
-                            c0,4.862,1.273,9.43,3.496,13.397l-33.426,33.427c-2.929,2.929-2.929,7.678,0,10.606c1.465,1.464,3.385,2.197,5.304,2.197
-                            s3.839-0.732,5.304-2.197l33.426-33.426c2.649,1.484,5.567,2.54,8.661,3.08l82.101,82.101c-1.448,4.601-2.232,9.493-2.232,14.566
-                            c0,5.072,0.783,9.964,2.231,14.565l-82.101,82.102c-3.094,0.54-6.012,1.596-8.661,3.08l-33.426-33.426
-                            c-2.929-2.929-7.677-2.929-10.607,0c-2.929,2.929-2.929,7.678,0,10.606l33.426,33.427c-2.223,3.967-3.496,8.535-3.496,13.397
-                            c0,15.164,12.337,27.5,27.5,27.5c4.862,0,9.43-1.273,13.397-3.497l33.427,33.426c1.465,1.464,3.385,2.197,5.304,2.197
-                            s3.839-0.732,5.304-2.197c2.929-2.929,2.929-7.678,0-10.606l-33.427-33.427c1.484-2.648,2.54-5.565,3.079-8.659l82.101-82.102
-                            c4.601,1.448,9.493,2.232,14.566,2.232s9.965-0.784,14.566-2.232L332.272,363.789z M359.355,346.553
-                            c3.434,0,6.547,1.393,8.809,3.642c2.299,2.311,3.691,5.425,3.691,8.858c0,6.892-5.607,12.5-12.5,12.5
-                            c-3.434,0-6.547-1.393-8.809-3.642c-2.299-2.311-3.691-5.425-3.691-8.858C346.855,352.16,352.462,346.553,359.355,346.553z
-                            M350.497,102.745c2.311-2.299,5.425-3.691,8.858-3.691c6.893,0,12.5,5.607,12.5,12.5c0,3.434-1.393,6.547-3.642,8.809
-                            c-2.311,2.299-5.425,3.691-8.858,3.691c-6.893,0-12.5-5.607-12.5-12.5C346.855,108.12,348.248,105.006,350.497,102.745z
-                            M345.958,335.049c-4.438,2.487-8.119,6.167-10.606,10.606l-71.103-71.104c4.057-2.969,7.637-6.549,10.606-10.606
-                            L345.958,335.049z M335.352,124.951c2.487,4.438,6.168,8.119,10.606,10.606l-71.103,71.103
-                            c-2.969-4.057-6.549-7.637-10.606-10.606L335.352,124.951z M111.855,124.053c-3.434,0-6.547-1.393-8.809-3.642
-                            c-2.299-2.311-3.691-5.425-3.691-8.858c0-6.893,5.608-12.5,12.5-12.5c3.434,0,6.547,1.393,8.809,3.642
-                            c2.299,2.311,3.691,5.425,3.691,8.858C124.355,118.446,118.748,124.053,111.855,124.053z M125.253,135.556
-                            c4.438-2.487,8.118-6.167,10.605-10.606l71.104,71.104c-4.057,2.969-7.637,6.549-10.606,10.606L125.253,135.556z
-                            M120.713,367.862c-2.311,2.299-5.425,3.691-8.858,3.691c-6.892,0-12.5-5.608-12.5-12.5c0-3.434,1.393-6.547,3.642-8.809
-                            c2.311-2.299,5.425-3.691,8.858-3.691c6.893,0,12.5,5.607,12.5,12.5C124.355,362.487,122.962,365.6,120.713,367.862z
-                            M135.859,345.656c-2.487-4.438-6.168-8.119-10.606-10.606l71.103-71.104c2.969,4.057,6.549,7.637,10.606,10.606L135.859,345.656
-                            z M235.605,268.92c-18.536,0-33.616-15.081-33.616-33.617c0-18.537,15.08-33.617,33.616-33.617
-                            c18.536,0,33.617,15.081,33.617,33.617S254.141,268.92,235.605,268.92z"
-				/>
-			</svg>
-			<svg
-				class="h-fit w-fit relative scale-50 rotate-12 fill-black/20 hover:-translate-y-2 duration-300 dark:fill-white/20 md:bottom-16"
-				height="300"
-				width="300"
-				viewBox="0 0 512 512">
-				<g>
-					<path
-						class="st0"
-						d="M256,0C114.6,0,0,114.6,0,256s114.6,256,256,256s256-114.6,256-256S397.4,0,256,0z M256,460.8
-						c-113.1,0-204.8-91.7-204.8-204.8S142.9,51.2,256,51.2S460.8,142.9,460.8,256S369.1,460.8,256,460.8z"
-					/>
-					<path
-						class="st0"
-						d="M256,102.4c-49.5,0-89.6,40.1-89.6,89.6c0,14.1,11.5,25.6,25.6,25.6s25.6-11.5,25.6-25.6
-						c0-21.2,17.2-38.4,38.4-38.4s38.4,17.2,38.4,38.4s-17.2,38.4-38.4,38.4c-14.1,0-25.6,11.5-25.6,25.6v51.2
-						c0,14.1,11.5,25.6,25.6,25.6c14.1,0,25.6-11.5,25.6-25.6v-29.7c47.4-13.8,74.5-63.4,60.7-110.8C331.1,128.4,295.9,102.2,256,102.4z"
-					/>
-					<circle class="st0" cx="256" cy="384" r="25.6" />
-				</g>
-			</svg>
-			<svg
-				class="h-fit w-fit relative scale-150 fill-black/20 hover:-translate-y-2 duration-300 dark:fill-white/20"
-				viewBox="0 0 110 110"
-				width="110"
-				height="110">
-				<g>
-					<path
-						d="m 86.125,25.314 c 0.035,0.002 0.07,0.003 0.105,0.003 0.54,0 1.041,-0.292 1.306,-0.769 l 7.277,-13.114 c 0.323,-0.583 0.222,-1.31 -0.25,
-                    -1.782 L 90.349,5.438 C 89.878,4.967 89.15,4.864 88.567,5.188 l -13.114,7.277 c -0.507,0.282 -0.806,0.832 -0.765,1.411 L 75.022,18.647 52.512,
-                    41.155 39.816,28.459 C 41.993,22.092 40.392,15.038 35.59,10.236 30.848,5.495 23.95,3.845 17.585,5.931 17.562,5.939 17.542,5.951 17.52,5.96 17.497,
-                    5.969 17.476,5.98 17.453,5.99 17.287,6.063 17.14,6.16 17.016,6.281 17.009,6.286 17,6.288 16.994,6.294 c -0.009,0.009 -0.011,0.02 -0.019,0.029 
-                    -0.123,0.129 -0.221,0.276 -0.291,0.438 -0.01,0.022 -0.017,0.043 -0.026,0.065 -0.059,0.157 -0.092,0.322 -0.096,0.492 -0.001,0.024 0,0.046 10e-4,
-                    0.069 0.004,0.142 0.02,0.286 0.067,0.428 0.008,0.023 0.02,0.043 0.029,0.065 0.009,0.023 0.02,0.044 0.03,0.067 0.073,0.165 0.17,0.312 0.29,0.436 
-                    0.007,0.007 0.008,0.016 0.015,0.023 l 6.857,6.858 c 0.645,0.644 1,1.499 1,2.408 0,0.908 -0.353,1.761 -0.995,2.403 l -3.439,3.439 c -0.641,0.642 
-                    -1.494,0.995 -2.401,0.995 0,0 -10e-4,0 -10e-4,0 -0.909,0 -1.764,-0.356 -2.409,-1 L 8.749,16.652 C 8.742,16.645 8.733,16.643 8.726,16.637 8.602,
-                    16.517 8.455,16.42 8.29,16.348 8.267,16.338 8.245,16.327 8.221,16.318 8.198,16.309 8.178,16.296 8.155,16.289 8.014,16.243 7.871,16.226 7.729,
-                    16.222 7.705,16.221 7.683,16.22 7.659,16.221 7.489,16.225 7.324,16.258 7.168,16.317 7.145,16.326 7.123,16.334 7.1,16.344 6.939,16.414 6.793,
-                    16.511 6.665,16.633 6.656,16.642 6.643,16.644 6.634,16.653 6.627,16.66 6.625,16.669 6.619,16.676 6.5,16.8 6.404,16.946 6.331,17.111 6.321,17.135 
-                    6.309,17.156 6.3,17.18 c -0.009,0.023 -0.022,0.042 -0.029,0.066 -2.079,6.369 -0.43,13.268 4.305,18.003 3.39,3.39 7.902,5.189 12.505,5.189 1.915,
-                    0 3.843,-0.332 5.715,-0.971 l 8.541,8.542 c -0.196,-0.022 -0.389,-0.058 -0.59,-0.058 -1.419,0 -2.754,0.553 -3.757,1.556 L 6.556,75.943 C 5.553,
-                    76.947 5,78.281 5,79.7 c 0,1.419 0.553,2.753 1.556,3.757 l 9.988,9.988 c 1.003,1.002 2.337,1.555 3.757,1.555 1.419,0 2.753,-0.553 3.757,-1.556 
-                    L 50.493,67.009 c 1.003,-1.003 1.556,-2.338 1.556,-3.757 0,-0.2 -0.036,-0.394 -0.058,-0.59 l 8.533,8.533 c -2.177,6.371 -0.575,13.427 4.228,
-                    18.229 3.381,3.382 7.866,5.19 12.473,5.19 1.844,0 3.709,-0.29 5.53,-0.885 0.024,-0.008 0.043,-0.021 0.066,-0.029 0.023,-0.009 0.044,-0.02 0.067,
-                    -0.03 0.166,-0.073 0.313,-0.17 0.437,-0.29 0.007,-0.006 0.016,-0.008 0.022,-0.015 0.009,-0.009 0.011,-0.02 0.019,-0.029 0.122,-0.129 0.22,
-                    -0.275 0.29,-0.437 0.01,-0.022 0.018,-0.044 0.026,-0.066 0.059,-0.156 0.092,-0.321 0.096,-0.492 10e-4,-0.024 0,-0.046 -0.001,-0.07 -0.004,-0.142 
-                    -0.02,-0.285 -0.067,-0.426 -0.008,-0.023 -0.021,-0.043 -0.029,-0.066 -0.009,-0.023 -0.02,-0.045 -0.03,-0.068 -0.073,-0.166 -0.17,-0.313 -0.29,
-                    -0.437 -0.006,-0.006 -0.008,-0.015 -0.014,-0.022 L 76.49,84.395 c -1.328,-1.328 -1.33,-3.487 -0.005,-4.812 l 3.439,-3.439 c 1.326,-1.325 3.484,
-                    -1.322 4.812,0.005 l 6.857,6.857 c 0.006,0.006 0.015,0.008 0.022,0.014 0.124,0.12 0.272,0.218 0.437,0.291 0.023,0.01 0.044,0.021 0.067,0.03 0.022,
-                    0.009 0.042,0.021 0.065,0.029 0.155,0.051 0.311,0.075 0.466,0.075 0.179,0 0.35,-0.04 0.514,-0.101 0.049,-0.018 0.091,-0.046 0.138,-0.069 0.118,
-                    -0.058 0.226,-0.129 0.326,-0.217 0.024,-0.021 0.055,-0.029 0.078,-0.052 0.021,-0.021 0.027,-0.049 0.047,-0.07 0.086,-0.096 0.154,-0.203 0.214,
-                    -0.322 0.025,-0.051 0.058,-0.096 0.077,-0.149 0.007,-0.018 0.02,-0.032 0.026,-0.05 C 96.156,76.05 94.506,69.151 89.765,64.41 84.964,59.609 
-                    77.909,58.008 71.542,60.184 L 58.845,47.488 81.354,24.979 Z M 30.28,36.724 C 29.869,36.288 29.221,36.123 28.632,36.362 23.138,38.592 16.881,
-                    37.327 12.69,33.136 9.367,29.813 7.882,25.208 8.538,20.668 l 4.955,4.955 c 1.208,1.208 2.813,1.874 4.52,1.875 10e-4,0 0.002,0 0.003,0 1.705,
-                    0 3.309,-0.664 4.514,-1.87 l 3.439,-3.438 c 1.207,-1.207 1.871,-2.811 1.87,-4.518 -10e-4,-1.706 -0.667,-3.312 -1.876,-4.52 L 21.007,8.195 
-                    c 4.538,-0.659 9.143,0.827 12.47,4.154 4.181,4.181 5.449,10.419 3.237,15.901 -0.014,0.032 -0.02,0.065 -0.031,0.099 -0.049,0.14 -0.076,0.281 
-                    -0.082,0.423 -10e-4,0.031 -0.008,0.061 -0.008,0.092 0.002,0.167 0.038,0.33 0.094,0.485 0.008,
-                    0.023 0.012,0.045 0.021,0.068 0.073,0.175 0.179,0.336 0.315,0.473 10e-4,10e-4 10e-4,0.002 0.002,0.004 l 0.003,0.003 c 0.001,0.001 0.002,0.002 0.004,
-                    0.004 l 13.367,13.367 -2.945,2.944 c -0.846,-0.63 -1.856,-0.986 -2.928,-0.986 -1.316,0 -2.555,0.514 -3.492,1.451 l -0.401,0.401 z m 18.1,28.172 
-                    -26.436,26.435 c -0.879,0.878 -2.41,0.877 -3.288,0 L 8.668,81.343 c -0.439,-0.439 -0.68,-1.023 -0.68,-1.644 0,-0.621 0.242,-1.204 0.68,-1.644 L 
-                    35.104,51.62 c 0.439,-0.439 1.023,-0.681 1.644,-0.681 0.618,0 1.2,0.241 1.638,0.676 l 9.993,9.993 c 0.439,0.439 0.681,1.022 0.681,1.643 0,0.622 
-                    -0.241,1.205 -0.68,1.645 z m 2.829,-8.044 -1.675,1.684 -8.06,-8.061 0.214,-0.215 c 0.003,-0.003 0.007,-0.004 0.01,-0.006 0.003,-0.003 0.004,
-                    -0.007 0.007,-0.01 l 1.449,-1.458 c 0.738,-0.738 2.013,-0.737 2.75,0 l 0.544,0.544 c 0,0 0,0.001 10e-4,0.001 l 4.22,4.22 c 0,0 0,0 0,0 l 0.546,
-                    0.546 c 0.369,0.369 0.572,0.857 0.572,1.375 -0.002,0.519 -0.205,1.007 -0.578,1.38 z m 18.888,6.115 c 0.002,0.002 0.004,0.004 0.006,0.006 l 
-                    0.003,0.003 c 0.001,10e-4 0.002,10e-4 0.003,0.002 0.137,0.135 0.299,0.242 0.474,0.315 0.022,0.01 0.045,0.013 0.068,0.021 0.154,0.056 0.316,
-                    0.091 0.483,0.094 0.01,0 0.019,0.006 0.029,0.006 0.023,0 0.046,-0.012 0.069,-0.013 0.14,-0.007 0.281,-0.033 0.419,-0.082 0.033,-0.012 0.066,
-                    -0.017 0.099,-0.031 5.482,-2.211 11.721,-0.943 15.902,3.237 3.327,3.327 4.814,7.933 4.155,12.47 L 86.85,74.038 c -2.492,-2.492 -6.547,-2.496 
-                    -9.038,-0.005 l -3.439,3.439 c -2.49,2.49 -2.488,6.545 0.005,9.038 l 4.955,4.954 C 74.793,92.12 70.189,90.635 66.865,87.312 62.675,83.121 
-                    61.408,76.864 63.639,71.37 63.878,70.782 63.713,70.133 63.277,69.723 L 52.921,59.366 53.326,58.961 c 0.933,-0.933 1.447,-2.172 1.447,-3.488 
-                    0,-1.071 -0.356,-2.082 -0.986,-2.927 l 2.945,-2.945 z M 80.802,21.952 c -0.017,0 -0.034,0 -0.051,10e-4 -0.417,0 -0.795,0.177 -1.064,0.468 L 
-                    51.724,50.383 49.617,48.276 77.615,20.279 c 0.002,-0.002 0.003,-0.006 0.006,-0.008 0.132,-0.135 0.238,-0.293 0.311,-0.469 0.004,-0.01 0.01,
-                    -0.02 0.014,-0.031 0.063,-0.16 0.096,-0.332 0.1,-0.512 10e-4,-0.021 0.002,-0.042 0.002,-0.063 0,-0.025 0.004,-0.048 0.002,-0.073 l -0.316,
-                    -4.507 11.297,-6.268 2.621,2.621 -6.268,11.297 -4.507,-0.315 c -0.025,-0.003 -0.05,0.002 -0.075,0.001 z"
-					/>
-				</g>
-			</svg>
+
+		<div class="flex md:flex-row flex-col h-full md:p-8 p-4 w-full z-10 items-center">
+			<div class="flex flex-col md:w-1/2">
+				<div class="text-violet flex my-4 items-center">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-16 h-16 mr-2">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+					</svg>
+					<h2 class="text-6xl">FAQ</h2>
+				</div>
+				<p class="text-2xl mb-8">Find quick answers to the most frequently asked questions!</p>
+				<p>
+					It's no secret that FPV is not a very easy hobby to get into. There's a lot of things to learn, 
+					and with that come a lot of questions! Some may be more common than others, but I hope to cover 
+					most of the ones that come up often. <br>
+					The FAQ page covers everything from the first few questions you might have when you start, to 
+					troubleshooting and repairs
+				</p>
+				<div class="flex md:flex-row flex-col justify-between w-full items-center">
+					<div class="my-4 flex flex-col gap-2 w-fit">
+						<Link href="/faq/startingOutCost" color="violet" color1="violet">How much does FPV cost?</Link>
+						<Link href="/faq/sim" color="violet" color1="violet">What's a good sim?</Link>
+					</div>
+					<div class="md:w-fit my-4"><Button isLink={true} href="/faq" color="violet">Get Answers in the FAQ</Button></div>
+				</div>
+			</div>
+			<div class="md:flex flex-col md:w-1/2 w-full aspect-video hidden">
+				<Canvas>
+					<HomeFrame />
+				</Canvas>
+			</div>
+		</div>
+	</div>
+
+	<div class="relative md:my-32 my-16">
+		<div class="absolute w-full h-full pointer-events-none">
+			<div style="-webkit-mask-image: linear-gradient(transparent, black, transparent);"
+				class="absolute w-full h-[150%] dark:bg-grid-dark bg-grid-light bg-repeat dark:opacity-[.15] opacity-60 z-10 pointer-events-none">
+			</div>
+			<div class="absolute w-full">
+				<svg width="1024" height="360" viewBox="0 0 1024 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full md:blur-[96px] blur-2xl md:h-full md:scale-x-125 md:scale-y-75 scale-y-200 md:dark:saturate-100 saturate-[2] dark:opacity-70 opacity-100">
+					<g opacity="0.5" clip-path="url(#clip0_1_2)">
+						<rect width="433.919" height="307.42" transform="matrix(0.652501 0.757788 -0.918405 0.395643 223.833 -50.3698)" fill="url(#paint0_radial_3_2)" />
+						<rect width="539.073" height="235.273" transform="matrix(0.979338 0.202229 -0.381519 0.924361 132.254 83.877)" fill="url(#paint1_radial_3_2)" />
+						<rect width="404.121" height="312.353" transform="matrix(-0.658984 -0.752157 0.946257 -0.323417 846.453 402.448)" fill="url(#paint2_radial_3_2)" />
+						<rect width="513.135" height="262.577" rx="109.572" transform="matrix(-0.977818 -0.209455 0.481307 -0.876552 861.081 275.469)" fill="url(#paint3_radial_3_2)" />
+					</g>
+					<defs>
+						<radialGradient id="paint0_radial_3_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(216.96 153.71) scale(216.96 153.71)">
+							<stop stop-color="#911f37" />
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<radialGradient id="paint1_radial_3_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(269.537 117.636) scale(269.537 117.636)">
+							<stop stop-color="#d6395b"/>
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<radialGradient id="paint2_radial_3_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(202.06 156.176) scale(202.06 156.176)">
+							<stop stop-color="#d6395b"/>
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<radialGradient id="paint3_radial_3_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256.567 131.288) scale(256.567 131.288)">
+							<stop stop-color="#f5365f"/>
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+					</defs>
+				</svg>
+			</div>
+		</div>
+
+		<div class="flex md:flex-row flex-col h-full md:p-8 p-4 w-full z-10 items-center">
+			<div class="md:flex flex-col md:w-1/2 w-full aspect-video hidden">
+				<Canvas>
+					<HomeFc />
+				</Canvas>
+			</div>
+			<div class="flex flex-col md:w-1/2 z-10">
+				<div class="text-red flex my-4 items-center">
+					<svg width="150" height="150" viewBox="0 0 200 200" fill="currentColor" stroke-width="8" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 -mb-2">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M92.8079 95.1565C92.9816 94.8991 93.0481 94.5859 92.9687 
+						94.2857C83.8268 59.7442 94.1948 4.97097 99.6692 3.70844C105.241 2.42341 106.009 3.43176 106.009 6.9173C106.009 
+						7.74605 105.962 8.95909 105.902 10.5199V10.52C105.708 15.5238 105.375 24.1017 106.009 35.0506C106.566 44.6669 
+						107.308 48.1922 108.188 52.3745C108.622 54.4396 109.09 56.6648 109.587 59.8625C111.791 74.0627 110.482 80.6871 
+						106.704 93.7946C106.611 94.1204 106.69 94.474 106.895 94.7435C107.134 95.0556 107.351 95.3844 107.546 
+						95.7277C107.688 95.9771 107.912 96.1661 108.189 96.2413C142.668 105.61 184.89 141.953 183.247 147.324C181.574 
+						152.791 180.317 152.952 177.298 151.21C176.58 150.795 175.553 150.148 174.232 149.315L174.232 149.315C169.995 
+						146.645 162.733 142.068 152.934 137.143C144.328 132.817 140.904 131.697 136.842 130.368L136.842 130.368C134.836 
+						129.711 132.675 129.004 129.657 127.835C116.492 122.734 111.355 118.354 102.204 108.883C101.964 108.634 
+						101.61 108.528 101.269 108.578C100.855 108.639 100.431 108.67 100 108.67C99.7327 108.67 99.4682 108.658 
+						99.2071 108.634C98.8936 108.606 98.5828 108.702 98.3575 108.922C72.8226 133.847 20.8884 151.978 17.0838 
+						147.896C13.185 143.714 13.6743 142.544 16.6928 140.802C17.4105 140.387 18.4846 139.821 19.8665 139.093C24.2969 
+						136.76 31.8919 132.759 41.057 126.735C49.1064 121.444 51.7886 119.039 54.9706 116.186L54.9706 116.186C56.5418 
+						114.777 58.2348 113.259 60.7559 111.231C71.9294 102.24 78.3176 100.052 91.5041 96.7802C91.8114 96.704 92.0661 
+						96.4841 92.205 96.1996C92.3822 95.837 92.5838 95.4886 92.8079 95.1565Z"/>
+					</svg>
+					<h2 class="text-6xl">Builds</h2>
+				</div>
+				<p class="text-2xl mb-8">Get parts for your first build, or just some inspiration</p>
+				<p>
+					Building your first quad can be a daunting task, especially if you don't know what to get. 
+					There's a lot of parts out there, and it can be hard to know what's good and what isn't.<br>
+					You can find lists of all the parts you need to build anything from a 200km/h racer to a tiny 
+					build that can fit in your palm!
+				</p>
+				<div class="flex md:flex-row flex-col justify-between w-full items-center">
+					<!-- <div class="my-4 flex flex-col gap-2 w-fit">
+						<Link href="/faq/startingOutCost" color="violet" color1="violet">How much does FPV cost?</Link>
+						<Link href="/faq/sim" color="violet" color1="violet">What's a good sim?</Link>
+					</div> -->
+					<div class="md:w-fit my-8"><Button isLink={true} href="/builds" color="red">Visit Build Guides</Button></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="relative md:my-32 my-16">
+		<div class="absolute w-full h-full pointer-events-none">
+			<div style="-webkit-mask-image: linear-gradient(transparent, black, transparent);"
+				class="absolute w-full h-[150%] dark:bg-grid-dark bg-grid-light bg-repeat dark:opacity-[.15] opacity-60 z-10 pointer-events-none">
+			</div>
+			<div class="absolute w-full">
+				<svg width="1024" height="360" viewBox="0 0 1024 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full rotate-180 md:blur-[96px] blur-2xl md:h-full md:scale-x-125 md:scale-y-75 scale-y-200 md:dark:saturate-100 saturate-[2] dark:opacity-70 opacity-100">
+					<g opacity="0.5" clip-path="url(#clip0_1_2)">
+						<rect width="433.919" height="307.42" transform="matrix(0.652501 0.757788 -0.918405 0.395643 223.833 -50.3698)" fill="url(#paint0_radial_4_2)" />
+						<rect width="539.073" height="235.273" transform="matrix(0.979338 0.202229 -0.381519 0.924361 132.254 83.877)" fill="url(#paint1_radial_4_2)" />
+						<rect width="404.121" height="312.353" transform="matrix(-0.658984 -0.752157 0.946257 -0.323417 846.453 402.448)" fill="url(#paint2_radial_4_2)" />
+						<rect width="513.135" height="262.577" rx="109.572" transform="matrix(-0.977818 -0.209455 0.481307 -0.876552 861.081 275.469)" fill="url(#paint3_radial_4_2)" />
+					</g>
+					<defs>
+						<radialGradient id="paint0_radial_4_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(216.96 153.71) scale(216.96 153.71)">
+							<stop stop-color="#ff9742" />
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<radialGradient id="paint1_radial_4_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(269.537 117.636) scale(269.537 117.636)">
+							<stop stop-color="#ff9742"/>
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<radialGradient id="paint2_radial_4_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(202.06 156.176) scale(202.06 156.176)">
+							<stop stop-color="#ff9742"/>
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<radialGradient id="paint3_radial_4_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256.567 131.288) scale(256.567 131.288)">
+							<stop stop-color="#db8700"/>
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+					</defs>
+				</svg>
+			</div>
+		</div>
+
+		<div class="flex md:flex-row flex-col h-full md:p-8 p-4 w-full z-10 items-center">
+			<div class="flex flex-col md:w-1/2 z-10">
+				<div class="text-orange flex my-4 items-center">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+					</svg>
+					<h2 class="text-6xl">Eqiupment</h2>
+				</div>
+				<p class="text-2xl mb-8">Everything you need to get in the air!</p>
+				<p>
+					<!-- Building your first quad can be a daunting task, especially if you don't know what to get. 
+					There's a lot of parts out there, and it can be hard to know what's good and what isn't.<br>
+					You can find lists of all the parts you need to build anything from a 200km/h racer to a tiny 
+					build that can fit in your palm! -->
+					Find recommendations for every piece of gear, accessories, and tools to get you flying. Everything 
+					from stuff you need like goggles, radios and even chargers, to things to stuff your tool bag with!<br><br>
+					<em>Chargers and tools coming soon™</em>
+				</p>
+				<div class="flex md:flex-row flex-col justify-between w-full items-center">
+					<!-- <div class="my-4 flex flex-col gap-2 w-fit">
+						<Link href="/faq/startingOutCost" color="violet" color1="violet">How much does FPV cost?</Link>
+						<Link href="/faq/sim" color="violet" color1="violet">What's a good sim?</Link>
+					</div> -->
+					<div class="md:w-fit my-8"><Button isLink={true} href="/equipment" color="orange">Find Eqiupment Recommendations</Button></div>
+				</div>
+			</div>
+			<div class="md:flex flex-col md:w-1/2 w-full aspect-video hidden">
+				<Canvas>
+					<HomeIron />
+				</Canvas>
+			</div>
+		</div>
+	</div>
+
+	<div class="relative md:my-32 my-16">
+		<div class="absolute w-full h-full pointer-events-none">
+			<div style="-webkit-mask-image: linear-gradient(transparent, black, transparent);"
+				class="absolute w-full h-[150%] dark:bg-grid-dark bg-grid-light bg-repeat dark:opacity-[.15] opacity-60 z-10 pointer-events-none">
+			</div>
+			<div class="absolute w-full">
+				<svg width="1024" height="360" viewBox="0 0 1024 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full rotate-180 md:blur-[96px] blur-2xl md:h-full md:scale-x-125 md:scale-y-75 scale-y-200 md:dark:saturate-100 saturate-[2] dark:opacity-70 opacity-100">
+					<g opacity="0.5" clip-path="url(#clip0_1_2)">
+						<rect width="433.919" height="307.42" transform="matrix(0.652501 0.757788 -0.918405 0.395643 223.833 -50.3698)" fill="url(#paint0_radial_5_2)" />
+						<rect width="539.073" height="235.273" transform="matrix(0.979338 0.202229 -0.381519 0.924361 132.254 83.877)" fill="url(#paint1_radial_5_2)" />
+						<rect width="404.121" height="312.353" transform="matrix(-0.658984 -0.752157 0.946257 -0.323417 846.453 402.448)" fill="url(#paint2_radial_5_2)" />
+						<rect width="513.135" height="262.577" rx="109.572" transform="matrix(-0.977818 -0.209455 0.481307 -0.876552 861.081 275.469)" fill="url(#paint3_radial_5_2)" />
+					</g>
+					<defs>
+						<radialGradient id="paint0_radial_5_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(216.96 153.71) scale(216.96 153.71)">
+							<stop stop-color="#d99c18" />
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<radialGradient id="paint1_radial_5_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(269.537 117.636) scale(269.537 117.636)">
+							<stop stop-color="#ffcc00"/>
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<radialGradient id="paint2_radial_5_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(202.06 156.176) scale(202.06 156.176)">
+							<stop stop-color="#ffcc00"/>
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+						<radialGradient id="paint3_radial_5_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256.567 131.288) scale(256.567 131.288)">
+							<stop stop-color="#f5ce33"/>
+							<stop offset="1" stop-opacity="0" />
+						</radialGradient>
+					</defs>
+				</svg>
+			</div>
+		</div>
+
+		<div class="flex md:flex-row flex-col h-full md:p-8 p-4 w-full z-10 items-center">
+			<div class="md:flex flex-col md:w-1/2 w-full aspect-video hidden">
+				<Canvas>
+					<HomeMonitor />
+				</Canvas>
+			</div>
+			<div class="flex flex-col md:w-1/2 z-10">
+				<div class="text-yellow flex my-4 items-center">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
+						</svg>
+					<h2 class="text-6xl">Articles</h2>
+				</div>
+				<p class="text-2xl mb-8">Definitely not just a blog™</p>
+				<p>
+					Anything from Reviews, News about stuff I find interesting yet cannot afford, to Guides and Tutorials!
+					Even just stuff I couldn't fit into the FAQ or don't want to write every time<br><br>
+					If you (much like me) prefer written content over videos, this is the place for you! I hope you find 
+					something that you like
+				</p>
+				<div class="flex md:flex-row flex-col justify-between w-full items-center">
+					<div class="md:w-fit my-8"><Button isLink={true} href="/articles" color="yellow">Read Stuff</Button></div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

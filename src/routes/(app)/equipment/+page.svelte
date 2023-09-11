@@ -23,7 +23,7 @@
 	let prefix = "VitroidFPV";
 	let titleRaw = "Equipment";
 	let title = " - " + titleRaw;
-	let color = "#d1288d";
+	let color = "#ff9742";
 	let color1 = tinycolor(color).lighten(20).spin(10).toHexString();
 	let color2 = tinycolor(color).darken(20).spin(10).toHexString();
 	let img = "/uploads/images/1s_toothpick_512.png";
@@ -51,7 +51,7 @@
 <div class="overflow-x-clip h-fit">
 	<div class="flex flex-col w-full relative px-4 md:px-0">
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
-			<MainHeader title={titleRaw} color="pink"/>
+			<MainHeader title={titleRaw} color="orange"/>
 			<Header title="All the things you'll need to get in the air, and more!" />
 			<p class="text-xl md:w-1/2">
 				{description} and some other minor things that could still make or break a new build<br><br>

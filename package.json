@@ -14,10 +14,12 @@
   "devDependencies": {
     "@rgossiaux/svelte-headlessui": "^2.0.0",
     "@sveltejs/adapter-auto": "next",
+    "@sveltejs/adapter-netlify": "^1.0.0-next.88",
     "@sveltejs/adapter-static": "^1.0.0-next.34",
     "@sveltejs/kit": "^1.20.4",
     "@tsconfig/svelte": "^3.0.0",
     "@types/color": "^3.0.3",
+    "@types/d3-interpolate": "^3.0.1",
     "@types/dom-to-image": "^2.6.4",
     "@types/inquirer": "^9.0.3",
     "@types/react-dom": "^18.2.4",
@@ -43,9 +45,9 @@
     "@rgossiaux/svelte-headlessui": {
       "svelte": "$svelte"
     },
-	"mdsvex": {
-		"svelte": "$svelte"
-	}
+    "mdsvex": {
+      "svelte": "$svelte"
+    }
   },
   "type": "module",
   "dependencies": {
@@ -54,9 +56,12 @@
     "@ffmpeg/ffmpeg": "^0.11.6",
     "@macfja/svelte-persistent-store": "^2.3.2",
     "@resvg/resvg-js": "^2.1.0",
-    "@sveltejs/adapter-netlify": "^2.0.5",
+    "@threlte/core": "^6.0.3",
+    "@threlte/extras": "^5.2.0",
     "@types/netlify-identity-widget": "^1.9.3",
+    "@types/three": "^0.155.0",
     "copy-image-clipboard": "^2.1.2",
+    "d3-interpolate": "^3.0.1",
     "dom-to-image": "^2.6.0",
     "dotenv": "^16.0.3",
     "inquirer": "^9.2.6",
@@ -75,6 +80,7 @@
     "svelte-intersection-observer": "^0.10.0",
     "svelte-markdown": "^0.3.0",
     "svelte-range-slider-pips": "^2.0.3",
+    "three": "^0.155.0",
     "tinycolor2": "^1.5.2"
   }
 }
