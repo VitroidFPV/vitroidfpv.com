@@ -20,6 +20,7 @@ date: 2023-09-14T18:40:51.531Z
 	import { Switch } from "@rgossiaux/svelte-headlessui"
 
 	let show3d = true;
+	let userRotation = 1
 </script>
 
 There's a ton of different aspects of antennas, and RF science in general. You could spend years on it and still not have a full grasp. Luckily for FPV purposes we can simplify some things a bunch and still get a good understanding of what's going on.
@@ -188,11 +189,24 @@ An antenna can either be Omni-directional or Directional. In the simplest terms,
 Of course, this is merely a simplification, as there exists no perfect antenna like that - so we'll have to go a bit deeper:
 
 ### Omni-directional
+Omni-directional antennas are used the most since they provide good coverage in all directions. Best used on both receivers and transmitters, and don't need to be pointed in any specific direction... except for the null points which you'll see in the radiation pattern diagrams below.
 
-Omni-directional antennas are used the most, since they provide good coverage in all directions. A real omni antenna can't radiate a perfect sphere of radio waves, think of it more like a figure 8 shape on the vertical plane and a circle on the horizontal plane, centered around the antenna - the final 3d radiation pattern will look kinda like a donut. A higher gain omni antenna will be a bit more focused in the horizontal plane, reaching further around the antenna, but not as far up/down, and the opposite for a lower gain omni antenna.
+<GridBox cols={3}>
+
+![Generic Dipole](https://cdn-v2.getfpv.com/media/catalog/product/a/s/asda_1_.jpg)
+Generic Dipole Antenna
+
+![TrueRC Core](https://www.truerc.ca/wp-content/uploads/42DD2E06-A50A-4B19-BC24-451ABC711A7C-e1677893008215.jpeg)
+TrueRC Core
+
+</GridBox>
+
+A real omni antenna can't radiate a perfect sphere of radio waves, think of it more like a figure 8 shape on the vertical plane and a circle on the horizontal plane, centered around the antenna - the final 3d radiation pattern will look kinda like a donut. The "hole" in the center directly above and below the antenna is called the null point, and it's where the antenna radiates the least. If you fly directly above yourself, your video won't be as good. 
+
+Going higer in gain, the antenna will be a bit more focused in the horizontal plane, reaching further around the antenna, but not as far up/down, and the opposite for a lower gain omni antenna.
 
 {#if show3d}
-<GridBox cols={3} classes="">
+<GridBox cols={3}>
 
 <GLTFBox>
 <GLTFWrapper url="/uploads/three/antennas/radiation/circle_h.glb" scale={1.75}/>
@@ -212,16 +226,29 @@ Omni-directional antennas are used the most, since they provide good coverage in
 <GLTFWrapper url="/uploads/three/antennas/radiation/pattern_wire.glb" scale={1.75}/>
 <GLTFWrapper url="/uploads/three/antennas/radiation/pattern_h.glb" scale={1.75}/>
 <GLTFWrapper url="/uploads/three/antennas/radiation/pattern_v.glb" scale={1.75}/>
-
 <div slot="content">3D Result</div>
 </GLTFBox>
 
 </GridBox>
 {/if}
 
+The diagrams above show a simplified omni antenna projection. On a real life antenna the projections (and the 3-dimensional result) will be a bit more bumpy, and the shape will vary on the gain of the antenna.
+
 ### Directional
 
-Directional antennas are used when you want to reach further in one direction, but will not cover the surrounding area nearly as well. They're most often used on VRXs when you want to push the range very far in one direction. Of course there are no perfectly directional antennas, so they will have some coverage around them with side and back lobes. Increasing the gain will further narrow down the main lobe in exchange for an even longer reach.
+Directional antennas are used when you want to reach further in one direction, but be careful! They won't not cover the surrounding area nearly as well. They're most often used on VRXs when you want to push the range very far in one direction. You can very quickly get out of the main "beam", so you'll need to pay attention to where you're pointing the antenna. Or stick it on an antenna tracker. But that's a whole other topic.
+
+<GridBox cols={3}>
+
+![ProDrone Penetrator](/uploads/prodrone_penetrator.jpg)
+ProDrone Penetrator (hehe)
+
+![TrueRC X-AIR MK II](https://www.truerc.ca/wp-content/uploads/94F651F3-02B1-4111-BD79-84D615C3242E-e1630466439269.jpeg)
+TrueRC X-AIR MK II
+
+</GridBox>
+
+Of course there are no perfectly directional antennas either, so they will have some coverage around them with side and back lobes, and some irregularity in the main lobe as well. Increasing the gain will further narrow down the main lobe in exchange for an even longer reach.
 
 {#if show3d}
 <GridBox cols={3} classes="">
@@ -244,9 +271,84 @@ Directional antennas are used when you want to reach further in one direction, b
 <GLTFWrapper url="/uploads/three/antennas/radiation/directional_pattern_wire.glb" scale={1.75}/>
 <GLTFWrapper url="/uploads/three/antennas/radiation/directional_pattern_h.glb" scale={1.75}/>
 <GLTFWrapper url="/uploads/three/antennas/radiation/directional_pattern_v.glb" scale={1.75}/>
-
 <div slot="content">3D Result</div>
 </GLTFBox>
 
 </GridBox>
+{/if}
+
+## Polarization
+
+The actual radio waves emitted/received by an antenna can be polarized in different ways. It refers to the relation of the electric and magnetic fields to each other and the direction of propagation.
+
+The main 3 we'll be looking at are: Linear, Right-Hand Circular Polarization (RHCP), and Left-Hand Circular Polarization (LHCP).
+
+<Admonition type="caution" title="">
+
+Be careful to match the polarization of your antennas! RHCP/LHCP variations of one antenna should perform the same, but you need to use the same on both sides. 
+
+If your transmitter has an RHCP antenna, you need to use an RHCP antenna on your receiver as well. LHCP needs to be matched with LHCP much the same. A perfectly circular polarized antenna would reject all of the "opposite" signal, but in reality a mismatch of LH/RH antennas will lead to a 30dB signal loss, that's about 97%!
+
+Using linear antennas alongside circular polarized antennas does still lead to a loss of 3dB (30%), but is acceptable in most cases.
+
+</Admonition>
+
+### Linear
+
+Linear antennas are a lot simpler than circular polarized antennas. Both in terms of construction and working principle. Since they're cheap and easy to make, they're often used as stock antennas on transmitters and receivers. The simple design also leads them to be pretty light, so you'll also see them on small and light drones. 
+
+You may even see just a piece of wire sticking out of an AIO board on a tinywhoop. If you cut a wire to the desired frequency wavelength, it will act as an antenna. Not a good antenna, but for a whoop it's usually more than good enough.
+
+The two wave components of a linear antenna are perpendicular to each other, and may be summed up as a straight line.
+
+{#if show3d}
+
+<GridBox cols={2}>
+<GLTFBox>
+<GLTFWrapper 
+	url="/uploads/three/antennas/linear.glb" 
+	scale={0.33} 
+	rotation={[0, Math.PI / 0.75, 0]}
+	position={[-0.5, 0, 0]}
+/>
+<div slot="content">Linear</div>
+</GLTFBox>
+</GridBox>
+
+{/if}
+
+### RHCP/LHCP
+
+Circular polarized antennas are the most common in FPV since they have a lot of advantages: They're not as sensitive about alignment as linear antennas, they reject opposite polarization signals - when a wave bounces off an object, it switches the "twist direction", and the signal goes out of sync/becomes corrupted. This is called multipath interference and it can cause issues in indoor environments.
+
+A circular-polarized wave consists of horizontal and vertical components, with one offset by 90° from the other - this is called a phase shift.
+
+The advance or delay of the components tells us whether the antenna is RHCP or LHCP. The two components can then be summed up to make visualizing the wave easier. As illustrated below, the two waves are marked as blue and red, and the sum of the two is marked as purple.
+
+{#if show3d}
+
+<GridBox cols={2}>
+
+<GLTFBox>
+<GLTFWrapper 
+	url="/uploads/three/antennas/rhcp.glb" 
+	scale={0.33} 
+	rotation={[0, Math.PI / 0.75, 0]}
+	position={[-0.5, 0, 0]}
+/>
+<div slot="content">RHCP</div>
+</GLTFBox>
+
+<GLTFBox>
+<GLTFWrapper 
+	url="/uploads/three/antennas/lhcp.glb" 
+	scale={0.33} 
+	rotation={[0, Math.PI / 0.75, 0]}
+	position={[-0.5, 0, 0]}
+/>
+<div slot="content">LHCP</div>
+</GLTFBox>
+
+</GridBox>
+
 {/if}
