@@ -205,7 +205,7 @@
 				{#if +header.level < 5}
 				<a 	href="#{removeSpecial(header.content)}"
 					class={
-					`text-[0.95rem] mb-3 leading-tight heading-${header.level} hover:translate-x-1 hover:text-${categoryColor} duration-300 w-fit border-l-2 border-transparent`
+					`text-[0.95rem] mb-2 leading-tight heading-${header.level} hover:translate-x-1 hover:text-${categoryColor} duration-300 w-fit border-l-2 border-transparent`
 					+ (header.content === intersectingHeader ? ` text-${categoryColor} !border-current` : "")}
 				>
 					{header.content}

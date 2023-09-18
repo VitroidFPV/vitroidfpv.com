@@ -46,7 +46,7 @@
 
 	// let selectedCategories = ["News"] 
 
-	$: console.log($selectedCategories)
+	// $: console.log($selectedCategories)
 
 	let selectedModules = date_sorted_modules.filter(module => $selectedCategories.includes(module.metadata.category))
 	$: selectedModules = date_sorted_modules.filter(module => $selectedCategories.includes(module.metadata.category))

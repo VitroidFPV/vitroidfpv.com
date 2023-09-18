@@ -325,10 +325,11 @@
 	.md h1 {@apply text-4xl my-3 tracking-wide mt-12}
 	.md h1:first-of-type {@apply mt-4}
 	.md h2 {@apply text-3xl my-3 tracking-wide mt-8}
-	.mď h2:first-child {@apply mt-0}
-	.md h3 {@apply text-2xl my-2 tracking-wide}
-	.md h4 {@apply text-xl my-2 tracking-wide}
-	.md h5 {@apply text-green my-2 tracking-wide}
+	.mď h2 + * {@apply mt-0}
+	.md h3 {@apply text-2xl my-2 mt-6 tracking-wide}
+	.md h3 + * {@apply !mt-0}
+	.md h4 {@apply text-xl mt-4 tracking-wide}
+	.md h5 {@apply text-green mt-4 tracking-wide}
 	.md h6 {@apply inline w-fit float-left mr-1}
 	.md {@apply text-[15px] md:text-lg}
 
@@ -378,7 +379,7 @@
 
 	.md hr {@apply border-t-2 border-gray-500/50 my-2}
 	.md p {@apply my-4}
-	.md .grid-item p {@apply my-0}
+	.md .grid-item p, .md .grid p {@apply my-0}
 	.md .grid img {@apply w-full h-full}
 	.md p:first-of-type {@apply my-0}
 	.md li p {@apply my-0}

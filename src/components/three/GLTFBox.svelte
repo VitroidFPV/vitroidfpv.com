@@ -10,7 +10,7 @@
 
 <div>
 	<div 
-		class="aspect-square rounded-2xl bg-neutral-400/5 mb-2 overflow-clip outline outline-2 outline-neutral-400/20
+		class="aspect-square rounded-2xl bg-neutral-400/5 mb-3 overflow-clip outline outline-2 outline-neutral-400/20
 		cursor-grab">
 		<Canvas>
 			<slot>

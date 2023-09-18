@@ -62,7 +62,8 @@
 			<img 
 				class="select-none rounded-2xl object-contain h-full" 
 				style="transform: scale({zoomed ? "300%" : "100%"});"
-				{src} {alt} 
+				{src} {alt}
+				crossorigin="anonymous"
 				on:mousemove={(event) => zoom(event)}
 			>
 		</div>
@@ -70,6 +71,6 @@
 	</div>
 {/if}
 
-<button on:click={() => open = !open} class="rounded-md shadow-lg my-8 h-auto origin-left md:w-3/5 w-full overflow-clip outline-0 ring-0">
-	<img {src} {alt} />
+<button on:click={() => open = !open} class="rounded-md shadow-lg origin-left overflow-clip outline-0 ring-0">
+	<img {src} {alt} crossorigin="anonymous" />
 </button>
