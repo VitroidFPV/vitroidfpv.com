@@ -213,7 +213,7 @@ You have two connectors on this board - one for your digital VTX that has the st
 
 Mine, because I'm all fancy like that:
 
-![Wiring Diagram](/uploads/airbot_fenix_diagram.png)
+![Wiring Diagram](/uploads/airbot_fenix_diagram_real.png)
 
 [Official one from Airbot](https://cdn.shopify.com/s/files/1/0741/5378/7685/files/AIRBOT_Fenix_G4_35amp_AM32_Aio_pinout.pdf?v=1692993975) for reference
 
