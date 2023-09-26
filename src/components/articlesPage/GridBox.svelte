@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let title: string = "";
-	export let level: 1 | 2 | 3 | 4 | 5 | 6;
+	export let level: 1 | 2 | 3 | 4 | 5 | 6 = null;
 	export let cols: number = 2;
 
 	export let classes: string = "";

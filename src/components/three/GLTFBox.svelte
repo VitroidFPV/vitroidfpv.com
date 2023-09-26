@@ -12,7 +12,7 @@
 	<div 
 		class="aspect-square rounded-2xl bg-neutral-400/5 mb-3 overflow-clip outline outline-2 outline-neutral-400/20
 		cursor-grab">
-		<Canvas>
+		<Canvas useLegacyLights={false}>
 			<slot>
 				<!-- <GLTFWrapper {url} {position} {rotation} {scale} /> -->
 			</slot>
