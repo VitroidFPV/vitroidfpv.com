@@ -26,6 +26,7 @@ The Fenix G4 is a 25x25 AIO flight controller with 4 onboard 35A ESCs running AM
 
 # Where to Buy
 * [Official Airbot Store](https://store.airbot.racing/products/airbot-am32-aio) - $89.99
+* [RaceDayQuads](https://www.racedayquads.com/collections/new-products/products/airbot-fenix-g4-4-6s-aio-toothpick-whoop-flight-controller-w-35a-32bit-am32-4in1-esc) - $89.99 (I'm flattered that they used my photos and diagram lol)
 
 <Admonition type="tip" title="Disclosure">
 
