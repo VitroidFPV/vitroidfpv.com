@@ -23,4 +23,4 @@
 	{/if}
 </div>
 
-<div class="sr-only"><slot/> {#if tooltip !== ""}{tooltip}{/if}</div>
+<div class="sr-only">{#if tooltip !== ""}<slot/> {tooltip}{/if}</div>

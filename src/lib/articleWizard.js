@@ -14,6 +14,12 @@ async function generateMarkdownFile() {
 		visible
 	} = await inquirer.prompt([
 		{
+			type: "list",
+			name: "category",
+			message: "Select the category:",
+			choices: ["Guides", "Tutorials", "News", "Reviews", "Misc"]
+		},
+		{
 			type: "input",
 			name: "title",
 			message: "Enter the title:"
@@ -27,12 +33,6 @@ async function generateMarkdownFile() {
 			type: "input",
 			name: "author",
 			message: "Enter the author:"
-		},
-		{
-			type: "list",
-			name: "category",
-			message: "Select the category:",
-			choices: ["Guides", "Tutorials", "News", "Reviews", "Misc"]
 		},
 		{
 			type: "confirm",
@@ -59,9 +59,11 @@ date: ${formattedDate}
 <script>
 	import GridBox from "$components/articlesPage/GridBox.svelte";
 	import GridItem from "$components/articlesPage/GridItem.svelte";
+	import ImgGrid from "$components/articlesPage/ImgGrid.svelte";
 	import Tablist from "$components/articlesPage/Tablist.svelte";
 	import Tab from "$components/articlesPage/Tab.svelte";
 	import Admonition from "$components/articlesPage/Admonition.svelte";
+	import Chip from "$components/Chip.svelte";
 </script>
 
 Content goes here
