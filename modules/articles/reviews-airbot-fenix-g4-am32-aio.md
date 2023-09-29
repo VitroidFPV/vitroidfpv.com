@@ -22,7 +22,7 @@ If you've been in the hobby long enough, you may remember using Airbot hardware 
 
 Like a phoenix, they have risen from the ashes with a new lineup of products, and in this article, we'll be taking a look at one!
 
-The Fenix G4 is a 25x25 AIO flight controller with 4 onboard 35A ESCs running AM32 firmware. It's powered by an STM32G473 MCU, and uses the ICM42688P gyro/accelerometer. They even managed to fit a DSP310 barometer and a bunch of RGB LEDs on it! It's a pretty packed board, so let's take a look at it!
+The Fenix G4 is a 25x25 AIO flight controller with 4 onboard 35A ESCs running AM32 firmware. It's powered by an STM32G473 MCU, and uses the ICM42688P gyro/accelerometer. They even managed to fit a DPS310 barometer and a bunch of RGB LEDs on it! It's a pretty packed board, so let's take a look at it!
 
 # Where to Buy
 * [Official Airbot Store](https://store.airbot.racing/products/airbot-am32-aio) - $89.99
@@ -85,7 +85,7 @@ The Fenix G4 is a 25x25 AIO flight controller with 4 onboard 35A ESCs running AM
 <Chip tooltip="Gyro/Accelerometer">ICM42688P</Chip>
 <Chip tooltip="AT7456E">OSD</Chip>
 <Chip tooltip="Flash Memory">16MB</Chip>
-<Chip tooltip="Barometer">DSP310</Chip>
+<Chip tooltip="Barometer">DPS310</Chip>
 <Chip>5V 2.5A</Chip>
 <Chip>10V 2.5A</Chip>
 <Chip>16 Onboard RGB LEDs</Chip>
@@ -163,7 +163,7 @@ The ICM42688P is not completely new, you may have already used it on some other 
 
 ### Barometer
 
-The barometer that they managed to fit on this already full board is a DSP310. It's a pretty standard one, you'll find it on many other boards. It's a great addition to have, especially if you're planning on using this board in a long range build using advanced GPS features which need a barometer for accurate functionality - GPS rescue, altitude hold, even full autonomous flight.
+The barometer that they managed to fit on this already full board is a DPS310. It's a pretty standard one, you'll find it on many other boards. It's a great addition to have, especially if you're planning on using this board in a long range build using advanced GPS features which need a barometer for accurate functionality - GPS rescue, altitude hold, even full autonomous flight.
 
 ### Power Regulation
 

@@ -192,7 +192,7 @@ This board uses an ICM42688P IMU (inertial measurement unit). It's not exactly n
 
 ## Barometer
 
-The baro found on this board is the BMP280. Along with the DSP310 it's probably one of the most commonly used barometers in the hobby. As this is a relatively powerful high-end FC, it's nice to see that they didn't skimp out on the baro that you can use for more advanced features like GPS rescue and altitude hold on some of the firmwares that offer autonomous functions.
+The baro found on this board is the BMP280. Along with the DPS310 it's probably one of the most commonly used barometers in the hobby. As this is a relatively powerful high-end FC, it's nice to see that they didn't skimp out on the baro that you can use for more advanced features like GPS rescue and altitude hold on some of the firmwares that offer autonomous functions.
 
 ## Power Regulation
 
