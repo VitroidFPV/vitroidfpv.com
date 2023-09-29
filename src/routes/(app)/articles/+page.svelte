@@ -6,7 +6,7 @@
 	import { slide } from "svelte/transition";
 	import { selectedCategories } from "$lib/stores/categoryStore";
 
-	const modules = import.meta.glob("/modules/articles/*.md", {eager: true});
+	const modules = import.meta.glob(`/modules/articles/*.{md,svx,svelte,md}`, {eager: true});
 	// console.log(JSON.stringify(modules, null, 2));
 	// sort grouped_modules by date, newest first, add formatted date
 	let date_sorted_modules: any[] = [];
