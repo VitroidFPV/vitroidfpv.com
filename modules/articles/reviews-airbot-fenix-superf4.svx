@@ -1,0 +1,223 @@
+---
+title: Airbot Fenix SuperF4
+description: Buisness on the front, party in the back
+visible: true
+category: Reviews
+author: VitroidFPV
+# img: /uploads/placeholder.png
+img: /uploads/articles/airbot_fenix_superf4/airbot_fenix_superf4_thumbnail.png
+date: 2023-09-29T16:33:41.238Z
+---
+
+<script>
+	import GridBox from "$components/articlesPage/GridBox.svelte";
+	import GridItem from "$components/articlesPage/GridItem.svelte";
+	import ImgGrid from "$components/articlesPage/ImgGrid.svelte";
+	import Tablist from "$components/articlesPage/Tablist.svelte";
+	import Tab from "$components/articlesPage/Tab.svelte";
+	import Admonition from "$components/articlesPage/Admonition.svelte";
+	import Chip from "$components/Chip.svelte";
+</script>
+
+Airbot has an interesting history in the hobby. If you've been flying for long enough, you have most likely heard about or even used some of their FCs - the Omnibus FCs were very common back then. That also sadly led to them being cloned by other manufacturers, and Airbot slowly stopped production of new boards. They went on to manufacture and design for other brands. 
+
+The Fenix lineup is their comeback to the FPV market. I already reviewed the [Fenix G4 AIO](/articles/reviews-airbot-fenix-g4-am32-aio), and it is an amazing board. So let's have a look at the Fenix SuperF4!
+
+# Where to Buy
+
+* [Official Airbot Store](https://store.airbot.racing/products/airbot-fenix-superf4) - $50.00
+
+<Admonition type="tip" title="Disclosure">
+
+* I received this product free of charge as a development sample
+* The manufacturer made a donation to my [ko-fi page](https://ko-fi.com/vitroid) on their own accord. This does not affect the review in any way. The money from the donation has been used to purchase parts for future reviews/tutorials
+* This review is based on my own experience with the product
+* The manufacturer had no input into this review and no editorial control over its contents
+
+</Admonition>
+
+# Specifications
+
+<GridBox cols={2}>
+
+![Airbot Fenix SuperF4 Overview](/uploads/articles/airbot_fenix_superf4/airbot_fenix_superf4_overview.png)
+
+![Airbot Fenix SuperF4 Weight](/uploads/articles/airbot_fenix_superf4/airbot_fenix_superf4_scale.jpg)
+
+</GridBox>
+
+<GridBox cols={2}>
+
+<GridItem title="Hardware:">
+<div class="flex flex-wrap gap-2">
+<Chip>M4 Holes</Chip>
+<Chip>30x30 Mounting</Chip>
+<Chip>7.7g Weight</Chip>
+</div>
+</GridItem>
+
+<GridItem title="IO:">
+<div class="flex flex-wrap gap-2">
+<Chip>USB-C</Chip>
+<Chip>8 UARTs</Chip>
+<Chip>I2C</Chip>
+<Chip>SWD</Chip>
+</div>
+</GridItem>
+
+<GridItem title="Features:">
+<div class="flex flex-wrap gap-2">
+<Chip tooltip="MCU">AT32F435</Chip>
+<Chip tooltip="Gyro/Accelerometer">ICM42688P</Chip>
+<Chip tooltip="AT7456E">OSD</Chip>
+<Chip tooltip="Flash Memory">16MB</Chip>
+<Chip tooltip="Barometer">BMP280</Chip>
+<Chip>5V 2A</Chip>
+<Chip>10V 2A</Chip>
+<Chip>28 Onboard RGB LEDs</Chip>
+</div>
+</GridItem>
+
+<GridItem title="Pads:">
+<div class="flex flex-wrap gap-2">
+<Chip>UART 1-5, 7-8</Chip>
+<Chip>SWD</Chip>
+<Chip>I2C</Chip>
+<Chip>5V</Chip>
+<Chip>10V</Chip>
+<Chip>BATT</Chip>
+<Chip>GND</Chip>
+<Chip>Video in/out</Chip>
+<Chip>LED</Chip>
+<Chip>BZ+/-</Chip>
+<Chip tooltip="Camera Control">CC</Chip>
+<Chip>USB Breakout</Chip>
+</div>
+</GridItem>
+
+<GridItem title="Connectors:">
+<div class="flex flex-wrap gap-2">
+<Chip tooltip="Camera Connector">GND, 5V, VIN, CC</Chip>
+<Chip tooltip="ESC Connector 1">GND, BATT, CURR, RX2, M1-4</Chip>
+<Chip tooltip="ESC Connector 2">GND, BATT, RX2, M5-8</Chip>
+<Chip tooltip="Digital VTX Connector">RX3, GND, RX5, TX5, 10V</Chip>
+</div>
+</GridItem>
+
+</GridBox>
+
+# Overview
+
+That's a lot of techno-babble, letters and numbers. Let's break it into human-readable bits:
+
+## Hardware
+
+As you may have noticed, the whole FC is purely single-sided! You just have pads and all of the LEDs on the top - the bottom of the board has all of the components.
+
+It's a 30x30mm board with M4 holes to be reduced to M3 with rubber grommet inserts. I really like that the holes are split so that you can just slide the grommets in without having to squeeze the from the bottom or from the top. There's plenty of space around the holes for the grommets to be squished and not interfere with the components and solder joints.
+
+<GridBox cols={3}>
+
+![Airbot Fenix SuperF4 M4 Holes](/uploads/articles/airbot_fenix_superf4/airbot_fenix_superf4_grommets_1.png)
+
+![Airbot Fenix SuperF4 M4 Holes](/uploads/articles/airbot_fenix_superf4/airbot_fenix_superf4_grommets_2.png)
+
+</GridBox>
+
+## Board Layout
+
+<GridBox cols={2}>
+
+![Airbot Fenix SuperF4 Top](/uploads/articles/airbot_fenix_superf4/airbot_fenix_superf4_top.png)
+Airbot Fenix SuperF4 Top
+
+![Airbot Fenix SuperF4 Bottom](/uploads/articles/airbot_fenix_superf4/airbot_fenix_superf4_bottom.png)
+Airbot Fenix SuperF4 Bottom
+
+</GridBox>
+
+As already said, Airbot went all-in with a fully single-sided board. While you just have pads and LEDs on the top, the bottom is fully packed with components, and they didn't even sacrifice on features!
+
+At the top there are two rows of LEDs with 14 LEDs each. A single row of pads on each edge of the board. This specific board was made for development, so it has a large connector at the top in the center, breaking out various inputs/outputs. The production version will most likely ship without it, but should otherwise be identical. And hey, at least you get a little glimpse of some of the extra oddities we get to play with!
+
+The bottom is where the magic happens. The same pads are on this side as well, and just behind the rows of pads there are the connectors. There's a lot of orientations you can mount the board, so for future reference I'll just go off of the image orientation above. At the bottom there's all of the power regulation circuitry, above that is the flash storage chip, and the MCU with its complementary components, the barometer and gyro/accelerometer. At the top right corner there's the boot button, OSD chip, and below the two there's the USB-C connector.
+
+## Pad Layout
+
+I like that the pads aren't in multiple rows which could make it a bit awkward to solder at certain angles. It's just a single row of pads all around the board. They're all labeled so you don't even have to pull up the wiring diagram if your eyesight is good enough. The pads are pretty large with through-hole vias to improve durability, they should not be coming off. 
+
+My board has a half-broken Motor 2 pad which is right where the mouse bite holes are. This shouldn't pass QC in the production boards, but it's not a big deal since you can just use the same pad on the other side of the board.
+
+Using the first image as a reference, the pads are as follows:
+
+* At the top you have two UARTs - 1 and 5, a bunch of GND connections, the 10V and video output. Just below those there's a solder bridge to enable the onboard LEDs, and a set of SWD pads 
+* At the right side there's UART 4 and 7, I2C, 5V, GND and the buzzer pads, and behind those there's a smaller set of pads for UART 8
+* The bottom is purely for ESCs: GND, BATT, CURR, RX2, Motor 1-8
+* The left side has pads for LEDs - GND, 5V, LED, then a set for the camera - GND, 5V, VIN, CC, and finally the USB breakout pads which are really good to have in case the USB port breaks off
+
+## Connectors
+
+4 in total, they balanced the space to offer connectors for the few things I'd actually want to have on connectors:
+
+* ESC Connector 1 - GND, BATT, CURR, RX2, M1-4
+* ESC Connector 2 - GND, BATT, RX2, M5-8
+* Camera Connector - GND, 5V, VIN, CC
+* Digital VTX Connector - RX3, GND, RX5, TX5, 10V
+
+I'm not sure if it's just superstition, but I still like to have my analog camera and VTX soldered up, same with a receiver. But you can re-use the digital VTX connector for a receiver if you want to. Maybe would've been nice to have a connector with I2C and UART broken out for a GPS, but that's not a big deal. This thing is packed as is.
+
+## Wiring Diagram
+
+As Airbot has no official diagram yet, this one that I made is so far the only source available. Information was sourced from development shematics, so should be accurate. I will update this section once the official diagram is released (unless I forget, that's also likely)
+
+![Airbot Fenix SuperF4 Wiring Diagram](/uploads/articles/airbot_fenix_superf4/airbot_fenix_superf4_diagram.png)
+Airbot Fenix SuperF4 Wiring Diagram
+
+# Features
+
+<Admonition type="tip" title="MCU">
+
+## AT32F435 MCU
+I already have a [full article](/articles/news-at32-fcs-are-coming) about the beginnings and impact of ArteryTek's AT32 chips, but let's run over the basics again:
+
+I'll be including this bit of text for the next few AT32 reviews, so if you know what's up, feel free to skip to the next section - AT32 is a family of MCUs that are cheaper, drop-in replacements for the STM32 chips you are most likely used to. They're directly pin-compatible with some of the most popular STM offerings, but need some changes in the firmware. As of the release of this article, the support for it in Betaflight 4.5 should be more or less complete, ready for a regular flight experience.
+
+Some AT32 hardware is already most likely used in your ESCs, but only somewhat recently the AT32F435 started being introduced in flight controllers. It sits right between the STM32F405 and F722 in terms of performance, but is cheaper than even the F405 by a considerable margin.
+
+</Admonition>
+
+## Gyro/Accelerometer
+
+This board uses an ICM42688P IMU (inertial measurement unit). It's not exactly new, but is only now getting wider adoption - in the past it wasn't well liked because with the issues with board design and firmware it couldn't get good performance. Firmware has improved a lot since then, and board designers have figured out how to get it cleaner. It's pretty much one of the best IMUs you can get right now, and it's great to see it on this board.
+
+## Barometer
+
+The baro found on this board is the BMP280. Along with the DSP310 it's probably one of the most commonly used barometers in the hobby. As this is a relatively powerful high-end FC, it's nice to see that they didn't skimp out on the baro that you can use for more advanced features like GPS rescue and altitude hold on some of the firmwares that offer autonomous functions.
+
+## Power Regulation
+
+The board has two voltage regulators that get the battery voltage down to 10 and 5 volts. They can both deliver 2A each - 5V for most of your perihperals (receiver, camera, GPS, LEDs), and 10V for your VTX, it's powerful enough to run the DJI O3 Air Unit that can draw up to 18W.
+
+## Flash Memory
+
+This is probably my only gripe with this board. For a higher-end option, they could've gone with a larger flash chip. To not be too negative, 16MB is still plenty for a couple of logs at lower (but still usable) logging rates, but there have been boards ranging anywhere from 32 to 128MB.
+
+![Airbot Fenix SuperF4 Layout](/uploads/articles/airbot_fenix_superf4/airbot_fenix_superf4_features.png)
+
+## RGB LEDs
+
+Much like the [Fenix G4 AIO](/articles/reviews-airbot-fenix-g4-am32-aio), the SuperF4 follows up with even more LEDs. 28 of them to be exact. All of them can be individually controlled by Betaflight, and since the board requires Betaflight 4.5, you can also use the new rainbow code for the LEDs. It looks amazing, especially on a board with so many of them!
+
+<GridBox cols={2}>
+
+![Airbot Fenix SuperF4 LEDs](/uploads/articles/airbot_fenix_superf4/airbot_fenix_superf4_leds_bottom.png)
+
+![Airbot Fenix SuperF4 LEDs](/uploads/articles/airbot_fenix_superf4/airbot_fenix_superf4_leds_top.png)
+
+</GridBox>
+
+# Conclusion
+
+There's a lot of things to like about this board. It has a lot of features crammed into a small space, yet it's still easy to work with and almost without any compromises. Airbot has properly solidified their comeback, I feel like it follows in the footsteps of the Omnibus boards with the combination simplicity and ease of use, but with a modern twist. Integrated LEDs should be a standard on all boards xD
+
+I also want to give massive thanks to Airbot for providing numerous early revisions of this board to the Betaflight team as one of the earliest AT32 boards to push the development of the firmware forward on new platforms! Kinda cool to think that this board you can buy right now has played a major role in the evolution of budget and high-end flight controllers alike.
