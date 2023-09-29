@@ -168,7 +168,7 @@ I'm not sure if it's just superstition, but I still like to have my analog camer
 
 ## Wiring Diagram
 
-As Airbot has no official diagram yet, this one that I made is so far the only source available. Information was sourced from development shematics, so should be accurate. I will update this section once the official diagram is released (unless I forget, that's also likely)
+As Airbot has no official diagram yet, this one that I made is so far the only source available. Information was sourced from development schematics, so should be accurate. I will update this section once the official diagram is released (unless I forget, that's also likely)
 
 ![Airbot Fenix SuperF4 Wiring Diagram](/uploads/articles/airbot_fenix_superf4/airbot_fenix_superf4_diagram.png)
 Airbot Fenix SuperF4 Wiring Diagram
