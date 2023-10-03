@@ -12,5 +12,5 @@ text: TBS put their VTX and RX tech into one board, making for an easier and
 # price: $49.95
 # point1: "Output Power: 800mW"
 # point2: "Connector: u.Fl"
-info: "$49.95;800mW;u.Fl;20x20"
+info: "$49.95;1W;u.Fl;20x20"
 ---
