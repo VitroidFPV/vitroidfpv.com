@@ -9,6 +9,7 @@
 	import type { Module } from "$lib/types/module";
 	import { addPart } from "$lib/addPart";
 	import { page } from "$app/stores";
+	import { spring } from "svelte/motion";
 
 	const url = $page.url.pathname;
 
@@ -29,16 +30,44 @@
 	export let img: string;
 	export let category: string = "";
 
-	let visible = false;
+	let open = false;
+		let zoomed = false;
 
-	function esc(event: KeyboardEvent) {
-		if (event.key === "Escape") {
-			visible = false;
+	function handleClickOutside() {
+		open = false;
+	}
+
+	let x = spring(0);
+	let y = spring(0);
+	function zoom(event: MouseEvent) {
+		if (zoomed) {
+			var zoomer = event.currentTarget;
+			// console.log(zoomer)
+
+			let offsetX, offsetY;
+
+			event.offsetX ? offsetX = event.offsetX : offsetX = event.touches[0].pageX
+			event.offsetY ? offsetY = event.offsetY : offsetY = event.touches[0].pageY
+			$x = offsetX/zoomer.offsetWidth*100
+			$y = offsetY/zoomer.offsetHeight*100
+			zoomer.style.transformOrigin = $x + '% ' + $y + '%';
 		}
 	}
 
-	function handleClickOutside() {
-		visible = false;
+	function keydown(event: KeyboardEvent) {
+		if (event.key === "Escape") {
+			open = false;
+		}
+
+		if (event.key === "Shift") {
+			zoomed = true
+		}
+	}
+
+	function keyup(event: KeyboardEvent) {
+		if (event.key === "Shift") {
+			zoomed = false
+		}
 	}
 
 	let infoObjects: { text: string; tooltip: string }[] = [];
@@ -56,15 +85,42 @@
 	}
 </script>
 
-<svelte:window on:keydown={esc}/>
+<svelte:window on:keydown={keydown} on:keyup={keyup}/>
 
-{#if visible}
-	<div in:fade={{duration: 300, delay: 0}} out:fade={{delay: 200}} class="fixed w-screen h-screen top-0 left-0 z-[60] backdrop-blur-sm flex items-center justify-center bg-black bg-opacity-80">
-		<div transition:fly={{duration: 300, y: 200, delay: 100}} class="md:h-3/4 h-min md:w-min w-3/4 aspect-square flex justify-center z-10 select-none" use:clickOutside on:clickOutside={handleClickOutside}>
-			<img class="select-none rounded-2xl object-contain" src="{img}" alt="" crossorigin>
+{#if open}
+	<div in:fade={{duration: 300, delay: 0}} out:fade={{delay: 200}} class="fixed w-screen h-screen top-0 left-0 z-[60] backdrop-blur-sm md:flex hidden items-center justify-center bg-black bg-opacity-80">
+		<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+		<div 
+			transition:fly={{duration: 300, y: 200, delay: 100}} 
+			class="h-full aspect-auto flex flex-col py-8 justify-center z-10 select-none relative" 
+			use:clickOutside 
+			on:clickOutside={handleClickOutside}
+		>
+			<img 
+				class="select-none rounded-2xl object-contain h-full duration-150"
+				style="scale: {zoomed ? "300%" : "100%"}; transition-property: scale"
+				src={img}
+				alt={title + " image"}
+				crossorigin="anonymous"
+				on:mousemove={(event) => zoom(event)}
+			>
+			{#if !zoomed}
+				<button 
+					on:click={() => open = false}
+					transition:fade={{duration: 50, delay: 0}}
+					class="stroke-red duration-300 absolute top-8 right-0 rounded-full border-2 border-red/40 bg-red/20 hover:bg-red/40">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" class="w-7 h-7 rotate-45">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+					</svg>
+				</button>
+			{/if}
 		</div>
+		{#if !zoomed}
+			<div class="absolute bottom-1 left-1 text-sm text-neutral-400/60 md:visible invisible">Press Shift to zoom</div>
+		{/if}
 	</div>
 {/if}
+
 <IntersectionObserver {element} bind:intersecting>
 	<div class="product-box h-full flex flex-col not-intersecting" bind:this={element} class:intersecting={intersecting}>
 		<div class="{color} {category} relative h-fit w-full border-l-4 product pl-2 my-4 md:mr-8">
@@ -81,7 +137,7 @@
 						</svg>
 					</button>
 					{#if img}
-						<button on:click={() => visible = true} class=" hover:stroke-current stroke-contrast-500 duration-300">
+						<button on:click={() => open = true} class=" hover:stroke-current stroke-contrast-500 duration-300">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" class="w-7 h-7">
 								<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
 							</svg>

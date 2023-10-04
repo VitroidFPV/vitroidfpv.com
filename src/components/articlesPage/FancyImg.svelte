@@ -55,19 +55,31 @@
 		<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 		<div 
 			transition:fly={{duration: 300, y: 200, delay: 100}} 
-			class="h-full aspect-auto flex flex-col py-8 justify-center z-10 select-none" 
+			class="h-full aspect-auto flex flex-col py-8 justify-center z-10 select-none relative" 
 			use:clickOutside 
 			on:clickOutside={handleClickOutside}
 		>
 			<img 
-				class="select-none rounded-2xl object-contain h-full" 
-				style="transform: scale({zoomed ? "300%" : "100%"});"
+				class="select-none rounded-2xl object-contain h-full duration-150"
+				style="scale: {zoomed ? "300%" : "100%"}; transition-property: scale"
 				{src} {alt}
 				crossorigin="anonymous"
 				on:mousemove={(event) => zoom(event)}
 			>
+			{#if !zoomed}
+				<button 
+					on:click={() => open = false}
+					transition:fade={{duration: 50, delay: 0}}
+					class="stroke-red duration-300 absolute top-8 right-0 rounded-full border-2 border-red/40 bg-red/20 hover:bg-red/40">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" class="w-7 h-7 rotate-45">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+					</svg>
+				</button>
+			{/if}
 		</div>
-		<div class="absolute bottom-1 left-1 text-sm opacity-60 md:visible invisible">Press Shift to zoom</div>
+		{#if !zoomed}
+			<div class="absolute bottom-1 left-1 text-sm text-neutral-400/60 md:visible invisible">Press Shift to zoom</div>
+		{/if}
 	</div>
 {/if}
 
