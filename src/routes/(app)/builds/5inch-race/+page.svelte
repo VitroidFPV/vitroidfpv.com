@@ -12,10 +12,17 @@
 	// console.log(getModules("5inch-race"))
 	let modules = getModules("/builds/5inch-race")
 
+	function parsePrice(info) {
+		// parseFloat(info.replace(/[^\d.]/g, ''));
+		// round to 2 decimal places
+		return parseFloat(info.replace(/[^\d.]/g, '')).toFixed(2);
+	}
+
 	// import { priceSum, part } from "$components/buildsPage/stores.js"
 	import { slide } from "svelte/transition";
 	import tinycolor from "tinycolor2";
 	import PriceCompBox from "$components/buildsPage/PriceCompBox.svelte";
+	import { parse } from "svelte/compiler";
 	let prefix = "Builds";
 	let titleRaw = "5\" Race Quad";
 	let title = " - " + titleRaw;
@@ -140,21 +147,20 @@
 				<li class="mb-2"><strong>High-end 3 (EU Edition)</strong> - If you're in the EU, certain parts may be hard to come by. I've checked the main stores in Central Europe, so shipping should be similar across the whole continent</li>
 			</ul>
 			{#each Object.entries(modules.recommendedProducts) as [group, contents]}
-				<div class="group {group} mt-4 mb-8 w-full h-fit">
+				<div class="group {group} mt-4 mb-8 rounded-2xl bg-neutral-400/5 overflow-clip outline outline-2 outline-neutral-400/20 p-4">
 					{#if group != "undefined"}
 						<div
-							class="text-xl tracking-tight w-full {group} mb-2 border-b-[1px] border-gray-700 text-main-50 dark:text-contrast-500"
+							class="text-2xl tracking-tight w-full {group} mb-4"
 							id={group}>
-							{group}
+							{group} Build
 						</div>
 					{/if}
-
-					<div class="flex md:flex-row flex-wrap w-full md:justify-start md:items-start items-center pl-0.5">
+					<div class="grid xl:grid-cols-5 md:grid-cols-3 grid-cols-2 pl-0.5 gap-4">
 						{#each contents as info}
 							{#if info.metadata.visible}
-								<div class="h-fit max-w-sm {info.metadata.color} border-l-4 product pl-2 my-4 md:mr-8 md:w-1/6 w-1/3">
+								<div class="h-fit w-full {info.metadata.color} border-l-4 product pl-2 my-4">
 									<Link color={info.metadata.color} size="2" color1={info.metadata.color} href={info.metadata.link} external={true}>{info.metadata.title}</Link>
-									<div class="text-base text-main-100 dark:text-contrast-300 mr-2">{info.metadata.price}</div>
+									<div class="text-base text-main-100 dark:text-contrast-300 mr-2 mt-2">${parsePrice(info.metadata.info)}</div>
 								</div>
 							{/if}
 						{/each}
