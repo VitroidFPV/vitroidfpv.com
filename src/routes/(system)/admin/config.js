@@ -1,3 +1,8 @@
+/**
+ * @param {string} name
+ * @param {string} label
+ * @param {string} folder
+ */
 function list(name, label, folder,) {
 	this.name = name;
 	this.label = label;
@@ -86,7 +91,8 @@ function list(name, label, folder,) {
 		{ label: "Link", name: "link", widget: "text" },
 		{ label: "Image", name: "image", widget: "image" },
 		{ label: "Description", name: "text", widget: "text" },
-		{ label: "Price", name: "price", widget: "text" },
+		{ label: "Price", name: "price", widget: "text", required: false },
+		{ label: "Info", name: "info", widget: "text", required: false},
 		{ label: "Point 1", name: "point1", widget: "text", required: false },
 		{ label: "Point 2", name: "point2", widget: "text", required: false },
 		{ label: "Point 3", name: "point3", widget: "text", required: false },
@@ -135,6 +141,7 @@ export let config = {
 		new list("5inch-advanced", "5\" Advanced Build", "modules/buildLists/5inch-advanced/"),
 		new list("3inch-cinewhoop", "3\" Cinewhoop Build", "modules/buildLists/3inch-cinewhoop/"),
 		new list("1s-2s-micro", "1s-2s Micro Build", "modules/buildLists/1s-2s-micro/"),
+		new list("3s-4s-micro", "3s-4s Micro Build", "modules/buildLists/3s-4s-micro/"),
 
 		{
 			name: "radioList",

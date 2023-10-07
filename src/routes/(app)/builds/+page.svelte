@@ -157,17 +157,19 @@
 	<div class="flex flex-row flex-wrap justify-around z-20">
 		{#each Object.entries(grouped_modules) as [a, contents]}
 			{#each contents as build}
-				<BuildCard
-					title={build.metadata.title}
-					color={build.metadata.difficulty}
-					href={build.metadata.link}
-					point1={build.metadata.point1}
-					point2={build.metadata.point2}
-					point3={build.metadata.point3}
-					point4={build.metadata.point4}
-					point5={build.metadata.point5}
-					img={build.metadata.img}
-				/>
+				{#if build.metadata.visible != false}
+					<BuildCard
+						title={build.metadata.title}
+						color={build.metadata.difficulty}
+						href={build.metadata.link}
+						point1={build.metadata.point1}
+						point2={build.metadata.point2}
+						point3={build.metadata.point3}
+						point4={build.metadata.point4}
+						point5={build.metadata.point5}
+						img={build.metadata.img}
+					/>
+				{/if}
 			{/each}
 		{/each}
 	</div>
