@@ -6,7 +6,7 @@ import { config } from "/src/routes/(system)/admin/config.js"
 export async function addCms() {
 	// if (typeof window !== "undefined") return;
 
-	const { default: CMS } = await import("netlify-cms-app");
+	const { default: CMS } = await import("decap-cms-app");
 
 	CMS.init({config});
 	CMS.registerPreviewStyle("cms.css");

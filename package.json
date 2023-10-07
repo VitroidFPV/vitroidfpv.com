@@ -62,6 +62,7 @@
     "@types/three": "^0.155.0",
     "copy-image-clipboard": "^2.1.2",
     "d3-interpolate": "^3.0.1",
+    "decap-cms-app": "^3.0.7",
     "dom-to-image": "^2.6.0",
     "dotenv": "^16.0.3",
     "inquirer": "^9.2.6",
