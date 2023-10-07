@@ -17,3 +17,4 @@ Info string format:
 * Nominal Current Rating
 * Peak Current Rating
 * Firmware
+* Weight

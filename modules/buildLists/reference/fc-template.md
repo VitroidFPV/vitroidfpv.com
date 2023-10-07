@@ -14,6 +14,7 @@ Info string format:
 
 * Price
 * Size
+* MCU
 * USB
 * Gyro
 * IO (UARTs, I2C, LED Control)
