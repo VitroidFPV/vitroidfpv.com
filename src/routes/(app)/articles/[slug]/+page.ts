@@ -15,8 +15,8 @@ export const load: PageLoad = async ({ params }) => {
 
 	const post = await match?.resolver?.();
 
-	if (!post) {
-		throw error(404); // Couldn't resolve the post
+	if (!post || post?.metadata?.access === false) {
+		throw error(404);
 	}
 
 	return {
