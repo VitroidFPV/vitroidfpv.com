@@ -356,14 +356,15 @@ h2 {
 
 .css-1qu85o2-FieldLabel-fieldLabel {
 	background-color: var(--background-light) !important;
+	color: var(--light) !important;
 }
 .css-1qu85o2-FieldLabel-fieldLabel::after {
 	background-color: var(--background) !important;
 }
-.css-1vur7zs-FieldLabel-fieldLabel {
+.css-1pr3myi-FieldLabel-fieldLabel .e1xtv0oy0 {
 	background-color: var(--highlight) !important;
 }
-.css-1vur7zs-FieldLabel-fieldLabel::after {
+.css-1pr3myi-FieldLabel-fieldLabel .e1xtv0oy0::after {
 	background-color: var(--background) !important;
 }
 
@@ -826,4 +827,14 @@ a.css-6gjfue-StyledA.e19otniy11 {
 .css-emf8sj-button-dropdownItem-StyledMenuItem-StatusDropdownItem:focus, .css-emf8sj-button-dropdownItem-StyledMenuItem-StatusDropdownItem:active, .css-emf8sj-button-dropdownItem-StyledMenuItem-StatusDropdownItem:not(:focus), .css-emf8sj-button-dropdownItem-StyledMenuItem-StatusDropdownItem:not(:active) {
     border-bottom: none;
     border-left: 4px solid transparent !important;
+}
+
+.css-1qvjlo1-StyledDropdownButton-button-default-caret-caretDown-DropdownButton-noOverflow-PublishedToolbarButton-publishedButton {
+    background-color: var(--highlight-transparent);
+    color: var(--highlight);
+}
+
+.css-19jx0qf-ToolbarButton-button-default-buttonMargin-noOverflow-DeleteButton-lightRed {
+	background-color: hsl(0 34% 19% / 1) !important;
+	color: rgb(255, 0, 59) !important;
 }
