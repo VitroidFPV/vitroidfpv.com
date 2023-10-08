@@ -20,6 +20,9 @@ export function getModules(path: string) {
 		case "/builds/1s-2s-micro":
 			modules = import.meta.glob("/modules/buildLists/1s-2s-micro/*.md", {eager: true});
 			break;
+		case "/builds/3s-4s-micro":
+			modules = import.meta.glob("/modules/buildLists/3s-4s-micro/*.md", {eager: true});
+			break;
 
 		case "/equipment/radio":
 			modules = import.meta.glob("/modules/equipmentLists/radioList/*.md", {eager: true});
