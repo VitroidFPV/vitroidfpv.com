@@ -830,8 +830,8 @@ a.css-6gjfue-StyledA.e19otniy11 {
 }
 
 .css-1qvjlo1-StyledDropdownButton-button-default-caret-caretDown-DropdownButton-noOverflow-PublishedToolbarButton-publishedButton {
-    background-color: var(--highlight-transparent);
-    color: var(--highlight);
+    background-color: var(--highlight-transparent) !important;
+    color: var(--highlight) !important;
 }
 
 .css-19jx0qf-ToolbarButton-button-default-buttonMargin-noOverflow-DeleteButton-lightRed {
