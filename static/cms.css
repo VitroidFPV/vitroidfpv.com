@@ -225,6 +225,15 @@ body {
 	group-first-of-type/tooltip:bg-opacity-50 */
 
 .chip {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: fit-content;
+	width: fit-content;
+}
+
+.chip.content {
 	border-radius: 999px;
 	padding: 0.25rem;
 	padding-left: 0.375rem;
@@ -236,18 +245,19 @@ body {
 	color: rgb(247 247 247);
 }
 
-.chip::first-of-type.green {
+.chip.content::first-of-type.green {
 	background-color: rgb(135 204 82 / 0.1);
 	color: rgb(135 204 82);
 }
-.chip::first-of-type.orange {
+.chip.content::first-of-type.orange {
 	background-color: rgb(255 151 66 / 0.1);
 	color: rgb(255 151 66);
 }
-.chip::first-of-type.red {
+.chip.content::first-of-type.red {
 	background-color: rgb(214 57 91 / 0.1);
 	color: rgb(214 57 91);
 }
+
 
 
 /* A lot of messy bodged CMS styles */
