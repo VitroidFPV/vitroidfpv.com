@@ -3,7 +3,7 @@ category: Frames
 group: 3"
 color: orange
 visible: true
-order: 2
+order: 3
 title: Hyperlite UL3
 link: https://pyrodrone.com/products/hyperlite-ul3-toothpick-frame
 image: https://pyrodrone.com/cdn/shop/products/645d99ba-2203-44b0-960c-94f2f5657074_1200x1200.jpg?v=1649119057
