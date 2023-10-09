@@ -230,6 +230,7 @@ body {
 	flex-wrap: wrap;
 	margin-top: 0.5rem;
 	margin-bottom: 0.5rem;
+	font-size: 0.875rem;
 }
 
 .chip {
@@ -253,15 +254,15 @@ body {
 	color: rgb(247 247 247);
 }
 
-.chip.green .content::first-of-type {
+.chip.green::first-of-type .content {
 	background-color: rgb(135 204 82 / 0.1);
 	color: rgb(135 204 82);
 }
-.chip.orange .content::first-of-type {
+.chip.orange::first-of-type .content {
 	background-color: rgb(255 151 66 / 0.1);
 	color: rgb(255 151 66);
 }
-.chip.red .content::first-of-type {
+.chip.red::first-of-type .content {
 	background-color: rgb(214 57 91 / 0.1);
 	color: rgb(214 57 91);
 }
