@@ -15,6 +15,7 @@ export async function addCms() {
 		const { entry } = props;
 		const group = entry.getIn(["data", "group"]);
 		const info = entry.getIn(["data", "info"]);
+		console.log(info)
 		let price = "";
 		let infoObjects: { text: string; tooltip: string }[] = [];
 		if (info) {
