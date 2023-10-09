@@ -219,6 +219,36 @@ body {
 	display: block
 }
 
+/* dark:bg-opacity-20 bg-opacity-70 rounded-full px-1.5 p-1 {classes} flex justify-center min-w-[3rem]
+	bg-neutral-500/10 dark:text-contrast-50 text-main-400 chip group-first-of-type/tooltip:bg-{color} 
+	dark:group-first-of-type/tooltip:text-{color} dark:group-first-of-type/tooltip:bg-opacity-20 
+	group-first-of-type/tooltip:bg-opacity-50 */
+
+.chip {
+	border-radius: 999px;
+	padding: 0.25rem;
+	padding-left: 0.375rem;
+	padding-right: 0.375rem;
+	display: flex;
+	justify-content: center;
+	min-width: 3rem;
+	background-color: rgb(115 115 115 / 0.1);
+	color: rgb(247 247 247);
+}
+
+.chip::first-of-type.green {
+	background-color: rgb(135 204 82 / 0.1);
+	color: rgb(135 204 82);
+}
+.chip::first-of-type.orange {
+	background-color: rgb(255 151 66 / 0.1);
+	color: rgb(255 151 66);
+}
+.chip::first-of-type.red {
+	background-color: rgb(214 57 91 / 0.1);
+	color: rgb(214 57 91);
+}
+
 
 /* A lot of messy bodged CMS styles */
 
