@@ -11,5 +11,5 @@ text: HGLRC have made something pretty unique here. A toothpick frame with arm
   braces, mounting for 16x/20x/25x electronics. The battery is held with
   rubberbands or straps, this frame gives you a lot of options for all kinds of
   different builds
-info: $21.99;130mm<Wheelbase>;3mm Plate;16x16/20x20/25x25 Stacks
+info: $21.99;130mm<Wheelbase>;3mm Plate;16x16/20x20/25x25 Stacks;14.5g
 ---
