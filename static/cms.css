@@ -355,11 +355,11 @@ h2 {
 	background-color: rgb(255 255 255 / 15%) !important;
 }
 
-.css-1pr3myi-FieldLabel-fieldLabel {
+.css-1qu85o2-FieldLabel-fieldLabel {
 	background-color: var(--background-light) !important;
 	color: var(--light) !important;
 }
-.css-1pr3myi-FieldLabel-fieldLabel::after {
+.css-1qu85o2-FieldLabel-fieldLabel::after {
 	background-color: var(--background) !important;
 }
 .css-1pr3myi-FieldLabel-fieldLabel .e1xtv0oy0 {
@@ -470,10 +470,10 @@ h2 {
 	border-radius: 0px 10px 10px !important;
 	background-color: var(--background-light1) !important;
 }
-.css-1rsca1y-ControlContainer.css-1pr3myi-FieldLabel-fieldLabel {
+.css-1rsca1y-ControlContainer.css-1qu85o2-FieldLabel-fieldLabel {
 	background-color: var(--background-light1) !important;
 }
-.css-1rsca1y-ControlContainer.css-1pr3myi-FieldLabel-fieldLabel::after {
+.css-1rsca1y-ControlContainer.css-1qu85o2-FieldLabel-fieldLabel::after {
 	background-color: var(--background-light1) !important;
 }
 .css-b6se59-StyledCode {
@@ -498,16 +498,16 @@ h2 {
 	background-color: var(--background-light1) !important;
 }
 
-.css-1iqjs8m-ControlContainer-Shortcode > .css-1pr3myi-FieldLabel-fieldLabel {
+.css-1iqjs8m-ControlContainer-Shortcode > .css-1qu85o2-FieldLabel-fieldLabel {
 	background-color: var(--background-light1) !important;
 }
-.css-1iqjs8m-ControlContainer-Shortcode > .css-1pr3myi-FieldLabel-fieldLabel::after {
+.css-1iqjs8m-ControlContainer-Shortcode > .css-1qu85o2-FieldLabel-fieldLabel::after {
 	background-color: var(--background-light) !important;
 }
-.css-182avcw .css-1pr3myi-FieldLabel-fieldLabel::after {
+.css-182avcw .css-1qu85o2-FieldLabel-fieldLabel::after {
 	background: var(--background-light1) !important;
 }
-.css-12fzmby .css-1pr3myi-FieldLabel-fieldLabel::after {
+.css-12fzmby .css-1qu85o2-FieldLabel-fieldLabel::after {
 	background: var(--background-light1) !important;
 }
 .css-1iqjs8m-ControlContainer-Shortcode .css-1vur7zs-FieldLabel-fieldLabel::after {
