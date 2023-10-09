@@ -362,10 +362,10 @@ h2 {
 .css-1qu85o2-FieldLabel-fieldLabel::after {
 	background-color: var(--background) !important;
 }
-.css-1pr3myi-FieldLabel-fieldLabel .e1xtv0oy0 {
+.css-1pr3myi-FieldLabel-fieldLabel {
 	background-color: var(--highlight) !important;
 }
-.css-1pr3myi-FieldLabel-fieldLabel .e1xtv0oy0::after {
+.css-1pr3myi-FieldLabel-fieldLabel::after {
 	background-color: var(--background) !important;
 }
 
