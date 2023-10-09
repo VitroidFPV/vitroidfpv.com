@@ -231,6 +231,7 @@ body {
 	margin-top: 0.5rem;
 	margin-bottom: 0.5rem;
 	font-size: 0.875rem;
+	gap: 0.5rem;
 }
 
 .chip {
@@ -250,20 +251,20 @@ body {
 	display: flex;
 	justify-content: center;
 	min-width: 3rem;
-	background-color: rgb(115 115 115 / 0.1);
+	background-color: rgb(115 115 115 / 0.2);
 	color: rgb(247 247 247);
 }
 
-.chip.green::first-of-type .content {
-	background-color: rgb(135 204 82 / 0.1);
+.chip.green:first-of-type .content {
+	background-color: rgb(135 204 82 / 0.2);
 	color: rgb(135 204 82);
 }
-.chip.orange::first-of-type .content {
-	background-color: rgb(255 151 66 / 0.1);
+.chip.orange:first-of-type .content {
+	background-color: rgb(255 151 66 / 0.2);
 	color: rgb(255 151 66);
 }
-.chip.red::first-of-type .content {
-	background-color: rgb(214 57 91 / 0.1);
+.chip.red:first-of-type .content {
+	background-color: rgb(214 57 91 / 0.2);
 	color: rgb(214 57 91);
 }
 
