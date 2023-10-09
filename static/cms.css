@@ -224,6 +224,14 @@ body {
 	dark:group-first-of-type/tooltip:text-{color} dark:group-first-of-type/tooltip:bg-opacity-20 
 	group-first-of-type/tooltip:bg-opacity-50 */
 
+.chips {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
 .chip {
 	position: relative;
 	display: flex;
@@ -233,7 +241,7 @@ body {
 	width: fit-content;
 }
 
-.chip.content {
+.chip .content {
 	border-radius: 999px;
 	padding: 0.25rem;
 	padding-left: 0.375rem;
@@ -245,15 +253,15 @@ body {
 	color: rgb(247 247 247);
 }
 
-.chip.content::first-of-type.green {
+.chip.green .content::first-of-type {
 	background-color: rgb(135 204 82 / 0.1);
 	color: rgb(135 204 82);
 }
-.chip.content::first-of-type.orange {
+.chip.orange .content::first-of-type {
 	background-color: rgb(255 151 66 / 0.1);
 	color: rgb(255 151 66);
 }
-.chip.content::first-of-type.red {
+.chip.red .content::first-of-type {
 	background-color: rgb(214 57 91 / 0.1);
 	color: rgb(214 57 91);
 }
