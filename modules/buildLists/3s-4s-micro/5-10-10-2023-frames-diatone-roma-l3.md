@@ -12,5 +12,5 @@ text: Originally made to get onto the 3" LR trend, turns out it's great for
   the Thumb Pro and not getting any props in view. It's pretty durable, has
   plenty of space, and even a fancy cam cage
 info: $28.99;147mm<Wheelbase>;3mm Arms;1.5mm Plates<Bottom/Top/Mid>;20x20/25x25
-  Stacks;9x9/12x12 Motor Mounting;43g
+  Stacks;9x9/12x12 Motors;43g
 ---
