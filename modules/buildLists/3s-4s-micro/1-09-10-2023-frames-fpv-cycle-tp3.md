@@ -10,5 +10,5 @@ image: https://fpvcycle.com/cdn/shop/products/IMG_20200808_180745_Custom_02dff59
 text: FPV Cycle frames and motors are well-known in the micro class. The TP3 is
   still pretty thin compared to the rest of the frames here, but many people
   have them running on 3s without issue
-info: $17.99;2.5mm Arms;1.5mm Plates;20x20/25x25 Stacks;9-10g
+info: $17.99;2.5mm Arms;1.5mm Plates;20x20/25x25 Stacks;9x9 Motors;9-10g
 ---
