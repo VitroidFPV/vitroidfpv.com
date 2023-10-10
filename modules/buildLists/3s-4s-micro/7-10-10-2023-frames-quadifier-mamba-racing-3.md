@@ -11,6 +11,6 @@ text: Quadifier is a relatively new, small maker based in the US. Their frames
   have a very distinct "sharp" look to them that I haven't really seen
   elsewhere. As the name suggests, the Mamba is meant for racing builds with a
   stretched geometry for different handling
-info: $29.99;160mm<Wheelbase>;3.5/2mm Plates<Bottom/Top>;20x20;14mm
+info: $29.99;160mm<Wheelbase>;3.5/2mm Plates<Bottom/Top>;20x20 Stacks;14mm
   Cams;9x9/12x12 Motors;30g
 ---
