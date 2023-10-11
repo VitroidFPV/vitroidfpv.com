@@ -404,6 +404,7 @@ h1, h2, h3, h4, h5, h6 {
 	display: block;
 	margin-right: 4px;
 	transition-duration: 300ms;
+	/* comment for */
 }
 
 .css-1d3rhic-SidebarNavLink-sidebarNavLinkActive-SidebarNavLink:hover::before {
@@ -567,7 +568,7 @@ h1, h2, h3, h4, h5, h6 {
 	border-radius: 0px;
 }
 
-.css-tsu4ds-DropdownList-dropdownList-DropdownList {
+.css-tsu4ds-DropdownList-dropdownList-DropdownList, .css-170j4n4-DropdownList-dropdownList-DropdownList {
     color: var(--light);
     background-color: #0000003d;
     backdrop-filter: blur(8px);
@@ -603,7 +604,8 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: transparent;
 }
 
-.css-1e6ti0f-button-dropdownItem-StyledMenuItem:hover::before {
+.css-1e6ti0f-button-dropdownItem-StyledMenuItem:hover::before, 
+.css-1yfmu1p-button-dropdownItem-StyledMenuItem-PublishDropDownItem:hover::before {
 	width: 4px;
 	height: 18px;
 }
@@ -1115,4 +1117,39 @@ a.css-6gjfue-StyledA.e19otniy11 {
 
 .css-fy9zbb-GroupHeading {
 	color: var(--highlight);
+}
+
+.css-1u9eesv-button-dropdownItem-StyledMenuItem-StatusDropdownItem:focus, 
+.css-1u9eesv-button-dropdownItem-StyledMenuItem-StatusDropdownItem:active, 
+.css-1u9eesv-button-dropdownItem-StyledMenuItem-StatusDropdownItem:not(:focus), 
+.css-1u9eesv-button-dropdownItem-StyledMenuItem-StatusDropdownItem:not(:active),
+.css-1yfmu1p-button-dropdownItem-StyledMenuItem-PublishDropDownItem:focus, 
+.css-1yfmu1p-button-dropdownItem-StyledMenuItem-PublishDropDownItem:active, 
+.css-1yfmu1p-button-dropdownItem-StyledMenuItem-PublishDropDownItem:not(:focus), 
+.css-1yfmu1p-button-dropdownItem-StyledMenuItem-PublishDropDownItem:not(:active) {
+    color: var(--light);
+	transition-duration: 300ms;
+	justify-content: flex-start;
+	background: transparent;
+	border: none;
+}
+
+.css-1u9eesv-button-dropdownItem-StyledMenuItem-StatusDropdownItem::before {
+    content: "";
+	width: 0px;
+	height: 0px;
+	background-color: #5ad8e6;
+	border-radius: 99px;
+	display: block;
+	margin-right: 4px;
+	transition-duration: 300ms;
+}
+
+.css-1u9eesv-button-dropdownItem-StyledMenuItem-StatusDropdownItem:hover::before {
+    width: 4px;
+    height: 18px;
+}
+
+.css-17h3c3s-MenuItemIconContainer.efqlgsg3 > * {
+    color: #5ad8e6 !important;
 }
