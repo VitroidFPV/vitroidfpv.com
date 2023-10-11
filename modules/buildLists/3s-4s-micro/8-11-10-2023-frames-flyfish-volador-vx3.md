@@ -2,7 +2,7 @@
 category: Frames
 group: 3"
 color: red
-visible: true
+visible: false
 order: 8
 title: FlyFish Volador VX3
 link: https://www.racedayquads.com/products/flyfishrc-volador-vx3-o3-3-freestyle-frame-kit-tropical
