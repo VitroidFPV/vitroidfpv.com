@@ -585,6 +585,7 @@ h1, h2, h3, h4, h5, h6 {
 .css-1e6ti0f-button-dropdownItem-StyledMenuItem {
 	color: var(--light);
 	transition-duration: 300ms;
+	justify-content: flex-start;
 }
 
 .css-1e6ti0f-button-dropdownItem-StyledMenuItem::before {
@@ -605,6 +606,28 @@ h1, h2, h3, h4, h5, h6 {
 .css-1e6ti0f-button-dropdownItem-StyledMenuItem:hover::before {
 	width: 4px;
 	height: 18px;
+}
+
+.css-ag5ss0-button-dropdownItem-StyledMenuItem:focus, 
+.css-ag5ss0-button-dropdownItem-StyledMenuItem:active, 
+.css-ag5ss0-button-dropdownItem-StyledMenuItem:not(:focus), 
+.css-ag5ss0-button-dropdownItem-StyledMenuItem:not(:active) {
+	color: var(--highlight);
+	transition-duration: 300ms;
+	justify-content: flex-start;
+	background: transparent;
+	border: none;
+}
+
+.css-ag5ss0-button-dropdownItem-StyledMenuItem:not(:active)::before {
+	width: 4px;
+	height: 18px;
+	content: "";
+	background-color: var(--highlight);
+	border-radius: 99px;
+	display: block;
+	margin-right: 4px;
+	transition-duration: 300ms;
 }
 
 .css-1u78kww-StyledWrapper-ToolbarDropdown-buttonMargin .ei6fm2r1 {
@@ -813,7 +836,6 @@ a.css-6gjfue-StyledA.e19otniy11 {
 }
 
 .css-1e6ti0f-button-dropdownItem-StyledMenuItem {
-    border-left: 4px solid transparent;
     color: var(--light);
 	transition-duration: 300ms;
 }
@@ -1088,5 +1110,9 @@ a.css-6gjfue-StyledA.e19otniy11 {
 }
 
 .css-d1adgv-StyledWrapper-ToolbarDropdown-buttonMargin .e1jeq5dr1 {
+	color: var(--highlight);
+}
+
+.css-fy9zbb-GroupHeading {
 	color: var(--highlight);
 }
