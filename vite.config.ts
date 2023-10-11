@@ -1,4 +1,23 @@
 import { sveltekit } from '@sveltejs/kit/vite';
+import { PluginOption } from "vite";
+
+export function customHmr() {
+	return {
+	name: 'custom-hmr',
+	enforce: 'post',
+	// HMR
+	handleHotUpdate({ file, server }) {
+		if (file.endsWith('.css')) {
+		console.log('reloading css file...');
+
+		server.ws.send({
+			type: 'full-reload',          
+			path: '*'
+		});
+		}
+	},
+	}
+}
 
 /** @type {import('vite').UserConfig} */
 const config = {
@@ -13,7 +32,8 @@ const config = {
 				next();
 				});
 			}
-		}
+		},
+		customHmr(),
 	],
 	server: {
 		fs: {

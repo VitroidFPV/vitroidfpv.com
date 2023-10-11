@@ -1,3 +1,18 @@
+
+:root {
+	--background: #0f0f0f;
+	--background-light: #191919;
+	--background-light1: #292929;
+	--light-transparent: #eeeeeeaa;
+	--background-transparent: #dddddd1d;
+	--light: #f7f7f7;
+	--light1: #adadad;
+	--highlight: #87cc52;
+	--highlight-transparent: #87cc5253;
+	--highlight-transparent1: #87cc5237;
+}
+
+
 @font-face {
 	font-family: 'Reem Kufi';
 	src: url('/uploads/fonts/ReemKufi-Regular.ttf') format('truetype');
@@ -21,7 +36,7 @@ body {
 	height: fit-content;
 	max-width: 24rem;
 	min-width: 18rem;
-	border-left: 4px solid !important;
+	border-left: 4px solid;
 	padding-left: 0.5rem;
 }
 
@@ -41,13 +56,13 @@ body {
 }
 
 .container.green {
-	border-color: #87cc52 !important;
+	border-color: #87cc52;
 }
 .container.orange {
-	border-color: #ff9742 !important;
+	border-color: #ff9742;
 }
 .container.red {
-	border-color: #d6395b !important;
+	border-color: #d6395b;
 }
 
 .points {
@@ -282,16 +297,7 @@ body {
 /* Don't touch unless needed */
 
 [data-slate-editor] { 
-	-webkit-user-modify: read-write !important; 
-}
-
-:root {
-	--background: #0f0f0f;
-	--background-light: #1e1e1e;
-	--background-light1: #292929;
-	--light: #f7f7f7;
-	--highlight: #90d95b;
-	--highlight-transparent: #90d95b5e;
+	-webkit-user-modify: read-write; 
 }
 
 html,
@@ -300,599 +306,787 @@ html,
 }
 
 body {
-	padding: 0px !important;
-}
-
-.css-12b66la-AppHeaderContent,
-.css-y7r3-AppHeader {
-	background-color: var(--background-light);
+	padding: 0px;
 }
 
 .css-y7r3-AppHeader {
-	background-color: var(--background-light) !important;
+	background-color: transparent;
+	padding-top: 1rem;
+	padding-right: 1rem;
+	padding-left: 1rem;
+	box-shadow: none;
+	height: fit-content;
+}
+
+.css-12b66la-AppHeaderContent {
+	background-color: #5353531f;
+	border-radius: 16px;
+	outline: 2px solid #ffffff1f;
+	backdrop-filter: blur(8px);
 }
 
 .css-5wgw3f-ListCard-card {
-	background-color: var(--background-light) !important;
-	color: var(--light) !important;
-	transition: all 300ms !important;
+	background-color: var(--background-light);
+	color: var(--light);
+	transition: all 300ms;
 }
 .css-5wgw3f-ListCard-card:hover {
-	background-color: var(--highlight-transparent) !important;
-	color: var(--background) !important;
+	background-color: var(--highlight-transparent);
+	color: var(--light);
 }
 .css-1t9i08i-ListCardLink {
-	background-color: transparent !important;
+	background-color: transparent;
+	color: var(--light);
 }
 .css-1t9i08i-ListCardLink:hover {
-	background-color: transparent !important;
+	background-color: transparent;
 }
 
 .css-1hvrgvd-CollectionTopContainer-card-cardTop {
-	background-color: var(--background-light) !important;
+	background-color: transparent;
+	box-shadow: none;
+	width: 100%;
+	padding: 16px 0px;
 }
+
+.css-37khcc-CollectionTopHeading-cardTopHeading {
+	display: flex;
+	align-items: center;
+	font-weight: 300;
+	font-size: 2.25rem;
+}
+
+.css-37khcc-CollectionTopHeading-cardTopHeading::before {
+	background-color: var(--highlight);
+	height: 36px;
+	width: 6px;
+	border-radius: 99px;
+	content: "";
+	display: block;
+	margin-right: 8px;
+}
+/* css-882a4r-CardsGrid etq0ss00 */
+/* css-882a4r-CardsGrid etq0ss00 */
+
 h1,
 h2 {
-	color: var(--light) !important;
+	color: var(--light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Reem Kufi', sans-serif;
 }
 
 .css-1gj57a0-SidebarContainer-card {
-	background-color: var(--background-light) !important;
-	color: var(--light) !important;
+	background-color: var(--background-light);
+	color: var(--light);
+	outline: 2px solid #ffffff1f;
+	border-radius: 16px;
 }
 .css-1d3rhic-SidebarNavLink-sidebarNavLinkActive-SidebarNavLink {
-	border: none !important;
-	transition: all 300ms !important;
+	border: none;
+	transition: all 300ms;
+	color: var(--light-transparent);
+	/* position: relative; */
 }
 .css-1d3rhic-SidebarNavLink-sidebarNavLinkActive-SidebarNavLink:hover {
-	background-color: var(--highlight-transparent) !important;
-	color: var(--light) !important;
+	/* background-color: var(--highlight-transparent); */
+	background-color: transparent;
+	color: var(--light);
+}
+
+.css-1d3rhic-SidebarNavLink-sidebarNavLinkActive-SidebarNavLink::before {
+	content: "";
+	width: 0px;
+	height: 0px;
+	background-color: var(--highlight);
+	border-radius: 99px;
+	display: block;
+	margin-right: 4px;
+	transition-duration: 300ms;
+}
+
+.css-1d3rhic-SidebarNavLink-sidebarNavLinkActive-SidebarNavLink:hover::before {
+	width: 6px;
+	height: 24px;
 }
 
 .css-1d3rhic-SidebarNavLink-sidebarNavLinkActive-SidebarNavLink.sidebar-active {
-	background-color: var(--highlight-transparent) !important;
-	color: var(--light) !important;
-	border-left: 4px solid var(--highlight) !important;
+	background-color: transparent;
+	color: var(--highlight);
+}
+
+.css-1d3rhic-SidebarNavLink-sidebarNavLinkActive-SidebarNavLink.sidebar-active::before {
+	width: 6px;
+	height: 24px;
 }
 
 .css-1blbyw7-SearchInput {
-	background-color: var(--background-light1) !important;
-	color: var(--light) !important;
+	background-color: var(--background-light1);
+	color: var(--light);
+	border-radius: 16px;
+	outline: 2px solid #ffffff1f;
 }
 
 .css-2oej7z-ToolbarContainer,
 .css-8s5rs3-ToolbarContainer,
 .css-1b0jsy4 {
-	background-color: var(--background-light) !important;
-	color: var(--light) !important;
+	background-color: var(--background-light);
+	color: var(--light);
+	box-shadow: none;
 }
 
 .css-1b0jsy4 {
-	border: none !important;
+	border: none;
 }
 
 .css-8s5rs3-ToolbarContainer {
-	border-bottom: 1px solid var(--background-light1) !important;
+	border-bottom: 1px solid var(--background-light1);
 }
 
 .css-15ugu1-StyledP {
-	color: var(--light) !important;
+	color: var(--light);
 }
 
 .css-6o0rf-PreviewPaneContainer-ControlPaneContainer {
-	background-color: var(--background) !important;
-	color: var(--light) !important;
-	transition: color 300ms !important;
-	transition: background-color 300ms !important;
+	background-color: var(--background);
+	color: var(--light);
+	transition: color 300ms;
+	transition: background-color 300ms;
 }
 .css-11r6p0f-BackStatus-BackStatusUnchanged-badge-textBadge-textBadgeSuccess {
-	color: var(--highlight) !important;
+	color: var(--highlight);
 }
 .css-1whurdv-BackCollection {
-	color: var(--light) !important;
+	color: var(--light);
 }
 .css-1ixjrmh-ToolbarButton-button-default-buttonMargin-noOverflow-DeleteButton-lightRed {
-	background-color: rgb(84 27 27) !important;
+	background-color: rgb(84 27 27);
 }
 .css-1ixjrmh-ToolbarButton-button-default-buttonMargin-noOverflow-DeleteButton-lightRed:hover {
-	background-color: rgb(110, 37, 37) !important;
+	background-color: rgb(110, 37, 37);
 }
 .css-16pehfe-StyledDropdownButton-button-default-caret-caretDown-DropdownButton-noOverflow-PublishedToolbarButton-publishedButton {
-	background-color: rgb(30 58 63) !important;
+	background-color: rgb(30 58 63);
 }
 .css-16pehfe-StyledDropdownButton-button-default-caret-caretDown-DropdownButton-noOverflow-PublishedToolbarButton-publishedButton:hover {
-	background-color: rgb(35, 75, 82) !important;
+	background-color: rgb(35, 75, 82);
 }
 .css-abwcjt-ToolbarSectionBackLink-toolbarSection,
 .css-1acatj1-ToolbarSectionMeta-toolbarSection {
-	border: none !important;
+	border: none;
 }
 .css-abwcjt-ToolbarSectionBackLink-toolbarSection:hover,
 .css-abwcjt-ToolbarSectionBackLink-toolbarSection:focus {
-	background-color: rgb(255 255 255 / 15%) !important;
+	background-color: rgb(255 255 255 / 15%);
 }
 
 .css-1qu85o2-FieldLabel-fieldLabel {
-	background-color: var(--background-light) !important;
-	color: var(--light) !important;
+	background-color: var(--background-light);
+	color: var(--light);
 }
 .css-1qu85o2-FieldLabel-fieldLabel::after {
-	background-color: var(--background) !important;
+	background-color: var(--background);
 }
 .css-1pr3myi-FieldLabel-fieldLabel {
-	background-color: var(--highlight) !important;
+	background-color: var(--highlight);
 }
 .css-1pr3myi-FieldLabel-fieldLabel::after {
-	background-color: var(--background) !important;
+	background-color: var(--background);
 }
 
 .css-n3v41w-control,
 .css-wesa1q-TextControl,
 .css-83wr9v,
 .css-83wr9v {
-	background-color: var(--background-light) !important;
-	color: var(--light) !important;
-	border-color: transparent !important;
-	border-width: 4px !important;
-	border-radius: 0px 10px 10px !important;
+	background-color: var(--background-light);
+	color: var(--light);
+	border-color: transparent;
+	border-width: 4px;
+	border-radius: 0px 10px 10px;
 }
 
 .css-d5zfyc-control,
 .css-3yr7zq-TextControl,
 .css-188efjc {
-	border-color: var(--highlight) !important;
-	border-width: 4px !important;
-	background-color: var(--background-light) !important;
-	color: var(--light) !important;
-	border-radius: 0px 10px 10px !important;
+	border-color: var(--highlight);
+	border-width: 4px;
+	background-color: var(--background-light);
+	color: var(--light);
+	border-radius: 0px 10px 10px;
 }
 
 .css-1uccc91-singleValue {
-	color: var(--light) !important;
+	color: var(--light);
 }
 
 .css-1ixc7c5-menu {
-    color: var(--light) !important;
-    background-color: #0000003d !important;
-    backdrop-filter: blur(8px) !important;
-    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px !important;
+    color: var(--light);
+    background-color: #0000003d;
+    backdrop-filter: blur(8px);
+    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px;
     outline: 2px solid #ffffff1f;
 }
 
 .css-11unzgr {
-	border-radius: 10px !important;
-	padding: 0px !important;
-	background-color: transparent !important;
+	border-radius: 10px;
+	padding: 0px;
+	background-color: transparent;
 }
 
 .css-11unzgr:first-child {
-	border-top-left-radius: 10px !important;
-	border-top-right-radius: 10px !important;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
 }
 .css-11unzgr:last-child {
-	border-bottom-left-radius: 10px !important;
-	border-bottom-right-radius: 10px !important;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 
 .css-u267yo-option {
-	background-color: var(--highlight-transparent) !important;
-	color: var(--light) !important;
+	background-color: var(--highlight-transparent);
+	color: var(--light);
 }
 
 .css-1sqg7rp-option {
-	background-color: var(--highlight-transparent) !important;
-	color: var(--light) !important;
-	border-left: solid 4px !important;
-	border-color: var(--highlight) !important;
+	background-color: var(--highlight-transparent);
+	color: var(--light);
+	border-left: solid 4px;
+	border-color: var(--highlight);
 }
 
 .Resizer.vertical {
-	background-color: var(--background) !important;
+	background-color: var(--background);
 }
 
 .Resizer.vertical::before {
-	background-color: var(--background-light1) !important;
+	background-color: var(--background-light1);
 }
 
 .css-1jl34xb-PreviewPaneFrame {
-	border-radius: 0px !important;
+	border-radius: 0px;
 }
 
 .css-tsu4ds-DropdownList-dropdownList-DropdownList {
-    color: var(--light) !important;
-    background-color: #0000003d !important;
-    backdrop-filter: blur(8px) !important;
-    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px !important;
+    color: var(--light);
+    background-color: #0000003d;
+    backdrop-filter: blur(8px);
+    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px;
     outline: 2px solid #ffffff1f;
 }
+.css-1e6ti0f-button-dropdownItem-StyledMenuItem:focus, 
+.css-1e6ti0f-button-dropdownItem-StyledMenuItem:active, 
+.css-1e6ti0f-button-dropdownItem-StyledMenuItem:not(:focus), 
+.css-1e6ti0f-button-dropdownItem-StyledMenuItem:not(:active) {
+	border-bottom: none;
+	color: var(--light);
+}
+
 .css-1e6ti0f-button-dropdownItem-StyledMenuItem {
-	border-bottom: none !important;
+	color: var(--light);
+	transition-duration: 300ms;
 }
+
+.css-1e6ti0f-button-dropdownItem-StyledMenuItem::before {
+	content: "";
+	width: 0px;
+	height: 0px;
+	background-color: var(--highlight);
+	border-radius: 99px;
+	display: block;
+	margin-right: 4px;
+	transition-duration: 300ms;
+}
+
 .css-1e6ti0f-button-dropdownItem-StyledMenuItem:hover {
-	background-color: var(--highlight-transparent) !important;
-	color: var(--highlight) !important;
+	background-color: transparent;
 }
+
+.css-1e6ti0f-button-dropdownItem-StyledMenuItem:hover::before {
+	width: 4px;
+	height: 18px;
+}
+
 .css-1u78kww-StyledWrapper-ToolbarDropdown-buttonMargin .ei6fm2r1 {
-	color: var(--highlight) !important;
+	color: var(--highlight);
 }
 
 .css-182avcw {
-	background-color: var(--background-light1) !important;
-	border: 4px solid transparent !important;
+	background-color: var(--background-light1);
+	border: 4px solid transparent;
 }
 .css-12fzmby {
-	color: var(--light) !important;
-	border-color: var(--highlight) !important;
-	border-width: 4px !important;
-	border-radius: 0px 10px 10px !important;
-	background-color: var(--background-light1) !important;
+	color: var(--light);
+	border-color: var(--highlight);
+	border-width: 4px;
+	border-radius: 0px 10px 10px;
+	background-color: var(--background-light1);
 }
 .css-1rsca1y-ControlContainer.css-1qu85o2-FieldLabel-fieldLabel {
-	background-color: var(--background-light1) !important;
+	background-color: var(--background-light1);
 }
 .css-1rsca1y-ControlContainer.css-1qu85o2-FieldLabel-fieldLabel::after {
-	background-color: var(--background-light1) !important;
+	background-color: var(--background-light1);
 }
 .css-b6se59-StyledCode {
-	background-color: var(--background-light) !important;
-	color: var(--light) !important;
-	padding: 0.25rem !important;
+	background-color: var(--background-light);
+	color: var(--light);
+	padding: 0.25rem;
 }
 .css-mrwfgl-FileWidgetButton-button-badge-backgroundBadge-badge {
-	color: var(--highlight) !important;
-	background-color: var(--highlight-transparent) !important;
+	color: var(--highlight);
+	background-color: var(--highlight-transparent);
 }
 .css-1xda84k-FileWidgetButtonRemove-button-badge-backgroundBadge-badgeDanger {
-	background-color: rgb(110, 37, 37) !important;
-	color: rgb(255, 0, 59) !important;
-	transition: filter 0.2s ease-in-out !important;
+	background-color: rgb(110, 37, 37);
+	color: rgb(255, 0, 59);
+	transition: filter 0.2s ease-in-out;
 }
 .css-mrwfgl-FileWidgetButton-button-badge-backgroundBadge-badge, .css-1xda84k-FileWidgetButtonRemove-button-badge-backgroundBadge-badgeDanger:hover {
-	filter: brightness(1.4) !important;
+	filter: brightness(1.4);
 }
 .css-1265b6l-TopBarContainer {
-	border-radius: 0px 6px 0px 0px !important;
-	background-color: var(--background-light1) !important;
+	border-radius: 0px 6px 0px 0px;
+	background-color: var(--background-light1);
 }
 
 .css-1iqjs8m-ControlContainer-Shortcode > .css-1qu85o2-FieldLabel-fieldLabel {
-	background-color: var(--background-light1) !important;
+	background-color: var(--background-light1);
 }
 .css-1iqjs8m-ControlContainer-Shortcode > .css-1qu85o2-FieldLabel-fieldLabel::after {
-	background-color: var(--background-light) !important;
+	background-color: var(--background-light);
 }
 .css-182avcw .css-1qu85o2-FieldLabel-fieldLabel::after {
-	background: var(--background-light1) !important;
+	background: var(--background-light1);
 }
 .css-12fzmby .css-1qu85o2-FieldLabel-fieldLabel::after {
-	background: var(--background-light1) !important;
+	background: var(--background-light1);
 }
 .css-1iqjs8m-ControlContainer-Shortcode .css-1vur7zs-FieldLabel-fieldLabel::after {
-	background: var(--background-light) !important;
+	background: var(--background-light);
 }
 .css-118di0z-StyledH4 {
-	color: var(--light) !important;
+	color: var(--light);
 }
 .css-isnoua {
-	background-color: var(--background-light) !important;
-	color: var(--light) !important;
+	background-color: var(--background-light);
+	color: var(--light);
 }
 
 .css-zfnuhu-ToggleBackground-BooleanBackground, .css-1uwwzhh-ToggleBackground {
-	background-color: var(--highlight) !important;
+	background-color: var(--highlight);
 }
 
 .css-we3pzg-ToggleBackground-BooleanBackground {
-	background-color: var(--background-light1) !important;
+	background-color: var(--background-light1);
 }
 
 .css-mj84iz-DropdownList-dropdownList-DropdownList.e1d27pw02 {
-    color: var(--light) !important;
-    background-color: #0000003d !important;
-    backdrop-filter: blur(8px) !important;
-    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px !important;
+    color: var(--light);
+    background-color: #0000003d;
+    backdrop-filter: blur(8px);
+    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px;
     outline: 2px solid #ffffff1f;
 }
 
 
 .css-19jgu1s-ToolbarToggleLabel-ToolbarToggleLabel.e169jtoy3 {
-	color: var(--highlight) !important;
+	color: var(--highlight);
 }
 
 .css-1wgdcls-ToolbarToggleLabel-ToolbarToggleLabel {
-	color: var(--highlight) !important;
+	color: var(--highlight);
 }
 
 a.css-6gjfue-StyledA.e19otniy11 {
-	color: var(--highlight) !important;
+	color: var(--highlight);
 }
 
 .css-1tp47zl-multiValue {
-	background-color: rgb(126 126 126 / 0.2) !important;
+	background-color: rgb(126 126 126 / 0.2);
 	transition: all 300ms;
 }
 
 .css-1tp47zl-multiValue:hover {
-	background-color: rgb(126 126 126 / 0.25) !important;
+	background-color: rgb(126 126 126 / 0.25);
 }
 
 .css-8l997j {
-	color: var(--light) !important;
+	color: var(--light);
 }
 
 .css-1tp47zl-multiValue.css-8l997j:hover {
-	color: var(--highlight) !important;
+	color: var(--highlight);
 }
 
 .css-8l997j:hover {
-	color: var(--highlight) !important;
+	color: var(--highlight);
 }
 
 .css-1tp47zl-multiValue:hover.css-8l997j {
-	color: var(--light) !important;
+	color: var(--light);
 }
 
 .css-h5hswg {
-	margin-left: 2px !important;
+	margin-left: 2px;
 }
 
 .css-h5hswg:hover {
-	background-color: rgb(110, 37, 37) !important;
+	background-color: rgb(110, 37, 37);
 }
 .css-14hxnzs-TextControl {
-	background-color: var(--background-light) !important;
-	border-width: 4px !important;
-	border-radius: 0px 10px 10px !important;
+	background-color: var(--background-light);
+	border-width: 4px;
+	border-radius: 0px 10px 10px;
 }
 
 .css-1eeq9l0-TextControl {
-	background-color: var(--background-light) !important;
-	border-width: 4px !important;
-	border-radius: 0px 10px 10px !important;
+	background-color: var(--background-light);
+	border-width: 4px;
+	border-radius: 0px 10px 10px;
 }
 
 .css-1noq96f-FieldLabel-fieldLabel::after {
-	background-color: var(--background) !important;
+	background-color: var(--background);
 }
 
 .css-1i85phj-CloseButton-button {
-	background-color: var(--background-light) !important;
-	color: var(--highlight) !important;
+	background-color: var(--background-light);
+	color: var(--highlight);
 }
 
 .css-1f3mf5k-StyledModal {
-	background-color: var(--background) !important;
+	background-color: var(--background);
 }
 
 .css-1ztge6 {
-	backdrop-filter: blur(8px) !important;
+	backdrop-filter: blur(8px);
 }
 
 .css-1er4xqr-Card {
-	border-color: var(--background-light) !important;
+	border-color: var(--background-light);
 }
 
 .css-ch614s-CardImageWrapper-checkerboard {
-	background-color: var(--background-light) !important;
-	background-image: linear-gradient(45deg, rgb(50, 50, 50) 25%, transparent 25%, transparent 75%, rgb(50, 50, 50) 75%, rgb(50, 50, 50)), linear-gradient(45deg, rgb(50, 50, 50) 25%, transparent 25%, transparent 75%, rgb(50, 50, 50) 75%, rgb(50, 50, 50)) !important;
-	border-bottom-color: var(--background-light) !important;
+	background-color: var(--background-light);
+	background-image: linear-gradient(45deg, rgb(50, 50, 50) 25%, transparent 25%, transparent 75%, rgb(50, 50, 50) 75%, rgb(50, 50, 50)), linear-gradient(45deg, rgb(50, 50, 50) 25%, transparent 25%, transparent 75%, rgb(50, 50, 50) 75%, rgb(50, 50, 50));
+	border-bottom-color: var(--background-light);
 }
 
 .css-1v1y2wn-Card {
-	border: 2px solid var(--highlight) !important;
+	border: 2px solid var(--highlight);
 }
 
 .css-58ai8s-StyledDropdownButton-button-default-caret-caretDown-Button-button-medium-grayText-ControlButton {
-    color: var(--highlight) !important;
+    color: var(--highlight);
+	font-weight: 300;
 }
 
 .css-1fh4556-ViewControlsButton-button {
-    color: var(--highlight) !important;
+    color: var(--highlight);
 }
 
-.css-12yqrwa-AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton.header-link-active .ei6fm2r1 {
-    color: inherit !important;
+.css-170wfya-AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton.header-link-active {
+	color: var(--highlight);
+	animation-duration: 300ms;
 }
 
-.css-104dqk8-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:hover, .css-104dqk8-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:active, .css-104dqk8-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:focus {
-    color: var(--highlight) !important;
+.css-170wfya-AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton.header-link-active .e1jeq5dr1 {
+	color: var(--highlight);
 }
 
-.css-104dqk8-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:hover .ei6fm2r1, .css-104dqk8-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:active .ei6fm2r1, .css-104dqk8-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:focus .ei6fm2r1 {
-    color: inherit !important;
+.css-1e0nnta-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton {
+	color: var(--light-transparent);
+	animation-duration: 300ms;
+}
+
+.css-1e0nnta-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:hover {
+	color: var(--highlight);
 }
 
 .css-pp9jk1-DropdownList-dropdownList-DropdownList {
-    color: var(--light) !important;
-    background-color: #0000003d !important;
-    backdrop-filter: blur(8px) !important;
-    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px !important;
+    color: var(--light);
+    background-color: #0000003d;
+    backdrop-filter: blur(8px);
+    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px;
     outline: 2px solid #ffffff1f;
 }
 
-.css-1gbg97n-button-dropdownItem-StyledMenuItem:focus, .css-1gbg97n-button-dropdownItem-StyledMenuItem:active, .css-1gbg97n-button-dropdownItem-StyledMenuItem:not(:focus), .css-1gbg97n-button-dropdownItem-StyledMenuItem:not(:active) {
-    background: var(--highlight-transparent) !important;
-    color: var(--highlight) !important;
-    border-left: 4px solid var(--highlight) !important;
-    border-bottom: 0px !important;
+.css-1e6ti0f-button-dropdownItem-StyledMenuItem {
+    border-left: 4px solid transparent;
+    color: var(--light);
+	transition-duration: 300ms;
 }
 
-.css-1e6ti0f-button-dropdownItem-StyledMenuItem {
-    border-left: 4px solid transparent !important;
+.css-1gbg97n-button-dropdownItem-StyledMenuItem:focus, .css-1gbg97n-button-dropdownItem-StyledMenuItem:active, .css-1gbg97n-button-dropdownItem-StyledMenuItem:not(:focus), .css-1gbg97n-button-dropdownItem-StyledMenuItem:not(:active) {
+    background: var(--highlight-transparent);
+    color: var(--highlight);
+    border-left: 4px solid var(--highlight);
+    border-bottom: 0px;
 }
 
 .css-rm5zaq-DropdownList-dropdownList-DropdownList {
-    color: var(--light) !important;
-    background-color: #0000003d !important;
-    backdrop-filter: blur(8px) !important;
-    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px !important;
+    color: var(--light);
+    background-color: #0000003d;
+    backdrop-filter: blur(8px);
+    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px;
     outline: 2px solid #ffffff1f;
 }
 
 .css-xsmg2p-button-dropdownItem-StyledMenuItem:focus, .css-xsmg2p-button-dropdownItem-StyledMenuItem:active, .css-xsmg2p-button-dropdownItem-StyledMenuItem:not(:focus), .css-xsmg2p-button-dropdownItem-StyledMenuItem:not(:active) {
-    border-bottom: 0px !important;
-    border-left: 4px solid transparent !important;
-    color: var(--light) !important;
+    border-bottom: 0px;
+    border-left: 4px solid transparent;
+    color: var(--light);
 }
 
 .css-xsmg2p-button-dropdownItem-StyledMenuItem:hover {
-    background: var(--highlight-transparent) !important;
+    background: var(--highlight-transparent);
 }
 
 .css-13uciye-button-dropdownItem-StyledMenuItem:focus, .css-13uciye-button-dropdownItem-StyledMenuItem:active, .css-13uciye-button-dropdownItem-StyledMenuItem:not(:focus), .css-13uciye-button-dropdownItem-StyledMenuItem:not(:active) {
-    background-color: var(--highlight-transparent) !important;
-    border-bottom: 0px !important;
-    border-left: 4px solid var(--highlight) !important;
-    color: var(--highlight) !important;
+    background-color: var(--highlight-transparent);
+    border-bottom: 0px;
+    border-left: 4px solid var(--highlight);
+    color: var(--highlight);
 }
 
 .css-12yqrwa-AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:hover .ei6fm2r1, .css-12yqrwa-AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:active .ei6fm2r1, .css-12yqrwa-AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:focus .ei6fm2r1 {
-    color: inherit !important;
+    color: inherit;
 }
 
 .css-12yqrwa-AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton.header-link-active {
-    color: var(--highlight) !important;
+    color: var(--highlight);
 }
 
 .css-12yqrwa-AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:hover, .css-12yqrwa-AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:active, .css-12yqrwa-AppHeaderNavLink-AppHeaderButton-button-buttonActive-buttonActive-buttonActive-buttonActive-AppHeaderButton:focus {
-    color: var(--highlight) !important;
+    color: var(--highlight);
 }
 
 .css-1r8q2q6-WorkflowTop-card-cardTop {
-    background-color: var(--background-light) !important;
+    background-color: var(--background-light);
 }
 
 .css-1k769dv-ColumnHeader-ColumnHeader {
-    background-color: #d6395b !important;
-    color: var(--background) !important;
+    background-color: #d6395b;
+    color: var(--background);
 }
 
 .css-j7m31j-ColumnHeader-ColumnHeader {
-    background-color: #ffcc00 !important;
-    color: var(--background) !important;
+    background-color: #ffcc00;
+    color: var(--background);
 }
 
 .css-15quhec-ColumnHeader-ColumnHeader {
-    background-color: #87cc52 !important;;
-    color: var(--background) !important;
+    background-color: #87cc52;;
+    color: var(--background);
 }
 
 .css-1hjavr2-WorkflowTopHeading-cardTopHeading {
-    color: var(--light) !important;
+    color: var(--light);
 }
 
 .css-1njtcvy-column-WorkflowList::before, .css-1njtcvy-column-WorkflowList::after {
-    background: var(--background-light) !important;
+    background: var(--background-light);
 }
 
 .css-16uwhlf-DropdownList-dropdownList-DropdownList {
-    color: var(--light) !important;
-    background-color: #0000003d !important;
-    backdrop-filter: blur(8px) !important;
-    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px !important;
+    color: var(--light);
+    background-color: #0000003d;
+    backdrop-filter: blur(8px);
+    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px;
     outline: 2px solid #ffffff1f;
 }
 
 .css-3x8bm8-StyledDropdownButton-button-default-caret-caretDown {
-    background-color: var(--background-light1) !important;
-    box-shadow: none !important;
+    background-color: var(--background-light1);
+    box-shadow: none;
 }
 
 .css-3x8bm8-StyledDropdownButton-button-default-caret-caretDown:hover, .css-3x8bm8-StyledDropdownButton-button-default-caret-caretDown[aria-expanded="true"] {
-    color: var(--highlight) !important;
+    color: var(--highlight);
 }
 
 .css-mq9k9r-WorkflowCardContainer-card {
-    background-color: var(--background-light) !important;
-    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px !important;
+    background-color: var(--background-light);
+    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px;
 }
 
 .css-1c38qq-CardCollection {
-    color: var(--light) !important;
+    color: var(--light);
 }
 
 .css-ttavbp-CardTitle {
-    color: var(--highlight) !important;
+    color: var(--highlight);
 }
 
 .css-1owkb8p-CardButtonContainer {
-    background-color: var(--background-light) !important;
+    background-color: var(--background-light);
 }
 
 .css-14ow4vo-DeleteButton-button-button {
-    background-color: rgb(71 24 24) !important;
-    color: rgb(255, 0, 59) !important;
-    transition: background-color 0.2s ease-in-out !important;
+    background-color: rgb(71 24 24);
+    color: rgb(255, 0, 59);
+    transition: background-color 0.2s ease-in-out;
 }
 
 .css-14ow4vo-DeleteButton-button-button:hover {
-    background-color: hsl(0 49% 25% / 1) !important;
+    background-color: hsl(0 49% 25% / 1);
 }
 
 .css-xwbujn-PublishButton-button-button-disabled {
-    background-color: var(--highlight-transparent) !important;
-    color: #90d95b !important;
-    transition: background-color 0.2s ease-in-out !important;
+    background-color: var(--highlight-transparent);
+    color: #90d95b;
+    transition: background-color 0.2s ease-in-out;
 }
 
 .css-xwbujn-PublishButton-button-button-disabled:hover {
-	background-color: #90d95b99 !important;
+	background-color: #90d95b99;
 }
 
 .css-xwbujn-PublishButton-button-button-disabled[disabled] {
-    background: var(--background-light1) !important;
-    color: #8b8b8b !important;
+    background: var(--background-light1);
+    color: #8b8b8b;
 }
 
 .css-lhns9r-column-columnHovered-WorkflowList {
-    border-color: #fc0 !important;
+    border-color: #fc0;
 }
 .css-67qw53-column-columnHovered-WorkflowList {
-    border-color: #d6395b !important;
+    border-color: #d6395b;
 }
 
 .css-16ehlzb-column-columnHovered-WorkflowList {
-	border-color: #87cc52 !important
+	border-color: #87cc52
 }
 
 .css-lhns9r-column-columnHovered-WorkflowList::before, .css-lhns9r-column-columnHovered-WorkflowList::after {
-    background-color: var(--highlight-transparent) !important;
+    background-color: var(--highlight-transparent);
 }
 
 .css-fkrj39-ToolbarButton-button-default-buttonMargin-noOverflow-SaveButton-lightBlue-disabled {
-    background-color: #ffcc0030 !important;
-    color: #ffcc00 !important;
+    background-color: #ffcc0030;
+    color: #ffcc00;
 }
 
 .css-16yjsp8-StyledDropdownButton-button-default-caret-caretDown-DropdownButton-noOverflow-StatusButton {
-    background-color: #5ad8e630 !important;
-    color: #5ad8e6 !important;
+    background-color: #5ad8e630;
+    color: #5ad8e6;
 }
 
 .css-o6hjv6-StyledDropdownButton-button-default-caret-caretDown-DropdownButton-noOverflow-PublishButton {
-    background-color: var(--highlight-transparent) !important;
-    color: var(--highlight) !important;
+    background-color: var(--highlight-transparent);
+    color: var(--highlight);
 }
 
 .css-1v85yfi-DropdownList-dropdownList-DropdownList {
-    color: var(--light) !important;
-    background-color: #0000003d !important;
-    backdrop-filter: blur(8px) !important;
-    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px !important;
+    color: var(--light);
+    background-color: #0000003d;
+    backdrop-filter: blur(8px);
+    box-shadow: rgba(5, 5, 5, 0.15) 0px 4px 12px 6px;
     outline: 2px solid #ffffff1f;
 }
 
 .css-emf8sj-button-dropdownItem-StyledMenuItem-StatusDropdownItem:focus, .css-emf8sj-button-dropdownItem-StyledMenuItem-StatusDropdownItem:active, .css-emf8sj-button-dropdownItem-StyledMenuItem-StatusDropdownItem:not(:focus), .css-emf8sj-button-dropdownItem-StyledMenuItem-StatusDropdownItem:not(:active) {
     border-bottom: none;
-    border-left: 4px solid transparent !important;
+    border-left: 4px solid transparent;
 }
 
 .css-1qvjlo1-StyledDropdownButton-button-default-caret-caretDown-DropdownButton-noOverflow-PublishedToolbarButton-publishedButton {
-    background-color: var(--highlight-transparent) !important;
-    color: var(--highlight) !important;
+    background-color: var(--highlight-transparent);
+    color: var(--highlight);
 }
 
 .css-19jx0qf-ToolbarButton-button-default-buttonMargin-noOverflow-DeleteButton-lightRed {
-	background-color: hsl(0 34% 19% / 1) !important;
-	color: rgb(255, 0, 59) !important;
+	background-color: hsl(0 34% 19% / 1);
+	color: rgb(255, 0, 59);
+}
+
+.css-bn4qgs-CollectionTopNewButton-button-default-gray, .css-d6cj8l-StyledDropdownButton-button-default-caret-caretDown-AppHeaderQuickNewButton-button-medium-gray {
+	border-radius: 999px;
+	background-color: var(--highlight-transparent1);
+	outline: 2px solid var(--highlight);
+	color: var(--highlight);
+	transition-duration: 300ms;
+	justify-self: end;
+}
+
+.css-bn4qgs-CollectionTopNewButton-button-default-gray:hover {
+	background-color: var(--highlight-transparent);
+	color: var(--highlight);
+}
+
+.css-npvq26-SidebarHeading {
+	color: var(--highlight);
+	font-weight: 300;
+}
+
+.css-14aa6nw-StyledDropdownButton-button-default-caret-caretDown-Button-button-medium-grayText-ControlButton {
+	color: var(--light1);
+	font-weight: 300;
+}
+
+.css-4rn9ub-ViewControlsButton-button {
+	color: var(--light1);
+	/* display: none; */
+	/* don't exactly feel like messing around with this */
+}
+
+.css-mu0eim-ViewControlsButton-button {
+	color: var(--highlight);
+}
+
+.css-1iwq7gj-GridCard-card {
+	height: 80px;
+	background-color: transparent;
+	flex: 0 0 250px;
+}
+
+.css-ltypdx-GridCardLink {
+	background-color: var(--background-light);
+	border-radius: 16px;
+	outline: 2px solid #ffffff1f;
+	animation-duration: 300ms !important;
+}
+
+.css-ltypdx-GridCardLink:hover {
+	/* background-color: var(--highlight-transparent); */
+	background-color: var(--background-light1);
+}
+
+.css-ltypdx-GridCardLink:hover .css-17fei3e-CardHeading {
+	color: var(--highlight);
+	background-size: 100% 3px;
+}
+
+.css-1tsjwkh-CardBody::after, .css-uzzveo-CardBody::after {
+	display: none;
+}
+
+.css-17fei3e-CardHeading {
+	color: var(--light);
+	font-size: 1.1rem;
+	background-image: linear-gradient(var(--highlight), var(--highlight));
+	background-size: 0% 3px;
+	background-repeat: no-repeat;
+	background-position: 0% 100%;
+	transition: background-size 300ms;
+	width: fit-content
+}
+
+.css-882a4r-CardsGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.css-p5sjac-CollectionControlsContainer {
+	width: 100%;
+}
+
+.css-pyxbz6-CollectionContainer {
+	margin: 0;
+	margin-top: 16px;
+}
+
+.css-d1adgv-StyledWrapper-ToolbarDropdown-buttonMargin .e1jeq5dr1 {
+	color: var(--highlight);
 }
