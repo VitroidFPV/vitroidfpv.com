@@ -4,8 +4,7 @@ group: DJI
 order: 1
 color: orange
 title: RunCam Wasp
-link: https://www.getfpv.com/fpv/cameras/flight-cameras/runcam-wasp-digital-hd-fpv-camera.html
-image: https://cdn.getfpv.com/media/catalog/product/cache/3979b3fd908fbb12b31974edb6316b2e/r/u/runcam-wasp-digital-hd-fpv-camera-_1_.jpg
+link: https://www.getfpv.com/fpv/cameras/flight-cameras/runcam-wasp-digital-hd-fpv-camera.html 
 text: A newer option from RunCam is currently the cheapest option that still
   offers 120Hz video. What you save in budget will lead to slightly worse video
   quality. But nothing too bad
