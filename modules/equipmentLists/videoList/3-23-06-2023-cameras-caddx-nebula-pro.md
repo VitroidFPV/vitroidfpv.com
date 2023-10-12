@@ -5,7 +5,7 @@ order: 3
 color: red
 title: Caddx Nebula Pro
 link: https://www.getfpv.com/fpv/cameras/flight-cameras/caddx-nebula-pro-digital-fpv-camera.html
-image: https://cdn.getfpv.com/media/catalog/product/cache/3979b3fd908fbb12b31974edb6316b2e/c/a/caddx_nebula_pro_hd_digital_fpv_camera_3_.jpg
+img: https://cdn.getfpv.com/media/catalog/product/cache/3979b3fd908fbb12b31974edb6316b2e/c/a/caddx_nebula_pro_hd_digital_fpv_camera_3_.jpg
 text: The Nebula Pro is considered to be one of the best cams for the DJI
   system. Even though it only goes up to 720p, the video output is clean and
   reliable

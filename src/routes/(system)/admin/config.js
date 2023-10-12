@@ -89,7 +89,7 @@ function list(name, label, folder,) {
 		{ label: "Order", name: "order", widget: "number" },
 		{ label: "Title", name: "title", widget: "text" },
 		{ label: "Link", name: "link", widget: "text" },
-		{ label: "Image", name: "image", widget: "image" },
+		{ label: "Image", name: "img", widget: "image" },
 		{ label: "Description", name: "text", widget: "text" },
 		{ label: "Price", name: "price", widget: "text", required: false },
 		{ label: "Info", name: "info", widget: "text", required: false},
