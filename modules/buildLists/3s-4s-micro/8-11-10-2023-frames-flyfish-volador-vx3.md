@@ -6,7 +6,7 @@ visible: true
 order: 8
 title: FlyFish Volador VX3
 link: https://www.racedayquads.com/products/flyfishrc-volador-vx3-o3-3-freestyle-frame-kit-tropical
-img: https://www.racedayquads.com/cdn/shop/files/Volador-VX3-VX3.5-O3-Freestyle-F_650x650.jpg?v=1685812351\
+image: https://www.racedayquads.com/cdn/shop/files/Volador-VX3-VX3.5-O3-Freestyle-F_650x650.jpg?v=1685812351\
 text: FlyFish is also a pretty new manufacturer. Their frames have been pretty
   thick from the beginning, and this one is basically the result of shrinking a
   5" tank down to a micro size. It can fit a whole O3 Air Unit as well, though I
