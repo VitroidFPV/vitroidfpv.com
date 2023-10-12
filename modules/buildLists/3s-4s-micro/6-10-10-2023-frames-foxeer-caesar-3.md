@@ -6,7 +6,7 @@ visible: true
 order: 6
 title: Foxeer Caesar 3"
 link: https://pyrodrone.com/products/copy-of-foxeer-caesar-5-analog-fpv-racing-drone-pnp-bnf-red-tpu-choose-receiver-motor-kv
-image: https://pyrodrone.com/cdn/shop/products/17-26-55-63a02e5f84a0b.images.800x800_1200x1200.jpg?v=1674765172
+img: https://pyrodrone.com/cdn/shop/products/17-26-55-63a02e5f84a0b.images.800x800_1200x1200.jpg?v=1674765172
 text: Foxeer has long been making great video equipment for a while. In the past
   years, they have slowly gotten into more and more of the market. This is a
   great little race frame through and through, good for a backyard practice
