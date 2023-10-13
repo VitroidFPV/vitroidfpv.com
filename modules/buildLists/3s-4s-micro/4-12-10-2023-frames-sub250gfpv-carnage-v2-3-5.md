@@ -1,13 +1,12 @@
 ---
 color: orange
-img: https://pyrodrone.com/cdn/shop/products/17-26-19-63a02e3befc88.images.800x800_1200x1200.jpg?v=1674765062
 category: Frames
 group: 3.5"
 visible: true
 order: 4
 title: Sub250gFPV Carnage V2 3.5"
 link: https://www.cncdrones.com/v2-carnage-35.html
-image: https://www.cncdrones.com/cdn-cgi/image/quality%3D85/assets/images/f246%20-v2%20carnage%203.5%20inch/v2%20carnage%2035.jpg
+img: https://www.cncdrones.com/cdn-cgi/image/quality%3D85/assets/images/f246%20-v2%20carnage%203.5%20inch/v2%20carnage%2035.jpg
 text: Once again a 0.5" jump from its smaller version. The Carnage 3.5" offers
   the same versatility and design language as the smaller one, You can build it
   light with 1404 motors, or bigger ones for carrying O3 air unit as well!

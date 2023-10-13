@@ -1,13 +1,12 @@
 ---
 color: orange
-img: https://pyrodrone.com/cdn/shop/products/17-26-19-63a02e3befc88.images.800x800_1200x1200.jpg?v=1674765062
 category: Frames
 group: 3.5"
 visible: true
 order: 3
 title: FlyFish Volador VX3.5
 link: https://www.racedayquads.com/products/flyfishrc-volador-vx3-5-o3-3-5-micro-frame-kit-tropical?keyword=volador%20vx3
-image: https://www.racedayquads.com/cdn/shop/files/Volador-VX3-VX3.5-O3-Freestyle-F_2276f54b-4802-4900-9559-cd0aebe47911_650x650.jpg?v=1685813068
+img: https://www.racedayquads.com/cdn/shop/files/Volador-VX3-VX3.5-O3-Freestyle-F_2276f54b-4802-4900-9559-cd0aebe47911_650x650.jpg?v=1685813068
 text: I'll be including a bunch of slightly bigger frames from the 3" section
   since manufacturers realized they could easily grab both markets with a couple
   of design changes. The VX3.5 is still a tank much like its larger and smaller
