@@ -1,8 +1,4 @@
 ---
-category: Frames
-group: 3.5"
-color: red
-visible: true
 order: 8
 title: PIRAT Lil' Matey 3.5"
 link: https://pyrodrone.com/products/pirat-lil-matey-3-5-fpv-drone-frame-1
