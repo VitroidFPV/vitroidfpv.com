@@ -32,6 +32,8 @@ export function getModules(path: string) {
 			break;
 	}
 
+	console.log(modules);
+
 	// const modules = import.meta.glob(fullPath, {eager: true});
 	let groupedModules: {[category: string]: {[group: string]: Array<Module>}} = {};
 

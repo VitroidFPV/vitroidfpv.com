@@ -11,6 +11,7 @@
 
 	// console.log(getModules("5inch-race"))
 	let modules = getModules("/builds/3s-4s-micro")
+	// console.log(modules)
 
 	function parsePrice(info) {
 		// parseFloat(info.replace(/[^\d.]/g, ''));

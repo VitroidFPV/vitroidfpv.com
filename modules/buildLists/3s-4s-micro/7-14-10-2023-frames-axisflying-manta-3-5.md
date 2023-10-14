@@ -1,4 +1,5 @@
 ---
+category: Frames
 group: 3.5"
 color: red
 visible: true
