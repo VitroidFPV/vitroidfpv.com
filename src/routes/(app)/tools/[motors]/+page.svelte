@@ -114,8 +114,8 @@
 	let color = "#5ad8e6";
 	let color1 = tinycolor(color).lighten(20).spin(10).toHexString();
 	let color2 = tinycolor(color).darken(20).spin(10).toHexString();
-	let description = "Easily calculate and compare different motos in terms of stator volume and surface area!\n" + 
-	$motors.map(motor => motor.size + "  -  Surface Area: " + motor.surface + "mm²  -  " + "Volume" + motor.volume + "mm³").join("\n");
+	let description = "Easily calculate and compare different motos in terms of stator volume and surface area!\n \n" + 
+	$motors.map(motor => motor.size + " - Surface Area: " + motor.surface + "mm², " + "Volume: " + motor.volume + "mm³").join("\n");
 </script>
 
 <svelte:head>
