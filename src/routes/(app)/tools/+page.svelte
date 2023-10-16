@@ -128,6 +128,7 @@
 	let compareOpen = false;
 	import { backInOut } from 'svelte/easing';
 	import SizeComparison from "$components/toolsPage/SizeComparison.svelte";
+	import Link from "$components/Link.svelte";
 
 	function expand(node:HTMLElement, {
 		delay = 0,
@@ -300,7 +301,8 @@
 							width, and <code>yy</code> being the height. A 2207 motor will have a stator 22mm wide,
 							and 7mm high<br /><br />
 							The calculation to get the stator volume is for a simple cylinder:
-							<code>π × r<sup>2</sup> × h</code>
+							<code>π × r<sup>2</sup> × h</code><br>
+							Advanced calculator available <Link color="cyan" color1="cyan" href="/tools/motors">here</Link>
 						</p>
 						<div class="flex mt-2 w-full justify-between">
 							<button 
