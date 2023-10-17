@@ -262,11 +262,11 @@
 					Add New
 					</button> -->
 				</div>
-			<div class="md:gap-8 gap-3 flex">
-				<div class:invisible={isNaN(newSurface)}><span class="text-neutral-400 text-base mr-1">Surface: </span>{newSurface}mm²</div>
-				<div class:invisible={isNaN(newVolume)}><span class="text-neutral-400 text-base mr-1">Volume: </span>{newVolume}mm³</div>
+			<div class="md:gap-8 gap-6 flex">
+				<div class="flex flex-col md:flex-row md:w-fit w-min" class:invisible={isNaN(newSurface) || newSurface == undefined}><span class="text-neutral-400 text-base mr-1 w-fit">Surface: </span>{#if newSurface}{newSurface}{/if}mm²</div>
+				<div class="flex flex-col md:flex-row md:w-fit w-min" class:invisible={isNaN(newVolume) || newVolume == undefined}><span class="text-neutral-400 text-base mr-1 w-fit">Volume: </span>{#if newVolume}{newVolume}{/if}mm³</div>
 				<button
-					class="text-cyan"
+					class="text-cyan w-fit"
 					on:click={addMotor}
 				>
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-6 h-6 stroke-neutral-500/50 hover:stroke-cyan duration-300 rotate-45">

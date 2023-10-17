@@ -17,9 +17,9 @@
 
 <h1 class="text-cyan text-2xl">{size}</h1>
 
-<div class="flex md:gap-8 gap-3">
-	<div><span class="text-neutral-400 text-base mr-1">Surface: </span>{surface}mm²</div>
-	<div><span class="text-neutral-400 text-base mr-1">Volume: </span>{volume}mm³</div>
+<div class="flex md:gap-8 gap-6">
+	<div class="flex flex-col md:flex-row"><span class="text-neutral-400 text-base mr-1">Surface: </span>{surface}mm²</div>
+	<div class="flex flex-col md:flex-row"><span class="text-neutral-400 text-base mr-1">Volume: </span>{volume}mm³</div>
 	<button
 		class="text-cyan"
 		on:click={() => {
