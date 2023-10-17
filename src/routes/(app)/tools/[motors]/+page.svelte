@@ -262,7 +262,7 @@
 					Add New
 					</button> -->
 				</div>
-			<div class="gap-8 flex">
+			<div class="md:gap-8 gap-3 flex">
 				<div class:invisible={isNaN(newSurface)}><span class="text-neutral-400 text-base mr-1">Surface: </span>{newSurface}mm²</div>
 				<div class:invisible={isNaN(newVolume)}><span class="text-neutral-400 text-base mr-1">Volume: </span>{newVolume}mm³</div>
 				<button
