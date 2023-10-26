@@ -318,6 +318,10 @@
 		@apply text-cyan bg-cyan/10
 	}
 
+	.base.svelte-ug60r4 {
+		@apply !bg-red
+	}
+
 	/* markdown styles */
 	code {@apply dark:bg-neutral-800 bg-neutral-200 px-1 py-0.5 rounded-md}
 	.md h1 {@apply text-4xl my-3 tracking-wide mt-12}

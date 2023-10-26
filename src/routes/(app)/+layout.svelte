@@ -8,6 +8,7 @@
 	// @ts-ignore
 	import Transition from "$components/Transition.svelte";
 	import { onMount } from "svelte";
+	import toast, { Toaster } from 'svelte-french-toast';
 	
 	let ready = false;
 	onMount(() => {
@@ -15,6 +16,7 @@
 	});
 </script>
 
+<Toaster />
 <Analytics />
 <!-- {#if ready} -->
 <div

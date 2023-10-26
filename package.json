@@ -78,6 +78,7 @@
     "satori": "^0.0.44",
     "satori-html": "^0.3.0",
     "svelte-collapsible": "^0.2.1",
+    "svelte-french-toast": "^1.2.0",
     "svelte-intersection-observer": "^0.10.0",
     "svelte-markdown": "^0.3.0",
     "svelte-range-slider-pips": "^2.0.3",
