@@ -5,21 +5,19 @@
 
 	export let classes: string = "";
 
-	if (classes == "") {
-		switch (cols) {
-			case 2:
-				classes = "grid-cols-2";
-				break;
-			case 3:
-				classes = "grid-cols-2 md:grid-cols-3";
-				break;
-			case 4:
-				classes = "grid-cols-2 md:grid-cols-4";
-				break;
-			default:
-				classes = "grid-cols-2 md:grid-cols-2";
-				break;
-		}
+	switch (cols) {
+		case 2:
+			classes += " grid-cols-2";
+			break;
+		case 3:
+			classes += " grid-cols-2 md:grid-cols-3";
+			break;
+		case 4:
+			classes += " grid-cols-2 md:grid-cols-4";
+			break;
+		default:
+			classes += " grid-cols-2 md:grid-cols-2";
+			break;
 	}
 </script>
 
