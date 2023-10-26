@@ -1,0 +1,209 @@
+---
+title: My current setup
+description: There's lore in here
+visible: true
+category: Misc
+author: VitroidFPV
+img: /uploads/articles/current_setup/roma.jpg
+date: 2023-10-24T08:29:36.365Z
+---
+
+<script>
+	import GridBox from "$components/articlesPage/GridBox.svelte";
+	import GridItem from "$components/articlesPage/GridItem.svelte";
+	import ImgGrid from "$components/articlesPage/ImgGrid.svelte";
+	import Tablist from "$components/articlesPage/Tablist.svelte";
+	import Tab from "$components/articlesPage/Tab.svelte";
+	import Admonition from "$components/articlesPage/Admonition.svelte";
+	import Chip from "$components/Chip.svelte";
+	import Link from "$components/Link.svelte";
+</script>
+
+# Quads
+
+As I test and review a lot of new stuff (mainly electronics), I accumulated a lot of builds to be able to test boards of various specs, and so I can always have at least one working quad. And there are at least two or three builds planned for the future as I write this. I'll do my best to keep this page up to date, I think it's a cool idea to keep a record like this
+
+## Roma F5 - Main Freestyle Rig
+
+<GridBox cols=2>
+
+![Roma F5](/uploads/20210724_125156-02.jpeg)
+
+![Roma F5](/uploads/articles/current_setup/roma_2.jpg)
+
+<GridItem>
+	<div class="flex flex-wrap gap-2">
+	<Chip tooltip="Frame">Diatone Roma F5 V1</Chip>
+	<Chip tooltip="Motors">T-Motor Veloce V2 2207.5 1950kv</Chip>
+	<Chip tooltip="ESC">Hobbywing XRotor Micro 40A</Chip>
+	<Chip>No permanent FC</Chip>
+	<Chip tooltip="VTX">HGLRC Zeus 800mW</Chip>
+	<Chip tooltip="RX">Happymodel EP1</Chip>
+	<Chip tooltip="Camera">Foxeer Razer Micro</Chip>
+	<Chip tooltip="Props">HQProp J37</Chip>
+	<Chip tooltip="Batteries">Dogcom 6s 1300mAh</Chip>
+	</div>
+</GridItem>
+
+</GridBox>
+
+I may or may not really have a thing for frames with camera cages. They tend to look better than your typical boxy freestyle frame. The Roma F5 frame caught my eye right when it first came out, and I didn't hesitate long to order one. In hindsight, I should have waited for the V2 of the frame, as the V1 had some durability issues, and odd hardware choices for the HD camera mount. But I am still pretty hapy with the frame, and I don't regret buying it.
+
+Soon after, the hunt for the rest of the parts began. Until that point, I've only flown 4s quads, and I knew that I wanted to go 6s for a new build. When I saw FPV G's [review](https://www.youtube.com/watch?v=iN8da9fghIY) of the Veloce motors (he's a great pilot too, please check him out), I knew that those would look and work great. As of me writing this, they have survived a lot, and I still have my original spare one in its box.
+
+With the beatiful blue motors basically leading the color scheme from then, I ordered some blue anodized hardware, and blue wire sleeving from Aliexpress, and then it was time to figure out the rest.
+
+It was the first build for me to ever fly with an AT32 FC! Kind of a cool bit of development "history" (I say that as if it's been ages lol). But now it's the main test bed for all 20x20 FCs that I get in, there's not a specific one that I can really list. The Hobbywing 40A ESC has been there from the start though, that has been going really strong, even while high power 20x20 hardware was still just on the rise back then.
+
+The VTX was more or less out of necessity, as there weren't many good VTXs available locally, let alone 20x20 ones. It works okay, definitely good for the price, but I would maybe like to upgrade it in the future. Pretty much the same went for the camera. The Razer cams come in pretty much any size you'd need, and for the low price they work very well.
+
+Just around the time I started building it, ELRS was starting to become more mainstream. First commercially-available hardware products were being made and sold, right before the release of ELRS 1.0. Just prior to that, I had assembled a DIY 2.4GHz TX for my radio (that will be further down), so I went for what is pretty much the first ELRS RX to be sold. I'd like to think I was one of the first people to run ELRS in my country, but I can't really be sure. That said thouigh, from Release Candidate 1.0, to now ELRS 3.2, it has worked flawlessly.
+
+## Flipmode 2023 - Basher Build
+
+<GridBox cols=2>
+
+![Flipmode 2023](/uploads/articles/current_setup/flipmode.jpg)
+
+![Flipmode 2023](/uploads/articles/current_setup/flipmode_2.jpg)
+
+<GridItem>
+	<div class="flex flex-wrap gap-2">
+	<Chip tooltip="Frame">SupaFly Flipmode 2023</Chip>
+	<Chip tooltip="Motors">FlyFish Flash 2207 1950kv</Chip>
+	<Chip tooltip="ESC">iFlight Succex-E 45A</Chip>
+	<Chip>No permanent FC</Chip>
+	<Chip tooltip="VTX">HGLRC Zeus 800mW</Chip>
+	<Chip tooltip="RX">BetaFPV SuperD</Chip>
+	<Chip tooltip="Camera">Foxeer Razer Mini</Chip>
+	<Chip tooltip="Props">HQProp Ethix P3.5</Chip>
+	<Chip tooltip="Batteries">Dogcom 6s 1300mAh</Chip>
+	</div>
+</GridItem>
+
+</GridBox>
+
+This thing is practically the equivalent of The Ship of Theseus. That's the only way I can put it. It's been through a lot of years and changes.
+
+It started out as my first 5" build back in 2019, with a complete separate set of electronics:
+
+<GridBox cols=2>
+	<GridItem>
+		<div class="flex flex-wrap gap-2">
+		<Chip tooltip="Frame">Armattan Badger</Chip>
+		<Chip tooltip="Motors">Racerstar 2205 2300kv</Chip>
+		<Chip tooltip="ESC">Diatone Mamba 40A</Chip>
+		<Chip tooltip="FC">Diatone Mamba F405 MK1</Chip>
+		<Chip tooltip="VTX">Eachine TX805</Chip>
+		<Chip tooltip="RX">FrSky XM+</Chip>
+		<Chip tooltip="Camera">Foxeer Razer Mini</Chip>
+		<Chip tooltip="Props">GEPRC 5045</Chip>
+		<Chip tooltip="Batteries">ZOP 4s 1500mAh</Chip>
+		</div>
+	</GridItem>
+</GridBox>
+
+<GridBox cols={3} classes="mt-4">
+
+![Badger](/uploads/articles/current_setup/badger.jpg)
+
+![Badger](/uploads/articles/current_setup/badger_2.jpg)
+
+</GridBox>
+
+Apart from 2019 me seemingly being unable to take a landscape photo, this was certainly something else... not really in a good way.
+
+I spent almost all of my budget buying and importing the frame, 14-year old me was lured by the lifetime warranty, only to realize later that there were no places locally where I could actually follow through with that anyway. So the rest of the parts sufered. The motors were incredibly bad, even back then. The ZOP batteries are an outright fire hazard, and the stack was just... okay. FrSky was the best option back then, and it stuck around for a bit too long.
+
+Eventually I got tired of the racerstar motors breaking, so I bought a set of iFlight Xing 2208 2450kv ones, and they held up significantly better. Somewhere along the line I thought the ESC died so I got a new one, but it was just the racewire LEDs, and from there I still have the Succex-E 45A ESC. Then HGLRC had a review promo thing going on, so I got the Zeus and Zeus Mini FCs with LEDs and GPS (I think) for a review... looking back at it it really was not a good review, but I'd like to think it at least helped me get to where I am now. 
+
+The summer of 2023 after I had the Roma build for a while, I wanted to get a second build intended for proper testing of larger 30x30 boards. The existing Badger build was sitting and collecting dust, so I thought to give it a refresh. I got a colleague discount on the Flipmode frame, and Steve was kind enough to discount a set of used but still good motors as well. It got the stack and camera from the Badger, and BetaFPV sent me the SuperD RX along with some other RXs to get everything in my fleet fully on ELRS. The plan behind all of the colors was to:
+
+1. Remove the necessity to color match props. So many colors on this thing that nothing looks out of place
+2. Test out a bunch of accent colors with the different accessories for future builds (like the one to follow)
+
+It's honestly kinda mad how this build has (or has not) stayed with me for so long. Looking back at the first photos and videos almost made me tear up a bit. The videos look trash though, can't believe I thought that was good back then lol. Still on the verge of keeping the Badger frame for sentimental value, but I think I'll sell it eventually.
+
+## Source One V5 Tutorial Build
+
+<GridBox cols=2>
+
+![Source One V5](/uploads/articles/current_setup/s1v5.png)
+
+![Source One V5](/uploads/articles/current_setup/s1v5_2.jpeg)
+
+<GridItem>
+	<div class="flex flex-wrap gap-2">
+	<Chip tooltip="Frame">Source One V5</Chip>
+	<Chip tooltip="Motors">T-Motor Velox V3 2207 1950kv</Chip>
+	<Chip tooltip="ESC">Diatone Mamba F50</Chip>
+	<Chip tooltip="FC">Diatone Mamba F405 MK2 V2</Chip>
+	<Chip tooltip="VTX">Rush Tank Mini</Chip>
+	<Chip tooltip="RX">Radiomaster RP1</Chip>
+	<Chip tooltip="Camera">Caddx Ratel 2</Chip>
+	<Chip tooltip="Props">HQProp J37</Chip>
+	<Chip tooltip="Batteries">Dogcom 6s 1300mAh</Chip>
+	</div>
+</GridItem>
+
+</GridBox>
+
+This build was built entirely with parts from the [5" Beginner](/builds/5inch-beginner) build list. I picked out stuff I would probably not buy for myself otherwise (I tend to cheap out on stuff like VTXs and cams), and the whole build and setup process was recorded for a tutorial article and video (coming soon). 
+
+It has been a long while since I built a quad from 0, and it definitely took way longer to put together because I wanted to record everything nicely. I love how the green turned out, and I'm really happy with the build overall. When I'm done with the tutorial, I'll probably sell it to see if I can do more projects like this in the future - build something cool and hopefully sell it for a profit and get someone a really nice quad.
+
+## HGLRC Petrel 132 - 6s Meme
+
+<GridBox cols=2>
+
+![HGLRC Petrel 132](/uploads/20230309_115908.jpg)
+
+</GridBox>
+
+I got this silly thing after trying the HGLRC electronics, around September 2020. It seemed funny at first, and I thought I'd sell it on. But it has grown on me a lot. It's a ton of fun to fly, gets really good flight times, and it's pretty durable too. Yes, 6s is very much not worth it for a normal 3" quad, I'd go with the updated Petrel 120X, with 4s.
+
+And honestly it's been really reliable, even considering some of the HGLRC history. Yeah the 16x16 stack is a bit annoying, but I can't really complain. Through the years I've still not managed to maim it in any meaningful way. I just replaced a motor after hitting some concrete in the first year, my recent attempts to fly 3d with it have resulted in more casualties - it took a cam and VTX out, but everything else stayed, despite me driving it into the ground at full speed.
+
+# Equipment
+
+## Radiomaster Boxer Max
+
+![Boxer Max](/uploads/articles/current_setup/boxer.jpeg)
+
+I was running a FrSky QX7 for ages, ever since I got into the hobby in 2018. I didn't think I'd be upgrading it anytime soon, I thought it was good enough... I even put in an ELRS module and did the inverter mod to give me full performance. 
+
+I'm still incredibly thankful to Radiomaster for sending us the Boxer Max, they really outdid themselves, and I've been lucky to use it a month before it was even public. It's really a great radio, probably the last one I'll consider in a loooooooong time. 
+
+The metal CNC AG01 gimbals feel insanely smooth, almost like I'm not moving anything with my fingers, in the best way possible. The radio itself is very comfortable to hold, and the switches are pretty good too. The leather grips feel a little firm but I'm sure they'll break in over time like any other leather product. With just two 3500mAh 18650s, it holds a charge for a very long time, I could count on one hand the number of times I've had to charge it since I got it. 1W of ELRS is also great, I'd say the whole radio made me much more confident in flying in general.
+
+## SkyZone Sky02C
+
+<!-- TODO add goggle pic -->
+
+Had these since 2020... they were pretty good back then, and they're still good enough for me now. But the specs do match the age, there are many newer goggles I'd consider nowadays, maybe even refurb digital ones. But I'm not really in a hurry to upgrade, I'm still happy with them, they perform well for my needs. Then again, that was the case with the QX7, a crappy soldering iron, and many other things, so who knows... 
+
+## GoPro Hero 7 Black
+
+<!-- TODO add gopro pic... do I even need one? -->
+
+I mean it's a regular GoPro, not much to say. I got it used a while back as my first proper action camera, it survived well so far. I'm a bit annoyed that it doesn't play well with GyroFlow, but the inbuilt stabilization is usually good enough. With a set of ND filter lenses, it outputs decent footage, and I'm in no rush to get a better one.
+
+# Planned Builds
+
+Probably not all that necessary to write down my ideas for the future, but a record is a record, and it may make it easier to just move these to the main list when I get to them.
+
+## Manta 5" - 2nd Test Rig
+
+As much as I wanted to just use the Flipmode for testing 30x30 hardware, I ended up really liking it, way too much to keep it on my desk most of the time in a disassembled state. With AxisFlying's recent sponsorship of the whole team, I ordered a Manta frame along with the Diavola motors and the Argus Eco stack to build an actual fully dedicated test rig. 
+
+## Unknown 7"
+
+I got some 2807 1350kv motors from the Axis sponsorship, but they'll probably sit around for a while until I can find a suitable set of parts. I'm thinking of using Skystars hardware, specifically the new AM32 ESCs. They seem very powerful, and it may be interesting to see how AM32 deals with a larger 7" quad.
+
+## Roma L3 - AIO Test Rig
+
+I need a more reasonable 3" build, that's all lol. 16x16 hardware is barely ever developed anymore, and I have a couple of AIO boards that I want/need to still test. Again, the Axis deal came in clutch, I got some 1404.5 4500kv motors for a 4s build on the Roma L3 frame that I have planned for it.
+
+## Wing
+
+No idea, I just want one, they seem cool lol
