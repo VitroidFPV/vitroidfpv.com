@@ -6,7 +6,7 @@ visible: true
 order: 9
 title: Lumenier Micro Axii
 link: https://www.racedayquads.com/pages/rapid-search-results?q=axii+micro
-img: https://www.truerc.ca/wp-content/uploads/434DDF87-3722-4132-AC78-C10E078AEAC0-e1654053363464.jpeg
+img: https://pyrodrone.com/cdn/shop/products/lhcp-sma_1200x1200.jpg
 text: As said before, these antennas are still designed in collaboration with
   TrueRC. This makes for great-performing antennas that are a great option if
   TrueRC is not to your liking
