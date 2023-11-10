@@ -12,7 +12,7 @@ price: $49.99
 point1: "Resolution: 720/1080p 60/120FPS"
 point2: "FOV: 155°"
 point3: 'Sensor Size: 1/3"'
-img: https://inew.foxeer.com//upload/s/goods/201910/1570775687857405709.images.400x400.jpg
+img: https://pyrodrone.com/cdn/shop/products/1414_zoom_1664441564_740x.jpg
 point4: "Size: Micro"
 point5: "Weight: 7.5g"
 visible: true
