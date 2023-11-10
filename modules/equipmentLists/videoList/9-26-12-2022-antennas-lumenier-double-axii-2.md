@@ -6,7 +6,7 @@ visible: true
 order: 10
 title: Lumenier Double Axii 2
 link: https://pyrodrone.com/pages/search-results-page?q=double+axii+2
-img: https://www.truerc.ca/wp-content/uploads/434DDF87-3722-4132-AC78-C10E078AEAC0-e1654053363464.jpeg
+img: https://pyrodrone.com/cdn/shop/products/3_b322cdbe-5603-47ff-8990-35226d2f258c_740x.jpg
 text: Double the active elements (with also more than double the sensitivity)
   for much better reception, on an even longer stem makes it a great LR antenna
   for your goggles. Look-induced comedic effect included
