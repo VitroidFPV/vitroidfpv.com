@@ -113,7 +113,7 @@ export let config = {
 		{
 			name: "FAQ",
 			label: "FAQ",
-			folder: "modules/faqs/",
+			folder: "modules/faq/",
 			create: true,
 			slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}",
 			fields: [
@@ -136,17 +136,17 @@ export let config = {
 				{ label: "Answer", name: "answer", widget: "markdown" }
 			]
 		},
-		new list("5inch-beginner", "5\" Beginner Build", "modules/buildLists/5inch-beginner/"),
-		new list("5inch-race", "5\" Race Build", "modules/buildLists/5inch-race/"),
-		new list("5inch-advanced", "5\" Advanced Build", "modules/buildLists/5inch-advanced/"),
-		new list("3inch-cinewhoop", "3\" Cinewhoop Build", "modules/buildLists/3inch-cinewhoop/"),
-		new list("1s-2s-micro", "1s-2s Micro Build", "modules/buildLists/1s-2s-micro/"),
-		new list("3s-4s-micro", "3s-4s Micro Build", "modules/buildLists/3s-4s-micro/"),
+		new list("5inch-beginner", "5\" Beginner Build", "modules/builds/5inch-beginner/"),
+		new list("5inch-race", "5\" Race Build", "modules/builds/5inch-race/"),
+		new list("5inch-advanced", "5\" Advanced Build", "modules/builds/5inch-advanced/"),
+		new list("3inch-cinewhoop", "3\" Cinewhoop Build", "modules/builds/3inch-cinewhoop/"),
+		new list("1s-2s-micro", "1s-2s Micro Build", "modules/builds/1s-2s-micro/"),
+		new list("3s-4s-micro", "3s-4s Micro Build", "modules/builds/3s-4s-micro/"),
 
 		{
 			name: "radioList",
 			label: "Equipment - Radio",
-			folder: "modules/equipmentLists/radioList/",
+			folder: "modules/equipent/radioList/",
 			create: true,
 			slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}",
 			sortable_fields: ["order", "title", "category", "color"],
@@ -223,7 +223,7 @@ export let config = {
 		{
 			name: "videoList",
 			label: "Equipment - Video",
-			folder: "modules/equipmentLists/videoList/",
+			folder: "modules/equipent/videoList/",
 			create: true,
 			slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}",
 			sortable_fields: ["order", "title", "category", "color"],

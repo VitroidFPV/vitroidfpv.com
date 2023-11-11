@@ -6,33 +6,33 @@ export function getModules(path: string) {
 	let modules
 	switch(path) {
 		case "/builds/5inch-beginner":
-			modules = import.meta.glob("/modules/buildLists/5inch-beginner/*.md", {eager: true});
+			modules = import.meta.glob("/modules/builds/5inch-beginner/*.md", {eager: true});
 			break;
 		case "/builds/5inch-race":
-			modules = import.meta.glob("/modules/buildLists/5inch-race/*.md", {eager: true});
+			modules = import.meta.glob("/modules/builds/5inch-race/*.md", {eager: true});
 			break;
 		case "/builds/5inch-advanced":
-			modules = import.meta.glob("/modules/buildLists/5inch-advanced/*.md", {eager: true});
+			modules = import.meta.glob("/modules/builds/5inch-advanced/*.md", {eager: true});
 			break;
 		case "/builds/3inch-cinewhoop":
-			modules = import.meta.glob("/modules/buildLists/3inch-cinewhoop/*.md", {eager: true});
+			modules = import.meta.glob("/modules/builds/3inch-cinewhoop/*.md", {eager: true});
 			break;
 		case "/builds/1s-2s-micro":
-			modules = import.meta.glob("/modules/buildLists/1s-2s-micro/*.md", {eager: true});
+			modules = import.meta.glob("/modules/builds/1s-2s-micro/*.md", {eager: true});
 			break;
 		case "/builds/3s-4s-micro":
-			modules = import.meta.glob("/modules/buildLists/3s-4s-micro/*.md", {eager: true});
+			modules = import.meta.glob("/modules/builds/3s-4s-micro/*.md", {eager: true});
 			break;
 
 		case "/equipment/radio":
-			modules = import.meta.glob("/modules/equipmentLists/radioList/*.md", {eager: true});
+			modules = import.meta.glob("/modules/equipent/radioList/*.md", {eager: true});
 			break;
 		case "/equipment/video":
-			modules = import.meta.glob("/modules/equipmentLists/videoList/*.md", {eager: true});
+			modules = import.meta.glob("/modules/equipent/videoList/*.md", {eager: true});
 			break;
 	}
 
-	console.log(modules);
+	// console.log(modules);
 
 	// const modules = import.meta.glob(fullPath, {eager: true});
 	let groupedModules: {[category: string]: {[group: string]: Array<Module>}} = {};
@@ -62,8 +62,8 @@ export function getModules(path: string) {
 		}
 	}
 
-	let videoModules = import.meta.glob("/modules/equipmentLists/videoList/*.md", {eager: true});
-	let radioModules = import.meta.glob("/modules/equipmentLists/radioList/*.md", {eager: true});
+	let videoModules = import.meta.glob("/modules/equipent/videoList/*.md", {eager: true});
+	let radioModules = import.meta.glob("/modules/equipent/radioList/*.md", {eager: true});
 	let linkedTitles: Array<string> = [];
 	for (const cat in groupedModules) {
 		for (const group in groupedModules[cat]) {

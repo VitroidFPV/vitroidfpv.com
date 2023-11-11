@@ -25,7 +25,7 @@
 	//  import removeMarkdown
 	import removeMd from "remove-markdown";
 
-	const modules = import.meta.glob("/modules/faqs/*.md", {eager: true});
+	const modules = import.meta.glob("/modules/faq/*.md", {eager: true});
 	// console.log(modules)
 	let grouped_modules: {[category: string]: Array<Module>} = {};
 

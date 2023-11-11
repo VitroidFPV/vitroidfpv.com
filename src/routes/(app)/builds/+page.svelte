@@ -6,7 +6,7 @@
 
 	import type { Module } from "$lib/types/module";
 
-	const modules = import.meta.glob("/modules/buildLists/*.md", {eager: true});
+	const modules = import.meta.glob("/modules/builds/*.md", {eager: true});
 	// console.log(modules)
 	let grouped_modules: {[category: string]: Array<Module>} = {};
 

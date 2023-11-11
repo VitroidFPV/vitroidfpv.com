@@ -7,7 +7,7 @@ collections:
 
   # - name: FAQ
   #   label: FAQ
-  #   folder: modules/faqs/
+  #   folder: modules/faq/
   #   create: true
   #   slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
   #   fields:
@@ -28,7 +28,7 @@ collections:
 
   - name: 5inch-beginner
     label: 5" Beginner Build
-    folder: modules/buildLists/5inch-beginner/
+    folder: modules/builds/5inch-beginner/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
     sortable_fields: [order, title, category, color]
@@ -88,7 +88,7 @@ collections:
   - name: 5inch-race
     label: 5" Race Build
     identifier_field: title
-    folder: modules/buildLists/5inch-race/
+    folder: modules/builds/5inch-race/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
     sortable_fields: [order, title, category, color]
@@ -155,7 +155,7 @@ collections:
   - name: 5inch-advanced
     label: 5" Advanced Build
     identifier_field: title
-    folder: modules/buildLists/5inch-advanced/
+    folder: modules/builds/5inch-advanced/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
     sortable_fields: [order, title, category, color]
@@ -221,7 +221,7 @@ collections:
 
   - name: 3inch-cinewhoop
     label: 3" Cinewhoop Build
-    folder: modules/buildLists/3inch-cinewhoop/
+    folder: modules/builds/3inch-cinewhoop/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{Categcategoryory}}-{{title}}"
     sortable_fields: [order, title, category, color]
@@ -281,7 +281,7 @@ collections:
 
   - name: 1s-2s-micro
     label: 1s - 2s Micro Build
-    folder: modules/buildLists/1s-2s-micro/
+    folder: modules/builds/1s-2s-micro/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
     sortable_fields: [order, title, category, color]
@@ -336,7 +336,7 @@ collections:
 
   - name: radioList
     label: Equipment - Radio
-    folder: modules/equipmentLists/radioList/
+    folder: modules/equipent/radioList/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
     sortable_fields: [order, title, category, color]
@@ -392,7 +392,7 @@ collections:
 
   - name: videoList
     label: Equipment - Video
-    folder: modules/equipmentLists/videoList/
+    folder: modules/equipent/videoList/
     create: true
     slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}"
     sortable_fields: [order, title, category, color]

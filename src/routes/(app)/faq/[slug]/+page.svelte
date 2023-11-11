@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import removeMarkdown from 'remove-markdown';
-	const modules = import.meta.glob("/modules/faqs/*.md", {eager: true});
+	const modules = import.meta.glob("/modules/faq/*.md", {eager: true});
 	// console.log(JSON.stringify(modules, null, 2));
 
 	let slug = $page.params.slug
