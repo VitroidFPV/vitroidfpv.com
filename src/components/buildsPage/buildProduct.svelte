@@ -83,9 +83,28 @@
 		});
 		price = infoObjects[0].text;
 	}
+
+	let colorHex = "";
+
+	switch (color) {
+		case "red":
+			colorHex = "#d6395b";
+			break;
+		case "orange":
+			colorHex = "#ff9742";
+			break;
+		case "green":
+			colorHex = "#87cc52";
+			break;
+		case "violet":
+			colorHex = "#9550ba";
+			break;
+	}
 </script>
 
 <svelte:window on:keydown={keydown} on:keyup={keyup}/>
+
+
 
 {#if open}
 	<div in:fade={{duration: 300, delay: 0}} out:fade={{delay: 200}} class="fixed w-screen h-screen top-0 left-0 z-[60] backdrop-blur-sm md:flex hidden items-center justify-center bg-black bg-opacity-80">
@@ -121,8 +140,10 @@
 	</div>
 {/if}
 
+
+
 <IntersectionObserver {element} bind:intersecting>
-	<div class="product-box h-full flex flex-col not-intersecting" bind:this={element} class:intersecting={intersecting}>
+	<div class="product-box h-full flex flex-col not-intersecting z-10 relative" bind:this={element} class:intersecting={intersecting}>
 		<div class="{color} {category} relative h-fit w-full border-l-4 product pl-2 my-4 md:mr-8">
 			<div class="flex w-full justify-between link t-{color}">
 				<div>
@@ -165,6 +186,30 @@
 				<div>{@html text}</div>
 			{/if}
 		</div>
+		
+		{#each {length: 3} as _, i}
+			<div 
+				class="absolute dark:opacity-40 opacity-80 pointer-events-none z-10 !scale-75 blur-3xl saturate-150"
+				style={`top: ${(Math.random() * 50) - 70}%; left: ${(Math.random() * 100) - 50}%; transform: translate(-50%, -50%)`}
+			>
+				<svg width="443" height="470" viewBox="0 0 443 470" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<g filter="url(#filter0_f_102_3)">
+						<path d="M271 251.5C264.347 241.743 244.318 250.476 223.476 245.594C218.051 244.323 212.782
+						240.738 213.593 235.226C215.333 223.411 228.498 203.379 235.264 196.198C246.321 184.461 215.764
+						90.5 191.264 98C166.764 105.5 148.5 235 133.5 243C118.5 251 144.238 291.646 154.5 305.5C164.5 319
+						321.152 373.768 344.5 314.5C351 298 278.5 262.5 271 251.5Z" fill={colorHex} fill-opacity="0.25"/>
+					</g>
+					<defs>
+						<filter id="filter0_f_102_3" x="0.915527" y="-30.4256" width="471.996" height="499.937" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+							<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+							<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+							<feGaussianBlur stdDeviation="64" result="effect1_foregroundBlur_102_3"/>
+						</filter>
+					</defs>
+				</svg>
+			</div>
+		{/each}
+
 	</div>
 </IntersectionObserver>
 

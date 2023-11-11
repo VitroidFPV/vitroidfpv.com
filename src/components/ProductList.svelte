@@ -15,7 +15,7 @@
 </script>
 
 {#each Object.entries(modules) as [cat, contents], i}
-	<div class="flex flex-col">
+	<div class="flex flex-col overflow-x-clip">
 		{#if i % 2 !== 0}
 			<div>
 				<svg 
@@ -56,7 +56,7 @@
 			</div>
 		{/if}
 		<div class={i % 2 !== 0 ? "px-4 md:px-8 dark:bg-main-300 bg-contrast-100 flex flex-col" : "px-4 md:px-8 flex flex-col"}>
-			<div class="text-4xl tracking-tight w-fit px-1 cat {cat} mb-2" id={cat}>{cat}</div>
+			<div class="text-4xl tracking-tight w-fit px-1 cat {cat} mb-2 z-20" id={cat}>{cat}</div>
 			{#each Object.entries(contents) as [group, info]}
 				{#if group != "Info"}
 					<div class="group {group} my-4 w-full h-fit">
