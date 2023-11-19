@@ -9,6 +9,8 @@
 	import { undo } from "$lib/stores/motorsStore";
 	import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from "@rgossiaux/svelte-headlessui";
 	import { slide, fade } from "svelte/transition";
+	import toast from 'svelte-french-toast';
+	import Button from "$components/Button.svelte";
 
 	function keydown(event: KeyboardEvent) {
 		if (event.key === "z" && event.ctrlKey) {
@@ -46,15 +48,6 @@
 	}
 
 	let loadMotors:{size: string, volume: number, surface: number}[] = [];
-
-	slug.split('-').forEach((motor) => {
-		if (slug) {
-			let size = motor;
-			let volume = calculateVolume(motor);
-			let surface = calculateSurface(motor);
-			loadMotors.push({ size, volume, surface });
-		}
-	});
 
 	// this is weird but it prevents it from duplicating on HMR
 	$motors = loadMotors;
@@ -104,8 +97,68 @@
 		}
 	}
 
+	
+	let motorsQuery = $page.url.searchParams.get("motors");
+	let sortQuery = $page.url.searchParams.get("sort");
+
+	if (motorsQuery) {
+		motorsQuery.split("-").forEach((motor) => {
+			if (motor) {
+				let size = motor;
+				let volume = calculateVolume(motor);
+				let surface = calculateSurface(motor);
+				loadMotors.push({ size, volume, surface });
+			}
+		});
+	}
+	if (sortQuery) {
+		selectedSort = sortOptions.find((option) => option.name === sortQuery);
+	}
+
 	$: if (selectedSort) {
 		sortMotors();
+	}
+
+	function copyURL() {
+		// add size array as "?motors=2207-2208-2209&sort=volume-desc"
+		// if no sort, don't add it
+		// if no motors, don't add it and toast error
+
+		if ($motors.length == 0) {
+			toast.error("No motors to copy!", {
+				style: "border-radius: 999px; backdrop-filter: blur(8px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); outline: 2px solid #ffffff1f; background-color: rgb(163 163 163 / 0.1); color: #ff4d4d;",
+				iconTheme: {
+					primary: "#ff4d4d",
+					secondary: "#000000",
+				}
+			})
+			return;
+		}
+
+		let url = window.location.href.split("?")[0];
+		let motorString = $motors.map(motor => motor.size).join("-");
+		let sortString = selectedSort ? "&sort=" + selectedSort.name : "";
+		let finalURL = url + "?motors=" + motorString + sortString;
+		navigator.clipboard.writeText(finalURL)
+		.then(() => {
+			toast.success("Copied!", {
+				style: "border-radius: 999px; backdrop-filter: blur(8px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); outline: 2px solid #ffffff1f; background-color: rgb(163 163 163 / 0.1); color: #87cc52;",
+				iconTheme: {
+					primary: "#87cc52",
+					secondary: "#000000",
+				}
+			});
+		})
+		.catch((e: any) => {
+			console.error("Error: ", e.message);
+			toast.error("Could Not Copy Image: " + e.message, {
+				style: "border-radius: 999px; backdrop-filter: blur(8px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); outline: 2px solid #ffffff1f; background-color: rgb(163 163 163 / 0.1); color: #ff4d4d;",
+				iconTheme: {
+					primary: "#ff4d4d",
+					secondary: "#000000",
+				}
+			})
+		});
 	}
 
 	let prefix = "VitroidFPV";
@@ -189,39 +242,42 @@
 </div>
 
 <div class="p-4 md:p-8 content-box">
-	<div class="relative h-20 w-full flex justify-end">
-		<Listbox 
-			class={({open}) => (open ? "gap-2" : " gap-0") + " listbox"} 
-			bind:value={selectedSort}
-			let:open
-		>
-			<ListboxButton class="text-cyan flex items-center p-4">
-				{#if !selectedSort}
-					Sort By
-				{:else}
-					{selectedSort.label}
+	<div class="flex w-full items-center justify-between">
+		<div class="relative h-20">
+			<Listbox
+				class={({open}) => (open ? "gap-2" : " gap-0") + " listbox"}
+				bind:value={selectedSort}
+				let:open
+			>
+				<ListboxButton class="text-cyan flex items-center p-4">
+					{#if !selectedSort}
+						Sort By
+					{:else}
+						{selectedSort.label}
+					{/if}
+					<div class="ml-2 duration-300 rotate-0" class:rotate-90={open}>
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-4 h-4">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+						</svg>
+					</div>
+				</ListboxButton>
+				{#if open}
+					<div transition:fade={{duration: 150}}>
+						<ListboxOptions class="listbox-options">
+							{#each sortOptions as option}
+								<ListboxOption
+									value={option}
+									class={({selected})=> (selected ? "listbox-selected" : "") + " listbox-option"}
+								>
+									{option.label}
+								</ListboxOption>
+							{/each}
+						</ListboxOptions>
+					</div>
 				{/if}
-				<div class="ml-2 duration-300 rotate-0" class:rotate-90={open}>
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-4 h-4">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-					</svg>
-				</div>
-			</ListboxButton>
-			{#if open}
-				<div transition:fade={{duration: 150}}>
-					<ListboxOptions class="listbox-options">
-						{#each sortOptions as option}
-							<ListboxOption
-								value={option}
-								class={({selected})=> (selected ? "listbox-selected" : "") + " listbox-option"}
-							>
-								{option.label}
-							</ListboxOption>
-						{/each}
-					</ListboxOptions>
-				</div>
-			{/if}
-		</Listbox>
+			</Listbox>
+		</div>
+		<Button isLink={false} size="sm" color="cyan" on:click={copyURL}>Copy</Button>
 	</div>
 	<div class="w-full flex flex-col gap-4 z-10">
 		{#if $motors}
