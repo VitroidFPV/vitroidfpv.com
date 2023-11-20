@@ -9,8 +9,10 @@
 	import { undo } from "$lib/stores/motorsStore";
 	import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from "@rgossiaux/svelte-headlessui";
 	import { slide, fade } from "svelte/transition";
-	import toast from 'svelte-french-toast';
-	import Button from "$components/Button.svelte";
+	import toast from "svelte-french-toast";
+	import Button from "$components/Button.svelte";	
+	import { Icon } from "@steeze-ui/svelte-icon"
+	import { Clipboard, Plus, ChevronRight } from "@steeze-ui/heroicons"
 
 	function keydown(event: KeyboardEvent) {
 		if (event.key === "z" && event.ctrlKey) {
@@ -242,23 +244,24 @@
 </div>
 
 <div class="p-4 md:p-8 content-box">
-	<div class="flex w-full items-center justify-between">
-		<div class="relative h-20">
+	<div class="flex w-full items-center md:justify-end justify-between py-4">
+		<div class="relative">
 			<Listbox
 				class={({open}) => (open ? "gap-2" : " gap-0") + " listbox"}
 				bind:value={selectedSort}
 				let:open
 			>
-				<ListboxButton class="text-cyan flex items-center p-4">
+				<ListboxButton class={({open}) => open ? "text-cyan flex items-center p-4 duration-300" : "hover:text-cyan flex items-center p-4 duration-300"}>
 					{#if !selectedSort}
 						Sort By
 					{:else}
 						{selectedSort.label}
 					{/if}
-					<div class="ml-2 duration-300 rotate-0" class:rotate-90={open}>
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-4 h-4">
+					<div class="ml-2 rotate-0" class:rotate-90={open}>
+						<!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-4 h-4">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-						</svg>
+						</svg> -->
+						<Icon src={ChevronRight} class="w-4 h-4" stroke-width="3" />
 					</div>
 				</ListboxButton>
 				{#if open}
@@ -277,7 +280,9 @@
 				{/if}
 			</Listbox>
 		</div>
-		<Button isLink={false} size="sm" color="cyan" on:click={copyURL}>Copy</Button>
+		<Button isLink={false} size="sm" color="cyan" on:click={copyURL}>
+			<Icon src={Clipboard} class="w-7 h-7"  stroke-width="1.5" />
+		</Button>
 	</div>
 	<div class="w-full flex flex-col gap-4 z-10">
 		{#if $motors}
@@ -325,9 +330,10 @@
 					class="text-cyan w-fit"
 					on:click={addMotor}
 				>
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-6 h-6 stroke-neutral-500/50 hover:stroke-cyan duration-300 rotate-45">
+					<!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-6 h-6 stroke-neutral-500/50 hover:stroke-cyan duration-300 rotate-45">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-					</svg>
+					</svg> -->
+					<Icon src={Plus} class="w-6 h-6 text-neutral-500/50 hover:text-cyan duration-300" stroke-width="3" />
 				</button>
 			</div>
 		</div>
