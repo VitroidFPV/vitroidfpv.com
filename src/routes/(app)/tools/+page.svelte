@@ -6,11 +6,7 @@
 	import { slide } from "svelte/transition";
 	import { Switch } from "@rgossiaux/svelte-headlessui";
 	import toast from 'svelte-french-toast';
-
-	import domtoimage from "dom-to-image";
-	// @ts-ignore
-	import { copyImageToClipboard } from "copy-image-clipboard/dist/index.common.js";
-	import { onMount } from "svelte";
+	import { copyNode } from "$lib/copy";
 
 	function copyCalc(id: string) {
 		var node = document.getElementById(id);
@@ -21,97 +17,15 @@
 		if (id === "wh") {
 			height = 150
 		}
-
-		console.log(height)
-
-		domtoimage
-			.toPng(node as HTMLElement, { height, width, bgcolor: "#0f0f0f" })
-			.then(function (dataUrl) {
-				var img = new Image();
-				img.src = dataUrl;
-				// console.log(dataUrl);
-
-				copyImageToClipboard(dataUrl)
-					.then(() => {
-						// console.log("Image Copied");
-						toast.success("Copied!", {
-							style: "border-radius: 999px; backdrop-filter: blur(8px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); outline: 2px solid #ffffff1f; background-color: rgb(163 163 163 / 0.1); color: #87cc52;",
-							iconTheme: {
-								primary: "#87cc52",
-								secondary: "#000000",
-							}
-						});
-					})
-					.catch((e: any) => {
-						console.error("Error: ", e.message);
-						toast.error("Could Not Copy Image: " + e.message, {
-							style: "border-radius: 999px; backdrop-filter: blur(8px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); outline: 2px solid #ffffff1f; background-color: rgb(163 163 163 / 0.1); color: #ff4d4d;",
-							iconTheme: {
-								primary: "#ff4d4d",
-								secondary: "#000000",
-							}
-						})
-					});
-			})
-			.catch(function (error) {
-				console.error("oops, something went wrong!", error);
-				toast.error("Could Not Copy Image: " + error, {
-					style: "border-radius: 999px; backdrop-filter: blur(8px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); outline: 2px solid #ffffff1f; background-color: rgb(163 163 163 / 0.1); color: #ff4d4d;",
-					iconTheme: {
-						primary: "#ff4d4d",
-						secondary: "#000000",
-					}
-				})
-			});
+		// @ts-ignore
+		copyNode(node, height, width)
 	}
 
 	function copyCompare() {
 		// @ts-ignore
 		let node: HTMLElement = document.getElementById("compare");
 
-		// get the height and width of the node
-		let height = node.offsetHeight;
-		let width = node.offsetWidth;
-
-		domtoimage
-			.toPng(node, { height: height, width: width, style: {"transform": "none","position": "static"} })
-			.then(function (dataUrl) {
-				var img = new Image();
-				img.src = dataUrl;
-				// console.log(dataUrl);
-
-				copyImageToClipboard(dataUrl)
-					.then(() => {
-						// console.log("Image Copied");
-						toast.success("Copied!", {
-							style: "border-radius: 999px; backdrop-filter: blur(8px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); outline: 2px solid #ffffff1f; background-color: rgb(163 163 163 / 0.1); color: #87cc52;",
-							iconTheme: {
-								primary: "#87cc52",
-								secondary: "#000000",
-							}
-						});
-					})
-					.catch((e: any) => {
-						console.error("Error: ", e.message);
-						toast.error("Could Not Copy Image: " + e.message, {
-							style: "border-radius: 999px; backdrop-filter: blur(8px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); outline: 2px solid #ffffff1f; background-color: rgb(163 163 163 / 0.1); color: #ff4d4d;",
-							iconTheme: {
-								primary: "#ff4d4d",
-								secondary: "#000000",
-							}
-						})
-					});
-			})
-			.catch(function (error) {
-				console.error("oops, something went wrong!", error);
-				toast.error("Could Not Copy Image: " + error, {
-					style: "border-radius: 999px; backdrop-filter: blur(8px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); outline: 2px solid #ffffff1f; background-color: rgb(163 163 163 / 0.1); color: #ff4d4d;",
-					iconTheme: {
-						primary: "#ff4d4d",
-						secondary: "#000000",
-					}
-				})
-			});
+		copyNode(node);
 	}
 
 	let size: string = "";

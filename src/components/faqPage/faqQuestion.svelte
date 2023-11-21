@@ -11,6 +11,7 @@
 
 	// import SvelteMarkdown from 'svelte-markdown'
 	import IntersectionObserver from "svelte-intersection-observer";
+	import { copyText } from "$lib/copy";
 	let element: HTMLElement;
 	let intersecting: boolean;
 
@@ -33,23 +34,7 @@
 
 	function copyID(this: {nextElementSibling: any; "on:click": () => void; class: string; }) {
 		let id = this.nextElementSibling.id;
-		navigator.clipboard.writeText($page.url.origin + $page.url.pathname + "/" + id).then(function () {
-			toast.success("Copied!", {
-				style: "border-radius: 999px; backdrop-filter: blur(8px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); outline: 2px solid #ffffff1f; background-color: rgb(163 163 163 / 0.1); color: #87cc52;",
-				iconTheme: {
-					primary: "#87cc52",
-					secondary: "#000000",
-				}
-			})
-		}, function (err) {
-			toast.error("Could Not Copy Text: " + err, {
-				style: "border-radius: 999px; backdrop-filter: blur(8px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); outline: 2px solid #ffffff1f; background-color: rgb(163 163 163 / 0.1); color: #ff4d4d;",
-				iconTheme: {
-					primary: "#ff4d4d",
-					secondary: "#000000",
-				}
-			})
-		});
+		copyText($page.url.origin + $page.url.pathname + "/" + id);
 		// console.log(id);
 	}
 

@@ -14,6 +14,7 @@
 	import { Icon } from "@steeze-ui/svelte-icon"
 	import { Clipboard, Plus, ChevronRight } from "@steeze-ui/heroicons"
 	import MotorsTable from "$components/toolsPage/MotorsTable.svelte";
+	import { copyText } from "$lib/copy";
 
 	function keydown(event: KeyboardEvent) {
 		if (event.key === "z" && event.ctrlKey) {
@@ -130,9 +131,9 @@
 
 		if ($motors.length == 0) {
 			toast.error("No motors to copy!", {
-				style: "border-radius: 999px; backdrop-filter: blur(8px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); outline: 2px solid #ffffff1f; background-color: rgb(163 163 163 / 0.1); color: #ff4d4d;",
+				style: "border-radius: 999px; backdrop-filter: blur(8px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); outline: 2px solid #ffffff1f; background-color: rgb(163 163 163 / 0.1); color: #d6395b;",
 				iconTheme: {
-					primary: "#ff4d4d",
+					primary: "#d6395b",
 					secondary: "#000000",
 				}
 			})
@@ -143,26 +144,7 @@
 		let motorString = $motors.map(motor => motor.size).join("-");
 		let sortString = selectedSort ? "&sort=" + selectedSort.name : "";
 		let finalURL = url + "?motors=" + motorString + sortString;
-		navigator.clipboard.writeText(finalURL)
-		.then(() => {
-			toast.success("Copied!", {
-				style: "border-radius: 999px; backdrop-filter: blur(8px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); outline: 2px solid #ffffff1f; background-color: rgb(163 163 163 / 0.1); color: #87cc52;",
-				iconTheme: {
-					primary: "#87cc52",
-					secondary: "#000000",
-				}
-			});
-		})
-		.catch((e: any) => {
-			console.error("Error: ", e.message);
-			toast.error("Could Not Copy Image: " + e.message, {
-				style: "border-radius: 999px; backdrop-filter: blur(8px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); outline: 2px solid #ffffff1f; background-color: rgb(163 163 163 / 0.1); color: #ff4d4d;",
-				iconTheme: {
-					primary: "#ff4d4d",
-					secondary: "#000000",
-				}
-			})
-		});
+		copyText(finalURL);
 	}
 
 	let prefix = "VitroidFPV";

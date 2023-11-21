@@ -27,9 +27,9 @@
 			});
 		}).catch((error) => {
 			toast.error("Failed to Send!", {
-				style: "border-radius: 999px; backdrop-filter: blur(8px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); outline: 2px solid #ffffff1f; background-color: rgb(163 163 163 / 0.1); color: #ff4d4d;",
+				style: "border-radius: 999px; backdrop-filter: blur(8px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); outline: 2px solid #ffffff1f; background-color: rgb(163 163 163 / 0.1); color: #d6395b;",
 				iconTheme: {
-					primary: "#ff4d4d",
+					primary: "#d6395b",
 					secondary: "#000000",
 				}
 			});
