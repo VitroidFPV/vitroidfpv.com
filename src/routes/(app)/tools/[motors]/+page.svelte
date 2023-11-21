@@ -7,12 +7,13 @@
 	import MotorComparison from "$components/toolsPage/MotorComparison.svelte";
 	import { motors } from "$lib/stores/motorsStore";
 	import { undo } from "$lib/stores/motorsStore";
-	import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from "@rgossiaux/svelte-headlessui";
-	import { slide, fade } from "svelte/transition";
+	import { Listbox, ListboxButton, ListboxOptions, ListboxOption, ListboxLabel } from "@rgossiaux/svelte-headlessui";
+	import { slide, fade, fly } from "svelte/transition";
 	import toast from "svelte-french-toast";
 	import Button from "$components/Button.svelte";	
 	import { Icon } from "@steeze-ui/svelte-icon"
 	import { Clipboard, Plus, ChevronRight } from "@steeze-ui/heroicons"
+	import MotorsTable from "$components/toolsPage/MotorsTable.svelte";
 
 	function keydown(event: KeyboardEvent) {
 		if (event.key === "z" && event.ctrlKey) {
@@ -52,7 +53,8 @@
 	let loadMotors:{size: string, volume: number, surface: number}[] = [];
 
 	// this is weird but it prevents it from duplicating on HMR
-	$motors = loadMotors;
+	// $motors = loadMotors;
+	// motors.set(loadMotors);
 
 	let newSize = ""
 	let newVolume: number
@@ -79,7 +81,7 @@
 		{ label: "Surface Area (Low to High)", name: "surface-asc" },
 	]
 
-	let selectedSort:{label: string, name: string} = null;
+	let selectedSort: any = null;
 
 	function sortMotors() {
 		// sort depending on selectedSort
@@ -245,31 +247,30 @@
 
 <div class="p-4 md:p-8 content-box">
 	<div class="flex w-full items-center md:justify-end justify-between py-4">
-		<div class="relative">
+		<div>
 			<Listbox
 				class={({open}) => (open ? "gap-2" : " gap-0") + " listbox"}
 				bind:value={selectedSort}
 				let:open
 			>
-				<ListboxButton class={({open}) => open ? "text-cyan flex items-center p-4 duration-300" : "hover:text-cyan flex items-center p-4 duration-300"}>
+				<ListboxButton
+					class={({open}) => (open ? "text-cyan" : "hover:text-cyan") + " flex items-center duration-300"}
+				>
+					<!-- <Button isLink={false} color="cyan" size="sm">{selectedSort.label}</Button> -->
 					{#if !selectedSort}
 						Sort By
 					{:else}
 						{selectedSort.label}
 					{/if}
-					<div class="ml-2 rotate-0" class:rotate-90={open}>
-						<!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-4 h-4">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-						</svg> -->
+					<div class="ml-2 rotate-0 transition-transform" class:rotate-90={open}>
 						<Icon src={ChevronRight} class="w-4 h-4" stroke-width="3" />
 					</div>
 				</ListboxButton>
 				{#if open}
-					<div transition:fade={{duration: 150}}>
+					<div transition:fly={{y: -10}} class="absolute backdrop-blur-md">
 						<ListboxOptions class="listbox-options">
 							{#each sortOptions as option}
-								<ListboxOption
-									value={option}
+								<ListboxOption value={option}
 									class={({selected})=> (selected ? "listbox-selected" : "") + " listbox-option"}
 								>
 									{option.label}
@@ -284,12 +285,8 @@
 			<Icon src={Clipboard} class="w-7 h-7"  stroke-width="1.5" />
 		</Button>
 	</div>
-	<div class="w-full flex flex-col gap-4 z-10">
-		{#if $motors}
-			{#each $motors as motor}
-				<MotorComparison size={motor.size} volume={motor.volume} surface={motor.surface} />
-			{/each}
-		{/if}
+	<div class="w-full flex flex-col z-10">
+			<MotorsTable motors={$motors} />
 		<div 
 			class="p-4 bg-neutral-500/10 rounded-3xl backdrop-blur-md border-dashed border-2 border-neutral-500/40 flex duration-300 
 			transition-all justify-between items-center"
@@ -301,28 +298,13 @@
 						newVolume = calculateVolume(newSize);
 						newSurface = calculateSurface(newSize);
 					}}
-					on:keydown={(e) => {
-						if (e.key === "Enter") {
-							addMotor();
-						}
-					}}
+					on:change={addMotor}
 					type="text"
 					placeholder="Add New"
 					class="bg-neutral-500/10 w-28 h-8 rounded-2xl p-3 text-base duration-300
 					outline-none focus-within:outline-cyan outline-[3px]"
 				/>
-					<!-- <button
-						class="text-cyan"
-						on:click={() => {
-							motors.update((motors) => [...motors, { size: newSize, volume: newVolume }]);
-							undo.update((arr) => [...arr, { size: newSize, volume: newVolume }]);
-							newSize = "";
-							newVolume = NaN;
-						}}
-					>
-					Add New
-					</button> -->
-				</div>
+			</div>
 			<div class="md:gap-8 gap-6 flex">
 				<div class="flex flex-col md:flex-row md:w-fit w-min" class:invisible={isNaN(newSurface) || newSurface == undefined}><span class="text-neutral-400 text-base mr-1 w-fit">Surface: </span>{#if newSurface}{newSurface}{/if}mm²</div>
 				<div class="flex flex-col md:flex-row md:w-fit w-min" class:invisible={isNaN(newVolume) || newVolume == undefined}><span class="text-neutral-400 text-base mr-1 w-fit">Volume: </span>{#if newVolume}{newVolume}{/if}mm³</div>
@@ -330,9 +312,6 @@
 					class="text-cyan w-fit"
 					on:click={addMotor}
 				>
-					<!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-6 h-6 stroke-neutral-500/50 hover:stroke-cyan duration-300 rotate-45">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-					</svg> -->
 					<Icon src={Plus} class="w-6 h-6 text-neutral-500/50 hover:text-cyan duration-300" stroke-width="3" />
 				</button>
 			</div>

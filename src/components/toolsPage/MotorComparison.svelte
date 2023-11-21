@@ -5,14 +5,15 @@
 
 	import { motors } from "$lib/stores/motorsStore";
 	import { undo } from "$lib/stores/motorsStore";
+	import { cubicOut } from "svelte/easing";
 	import { slide } from "svelte/transition";
 
 </script>
 
 <div 
 	class="p-4 bg-neutral-500/10 rounded-3xl backdrop-blur-md border-2 border-neutral-500/40 flex duration-300 
-	transition-all justify-between items-center"
-	transition:slide={{duration: 300}}
+	transition-all justify-between items-center mb-4"
+	transition:slide={{duration: 300, easing: cubicOut}}
 >
 
 <h1 class="text-cyan text-2xl">{size}</h1>

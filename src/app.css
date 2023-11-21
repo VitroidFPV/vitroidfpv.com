@@ -307,7 +307,7 @@
 	}
 
 	.listbox-options {
-		@apply absolute shadow-lg overflow-y-scroll p-4 bg-neutral-500/10 rounded-3xl backdrop-blur-md border-2 border-neutral-500/40 w-fit
+		@apply mt-2 shadow-lg overflow-y-scroll p-4 bg-neutral-500/10 rounded-3xl border-2 border-neutral-500/40 w-fit z-10 will-change-transform
 	}
 
 	.listbox-option {
