@@ -2,6 +2,8 @@
 	export let size: string
 
 	import { compareArray } from "$lib/stores/toolsStore"
+	import { Icon } from "@steeze-ui/svelte-icon";
+	import { Plus } from "@steeze-ui/heroicons";
 
 	function calculateVolume(size: string) {
 		let sizeP = size.replace(",", ".");
@@ -27,8 +29,6 @@
 			compareArray.update(arr => arr.filter(val => val !== size))
 		}}
 	>
-		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-6 h-6 stroke-neutral-500/50 hover:stroke-red duration-300">
-  			<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-		</svg>
+		<Icon src={Plus} class="w-6 h-6 stroke-neutral-500/50 hover:stroke-red duration-300 rotate-45" stroke-width="3" />
 	</button>
 </div>

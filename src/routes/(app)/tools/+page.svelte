@@ -8,6 +8,9 @@
 	import toast from 'svelte-french-toast';
 	import { copyNode } from "$lib/copy";
 
+	import { Icon } from "@steeze-ui/svelte-icon";
+	import { AdjustmentsVertical, Clipboard, ChevronUp } from "@steeze-ui/heroicons";
+
 	function copyCalc(id: string) {
 		var node = document.getElementById(id);
 
@@ -201,9 +204,7 @@
 				class="h-12 w-12 group bg-neutral-500/20 border-2 border-neutral-500/40 shadow-lg
 				hover:bg-highlight hover:border-highlight dark:hover:border-highlight-dark backdrop-blur-md z-10 
 				dark:hover:bg-highlight-dark duration-300 rounded-full flex items-center justify-center relative">
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M6 13.5V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 9.75V10.5" />
-				</svg>
+				<Icon class="w-6 h-6" src={AdjustmentsVertical} />
 				{#if $compareArray.length > 0}
 					<div class="p-1 absolute h-6 aspect-square bg-contrast-200 dark:bg-main-100 -top-2 -right-2 text-sm rounded-full z-10 shadow-lg">{$compareArray.length}</div>
 				{/if}
@@ -213,9 +214,7 @@
 					<div class="flex">
 						<div class="text-2xl text-highlight dark:text-highlight-dark mb-4 mr-2">Compare</div>
 						<button on:click={() => copyCompare()} class="h-8 w-8 outline outline-2 outline-highlight dark:outline-highlight-dark bg-highlight/20 dark:bg-highlight-dark/20 hover:bg-highlight/40 dark:hover:bg-highlight-dark/40 duration-300 rounded-full flex items-center justify-center relative">
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M15.666 3.888A2.25 2.25 0 0013.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 01-.75.75H9a.75.75 0 01-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 011.927-.184" />
-							</svg>
+							<Icon class="w-6 h-6" src={Clipboard} />
 						</button>
 					</div>
 					<!-- #each block for $compareArray that updates with the array, and contains a SizeComparison {size} element -->
@@ -303,7 +302,7 @@
 								<p>dBm</p>
 							</div>
 							<!-- svelte-ignore a11y-click-events-have-key-events -->
-							<div style="transform: rotate({dbmToMwRotated}deg)" class="duration-300 text-2xl hover:text-highlight dark:hover:text-highlight-dark" on:click={() => toggleDbmToMw()}>→</div>
+							<button style="transform: rotate({dbmToMwRotated}deg)" class="duration-300 text-2xl hover:text-highlight dark:hover:text-highlight-dark" on:click={() => toggleDbmToMw()}>→</button>
 							<div class="flex items-end ml-4">
 								<input
 								bind:value={mw}
@@ -342,14 +341,10 @@
 						<div class="flex my-4">
 							<div class="h-8 flex flex-col justify-between mr-1 text-neutral-400/40">
 								<button on:click={() => updateCellCount(true)} on:click={calculateWh} class="hover:text-highlight dark:hover:text-highlight-dark duration-300">
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="4" stroke="currentColor" class="w-3 h-3">
-										<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-									</svg>
+									<Icon class="w-3 h-3" src={ChevronUp} stroke-width="4" />
 								</button>
 								<button on:click={() => updateCellCount(false)} on:click={calculateWh} class="hover:text-highlight dark:hover:text-highlight-dark duration-300">
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="4" stroke="currentColor" class="w-3 h-3 rotate-180">
-										<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-									</svg>
+									<Icon class="w-3 h-3 rotate-180" src={ChevronUp} stroke-width="4" />
 								</button>
 							</div>
 							<div class="flex items-end">

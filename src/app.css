@@ -157,7 +157,7 @@
 	}
 
 	.nav-hidden-sm {
-		@apply md:flex-col !hidden
+		@apply md:flex-col md:!flex !hidden
 	}
 
 	.Recommended.my-8 {@apply order-last}

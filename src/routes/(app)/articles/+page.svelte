@@ -5,6 +5,8 @@
 	import ArticlePreview from "$components/articlesPage/ArticlePreview.svelte";
 	import { slide } from "svelte/transition";
 	import { selectedCategories } from "$lib/stores/categoryStore";
+	import { Icon } from "@steeze-ui/svelte-icon";
+	import { Plus } from "@steeze-ui/heroicons";
 
 	const modules = import.meta.glob(`/modules/articles/*.{md,svx,svelte,md}`, {eager: true});
 	// console.log(JSON.stringify(modules, null, 2));
@@ -168,9 +170,7 @@
 						<input type="checkbox" value={category.name} bind:group={$selectedCategories} checked={i == 0} name="category" id={category.name} class="hidden peer" required>
 						<label for={category.name} class="flex items-center cursor-pointer ring-2 ring-current px-2 py-1 rounded-full stroke-main-200 dark:stroke-contrast-50 peer-checked:text-{category.color} peer-checked:stroke-{category.color} peer-checked:bg-{category.color}/20 group-hover:text-{category.color} group-hover:stroke-{category.color} duration-300">
 							{category.name}
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="4" class="w-4 h-4 ml-2 transition-transform" class:rotate-45={$selectedCategories.includes(category.name)}>
-								<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-							</svg>
+							<Icon src={Plus} class={($selectedCategories.includes(category.name) ? "rotate-45" : "") + " w-4 h-4 ml-2 transition-transform"}/>
 						</label>
 					</div>
 				{/each}

@@ -7,6 +7,9 @@
 	import Link from "$components/Link.svelte";
 	import AudioPlayer from "$components/toolsPage/AudioPlayer.svelte";
 	import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from "@rgossiaux/svelte-headlessui";
+	
+	import { Icon } from "@steeze-ui/svelte-icon";
+	import { ChevronUp, ArrowPathRoundedSquare, FolderArrowDown } from "@steeze-ui/heroicons";
 
 	import { marked } from "marked";
 	import { slide, fly } from "svelte/transition";
@@ -228,9 +231,7 @@
 							<ListboxButton class="text-blue text-xl flex items-center px-2 py-3">
 								{selectedSound}
 								<div class="ml-2 duration-300 rotate-0" class:rotate-90={open}>
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-4 h-4">
-										<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-									</svg>
+									<Icon src={ChevronUp} class="w-4 h-4" stroke-width="3" />
 								</div>
 							</ListboxButton>
 							{#if open}
@@ -283,9 +284,7 @@
 									on:click={() => transcode(files)}
 									transition:fly|local={{duration: 300, delay: 400, x: -100}}
 								>
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 mr-2">
-										<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" />
-									</svg>
+									<Icon src={ArrowPathRoundedSquare} class="w-8 h-8 mr-2" stroke-width="2" />
 									Transcode
 								</button>
 							</div>
@@ -304,9 +303,7 @@
 								rel="noopener noreferrer"
 								transition:fly|local={{duration: 300, delay: 200, x: -100}}
 							>
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mr-2">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M9 13.5l3 3m0 0l3-3m-3 3v-6m1.06-4.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
-								</svg>
+								<Icon src={FolderArrowDown} class="w-8 h-8 mr-2" stroke-width="2" />
 								Download
 							</a>
 						</div>

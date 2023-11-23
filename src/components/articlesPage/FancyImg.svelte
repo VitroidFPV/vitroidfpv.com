@@ -2,6 +2,8 @@
 	import { fade, fly } from "svelte/transition";
 	import { clickOutside } from '$lib/clickOut.js';
 	import { spring } from "svelte/motion";
+	import { Icon } from "@steeze-ui/svelte-icon";
+	import { Plus } from "@steeze-ui/heroicons";
 
 	export let src: string;
 	export let alt: string;
@@ -71,9 +73,7 @@
 					on:click={() => open = false}
 					transition:fade={{duration: 50, delay: 0}}
 					class="stroke-red duration-300 absolute top-8 right-0 rounded-full border-2 border-red/40 bg-red/20 hover:bg-red/40">
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" class="w-7 h-7 rotate-45">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-					</svg>
+					<Icon src={Plus} class="w-7 h-7 rotate-45" stroke-width="1.5" />
 				</button>
 			{/if}
 		</div>

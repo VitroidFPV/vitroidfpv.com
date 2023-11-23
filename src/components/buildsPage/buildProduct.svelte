@@ -10,6 +10,8 @@
 	import { addPart } from "$lib/addPart";
 	import { page } from "$app/stores";
 	import { spring } from "svelte/motion";
+	import { Icon } from "@steeze-ui/svelte-icon";
+	import { Photo, Plus, } from "@steeze-ui/heroicons";
 
 	const url = $page.url.pathname;
 
@@ -128,9 +130,7 @@
 					on:click={() => open = false}
 					transition:fade={{duration: 50, delay: 0}}
 					class="stroke-red duration-300 absolute top-8 right-0 rounded-full border-2 border-red/40 bg-red/20 hover:bg-red/40">
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" class="w-7 h-7 rotate-45">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-					</svg>
+					<Icon src={Plus} class="w-7 h-7 rotate-45" stroke-width="1.5" />
 				</button>
 			{/if}
 		</div>
@@ -152,16 +152,12 @@
 				<div>
 					<button 
 						on:click={() => addPart(title, price, color, category, url, href)}
-						class="mr-2 hover:stroke-current stroke-contrast-500 duration-300">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" class="w-7 h-7">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-						</svg>
+						class="mr-2 hover:text-current text-contrast-500 duration-300">
+						<Icon class="w-7 h-7" src={Plus} stroke-width="2" />
 					</button>
 					{#if img}
-						<button on:click={() => open = true} class=" hover:stroke-current stroke-contrast-500 duration-300">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" class="w-7 h-7">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-							</svg>
+						<button on:click={() => open = true} class="hover:text-current text-contrast-500 duration-300">
+							<Icon class="w-7 h-7" src={Photo} stroke-width="2" />
 						</button>
 					{/if}
 				</div>
