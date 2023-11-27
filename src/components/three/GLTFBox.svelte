@@ -3,6 +3,8 @@
 	import GLTFWrapper from "$components/three/GLTFWrapper.svelte";
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { fade } from "svelte/transition";
+	import { transitions } from '@threlte/extras'
+	transitions();
 
 	let element: HTMLElement;
 	let intersecting: boolean;
@@ -21,7 +23,7 @@
 			cursor-grab"
 		>
 			{#if intersecting}
-				<div transition:fade={{duration: 300}} class="w-full h-full">
+				<div class="w-full h-full flex items-center justify-center">
 					<Canvas useLegacyLights={false}>
 						<slot>
 							<!-- <GLTFWrapper {url} {position} {rotation} {scale} /> -->
