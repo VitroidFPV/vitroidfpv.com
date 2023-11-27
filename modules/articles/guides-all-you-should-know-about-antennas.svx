@@ -84,7 +84,7 @@ This is of course very funny, but that's just the actual terminology as explaine
 
 <GLTFBox>
 <GLTFWrapper url="/uploads/three/antennas/sma_female.glb" scale={1.5}/>
-<div slot="content">SMA Male</div>
+<div slot="content">SMA Female</div>
 </GLTFBox>
 
 <GLTFBox>
@@ -100,6 +100,7 @@ This is of course very funny, but that's just the actual terminology as explaine
 </GridBox>
 {/if}
 
+
 RP-SMA stands for Reverse-Polarity SMA. As you can see in the fancy 3d models, the main difference between SMA and RP-SMA is that the coax signal pin and receptacle are swapped between the two connectors. 
 
 <Admonition type="caution" title="">
@@ -110,11 +111,14 @@ But while you can screw an RP-SMA male connector to an SMA female connector, the
 
 </Admonition>
 
+![SMA RP-SMA Connector Diagram Guide](/uploads/articles/antennas/sma_rpsma_diagram.png)
+Quick SMA/RP-SMA Connector Summary Diagram
+
 ## MMCX
 
-MMCX stands for Micro-Miniature Coaxial. It's most often used on regular-sized VTXs and is often adapted to SMA/RP-SMA for easier cable routing and a more secure mounting of the SMA connector.
+	MMCX stands for Micro-Miniature Coaxial. It's most often used on regular-sized VTXs and is often adapted to SMA/RP-SMA for easier cable routing and a more secure mounting of the SMA connector.
 
-MMCX male and female connectors mate by plugging into each other. This connection may be pretty tight and require some force to connect/separate, so some use of force may be required. There will be a noticeable click when the two connectors are fully mated.
+	MMCX male and female connectors mate by plugging into each other. This connection may be pretty tight and may require some force to connect/separate. There will be a noticeable click when the two connectors are fully mated.
 
 {#if show3d}
 <GridBox cols={4} classes="">
@@ -132,9 +136,12 @@ MMCX male and female connectors mate by plugging into each other. This connectio
 </GridBox>
 {/if}
 
-## IPEX/U.FL
+![MMCX Connector Diagram Guide](/uploads/articles/antennas/mmcx_diagram.png)
+Quick MMCX Connector Summary Diagram
 
-These are basically two different names for one thing - U.FL from Hirose Electric Group is the base for these designs. And then IPEX make their own connectors, their IPEX MHF series is compatible with U.FL. You can find both names used interchangeably, and they can be mixed and matched as needed.
+## IPEX MHF/Hirose U.FL
+
+Both and neither of these are actually the proper names. So what's up with that? The actual standard that they both follow is MHF1, IPEX is a manufacturer making tons of different connectors, some of them with this standard, and U.FL is a brand name from Hirose Electric Group that also follows it.
 
 You'll most often find these on smaller devices and internal connections - receivers, small VTXs, inside radios and goggles to be adapted to SMA/RP-SMA.
 
@@ -164,9 +171,12 @@ Be careful when taking them apart, the female connector attached to the coax can
 
 <Admonition type="caution" title="">
 
-Some manufacturers (namely FrSky and Jumper that I know of) use a smaller variant of this connector on their receivers - IPEX4. It's not compatible with regular U.FL/IPEX, so make sure you get the correct size!
+Some manufacturers (namely FrSky and Jumper that I know of) use a smaller variant of this connector on their receivers - MHF4. It's not compatible with regular connectors that follow MHF1, so make sure you get the correct size!
 
 </Admonition>
+
+![IPEX Connector Diagram Guide](/uploads/articles/antennas/ipex_ufl_diagram.png)
+Quick IPEX Connector Summary Diagram
 
 # Antenna Specs
 
@@ -176,15 +186,15 @@ Gain measures how much the antenna radiates in a specific direction compared to 
 
 A higher gain antenna will have a narrower beam, and a lower gain antenna will have a wider beam. A narrower beam will reach further in one direction at the cost of not covering the area around it well. A wider beam will cover a larger area, but not reach as far.
 
-A 3dB increase in gain is roughly equivalent to doubling the perceived power of the transmitter, and a 50% increase in range. A 6dB increase in antenna gain would be equivalent to quadrupling the perceived power of the transmitter, and double the range.
+A 3dB increase in gain is roughly equivalent to doubling the power of the transmitter, and a 50% increase in range. A 6dB increase in antenna gain would be equivalent to quadrupling the power of the transmitter, and double the range.
 
 ## Radiation Pattern
 
-A radiation pattern for an antenna found in a specsheet will usually consist of two charts - one showing the horizontal projection, and one showing the vertical projection. From these projections, you can construct a 3d model of the radiation pattern.
+A radiation pattern for an antenna found in a specsheet will usually consist of two charts - one showing the horizontal projection, and one showing the vertical projection. From these projections, you can approximate a 3d model of the radiation pattern. This is not always possible, as the radiation pattern may be largely irregular and/or asymmetrical. For our illustrative purposes below, it's good enough though
 
 ## Directionality
 
-An antenna can either be Omni-directional or Directional. In the simplest terms, Omni-directional antennas will radiate radio waves in all directions equally, while Directional antennas will radiate radio waves in a specific direction. Kinda a regular light vs a focused flashlight.
+We usually come across two types of antennas: Omni-directional or Directional. In the simplest terms, Omni-directional antennas will radiate radio waves in all directions equally, while Directional antennas will radiate radio waves in a specific direction. Kinda a regular light vs a focused flashlight.
 
 Of course, this is merely a simplification, as there exists no perfect antenna like that - so we'll have to go a bit deeper:
 
@@ -241,7 +251,7 @@ Directional antennas are used when you want to reach further in one direction, b
 <GridBox cols={3}>
 
 ![ProDrone Penetrator](/uploads/prodrone_penetrator.jpg)
-ProDrone Penetrator (hehe)
+ProDrone Penetrator
 
 ![TrueRC X-AIR MK II](https://www.truerc.ca/wp-content/uploads/94F651F3-02B1-4111-BD79-84D615C3242E-e1630466439269.jpeg)
 TrueRC X-AIR MK II
@@ -281,7 +291,7 @@ Of course there are no perfectly directional antennas either, so they will have 
 
 The actual radio waves emitted/received by an antenna can be polarized in different ways. It refers to the relation of the electric and magnetic fields to each other and the direction of propagation.
 
-The main 3 we'll be looking at are: Linear, Right-Hand Circular Polarization (RHCP), and Left-Hand Circular Polarization (LHCP).
+The three we'll be looking at are: Linear, Right-Hand Circular Polarization (RHCP), and Left-Hand Circular Polarization (LHCP).
 
 <Admonition type="caution" title="">
 
@@ -289,7 +299,7 @@ Be careful to match the polarization of your antennas! RHCP/LHCP variations of o
 
 If your transmitter has an RHCP antenna, you need to use an RHCP antenna on your receiver as well. LHCP needs to be matched with LHCP much the same. A perfectly circular polarized antenna would reject all of the "opposite" signal, but in reality a mismatch of LH/RH antennas will lead to a 30dB signal loss, that's about 97%!
 
-Using linear antennas alongside circular polarized antennas does still lead to a loss of 3dB (30%), but is acceptable in most cases.
+Using linear antennas alongside circular polarized antennas does still usually lead to a loss of 3dB (30%), but is acceptable in most cases.
 
 </Admonition>
 
@@ -297,7 +307,7 @@ Using linear antennas alongside circular polarized antennas does still lead to a
 
 Linear antennas are a lot simpler than circular polarized antennas. Both in terms of construction and working principle. Since they're cheap and easy to make, they're often used as stock antennas on transmitters and receivers. The simple design also leads them to be pretty light, so you'll also see them on small and light drones. 
 
-You may even see just a piece of wire sticking out of an AIO board on a tinywhoop. If you cut a wire to the desired frequency wavelength, it will act as an antenna. Not a good antenna, but for a whoop it's usually more than good enough.
+You may even see just a piece of wire sticking out of an AIO board on a tinywhoop. If you cut a wire to the desired frequency wavelength, it will act as an antenna, and for a whoop it's usually more than good enough.
 
 The two wave components of a linear antenna are perpendicular to each other, and may be summed up as a straight line.
 
@@ -352,3 +362,94 @@ The advance or delay of the components tells us whether the antenna is RHCP or L
 </GridBox>
 
 {/if}
+
+As the frequency of the signal goes down, the need for circular-polarized antennas becomes less and less important. That's why you rarely see them on 2.4GHz radios for example. Or basically anything that's below 5.8GHz.
+
+# Construction
+
+There are a lot of ways you can make an antenna. From a bit of straight wire cut to length to precisely tuned patches and multiple turned helicals. The construction will not only affect the polarization, but also the directionality and performance.
+
+## Patch
+
+<Admonition type="note" title="">
+
+A pretty common misuse of the term "patch antenna" is using it just as a blanket statement to cover all directional antennas. It's true that most patch-design antennas are designed to be directional, but not all patch antennas are, they can be designed to be omnidirectional just as well!
+
+</Admonition>
+
+A patch antenna is constructed by layering a patch of conductive material to act as the active element, an insulator, and a ground plane. This kind of design easily leads itself to be manufactured as a regular PCB (copper layers for the active element and ground plane, FR4 as the insulator). They can be made for all the polarizations - linear, RHCP, and LHCP as well.
+
+There are some variations, such as two PCBs being stacked on top of each other, one being the whole ground plane, the other acting as the active element. 
+
+You'll see patch antennas mostly on video receivers, but also integrated on GPS modules as thicker bits of ceramic and metal.
+
+<GridBox cols={3}>
+
+<GLTFBox>
+<GLTFWrapper 
+	url="/uploads/three/antennas/patch.glb" 
+	scale={.8}
+/>
+<div slot="content">Basic Principle</div>
+</GLTFBox>
+
+<GLTFBox>
+<GLTFWrapper 
+	url="/uploads/three/antennas/patch_antenna.glb" 
+	scale={.45}
+/>
+<div slot="content">Patch Antenna Model</div>
+</GLTFBox>
+
+![TrueRC Margherita Antenna](https://www.truerc.ca/wp-content/uploads/Antenna4.jpg)
+TrueRC Margherita Antenna
+
+</GridBox>
+
+## Pagoda
+
+The pagoda design is a free-to-use design for a simple and inexpensive circular-polarized antenna by [Maarten Baert](https://www.maartenbaert.be/quadcopters/antennas/pagoda-antenna/). You can freely make it yourself, and if you want to sell it, you just have to credit him. It's a design that's been around for quite a while in the FPV community, and it's been continuously improved upon, and is still pretty popular today, if a little bit overshadowed by some of the other, more compact designs we'll get to later.
+
+Similar to patch antennas, pagoda antennas use PCBs as the main components. They (almost always) use 3 separate boards spaced precisely across a basic semi-rigid coax cable. The main element actually has multiple antennas on one PCB which all work together to produce the resultant omnidirectional radiation pattern and circular polarization.
+
+<GridBox cols={3}>
+
+<GLTFBox>
+<GLTFWrapper 
+	url="/uploads/three/antennas/pagoda_antenna.glb" 
+	scale={.33}
+	pan
+/>
+
+<div slot="content">Pagoda Antenna Model</div>
+
+</GLTFBox>
+
+![MenaceRC Raptor](/uploads/articles/antennas/menacerc_raptor.jpg)
+MenaceRC Raptor
+
+</GridBox>
+
+## Crosshair
+
+Crosshair antennas start to be a little more complex than just a PCB. They have two main parts - an active element which is usually a simple dipole and a large reflector. These two parts are separated by air instead of just FR4 board which leans itself to better efficiency. Most often made to be circular polarized (rarely linear though), and they offer a directional radiation pattern.
+
+<GridBox cols={3}>
+
+<GLTFBox>
+<GLTFWrapper 
+	url="/uploads/three/antennas/crosshair_antenna.glb" 
+	scale={.75}
+	pan
+/>
+</GLTFBox>
+
+![ProDrone Mi-Cross V2](/uploads/articles/antennas/prodrone_mi_cross_v2.jpg)
+ProDrone Mi-Cross V2
+
+![TrueRC X-Air MK II](/uploads/articles/antennas/truerc_x_air_mk_ii.jpeg)
+TrueRC X-Air MK II
+
+</GridBox>
+
+The active element does not have to be made out of regular wires like on the models shown above, it can be just a couple of traces on a PCB as well. 
