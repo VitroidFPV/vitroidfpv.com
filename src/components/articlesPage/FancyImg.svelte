@@ -83,6 +83,8 @@
 	</div>
 {/if}
 
-<button on:click={() => open = !open} class="rounded-md shadow-lg origin-left overflow-clip outline-0 ring-0">
-	<img {src} {alt} crossorigin="anonymous" />
-</button>
+<div class="w-full">
+	<button on:click={() => open = !open} class="fancy-img rounded-2xl shadow-lg origin-left overflow-clip outline-0 ring-0 w-fit 2xl:w-3/4">
+		<img {src} {alt} crossorigin="anonymous" class="" />
+	</button>
+</div>
