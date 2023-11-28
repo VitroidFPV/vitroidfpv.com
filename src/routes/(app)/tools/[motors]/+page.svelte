@@ -113,6 +113,7 @@
 				let volume = calculateVolume(motor);
 				let surface = calculateSurface(motor);
 				loadMotors.push({ size, volume, surface });
+				$motors = loadMotors;
 			}
 		});
 	}
