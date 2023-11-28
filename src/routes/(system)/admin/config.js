@@ -146,7 +146,7 @@ export let config = {
 		{
 			name: "radioList",
 			label: "Equipment - Radio",
-			folder: "modules/equipent/radioList/",
+			folder: "modules/equipment/radioList/",
 			create: true,
 			slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}",
 			sortable_fields: ["order", "title", "category", "color"],
@@ -223,7 +223,7 @@ export let config = {
 		{
 			name: "videoList",
 			label: "Equipment - Video",
-			folder: "modules/equipent/videoList/",
+			folder: "modules/equipment/videoList/",
 			create: true,
 			slug: "{{order}}-{{day}}-{{month}}-{{year}}-{{category}}-{{title}}",
 			sortable_fields: ["order", "title", "category", "color"],

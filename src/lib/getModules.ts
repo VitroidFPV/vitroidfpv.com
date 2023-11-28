@@ -25,10 +25,10 @@ export function getModules(path: string) {
 			break;
 
 		case "/equipment/radio":
-			modules = import.meta.glob("/modules/equipent/radioList/*.md", {eager: true});
+			modules = import.meta.glob("/modules/equipment/radioList/*.md", {eager: true});
 			break;
 		case "/equipment/video":
-			modules = import.meta.glob("/modules/equipent/videoList/*.md", {eager: true});
+			modules = import.meta.glob("/modules/equipment/videoList/*.md", {eager: true});
 			break;
 	}
 
@@ -62,8 +62,8 @@ export function getModules(path: string) {
 		}
 	}
 
-	let videoModules = import.meta.glob("/modules/equipent/videoList/*.md", {eager: true});
-	let radioModules = import.meta.glob("/modules/equipent/radioList/*.md", {eager: true});
+	let videoModules = import.meta.glob("/modules/equipment/videoList/*.md", {eager: true});
+	let radioModules = import.meta.glob("/modules/equipment/radioList/*.md", {eager: true});
 	let linkedTitles: Array<string> = [];
 	for (const cat in groupedModules) {
 		for (const group in groupedModules[cat]) {

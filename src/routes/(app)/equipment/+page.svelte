@@ -7,7 +7,7 @@
 
 	import type { Module } from "$lib/types/module";
 
-	const modules = import.meta.glob("/modules/equipent/*.md", {eager: true});
+	const modules = import.meta.glob("/modules/equipment/*.md", {eager: true});
 	// console.log(modules)
 	let grouped_modules: {[category: string]: Array<Module>} = {};
 
@@ -19,6 +19,8 @@
 			grouped_modules[cat] = [modules[k] as Module];
 		}
 	}
+
+	console.log(grouped_modules)
 
 	let prefix = "VitroidFPV";
 	let titleRaw = "Equipment";
