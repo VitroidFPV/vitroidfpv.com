@@ -21,6 +21,11 @@ date: 2023-09-14T18:40:51.531Z
 
 	let show3d = true;
 	let userRotation = 1
+
+	function pipe() {
+		let pipe = new Audio("/uploads/articles/antennas/pipe.mp3")
+		pipe.play()
+	}
 </script>
 
 There's a ton of different aspects of antennas, and RF science in general. You could spend years on it and still not have a full grasp. Luckily for FPV purposes we can simplify some things a bunch and still get a good understanding of what's going on.
@@ -368,6 +373,51 @@ As the frequency of the signal goes down, the need for circular-polarized antenn
 # Construction
 
 There are a lot of ways you can make an antenna. From a bit of straight wire cut to length to precisely tuned patches and multiple turned helicals. The construction will not only affect the polarization, but also the directionality and performance.
+
+## Whip
+Can't get any simpler than a whip antenna when it comes to construction - the majority of whip antennas are just a straight piece of unshielded wire with its length matched to a fraction or whole of the wavelength of the signal it's supposed to transmit/receive. They're linearly polarized, and *roughly* omnidirectional - no ground plane makes the earth reflect some of the signal, so it's a little biased, not like the neat donut shapes shown above.
+
+You'll often see them on whoop AIOs with a small bit of copper enameled wire sticking out of the board. Some older receivers (FrSky) also use them as stock antennas for their receivers.
+
+<GridBox cols={3}>
+
+<GLTFBox>
+<GLTFWrapper 
+	url="/uploads/three/antennas/whip.glb" 
+/>
+<button on:click={pipe} slot="content">absolutely necessary 3d model</button>
+</GLTFBox>
+
+![Crazy F405 AIO With Whip Antenna](/uploads/articles/antennas/crazy_f405_whip.jpg)
+Enameled Copper Whip on a Crazy F405 AIO 
+
+![FrSky XM+ Whip Antenna](/uploads/articles/antennas/frsky_whip_antenna.webp)
+Legacy FrSky XM+ Whip Antenna
+
+</GridBox>
+
+## Dipole
+
+As the name would suggest, they consist of two conductors of the same length - one being the active element, the other acting as the ground element, usually connected to the coax shielding. They tend to perform better than whip antennas, are linearly polarized, and omnidirectional.
+
+You see T-style dipoles very often on ELRS hardware nowadays. Pretty much every ELRS receiver you can buy has a dipole antenna, and most radios have some variation of a dipole as well. There's also a second common design, a sleeve dipole - those are most often the "default" antennas included with a lot of VTXs.
+
+<GridBox cols={3}>
+<GLTFBox>
+<GLTFWrapper
+	url="/uploads/three/antennas/dipole.glb"
+	pan
+/>
+<div slot="content">Dipole Antenna Model</div>
+</GLTFBox>
+
+![HappyModel Dipole](/uploads/articles/antennas/happymodel_dipole.webp)
+HappyModel ELRS Dipole Antenna
+
+![VTX Sleeve Dipole](/uploads/articles/antennas/vtx_sleeve_dipole.webp)
+Sleeve Dipole Antenna
+
+</GridBox>
 
 ## Patch
 
