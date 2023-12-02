@@ -132,6 +132,7 @@
 		${removeMarkdown(data.frontmatter.content).slice(0, 200) + "..."}
 		`;
 	let category = data.frontmatter.category;
+	let authors = data.frontmatter.author.split(", ");
 
 	// console.log(description)
 
@@ -172,11 +173,22 @@
 						</span> Article
 					</div>
 					<div>
-						By <span
+						By 
+						<!-- <span
 							class="md:text-3xl text-{categoryColor}"
 						>
 							{data.frontmatter.author}
-						</span>
+						</span> -->
+						{#each authors as author}
+							<span
+								class="md:text-3xl text-{categoryColor}"
+							>
+								{author}
+							</span>
+							{#if author != authors[authors.length - 1]}
+								{" and "}
+							{/if}
+						{/each}
 					</div>
 				</div>
 				<div class="bg-neutral-400/5 gap-4 flex flex-col justify-center rounded-2xl outline outline-2 outline-neutral-500/10 shadow-lg md:p-8 p-4 md:text-xl text-lg">
