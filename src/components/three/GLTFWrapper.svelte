@@ -31,16 +31,16 @@
 
 <Environment path="/uploads/" files="brown_photostudio_01_1k.hdr" />
 
-<T.PerspectiveCamera
-  makeDefault
-  position={[2, 2, 5]}
-  fov={25}
+<T.OrthographicCamera
+	makeDefault
+	position={[3,3,3]}
+	zoom={150}
 >
 	<OrbitControls
 		enablePan={pan}
 		enableDamping
 	/>
-</T.PerspectiveCamera>
+</T.OrthographicCamera>
 
 <!-- <T.AmbientLight intensity={10}/> -->
 
