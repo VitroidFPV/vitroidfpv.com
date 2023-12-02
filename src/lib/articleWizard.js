@@ -69,7 +69,7 @@ date: ${formattedDate}
 Content goes here
 `;
 
-	const filename = `${category.toLowerCase()}-${title.toLowerCase().replace(/ /g, "-")}.md`;
+	const filename = `${category.toLowerCase()}-${title.toLowerCase().replace(/ /g, "-")}.svx`;
 	const filePath = `./modules/articles/${filename}`;
 
 	const directory = path.dirname(filePath);
