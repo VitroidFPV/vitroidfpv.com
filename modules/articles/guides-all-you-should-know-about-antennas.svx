@@ -1,11 +1,11 @@
 ---
 title: All you should know about antennas
 description: Well, at least for most FPV uses
-visible: false
+visible: true
 category: Guides
-author: VitroidFPV
+author: VitroidFPV, Senk0
 img: /uploads/placeholder.png
-date: 2023-09-14T18:40:51.531Z
+date: 2023-12-1T18:40:51.531Z
 ---
 
 <script lang="ts">
@@ -50,7 +50,7 @@ Show 3D models (recommended)
 
 <Admonition type="tip" title="Disclosure">
 
-* I am not an RF engineer, I don't study in the field. However most of these concepts are pretty well known and documented, and I've worked with an actual RF engineer to make sure that the info here is more or less correct
+* I am not an RF engineer, I don't study in the field. However most of these concepts are pretty well known and documented, and I've worked with actual RF engineers to make sure that the info here is more or less correct
 * If you know more about this than me and find any mistakes, please let me know so I can fix them! I already learned quite a lot while writing this, and I'm sure there's still more
 
 </Admonition>
@@ -121,9 +121,9 @@ Quick SMA/RP-SMA Connector Summary Diagram
 
 ## MMCX
 
-	MMCX stands for Micro-Miniature Coaxial. It's most often used on regular-sized VTXs and is often adapted to SMA/RP-SMA for easier cable routing and a more secure mounting of the SMA connector.
+MMCX stands for Micro-Miniature Coaxial. It's most often used on regular-sized VTXs and is often adapted to SMA/RP-SMA for easier cable routing and a more secure mounting of the SMA connector.
 
-	MMCX male and female connectors mate by plugging into each other. This connection may be pretty tight and may require some force to connect/separate. There will be a noticeable click when the two connectors are fully mated.
+MMCX male and female connectors mate by plugging into each other. This connection may be pretty tight and may require some force to connect/separate. There will be a noticeable click when the two connectors are fully mated.
 
 {#if show3d}
 <GridBox cols={4} classes="">
@@ -224,23 +224,23 @@ Going higer in gain, the antenna will be a bit more focused in the horizontal pl
 <GridBox cols={3}>
 
 <GLTFBox>
-<GLTFWrapper url="/uploads/three/antennas/radiation/circle_h.glb" scale={1.75}/>
-<GLTFWrapper url="/uploads/three/antennas/radiation/pattern_h.glb" scale={1.75}/>
+<GLTFWrapper url="/uploads/three/antennas/radiation/circle_h.glb" scale={1.75} pan/>
+<GLTFWrapper url="/uploads/three/antennas/radiation/pattern_h.glb" scale={1.75} pan/>
 <div slot="content">Horizontal Projection</div>
 </GLTFBox>
 
 <GLTFBox>
-<GLTFWrapper url="/uploads/three/antennas/radiation/circle_h.glb" scale={1.75} rotation={[Math.PI / 2, 0, 0]}/>
-<GLTFWrapper url="/uploads/three/antennas/radiation/pattern_v.glb" scale={1.75}/>
+<GLTFWrapper url="/uploads/three/antennas/radiation/circle_h.glb" scale={1.75} rotation={[Math.PI / 2, 0, 0]} pan/>
+<GLTFWrapper url="/uploads/three/antennas/radiation/pattern_v.glb" scale={1.75} pan/>
 <div slot="content">Vertical Projection</div>
 </GLTFBox>
 
 <GLTFBox>
-<GLTFWrapper url="/uploads/three/antennas/radiation/axes.glb" scale={1.75}/>
-<GLTFWrapper url="/uploads/three/antennas/radiation/pattern_3d.glb" scale={1.75}/>
-<GLTFWrapper url="/uploads/three/antennas/radiation/pattern_wire.glb" scale={1.75}/>
-<GLTFWrapper url="/uploads/three/antennas/radiation/pattern_h.glb" scale={1.75}/>
-<GLTFWrapper url="/uploads/three/antennas/radiation/pattern_v.glb" scale={1.75}/>
+<GLTFWrapper url="/uploads/three/antennas/radiation/axes.glb" scale={1.75} pan/>
+<GLTFWrapper url="/uploads/three/antennas/radiation/pattern_3d.glb" scale={1.75} pan/>
+<GLTFWrapper url="/uploads/three/antennas/radiation/pattern_wire.glb" scale={1.75} pan/>
+<GLTFWrapper url="/uploads/three/antennas/radiation/pattern_h.glb" scale={1.75} pan/>
+<GLTFWrapper url="/uploads/three/antennas/radiation/pattern_v.glb" scale={1.75} pan/>
 <div slot="content">3D Result</div>
 </GLTFBox>
 
@@ -269,23 +269,23 @@ Of course there are no perfectly directional antennas either, so they will have 
 <GridBox cols={3} classes="">
 
 <GLTFBox>
-<GLTFWrapper url="/uploads/three/antennas/radiation/circle_h.glb" scale={1.75}/>
-<GLTFWrapper url="/uploads/three/antennas/radiation/directional_pattern_h.glb" scale={1.75}/>
+<GLTFWrapper url="/uploads/three/antennas/radiation/circle_h.glb" scale={1.75} pan/>
+<GLTFWrapper url="/uploads/three/antennas/radiation/directional_pattern_h.glb" scale={1.75} pan/>
 <div slot="content">Horizontal Projection</div>
 </GLTFBox>
 
 <GLTFBox>
-<GLTFWrapper url="/uploads/three/antennas/radiation/circle_h.glb" scale={1.75} rotation={[Math.PI / 2, 0, 0]}/>
-<GLTFWrapper url="/uploads/three/antennas/radiation/directional_pattern_h.glb" scale={1.75} rotation={[Math.PI / 2, 0, 0]}/>
+<GLTFWrapper url="/uploads/three/antennas/radiation/circle_h.glb" scale={1.75} rotation={[Math.PI / 2, 0, 0]} pan/>
+<GLTFWrapper url="/uploads/three/antennas/radiation/directional_pattern_h.glb" scale={1.75} rotation={[Math.PI / 2, 0, 0]} pan/>
 <div slot="content">Vertical Projection</div>
 </GLTFBox>
 
 <GLTFBox>
-<GLTFWrapper url="/uploads/three/antennas/radiation/axes.glb" scale={1.75}/>
-<GLTFWrapper url="/uploads/three/antennas/radiation/directional_pattern_3d.glb" scale={1.75}/>
-<GLTFWrapper url="/uploads/three/antennas/radiation/directional_pattern_wire.glb" scale={1.75}/>
-<GLTFWrapper url="/uploads/three/antennas/radiation/directional_pattern_h.glb" scale={1.75}/>
-<GLTFWrapper url="/uploads/three/antennas/radiation/directional_pattern_v.glb" scale={1.75}/>
+<GLTFWrapper url="/uploads/three/antennas/radiation/axes.glb" scale={1.75} pan/>
+<GLTFWrapper url="/uploads/three/antennas/radiation/directional_pattern_3d.glb" scale={1.75} pan/>
+<GLTFWrapper url="/uploads/three/antennas/radiation/directional_pattern_wire.glb" scale={1.75} pan/>
+<GLTFWrapper url="/uploads/three/antennas/radiation/directional_pattern_h.glb" scale={1.75} pan/>
+<GLTFWrapper url="/uploads/three/antennas/radiation/directional_pattern_v.glb" scale={1.75} pan/>
 <div slot="content">3D Result</div>
 </GLTFBox>
 
@@ -318,16 +318,16 @@ The two wave components of a linear antenna are perpendicular to each other, and
 
 {#if show3d}
 
-<GridBox cols={2}>
+<GridBox cols={3}>
+
 <GLTFBox>
 <GLTFWrapper 
 	url="/uploads/three/antennas/linear.glb" 
-	scale={0.33} 
-	rotation={[0, Math.PI / 0.75, 0]}
-	position={[-0.5, 0, 0]}
+	scale={0.4}
 />
 <div slot="content">Linear</div>
 </GLTFBox>
+
 </GridBox>
 
 {/if}
@@ -342,14 +342,12 @@ The advance or delay of the components tells us whether the antenna is RHCP or L
 
 {#if show3d}
 
-<GridBox cols={2}>
+<GridBox cols={3}>
 
 <GLTFBox>
 <GLTFWrapper 
 	url="/uploads/three/antennas/rhcp.glb" 
-	scale={0.33} 
-	rotation={[0, Math.PI / 0.75, 0]}
-	position={[-0.5, 0, 0]}
+	scale={0.4}
 />
 <div slot="content">RHCP</div>
 </GLTFBox>
@@ -357,9 +355,7 @@ The advance or delay of the components tells us whether the antenna is RHCP or L
 <GLTFBox>
 <GLTFWrapper 
 	url="/uploads/three/antennas/lhcp.glb" 
-	scale={0.33} 
-	rotation={[0, Math.PI / 0.75, 0]}
-	position={[-0.5, 0, 0]}
+	scale={0.4}
 />
 <div slot="content">LHCP</div>
 </GLTFBox>
@@ -369,137 +365,3 @@ The advance or delay of the components tells us whether the antenna is RHCP or L
 {/if}
 
 As the frequency of the signal goes down, the need for circular-polarized antennas becomes less and less important. That's why you rarely see them on 2.4GHz radios for example. Or basically anything that's below 5.8GHz.
-
-# Construction
-
-There are a lot of ways you can make an antenna. From a bit of straight wire cut to length to precisely tuned patches and multiple turned helicals. The construction will not only affect the polarization, but also the directionality and performance.
-
-## Whip
-Can't get any simpler than a whip antenna when it comes to construction - the majority of whip antennas are just a straight piece of unshielded wire with its length matched to a fraction or whole of the wavelength of the signal it's supposed to transmit/receive. They're linearly polarized, and *roughly* omnidirectional - no ground plane makes the earth reflect some of the signal, so it's a little biased, not like the neat donut shapes shown above.
-
-You'll often see them on whoop AIOs with a small bit of copper enameled wire sticking out of the board. Some older receivers (FrSky) also use them as stock antennas for their receivers.
-
-<GridBox cols={3}>
-
-<GLTFBox>
-<GLTFWrapper 
-	url="/uploads/three/antennas/whip.glb" 
-/>
-<button on:click={pipe} slot="content">absolutely necessary 3d model</button>
-</GLTFBox>
-
-![Crazy F405 AIO With Whip Antenna](/uploads/articles/antennas/crazy_f405_whip.jpg)
-Enameled Copper Whip on a Crazy F405 AIO 
-
-![FrSky XM+ Whip Antenna](/uploads/articles/antennas/frsky_whip_antenna.webp)
-Legacy FrSky XM+ Whip Antenna
-
-</GridBox>
-
-## Dipole
-
-As the name would suggest, they consist of two conductors of the same length - one being the active element, the other acting as the ground element, usually connected to the coax shielding. They tend to perform better than whip antennas, are linearly polarized, and omnidirectional.
-
-You see T-style dipoles very often on ELRS hardware nowadays. Pretty much every ELRS receiver you can buy has a dipole antenna, and most radios have some variation of a dipole as well. There's also a second common design, a sleeve dipole - those are most often the "default" antennas included with a lot of VTXs.
-
-<GridBox cols={3}>
-<GLTFBox>
-<GLTFWrapper
-	url="/uploads/three/antennas/dipole.glb"
-	pan
-/>
-<div slot="content">Dipole Antenna Model</div>
-</GLTFBox>
-
-![HappyModel Dipole](/uploads/articles/antennas/happymodel_dipole.webp)
-HappyModel ELRS Dipole Antenna
-
-![VTX Sleeve Dipole](/uploads/articles/antennas/vtx_sleeve_dipole.webp)
-Sleeve Dipole Antenna
-
-</GridBox>
-
-## Patch
-
-<Admonition type="note" title="">
-
-A pretty common misuse of the term "patch antenna" is using it just as a blanket statement to cover all directional antennas. It's true that most patch-design antennas are designed to be directional, but not all patch antennas are, they can be designed to be omnidirectional just as well!
-
-</Admonition>
-
-A patch antenna is constructed by layering a patch of conductive material to act as the active element, an insulator, and a ground plane. This kind of design easily leads itself to be manufactured as a regular PCB (copper layers for the active element and ground plane, FR4 as the insulator). They can be made for all the polarizations - linear, RHCP, and LHCP as well.
-
-There are some variations, such as two PCBs being stacked on top of each other, one being the whole ground plane, the other acting as the active element. 
-
-You'll see patch antennas mostly on video receivers, but also integrated on GPS modules as thicker bits of ceramic and metal.
-
-<GridBox cols={3}>
-
-<GLTFBox>
-<GLTFWrapper 
-	url="/uploads/three/antennas/patch.glb" 
-	scale={.8}
-/>
-<div slot="content">Basic Principle</div>
-</GLTFBox>
-
-<GLTFBox>
-<GLTFWrapper 
-	url="/uploads/three/antennas/patch_antenna.glb" 
-	scale={.45}
-/>
-<div slot="content">Patch Antenna Model</div>
-</GLTFBox>
-
-![TrueRC Margherita Antenna](https://www.truerc.ca/wp-content/uploads/Antenna4.jpg)
-TrueRC Margherita Antenna
-
-</GridBox>
-
-## Pagoda
-
-The pagoda design is a free-to-use design for a simple and inexpensive circular-polarized antenna by [Maarten Baert](https://www.maartenbaert.be/quadcopters/antennas/pagoda-antenna/). You can freely make it yourself, and if you want to sell it, you just have to credit him. It's a design that's been around for quite a while in the FPV community, and it's been continuously improved upon, and is still pretty popular today, if a little bit overshadowed by some of the other, more compact designs we'll get to later.
-
-Similar to patch antennas, pagoda antennas use PCBs as the main components. They (almost always) use 3 separate boards spaced precisely across a basic semi-rigid coax cable. The main element actually has multiple antennas on one PCB which all work together to produce the resultant omnidirectional radiation pattern and circular polarization.
-
-<GridBox cols={3}>
-
-<GLTFBox>
-<GLTFWrapper 
-	url="/uploads/three/antennas/pagoda_antenna.glb" 
-	scale={.33}
-	pan
-/>
-
-<div slot="content">Pagoda Antenna Model</div>
-
-</GLTFBox>
-
-![MenaceRC Raptor](/uploads/articles/antennas/menacerc_raptor.jpg)
-MenaceRC Raptor
-
-</GridBox>
-
-## Crosshair
-
-Crosshair antennas start to be a little more complex than just a PCB. They have two main parts - an active element which is usually a simple dipole and a large reflector. These two parts are separated by air instead of just FR4 board which leans itself to better efficiency. Most often made to be circular polarized (rarely linear though), and they offer a directional radiation pattern.
-
-<GridBox cols={3}>
-
-<GLTFBox>
-<GLTFWrapper 
-	url="/uploads/three/antennas/crosshair_antenna.glb" 
-	scale={.75}
-	pan
-/>
-</GLTFBox>
-
-![ProDrone Mi-Cross V2](/uploads/articles/antennas/prodrone_mi_cross_v2.jpg)
-ProDrone Mi-Cross V2
-
-![TrueRC X-Air MK II](/uploads/articles/antennas/truerc_x_air_mk_ii.jpeg)
-TrueRC X-Air MK II
-
-</GridBox>
-
-The active element does not have to be made out of regular wires like on the models shown above, it can be just a couple of traces on a PCB as well. 
