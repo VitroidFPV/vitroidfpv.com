@@ -16,6 +16,35 @@
 		font-weight: 400;
 		font-style: normal;
 	}
+
+	@font-face {
+		font-family: "tgheros";
+		src: url("/uploads/fonts/texgyreheros-regular.otf") format("opentype");
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: "tgheros";
+		src: url("/uploads/fonts/texgyreheros-bold.otf") format("opentype");
+		font-weight: 700;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: "tgheros";
+		src: url("/uploads/fonts/texgyreheros-italic.otf") format("opentype");
+		font-weight: 400;
+		font-style: italic;
+	}
+
+	@font-face {
+		font-family: "tgheros";
+		src: url("/uploads/fonts/texgyreheros-bolditalic.otf") format("opentype");
+		font-weight: 700;
+		font-style: italic;
+	}
+
 	html {
 		font-family: Reem Kufi, Reem Kufi, sans-serif;
 		scroll-behavior: smooth;
@@ -397,4 +426,8 @@
 
 	.md .grid .fancy-img {@apply !w-full}
 	.md video {@apply w-full h-full rounded-2xl shadow-lg}
+	
+	.md .katex * {
+		@apply !font-[tgheros]
+	}
 }
