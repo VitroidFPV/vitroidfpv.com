@@ -1,7 +1,7 @@
 ---
 title: All you should know about antennas
 description: Well, at least for most FPV uses
-visible: true
+visible: false
 category: Guides
 author: VitroidFPV, Senk0
 img: /uploads/placeholder.png
