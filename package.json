@@ -9,7 +9,8 @@
     "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
     "format": "prettier --write --plugin-search-dir=. .",
     "review": "vite build && vite preview",
-    "article": "node ./src/lib/articleWizard.js"
+    "article": "node ./src/lib/articleWizard.js",
+	"update": "node ./src/lib/updateWizard.js"
   },
   "devDependencies": {
     "@rgossiaux/svelte-headlessui": "^2.0.0",
