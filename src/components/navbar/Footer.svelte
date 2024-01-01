@@ -255,7 +255,7 @@
 			</div>
 			<hr class="my-6 border-neutral-500/30 lg:my-8" />
 			<div class="flex md:flex-row flex-col md:items-start items-center justify-between w-full">
-				<span class="text-sm sm:text-center text-neutral-400">© 2023 <a href="https://www.vitroidfpv.com/" class="hover:underline">VitroidFPV</a>.
+				<span class="text-sm sm:text-center text-neutral-400">© {(new Date()).getFullYear()} <a href="https://www.vitroidfpv.com/" class="hover:underline">VitroidFPV</a>.
 				</span>
 				<div class="flex space-x-6 w-fit">
 					<a href="https://www.instagram.com/vitroid.fpv/" class="text-neutral-500/70 hover:text-highlight dark:hover:text-highlight-dark duration-300">
