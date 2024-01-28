@@ -291,16 +291,16 @@ info: ${info}
 							<Chip classes="text-sm" color={color} tooltip={infoObject.tooltip}>{infoObject.text}</Chip>
 						{/each}
 					</div>
-					{#if editMode}
-						<div 
-							bind:innerText={info}
-							transition:slide
-							spellcheck="false"
-							contenteditable="true"
-							class="text-base p-2 text-main mr-4 w-full h-fit rounded-md bg-neutral-500/10 break-all
-							focus-visible:outline-none focus-visible:outline-[3px] focus-visible:outline-neutral-400/20 mb-4"
-						></div>
-					{/if}
+				{/if}
+				{#if editMode}
+					<div 
+						bind:innerText={info}
+						transition:slide
+						spellcheck="false"
+						contenteditable="true"
+						class="text-base p-2 text-main mr-4 w-full h-fit rounded-md bg-neutral-500/10 break-all
+						focus-visible:outline-none focus-visible:outline-[3px] focus-visible:outline-neutral-400/20 mb-4"
+					></div>
 				{/if}
 				{#if text !== undefined}
 					{#if !editMode}
