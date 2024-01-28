@@ -1,5 +1,7 @@
 <script lang="ts">
 	import BuildProduct from "$components/buildsPage/buildProduct.svelte";
+	import DevBuildProduct from "$components/buildsPage/DevBuildProduct.svelte";
+	import { dev } from "$app/environment";
 	import type { Module } from "$lib/types/module";
 	import { marked } from "marked";
 	marked.setOptions({
@@ -60,7 +62,7 @@
 			{#each Object.entries(contents) as [group, info]}
 				{#if group != "Info"}
 					<div class="group {group} my-4 w-full h-fit">
-						{#if group != "undefined"}
+						{#if group != "undefined" && group != "null"}
 							<div
 								class="text-xl tracking-tight w-full px-1 {group} mb-2 border-b-[1px] border-gray-700 text-main-50 dark:text-contrast-500"
 								id={group}>
@@ -72,23 +74,46 @@
 						>
 							{#each info as product}
 								{#if product.metadata.visible != false}
-									<BuildProduct
-										color={product.metadata.color}
-										title={product.metadata.title}
-										price={product.metadata.price}
-										point1={product.metadata.point1}
-										point2={product.metadata.point2}
-										point3={product.metadata.point3}
-										point4={product.metadata.point4}
-										point5={product.metadata.point5}
-										info={product.metadata.info}
-										text={product.metadata.text}
-										href={product.metadata.link}
-										img={product.metadata.img}
-										category={cat}
-									/>
+									{#if !dev}
+										<BuildProduct
+											color={product.metadata.color}
+											title={product.metadata.title}
+											price={product.metadata.price}
+											point1={product.metadata.point1}
+											point2={product.metadata.point2}
+											point3={product.metadata.point3}
+											point4={product.metadata.point4}
+											point5={product.metadata.point5}
+											info={product.metadata.info}
+											text={product.metadata.text}
+											href={product.metadata.link}
+											img={product.metadata.img}
+											category={cat}
+										/>
+									{:else}
+										<DevBuildProduct
+											color={product.metadata.color}
+											title={product.metadata.title}
+											price={product.metadata.price}
+											point1={product.metadata.point1}
+											point2={product.metadata.point2}
+											point3={product.metadata.point3}
+											point4={product.metadata.point4}
+											point5={product.metadata.point5}
+											info={product.metadata.info}
+											text={product.metadata.text}
+											href={product.metadata.link}
+											img={product.metadata.img}
+											category={cat}
+											moduleUrl={product.metadata.moduleUrl}
+											order={product.metadata.order}
+										/>
+									{/if}
 								{/if}
 							{/each}
+							{#if dev}
+								<DevBuildProduct category={cat} {group} />
+							{/if}
 						</div>
 					</div>
 				{:else}

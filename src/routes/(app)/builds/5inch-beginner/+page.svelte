@@ -10,9 +10,12 @@
 	import FeedbackForm from "$components/FeedbackForm.svelte";
 	import { onMount } from "svelte";
 
-	import { getModules } from "$lib/getModules";
-	let modules = getModules("/builds/5inch-beginner")
+	import { formatModules } from "$lib/formatModules";
+	import type { Module } from "$lib/types/module";
 
+	let importModules = import.meta.glob("/modules/builds/5inch-beginner/*.md", {eager: true});
+	let modules = formatModules(importModules as { [path: string]: Module; });
+	
 	import { fly, fade } from "svelte/transition";
 	import tinycolor from "tinycolor2";
 

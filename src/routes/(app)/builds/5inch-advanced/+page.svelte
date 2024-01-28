@@ -8,8 +8,11 @@
 	import Link from "$components/Link.svelte";
 	import PriceCompBox from "$components/buildsPage/PriceCompBox.svelte";
 
-	import { getModules } from "$lib/getModules";
-	let modules = getModules("/builds/5inch-advanced")
+	import { formatModules } from "$lib/formatModules";
+	import type { Module } from "$lib/types/module";
+
+	let importModules = import.meta.glob("/modules/builds/5inch-advanced/*.md", {eager: true});
+	let modules = formatModules(importModules as { [path: string]: Module; });
 
 	// import { priceSum, part } from "$components/buildsPage/stores.js"
 	import { slide } from "svelte/transition";

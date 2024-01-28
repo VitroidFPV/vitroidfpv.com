@@ -27,5 +27,6 @@ export interface Module {
 		recommended: string
 		linked: string
 		short: boolean
+		moduleUrl: string
 	}
 }

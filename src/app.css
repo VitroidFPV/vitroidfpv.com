@@ -431,3 +431,7 @@
 		@apply !font-[tgheros]
 	}
 }
+
+[contenteditable="true"]:focus {
+    @apply outline-[none]
+}

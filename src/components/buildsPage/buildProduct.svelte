@@ -3,13 +3,9 @@
 	import Link from "$components/Link.svelte";
 	import Chip from "$components/Chip.svelte";
 	import IntersectionObserver from "svelte-intersection-observer";
-	import { clickOutside } from '$lib/clickOut.js';
-	import { fade, fly } from "svelte/transition";
-	import { parts } from "$lib/stores/buildsStore";
-	import type { Module } from "$lib/types/module";
 	import { addPart } from "$lib/addPart";
 	import { page } from "$app/stores";
-	import { spring } from "svelte/motion";
+	import { spring } from "svelte/motion"
 	import { Icon } from "@steeze-ui/svelte-icon";
 	import { Photo, Plus, } from "@steeze-ui/heroicons";
 	import ImgPopout from "$components/ImgPopout.svelte";
@@ -114,7 +110,7 @@
 		
 		{#each {length: 3} as _, i}
 			<div 
-				class="absolute dark:opacity-40 opacity-80 pointer-events-none z-10 !scale-75 blur-3xl saturate-150"
+				class="absolute dark:opacity-40 opacity-80 pointer-events-none z-10 !scale-75 saturate-150"
 				style={`top: ${(Math.random() * 50) - 70}%; left: ${(Math.random() * 100) - 50}%; transform: translate(-50%, -50%)`}
 			>
 				<svg width="443" height="470" viewBox="0 0 443 470" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -128,7 +124,7 @@
 						<filter id="filter0_f_102_3" x="0.915527" y="-30.4256" width="471.996" height="499.937" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 							<feFlood flood-opacity="0" result="BackgroundImageFix"/>
 							<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-							<feGaussianBlur stdDeviation="64" result="effect1_foregroundBlur_102_3"/>
+							<feGaussianBlur stdDeviation="128" result="effect1_foregroundBlur_102_3"/>
 						</filter>
 					</defs>
 				</svg>

@@ -1,17 +1,10 @@
 <script lang="ts">
-	import { fade, fly } from "svelte/transition";
-	import { clickOutside } from '$lib/clickOut.js';
-	import { spring } from "svelte/motion";
-	import { Icon } from "@steeze-ui/svelte-icon";
-	import { Plus } from "@steeze-ui/heroicons";
-
 	import ImgPopout from "$components/ImgPopout.svelte";
 
 	export let src: string;
 	export let alt: string;
 
 	let open = false;
-
 </script>
 
 <svelte:window on:keydown={(event) => {if (event.key === "Escape") {open = false}}}/>

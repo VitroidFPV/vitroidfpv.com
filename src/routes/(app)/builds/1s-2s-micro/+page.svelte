@@ -6,8 +6,11 @@
 	import Paragraph from "$components/Paragraph.svelte";
 	import PriceCompBox from "$components/buildsPage/PriceCompBox.svelte";
 
-	import { getModules } from "$lib/getModules";
-	let modules = getModules("/builds/1s-2s-micro")
+	import { formatModules } from "$lib/formatModules";
+	import type { Module } from "$lib/types/module";
+
+	let importModules = import.meta.glob("/modules/builds/1s-2s-micro/*.md", {eager: true});
+	let modules = formatModules(importModules as { [path: string]: Module; });
 
 	import tinycolor from "tinycolor2";
 

@@ -7,11 +7,11 @@
 	import Rating from "$components/Rating.svelte";
 	import Link from "$components/Link.svelte";
 
-	import { getModules } from "$lib/getModules";
+	import { formatModules } from "$lib/formatModules";
+	import type { Module } from "$lib/types/module";
 
-	// console.log(getModules("5inch-race"))
-	let modules = getModules("/builds/3s-4s-micro")
-	// console.log(modules)
+	let importModules = import.meta.glob("/modules/builds/3s-4s-micro/*.md", {eager: true});
+	let modules = formatModules(importModules as { [path: string]: Module; });
 
 	function parsePrice(info) {
 		// parseFloat(info.replace(/[^\d.]/g, ''));
