@@ -1,29 +1,8 @@
-<!-- <script>
-	import { page } from '$app/stores'
+<script lang="ts">
+	import posthog from "posthog-js"
 
-	$: {
-	if (typeof gtag !== 'undefined') {
-		gtag('config', 'G-YYT7E26JTN', {
-		page_title: document.title,
-		page_path: $page.url.pathname,
-		})
-	}
-	}
+	posthog.init("phc_myPxqS3Z8eKJEP27mRg0w2F8k9VUEIRF60kJyqmM3gj", { api_host: "https://us.posthog.com" })
 </script>
-
-<svelte:head>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-YYT7E26JTN"></script>
-	<script>
-		window.dataLayer = window.dataLayer || []
-
-		function gtag() {
-			dataLayer.push(arguments)
-		}
-
-		gtag('js', new Date())
-		gtag('config', 'G-YYT7E26JTN')
-	</script>
-</svelte:head> -->
 
 <svelte:head>
 	<script defer data-domain="vitroidfpv.com" src="https://plausible.newtly.eu/js/script.js"></script>
