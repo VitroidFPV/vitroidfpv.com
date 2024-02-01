@@ -3,8 +3,8 @@ module.exports = {
 	content: ["./src/**/*.{html,js,svelte,tsx,md}"],
 	safelist: [
 		{
-			pattern: /(bg|text|stroke)-(highlight|highlight-dark|pink|red|orange|yellow|green|cyan|blue|violet)/,
-			variants: ["dark", "group-first-of-type/tooltip", "dark:group-first-of-type/tooltip", "peer-checked", "group-hover"]
+			pattern: /(bg|text|stroke|outline)-(highlight|highlight-dark|pink|red|orange|yellow|green|cyan|blue|violet)/,
+			variants: ["dark", "group-first-of-type/tooltip", "dark:group-first-of-type/tooltip", "peer-checked", "group-hover", "focus-within"]
 		}
 	],
 	theme: {

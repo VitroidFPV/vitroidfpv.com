@@ -7,6 +7,8 @@
 	import { page } from "$app/stores";
 	import ImgPopout from "$components/ImgPopout.svelte";
 	import { slide, fly } from "svelte/transition";
+	import { Icon } from "@steeze-ui/svelte-icon";
+	import { Photo, Eye, Plus, Link as ChainLink, PencilSquare, FolderArrowDown, ChevronUp } from "@steeze-ui/heroicons"
 
 	const url = $page.url.pathname;
 
@@ -75,6 +77,17 @@
 	}
 
 	let editMode = false;
+	let editPhoto = false;
+
+	$: if (!editMode) {
+		editPhoto = false;
+	}
+
+	let autoPath: string;
+	// /uploads/<current url>/<title>.png
+	// $: autoPath = `/uploads${url}/${title.toLowerCase().replace(`'`, ``).replace(/[^a-zA-Z0-9]/g, "-").replace("---", "-")}.png`;
+	// add category to path
+	$: autoPath = `/uploads${url}/${category.toLowerCase().replace(`'`, ``).replace(/[^a-zA-Z0-9]/g, "-").replace("---", "-")}-${title.toLowerCase().replace(`'`, ``).replace(/[^a-zA-Z0-9]/g, "-").replace("---", "-")}.png`;
 
 	let content = ""
 	
@@ -147,7 +160,7 @@ info: ${info}
 		<div class="product-box h-full flex flex-col not-intersecting z-10 relative" bind:this={element} class:intersecting={intersecting}>
 			<div class="{color} {category} relative h-fit w-full border-l-4 product pl-2 my-4 md:mr-8 duration-300">
 				<div class="flex w-full justify-between link text-{color} duration-300 items-start">
-					<div>
+					<div class="w-full pr-2">
 						{#if !editMode}
 							<Link {color} color1={color} size="2" {href} external={true}>{title}</Link>
 						{:else}
@@ -155,7 +168,7 @@ info: ${info}
 								type="text"
 								bind:value={title}
 								spellcheck="false"
-								class="text-2xl h-fit rounded-md bg-neutral-500/10 mb-2
+								class="text-2xl h-fit rounded-md bg-neutral-500/10 mb-2 w-full
 								focus-visible:outline-none focus-visible:outline-[3px] focus-visible:outline-offset-[3] focus-visible:outline-current"
 							>
 
@@ -165,20 +178,32 @@ info: ${info}
 						<button 
 							on:click={() => addPart(title, price, color, category, url, href)}
 							class="hover:stroke-current stroke-contrast-500 duration-300 mr-2">
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" class="w-7 h-7">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-							</svg>
+							<Icon class="w-7 h-7 stroke-[2.5] stroke-inherit" src={Plus} />
 						</button>
-						{#if img}
-							<button 
-								on:click={() => {open = true}} 
-								class=" hover:stroke-current stroke-contrast-500 duration-300 mr-2"
-							>
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" class="w-7 h-7">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-								</svg>
-							</button>
-						{/if}
+						<!-- {#if img} -->
+						<button
+							on:click={() => {if (!editMode) {open = true} else {editPhoto = !editPhoto}}}
+							class=" hover:stroke-current stroke-contrast-500 duration-300 mr-2"
+						>
+							<div class="transition-container">
+								{#if !editPhoto}
+									<div
+										in:fly={{y: -20, duration: 300}}
+										out:fly={{y: 20, duration: 300}}
+									>
+										<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={Photo} />
+									</div>
+								{:else}
+									<div
+										in:fly={{y: -20, duration: 300}}
+										out:fly={{y: 20, duration: 300}}
+									>
+										<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={ChainLink} />
+									</div>
+								{/if}
+							</div>
+						</button>
+						<!-- {/if} -->
 						<div class="transition-container" class:mr-2={canSave}>
 							{#if !editMode}
 								<button
@@ -187,9 +212,7 @@ info: ${info}
 									in:fly={{y: -16, duration: 300}}
 									out:fly={{y: 16, duration: 300}}
 								>
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" class="w-7 h-7">
-										<path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-									</svg>
+									<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={PencilSquare} />
 								</button>
 							{:else}
 								<button
@@ -198,10 +221,7 @@ info: ${info}
 									in:fly={{y: -16, duration: 300}}
 									out:fly={{y: 16, duration: 300}}
 								>
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" class="w-7 h-7">
-										<path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-										<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-									</svg>
+									<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={Eye} />
 								</button>
 							{/if}
 						</div>
@@ -215,9 +235,7 @@ info: ${info}
 									class=" hover:stroke-current stroke-contrast-500 duration-300"
 									transition:fly={{y: -16, duration: 300}}
 								>
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" class="w-7 h-7">
-										<path stroke-linecap="round" stroke-linejoin="round" d="M9 13.5l3 3m0 0l3-3m-3 3v-6m1.06-4.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
-									</svg>
+									<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={FolderArrowDown} />
 								</button>
 							{/if}
 						</div>
@@ -225,13 +243,29 @@ info: ${info}
 				</div>
 				{#if editMode}
 					<div class="flex pt-2" transition:slide>
-						<div
-							bind:innerText={href}
-							spellcheck="false"
-							contenteditable="true"
-							class="text-base p-2 text-main-100 dark:text-contrast-300 mr-4 w-full min-h-full rounded-md bg-neutral-500/10 break-all
-							focus-visible:outline-none focus-visible:outline-[3px] focus-visible:outline-neutral-400/20"
-						></div>
+						{#if editPhoto}
+							<div
+								bind:innerText={img}
+								on:dblclick={() => {img = autoPath}}
+								spellcheck="false"
+								contenteditable="true"
+								role="textbox"
+								tabindex="0"
+								class="text-base p-2 text-main-100 dark:text-contrast-300 mr-4 w-full min-h-full rounded-md bg-neutral-500/10 break-all
+								focus-visible:outline-none focus-visible:outline-[3px] focus-visible:outline-neutral-400/20"
+							>
+							<div class="float-right h-8 w-8 bg-red"></div>
+							</div>
+						{:else}
+							<div
+								bind:innerText={href}
+								spellcheck="false"
+								contenteditable="true"
+								class="text-base p-2 text-main-100 dark:text-contrast-300 mr-4 w-full min-h-full rounded-md bg-neutral-500/10 break-all
+								focus-visible:outline-none focus-visible:outline-[3px] focus-visible:outline-neutral-400/20"
+							></div>
+						{/if}
+
 						<div>
 							<form class="grid grid-cols-2 gap-4 mr-2 h-fit">
 								{#each colors as colorBox}
@@ -257,19 +291,15 @@ info: ${info}
 										min=1
 										max=69
 										class="bg-gray-500/10 w-full h-8 rounded-md p-2 text-base duration-300
-										outline-none focus-within:outline-highlight outline-[3px] no-spinner"
+										outline-none focus-within:outline-{color} outline-[2px] no-spinner"
 										/>
 									</div>
-									<div class="h-8 flex flex-col justify-between ml-1 text-neutral-400/40">
+									<div class="h-8 flex flex-col justify-between ml-1.5 text-neutral-400/40">
 										<button on:click={() => order++} class="hover:text-{color} duration-300">
-											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="4" stroke="currentColor" class="w-3 h-3">
-												<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-											</svg>
+											<Icon class="w-3 h-3 stroke-[4]" src={ChevronUp} />
 										</button>
 										<button on:click={() => order--} class="hover:text-{color} duration-300">
-											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="4" stroke="currentColor" class="w-3 h-3 rotate-180">
-												<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-											</svg>
+											<Icon class="w-3 h-3 stroke-[4] rotate-180 stroke-current" src={ChevronUp} />
 										</button>
 									</div>
 								</div>
