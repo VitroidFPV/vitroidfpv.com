@@ -112,6 +112,7 @@ export function formatModules(modules: {[path: string]: Module}) {
 	let categoryOrder = [
 		"Motors",
 		"Frames",
+		"Stacks",
 		"Flight Controllers",
 		"ESCs",
 		"Video Transmitters",
@@ -158,6 +159,7 @@ export function formatModules(modules: {[path: string]: Module}) {
 		}
 		sortedGroupedModules[cat] = sortedGroups;
 	}
+
 	// sort modules by their order metadata
 	for (const cat in sortedGroupedModules) {
 		for (const group in sortedGroupedModules[cat]) {
