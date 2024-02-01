@@ -158,6 +158,22 @@ export function formatModules(modules: {[path: string]: Module}) {
 		}
 		sortedGroupedModules[cat] = sortedGroups;
 	}
+	// sort modules by their order metadata
+	for (const cat in sortedGroupedModules) {
+		for (const group in sortedGroupedModules[cat]) {
+			sortedGroupedModules[cat][group].sort((a, b) => {
+				if (a.metadata.order && b.metadata.order) {
+					return a.metadata.order - b.metadata.order;
+				} else if (a.metadata.order) {
+					return -1;
+				} else if (b.metadata.order) {
+					return 1;
+				} else {
+					return 0;
+				}
+			});
+		}
+	}
 	
 	groupedModules = sortedGroupedModules;
 
