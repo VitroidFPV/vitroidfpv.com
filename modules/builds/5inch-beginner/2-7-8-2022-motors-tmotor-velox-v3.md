@@ -1,5 +1,5 @@
 ---
-color: green
+color: orange
 category: Motors
 group: undefined
 visible: true
