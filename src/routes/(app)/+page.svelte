@@ -8,6 +8,11 @@
 	import { Icon } from "@steeze-ui/svelte-icon";
 	import { QuestionMarkCircle, WrenchScrewdriver, Newspaper } from "@steeze-ui/heroicons";
 
+	import Radiomaster from "$components/gradientLogos/Radiomaster.svelte";
+	import Hq from "$components/gradientLogos/HQ.svelte";
+	import Axis from "$components/gradientLogos/Axis.svelte";
+	import Dogcom from "$components/gradientLogos/Dogcom.svelte";
+
 	let index = 0;
 
 	onMount(() => {
@@ -201,6 +206,16 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="xl:px-16 md:px-8 px-4 my-8">
+		<h2 class="text-6xl text-highlight dark:text-highlight-dark mb-4">Sponsors</h2>
+		<div class="grid grid-cols-2 xl:grid-cols-4 items-center justify-center max-w-[100vw] xl:gap-32 gap-16">
+			<Radiomaster />
+			<Hq />
+			<Axis />
+			<Dogcom />
+		</div>
+	</div>
 	
 	<!-- <div class="w-full flex items-center md:md:my-32 my-16 pl-8">
 		<h2 class="text-6xl">What Can You Find Here?</h2>
@@ -241,7 +256,7 @@
 			</div>
 		</div>
 
-		<div class="flex md:flex-row flex-col h-full md:p-8 p-4 w-full z-10 items-center">
+		<div class="flex md:flex-row flex-col h-full xl:px-16 md:px-8 px-4 w-full z-10 items-center">
 			<div class="flex flex-col md:w-1/2">
 				<div class="text-violet flex my-4 items-center">
 					<Icon src={QuestionMarkCircle} class="w-16 h-16 mr-2" />
@@ -306,7 +321,7 @@
 			</div>
 		</div>
 
-		<div class="flex md:flex-row flex-col h-full md:p-8 p-4 w-full z-10 items-center">
+		<div class="flex md:flex-row flex-col h-full xl:px-16 md:px-8 px-4 w-full z-10 items-center">
 			<div class="md:flex flex-col md:w-1/2 w-full aspect-video hidden">
 				<Canvas>
 					<HomeFc />
@@ -386,7 +401,7 @@
 			</div>
 		</div>
 
-		<div class="flex md:flex-row flex-col h-full md:p-8 p-4 w-full z-10 items-center">
+		<div class="flex md:flex-row flex-col h-full xl:px-16 md:px-8 px-4 w-full z-10 items-center">
 			<div class="flex flex-col md:w-1/2 z-10">
 				<div class="text-orange flex my-4 items-center">
 					<Icon src={WrenchScrewdriver} class="w-16 h-16 mr-2" />
@@ -453,7 +468,7 @@
 			</div>
 		</div>
 
-		<div class="flex md:flex-row flex-col h-full md:p-8 p-4 w-full z-10 items-center">
+		<div class="flex md:flex-row flex-col h-full xl:px-16 md:px-8 px-4 w-full z-10 items-center">
 			<div class="md:flex flex-col md:w-1/2 w-full aspect-video hidden">
 				<Canvas>
 					<HomeMonitor />
