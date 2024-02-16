@@ -3,7 +3,7 @@ title: Airbot Fenix SuperF4
 description: Buisness on the front, party in the back
 visible: true
 category: Reviews
-author: VitroidFPV
+author: Vitroid
 # img: /uploads/placeholder.png
 img: /uploads/articles/airbot_fenix_superf4/airbot_fenix_superf4_thumbnail.png
 date: 2023-09-29T16:33:41.238Z

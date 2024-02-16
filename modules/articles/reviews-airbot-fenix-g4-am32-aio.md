@@ -3,7 +3,7 @@ title: Airbot Fenix G4 AM32 AIO
 description: Anyone remember Airbot? Yeah
 visible: true
 category: Reviews
-author: VitroidFPV
+author: Vitroid
 img: /uploads/airbot_fenix_thumbnail.png
 date: 2023-09-1T22:40:37.705Z
 ---

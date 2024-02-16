@@ -3,7 +3,7 @@ title: Diatone F740 AIO MK4
 description: It's an AIO, but it's also a stack!
 visible: true
 category: News
-author: VitroidFPV
+author: Vitroid
 img: https://cdn.shopify.com/s/files/1/0027/2708/4144/products/740WIFI_1_0659288a-3e16-40a2-839b-3b3b8b89ac38_700x.jpg?v=1668576983
 date: 2022-11-17T14:14:24.309Z
 ---

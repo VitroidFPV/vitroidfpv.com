@@ -3,7 +3,7 @@ title: FlyFish Flash & Volador
 description: New FPV manufacturer on the block
 visible: true
 category: News
-author: VitroidFPV
+author: Vitroid
 img: /uploads/flyfish_stuff.png
 date: 2022-12-07T22:59:01.339Z
 ---

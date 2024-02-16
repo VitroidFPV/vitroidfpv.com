@@ -2,7 +2,7 @@
 title: Just a markdown test
 description: yeah
 category: News
-author: VitroidFPV
+author: Vitroid
 img: /uploads/y_tho_meme.jpg
 date: 2022-11-07T21:02:10.497Z
 visible: false

@@ -3,7 +3,7 @@ title: FPV Dictionary
 description: Learn all the terms and abbreviations in FPV!
 visible: true
 category: Guides
-author: VitroidFPV
+author: Vitroid
 img: /uploads/FPV_Dictionary_Thumbnail.png
 date: 2023-07-24T17:32:52.992Z
 ---

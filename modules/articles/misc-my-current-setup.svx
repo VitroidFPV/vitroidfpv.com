@@ -3,7 +3,7 @@ title: My current setup
 description: There's lore in here
 visible: true
 category: Misc
-author: VitroidFPV
+author: Vitroid
 img: /uploads/articles/current_setup/roma.jpg
 date: 2023-10-24T08:29:36.365Z
 ---

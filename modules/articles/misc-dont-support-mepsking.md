@@ -3,7 +3,7 @@ title: Don't Support MEPSKING
 description: And how not to run a new company
 visible: true
 category: Misc
-author: VitroidFPV
+author: Vitroid
 img: /uploads/meps_thumbnail.jpg
 date: 2023-06-09T19:56:10.875Z
 ---

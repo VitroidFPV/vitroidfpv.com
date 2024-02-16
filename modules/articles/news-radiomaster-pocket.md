@@ -3,7 +3,7 @@ title: RadioMaster Pocket
 description: No reason to buy any other cheap radio now
 visible: true
 category: News
-author: VitroidFPV
+author: Vitroid
 img: /uploads/radiomaster_pocket.png
 date: 2023-08-02T10:31:03.797Z
 ---

@@ -3,7 +3,7 @@ title: AT32 FCs are coming
 description: What is AT32? And why is it such a big deal?
 visible: true
 category: News
-author: VitroidFPV
+author: Vitroid
 img: /uploads/at32_image.png
 date: 2023-03-12T22:06:36.365Z
 ---

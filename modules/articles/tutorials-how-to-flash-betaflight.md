@@ -3,7 +3,7 @@ title: How to flash Betaflight
 description: Make a damn backup! And what's cloud build anyway?
 visible: true
 category: Tutorials
-author: VitroidFPV
+author: Vitroid
 img: /uploads/betaflight_flashing_thumbnail.png
 date: 2023-08-10T00:28:55.290Z
 ---
