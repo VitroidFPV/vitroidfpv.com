@@ -3,6 +3,7 @@
 import fs from "fs";
 import path from "path";
 import inquirer from "inquirer";
+import { titleCase } from "title-case";
 
 async function generateMarkdownFile() {
 	// Prompt for inputs
@@ -47,8 +48,8 @@ async function generateMarkdownFile() {
 
 	// Generate the Markdown content
 	const mdContent = `---
-title: ${title}
-description: ${description}
+title: ${titleCase(title)}
+description: ${titleCase(description)}
 visible: ${visible}
 category: ${category}
 author: ${author}
@@ -69,7 +70,7 @@ date: ${formattedDate}
 Content goes here
 `;
 
-	const filename = `${category.toLowerCase()}-${title.toLowerCase().replace(/ /g, "-")}.svx`;
+	const filename = `${category.toLowerCase()}-${title.toLowerCase().replace(/\s+/g, "-").replace(/-+/g, "-")}.svx`;
 	const filePath = `./modules/articles/${filename}`;
 
 	const directory = path.dirname(filePath);

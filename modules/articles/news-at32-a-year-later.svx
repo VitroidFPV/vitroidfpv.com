@@ -1,0 +1,107 @@
+---
+title: AT32 - a Year Later
+description: Where Are the Mystery Chips Now?
+visible: false
+category: News
+author: Vitroid
+img: /uploads/placeholder.png
+date: 2024-02-16T21:28:53.018Z
+---
+
+<script>
+	import GridBox from "$components/articlesPage/GridBox.svelte";
+	import GridItem from "$components/articlesPage/GridItem.svelte";
+	import ImgGrid from "$components/articlesPage/ImgGrid.svelte";
+	import Tablist from "$components/articlesPage/Tablist.svelte";
+	import Tab from "$components/articlesPage/Tab.svelte";
+	import Admonition from "$components/articlesPage/Admonition.svelte";
+	import Chip from "$components/Chip.svelte";
+	import Bar from "$components/graph/Bar.svelte";
+
+	const mcuScores = {
+		"STM32F405 - 168MHz": 556,
+		"AT32F435 - 288MHz": 1002,
+		"STM32F722 - 216MHz": 1082
+	}
+</script>
+
+Almost a year ago, I wrote an article going over the new ArteryTek AT32 chips. Over the months, a lot of progress has been made on their development, some new chips have been released, and I want to cover the current state of the AT32 chips and their use in various projects.
+
+# Recap
+
+While this is more of an update article, I want to give a brief intro for those who may not know what the AT32 chips are:
+
+STM32 MCUs are very common, almost ubiquitous for use flight controllers and ESCs. If you have a quad, it has at least one STM32 chip - be it STM32F405, F722, etc. These chips have been in use ever since the shift to 32-bit firmware - for example Betaflight for FCs, and BLHeli_32 for ESCs.  
+However, during the chip shortage in 2020-2022, the STM32 chips became very hard and expensive to get. This led to increased prices and lower stock levels across the whole electronics industry, and it impacted the FPV community as well. 
+
+Basically everyone has at least a surface understanding of what MCU is on their flight controller, so a new chip would be a bit of a big deal for the community. But in ESCs, no one really knew or cared about the MCU as long as it ran BLHeli_32 - ESCs aren't as computationally and functionally intensive, and the MCU is mostly abstracted away from the user. So, simply as that, when manufacturers couldn't easily replace the STM32 chips on FCs, the focus shifted to ESCs.
+
+A lot of alternative chips were used, varying from straight STM copies with questionable results, to MCUs that were pushing the STM32s in terms of performance and features. Artery chips were among the more successful ones. And hardly anyone noticed... Now, that's *a bit* of an overdramatic way to put it, it's not like a massive heist of beloved STM32s happened. But now we had AT32 chips performing well in ESCs, and they were cheaper and easier to get than STM32s. And from there, talk, experimentation, and development took off.
+
+# AT32 Chips
+
+There are various ArteryTek MCUs used in ESC. But the AT32F435 is currently the only AT32 MCU used in flight controllers, as it matches the STM32F405 in terms of IO, so it can be used as a drop-in replacement.
+
+## Price
+
+When I wrote the original article, STM32F405s were sitting around $10-15 when available, the AT32F435 were around $2-3. That was a very significant difference!
+
+![STM32F405 Price](/uploads/stm32f405_price.png)
+
+![AT32F435 Price](/uploads/at32f435_price.png)
+
+By now, the price of STM32F405s has normalized to around $4-5, AT32F435s are still around $2-3.
+
+Even if F405's are cheaper now, manufacturers still likely have old expensive stock that they need to push out for a higher price, and it seems that some are holding onto the inflated prices intentionally. The AT32 chips are still a good option for new designs, and by the price of a lot of the new FCs that have them, the manufacturers are either selling them at a loss or they're really *that* cheap compared to the existing stock of STM32s - AT32F435 FCs go for around $10-$15 cheaper than similar/equivalent F405 designs.
+
+## Performance
+
+At its base, the AT32F435 uses the same ARM Cortex-M4 core as the STM32F405, but they run them a lot faster than even the STM32F722 - but with the F722 using more powerful M7 cores, it still outperforms the F435 in terms of raw performance:
+
+<Bar incomingData={mcuScores} />
+
+While the F722 is still better in terms of raw performance, the F435 has more flash space for the firmware itself - 512KB on the STM32F722 (and F411), 1024KB on the STM32F405 and AT32F435. With the introduction of the Cloud Build system for Betaflight firmware, the lower 512KB flash space isn't as big of an issue, but other firmwares may not have this luxury, and could do with any extra space they can get.
+
+## Support
+
+A year ago, the AT32 chips were still very new, and every bit of development was a big step forward with big issues being solved. Since they're not direct clones, a lot of work had to be done to get them running as well as existing STM32 chips.
+
+Development on the new platform has been going very well over the past year, and it's nearing completion - with the release of Betaflight 4.5, AT32F435 MCUs should be fully supported, INav and QuickSilver have also added support for the AT32 chips.
+
+## FC Availability
+
+When the development first started, developers were using development boards, FCs from lesser-known manufacturers, and even some custom development FC designs. Now there's a good selection of FCs with AT32 chips, even from some of the largest manufacturers.
+
+Manufacturers currently using AT32 chips include:
+* Airbot
+* BayckRC
+* BetaFPV
+* CCRC
+* DarwinFPV
+* Diatone
+* GreatMountain
+* iFlight
+* NeutronRC
+* Skystars
+
+The full list is likely to grow! You can keep track of the available manufacturers and their targets in the [Betaflight Config repository](https://github.com/search?q=repo%3Abetaflight%2Fconfig+FC_TARGET_MCU+AT32F435&type=code).
+
+# Alternatives
+
+As I touched on before, there are other chips that have been used as alternatives to STM32 chips on ESCs, but only the AT32 chips have been used in flight controllers on a larger scale. There have been a few attempts to use other STM clones... with little success. Jumper made a wing FC meant to be used with Ardupilot with a GD32 clone MCU, it did not go well at all. There are smaller manufacturers using APM MCUs, but none of that has been verified to work well, if at all.
+
+However, there are two first-party STM contenders that deserve a mention:
+
+## STM32G473
+
+The STM32G473 is a newer chip from the G series, which is also a first for FCs. Support for it was added all the way back in Betaflight 4.4, but hardly anyone noticed. To give credit where it's due, I believe Fettec was the first to use it in their FCs, so it's fair to see people being confused about Betaflight/Fettec on the new G4 FCs.
+
+It sits right between the STM32F411 and F405 in terms of price and performance. It has a lot more IO compared to the F411, but it comes in similarly small packages - that's why most of the Betaflight targets for it are for AIO boards. Along with AT32F435, Betaflight suggests it to be used as a replacement for the F411.
+
+## STM32H5
+
+Work on H5 support has just begun, with developers just getting the first development boards with the H5 chips, but it's already looking really promising. The STM32H562/H563 are currently being considered as an alternative/replacement for the F722 - they perform very similarly, but aren't limited by the lower flash space, and the price is lower as well. It will be interesting to see where this will be in a few months, half a year, or a year from now. Maybe the updated version of this article will be about the H5 chips!
+
+# Conclusion
+
+Thanks to hundreds of hours of work from the developers, the AT32 chips are now a viable alternative to STM32 chips in flight controllers! Being cheaper and faster, they're a great option for new designs, and they're already being used in a lot of FCs. With the release of Betaflight 4.5, the AT32F435 will be fully supported, and it's likely that even more manufacturers will start using them in a lot more of their designs.
