@@ -136,7 +136,7 @@
 
 	// console.log(description)
 
-	let imgOg = `https://vitroidfpv.com/og?title=${titleRaw}&description=${description}&category=${category}&img=${img}`
+	let imgOg = `https://vitroidfpv.com/api/og?title=${titleRaw}&description=${description}&category=${category}&img=${img}`
 </script>
 
 <svelte:head>
