@@ -4,7 +4,7 @@ description: Where Are the Mystery Chips Now?
 visible: false
 category: News
 author: Vitroid
-img: /uploads/placeholder.png
+img: /uploads/articles/news_at32_a_year_later/at32_a_year_later_thumbnail.png
 date: 2024-02-16T21:28:53.018Z
 ---
 
@@ -66,7 +66,11 @@ While the F722 is still better in terms of raw performance, the F435 has more fl
 
 A year ago, the AT32 chips were still very new, and every bit of development was a big step forward with big issues being solved. Since they're not direct clones, a lot of work had to be done to get them running as well as existing STM32 chips.
 
-Development on the new platform has been going very well over the past year, and it's nearing completion - with the release of Betaflight 4.5, AT32F435 MCUs should be fully supported, INav and QuickSilver have also added support for the AT32 chips.
+Before official support in Betaflight was fully in motion, initial support was coming from a copy of Betaflight 4.3. There's a fair amount of controversy around this other project and the person(s) involved with it, I'll do my best to cover it as neutrally as possible:
+
+As development continued, the new project strayed from purely adding support for AT32, and started to incorporate unrelated changes, diverging from Betaflight. It also had ties to individuals with a history of questionable behavior within the community related to demanding payment for target support and creation. Manufacturers that wanted to get their AT32 designs out very quickly before Betaflight had full support for them ended up using firmware from this project, and it was causing a lot of confusion and frustration in the community, as well among the manufacturers and Betaflight developers.
+
+Now with Betaflight 4.5 nearing completion, the AT32F435 MCUs will be officially and fully supported. INav and QuickSilver have also added support for the AT32 chips, and so the use of other unofficial firmware is discouraged to manufacturers and users alike.
 
 ## FC Availability
 
@@ -90,13 +94,15 @@ The full list is likely to grow! You can keep track of the available manufacture
 
 As I touched on before, there are other chips that have been used as alternatives to STM32 chips on ESCs, but only the AT32 chips have been used in flight controllers on a larger scale. There have been a few attempts to use other STM clones... with little success. Jumper made a wing FC meant to be used with Ardupilot with a GD32 clone MCU, it did not go well at all. There are smaller manufacturers using APM MCUs, but none of that has been verified to work well, if at all.
 
-However, there are two first-party STM contenders that deserve a mention:
+I'll have a full article going over all of the various MCUs used in FPV systems. However, there are two first-party STM contenders that deserve a mention here in relation to the AT32 chips:
 
 ## STM32G473
 
 The STM32G473 is a newer chip from the G series, which is also a first for FCs. Support for it was added all the way back in Betaflight 4.4, but hardly anyone noticed. To give credit where it's due, I believe Fettec was the first to use it in their FCs, so it's fair to see people being confused about Betaflight/Fettec on the new G4 FCs.
 
 It sits right between the STM32F411 and F405 in terms of price and performance. It has a lot more IO compared to the F411, but it comes in similarly small packages - that's why most of the Betaflight targets for it are for AIO boards. Along with AT32F435, Betaflight suggests it to be used as a replacement for the F411.
+
+Along with AIOs, it has also found its way into some of the first RotorFlight FCs, namely from Matek - RotorFlight is a relatively flight control firmware for RC helicopters. Being based on Betaflight, it brings a lot of the features and improvements from Betaflight to the helicopter community.
 
 ## STM32H5
 
