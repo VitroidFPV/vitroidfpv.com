@@ -64,7 +64,19 @@
 			}
 		}
 	}
-	// console.log(JSON.stringify(searched_grouped_modules, null, 2));
+
+	sorted_grouped_modules = Object.fromEntries(
+		Object.entries(sorted_grouped_modules).map(([cat, contents]) => [
+			cat,
+			contents.filter((module) => {
+				if (module.metadata.visible === false) {
+					return false;
+				} else {
+					return true;
+				}
+			}),
+		])
+	);
 
 	onMount(() => {
 		if (window.location.hash) {
@@ -240,14 +252,16 @@
 	{#each Object.entries(searched_grouped_modules) as [cat, contents]}
 		<div class="{cat} my-8 w-full h-fit text-justify">
 			<div class="text-3xl tracking-tight border-b-2 w-fit px-1 cat {cat} pb-1" id={cat}>{cat}</div>
-			{#each contents as question}
-				<FaqQuestion
-					category={cat}
-					title={question.metadata.title}
-					content={marked.parse(question.metadata.answer)}
-					id={question.metadata.id}
-				/>
-			{/each}
+			<div class="md:grid md:grid-cols-2">
+				{#each contents as question}
+					<FaqQuestion
+						category={cat}
+						title={question.metadata.title}
+						content={marked.parse(question.metadata.answer)}
+						id={question.metadata.id}
+					/>
+				{/each}
+			</div>
 		</div>
 	{/each}
 	{:else}

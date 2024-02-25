@@ -45,30 +45,33 @@
 </script>
 
 <IntersectionObserver {element} bind:intersecting>
-		<div class:intersecting={intersecting}
-			class="tracking-normal not-intersecting text-main-200 dark:text-contrast-100 border-none flex flex-col mt-2 intersecting"
-			bind:this={element}
-			transition:fly={{ y: 10, duration: 300 }}>
-			<div class="flex align-start">
-				<button on:click={copyID}>
-					<div
-						class="text-3xl text-black dark:text-white opacity-20 hover:opacity-40 duration-300
-							cursor-pointer copy-id mr-2">#
-					</div>
-				</button>
-				<button
-					type="button"
-					on:click={() => (open = !open)}
-					class:faq-active={open}
-					class="collapsible duration-300
-							after:ml-1 text-[20px] md:text-xl hover:translate-x-1 duartion-150 {category} text-left"
-					{id}>{title}</button>
+		<div class="relative">
+			<div class:intersecting={intersecting}
+				class="tracking-normal not-intersecting text-main-200 dark:text-contrast-100 border-none flex flex-col mt-2 intersecting relative"
+				bind:this={element}
+				transition:fly={{ y: 10, duration: 300 }}
+			>
+				<div class="flex align-start">
+					<button on:click={copyID}>
+						<div
+							class="text-3xl text-black dark:text-white opacity-20 hover:opacity-40 duration-300 cursor-pointer copy-id mr-2"
+						>
+							#
+						</div>
+					</button>
+					<button
+						type="button"
+						on:click={() => (open = !open)}
+						class:faq-active={open}
+						class="collapsible duration-300
+								after:ml-1 text-[20px] md:text-xl hover:translate-x-1 duartion-150 {category} text-left"
+						{id}>{title}</button>
+				</div>
 			</div>
 			{#if open}
 				<div
 					transition:slide
-					class="content text-xl bg-neutral-500/10 border-2 border-neutral-500/20 rounded-2xl
-							mb-2 h-full min-w-fit max-w-[70vw]"
+					class="top-11 z-10 left-2 absolute content text-xl bg-neutral-500/10 border-2 border-neutral-500/20 backdrop-blur-lg rounded-2xl mb-2 w-full"
 				>
 					<!-- <div class="md:p-8 p-6 text-base md:text-lg leading-relaxed md"><SvelteMarkdown {source} on:parsed={handleParsed}/></div> -->
 					<div class="md:p-8 p-4 text-base md:text-lg leading-relaxed md">{@html content}</div>
