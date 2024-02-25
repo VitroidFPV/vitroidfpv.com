@@ -156,61 +156,65 @@
 
 <div class="p-4 md:p-8 content-box">
 	<div class="flex justify-between w-full">
-		<div class="flex flex-col md:mr-8 mr-0 w-full">
-			<div class="md:order-1 order-2 grid md:grid-cols-4 grid-cols-2 justify-center grid-rows-2 gap-4 p-0 article-card {data.frontmatter.category} rounded-2xl mb-8 w-full">
-				<img 
-					src="{data.frontmatter.img}" 
-					alt="Article Header" 
-					class="md:h-[28rem] object-cover object-center rounded-2xl duration-500 md:col-span-3 col-span-2 
-					md:row-span-2 aspect-[2/1] shadow-lg"
+		<article class="flex flex-col md:mr-8 mr-0 max-w-[120ch]">
+			<div class="md:order-1 order-2 p-0 article-card {data.frontmatter.category} rounded-2xl mb-8 w-full flex xl:flex-row flex-col gap-4 h-fit">
+				<div
+					class="duration-500 aspect-square w-full"
 				>
-				<div class="bg-neutral-400/5 gap-4 flex flex-col justify-center rounded-2xl outline outline-2 outline-neutral-500/10 shadow-lg md:p-8 p-4 md:text-xl text-lg">
-					<div>
-						A <span 
-							class="md:text-3xl text-{categoryColor}"
-						>
-							{data.frontmatter.category == "News" || data.frontmatter.category == "Misc" ? data.frontmatter.category : data.frontmatter.category.slice(0, -1)}
-						</span> Article
+					<img
+						src="{data.frontmatter.img}"
+						alt="Article Header"
+						class="object-cover object-center rounded-2xl"
+					>
+				</div>
+				<div class="grid grid-cols-2 justify-center gap-4 w-full">
+					<div class="col-span-2 row-span-1 bg-neutral-400/5 gap-4 flex flex-col justify-center rounded-2xl outline outline-2 outline-neutral-500/10 shadow-lg md:p-8 p-4 md:text-xl text-lg">
+						<h1 class="text-{categoryColor} md:text-5xl text-4xl mb-2">{data.frontmatter.title}</h1>
+						<h2 class="md:text-3xl text-xl">{data.frontmatter.description}</h2>
 					</div>
-					<div>
-						By 
-						<!-- <span
-							class="md:text-3xl text-{categoryColor}"
-						>
-							{data.frontmatter.author}
-						</span> -->
-						{#each authors as author}
-							<span
+					<div class="bg-neutral-400/5 gap-4 flex flex-col justify-center rounded-2xl outline outline-2 outline-neutral-500/10 shadow-lg md:p-8 p-4 md:text-xl text-lg">
+						<div>
+							A <span
 								class="md:text-3xl text-{categoryColor}"
 							>
-								{author}
-							</span>
-							{#if author != authors[authors.length - 1]}
-								{" and "}
+								{data.frontmatter.category == "News" || data.frontmatter.category == "Misc" ? data.frontmatter.category : data.frontmatter.category.slice(0, -1)}
+							</span> Article
+						</div>
+						<div>
+							By
+							{#each authors as author}
+								<span
+									class="md:text-3xl text-{categoryColor}"
+								>
+									{author}
+								</span>
+								{#if author != authors[authors.length - 1]}
+									{" and "}
+								{/if}
+							{/each}
+						</div>
+					</div>
+					<div class="bg-neutral-400/5 gap-4 flex flex-col justify-center rounded-2xl outline outline-2 outline-neutral-500/10 shadow-lg md:p-8 p-4 md:text-xl text-lg">
+						<div>
+							Posted on <span class="text-{categoryColor}">{postedDateFormatted}</span>
+							{#if data.frontmatter.updated}
+								, last updated <span class="text-{categoryColor}">{updatedDateFormatted}</span>
 							{/if}
-						{/each}
-					</div>
-				</div>
-				<div class="bg-neutral-400/5 gap-4 flex flex-col justify-center rounded-2xl outline outline-2 outline-neutral-500/10 shadow-lg md:p-8 p-4 md:text-xl text-lg">
-					<div>
-						Posted on <span class="text-{categoryColor}">{postedDateFormatted}</span>
-						{#if data.frontmatter.updated}
-							, last updated <span class="text-{categoryColor}">{updatedDateFormatted}</span>
-						{/if}
-					</div>
-					<div>
-						Taking <span class="text-{categoryColor}">{readTime}min</span> to read
+						</div>
+						<div>
+							Taking <span class="text-{categoryColor}">{readTime}min</span> to read
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="md:order-2 order-1 flex-col items-start w-fit mb-4 md:mt-0 mt-8">
+			<!-- <div class="md:order-2 order-1 flex-col items-start w-fit mb-4 md:mt-0 mt-8">
 				<h1 class="text-{categoryColor} md:text-5xl text-4xl mb-2">{data.frontmatter.title}</h1>
 				<h2 class="md:text-3xl text-xl">{data.frontmatter.description}</h2>
-			</div>
+			</div> -->
 			<div class="order-3 article md !duration-300 transition-colors {categoryColor}">
 				<svelte:component this={component} />
 			</div>
-		</div>
+		</article>
 		<div class="md:flex md:flex-col hidden sticky h-fit left-full top-0 pl-4 w-fit max-w-[24rem]">
 			<div class="text-{categoryColor} text-3xl w-fit font-semibold mt-8 mb-4 border-b-2 border-current">Contents:</div>
 			{#each headers as header}
