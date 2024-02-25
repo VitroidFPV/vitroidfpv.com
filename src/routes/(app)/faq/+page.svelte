@@ -252,7 +252,7 @@
 	{#each Object.entries(searched_grouped_modules) as [cat, contents]}
 		<div class="{cat} my-8 w-full h-fit text-justify">
 			<div class="text-3xl tracking-tight border-b-2 w-fit px-1 cat {cat} pb-1" id={cat}>{cat}</div>
-			<div class="md:grid md:grid-cols-2">
+			<div class="grid xl:grid-cols-2 grid-cols-1">
 				{#each contents as question}
 					<FaqQuestion
 						category={cat}
