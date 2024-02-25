@@ -3,6 +3,7 @@ category: Video
 order: 1
 title: What goggles and FPV system in general should I get?
 id: fpvSystem
+visible: false
 answer: >-
   ###### As of the date of me writing this (24. 8. 2022), DJI is set to release
   a brand new FPV system as a successor to their original one, and Walksnail is

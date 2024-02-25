@@ -3,6 +3,7 @@ category: Radio
 order: 3
 title: How to flash ELRS hardware?
 id: flashElrs
+visible: false
 answer: >-
   ELRS has come a long way from what it once was, both in performance and ease
   of use. Flashing used to be a bit more involved, but now it's mostly a breeze

@@ -3,6 +3,7 @@ category: Betaflight
 order: 4
 title: How to flash my Flight Controller?
 id: flash
+visible: false
 answer: >-
   Before you flash, it's a good idea to make a backup of the flight controller
   settings, by sending `diff all` in the CLI, then saving the result into a

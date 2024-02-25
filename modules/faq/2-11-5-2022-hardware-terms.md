@@ -3,6 +3,7 @@ category: Starting Out
 title: What do the hardware terms mean?
 id: hardwareTerms
 order: 2
+visible: false
 answer: • Quad - Short for quadcopter, it's a way to specify what kind of
   drone/UAV the craft is. There's also Hex, Octo, and Tri for more specific
   drone types with 6, 8, and 3 motors respecively<br> • FC - Flight Controller,

@@ -3,6 +3,7 @@ category: Radio
 order: 4
 title: How to ensure Radio-Receiver compatibility?
 id: compatibleRadio
+visible: false
 answer: >-
   A﻿s mentioned above in the `Building` section, there are ways you can confirm
   that your receiver is compatible, though I mainly focused on the building and

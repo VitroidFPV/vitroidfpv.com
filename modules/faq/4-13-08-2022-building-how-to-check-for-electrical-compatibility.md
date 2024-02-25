@@ -3,6 +3,7 @@ category: Building
 order: 4
 title: How to check for electrical compatibility?
 id: compatibleElectrically
+visible: false
 answer: >-
   There are mainly two things you should look out for. Accepted voltage/current
   levels, and signal communication

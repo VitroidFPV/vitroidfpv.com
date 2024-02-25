@@ -3,6 +3,7 @@ category: Building
 order: 3
 title: How to check for mechanical compatibility?
 id: compatibleMechanically
+visible: false
 answer: >-
   We're lucky that a lot of the stuff out there is compatible and standardized,
   but there are also some exceptions and weird off-spec things. As long as you
