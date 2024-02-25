@@ -79,7 +79,7 @@
 						<SizeComparison {size}/>
 					</div>
 				{/each} -->
-				{#each $parts[url] as part}
+				{#each $parts[url] as part (part.title)}
 					<!-- {#key $parts[url]} -->
 					<div transition:slide>
 						<PriceComparison title={part.title} {url} color={part.color} price={part.price} href={part.href}, quantity={part.quantity}/>
