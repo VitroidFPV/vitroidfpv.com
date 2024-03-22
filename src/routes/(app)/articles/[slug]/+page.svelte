@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { fly } from 'svelte/transition';
+
 	import type { PageData } from './$types';
 	import type { SvelteComponentTyped } from 'svelte/internal';
 	import { onMount } from 'svelte/internal';
@@ -6,6 +8,7 @@
 	import { browser } from '$app/environment';
 	import removeMarkdown from "remove-markdown";
 	import { html } from 'satori-html';
+	import Progress from '$components/graph/Progress.svelte';
 
 	export let data: PageData;
 
@@ -114,6 +117,47 @@
 		}
 	})
 
+	let rating = 0
+	let detailedRating = false
+
+	const detailedRatings = {
+		"Unboxing": 0,
+		"Features": 0,
+		"Performance": 0,
+		"Value": 0,
+	}
+
+	const ratingColors = {
+		"Unboxing": "#d6395b",
+		"Features": "#ff9742",
+		"Performance": "#ffcc00",
+		"Value": "#87cc52",
+	}
+
+	onMount(() => {
+		setTimeout(() => {
+			rating = data.frontmatter.rating
+		}, 300)
+	})
+
+	$: if (detailedRating) {
+		setTimeout(() => {
+			detailedRatings["Unboxing"] = data.frontmatter.unboxing
+			detailedRatings["Features"] = data.frontmatter.features
+			detailedRatings["Performance"] = data.frontmatter.performance
+			detailedRatings["Value"] = data.frontmatter.value
+			rating = 0
+		}, 100)
+	} else {
+		setTimeout(() => {
+			detailedRatings["Unboxing"] = 0
+			detailedRatings["Features"] = 0
+			detailedRatings["Performance"] = 0
+			detailedRatings["Value"] = 0
+			rating = data.frontmatter.rating
+		}, 100)
+	}
+
 	let prefix = data.frontmatter.category;
 	let titleRaw = data.frontmatter.title;
 	let title = " - " + titleRaw;
@@ -157,7 +201,7 @@
 <div class="p-4 md:p-8 content-box">
 	<div class="flex justify-between w-full">
 		<article class="flex flex-col md:mr-8 mr-0 max-w-[120ch]">
-			<div class="md:order-1 order-2 p-0 article-card {data.frontmatter.category} rounded-2xl mb-8 w-full flex xl:flex-row flex-col gap-4 h-fit">
+			<div class="md:order-1 order-2 p-0 article-card {data.frontmatter.category} rounded-2xl mb-8 w-full grid lg:grid-cols-2 grid-cols-1 gap-4 h-fit">
 				<div
 					class="duration-500 aspect-square w-full"
 				>
@@ -168,14 +212,16 @@
 					>
 				</div>
 				<div class="grid grid-cols-2 justify-center gap-4 w-full">
-					<div class="col-span-2 row-span-1 bg-neutral-400/5 gap-4 flex flex-col justify-center rounded-2xl outline outline-2 outline-neutral-500/10 shadow-lg md:p-8 p-4 md:text-xl text-lg">
-						<h1 class="text-{categoryColor} md:text-5xl text-4xl mb-2">{data.frontmatter.title}</h1>
-						<h2 class="md:text-3xl text-xl">{data.frontmatter.description}</h2>
+
+					<div class="col-span-2 row-span-2 bg-neutral-400/5 gap-4 flex flex-col justify-center rounded-2xl outline outline-2 outline-neutral-500/10 shadow-lg md:p-8 p-4 md:text-xl text-lg w-full h-full">
+						<h1 class="text-{categoryColor} md:text-4xl text-3xl mb-2">{data.frontmatter.title}</h1>
+						<h2 class="md:text-2xl text-xl">{data.frontmatter.description}</h2>
 					</div>
-					<div class="bg-neutral-400/5 gap-4 flex flex-col justify-center rounded-2xl outline outline-2 outline-neutral-500/10 shadow-lg md:p-8 p-4 md:text-xl text-lg">
+
+					<div class="bg-neutral-400/5 gap-4 col-span-1 row-span-1 flex flex-col justify-center rounded-2xl outline outline-2 outline-neutral-500/10 shadow-lg md:p-8 p-4 md:text-xl text-lg">
 						<div>
 							A <span
-								class="md:text-3xl text-{categoryColor}"
+								class="md:text-2xl text-{categoryColor}"
 							>
 								{data.frontmatter.category == "News" || data.frontmatter.category == "Misc" ? data.frontmatter.category : data.frontmatter.category.slice(0, -1)}
 							</span> Article
@@ -184,7 +230,7 @@
 							By
 							{#each authors as author}
 								<span
-									class="md:text-3xl text-{categoryColor}"
+									class="md:text-2xl text-{categoryColor}"
 								>
 									{author}
 								</span>
@@ -194,7 +240,8 @@
 							{/each}
 						</div>
 					</div>
-					<div class="bg-neutral-400/5 gap-4 flex flex-col justify-center rounded-2xl outline outline-2 outline-neutral-500/10 shadow-lg md:p-8 p-4 md:text-xl text-lg">
+
+					<div class="bg-neutral-400/5 gap-4 col-span-1 row-span-1 {rating != undefined ? "row-start-4 row-end-5" : ""} flex flex-col justify-center rounded-2xl outline outline-2 outline-neutral-500/10 shadow-lg md:p-8 p-4 md:text-xl text-lg">
 						<div>
 							Posted on <span class="text-{categoryColor}">{postedDateFormatted}</span>
 							{#if data.frontmatter.updated}
@@ -205,6 +252,45 @@
 							Taking <span class="text-{categoryColor}">{readTime}min</span> to read
 						</div>
 					</div>
+					
+					{#if data.frontmatter.rating}
+						<div class="bg-neutral-400/5 col-span-1 row-span-2 gap-4 flex flex-col justify-center rounded-2xl outline outline-2 outline-neutral-500/10 shadow-lg md:p-8 p-4 md:text-xl text-lg">
+							<span
+								class="md:text-2xl text-{categoryColor}"
+							>
+							Total Score:
+							</span>
+							<button on:click={() => detailedRating = !detailedRating} class="transition-container">
+								{#if detailedRating}
+									<div class="grid grid-cols-2 grid-rows-2 aspect-square gap-6 gap-y-12" transition:fly>
+										{#each Object.entries(detailedRatings) as [key, value], i}
+											<div class="flex flex-col items-center w-full h-full">
+												<div class="h-fit text-lg">{key}</div>
+												<div class="flex justify-center items-center aspect-square">
+													<Progress
+														color={ratingColors[key]}
+														percent={value * 10}
+														text={value + "/10"}
+														textStyle="text-base"
+														delay={i * 100}
+													/>
+												</div>
+											</div>
+										{/each}	
+									</div>
+								{:else}
+									<div transition:fly>
+										<Progress
+											color={hexColor}
+											percent={rating * 10}
+											text={data.frontmatter.rating + "/10"}
+											textStyle="text-2xl"										
+										/>
+									</div>
+								{/if}
+							</button>
+						</div>
+					{/if}
 				</div>
 			</div>
 			<!-- <div class="md:order-2 order-1 flex-col items-start w-fit mb-4 md:mt-0 mt-8">
@@ -215,7 +301,7 @@
 				<svelte:component this={component} />
 			</div>
 		</article>
-		<div class="md:flex md:flex-col hidden sticky h-fit left-full top-0 pl-4 w-fit max-w-[24rem]">
+		<div class="xl:flex xl:flex-col hidden sticky h-fit left-full top-0 pl-4 w-fit max-w-[24rem]">
 			<div class="text-{categoryColor} text-3xl w-fit font-semibold mt-8 mb-4 border-b-2 border-current">Contents:</div>
 			{#each headers as header}
 				{#if +header.level < 5}

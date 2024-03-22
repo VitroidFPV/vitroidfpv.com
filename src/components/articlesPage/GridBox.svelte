@@ -7,7 +7,7 @@
 
 	switch (cols) {
 		case 2:
-			classes += " grid-cols-2";
+			classes += " grid-cols-1 md:grid-cols-2";
 			break;
 		case 3:
 			classes += " grid-cols-2 md:grid-cols-3";
