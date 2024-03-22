@@ -1,0 +1,181 @@
+---
+title: IFlight Blitz ATF435 - 30X30
+description: IFlight Going Back to the Budget Market!
+visible: true
+category: Reviews
+author: Vitroid
+img: /uploads/articles/iflight_blitz_atf435_30x30/iflight_blitz_atf435_30x30_thumbnail.png
+date: 2024-03-22T23:53:25.950Z
+rating: 8
+unboxing: 7
+features: 8
+performance: 8
+value: 9
+---
+
+<script>
+	import GridBox from "$components/articlesPage/GridBox.svelte";
+	import GridItem from "$components/articlesPage/GridItem.svelte";
+	import ImgGrid from "$components/articlesPage/ImgGrid.svelte";
+	import Tablist from "$components/articlesPage/Tablist.svelte";
+	import Tab from "$components/articlesPage/Tab.svelte";
+	import Admonition from "$components/articlesPage/Admonition.svelte";
+	import Chip from "$components/Chip.svelte";
+</script>
+
+iFlight have had their big hit with the original Nazgul5 and the electronics that went into it. A few years back it was hard to beat. Nowadays it looks like they're focusing more on higher end products, with other manufacturers beating them to the budget prices that are hard to beat. However with the new AT32 chips it may very well get them back into the game with cheaper products!
+
+# Where to Buy
+
+* [UnmannedTechShop (UK)](https://www.unmannedtechshop.co.uk/product/iflight-blitz-atf435-flight-controller/) - £29.49
+* [6S Full (CZ)](https://www.6sfull.cz/blitz-atf435-fc/) - 999 Kč
+* [Pyrodrone (US)](https://pyrodrone.com/products/iflight-blitz-atf435-e55s-2-6s-stack-combo-atf435-fc-55a-8bit-4in1-esc-30x30) - $59.99 (Stack Combo)
+
+For some reason they're not available directly from iFlight, they're probably in the process of cooking up a new batch. I'll update the article when they're available.
+
+<Admonition type="tip" title="Disclosure">
+
+* I received this product free of charge as a development sample
+* I received no payment or other compensation for this review
+* This review is based on my own experience with the product
+* The product tested had changes done based on developer feedback, which I will detail in the review
+* iFlight had no input into this review and no editorial control over its contents
+
+</Admonition>
+
+# What is AT32?
+I already have a [full article](/articles/news-at32-a-year-later) about the impact of ArteryTek's AT32 chips, but let's run over the basics again:
+
+The AT32 is a family of MCUs cheaper, drop-in replacements for the STM32 chips you are most likely used to. They are directly pin-compatible with the STM32F405 MCUs, but need some changes in the firmware. As of the release of this article, the support for it in Betaflight 4.5 is complete, ready for a regular flight experience.
+
+Some AT32 hardware is already most likely used in your ESCs, but only somewhat recently the AT32F435 started being introduced in flight controllers. It sits right between the STM32F405 and F722 in terms of performance, but is cheaper than even the F405 by a considerable margin. I'll be including this bit of text for the next few AT32 reviews, so if you know what's up, feel free to skip to the next section.
+
+So with that out of the way, let's have a look at these new boards!
+
+# Specifications
+
+<GridBox cols={2}>
+
+![iFlight Blitz ATF435 Overview](/uploads/articles/iflight_blitz_atf435_30x30/iflight_blitz_atf435_30x30_overview.png)
+
+![iFlight Blitz ATF435 Weight](/uploads/articles/iflight_blitz_atf435_30x30/iflight_blitz_atf435_30x30_weight.jpg)
+
+</GridBox>
+
+<GridBox cols={2}>
+
+<GridItem title="Hardware:">
+<div class="flex flex-wrap gap-2">
+<Chip>M4 Holes</Chip>
+<Chip>30x30 Mounting</Chip>
+<Chip>7.8g Weight</Chip>
+</div>
+</GridItem>
+
+<GridItem title="IO:">
+<div class="flex flex-wrap gap-2">
+<Chip>USB-C</Chip>
+<Chip>5 UARTs</Chip>
+<Chip>I2C</Chip>
+<Chip>8 Motor Outputs</Chip>
+<Chip>SWD</Chip>
+</div>
+</GridItem>
+
+<GridItem title="Features:">
+<div class="flex flex-wrap gap-2">
+<Chip tooltip="MCU">AT32F435</Chip>
+<Chip tooltip="Gyro/Accelerometer">BMI270/ICM42688P</Chip>
+<Chip tooltip="AT7456E">OSD</Chip>
+<Chip tooltip="Flash Memory">32MB</Chip>
+<Chip tooltip="Barometer">DPS310</Chip>
+<Chip>5V 2.5A</Chip>
+<Chip>9V 2A</Chip>
+</div>
+</GridItem>
+
+<GridItem title="Pads:">
+<div class="flex flex-wrap gap-2">
+<Chip>UART1-5</Chip>
+<Chip>SDA/SCL</Chip>
+<Chip>3.3V</Chip>
+<Chip>5V</Chip>
+<Chip>9V</Chip>
+<Chip>BATT</Chip>
+<Chip>GND</Chip>
+<Chip>M5-8</Chip>
+<Chip>SWD</Chip>
+<Chip>Video in/out</Chip>
+</div>
+</GridItem>
+
+<GridItem title="Connectors:">
+<div class="flex flex-wrap gap-2">
+<Chip tooltip="Buzzer/LED Connector">BUZ-, LED, GND, 5V</Chip>
+<Chip tooltip="ESC Connector">2x GND, 2x BATT, M1-4, CURR, RX6</Chip>
+<Chip tooltip="Camera Connector">NC, VIN, GND, 5V</Chip>
+<Chip tooltip="Analog VTX Connector">VOUT, 9V, GND, TX1, RX1, </Chip>
+<Chip>TX2, RX2, GND, 5V, IRX2, 3.3V</Chip>
+<Chip>5V, GND, RX4, TX4</Chip>
+</div>
+</GridItem>
+
+</GridBox>
+
+# Overview
+
+The board is a standard 30x30mm size, with M4 mounting holes in the corners, so that you can use M4-M3 rubber grommets to softmount it. On its own it weighs 7.8g, which falls right around the average for a board like this. Though for the use case, you probablt won't be counting single grams.
+
+## Layout
+
+### Components
+
+The components are well laid out, with all the sensors, OSD chip, MCU and LEDs on the top side of the board. The bottom side is mostly taken up by the voltage regulators, and flash memory, as well as some protection diodes and capacitors.
+
+There is a bit of empty space mainly on the bottom side, for example, an SD card slot could have been added there, but it's not a big deal given the generous 32MB of flash memory and price point of the board.
+
+<GridBox cols=2>
+
+![iFlight Blitz ATF435 Top](/uploads/articles/iflight_blitz_atf435_30x30/iflight_blitz_atf435_30x30_top.png)
+
+![iFlight Blitz ATF435 Bottom](/uploads/articles/iflight_blitz_atf435_30x30/iflight_blitz_atf435_30x30_bottom.png)
+
+</GridBox>
+
+### Pads
+
+The pads on the board are pretty large, with a lot of room around them, with silkscreen labels for each one. There's a lot of them for various purposes, but they're laid out in two rows on each edge of the board to make them less cramped than if they were all in one. Soldering to multiple rows can be tricky, however given the size and spacing, it makes soldering a breeze regardless.
+
+Some boards have pads on the top and bottom sides with vias connecting them - it helps with durability, and even if you rip a pad off, you can still solder to the other side. The pads are single-sided on this board, but they're large enough that it shouldn't be a problem.
+
+* At the top edge of the board, there are pads for the camera (5V, GND, VIN), and a second 4in1 ESC (M5-8, 2x GND, BATT)
+* On the right edge, there are pads for two sets of UARTs (5V, GND, TX3, RX3 + 5V, GND, TX5, RX5)
+* And on the bottom edge, there are pads for a VTX (9V, GND, RX1, TX1, VOUT, RX2, inverted RX2, TX2), a GPS + Compass (5V, GND, RX4, TX4, SDA, SCL), and a spare set of 5V and GND pads
+
+### Connectors
+
+For some reason, a standard connector for digital VTXs is missing, you have to use a split connector, or solder. The only connector on the top of the board is for the buzzer and LEDs, I see no reason why it couldn't have been put on the bottom side, that would have made the board cleaner, and lower profile. Really though, that's just me nitpicking - you get a fair amount of IO broken out in the connectors regardless.
+
+# Features
+
+## Gyro/Accelerometer
+
+The unit I received (and the first production batch) has a BMI270 gyro/acclerometer, which is considered as a lower end option compared to the ICM42688P and MPU6000. Future production runs should have the ICM42688P based on developer feedback - it should provide a much better and consistent performance, the BMI IMUs can vary a fair amount even directly from the factory. They also seem to have a higher failure rate, so it's a good move to switch to the ICM's.
+
+## Barometer
+
+The DPS310 is a good performing baro, among the most commonly used ones in the hobby. For a cheaper FC, a baro can still drive the price up by a dollar or two, so it's nice to see it included. You can use the baro for altitude measurement, and more advanced features like altitude hold, and return to home if the flight controller firmware supports it.
+
+## Power Regulation
+
+Onboard are two larger regulator circuits, one providing 5V at up to 2.5A, with the other giving 9V 2A. On 5V, 2.5A should be plenty to run all the various devices you might want to use, including more power-hungry ELRS receivers and LED strips. 9V 2A should be just about enough for most VTXs, but the DJI O3 Air Unit can pull up to 16-18W, which is right on the edge. It would most likely be fine, you can always power the VTX from the battery directly if you're worried.
+
+## Flash Memory
+
+It's nice to see that they didn't skimp on the flash memory, with 16 or even 8MB being relatively common on other inexpensive options. 32MB should be plenty for a lot of blackbox logs to diagnose issues, and properly tune your quad.
+
+# Conclusion
+
+This is a really good board for the price, with a lot of features that you'd expect from a more expensive board. The AT32F435 MCU brings it very close to the performance of the STM32F722 at a lower cost. The board should be really easy to solder up as a beginner, and the plentiful connectors may make a lot or all of the pads clean of tin. The few downsides are mostly just minor picks here and there, the IMU will be addressed in the future.
+
+When Betaflight 4.5 is released, the AT32 support will be complete, and you can use this board like any other. If you're reading this after the release of 4.5, you should be good to go! I think it's a great inexpensive board to build around. If you're here early and like to tinker, buying it now isn't a bad idea either. For what it's worth, I've been using 4.5 development builds on all of my 5" quads for a while now, and it's been mostly without issue.
