@@ -89,7 +89,7 @@
 	}
 	// console.log(groupedModules)
 	let prefix = "VitroidFPV";
-	let title = "5\" Quad Anatomy";
+	let title = " - 5\" Quad Anatomy";
 	let color = "#1cd167";
 	let description =
 		"Learn about all of the parts that make up a 5\" quad - with a fancy 3D view to take a proper look at each part!";
