@@ -1,0 +1,12 @@
+# Flight Controller
+FC - short for Flight Controller, you can think of it as the "brain" of the drone, though that's not
+entirely accurate.
+
+It takes inputs from the receiver, various sensors
+like a gyroscope and accelerometer, and does some fancy computations to figure out how fast to
+spin each motor.
+
+FCs will have a bunch of inputs/outputs for attaching peripherals:
+* **5V, 9V, BATT, GND, etc...** - Voltage outputs to power various peripherals with different voltages
+* **TX/RX - UARTs** for communicating over serial, mostly with receivers, GPS units and VTXs, they're almost always a numbered pair
+* **SDA/SCL - I2C** - used for devices such as barometeres and compasses

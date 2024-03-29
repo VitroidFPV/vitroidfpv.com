@@ -1,0 +1,7 @@
+# Receiver Antenna
+Just like the VTX, the receiver also needs its own antenna to receive the radio control signals, and transmit telemetry data back to your radio controller.
+
+There are two main frequencies used for radio control:
+
+* **2.4GHz** - Most common, and can offer lower latency and higher packet rates. For 99.99% of use cases, the range of 2.4GHz with a proper system like ELRS is more than enough
+* **900MHz** - The lower frequency allows for longer range, but at the cost of higher latency and lower packet rates, since there's only so much data you can push through. Great for very long range applications, but not necessary for most people

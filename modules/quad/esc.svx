@@ -1,0 +1,9 @@
+# ESC
+The Electronic Speed Controller - It takes in a digital signal from the FC and makes the motors spin at the desired speed.
+
+Shown here is a 4in1 ESC, that means it has 4 ESC circuits in one board. It's what you'll see most often, as individual ESCs are becoming less and less common now, really only used on big high-power builds.
+
+ESCs have three important ratings:
+* **Voltage** - How much voltage the ESC can safely take without blowing up
+* **Constant Current** - How much current the ESC can let through to each motor without overheating or blowing up
+* **Peak Current** - An ESC can momentarily go over the constant rating. This is usually only for less than 10s

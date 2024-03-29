@@ -1,0 +1,7 @@
+# Frame
+The frame acts as the main structure holding all of the components together. Most frames are made out of sheets of carbon fiber of different thicknesses that are glued and pressed together, and then cut to various shapes.
+
+There are different mounting patterns for each component:
+* 30x30mm, 25x25mm, or 20x20mm square patterns for the main electronics
+* A 28, 21, 19, or 14mm wide pair of holes in the front to hold the camera
+* And motor holes around a 12, 16, or 19mm diameter circle

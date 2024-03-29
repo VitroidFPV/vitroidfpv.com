@@ -1,0 +1,6 @@
+# Radio Receiver
+Receives the data from your radio transmitter and sends it to the FC with a protocol that it can understand.
+
+ExpressLRS (ELRS) receivers like the one shown here are the most popular choice nowadays. ELRS is an open source radio control system - since any manufacturer can make their own hardware, the many different options available can be priced very competitively.
+
+As the name of the system may suggest, it's designed to be fast while also offering low latency and high refresh rates - it has been tested up to over 100km on 50Hz refresh rate, or you can also go up to 1000Hz refresh rate for lower range, but very low latency.

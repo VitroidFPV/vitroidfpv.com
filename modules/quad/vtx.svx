@@ -1,0 +1,6 @@
+# VTX
+Video Transmitter - As the name would suggest, its job is to transmit video from the camera to the goggles. Usually on 5.8GHz, but there also 2.4GHz and 1.2GHz VTXs. But they're also **much** less common.
+
+The VTX here is an analog VTX. It takes in analog video from the camera that was modified on the flight controller and transmits it to the goggles as a pure analog signal. It only needs power and a video signal to work, but can also accept a control signal to change channels and power levels.
+
+Digital video transmitters are necessary when using a digital system. Since the camera is connected directly to it and the video never goes through the FC, the OSD is instead sent along the video feed as raw data. So a digital VTX will need power, and a direct data connection to the FC to get the OSD info.

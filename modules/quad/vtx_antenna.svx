@@ -1,0 +1,11 @@
+# VTX Antenna
+
+The VTX antenna radiates the signal from the VTX to the surrounding area. They are mainly separated by their polarization and directionality:
+
+* **Polarization**:
+  * **Linear**: The signal waves traven in on a straight plane. It makes linear antennas quite simple in construction, but they're more sensitive to the orientation
+  * **Circular**: The signal waves travel in a spiral. Depending on the direction of the helix, they can be right-hand or left-hand polarized. The orientation doesn't matter *as much*, and they reject the opposite polarization - so they're less prone to interference
+
+* **Directionality**:
+  * **Omni-directional**: The signal is radiated in all directions - kind of like a light bulb. Great for general flying, not the best for range
+  * **Directional**: The signal is focused in a specific direction - like a flashlight. Great for long-range flying, but you need to point it in the right direction
