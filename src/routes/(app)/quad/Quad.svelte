@@ -57,6 +57,7 @@ fov={25}
 >
 	<OrbitControls
 		enableDamping
+		dampingFactor={0.15}
 	/>
 </T.PerspectiveCamera>
 
