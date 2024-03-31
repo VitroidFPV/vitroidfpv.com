@@ -113,9 +113,29 @@
 	<meta content="https://vitroidfpv.com/" property="og:url" />
 	<meta name="theme-color" content={color} />
 </svelte:head>
-<div class="p-4 w-full h-full grid grid-cols-3 gap-4 relative overflow-x-clip">
+<div class="p-4 w-full h-full grid md:grid-cols-3 grid-cols-1 gap-4 relative overflow-x-clip">
 	{#if !isMobile}
-		<div class="col-span-2 rounded-3xl cursor-pointer overflow-hidden z-10 relative aspect-auto">
+		<div class="md:col-span-2 col-span-1 rounded-3xl cursor-pointer overflow-hidden z-10 relative md:aspect-auto aspect-square">
+			<div class="flex justify-between w-full px-4 absolute bottom-2">
+				<div>
+					{#if currentPage > 0}
+						<Button color="green" isLink={false} size="md" on:click={() => {step(true)}}>
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 rotate-180">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" />
+							</svg>
+						</Button>
+					{/if}
+				</div>
+				<div>
+					{#if currentPage != Object.keys(pages).length - 1}
+						<Button color="green" isLink={false} size="md" on:click={() => {step()}}>
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" />
+							</svg>
+						</Button>
+					{/if}
+				</div>
+			</div>
 			<div class="absolute w-full h-full dark:bg-grid-dark bg-grid-light opacity-10 -z-10 pointer-events-none"></div>
 			<Canvas rendererParameters={{antialias: true}}>
 				<Quad {urls} />
@@ -132,26 +152,6 @@
 						{/if}
 					</div>
 				{/key}
-			</div>
-			<div class="flex justify-between w-full px-4">
-				<div>
-					{#if currentPage > 0}
-						<Button color="green" isLink={false} size="sm" on:click={() => {step(true)}}>
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 rotate-180">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" />
-							</svg>
-						</Button>
-					{/if}
-				</div>
-				<div>
-					{#if currentPage != Object.keys(pages).length - 1}
-						<Button color="green" isLink={false} size="sm" on:click={() => {step()}}>
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" />
-							</svg>
-						</Button>
-					{/if}
-				</div>
 			</div>
 		</div>
 		<div class="absolute w-full h-full">
@@ -215,7 +215,7 @@
 		</div>
 	{:else}
 		<!--  -->
-		<div class="col-span-3 flex flex-col items-center justify-center md">
+		<div class="col-span-3 flex flex-col items-center justify-center md py-32 green">
 			<h1>Please open on a computer!</h1>
 			<p>
 				The 3d models used may be too heavy for mobile devices to handle.
@@ -223,6 +223,9 @@
 			<p>
 				For the best experience, please open this page on a computer instead.
 			</p>
+			<Button color="green" isLink={false} size="md" on:click={() => isMobile = false}>
+				Continue anyway
+			</Button>
 		</div>
 	{/if}
 </div>
