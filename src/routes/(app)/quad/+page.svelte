@@ -7,15 +7,6 @@
 	import { fly } from "svelte/transition";
 	import type { SvelteComponent } from "svelte";
 
-	let value: [number, number, number] = [2, 2, 5]
-
-	// let urls = [
-	// 	"/uploads/three/quad/frame.glb",
-	// 	"/uploads/three/quad/esc.glb",
-	// 	"/uploads/three/quad/fc.glb",
-	// 	"/uploads/three/quad/cam.glb",
-	// ]
-
 	const pages: { [key: number]: { id: string; url: string } } = {
 		0: {
 			id: "anatomy",
@@ -62,9 +53,6 @@
 	let currentPage = 0
 
 	function step(back: boolean = false) {
-		// step forward or backward through the pages
-		// set the selected component depending on the page
-		
 		if (!back) {
 			if (currentPage < Object.keys(pages).length - 1) {
 				currentPage++
@@ -91,12 +79,17 @@
 	for (const [key, value] of Object.entries(pages)) {
 		groupedModules[value.id] = modules[`/modules/quad/${value.id}.svx`] as SvelteComponent
 	}
-	// console.log(groupedModules)
 
-	// get if device is mobile
 	let isMobile = false
+	let anchor = ""
 	if (typeof window !== "undefined") {
 		isMobile = window.innerWidth < 768
+		anchor = window.location.hash.replace("#", "");
+	}
+
+	if (anchor) {
+		currentPage = Object.keys(pages).findIndex((key) => pages[Number(key)].id == anchor)
+		$component.selected = pages[currentPage].url
 	}
 
 	let prefix = "VitroidFPV";
@@ -109,7 +102,6 @@
 <svelte:head>
 	<title>VitroidFPV{title}</title>
 	<meta name="author" content="VitroidFPV" />
-	<!-- <meta property="og:image" content="https://www.vitroidfpv.com/sources/cinewhoop_512.png"> -->
 	<meta property="og:image:width" content="512" />
 	<meta property="og:image:height" content="512" />
 	<meta property="og:type" content="website" />
