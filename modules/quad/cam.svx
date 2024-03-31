@@ -1,7 +1,5 @@
 # Camera
-Cameras capture a live video feed of what the drone is "seeing", and send it out to be transmitted, and then received in your goggles
-
-The camera shown here is an analog camera - it sends an analog signal to the FC where the OSD (On Screen Display) is overlaid on top by a special OSD chip, and that video signal then goes to the video transmitter to be transmitted.
+Shown here is an analog camera - it sends an analog signal to the FC where the OSD (On Screen Display) is overlaid on top by a special OSD chip, that video signal then goes to the video transmitter to be transmitted.
 
 There are also digital video systems, where the camera sends the video signal over with digital signals directly to its specific video transmitter, which only works with specific goggles. 
 
