@@ -1,0 +1,7 @@
+# Motors
+The motors spin up the propellers to produce thrust.
+
+There are two main types of electric motors - brushed and brushless:
+
+* **Brushed** - They need to maintain physical electrical contact between the rotor (spinny bit) and stator (rest of the motor), so they wear out quickly, and are less efficient - basically never used nowadays
+* **Brushless** - The stator on a brushless motor only has coils and some bearings to hold the rotor. The rotor can either go around the stator (outrunner) or the inside (inrunner). Outrunner motors are more common for drones, inrunners are used mostly in RC cars
