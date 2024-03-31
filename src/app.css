@@ -81,33 +81,6 @@
 		--range-float-text:      white; /* text color on floating label */
 	}
 
-	/* width */
-	::-webkit-scrollbar {
-		width: 10px;
-	}
-
-	/* Track */
-	.dark::-webkit-scrollbar-track {
-		background: #0f0f0f;
-	}
-	::-webkit-scrollbar-track {
-		background: #eeeeee;
-	}
-
-	/* Handle */
-	::-webkit-scrollbar-thumb {
-		width: 10px;
-		background: var(--range-handle-inactive);
-		border-radius: 10px;
-		/* transition for 300ms */
-		transition: background 300ms ease-in-out;
-	}
-
-	/* Handle on hover */
-	::-webkit-scrollbar-thumb:hover {
-		background: var(--range-handle);
-	}
-
 	::selection {
 	background-color: var(--range-handle-focus);
 	color: #292929;
@@ -430,8 +403,31 @@
 	.md .katex * {
 		@apply !font-[tgheros]
 	}
+
+	body {
+		@apply bg-contrast-50
+	}
+
+	body.dark {
+		@apply bg-main-400
+	}
 }
 
 [contenteditable="true"]:focus {
     @apply outline-[none]
+}
+
+/* width */
+::-webkit-scrollbar {
+	@apply w-2
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	@apply bg-neutral-500/10 rounded-full
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	@apply w-2 bg-neutral-500/60 rounded-full duration-300 transition-all hover:bg-highlight dark:hover:bg-highlight-dark
 }
