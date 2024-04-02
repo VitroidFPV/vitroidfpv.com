@@ -1,6 +1,10 @@
 # Camera
-Shown here is an analog camera - it sends an analog signal to the FC where the OSD (On Screen Display) is overlaid on top by a special OSD chip, that video signal then goes to the video transmitter to be transmitted.
+Shown here is an analog camera - it sends an analog signal to the FC where the On Screen Display is overlaid on top by a special OSD chip, it then goes to the video transmitter, and then it can be received by any analog goggles.
 
 There are also digital video systems, where the camera sends the video signal over with digital signals directly to its specific video transmitter, which only works with specific goggles. 
 
-Digital systems offer better video quality - Analog is like old TV, Digital is like modenr video streaming - but digital stuff is more expensive and while some systems offer lower latency than analog, some take way longer.
+Digital systems offer better video quality - Analog is like old TV, Digital is like modern video streaming - digital stuff is more expensive and while some systems offer lower latency than analog, some take way longer.
+
+The cameras will have different specs, like:
+* **FOV** (Field of View) - how wide the camera can see, measured diagonally in degrees - around 120-150° is common
+* **Resolution** - A bit tricky for analog - it's measured in TVL, it tells how many horizontal lines the camera can output, but the final resolution shown in the goggles is capped by the PAL/NTSC standard. For digital, it's just the resolution in pixels - 540p, 720p, 1080p

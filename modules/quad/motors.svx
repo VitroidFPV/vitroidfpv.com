@@ -1,7 +1,10 @@
 # Motors
-The motors spin up the propellers to produce thrust.
+You need the props to spin to produce thrust.
 
-There are two main types of electric motors - brushed and brushless:
+The motors that we use in FPV are brushless motors. Brushed motors were used eons ago, but rather quickly fell out of favor due to their inefficiency and short lifespan. 
 
-* **Brushed** - They need to maintain physical electrical contact between the rotor (spinny bit) and stator (rest of the motor), so they wear out quickly, and are less efficient - basically never used nowadays
-* **Brushless** - The stator on a brushless motor only has coils and some bearings to hold the rotor. The rotor can either go around the stator (outrunner) or the inside (inrunner). Outrunner motors are more common for drones, inrunners are used mostly in RC cars
+The main specs you need to know about a motor are:
+
+* **Stator Size** - The stator size, usually written as `XXYY`, where `XX` is the diameter, and `YY` is the height, in mm. The bigger the stator, the more strength and power the motor has. For a 5" build, we usually use 2207 or 2306 motors
+* **KV** - The KV rating gives us the RPM per volt with no load. Higher KV = more RPM. 1700-2000kv is most common for 6s 5" builds
+* **Current Draw** - Usually written in the specsheet, it tells us how much current the motor will draw at full throttle. This is important to know for choosing an ESC so you don't burn it out

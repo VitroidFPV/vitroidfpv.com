@@ -1,12 +1,12 @@
 # Flight Controller
-FC - short for Flight Controller, you can think of it as the "brain" of the drone, though that's not
-entirely accurate.
+Takes inputs from the receiver and various sensors, and does some fancy computations to figure out how fast to spin each motor to keep the drone stable and flying where you want it to go.
 
-It takes inputs from the receiver, various sensors
-like a gyroscope and accelerometer, and does some fancy computations to figure out how fast to
-spin each motor.
+There are various onboard features like:
+* **MCU** - The main microcontroller, kinda like the processor in a computer. It runs the firmware that controls everything
+* **Gyroscope/Accelerometer** - Used to measure the rotation rate and angle of the drone
+* **Barometer** - Used to measure the altitude of the drone
 
-FCs will have a bunch of inputs/outputs for attaching peripherals:
+As well as having a bunch of inputs/outputs for attaching others:
 * **5V, 9V, BATT, GND, etc...** - Voltage outputs to power various peripherals with different voltages
 * **TX/RX - UARTs** for communicating over serial, mostly with receivers, GPS units and VTXs, they're almost always a numbered pair
 * **SDA/SCL - I2C** - used for devices such as barometeres and compasses
