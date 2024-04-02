@@ -52,10 +52,16 @@
 		}
 	}
 
-	const color = tweened($theme == "dark" ? "rgb(170, 170, 170)" : "rgb(70, 70, 70)", {
+	const color = tweened($theme == "dark" ? "rgb(170, 170, 170)" : "rgb(30, 30, 30)", {
 		duration: 200,
 		interpolate: interpolateHcl,
 	})
+
+	$: if ($theme == "dark") {
+		color.set("rgb(170, 170, 170)")
+	} else {
+		color.set("rgb(30, 30, 30)")
+	}
 
 	const opacity = tweened(0.05, {
 		duration: 200,
@@ -71,7 +77,7 @@
 	})
 
 	$: if ($component.hovered == url && $component.selected !== url) {
-		opacity.set($theme == "dark" ? 0.4 : 0.4)
+		opacity.set($theme == "dark" ? 0.4 : 0.6)
 	} else {
 		opacity.set($theme == "dark" ? 0.2 : 0.2)
 	}
