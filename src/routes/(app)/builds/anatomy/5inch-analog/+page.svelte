@@ -7,6 +7,9 @@
 	import { fly } from "svelte/transition";
 	import type { SvelteComponent } from "svelte";
 
+	const infoPath = "/modules/anatomy/5inch-analog"
+	const modelPath = "/uploads/three/anatomy/5inch-analog"
+
 	const pages: { [key: number]: { id: string; url: string } } = {
 		0: {
 			id: "anatomy",
@@ -14,39 +17,43 @@
 		},
 		1: {
 			id: "frame",
-			url: "/uploads/three/quad/frame.glb",
+			url: `${modelPath}/frame.glb`
 		},
 		2: {
 			id: "motors",
-			url: "/uploads/three/quad/motors.glb",
+			url: `${modelPath}/motors.glb`,
 		},
 		3: {
-			id: "esc",
-			url: "/uploads/three/quad/esc.glb",
+			id: "props",
+			url: `${modelPath}/props.glb`,
 		},
 		4: {
-			id: "fc",
-			url: "/uploads/three/quad/fc.glb",
+			id: "esc",
+			url: `${modelPath}/esc.glb`,
 		},
 		5: {
-			id: "cam",
-			url: "/uploads/three/quad/cam.glb",
+			id: "fc",
+			url: `${modelPath}/fc.glb`,
 		},
 		6: {
-			id: "vtx",
-			url: "/uploads/three/quad/vtx.glb",
+			id: "cam",
+			url: `${modelPath}/cam.glb`,
 		},
 		7: {
-			id: "vtx_antenna",
-			url: "/uploads/three/quad/vtx_antenna.glb",
+			id: "vtx",
+			url: `${modelPath}/vtx.glb`,
 		},
 		8: {
-			id: "rx",
-			url: "/uploads/three/quad/rx.glb",
+			id: "vtx_antenna",
+			url: `${modelPath}/vtx_antenna.glb`,
 		},
 		9: {
+			id: "rx",
+			url: `${modelPath}/rx.glb`,
+		},
+		10: {
 			id: "rx_antenna",
-			url: "/uploads/three/quad/rx_antenna.glb",
+			url: `${modelPath}/rx_antenna.glb`,
 		},
 	}
 
@@ -74,10 +81,11 @@
 	const urls = Object.values(pages).map((page) => page.url)
 	urls.shift()
 
-	let modules = import.meta.glob("/modules/quad/*.svx", {eager: true})
+	let modules = import.meta.glob("/modules/anatomy/*/*.svx", {eager: true})
+	modules = Object.fromEntries(Object.entries(modules).filter(([key, value]) => key.includes(infoPath)))
 	let groupedModules: Record<string, any> = {}
 	for (const [key, value] of Object.entries(pages)) {
-		groupedModules[value.id] = modules[`/modules/quad/${value.id}.svx`] as SvelteComponent
+		groupedModules[value.id] = modules[`${infoPath}/${value.id}.svx`] as SvelteComponent
 	}
 
 	let isMobile = false

@@ -1,0 +1,9 @@
+# Props
+The propellers provide thrust when spun.
+
+There's lots of props to choose from when you're building, with different shapes, sizes, and colors. The first two actually affect flight performance, though some would argue that all 3 do.
+
+Props have two main specs that you can use to compare them:
+
+* **Size** - The size is measured as the diameter of the prop, and since this is a 5" build, we have 5" props shown here. But you can usually go a little higher or lower - there are 4.8-5.2" props that should fit on most frames
+* **Pitch** - The pitch is the angle of the blades. It's a bit of an archaic measurement. Measured in inches, it refers to how far the prop would move forward in one rotation if it were in a perfect medium - like a screw in wood. Higher pitch props will move more air, but they'll also require more torque to spin up. On 5" builds you'll see pitches ranging from 3 to ~4.5" at max
