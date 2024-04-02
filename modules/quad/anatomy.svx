@@ -1,6 +1,8 @@
 # 5" Quad Anatomy
 This interactive guide will help you learn all of the different components of a regular freestyle 5" drone!
 
-Rotate around the model by left-clicking and dragging, right-click drag to pan, and scroll to zoom in/out.
+Rotate around the model by left-clicking and dragging, right-click drag to pan, and scroll to zoom in/out. On mobile, swipe to rotate, pinch to zoom, and use two fingers to pan around.
 
-Click on any of the components to view the full description, or navigate in order using the buttons below!
+If you want to put together your own 5" quad, check out the [5" Beginner Build Guide](/builds/5inch-beginner)! It has recommendations for all of the components you see here.
+
+Click on any of the components to view the full description, or navigate in order using the buttons at the bottom!
