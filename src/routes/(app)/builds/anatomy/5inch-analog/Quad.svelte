@@ -48,7 +48,7 @@
 	
 </script>
 
-<Environment path="/uploads/three/" files="resting_place_2_1k.hdr" />
+<Environment path="/uploads/three/" files="brown_photostudio_01_1k.hdr" />
 
 <T.PerspectiveCamera
 makeDefault
