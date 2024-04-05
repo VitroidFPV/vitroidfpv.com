@@ -45,9 +45,17 @@
 		font-style: italic;
 	}
 
+	@font-face {
+		font-family: "Josefin Sans";
+		src: url("/uploads/fonts/JosefinSans.ttf") format("truetype");
+		font-style: normal;
+		font-weight: 500;
+	}
+
 	html {
-		font-family: Reem Kufi, Reem Kufi, sans-serif;
+		font-family: "Josefin Sans", sans-serif;
 		scroll-behavior: smooth;
+		letter-spacing: -0.5px;
 	}
 	body {
 		overscroll-behavior-y: none;
@@ -326,15 +334,15 @@
 
 	/* markdown styles */
 	code {@apply dark:bg-neutral-800 bg-neutral-200 px-1 py-0.5 rounded-md}
-	.md h1 {@apply text-4xl my-3 tracking-wide mt-12}
+	.md h1 {@apply text-4xl my-3 tracking-wide mt-12 font-semibold}
 	.md h1:first-of-type {@apply mt-4}
-	.md h2 {@apply text-3xl my-3 tracking-wide mt-8}
+	.md h2 {@apply text-3xl my-3 tracking-wide mt-8 font-semibold}
 	.mď h2 + * {@apply mt-0}
-	.md h3 {@apply text-2xl my-2 mt-6 tracking-wide}
+	.md h3 {@apply text-2xl my-2 mt-6 tracking-wide font-semibold}
 	.md h3 + * {@apply !mt-0}
-	.md h4 {@apply text-xl mt-4 tracking-wide}
-	.md h5 {@apply text-green mt-4 tracking-wide}
-	.md h6 {@apply inline w-fit float-left mr-1}
+	.md h4 {@apply text-xl mt-4 tracking-wide font-semibold}
+	.md h5 {@apply text-green mt-4 tracking-wide font-semibold}
+	.md h6 {@apply inline w-fit float-left mr-1 font-semibold}
 	.md {@apply text-[15px] md:text-lg}
 
 	.md ul h6 {
@@ -382,7 +390,7 @@
 	.admonition.type-info h4 {@apply text-cyan}
 
 	.md hr {@apply border-t-2 border-gray-500/50 my-2}
-	.md p {@apply my-4}
+	.md p {@apply my-4 font-[250]}
 	.md .grid-item p, .md .grid p {@apply my-0}
 	.md .grid img {@apply w-full h-full rounded-2xl}
 	.md p:first-of-type {@apply my-0}

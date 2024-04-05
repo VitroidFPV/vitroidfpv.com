@@ -12,6 +12,7 @@ module.exports = {
 			fontFamily: {
 				"reem-kufi": ["Reem Kufi", "sans-serif"],
 				"caveat": ["Caveat-Bold"],
+				"josefin-sans": ["Josefin Sans", "sans-serif"],
 			},
 			colors: {
 				highlight: "#90d95b",
