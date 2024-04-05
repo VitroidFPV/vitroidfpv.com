@@ -1,5 +1,5 @@
 # VTX
-Video Transmitter - As the name would suggest, its job is to transmit video from the camera to the goggles. Usually on 5.8GHz, but there also 2.4GHz and 1.2GHz VTXs. But they're also **much** less common.
+Video Transmitter - As the name would suggest, its job is to transmit video from the camera to the goggles. Usually on 5.8GHz, but there are also 2.4GHz and 1.2GHz VTXs. But they're also **much** less common.
 
 The VTX here is an analog VTX. It takes in analog video signal and transmits it to the goggles still as an analog signal. It only needs power and a video signal to work, but can also accept a control signal to change channels and power levels.
 

@@ -6,3 +6,5 @@ Rotate around the model by left-clicking and dragging, right-click drag to pan, 
 If you want to put together your own 5" quad, check out the [5" Beginner Build Guide](/builds/5inch-beginner)! It has recommendations for all of the components you see here.
 
 Click on any of the components to view the full description, or navigate in order using the buttons at the bottom!
+
+And if you found this page helpful, please consider supporting me on [KoFi](https://ko-fi.com/vitroid) - I hand-made nearly all of these models myself, and it took a lot of time and effort to put this whole thing together.

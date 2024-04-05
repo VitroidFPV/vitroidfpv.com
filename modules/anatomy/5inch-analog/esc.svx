@@ -5,5 +5,5 @@ Shown here is a 4in1 ESC, that means it has 4 ESC circuits in one board. It's wh
 
 ESCs have three important ratings:
 * **Voltage** - How much voltage the ESC can safely take without blowing up
-* **Constant Current** - How much current the ESC can let through to each motor without overheating or blowing up
+* **Constant Current** - How much current can be safely drawn by each motor through the ESC. With a 40A ESC (be it individual or 4in1), each motor can draw 40A... if there is sufficient airflow over the ESC to keep it cool
 * **Peak Current** - An ESC can momentarily go over the constant rating. This is usually only for less than 10s

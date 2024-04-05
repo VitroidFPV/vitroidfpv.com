@@ -1,6 +1,8 @@
 # Radio Receiver
 Receives the data from your radio transmitter and sends it to the FC with a protocol that it can understand.
 
-ExpressLRS (ELRS) receivers like the one shown here are the most popular choice nowadays. ELRS is an open source radio control system - since any manufacturer can make their own hardware, the many different options available can be priced very competitively.
+ExpressLRS (ELRS) receivers like the one shown here are the most popular choice nowadays. Since ELRS is an open source project, many manufacturers make ELRS hardware, the many different options available make the prices very competitive.
 
 As the name of the system may suggest, it's designed to be fast while also offering low latency and high refresh rates - it has been tested up to over 100km on 50Hz refresh rate, or you can also go up to 1000Hz refresh rate for lower range, but very low latency.
+
+Keep in mind that the receiver you choose must be compatible with the transmitter you have. ELRS 2.4GHz receivers are compatible with ELRS 2.4GHz transmitters, 900MHz ELRS receivers are compatible with 900MHz ELRS transmitters, none of them work with TBS systems on those frequencies, etc...
