@@ -2,7 +2,8 @@
 color: green
 category: Stacks
 group: undefined
-visible: true
+visible: false
+# awaiting target submission, taken down for now
 order: 5
 title: Diatone F435 MK5 + F55
 link: https://www.diatone.us/collections/mamba-stack/products/mamba-stack-mk5-f435-ai-icm42688p-flight-controller-55a-6s-8bit-esc-stack-30-5mm-m3?variant=40363516133463
