@@ -62,7 +62,7 @@
 			{#each Object.entries(contents) as [group, info]}
 				{#if group != "Info"}
 					<div class="group {group} my-4 w-full h-fit">
-						{#if group != "undefined" && group != "null"}
+						{#if group != "undefined" && group != "null" && group != ""}
 							<div
 								class="text-xl tracking-tight w-full px-1 {group} mb-2 border-b-[1px] border-gray-700 text-main-50 dark:text-contrast-500"
 								id={group}>
@@ -105,6 +105,7 @@
 											href={product.metadata.link}
 											img={product.metadata.img}
 											category={cat}
+											group={group}
 											moduleUrl={product.metadata.moduleUrl}
 											order={product.metadata.order}
 										/>

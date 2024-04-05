@@ -29,9 +29,14 @@
 	export let href: string = "/";
 	export let img: string = "/uploads/placeholder.png";
 	export let category: string = "";
-	export let group: any = undefined;
+	export let group = "" || undefined;
 	export let moduleUrl: string = "";
-	export let order: number = 0;	
+	export let order: number = 0;
+
+	$: if (!group) {
+		// hacky but whatever
+		group = undefined;
+	}
 
 	// $: console.log(moduleUrl)
 
@@ -160,7 +165,28 @@ info: ${info}
 		<div class="product-box h-full flex flex-col not-intersecting z-10 relative" bind:this={element} class:intersecting={intersecting}>
 			<div class="{color} {category} relative h-fit w-full border-l-4 product pl-2 my-4 md:mr-8 duration-300">
 				<div class="flex w-full justify-between link text-{color} duration-300 items-start">
-					<div class="w-full pr-2">
+					<div class="w-full pr-2 flex flex-col" class:gap-4={editMode}>
+						{#if editMode}
+
+							<div class="flex"
+									transition:slide
+							>
+								<input
+									bind:value={category}
+									type="text"
+									spellcheck="false"
+									class="text-base text-main-100 dark:text-contrast-300 px-2 py-1 text-main mr-4 w-full h-fit rounded-md bg-neutral-500/10 break-all
+									focus-visible:outline-none focus-visible:outline-[3px] focus-visible:outline-neutral-400/20"
+								>
+								<input
+									bind:value={group}
+									type="text"
+									spellcheck="false"
+									class="text-base text-main-100 dark:text-contrast-300 px-2 py-1 text-main mr-4 w-full h-fit rounded-md bg-neutral-500/10 break-all
+									focus-visible:outline-none focus-visible:outline-[3px] focus-visible:outline-neutral-400/20"
+								>
+							</div>
+						{/if}
 						{#if !editMode}
 							<Link {color} color1={color} size="2" {href} external={true}>{title}</Link>
 						{:else}
