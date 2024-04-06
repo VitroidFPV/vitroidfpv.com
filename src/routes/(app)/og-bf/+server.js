@@ -11,7 +11,7 @@ function setTemplate(title, description) {
 
 	var template = `
 		<div tw="bg-red-500 w-full h-full flex relative" height=${height} width=${width} style="font-family: "Segoe-Bold">
-			<img tw="flex absolute" src="https://vitroidfpv-sv.netlify.app/uploads/images/embed_frame.png"></img>
+			<img tw="flex absolute" src="https://vitroidfpv.com/uploads/images/embed_frame.png"></img>
 			<div tw="w-full h-full flex flex-col px-50 py-42">
 				<div tw="w-full h-full flex flex-col justify-between">
 					<div tw="flex flex-col">
@@ -26,9 +26,9 @@ function setTemplate(title, description) {
 	return template
 }
 
-const SegoeFont = await fetch('https://vitroidfpv-sv.netlify.app/uploads/fonts/Segoe.ttf');
+const SegoeFont = await fetch('https://vitroidfpv.com/uploads/fonts/Segoe.ttf');
 const Segoe = await SegoeFont.arrayBuffer();
-const SegoeBoldFont = await fetch('https://vitroidfpv-sv.netlify.app/uploads/fonts/Segoe-Bold.ttf');
+const SegoeBoldFont = await fetch('https://vitroidfpv.com/uploads/fonts/Segoe-Bold.ttf');
 const SegoeBold = await SegoeBoldFont.arrayBuffer();
 
 

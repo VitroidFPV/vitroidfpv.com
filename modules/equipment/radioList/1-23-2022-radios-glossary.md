@@ -9,7 +9,7 @@ text: >-
   ### Protocol:
 
 
-  More detail about compatibility is [in the FAQ](https://vitroidfpv-sv.netlify.app/faq#compatibleRadio). Slightly different here, as for the most part, I listed the actual RF tech used in the radios
+  More detail about compatibility is [in the FAQ](https://vitroidfpv.com/faq#compatibleRadio). Slightly different here, as for the most part, I listed the actual RF tech used in the radios
 
 
   * CC2500 - The main chip used in FrSky radios, used for ACCST transmission

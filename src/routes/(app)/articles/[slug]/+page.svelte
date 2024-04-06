@@ -164,7 +164,7 @@
 	let color = hexColor;
 	let imgRaw = data.frontmatter.img;
 	let img = imgRaw
-	// if imgRaw is relative, add "https://vitroidfpv-sv.netlify.app" to the beginning
+	// if imgRaw is relative, add "https://vitroidfpv.com" to the beginning
 	if (imgRaw.startsWith("/")) {
 		img = "https://vitroidfpv.com" + imgRaw
 	}

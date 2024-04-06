@@ -11,7 +11,7 @@ answer: >-
   things
 
 
-  * E﻿LRS - You need to keep watch for one main thing, that being the frequency. 900MHz and 2.4GHz. Those need to match between the transmitter and receiver. The receiver and transmitter should also be running the same firmware version, but that can be done very easily and I have an answer for that [here](https://vitroidfpv-sv.netlify.app/faq#flashElrs), then you can easily bind them. The best thing is that most if not all available hardware can be flashed to any firmware you want *unlike FrSky which I will get to later*
+  * E﻿LRS - You need to keep watch for one main thing, that being the frequency. 900MHz and 2.4GHz. Those need to match between the transmitter and receiver. The receiver and transmitter should also be running the same firmware version, but that can be done very easily and I have an answer for that [here](https://vitroidfpv.com/faq#flashElrs), then you can easily bind them. The best thing is that most if not all available hardware can be flashed to any firmware you want *unlike FrSky which I will get to later*
 
   * T﻿BS Crossfire/Tracer - Crossfire will only work with Crossfire, Tracer will only work with Tracer, easy as that. Similar to ELRS, the transmitter and receiver also both need to be on the same firmware. However, due to their limited amount of hardware options, they can make that a bit easier, though fiddly at times. When you go to bind them, the radio will attempt to wirelessly update the receiver to its firmware version
 
