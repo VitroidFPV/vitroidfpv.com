@@ -154,7 +154,7 @@
 		</ul>
 	</Paragraph> -->
 
-	<div class="flex flex-row flex-wrap justify-around z-20">
+	<div class="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 z-20 w-full gap-10">
 		{#each Object.entries(grouped_modules) as [a, contents]}
 			{#each contents as build}
 				{#if build.metadata.visible != false}

@@ -106,7 +106,7 @@
 	<Header title="All the things you'll need to get in the air!" />
 
 	<Paragraph>{description} and some other minor things that could still make or break a new build<br>Keep in mind that this site is still in the works. Info here should be mostly reliable, but some may be unfinished and/or buggy</Paragraph> -->
-	<div class="flex flex-row flex-wrap justify-around z-20">
+	<div class="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 z-20 w-full gap-10">
 		{#each Object.entries(grouped_modules) as [a, contents]}
 			{#each contents as build}
 				<!-- <BuildCard
@@ -132,6 +132,7 @@
 					point5={build.metadata.point5}
 					img={build.metadata.img}
 					short={build.metadata.short}
+					visible={build.metadata.visible}
 				/>
 			{/each}
 		{/each}
