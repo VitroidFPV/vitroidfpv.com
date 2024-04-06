@@ -13,7 +13,7 @@
 	import { formatModules } from "$lib/formatModules";
 	import type { Module } from "$lib/types/module";
 
-	let importModules = import.meta.glob("/modules/builds/5inch-beginner/*.md", {eager: true});
+	let importModules = import.meta.glob("/modules/equipment/charging/*.md", {eager: true});
 	let modules = formatModules(importModules as { [path: string]: Module; });
 	
 	import { fly, fade } from "svelte/transition";
@@ -40,15 +40,15 @@
 
 	import { slide } from "svelte/transition";
 
-	let prefix = "Builds";
-	let titleRaw = "5\" Beginner Quad";
+	let prefix = "Equipment";
+	let titleRaw = "Charging";
 	let title = " - " + titleRaw;
-	let color = "#90d95b";
+	let color = "#ffcc00";
 	let color1 = tinycolor(color).lighten(20).spin(10).toHexString();
 	let color2 = tinycolor(color).darken(20).spin(10).toHexString();
-	let img = "/uploads/images/beginner_512.png";
+	let img = "/uploads/images/charger_512.png";
 	let description =
-		"Specced out to be easy to assemble, with affordable and accessible parts, and electronics that should be easy to solder, this build should be perfect to get you started in the world of FPV";
+		"Everything you need to charge up your packs to fly, from chargers and PSUs to parallel boards and other accessories.";
 </script>
 
 <svelte:head>
@@ -72,12 +72,15 @@
 <div class="overflow-x-clip h-fit relative">
 	<div class="flex flex-col w-full relative px-4 md:px-0">
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8 px-4">
-			<MainHeader title={titleRaw} color="green" {deltaVotes}/>
+			<MainHeader title={titleRaw} color="yellow"/>
 			<Header title="Cheap, durable, and easy to put together and repair" />
 			<p class="text-xl md:w-1/2 md:px-0">
 				{description}<br><br>
-				This list is specced for 6s, and includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br><br>
-				The parts are sorted by price, but they are still relatively cheap without sacrificing on quality
+				Batteries we use in FPV are not single-use disposable items, so we need a way to charge them. This list covers chargers and other charging 
+				equipment across a range of price points.
+				<br><br>
+				Always make sure that you're charging in a safe environment, and never leave your batteries unattended while charging. Everything in this list 
+				should be solid, but nothing can truly be completely safe.
 				<ul class="mt-4 grid md:grid-cols-4 grid-cols-2 w-full justify-between">
 					<li
 						class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-green before:relative mb-2 mr-8">
@@ -141,7 +144,7 @@
 
 	<ProductList modules={modules.groupedModules}/>
 
-	<div class="p-4 md:p-8 w-full h-full">
+	<!-- <div class="p-4 md:p-8 w-full h-full">
 		<FeedbackForm name="5inchBeginner" />
-	</div>
+	</div> -->
 </div>
