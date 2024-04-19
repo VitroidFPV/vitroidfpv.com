@@ -46,9 +46,14 @@
 		}
 	}
 
-	function handleClickOutside() {
-		open = false;
-	}
+    import { createEventDispatcher } from 'svelte';
+
+    const dispatch = createEventDispatcher();
+
+    function handleClickOutside() {
+        open = false;
+        dispatch('clickOutside');
+    }
 </script>
 
 <svelte:window on:keydown={keydown} on:keyup={keyup}/>

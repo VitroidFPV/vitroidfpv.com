@@ -159,7 +159,7 @@ info: ${info}
 
 <svelte:window on:keydown={(event) => {if (event.key === "Escape") {open = false}}}/>
 
-<ImgPopout {img} {title} {open} />
+<ImgPopout {img} {title} {open} on:clickOutside={() => open = false} />
 
 <IntersectionObserver {element} bind:intersecting>
 		<div class="product-box h-full flex flex-col not-intersecting z-10 relative" bind:this={element} class:intersecting={intersecting}>
