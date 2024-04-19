@@ -1,7 +1,7 @@
 ---
 category: Frames
 color: orange
-visible: true
+visible: false
 order: 6
 title: GepRC Mark4
 link: https://geprc.com/product/gep-mark4-frame/
