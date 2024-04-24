@@ -19,21 +19,6 @@
 	import { fly, fade } from "svelte/transition";
 	import tinycolor from "tinycolor2";
 
-	async function getUpvotes() {
-		const res = await fetch("/api/forms?id=63a234bd85496d0008335b10")
-		const data = await res.json()
-
-		return data
-	}
-
-	let deltaVotes: number
-
-	onMount(() => {
-		getUpvotes().then((data) => {
-			deltaVotes = data.votes
-		})
-	})
-
 	let useful = true
 	let feedback = ""
 	let pilotName = ""
@@ -47,8 +32,7 @@
 	let color1 = tinycolor(color).lighten(20).spin(10).toHexString();
 	let color2 = tinycolor(color).darken(20).spin(10).toHexString();
 	let img = "/uploads/images/charger_512.png";
-	let description =
-		"Everything you need to charge up your packs to fly, from chargers and PSUs to parallel boards and other accessories.";
+	let description = "Everything you need to charge up your packs to fly, from chargers and PSUs to parallel boards and other accessories.";
 </script>
 
 <svelte:head>
@@ -73,7 +57,7 @@
 	<div class="flex flex-col w-full relative px-4 md:px-0">
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8 px-4">
 			<MainHeader title={titleRaw} color="yellow"/>
-			<Header title="Cheap, durable, and easy to put together and repair" />
+			<Header title={`\"What do you mean I can't just use AA's!?\"`} />
 			<p class="text-xl md:w-1/2 md:px-0">
 				{description}<br><br>
 				Batteries we use in FPV are not single-use disposable items, so we need a way to charge them. This list covers chargers and other charging 
