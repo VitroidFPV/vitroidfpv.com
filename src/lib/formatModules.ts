@@ -34,6 +34,7 @@ export function formatModules(modules: {[path: string]: Module}) {
             groupedModules[cat][group] = [module];
         }
     }
+
 	let videoModules = import.meta.glob("/modules/equipment/videoList/*.md", {eager: true});
 	let radioModules = import.meta.glob("/modules/equipment/radioList/*.md", {eager: true});
 	let linkedTitles: Array<string> = [];
@@ -109,7 +110,7 @@ export function formatModules(modules: {[path: string]: Module}) {
 		}
 	}
 
-	let categoryOrder = [
+	const buildCategoryOrder = [
 		"Motors",
 		"Frames",
 		"Stacks",
@@ -117,48 +118,89 @@ export function formatModules(modules: {[path: string]: Module}) {
 		"ESCs",
 		"Video Transmitters",
 		"Cameras",
-		"Goggles",
-		"Antennas",
+		"Receivers",
+	]
+
+	const radioCategoryOrder = [
 		"Radios",
 		"TX Modules",
 		"Receivers",
 	]
 
-	// sort the categories in groupedModules by their position in categoryOrder
+	const videoCategoryOrder = [
+		"Video Transmitters",
+		"Cameras",
+		"Goggles",
+		"Antennas",
+	]
+
+	const chargingCategoryOrder = [
+		"Chargers",
+		"Power Supplies",
+		"Parallel/Series Boards",
+		"Accessories",
+	]
+
+	const categoryOrder = [
+		buildCategoryOrder,
+		radioCategoryOrder,
+		videoCategoryOrder,
+		chargingCategoryOrder,
+	]
+
 	let sortedGroupedModules: {[category: string]: {[group: string]: Array<Module>}} = {};
-	for (const cat of categoryOrder) {
-		if (groupedModules[cat]) {
-			sortedGroupedModules[cat] = groupedModules[cat];
+	
+	// sort the categories in groupedModules by their position in the category order arrays
+	for (const catOrder of categoryOrder) {
+		for (const cat of catOrder) {
+			if (groupedModules[cat]) {
+				sortedGroupedModules[cat] = groupedModules[cat];
+			}
 		}
 	}
 
-	let groupOrder = [
+	const videoGroupOrder = [
 		"Analog",
 		"DJI",
 		"Walksnail",
 		"HDZero",
 		"Omnidirectional",
 		"Directional",
+		"Info"
+	]
+
+	const radioGroupOrder = [
 		"Gamepad style",
 		"Compact style",
 		"Full size",
-		"Info",
+		"Info"
 	]
 
+	const chargingGroupOrder = [
+		"Micro Chargers",
+		"DC Chargers",
+		"AC Chargers",
+	]
+
+	const groupOrder = [
+		videoGroupOrder,
+		radioGroupOrder,
+		chargingGroupOrder,
+	]
+
+	// sort the groups from the order arrays in groupOrder
 	for (const cat in sortedGroupedModules) {
-		let sortedGroups: {[group: string]: Array<Module>} = {};
-		for (const group of groupOrder) {
-			if (sortedGroupedModules[cat][group]) {
-				sortedGroups[group] = sortedGroupedModules[cat][group];
+		let sortedCategory: {[group: string]: Array<Module>} = {}; 
+		for (const innerGroupOrder of groupOrder) {
+			for (const group of innerGroupOrder) {
+				if (sortedGroupedModules[cat][group]) {
+					sortedCategory[group] = sortedGroupedModules[cat][group];
+				}
 			}
 		}
-		for (const group in sortedGroupedModules[cat]) {
-			if (!sortedGroups[group]) {
-				sortedGroups[group] = sortedGroupedModules[cat][group];
-			}
-		}
-		sortedGroupedModules[cat] = sortedGroups;
+		sortedGroupedModules[cat] = sortedCategory;
 	}
+
 
 	// sort modules by their order metadata
 	for (const cat in sortedGroupedModules) {
