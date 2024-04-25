@@ -79,10 +79,12 @@
 						on:click={() => addPart(title, price, color, category, url, href)}
 						class="mr-2 hover:text-current text-contrast-500 duration-300">
 						<Icon class="w-7 h-7" src={Plus} stroke-width="2" />
+						<div class="sr-only">Add to price comparison</div>
 					</button>
 					{#if img}
 						<button on:click={() => open = true} class="hover:text-current text-contrast-500 duration-300">
 							<Icon class="w-7 h-7" src={Photo} stroke-width="2" />
+							<div class="sr-only">View image</div>
 						</button>
 					{/if}
 				</div>
