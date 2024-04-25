@@ -189,6 +189,7 @@ export function formatModules(modules: {[path: string]: Module}) {
 	]
 
 	// sort the groups from the order arrays in groupOrder
+	// if group is undefined, place it at the end
 	for (const cat in sortedGroupedModules) {
 		let sortedCategory: {[group: string]: Array<Module>} = {}; 
 		for (const innerGroupOrder of groupOrder) {
@@ -196,6 +197,11 @@ export function formatModules(modules: {[path: string]: Module}) {
 				if (sortedGroupedModules[cat][group]) {
 					sortedCategory[group] = sortedGroupedModules[cat][group];
 				}
+			}
+		}
+		for (const group in sortedGroupedModules[cat]) {
+			if (!sortedCategory[group]) {
+				sortedCategory[group] = sortedGroupedModules[cat][group];
 			}
 		}
 		sortedGroupedModules[cat] = sortedCategory;
