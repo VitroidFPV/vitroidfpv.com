@@ -121,14 +121,15 @@
 	let detailedRating = false
 
 	const detailedRatings = {
-		"Unboxing": 0,
+		"Design": 0,
 		"Features": 0,
 		"Performance": 0,
 		"Value": 0,
 	}
+	
 
 	const ratingColors = {
-		"Unboxing": "#d6395b",
+		"Design": "#d6395b",
 		"Features": "#ff9742",
 		"Performance": "#ffcc00",
 		"Value": "#87cc52",
@@ -136,25 +137,29 @@
 
 	onMount(() => {
 		setTimeout(() => {
-			rating = data.frontmatter.rating
+			detailedRatings["Design"] = data.frontmatter.design
+			detailedRatings["Features"] = data.frontmatter.features
+			detailedRatings["Performance"] = data.frontmatter.performance
+			detailedRatings["Value"] = data.frontmatter.value
+			rating = Object.values(detailedRatings).reduce((a, b) => a + b) / 4
 		}, 300)
 	})
 
 	$: if (detailedRating) {
+		rating = 0
 		setTimeout(() => {
-			detailedRatings["Unboxing"] = data.frontmatter.unboxing
+			detailedRatings["Design"] = data.frontmatter.design
 			detailedRatings["Features"] = data.frontmatter.features
 			detailedRatings["Performance"] = data.frontmatter.performance
 			detailedRatings["Value"] = data.frontmatter.value
-			rating = 0
+			rating = Object.values(detailedRatings).reduce((a, b) => a + b) / 4
 		}, 100)
 	} else {
 		setTimeout(() => {
-			detailedRatings["Unboxing"] = 0
+			detailedRatings["Design"] = 0
 			detailedRatings["Features"] = 0
 			detailedRatings["Performance"] = 0
 			detailedRatings["Value"] = 0
-			rating = data.frontmatter.rating
 		}, 100)
 	}
 
@@ -188,7 +193,7 @@
 	<meta name="author" content="VitroidFPV" />
 	<meta property="og:image" content="{imgOg}" />
 	<meta name="twitter:card" content="summary_large_image">
-	<meta property="og:type" content="website" />
+	<meta property="og:type" content="article" />
 	<meta property="og:site_name" content="VitroidFPV" />
 	<meta property="article:author" content="VitroidFPV" />
 	<meta property="og:title" content="{prefix}{title}" />
@@ -241,7 +246,7 @@
 						</div>
 					</div>
 
-					<div class="bg-neutral-400/5 gap-4 col-span-1 row-span-1 {rating != undefined ? "row-start-4 row-end-5" : ""} flex flex-col justify-center rounded-2xl outline outline-2 outline-neutral-500/10 shadow-lg md:p-8 p-4 md:text-xl text-lg">
+					<div class="bg-neutral-400/5 gap-4 col-span-1 row-span-1 {data.frontmatter.design > 0 ? "row-start-4 row-end-5" : ""} flex flex-col justify-center rounded-2xl outline outline-2 outline-neutral-500/10 shadow-lg md:p-8 p-4 md:text-xl text-lg">
 						<div>
 							Posted on <span class="text-{categoryColor}">{postedDateFormatted}</span>
 							{#if data.frontmatter.updated}
@@ -253,7 +258,7 @@
 						</div>
 					</div>
 					
-					{#if data.frontmatter.rating}
+					{#if data.frontmatter.design > 0}
 						<div class="bg-neutral-400/5 col-span-1 row-span-2 gap-4 flex flex-col justify-center rounded-2xl outline outline-2 outline-neutral-500/10 shadow-lg md:p-8 p-4 md:text-xl text-lg">
 							<span
 								class="md:text-2xl text-{categoryColor}"
@@ -283,7 +288,7 @@
 										<Progress
 											color={hexColor}
 											percent={rating * 10}
-											text={data.frontmatter.rating + "/10"}
+											text={rating + "/10"}
 											textStyle="text-2xl"										
 										/>
 									</div>
