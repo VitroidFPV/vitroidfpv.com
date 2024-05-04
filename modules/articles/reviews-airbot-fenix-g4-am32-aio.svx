@@ -6,6 +6,10 @@ category: Reviews
 author: Vitroid
 img: /uploads/airbot_fenix_thumbnail.png
 date: 2023-09-1T22:40:37.705Z
+design: 8
+features: 8
+performance: 9
+value: 8
 ---
 
 <script>

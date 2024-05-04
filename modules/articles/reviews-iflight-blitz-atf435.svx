@@ -1,14 +1,13 @@
 ---
-title: IFlight Blitz ATF435 - 30X30
+title: IFlight Blitz ATF435
 description: IFlight Going Back to the Budget Market!
 visible: true
 category: Reviews
 author: Vitroid
 img: /uploads/articles/iflight_blitz_atf435_30x30/iflight_blitz_atf435_30x30_thumbnail.png
-date: 2024-03-22T23:53:25.950Z
-rating: 8
-unboxing: 7
-features: 8
+date: 2024-05-04T20:04:07.484Z
+design: 7
+features: 7
 performance: 8
 value: 9
 ---
@@ -27,11 +26,10 @@ iFlight have had their big hit with the original Nazgul5 and the electronics tha
 
 # Where to Buy
 
+* [iFlight (Global)](https://shop.iflight.com/quad-parts-cat20/BLITZ-ATF435-Flight-Controller-Pro2053) - $33.99
 * [UnmannedTechShop (UK)](https://www.unmannedtechshop.co.uk/product/iflight-blitz-atf435-flight-controller/) - £29.49
 * [6S Full (CZ)](https://www.6sfull.cz/blitz-atf435-fc/) - 999 Kč
 * [Pyrodrone (US)](https://pyrodrone.com/products/iflight-blitz-atf435-e55s-2-6s-stack-combo-atf435-fc-55a-8bit-4in1-esc-30x30) - $59.99 (Stack Combo)
-
-For some reason they're not available directly from iFlight, they're probably in the process of cooking up a new batch. I'll update the article when they're available.
 
 <Admonition type="tip" title="Disclosure">
 

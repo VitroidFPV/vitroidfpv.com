@@ -4,9 +4,12 @@ description: Buisness on the front, party in the back
 visible: true
 category: Reviews
 author: Vitroid
-# img: /uploads/placeholder.png
 img: /uploads/articles/airbot_fenix_superf4/airbot_fenix_superf4_thumbnail.png
 date: 2023-09-29T16:33:41.238Z
+design: 10
+features: 9
+performance: 8
+value: 8
 ---
 
 <script>
