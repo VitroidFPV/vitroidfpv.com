@@ -1,6 +1,16 @@
 <script lang="ts">
-	export let color: "red" | "orange" | "yellow" | "green" | "cyan" | "blue" | "violet" | "highlight" = "green";
-	export let isLink: boolean;	
+	export let color:
+		| "red"
+		| "orange"
+		| "yellow"
+		| "green"
+		| "cyan"
+		| "blue"
+		| "violet"
+		| "highlight" = "green";
+	export let isLink: boolean = false;
+	export let isDownload: boolean = false;
+	export let download: string = "";
 	export let href: string = "";
 
 	interface Colors {
@@ -9,12 +19,12 @@
 		text: string;
 	}
 
-	let colors: Colors
+	let colors: Colors;
 	colors = {
 		bg: "bg-green",
 		bgTransparent: "bg-green/10 hover:bg-green/20",
 		text: "text-green",
-	}
+	};
 
 	switch (color) {
 		case "red":
@@ -69,7 +79,8 @@
 		case "highlight":
 			colors = {
 				bg: "bg-highlight",
-				bgTransparent: "bg-highlight/10 hover:bg-highlight/20 dark:bg-highlight-dark/10 dark:hover:bg-highlight-dark/20",
+				bgTransparent:
+					"bg-highlight/10 hover:bg-highlight/20 dark:bg-highlight-dark/10 dark:hover:bg-highlight-dark/20",
 				text: "text-highlight dark:text-highlight-dark",
 			};
 			break;
@@ -85,7 +96,7 @@
 			colors.bgTransparent += " md:p-4 p-3 outline-4";
 			break;
 		case "lg":
-			colors.bgTransparent += " md:p-6 p-4 outline-4";
+			colors.bgTransparent += " md:p-6 p-4 outline-4 text-xl";
 			break;
 	}
 
@@ -93,7 +104,35 @@
 </script>
 
 {#if isLink}
-	<a {href} class="{colors.bgTransparent} {colors.text} backdrop-blur-md rounded-full outline outline-current duration-300 shadow-xl text-base"><span class="dark:text-inherit text-black/75"><slot/></span></a>
+	<a
+		{href}
+		class="{colors.bgTransparent} {colors.text} {$$props.class} 
+		backdrop-blur-md rounded-full outline outline-current duration-300 shadow-xl text-base"
+	>
+		<span class="dark:text-inherit text-black/75 flex gap-2 justify-center items-center">
+			<slot />
+		</span>
+	</a>
+{:else if isDownload}
+	<a
+		{href}
+		{download}
+		class="{colors.bgTransparent} {colors.text} {$$props.class} 
+		backdrop-blur-md rounded-full outline outline-current duration-300 shadow-xl text-base flex items-center justify-center"
+	>
+		<span class="dark:text-inherit text-black/75 flex gap-2 justify-center items-center">
+			<slot />
+		</span>
+	</a>
 {:else}
-	<button {type} on:click class="{colors.bgTransparent} {colors.text} backdrop-blur-md rounded-full outline outline-current duration-300 shadow-xl text-base"><span class="dark:text-inherit text-black/75"><slot/></span></button>
+	<button
+		{type}
+		on:click
+		class="{colors.bgTransparent} {colors.text} {$$props.class} 
+		backdrop-blur-md rounded-full outline outline-current duration-300 shadow-xl text-base"
+	>
+		<span class="dark:text-inherit text-black/75 flex gap-2 justify-center items-center">
+			<slot />
+		</span>
+	</button>
 {/if}

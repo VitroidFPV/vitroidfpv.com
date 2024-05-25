@@ -1,82 +1,94 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
-	import { onMount } from 'svelte';
+	import { browser } from "$app/environment";
+	import { onMount } from "svelte";
+	import { tweened } from "svelte/motion";
+	import { cubicOut } from "svelte/easing";
 
-	import { Icon } from '@steeze-ui/svelte-icon';
-	import { PauseCircle, PlayCircle } from '@steeze-ui/heroicons';
+	import { Icon } from "@steeze-ui/svelte-icon";
+	import { PauseCircle, PlayCircle, StopCircle } from "@steeze-ui/heroicons";
 
-	// import { spin } from '$lib/transition';
 	export let src: string;
 
 	let play = false;
+	
+	let audioPlayer: HTMLAudioElement;
 
-	let audio: HTMLAudioElement | null = null;
-	let duration = 0;
-	let currentTime = 0;
-
-	let progressPercent = 0;
-
-	// console.log(src)
-
-	$: {
-		// get progress percent from current time and duration
-		// avoid NaN and Infinity
-		if (duration && duration !== Infinity && currentTime && play) {
-			progressPercent = (currentTime / duration) * 100;
-		}
-		// console.log(progressPercent)
-	}
-
-	onMount(() => {
-		audio = document.getElementById('audioPlayer') as HTMLAudioElement;
-		// console.log(audio)
-
-		audio?.addEventListener('ended', () => {
+	function handlePlayPause() {
+		if (play) {
+			audioPlayer.pause();
 			play = false;
-			setTimeout(() => {
-				progressPercent = 0;
-				audio.currentTime = 0;
-			}, 350);
-		})
-
-		audio?.addEventListener('timeupdate', () => {
-			currentTime = audio?.currentTime || 0;
-			duration = audio?.duration || 0;
-
-			// console.log(currentTime, duration)
-		})
-	})
-
-	// console.log(audio)
-
-	function togglePlay() {
-		// console.log(audio)
-		if (audio) {
-			if (play) {
-				audio.pause();
-				play = false;
-			} else {
-				audio.play();
-				play = true;
-			}
+		} else {
+			audioPlayer.play();
+			play = true;
 		}
 	}
+
+	function handleStop() {
+		audioPlayer.pause();
+		audioPlayer.currentTime = 0;
+		play = false;
+	}
+
+	let progressPercent = tweened(0, { duration: 300, easing: cubicOut });
+	let progressElement: HTMLInputElement;
+
+	function handleProgress() {
+		audioPlayer.currentTime = (parseFloat(progressElement.value) / 100) * audioPlayer.duration;
+		progressPercent.set(parseFloat(progressElement.value), { duration: 50 });
+		if (!play) {
+			handlePlayPause();
+		}
+	}
+
+	function handleTimeUpdate() {
+		$progressPercent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+	}
+
+	function handleEnded() {
+		play = false;
+	}
+
 </script>
 
 {#if src}
 	<div class="">
-		<button on:click={togglePlay} class="mb-2 text-neutral-500/80 hover:text-blue/80 duration-300">
+		<button on:click={handlePlayPause} class="mb-2 text-neutral-500/80 hover:text-cyan/80 duration-300">
 			{#if !play}
 				<Icon class="w-8 h-8" src={PlayCircle} />
 			{:else}
 				<Icon class="w-8 h-8" src={PauseCircle} />
 			{/if}
 		</button>
+		<button on:click={handleStop} class="mb-2 text-neutral-500/80 hover:text-cyan/80 duration-300">
+			<Icon class="w-8 h-8" src={StopCircle} />
+		</button>
 
-		<div class="w-full bg-neutral-500/20">
-			<div class="h-1 bg-blue duration-500" style="width: {progressPercent}%;"></div>
+		<div class="w-full bg-neutral-500/20 rounded-full overflow-hidden relative">
+			<div class="h-2 bg-cyan rounded-full" style="width: {$progressPercent}%;"></div>
+			<div class="absolute -top-2 w-[calc(100%_+_1rem)] h-full -left-2">
+				<input
+					type="range"
+					name="progress"
+					id="progress"
+					class="w-full opacity-0 cursor-pointer"
+					min="0"
+					max="100"
+					step="0.01"
+					bind:this={progressElement}
+					on:input={handleProgress}
+					on:click={handleProgress}
+				>
+			</div>
 		</div>
 
-		<audio {src} class="hidden" id="audioPlayer" controls></audio>
+		<audio 
+			{src} 
+			class="hidden" 
+			id="audioPlayer" 
+			controls 
+			bind:this={audioPlayer} 
+			on:timeupdate={handleTimeUpdate} 
+			on:ended={handleEnded}
+		></audio>
 	</div>
 {/if}

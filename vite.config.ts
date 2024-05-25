@@ -24,7 +24,7 @@ const config = {
 	plugins: [sveltekit(), customHmr(),],
 	server: {
 		fs: {
-			allow: ["./modules/", "./admin/"]
+			allow: ["./modules/", "./admin/", '../..']
 		},
 		port: 3000,
 	},
@@ -34,6 +34,9 @@ const config = {
 			$lib: "/src/lib/",
 			$routes: "/src/routes/",
 		},
+	},
+	optimizeDeps: {
+		exclude: ['@ffmpeg/ffmpeg', '@ffmpeg/util'],
 	},
 	rollupInputOptions: {
 		external: ['@resvg/resvg-js-win32-x64-msvc'],
