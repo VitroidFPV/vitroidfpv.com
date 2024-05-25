@@ -199,7 +199,7 @@
 
 <div class="content-box">
 
-	<div class="grid xl:grid-cols-3 grid-cols-2 xl:grid-rows-3 grid-rows-4 w-full p-8 gap-8">
+	<div class="grid xl:grid-cols-3 grid-cols-2 xl:grid-rows-3 grid-rows-4 w-full p-8 gap-8 xl:h-96">
 
 		<div class="xl:col-span-1 col-span-2 xl:row-span-full md:row-span-1 order-1">
 			<label 
