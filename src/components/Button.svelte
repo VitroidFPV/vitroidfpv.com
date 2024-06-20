@@ -107,7 +107,7 @@
 	<a
 		{href}
 		class="{colors.bgTransparent} {colors.text} {$$props.class} 
-		backdrop-blur-md rounded-full outline outline-current duration-300 shadow-xl text-base"
+		backdrop-blur-md rounded-full outline outline-current duration-300 shadow-xl text-base flex items-center justify-center"
 	>
 		<span class="dark:text-inherit text-black/75 flex gap-2 justify-center items-center">
 			<slot />
@@ -129,7 +129,7 @@
 		{type}
 		on:click
 		class="{colors.bgTransparent} {colors.text} {$$props.class} 
-		backdrop-blur-md rounded-full outline outline-current duration-300 shadow-xl text-base"
+		backdrop-blur-md rounded-full outline outline-current duration-300 shadow-xl text-base flex items-center justify-center"
 	>
 		<span class="dark:text-inherit text-black/75 flex gap-2 justify-center items-center">
 			<slot />
