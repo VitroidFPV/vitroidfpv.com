@@ -11,5 +11,9 @@ text: Again, as with the ESC and FC from XILO, you have a whole tutorial to go
 # price: $22.99
 # point1: "Output Power: 600mW"
 # point2: "Connector: MMCX"
-info: "$22.99;600mW;MMCX;30x30"
+info:
+  - $22.99
+  - 600mW
+  - MMCX
+  - 30x30
 ---

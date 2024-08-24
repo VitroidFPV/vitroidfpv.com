@@ -12,5 +12,9 @@ text: Rush makes really good VTXs, and this is their newest one. 30x30 mounting
 # price: $36.99
 # point1: "Output Power: 800mW"
 # point2: "Connector: MMCX"
-info: "$36.99;30x30;MMCX;800mW"
+info:
+  - $36.99
+  - 30x30
+  - MMCX
+  - 800mW
 ---

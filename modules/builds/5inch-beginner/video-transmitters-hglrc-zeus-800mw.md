@@ -12,5 +12,9 @@ text: HGLRC's new line of VTXs is quite good. You have an option to mount it on
 # price: $29.99
 # point1: "Output Power: 800mW"
 # point2: "Connector: MMCX"
-info: "$29.99;800mW;MMCX;20x20/30x30"
+info:
+  - $29.99
+  - 800mW
+  - MMCX
+  - 20x20/30x30
 ---

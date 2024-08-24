@@ -12,5 +12,9 @@ text: "\"Ultra 1000\" is a pretty funny name for a VTX, but it lives up to it.
 # price: $29.99
 # point1: "Output Power: 1000mW"
 # point2: "Connector: MMCX"
-info: "$29.99;1000mW;MMCX;30x30"
+info:
+  - $29.99
+  - 1000mW
+  - MMCX
+  - 30x30
 ---

@@ -11,5 +11,9 @@ text: A smaller version of the full size Tank, with 20x20 mounting to fit in the
 # price: $38.99
 # point1: "Output Power: 800mW"
 # point2: "Connector: MMCX"
-info: "$38.99;800mW;MMCX;20x20"
+info:
+  - $38.99
+  - 800mW
+  - MMCX
+  - 20x20
 ---
