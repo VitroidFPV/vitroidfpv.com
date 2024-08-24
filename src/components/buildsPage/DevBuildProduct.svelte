@@ -24,7 +24,15 @@
 	export let point3 = "";
 	export let point4 = "";
 	export let point5 = "";
-	export let info: string = "";
+	export let info: string[] | string = [] || "";
+	let infoArray: string[] = [];
+	if (typeof info === "string") {
+		info.split(";").forEach((item) => {
+			infoArray.push(item);
+		});
+	} else {
+		infoArray = info;
+	}
 	export let text: string = "Description";
 	export let href: string = "/";
 	export let img: string = "/uploads/placeholder.png";
@@ -38,21 +46,28 @@
 		group = undefined;
 	}
 
-	// $: console.log(moduleUrl)
+	let infoYaml = "";
+	if (info) {
+		infoYaml = infoArray.map((item) => {
+			return `- ${item}`;
+		}).join("\n");
+	}
 
 	// save the original input variables
-	const originalSave = { color, title, point1, point2, point3, point4, point5, info, text, href, img, category, group, order };
+	const originalSave = { color, title, point1, point2, point3, point4, point5, infoYaml, text, href, img, category, group, order };
 
 	let canSave = false;
 	// check if the input variables have changed from the saved ones
 	// if they have, then the user can save
-	$: canSave = JSON.stringify({ color, title, point1, point2, point3, point4, point5, info, text, href, img, category, group, order }) !== JSON.stringify(originalSave);
+	$: canSave = JSON.stringify({ color, title, point1, point2, point3, point4, point5, infoYaml, text, href, img, category, group, order }) !== JSON.stringify(originalSave);
 
 	let open: boolean;
 
 	let infoObjects: { text: string; tooltip: string }[] = [];
+
 	$: if (info) {
-		const infoArray = info.split(";");
+		// split each item in the array into text and tooltip
+		// [text<tooltip>, text<tooltip>, ...]
 		infoObjects = infoArray.map((item) => {
 			const split = item.split("<");
 			if (split.length === 1) {
@@ -61,7 +76,17 @@
 				return { text: split[0], tooltip: split[1].slice(0, -1) };
 			}
 		});
-		price = infoObjects[0].text;
+
+		price = infoObjects[0]?.text;
+	}
+
+	// if infoYaml changes, update the infoArray
+	$: if (infoYaml) {
+		infoArray = infoYaml.split("\n").map((item) => {
+			return item.slice(2);
+		});
+		// remove empty strings from the array
+		infoArray = infoArray.filter((item) => item !== "");
 	}
 
 	let colorHex = "";
@@ -94,6 +119,11 @@
 	// add category to path
 	$: autoPath = `/uploads${url}/${category.toLowerCase().replace(`'`, ``).replace(/[^a-zA-Z0-9]/g, "-").replace("---", "-")}-${title.toLowerCase().replace(`'`, ``).replace(/[^a-zA-Z0-9]/g, "-").replace("---", "-")}.png`;
 
+	let formattedYaml = "";
+	$: formattedYaml = infoYaml.split("\n").map((item) => {
+		return `  ${item}`;
+	}).join("\n");
+
 	let content = ""
 	
 	$: content = 
@@ -107,15 +137,14 @@ title: ${title}
 link: ${href}
 img: ${img}
 text: ${text}
-info: ${info}
+info: 
+${formattedYaml}
 ---`;
-
-	// $: console.log(content)
 
 	function confirm() {
 		let path = "";
 		let name = "";
-		if (moduleUrl !== "") {
+		if (moduleUrl !== "" && moduleUrl !== undefined) {
 			path = moduleUrl;
 		} else {
 			path = "/modules/" + url;
@@ -125,7 +154,6 @@ info: ${info}
 	}
 
 	async function writeProduct(content: string, path: string, name: string) {
-		console.log(content)
 		await fetch("/api/dev", {
 			method: "POST",
 			headers: {
@@ -150,10 +178,10 @@ title: ${title}
 link: ${href}
 img: ${img}
 text: ${text}
-info: ${info}
+info: 
+  ${infoYaml}
 ---`;
 
-		// console.log(`color: ${color}\nboxColor: ${boxColor}\ncontent: ${content}`)
 	}
 </script>
 
@@ -350,7 +378,7 @@ info: ${info}
 				{/if}
 				{#if editMode}
 					<div 
-						bind:innerText={info}
+						bind:innerText={infoYaml}
 						transition:slide
 						spellcheck="false"
 						contenteditable="true"

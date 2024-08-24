@@ -23,7 +23,15 @@
 	export let point3 = "";
 	export let point4 = "";
 	export let point5 = "";
-	export let info: string = "";
+	export let info: string[] | string = [] || "";
+	let infoArray: string[] = [];
+	if (typeof info === "string") {
+		info.split(";").forEach((item) => {
+			infoArray.push(item);
+		});
+	} else {
+		infoArray = info;
+	}
 	export let text: string;
 	export let href: string;
 	export let img: string;
@@ -33,7 +41,6 @@
 
 	let infoObjects: { text: string; tooltip: string }[] = [];
 	if (info) {
-		const infoArray = info.split(";");
 		infoObjects = infoArray.map((item) => {
 			const split = item.split("<");
 			if (split.length === 1) {
@@ -42,7 +49,7 @@
 				return { text: split[0], tooltip: split[1].slice(0, -1) };
 			}
 		});
-		price = infoObjects[0].text;
+		price = infoObjects[0]?.text;
 	}
 
 	let colorHex = "";
