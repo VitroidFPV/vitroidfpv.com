@@ -9,8 +9,7 @@ link: https://newbeedrone.com/products/jumper-t-lite-v2-elrs-radio-transmitter
 img: https://oscarliang.com/wp-content/uploads/2021/03/Jumper-T-Lite-Radio-transmitter-opentx.jpg
 text: The V1 used to be the best budget option for a while, about the cheapest
   you could've gotten a multiprotocol radio. It got hard to find as Jumper
-  discontinued it a while back, but now it's back! Still IMO the cheapest way to
-  get an ok ELRS radio nowadays, though lacking slightly in the power output
+  discontinued it a while back, but now it's back! Though lacking slightly in the power output.
 # price: $72.50/84.50
 # point1: "Protocol: ELRS/4in1"
 # point2: "Gimbals: Hall"
