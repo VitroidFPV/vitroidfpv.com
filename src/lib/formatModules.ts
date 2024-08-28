@@ -35,8 +35,8 @@ export function formatModules(modules: {[path: string]: Module}) {
         }
     }
 
-	let videoModules = import.meta.glob("/modules/equipment/videoList/*.md", {eager: true});
-	let radioModules = import.meta.glob("/modules/equipment/radioList/*.md", {eager: true});
+	let videoModules = import.meta.glob("/modules/equipment/video/*.md", {eager: true});
+	let radioModules = import.meta.glob("/modules/equipment/radio/*.md", {eager: true});
 	let linkedTitles: Array<string> = [];
 	for (const cat in groupedModules) {
 		for (const group in groupedModules[cat]) {
@@ -118,7 +118,6 @@ export function formatModules(modules: {[path: string]: Module}) {
 		"ESCs",
 		"Video Transmitters",
 		"Cameras",
-		"Receivers",
 	]
 
 	const radioCategoryOrder = [
