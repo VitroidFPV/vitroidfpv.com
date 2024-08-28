@@ -25,10 +25,10 @@ export function getModules(path: string) {
 			break;
 
 		case "/equipment/radio":
-			modules = import.meta.glob("/modules/equipment/radioList/*.md", {eager: true});
+			modules = import.meta.glob("/modules/equipment/radio/*.md", {eager: true});
 			break;
 		case "/equipment/video":
-			modules = import.meta.glob("/modules/equipment/videoList/*.md", {eager: true});
+			modules = import.meta.glob("/modules/equipment/video/*.md", {eager: true});
 			break;
 	}
 
