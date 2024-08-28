@@ -66,16 +66,12 @@
 	let infoObjects: { text: string; tooltip: string }[] = [];
 
 	$: if (info) {
-		// split each item in the array into text and tooltip
-		// [text<tooltip>, text<tooltip>, ...]
-		infoObjects = infoArray.map((item) => {
-			const split = item.split("<");
-			if (split.length === 1) {
-				return { text: split[0], tooltip: "" };
-			} else {
-				return { text: split[0], tooltip: split[1].slice(0, -1) };
-			}
-		});
+		// [text<tooltip>", "text<tooltip>", ...]
+		// separate strings in the array into objects with text and tooltip
+		infoObjects = infoArray.map((item) =>  {
+			const [text, tooltip] = String(item).split(/<|>/);
+			return { text, tooltip: tooltip || "" };
+		})
 
 		price = infoObjects[0]?.text;
 	}
@@ -108,16 +104,14 @@
 
 	let editMode = false;
 	let editPhoto = false;
-
 	$: if (!editMode) {
 		editPhoto = false;
 	}
 
+	const sanitizedName = `${category.toLowerCase().replace(/\s+/g, "-").replace(/[^a-zA-Z0-9-]/g, "")}-${title.toLocaleLowerCase().replace(/\s+/g, "-").replace(/[^a-zA-Z0-9-]/g, "")}`
+
 	let autoPath: string;
-	// /uploads/<current url>/<title>.png
-	// $: autoPath = `/uploads${url}/${title.toLowerCase().replace(`'`, ``).replace(/[^a-zA-Z0-9]/g, "-").replace("---", "-")}.png`;
-	// add category to path
-	$: autoPath = `/uploads${url}/${category.toLowerCase().replace(`'`, ``).replace(/[^a-zA-Z0-9]/g, "-").replace("---", "-")}-${title.toLowerCase().replace(`'`, ``).replace(/[^a-zA-Z0-9]/g, "-").replace("---", "-")}.png`;
+	$: autoPath = `/uploads${url}/${sanitizedName}.png`;
 
 	let formattedYaml = "";
 	$: formattedYaml = infoYaml.split("\n").map((item) => {
@@ -125,7 +119,6 @@
 	}).join("\n");
 
 	let content = ""
-	
 	$: content = 
 `---
 color: ${color}
@@ -148,7 +141,7 @@ ${formattedYaml}
 			path = moduleUrl;
 		} else {
 			path = "/modules/" + url;
-			name = category.toLowerCase() + "-" + title.toLowerCase().replace(`'`, ``).replace(/[^a-zA-Z0-9]/g, "-").replace("---", "-") + ".md";
+			name = `${sanitizedName}.md`;
 		}
 		writeProduct(content, path, name);
 	}

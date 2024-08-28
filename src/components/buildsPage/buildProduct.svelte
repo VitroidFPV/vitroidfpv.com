@@ -40,18 +40,18 @@
 	let open = false;
 
 	let infoObjects: { text: string; tooltip: string }[] = [];
+
 	if (info) {
-		infoObjects = infoArray.map((item) => {
-			const split = item.split("<");
-			if (split.length === 1) {
-				return { text: split[0], tooltip: "" };
-			} else {
-				return { text: split[0], tooltip: split[1].slice(0, -1) };
-			}
-		});
+		// [text<tooltip>", "text<tooltip>", ...]
+		// separate strings in the array into objects with text and tooltip
+		infoObjects = infoArray.map((item) =>  {
+			const [text, tooltip] = String(item).split(/<|>/);
+			return { text, tooltip: tooltip || "" };
+		})
+
 		price = infoObjects[0]?.text;
 	}
-
+	
 	let colorHex = "";
 
 	switch (color) {
