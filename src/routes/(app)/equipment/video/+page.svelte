@@ -5,8 +5,11 @@
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
 
-	import { getModules } from "$lib/getModules";
-	let modules = getModules("/equipment/video")
+	import { formatModules } from "$lib/formatModules";
+	import type { Module } from "$lib/types/module";
+
+	let importModules = import.meta.glob("/modules/equipment/video/*.md", {eager: true});
+	let modules = formatModules(importModules as { [path: string]: Module; });
 
 	import tinycolor from "tinycolor2";
 

@@ -6,8 +6,11 @@
 	import Paragraph from "$components/Paragraph.svelte";
 	import tinycolor from "tinycolor2";
 
-	import { getModules } from "$lib/getModules";
-	let modules = getModules("/equipment/radio")
+	import { formatModules } from "$lib/formatModules";
+	import type { Module } from "$lib/types/module";
+
+	let importModules = import.meta.glob("/modules/equipment/radio/*.md", {eager: true});
+	let modules = formatModules(importModules as { [path: string]: Module; });
 
 	// console.log(modules)
 
