@@ -1,7 +1,7 @@
 ---
 category: Video Transmitters
 color: red
-visible: true
+visible: false
 order: 6
 title: TBS Sixty9
 link: https://www.team-blacksheep.com/products/prod:crossfire_sixty9
