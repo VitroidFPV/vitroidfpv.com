@@ -108,7 +108,8 @@
 		editPhoto = false;
 	}
 
-	const sanitizedName = `${category.toLowerCase().replace(/\s+/g, "-").replace(/[^a-zA-Z0-9-]/g, "")}-${title.toLocaleLowerCase().replace(/\s+/g, "-").replace(/[^a-zA-Z0-9-]/g, "")}`
+	let sanitizedName = `${category.toLowerCase().replace(/\s+/g, "-").replace(/[^a-zA-Z0-9-]/g, "")}-${title.toLocaleLowerCase().replace(/\s+/g, "-").replace(/[^a-zA-Z0-9-]/g, "")}`
+	$: sanitizedName = `${category.toLowerCase().replace(/\s+/g, "-").replace(/[^a-zA-Z0-9-]/g, "")}-${title.toLocaleLowerCase().replace(/\s+/g, "-").replace(/[^a-zA-Z0-9-]/g, "")}`
 
 	let autoPath: string;
 	$: autoPath = `/uploads${url}/${sanitizedName}.png`;
