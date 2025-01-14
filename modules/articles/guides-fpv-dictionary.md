@@ -381,6 +381,9 @@ Nowadays you'll most often see 4in1 ESCs, which are 4 ESC circuits on a single b
 
 </Admonition>
 
+* ###### Stack:
+As the name would suggest, a stack is a combination of multiple boards stacked on top of each other. Most often a stack consists of a flight controller and an 4in1 ESC, but can also include a [VTX](#vtx), receiver, or other simpler components like a barometer or a compass breakout board
+
 * ###### PDB:
 Power Distribution Board - A board that takes the battery voltage, and distributes it to the flight controller, separate ESCs, and other components. Nowadays rarely used in favor of 4in1 ESCs and FCs that have built-in regulators
 
