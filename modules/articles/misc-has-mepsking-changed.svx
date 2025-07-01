@@ -1,0 +1,101 @@
+---
+title: Has MEPSKING Changed?
+description: An unfortunate sequel
+visible: false
+category: Misc
+author: Vitroid
+img: /uploads/meps_thumbnail.jpg
+date: 2025-07-01T21:05:11.069Z
+---
+
+<script>
+	import GridBox from "$components/articlesPage/GridBox.svelte";
+	import GridItem from "$components/articlesPage/GridItem.svelte";
+	import ImgGrid from "$components/articlesPage/ImgGrid.svelte";
+	import Tablist from "$components/articlesPage/Tablist.svelte";
+	import Tab from "$components/articlesPage/Tab.svelte";
+	import Admonition from "$components/articlesPage/Admonition.svelte";
+	import Chip from "$components/Chip.svelte";
+</script>
+
+Funny how time flows.
+
+<br>
+
+It's a little over 2 years since the [original article](/articles/misc-dont-support-mepsking) was published. A lot has happened in the hobby in that time, and I've done a lot as well. School, work, and other personal projects have taken up a lot of my time, kinda leaving this site in the background. I'd like to think my writing has improved between then and now. But let's give that a shot.
+
+With the article at the time, I thought I'd just point out some... "issues" with their content. I was even happy with some of the outcomes, seeing most of the articles I mentioned were removed. I didn't pay them much mind after that. Out of mind, out of sight kind of thing. Frankly I didn't want to bring any more attention and spend any more time on them.
+
+But in the background, there's been a whole range of other questionable bits here and there. Nothing worth writing an article about on its own, but recently it's gotten all a bit too much to not mention.
+
+# Quick Recap
+
+The original article mainly covered MEPSKING, at the time a relatively new brand on the market using other creators' content without permission, even changing them for the purpose of advertising their own products. 
+
+At the time there was also a lot of talk about overreaching content creator contracts (say that 3 times fast). Since I'm not really a well known content creator, I don't usually sign contracts, and I'm not a lawyer, I just gave that a small mention given it was already covered much better by others.
+
+With that, let's get into what's been going on. May or may not be in chronological order.
+
+# Community Space Spam
+
+It's reasonable to expect an official account on a platform like Instagram, TikTok or YouTube to post about their products. But they took it a step further, moving to more close knit communities on Reddit next. Using a couple of accounts, they spammed many FPV (and non-FPV)communities with reposted content from other users used for advertising their products. It got so far that a post with over 600 votes was made by u/Blachummingbird in r/FPV on the topic of banning the accounts used for spam. 
+
+Most of them were banned either on the individual subreddit, or from Reddit as a whole. But some of them were active up until a few months ago.
+
+# Revealing Personal Information
+
+While all the stolen content and shady contract stuff was being revealed, there was one more issue going on. [Fly High FPV](https://flyhighfpv.com/) (an FPV retailer) came out with a statement about how MEPS reached out to him to stock their products. The statement detailed stuff about the contract and how he was dissatisfied with the quality of the motors. MEPSKING then made a response in which they shared screenshots of their correspondence with him. Intentionally or not, it contained his personal information, down to his phone number and even his full address.
+
+Their response article was taken down and had the info removed, but clearly there is lasting damage. He states that since then, he's been attacked by sales reps, fake accounts, and had his family threatened.
+
+# More Stolen Content
+
+After writing the original article, I was contacted by a member of the team behind [QuadPartPicker](https://www.quadpartpicker.com/). The app is a great resource for finding parts for your quad, and the articles they write are very helpful.
+
+They found more content from MEPSKING that seemed to be stolen from them. Though since I made the article, it looks like MEPSKING has gotten a little better at hiding this. The articles from QuadPartPicker looked like they were ran through an LLM, probably to make it difficult to track down the original source by just searching for the text.
+
+I'll put up the examples they gave me here. You can make the call yourself, but I think it's pretty clear.
+
+[QuadPartPicker - How to Pick Motors, Propellers, ESCs \[...\]](https://news.quadpartpicker.com/how-to-pick-motors-propellers-escs-and-lipo-batteries-for-your-fpv-quad/)
+> The higher the thrust-to-weight ratio, the more responsive your quad will be. Freestylers and racers tend to build quads with high ratios, while cinematic pilots look for lower ratios for more controlled flying. Cinematic flyers may want something close to 2:1. Freestyle pilots routinely use quads between 3:1 - 7:1. And it's not uncommon to see quads with a 15:1 ratio or higher.
+
+[MEPSKING - How to Calculate Drone Motor Thrust?](https://www.mepsking.shop/blog/how-to-calculate-drone-motors-thrust.html)
+> Quads with high ratios are typically built by freestylers and racers, whereas cinematic pilots seek out lower ratios for more controlled flying. Cinematic flyers might like a ratio of almost 2:1. Freestyle pilots typically utilize quads in the 3:1-7:1 range. Additionally, quads with a ratio of at least 15:1 are frequently observed.
+
+While MEPS was using their content, they were still sending them collaboration requests, and I'm not sure if they've stopped doing that by now. It's hard to find copies unless you have written the article yourself and know what to look for in them.
+
+# Glorifying Usage of FPV for Warfare
+
+It's an unfortunate reality that FPV is being used for combat purposes, there's no denying that. If I was to call out every single manufacturer who has taken to selling "suspiciously cheap components for macro quads", I'd be here all day, and we'd be left with practically no one to support. But that's still pretty tame, I mean at the core of it, it is just a cheap part being sold at a convenient time.
+
+It's an entirely different story when a manufacturer is directly advertising their products for use in warfare, glorifying the use of FPV for combat, and using it as advertising material.
+
+MEPSKING posted a video on their socials, showing off footage from a kamikaze FPV simulator, in what can only be described as a kill montage. They were deservedly called out for it in the comments. Eventually it was thankfully taken down, but even the fact that they posted it in the first place is very concerning.
+
+# Direct Contact
+
+As I mentioned, I was happy to just shut up about them after making the first article. I thought that it was "behind us", to put it lightly. But since we're here, clearly that didn't go as planned. 
+
+In late March, a representative from MEPSKING reached out to me on Instagram. The message was in regards to the initial article. Keep in mind, this was almost 2 years since the original article was published. They said that it contained "outdated information", and wanted me to take it down. In the same message, they said how much they "respected my platform", and that they'd send me some of their products for review to provide an "up-to-date perspective".
+
+Clearly they knew about the article nearly as soon as it was published, since most of the articles I mentioned were taken down not long after. They put more effort into concealing their involvement in the stolen content. So I wonder what took them so long to reach out. If they had reached out all the way back then and clarified what was going on, and promised to do better,I'd have been happy to take down the article... or at least update it with info about what they're doing to make up for it. But here we are, 2 years later, with me doing all of this again, just because they seemingly can't stop doing various shady things.
+
+Now, I'll attach the whole correspondence below, you can make your own call on it. But to me that really just sounds like "We'll send you some stuff if you review it and take down the article showing us in a bad light".
+
+# Impersonation of Manufacturers
+
+This is the most recent issue I've come across. I had someone reach out to me, asking if an Instagram account under the handle `speedybee.fpv` was the official one for SpeedyBee. When I opened the account, it seemed like a legit brand page, with SpeedyBee's logo, posting videos of SpeedyBee products, being tagged by other users and tagging users in return. Basically all you'd expect from an official brand account.
+
+The one thing that stood out was the fact that the username was `speedybee&mepsking`, and they had a link to MEPSKING's website in their bio. On its own, I probably wouldn't say this is enough of a concern, but after some more digging, I found that the account was followed by/followed another account under the handle `raidomaster.fpv`, which was doing the same exact thing. Impersonating the brand, but linking to MEPSKING's website.
+
+After I not-so-secretly reached out to the `speedybee.fpv` account asking what was going on, they changed the profile picture, and the username of the account to `fpvhive_supply`.
+
+So after all that, it seems like another shady marketing tactic. MEPSKING has opened their store to sell other brands' products as well, but advertising it like this is extremely dishonest.
+
+# Conclusion
+
+Despite wanting to just let this go, all of this has built up to a point where I feel like I have to write *something*. The original article was a bit of a rant, I was really upset with what they were doing back then... to some degree, I still am. 
+
+I don't have any bad blood against any manufacturer, I believe most of them are doing their best to make products just to get people flying, and provide a good product. We're lucky that it's easier to just name the few bad apples instead of having to name the few good ones. It's not easy to run a business, to advertise and promote it well. If they had dropped everything they were doing and focused on making better content, or even just stopping all that and focusing on making better products, I'd be happy to call that out in a positive light.
+
+I would love for them to do better, and I'm sure they can. But they're not.
