@@ -53,6 +53,16 @@
 	let selectedModules = date_sorted_modules.filter(module => $selectedCategories.includes(module.metadata.category))
 	$: selectedModules = date_sorted_modules.filter(module => $selectedCategories.includes(module.metadata.category))
 
+	function sanitizedTitle(title: string) {
+		return title
+			.toLowerCase()
+			.replace(/[^a-zA-Z0-9]/g, "-")
+			.replace(" ", "-")
+			.replace("--", "-")
+			.replace("---", "-")
+			.replace(/-+$/, "")
+	}
+
 	// console.log("/articles/" + date_sorted_modules[0].metadata.category.toLowerCase() + "-" + date_sorted_modules[0].metadata.title.toLowerCase().replace(/[^a-zA-Z0-9]/g, "-").replace("---", "-"));
 	// let postedDate = new Date(slugModule.metadata.date)
 	// let postedDateFormatted = postedDate.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"})
@@ -151,7 +161,7 @@
 							img={module.metadata.img}
 							category={module.metadata.category}
 							date={module.metadata.date}
-							href={"/articles/" + module.metadata.category.toLowerCase() + "-" + module.metadata.title.toLowerCase().replace(`'`, ``).replace(/[^a-zA-Z0-9]/g, "-").replace("---", "-")}
+							href={"/articles/" + module.metadata.category.toLowerCase() + "-" + sanitizedTitle(module.metadata.title)}
 						/>
 					{/if}
 				{/each}
