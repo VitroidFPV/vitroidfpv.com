@@ -5,7 +5,7 @@ index 3afedb4..c2c4b3e 100644
 @@ -1,5 +1,6 @@
  {
    "name": "@ffmpeg/util",
-   "version": "0.12.1",
+   "version": "0.12.2",
    "description": "browser utils for @ffmpeg/*",
    "main": "./dist/cjs/index.js",
 +  "type": "module",
