@@ -1,17 +1,7 @@
 <script lang="ts">
-	export let color:
-		| "red"
-		| "orange"
-		| "yellow"
-		| "green"
-		| "cyan"
-		| "blue"
-		| "violet"
-		| "highlight" = "green";
-	export let isLink: boolean = false;
-	export let isDownload: boolean = false;
-	export let download: string = "";
-	export let href: string = "";
+	import { createBubbler } from 'svelte/legacy';
+
+	const bubble = createBubbler();
 
 	interface Colors {
 		bg: string;
@@ -19,7 +9,7 @@
 		text: string;
 	}
 
-	let colors: Colors;
+	let colors: Colors = $state();
 	colors = {
 		bg: "bg-green",
 		bgTransparent: "bg-green/10 hover:bg-green/20",
@@ -86,7 +76,6 @@
 			break;
 	}
 
-	export let size: "sm" | "md" | "lg" = "md";
 
 	switch (size) {
 		case "sm":
@@ -100,7 +89,35 @@
 			break;
 	}
 
-	export let type: "button" | "submit" | "reset" = "button";
+	interface Props {
+		color?: 
+		| "red"
+		| "orange"
+		| "yellow"
+		| "green"
+		| "cyan"
+		| "blue"
+		| "violet"
+		| "highlight";
+		isLink?: boolean;
+		isDownload?: boolean;
+		download?: string;
+		href?: string;
+		size?: "sm" | "md" | "lg";
+		type?: "button" | "submit" | "reset";
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		color = "green",
+		isLink = false,
+		isDownload = false,
+		download = "",
+		href = "",
+		size = "md",
+		type = "button",
+		children
+	}: Props = $props();
 </script>
 
 {#if isLink}
@@ -110,7 +127,7 @@
 		backdrop-blur-md rounded-full outline outline-current duration-300 shadow-xl text-base flex items-center justify-center"
 	>
 		<span class="dark:text-inherit text-black/75 flex gap-2 justify-center items-center">
-			<slot />
+			{@render children?.()}
 		</span>
 	</a>
 {:else if isDownload}
@@ -121,18 +138,18 @@
 		backdrop-blur-md rounded-full outline outline-current duration-300 shadow-xl text-base flex items-center justify-center"
 	>
 		<span class="dark:text-inherit text-black/75 flex gap-2 justify-center items-center">
-			<slot />
+			{@render children?.()}
 		</span>
 	</a>
 {:else}
 	<button
 		{type}
-		on:click
+		onclick={bubble('click')}
 		class="{colors.bgTransparent} {colors.text}
 		backdrop-blur-md rounded-full outline outline-current duration-300 shadow-xl text-base flex items-center justify-center"
 	>
 		<span class="dark:text-inherit text-black/75 flex gap-2 justify-center items-center">
-			<slot />
+			{@render children?.()}
 		</span>
 	</button>
 {/if}

@@ -4,7 +4,7 @@
 	import { parts } from "$lib/stores/buildsStore";
 	import { copyCompare } from "$lib/copyCompare";
 	import { expand } from "$lib/transition"
-	import { page } from "$app/stores";
+	import { page } from "$app/state";
 	import PriceComparison from "$components/buildsPage/PriceComparison.svelte";	
 	import { slide } from "svelte/transition"
 	import { get } from "svelte/store";
@@ -12,7 +12,7 @@
 	import { Clipboard, AdjustmentsVertical } from "@steeze-ui/heroicons";
 
 	let compareOpen = $state(false)
-	let url = $page.url.pathname
+	let url = page.url.pathname
 
 	// $: console.log($parts[url])
 	// log the stringified version 
@@ -84,11 +84,9 @@
 					</div>
 				{/each} -->
 				{#each $parts[url] as part (part.title)}
-					<!-- {#key $parts[url]} -->
 					<div transition:slide>
 						<PriceComparison title={part.title} {url} color={part.color} price={part.price} href={part.href}, quantity={part.quantity}/>
 					</div>
-					<!-- {/key} -->
 				{/each}
 				<div class="flex justify-end mt-4">
 					<div class="text-2xl"><span class="text-base">Total:</span> ${total}</div>

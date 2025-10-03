@@ -2,7 +2,7 @@
 	let open = $state(false);
 	import { onMount } from "svelte";
 	import { slide, fade, fly } from "svelte/transition";
-	import { page } from "$app/stores";
+	import { page } from "$app/state";
 	import toast, { Toaster } from 'svelte-french-toast';
 
 	// import SvelteMarkdown from 'svelte-markdown'
@@ -31,7 +31,7 @@
 	});
 
 	function linkOpen() {
-		let hash = $page.url.hash.replace("#", "");
+		let hash = page.url.hash.replace("#", "");
 		if (hash != "") {
 			if (hash == id) {
 				open = true;
@@ -43,7 +43,7 @@
 
 	function copyID(this: {nextElementSibling: any; "on:click": () => void; class: string; }) {
 		let id = this.nextElementSibling.id;
-		copyText($page.url.origin + $page.url.pathname + "/" + id);
+		copyText(page.url.origin + page.url.pathname + "/" + id);
 		// console.log(id);
 	}
 

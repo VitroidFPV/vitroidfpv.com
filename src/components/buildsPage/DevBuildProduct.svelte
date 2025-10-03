@@ -6,13 +6,13 @@
 	import Chip from "$components/Chip.svelte";
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { addPart } from "$lib/addPart";
-	import { page } from "$app/stores";
+	import { page } from "$app/state";
 	import ImgPopout from "$components/ImgPopout.svelte";
 	import { slide, fly } from "svelte/transition";
 	import { Icon } from "@steeze-ui/svelte-icon";
 	import { Photo, Eye, Plus, Link as ChainLink, PencilSquare, FolderArrowDown, ChevronUp } from "@steeze-ui/heroicons"
 
-	const url = $page.url.pathname;
+	const url = page.url.pathname;
 
 	let element: HTMLElement = $state();
 	let intersecting: boolean = $state();
