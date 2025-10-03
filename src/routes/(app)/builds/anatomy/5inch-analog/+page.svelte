@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { Canvas } from "@threlte/core"
 	import Quad from "./Quad.svelte"
 	import { component } from "$lib/stores/quadStore"
@@ -57,7 +59,7 @@
 		},
 	}
 
-	let currentPage = 0
+	let currentPage = $state(0)
 
 	function step(back: boolean = false) {
 		if (!back) {
@@ -74,7 +76,9 @@
 	}
 
 	// update the current page when the selected component changes
-	$: currentPage = Object.keys(pages).findIndex((key) => pages[Number(key)].url == $component.selected)
+	run(() => {
+		currentPage = Object.keys(pages).findIndex((key) => pages[Number(key)].url == $component.selected)
+	});
 
 	const colors = ["#2AD162", "#90d95b", "#5AD8E6"]
 
@@ -83,12 +87,12 @@
 
 	let modules = import.meta.glob("/modules/anatomy/*/*.svx", {eager: true})
 	modules = Object.fromEntries(Object.entries(modules).filter(([key, value]) => key.includes(infoPath)))
-	let groupedModules: Record<string, any> = {}
+	let groupedModules: Record<string, any> = $state({})
 	for (const [key, value] of Object.entries(pages)) {
 		groupedModules[value.id] = modules[`${infoPath}/${value.id}.svx`] as SvelteComponent
 	}
 
-	let isMobile = false
+	let isMobile = $state(false)
 	let anchor = ""
 	if (typeof window !== "undefined") {
 		isMobile = window.innerWidth < 768
@@ -156,7 +160,8 @@
 				{#key groupedModules[pages[currentPage].id]}
 					<div in:fly={{x: 20}} out:fly={{x: -20}}>
 						{#if groupedModules[pages[currentPage].id]}
-							<svelte:component this={groupedModules[pages[currentPage].id].default} />
+							{@const SvelteComponent_1 = groupedModules[pages[currentPage].id].default}
+							<SvelteComponent_1 />
 						{/if}
 					</div>
 				{/key}

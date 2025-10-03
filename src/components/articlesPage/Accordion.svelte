@@ -1,15 +1,20 @@
 <script lang="ts">
 	import { slide } from "svelte/transition"
 
-	export let title: string
-	export let open: boolean = false
+	interface Props {
+		title: string;
+		open?: boolean;
+		children?: import('svelte').Snippet;
+	}
+
+	let { title, open = $bindable(false), children }: Props = $props();
 </script>
 
 <div>
-	<button on:click={() => open = !open}>
+	<button onclick={() => open = !open}>
 		<div class="flex">{title}</div>
 	</button>
 	{#if open}
-		<div transition:slide={{duration: 500}}><slot /></div>
+		<div transition:slide={{duration: 500}}>{@render children?.()}</div>
 	{/if}
 </div>

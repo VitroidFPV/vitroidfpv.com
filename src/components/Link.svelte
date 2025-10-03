@@ -1,10 +1,23 @@
 <script lang="ts">
-	export let color = "green";
-	export let color1 = "green";
-	export let size = "";
-	export let href = "";
-	export let external = false;
-	export let preload: boolean = false;
+	interface Props {
+		color?: string;
+		color1?: string;
+		size?: string;
+		href?: string;
+		external?: boolean;
+		preload?: boolean;
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		color = "green",
+		color1 = "green",
+		size = "",
+		href = "",
+		external = false,
+		preload = false,
+		children
+	}: Props = $props();
 </script>
 
 <!-- {#if external}
@@ -28,5 +41,5 @@
 	{href}
 	class="{color} t-{color1} text-{size}xl link"
 >
-	<slot />
+	{@render children?.()}
 </a>

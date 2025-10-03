@@ -1,15 +1,26 @@
 <script lang="ts">
 	import Link from "$components/Link.svelte";
 
-	export let title: string
-	export let description: string
-	export let img: string
-	export let href = ""
-	export let category: string
-	export let date: string
+	interface Props {
+		title: string;
+		description: string;
+		img: string;
+		href?: string;
+		category: string;
+		date: string;
+	}
+
+	let {
+		title,
+		description,
+		img,
+		href = "",
+		category,
+		date
+	}: Props = $props();
 	// export let author: string
 
-	let categoryColor: string
+	let categoryColor: string = $state()
 	switch (category) {
 		case "Guides":
 			categoryColor = "green"

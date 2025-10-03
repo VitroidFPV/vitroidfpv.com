@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import MainHeader from "$components/MainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Button from "$components/Button.svelte";
@@ -32,15 +34,15 @@
 	soundNames.sort();
 	// console.log(soundNames);
 
-	let files: FileList;
-	let inputFileName: string;
-	let inputSrc: string;
+	let files: FileList = $state();
+	let inputFileName: string = $state();
+	let inputSrc: string = $state();
 
-	let soundSearch: string = "";
-	let selectedSound: string | undefined;
-	let outputSrc: string;
+	let soundSearch: string = $state("");
+	let selectedSound: string | undefined = $state();
+	let outputSrc: string = $state();
 
-	let resultSrc: string;
+	let resultSrc: string = $state();
 
 	function search() {
 		const filtered = soundNames.filter((name) => name.toLowerCase().includes(soundSearch.toLowerCase()));
@@ -48,23 +50,27 @@
 		selectedSound = filtered[0];
 	}
 
-	$: if (selectedSound && selectedSound != "") {
-		outputSrc = `/uploads/edgetx-sounds/${selectedSound}`;
-		console.log(outputSrc);
-	}
+	run(() => {
+		if (selectedSound && selectedSound != "") {
+			outputSrc = `/uploads/edgetx-sounds/${selectedSound}`;
+			console.log(outputSrc);
+		}
+	});
 
-	$: if (files) {
-		const file = files[0];
-		inputFileName = file.name;
-		inputSrc = URL.createObjectURL(file);
-		console.log(files);
-	}
+	run(() => {
+		if (files) {
+			const file = files[0];
+			inputFileName = file.name;
+			inputSrc = URL.createObjectURL(file);
+			console.log(files);
+		}
+	});
 
 	const baseURL = "https://unpkg.com/@ffmpeg/core@0.12.6/dist/esm";
 	const videoURL = "https://raw.githubusercontent.com/ffmpegwasm/testdata/master/video-15s.avi";
 	let message = "message";
 
-	let loading = false;
+	let loading = $state(false);
 
 	async function transcode() {
 		if (!files) {
@@ -240,35 +246,37 @@
 				<Listbox
 					class={({open}) => (open ? "gap-2" : " gap-0") + " listbox h-fit whitespace-nowrap"}
 					bind:value={selectedSound}
-					let:open
+					
 				>
-					<ListboxButton
-						class={({open}) => (open ? "text-cyan" : "hover:text-cyan") + " flex items-center duration-300"}
-					>
-						<!-- <Button isLink={false} color="cyan" size="sm">{selectedSort.label}</Button> -->
-						{#if !selectedSound}
-							Select Sound
-						{:else}
-							{selectedSound}
+					{#snippet children({ open })}
+										<ListboxButton
+							class={({open}) => (open ? "text-cyan" : "hover:text-cyan") + " flex items-center duration-300"}
+						>
+							<!-- <Button isLink={false} color="cyan" size="sm">{selectedSort.label}</Button> -->
+							{#if !selectedSound}
+								Select Sound
+							{:else}
+								{selectedSound}
+							{/if}
+							<div class="ml-2 rotate-0 transition-transform" class:rotate-90={open}>
+								<Icon src={ChevronRight} class="w-4 h-4" stroke-width="3" />
+							</div>
+						</ListboxButton>
+						{#if open}
+							<div transition:fly={{y: -10}} class="absolute backdrop-blur-md">
+								<ListboxOptions class="listbox-options h-64 overflow-y-scroll w-48">
+									{#each soundNames as option}
+										<ListboxOption value={option}
+											class={({selected})=> (selected ? "listbox-selected" : "") + " listbox-option"}
+										>
+											{option}
+										</ListboxOption>
+									{/each}
+								</ListboxOptions>
+							</div>
 						{/if}
-						<div class="ml-2 rotate-0 transition-transform" class:rotate-90={open}>
-							<Icon src={ChevronRight} class="w-4 h-4" stroke-width="3" />
-						</div>
-					</ListboxButton>
-					{#if open}
-						<div transition:fly={{y: -10}} class="absolute backdrop-blur-md">
-							<ListboxOptions class="listbox-options h-64 overflow-y-scroll w-48">
-								{#each soundNames as option}
-									<ListboxOption value={option}
-										class={({selected})=> (selected ? "listbox-selected" : "") + " listbox-option"}
-									>
-										{option}
-									</ListboxOption>
-								{/each}
-							</ListboxOptions>
-						</div>
-					{/if}
-				</Listbox>
+														{/snippet}
+								</Listbox>
 				<div class="w-full">
 					<input
 						type="text"
@@ -279,7 +287,7 @@
 						placeholder="Search..."
 						autocomplete="off"
 						bind:value={soundSearch}
-						on:input={search}
+						oninput={search}
 					>
 				</div>
 			</div>

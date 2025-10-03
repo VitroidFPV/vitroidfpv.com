@@ -1,16 +1,27 @@
 <script lang="ts">
-	export let url: string
-	export let title: string;
-	export let color: string;
-	export let price: string;
-	export let href: string;
-	export let quantity: number;
 	import { slide } from "svelte/transition"
 	import { Icon } from "@steeze-ui/svelte-icon";
 	import { Plus } from "@steeze-ui/heroicons";
 
 	import { parts } from "$lib/stores/buildsStore";
 	import Link from "$components/Link.svelte";
+	interface Props {
+		url: string;
+		title: string;
+		color: string;
+		price: string;
+		href: string;
+		quantity: number;
+	}
+
+	let {
+		url,
+		title,
+		color,
+		price,
+		href,
+		quantity
+	}: Props = $props();
 
 
 	function removePart() {
@@ -37,7 +48,7 @@
 	</div>
 	<button
 		class="text-red"
-		on:click={() => {
+		onclick={() => {
 			removePart();
 		}}
 	>

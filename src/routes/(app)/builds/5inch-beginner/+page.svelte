@@ -26,7 +26,7 @@
 		return data
 	}
 
-	let deltaVotes: number
+	let deltaVotes: number = $state()
 
 	onMount(() => {
 		getUpvotes().then((data) => {

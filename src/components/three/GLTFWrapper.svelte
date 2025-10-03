@@ -6,14 +6,24 @@
 	import { Float } from "@threlte/extras"
 	interactivity()
 
-	export let url: string = ""
-	export let position: [number, number, number] = [0, 0, 0]
-	export let rotation: [number, number, number] = [0, 0, 0]
-	export let scale: number = 1
-	export let pan: boolean = false
 
 	import { createTransition } from "@threlte/extras";
 	import { cubicOut } from "svelte/easing";
+	interface Props {
+		url?: string;
+		position?: [number, number, number];
+		rotation?: [number, number, number];
+		scale?: number;
+		pan?: boolean;
+	}
+
+	let {
+		url = "",
+		position = [0, 0, 0],
+		rotation = [0, 0, 0],
+		scale = 1,
+		pan = false
+	}: Props = $props();
 
 	const scaleT = createTransition<Mesh>((ref) => {
 		const from = ref.scale.x;

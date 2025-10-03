@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { T } from '@threlte/core'
 	import { Environment, GLTF, OrbitControls } from '@threlte/extras'
 	import { useGltf } from '@threlte/extras'
@@ -13,9 +15,11 @@
 
 	const gltf = useGltf('/uploads/three/prop.glb')
 
-	$: console.log($gltf)
+	run(() => {
+		console.log($gltf)
+	});
 
-	let hovered = false
+	let hovered = $state(false)
 </script>
 
 <T.PerspectiveCamera

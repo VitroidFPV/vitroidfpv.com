@@ -1,3 +1,5 @@
+<!-- @migration-task Error while migrating Svelte code: Expected a valid element or component name. Components must have a valid variable name or dot notation expression
+https://svelte.dev/e/tag_invalid_name -->
 <script lang="ts">
 	export let title: string = "";
 	export let level: 1 | 2 | 3 | 4 | 5 | 6 = null;

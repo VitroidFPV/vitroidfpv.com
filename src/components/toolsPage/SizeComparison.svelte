@@ -1,9 +1,13 @@
 <script lang="ts">
-	export let size: string
 
 	import { compareArray } from "$lib/stores/toolsStore"
 	import { Icon } from "@steeze-ui/svelte-icon";
 	import { Plus } from "@steeze-ui/heroicons";
+	interface Props {
+		size: string;
+	}
+
+	let { size }: Props = $props();
 
 	function calculateVolume(size: string) {
 		let sizeP = size.replace(",", ".");
@@ -25,7 +29,7 @@
 	</div>
 	<button
 		class="text-red"
-		on:click={() => {
+		onclick={() => {
 			compareArray.update(arr => arr.filter(val => val !== size))
 		}}
 	>

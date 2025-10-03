@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run, handlers } from 'svelte/legacy';
+
 	import MainHeader from "$components/MainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
@@ -31,19 +33,19 @@
 		copyNode(node);
 	}
 
-	let size: string = "";
+	let size: string = $state("");
 	let rounded = false;
 
 	let dbmToMw = true;
-	let dbmToMwRotated = 0
+	let dbmToMwRotated = $state(0)
 	// if dbmToMw is true, then the dbmToMwRotated is 0, otherwise it is 180
 
 	function toggleDbmToMw() {
 		dbmToMw = !dbmToMw;
 		dbmToMwRotated = dbmToMw ? 0 : 180
 	}
-	let dbm = 0;
-	let mw = 0;
+	let dbm = $state(0);
+	let mw = $state(0);
 	// console.log(dbmToMw);
 
 	function calculateVolume(size: string) {
@@ -94,7 +96,7 @@
 		// console.log($compareArray);
 	}
 
-	let compareOpen = false;
+	let compareOpen = $state(false);
 	import { backInOut } from 'svelte/easing';
 	import SizeComparison from "$components/toolsPage/SizeComparison.svelte";
 	import Link from "$components/Link.svelte";
@@ -127,16 +129,16 @@
 		}
 	}
 
-	$: {
+	run(() => {
 		if ($compareArray.length == 0) {
 			compareOpen = false;
 		}
-	}
+	});
 
-	let cellCount = 1;
-	let isHv = false;
-	let capacity = 0;
-	let wh: number
+	let cellCount = $state(1);
+	let isHv = $state(false);
+	let capacity = $state(0);
+	let wh: number = $state()
 
 	function updateCellCount(increment: boolean) {
 		if (increment) {
@@ -159,10 +161,10 @@
 		wh = parseFloat((wh * cellCount).toFixed(2));
 	}
 
-	$: {
+	run(() => {
 		isHv = isHv
 		calculateWh();
-	}
+	});
 
 	let prefix = "VitroidFPV";
 	let titleRaw = "Tools";
@@ -194,7 +196,7 @@
 	<div class="absolute w-full h-full -ml-8 pr-8">
 		<div class="sticky top-8 flex justify-end z-20">
 			<button 
-				on:click={() => {
+				onclick={() => {
 					if ($compareArray.length > 0) {
 						compareOpen = !compareOpen;
 					} else {
@@ -213,7 +215,7 @@
 				<div transition:expand={{duration: 1000, delay: 0}} id="compare" class="w-64 min-h-fit p-4 absolute bg-neutral-500/10 right-0 top-0 rounded-3xl backdrop-blur-md border-2 border-neutral-500/40 flex flex-col duration-300 transition-all">
 					<div class="flex">
 						<div class="text-2xl text-highlight dark:text-highlight-dark mb-4 mr-2">Compare</div>
-						<button on:click={() => copyCompare()} class="h-8 w-8 outline outline-2 outline-highlight dark:outline-highlight-dark bg-highlight/20 dark:bg-highlight-dark/20 hover:bg-highlight/40 dark:hover:bg-highlight-dark/40 duration-300 rounded-full flex items-center justify-center relative">
+						<button onclick={() => copyCompare()} class="h-8 w-8 outline outline-2 outline-highlight dark:outline-highlight-dark bg-highlight/20 dark:bg-highlight-dark/20 hover:bg-highlight/40 dark:hover:bg-highlight-dark/40 duration-300 rounded-full flex items-center justify-center relative">
 							<Icon class="w-6 h-6" src={Clipboard} />
 						</button>
 					</div>
@@ -244,7 +246,7 @@
 								<p>Motor Size:</p>
 								<input
 									bind:value={size}
-									on:input={() => calculateVolume(size)}
+									oninput={() => calculateVolume(size)}
 									type="text"
 									class="bg-gray-500/30 w-16 h-8 ml-2 rounded-md p-2 text-base duration-300
 								outline-none focus-within:outline-highlight outline-[3px]"
@@ -271,13 +273,13 @@
 						</p>
 						<div class="flex mt-2 w-full justify-between">
 							<button 
-								on:click={() => (copyCalc("calc"))} 
+								onclick={() => (copyCalc("calc"))} 
 								class="h-fit w-fit bg-green/90 hover:bg-green rounded-md py-1 px-2 cursor-pointer"
 							>
 								Copy!
 							</button>
 							<button 
-								on:click={() => (addCompare(size))}
+								onclick={() => (addCompare(size))}
 								class="h-fit w-fit bg-cyan/90 hover:bg-cyan rounded-md py-1 px-2 cursor-pointer"
 							>
 								Compare!
@@ -294,19 +296,19 @@
 							<div class="flex items-end mr-4">
 								<input
 								bind:value={dbm}
-								on:input={calculateMwDbm}
+								oninput={calculateMwDbm}
 								type="text"
 								class="bg-gray-500/30 w-16 h-8 ml-2 rounded-md p-2 mr-1 text-base duration-300
 								outline-none focus-within:outline-highlight outline-[3px]"
 								/>
 								<p>dBm</p>
 							</div>
-							<!-- svelte-ignore a11y-click-events-have-key-events -->
-							<button style="transform: rotate({dbmToMwRotated}deg)" class="duration-300 text-2xl hover:text-highlight dark:hover:text-highlight-dark" on:click={() => toggleDbmToMw()}>→</button>
+							<!-- svelte-ignore a11y_click_events_have_key_events -->
+							<button style="transform: rotate({dbmToMwRotated}deg)" class="duration-300 text-2xl hover:text-highlight dark:hover:text-highlight-dark" onclick={() => toggleDbmToMw()}>→</button>
 							<div class="flex items-end ml-4">
 								<input
 								bind:value={mw}
-								on:input={calculateMwDbm}
+								oninput={calculateMwDbm}
 								type="text"
 								class="bg-gray-500/30 w-16 h-8 ml-2 rounded-md p-2 mr-1 text-base duration-300
 								outline-none focus-within:outline-highlight outline-[3px]"
@@ -329,7 +331,7 @@
 							the calculation to get the power in <code class="text-green">dBm</code> is
 							<code><span class="text-green">dBm</span> = 10 × (log10 <span class="text-yellow">mW</span>)
 						</p>
-						<button on:click={() => (copyCalc("power"))}>
+						<button onclick={() => (copyCalc("power"))}>
 							<div class="h-fit w-fit bg-green/90 rounded-md py-1 px-2 cursor-pointer">Copy!</div>
 						</button>
 					</div>
@@ -340,17 +342,17 @@
 					<div>
 						<div class="flex my-4">
 							<div class="h-8 flex flex-col justify-between mr-1 text-neutral-400/40">
-								<button on:click={() => updateCellCount(true)} on:click={calculateWh} class="hover:text-highlight dark:hover:text-highlight-dark duration-300">
+								<button onclick={handlers(() => updateCellCount(true), calculateWh)} class="hover:text-highlight dark:hover:text-highlight-dark duration-300">
 									<Icon class="w-3 h-3" src={ChevronUp} stroke-width="4" />
 								</button>
-								<button on:click={() => updateCellCount(false)} on:click={calculateWh} class="hover:text-highlight dark:hover:text-highlight-dark duration-300">
+								<button onclick={handlers(() => updateCellCount(false), calculateWh)} class="hover:text-highlight dark:hover:text-highlight-dark duration-300">
 									<Icon class="w-3 h-3 rotate-180" src={ChevronUp} stroke-width="4" />
 								</button>
 							</div>
 							<div class="flex items-end">
 								<input
 								bind:value={cellCount}
-								on:input={calculateWh}
+								oninput={calculateWh}
 								type="number"
 								min=1
 								max=69
@@ -362,7 +364,7 @@
 							<div class="flex items-end">
 								<input
 								bind:value={capacity}
-								on:input={calculateWh}
+								oninput={calculateWh}
 								type="text"
 								class="bg-gray-500/30 w-16 h-8 ml-2 rounded-md p-2 mr-1 text-base duration-300
 								outline-none focus-within:outline-highlight outline-[3px]"
@@ -391,7 +393,7 @@
 							>
 								<span 
 									class={"toggle inline-block w-4 rounded-full aspect-square bg-neutral-400/50 duration-300 " + (isHv ? " bg-highlight dark:bg-highlight-dark translate-x-7" : "translate-x-1")}
-								/>
+								></span>
 							</Switch>
 							HV LiPo
 						</div>
@@ -408,7 +410,7 @@
 							The calculation to get the <code class="text-green">Wh</code> of a LiPo is:<br>
 							<code><span class="text-yellow">Ah</span> × 3.7 (nominal voltage) × <span class="text-green"># of cells</span></code>
 						</p>
-						<button on:click={() => (copyCalc("wh"))}>
+						<button onclick={() => (copyCalc("wh"))}>
 							<div class="h-fit w-fit bg-green/90 rounded-md py-1 px-2 cursor-pointer">Copy!</div>
 						</button>
 					</div>

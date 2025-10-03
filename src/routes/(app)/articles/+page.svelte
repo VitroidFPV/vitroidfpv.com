@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import Header from "$components/Header.svelte";
 	import MainHeader from "$components/MainHeader.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
@@ -50,8 +52,10 @@
 
 	// $: console.log($selectedCategories)
 
-	let selectedModules = date_sorted_modules.filter(module => $selectedCategories.includes(module.metadata.category))
-	$: selectedModules = date_sorted_modules.filter(module => $selectedCategories.includes(module.metadata.category))
+	let selectedModules = $state(date_sorted_modules.filter(module => $selectedCategories.includes(module.metadata.category)))
+	run(() => {
+		selectedModules = date_sorted_modules.filter(module => $selectedCategories.includes(module.metadata.category))
+	});
 
 	function sanitizedTitle(title: string) {
 		return title

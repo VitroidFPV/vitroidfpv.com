@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { page } from "$app/stores";
 	import { onMount } from "svelte";
 	import tinycolor from "tinycolor2";
@@ -57,9 +59,9 @@
 	// $motors = loadMotors;
 	// motors.set(loadMotors);
 
-	let newSize = ""
-	let newVolume: number
-	let newSurface: number
+	let newSize = $state("")
+	let newVolume: number = $state()
+	let newSurface: number = $state()
 
 	function addMotor() {
 		// if (!$motors.find(motor => motor.size === newSize)) {
@@ -82,7 +84,7 @@
 		{ label: "Surface Area (Low to High)", name: "surface-asc" },
 	]
 
-	let selectedSort: any = null;
+	let selectedSort: any = $state(null);
 
 	function sortMotors() {
 		// sort depending on selectedSort
@@ -121,9 +123,11 @@
 		selectedSort = sortOptions.find((option) => option.name === sortQuery);
 	}
 
-	$: if (selectedSort) {
-		sortMotors();
-	}
+	run(() => {
+		if (selectedSort) {
+			sortMotors();
+		}
+	});
 
 	function copyURL() {
 		// add size array as "?motors=2207-2208-2209&sort=volume-desc"
@@ -174,7 +178,7 @@
 	<meta name="theme-color" content={color} />
 </svelte:head>
 
-<svelte:window on:keydown={keydown}/>
+<svelte:window onkeydown={keydown}/>
 
 <div class="overflow-x-clip h-fit">
 	<div class="flex flex-col w-full relative px-4 md:px-0">
@@ -234,35 +238,37 @@
 			<Listbox
 				class={({open}) => (open ? "gap-2" : " gap-0") + " listbox"}
 				bind:value={selectedSort}
-				let:open
+				
 			>
-				<ListboxButton
-					class={({open}) => (open ? "text-cyan" : "hover:text-cyan") + " flex items-center duration-300"}
-				>
-					<!-- <Button isLink={false} color="cyan" size="sm">{selectedSort.label}</Button> -->
-					{#if !selectedSort}
-						Sort By
-					{:else}
-						{selectedSort.label}
+				{#snippet children({ open })}
+								<ListboxButton
+						class={({open}) => (open ? "text-cyan" : "hover:text-cyan") + " flex items-center duration-300"}
+					>
+						<!-- <Button isLink={false} color="cyan" size="sm">{selectedSort.label}</Button> -->
+						{#if !selectedSort}
+							Sort By
+						{:else}
+							{selectedSort.label}
+						{/if}
+						<div class="ml-2 rotate-0 transition-transform" class:rotate-90={open}>
+							<Icon src={ChevronRight} class="w-4 h-4" stroke-width="3" />
+						</div>
+					</ListboxButton>
+					{#if open}
+						<div transition:fly={{y: -10}} class="absolute backdrop-blur-md">
+							<ListboxOptions class="listbox-options">
+								{#each sortOptions as option}
+									<ListboxOption value={option}
+										class={({selected})=> (selected ? "listbox-selected" : "") + " listbox-option"}
+									>
+										{option.label}
+									</ListboxOption>
+								{/each}
+							</ListboxOptions>
+						</div>
 					{/if}
-					<div class="ml-2 rotate-0 transition-transform" class:rotate-90={open}>
-						<Icon src={ChevronRight} class="w-4 h-4" stroke-width="3" />
-					</div>
-				</ListboxButton>
-				{#if open}
-					<div transition:fly={{y: -10}} class="absolute backdrop-blur-md">
-						<ListboxOptions class="listbox-options">
-							{#each sortOptions as option}
-								<ListboxOption value={option}
-									class={({selected})=> (selected ? "listbox-selected" : "") + " listbox-option"}
-								>
-									{option.label}
-								</ListboxOption>
-							{/each}
-						</ListboxOptions>
-					</div>
-				{/if}
-			</Listbox>
+											{/snippet}
+						</Listbox>
 		</div>
 		<Button isLink={false} size="sm" color="cyan" on:click={copyURL}>
 			<Icon src={Clipboard} class="w-7 h-7"  stroke-width="1.5" />
@@ -277,11 +283,11 @@
 			<div class="flex">
 				<input
 					bind:value={newSize}
-					on:input={() => {
+					oninput={() => {
 						newVolume = calculateVolume(newSize);
 						newSurface = calculateSurface(newSize);
 					}}
-					on:change={addMotor}
+					onchange={addMotor}
 					type="text"
 					placeholder="Add New"
 					class="bg-neutral-500/10 w-28 h-8 rounded-2xl p-3 text-base duration-300
@@ -293,7 +299,7 @@
 				<div class="flex flex-col md:flex-row md:w-fit w-min" class:invisible={isNaN(newVolume) || newVolume == undefined}><span class="text-neutral-400 text-base mr-1 w-fit">Volume: </span>{#if newVolume}{newVolume}{/if}mm³</div>
 				<button
 					class="text-cyan w-fit"
-					on:click={addMotor}
+					onclick={addMotor}
 				>
 					<Icon src={Plus} class="w-6 h-6 text-neutral-500/50 hover:text-cyan duration-300" stroke-width="3" />
 				</button>

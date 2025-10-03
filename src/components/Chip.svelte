@@ -1,7 +1,17 @@
 <script lang="ts">
-	export let tooltip: string = "";
-	export let classes: string = "";
-	export let color: string = "";
+	interface Props {
+		tooltip?: string;
+		classes?: string;
+		color?: string;
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		tooltip = "",
+		classes = "",
+		color = "",
+		children
+	}: Props = $props();
 </script>
 
 <div 
@@ -12,7 +22,7 @@
 	bg-neutral-500/10 dark:text-contrast-50 text-main-400 chip group-first-of-type/tooltip:bg-{color} 
 	dark:group-first-of-type/tooltip:text-{color} dark:group-first-of-type/tooltip:bg-opacity-20 
 	group-first-of-type/tooltip:bg-opacity-50">
-		<slot /> {#if tooltip !== ""} <span class="opacity-50 group-hover/tooltip:opacity-100 ml-2">?</span> {/if}
+		{@render children?.()} {#if tooltip !== ""} <span class="opacity-50 group-hover/tooltip:opacity-100 ml-2">?</span> {/if}
 	</div>
 	{#if tooltip !== ""}
 		<div class="absolute self-center text-sm whitespace-nowrap z-10 bg-opacity-100 bg-neutral-500/20 border-2 
@@ -23,4 +33,4 @@
 	{/if}
 </div>
 
-<div class="sr-only">{#if tooltip !== ""}<slot/> {tooltip}{/if}</div>
+<div class="sr-only">{#if tooltip !== ""}{@render children?.()} {tooltip}{/if}</div>

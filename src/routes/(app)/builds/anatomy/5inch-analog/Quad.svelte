@@ -8,9 +8,14 @@
 	import { component } from "$lib/stores/quadStore"
 	import Component from "$components/three/quad/Component.svelte"
 
-	// export let value: [number, number, number] = [0, 0, 0]
+	
 
-	export let urls: string[] = []
+	interface Props {
+		// export let value: [number, number, number] = [0, 0, 0]
+		urls?: string[];
+	}
+
+	let { urls = [] }: Props = $props();
 
 	function addSelect(url: string, event: any) {
 		if ($component.selected != url) {

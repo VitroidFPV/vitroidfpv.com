@@ -1,3 +1,4 @@
+<!-- @migration-task Error while migrating Svelte code: This migration would change the name of a slot (title to title_1) making the component unusable -->
 <script lang="ts">
 	import { getContext } from "svelte";
 	import type { TabCtxType } from "./Tablist.svelte";

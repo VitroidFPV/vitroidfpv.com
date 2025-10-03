@@ -12,18 +12,9 @@
 
 	const url = $page.url.pathname;
 
-	let element: HTMLElement;
-	let intersecting: boolean;
+	let element: HTMLElement = $state();
+	let intersecting: boolean = $state();
 
-	export let color: string;
-	export let title: string;
-	export let price: string;
-	export let point1 = "";
-	export let point2 = "";
-	export let point3 = "";
-	export let point4 = "";
-	export let point5 = "";
-	export let info: string[] | string = [] || "";
 	let infoArray: string[] = [];
 	if (typeof info === "string") {
 		info.split(";").forEach((item) => {
@@ -32,14 +23,41 @@
 	} else {
 		infoArray = info;
 	}
-	export let text: string;
-	export let href: string;
-	export let img: string;
-	export let category: string = "";
+	interface Props {
+		color: string;
+		title: string;
+		price: string;
+		point1?: string;
+		point2?: string;
+		point3?: string;
+		point4?: string;
+		point5?: string;
+		info?: string[] | string;
+		text: string;
+		href: string;
+		img: string;
+		category?: string;
+	}
 
-	let open = false;
+	let {
+		color,
+		title,
+		price = $bindable(),
+		point1 = "",
+		point2 = "",
+		point3 = "",
+		point4 = "",
+		point5 = "",
+		info = [] || "",
+		text,
+		href,
+		img,
+		category = ""
+	}: Props = $props();
 
-	let infoObjects: { text: string; tooltip: string }[] = [];
+	let open = $state(false);
+
+	let infoObjects: { text: string; tooltip: string }[] = $state([]);
 
 	if (info) {
 		// [text<tooltip>", "text<tooltip>", ...]
@@ -52,7 +70,7 @@
 		price = infoObjects[0]?.text;
 	}
 	
-	let colorHex = "";
+	let colorHex = $state("");
 
 	switch (color) {
 		case "red":
@@ -70,7 +88,7 @@
 	}
 </script>
 
-<svelte:window on:keydown={(event) => {if (event.key === "Escape") {open = false}}}/>
+<svelte:window onkeydown={(event) => {if (event.key === "Escape") {open = false}}}/>
 
 <ImgPopout {img} {title} {open} on:clickOutside={() => open = false} />
 
@@ -83,13 +101,13 @@
 				</div>
 				<div>
 					<button 
-						on:click={() => addPart(title, price, color, category, url, href)}
+						onclick={() => addPart(title, price, color, category, url, href)}
 						class="mr-2 hover:text-current text-contrast-500 duration-300">
 						<Icon class="w-7 h-7" src={Plus} stroke-width="2" />
 						<div class="sr-only">Add to price comparison</div>
 					</button>
 					{#if img}
-						<button on:click={() => open = true} class="hover:text-current text-contrast-500 duration-300">
+						<button onclick={() => open = true} class="hover:text-current text-contrast-500 duration-300">
 							<Icon class="w-7 h-7" src={Photo} stroke-width="2" />
 							<div class="sr-only">View image</div>
 						</button>

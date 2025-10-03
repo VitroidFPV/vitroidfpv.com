@@ -1,8 +1,19 @@
 <script lang="ts">
-	export let title: string = "";
-	export let href: string = "";
-	export let active: boolean = false;
-	export let hidden: boolean = false;
+	interface Props {
+		title?: string;
+		href?: string;
+		active?: boolean;
+		hidden?: boolean;
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		title = "",
+		href = "",
+		active = false,
+		hidden = false,
+		children
+	}: Props = $props();
 </script>
 
 <li 
@@ -26,7 +37,7 @@
 			data-sveltekit-preload-data="hover"
 			class="flex md:hover:translate-x-1 nav-link duration-300 md:text-lg text-[0px] w-full md:justify-start justify-center"
 		>
-			<slot />
+			{@render children?.()}
 			<p class="md:block hidden">{title}</p>
 		</a>
 	</div>

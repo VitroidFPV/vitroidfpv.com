@@ -1,17 +1,33 @@
 <script lang="ts">
 	import Link from "$components/Link.svelte";
 
-	export let short = false;
-	export let color: string;
-	export let title: string;
-	export let href: string;
-	export let img = "";
-	export let point1 = "";
-	export let point2 = "";
-	export let point3 = "";
-	export let point4 = "";
-	export let point5 = "";
-	export let visible = true;
+	interface Props {
+		short?: boolean;
+		color: string;
+		title: string;
+		href: string;
+		img?: string;
+		point1?: string;
+		point2?: string;
+		point3?: string;
+		point4?: string;
+		point5?: string;
+		visible?: boolean;
+	}
+
+	let {
+		short = false,
+		color,
+		title,
+		href,
+		img = "",
+		point1 = "",
+		point2 = "",
+		point3 = "",
+		point4 = "",
+		point5 = "",
+		visible = true
+	}: Props = $props();
 
 	let info = [point1, point2, point3, point4, point5];
 </script>
@@ -24,7 +40,7 @@
 				before:content-[''] before:absolute before:bg-transparent before:rounded-full before:w-12 before:h-12 before:-left-12 before:shadow-[22px_-22px_0px]
 				after:content-[''] after:absolute after:bg-transparent after:rounded-full after:w-12 after:h-12 after:-right-12 after:shadow-[-22px_-22px_0px]">
 			<div class="relative">
-				<!-- svelte-ignore a11y-missing-attribute -->
+				<!-- svelte-ignore a11y_missing_attribute -->
 				<img src="{img}" class="absolute h-24 aspect-square left-8 -top-4 group-hover:-translate-y-2 duration-300">
 			</div>
 		</div>

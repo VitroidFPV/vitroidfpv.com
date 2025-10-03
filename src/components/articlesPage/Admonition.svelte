@@ -1,9 +1,14 @@
 <script lang="ts">
-	export let type: "note" | "caution" | "danger" | "info" | "tip" = "note";
-	export let title: string = "";
 
 	import { Icon } from "@steeze-ui/svelte-icon";
 	import { InformationCircle, ExclamationTriangle, Fire, ExclamationCircle, LightBulb } from "@steeze-ui/heroicons";
+	interface Props {
+		type?: "note" | "caution" | "danger" | "info" | "tip";
+		title?: string;
+		children?: import('svelte').Snippet;
+	}
+
+	let { type = "note", title = $bindable(""), children }: Props = $props();
 
 	const icons = {
 		note: InformationCircle,
@@ -67,6 +72,6 @@
 		{title}
 	</div>
 	<div class="flex flex-col p-4">
-		<slot />
+		{@render children?.()}
 	</div>
 </div>

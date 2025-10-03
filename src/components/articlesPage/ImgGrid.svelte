@@ -1,7 +1,12 @@
 <script lang="ts">
-	export let cols: number = 2;
+	interface Props {
+		cols?: number;
+		children?: import('svelte').Snippet;
+	}
 
-	let classes: string = "";
+	let { cols = 2, children }: Props = $props();
+
+	let classes: string = $state("");
 
 	switch (cols) {
 		case 2:
@@ -20,5 +25,5 @@
 </script>
 
 <div class="grid {classes} gap-4 img-grid items-center justify-center">
-	<slot />
+	{@render children?.()}
 </div>

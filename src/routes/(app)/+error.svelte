@@ -12,7 +12,7 @@
 	let title = "VitroidFPV - Error";
 	let url = "";
 
-	let open: boolean = false;
+	let open: boolean = $state(false);
 </script>
 
 <svelte:head>
@@ -36,7 +36,7 @@
 			<div class="flex align-start">
 			<button
 				type="button"
-				on:click={() => (open = !open)}
+				onclick={() => (open = !open)}
 				class:text-highlight={open}
 				class:dark:text-highlight-dark={open}
 				class="collapsible duration-300

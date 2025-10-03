@@ -1,10 +1,14 @@
 <script lang="ts">
-	let useful: boolean = true
+	let useful: boolean = $state(true)
 	import { fly, fade } from "svelte/transition";
 	import { Switch } from "@rgossiaux/svelte-headlessui";
-	export let name: string
 	import Button from "./Button.svelte";
 	import toast from 'svelte-french-toast';
+	interface Props {
+		name: string;
+	}
+
+	let { name }: Props = $props();
 
 	function submit(event) {
 		event.preventDefault();
@@ -44,7 +48,7 @@
 	{name}
 	data-netlify 
 	data-netlify-honeypot="bot-field"
-	on:submit={submit}
+	onsubmit={submit}
 >
 	<input type="hidden" name="form-name" value="faq" />
 	<h1 class="text-highlight dark:text-highlight-dark">Feedback</h1>
@@ -66,7 +70,7 @@
 				>
 					<span 
 						class={"toggle inline-block w-4 rounded-full aspect-square bg-neutral-400/50 duration-300 " + (useful ? "bg-highlight dark:bg-highlight-dark translate-x-7" : "translate-x-1")}
-					/>
+					></span>
 				</Switch>
 			<label for="useful" class="ml-2">Did you find this page helpful?</label>
 		</div>

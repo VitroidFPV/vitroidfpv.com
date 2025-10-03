@@ -13,7 +13,11 @@
 		xhtml: false
 	});
 
-	export let modules: Record<string, Record<string, Module[]>>;
+	interface Props {
+		modules: Record<string, Record<string, Module[]>>;
+	}
+
+	let { modules }: Props = $props();
 </script>
 
 {#each Object.entries(modules) as [cat, contents], i}

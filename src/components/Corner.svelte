@@ -1,11 +1,20 @@
 <script lang="ts">
-	export let rotation: number = 0;
-	export let scale = 1;
-	export let fill = "white";
-	export let invisible = false;
+	interface Props {
+		rotation?: number;
+		scale?: number;
+		fill?: string;
+		invisible?: boolean;
+	}
+
+	let {
+		rotation = 0,
+		scale = 1,
+		fill = "white",
+		invisible = false
+	}: Props = $props();
 
 	const style = `transform: rotate(${rotation}deg) scale(${scale})`;
-	let fillClass: string = "";
+	let fillClass: string = $state("");
 
 	switch (fill) {
 		case "red":

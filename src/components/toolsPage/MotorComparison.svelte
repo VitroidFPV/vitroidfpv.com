@@ -1,7 +1,4 @@
 <script lang="ts">
-	export let size: string;
-	export let volume: number;
-	export let surface: number;
 
 	import { motors } from "$lib/stores/motorsStore";
 	import { undo } from "$lib/stores/motorsStore";
@@ -10,6 +7,13 @@
 
 	import { Icon } from "@steeze-ui/svelte-icon";
 	import { Plus } from "@steeze-ui/heroicons";
+	interface Props {
+		size: string;
+		volume: number;
+		surface: number;
+	}
+
+	let { size, volume, surface }: Props = $props();
 
 </script>
 
@@ -26,7 +30,7 @@
 	<div class="flex flex-col md:flex-row"><span class="text-neutral-400 text-base mr-1">Volume: </span>{volume}mm³</div>
 	<button
 		class="text-cyan"
-		on:click={() => {
+		onclick={() => {
 			undo.update(arr => [...arr, { size, volume, surface }])
 			console.log($undo)
 			motors.update(arr => arr.filter(val => val.size !== size))

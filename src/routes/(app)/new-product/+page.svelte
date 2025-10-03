@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { preventDefault } from 'svelte/legacy';
+
 	import { page } from "$app/stores";
 	import BuildCard from "$components/buildsPage/buildCard.svelte";
 	import Header from "$components/Header.svelte";
@@ -25,9 +27,9 @@
 		$page.url.searchParams.get("manufacturer") || "<MANUFACTURER>";
 	const initialCategory = $page.url.searchParams.get("category") || "<CATEGORY>";
 
-	let product = initialProduct;
-	let manufacturer = initialManufacturer;
-	let category = initialCategory;
+	let product = $state(initialProduct);
+	let manufacturer = $state(initialManufacturer);
+	let category = $state(initialCategory);
 
 	function handleChange() {
 		if (window.location.href) {
@@ -242,7 +244,7 @@
 		<span class="font-bold text-yellow">{manufacturer} {product}</span>.<br />
 	</p>
 
-	<div class="h-[50vh]" />
+	<div class="h-[50vh]"></div>
 
 	<p>
 		As you may have already noticed, this post is pretty vague about what's
@@ -277,7 +279,7 @@
 	</p>
 
 	<form
-		on:submit|preventDefault={handleSubmit}
+		onsubmit={preventDefault(handleSubmit)}
 		class="flex flex-col gap-y-4 lg:w-1/3 w-full bg-neutral-500/10 rounded-2xl p-4"
 	>
 		<div class="text-lg font-bold text-yellow">
@@ -289,7 +291,7 @@
 				id="product"
 				type="text"
 				bind:value={product}
-				on:input={handleChange}
+				oninput={handleChange}
 				placeholder="Product"
 				class="bg-neutral-500/10 w-full h-8 rounded-2xl p-3 text-base duration-300 outline-none focus-within:outline-yellow outline-[3px] placeholder:text-neutral-400"
 			/>
@@ -300,7 +302,7 @@
 				id="manufacturer"
 				type="text"
 				bind:value={manufacturer}
-				on:input={handleChange}
+				oninput={handleChange}
 				placeholder="Manufacturer"
 				class="bg-neutral-500/10 w-full h-8 rounded-2xl p-3 text-base duration-300 outline-none focus-within:outline-yellow outline-[3px] placeholder:text-neutral-400"
 			/>
@@ -311,7 +313,7 @@
 				id="category"
 				type="text"
 				bind:value={category}
-				on:input={handleChange}
+				oninput={handleChange}
 				placeholder="Category"
 				class="bg-neutral-500/10 w-full h-8 rounded-2xl p-3 text-base duration-300 outline-none focus-within:outline-yellow outline-[3px] placeholder:text-neutral-400"
 			/>

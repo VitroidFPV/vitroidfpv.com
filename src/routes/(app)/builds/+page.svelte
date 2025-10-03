@@ -8,7 +8,7 @@
 
 	const modules = import.meta.glob("/modules/builds/*.md", {eager: true});
 	// console.log(modules)
-	let grouped_modules: {[category: string]: Array<Module>} = {};
+	let grouped_modules: {[category: string]: Array<Module>} = $state({});
 
 	for (const k in modules) {
 		const cat = (modules[k] as Module).metadata.category;

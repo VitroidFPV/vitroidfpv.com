@@ -1,6 +1,6 @@
 <script>
 	import ThemeToggle from "./themeToggle.svelte";
-	import { page } from "$app/stores";
+	import { page } from "$app/state";
 	import NavItem from "$components/navbar/NavItem.svelte";
 	import { Icon } from "@steeze-ui/svelte-icon";
 	import { Home, QuestionMarkCircle, WrenchScrewdriver, Newspaper, Heart, Calculator } from "@steeze-ui/heroicons";
@@ -11,13 +11,13 @@
 	class="md:w-fit bottom-0 md:h-screen w-screen test-nav md:justify-start flex md:flex-col flex-row md:items-center border-highlight dark:border-highlight-dark md:border-r-8 md:border-t-0 border-t-8 fixed z-[60] bg-contrast-100 dark:bg-main-400 md:shadow-2xl md:shadow-black/50 shadow-[0px_-25px_50px_-12px] shadow-black/30 dark:shadow-black/60">
 	<ul
 		class="md:mt-8 md:pl-2 flex md:flex-col flex-row md:justify-start test-li justify-center px-4 md:h-full h-fit md:px-0 w-full -translate-y-[1px] text-main-100 dark:text-contrast-100 pb-1">
-		<NavItem href="/" title="Home" active={$page.url.pathname === "/"}>
+		<NavItem href="/" title="Home" active={page.url.pathname === "/"}>
 			<Icon src={Home} class="w-7 h-7 md:mr-2" stroke-width="1.5" />
 		</NavItem>
-		<NavItem href="/faq" title="FAQ" active={$page.url.pathname.startsWith("/faq")}>
+		<NavItem href="/faq" title="FAQ" active={page.url.pathname.startsWith("/faq")}>
 			<Icon src={QuestionMarkCircle} class="w-7 h-7 md:mr-2" stroke-width="1.5" />
 		</NavItem>
-		<NavItem href="/builds" title="Builds" active={$page.url.pathname.startsWith("/builds")}>
+		<NavItem href="/builds" title="Builds" active={page.url.pathname.startsWith("/builds")}>
 			<svg width="150" height="150" viewBox="0 0 200 200" fill="currentColor" stroke-width="8" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 md:mr-2">
 				<path fill-rule="evenodd" clip-rule="evenodd" d="M92.8079 95.1565C92.9816 94.8991 93.0481 94.5859 92.9687 
 				94.2857C83.8268 59.7442 94.1948 4.97097 99.6692 3.70844C105.241 2.42341 106.009 3.43176 106.009 6.9173C106.009 
@@ -37,19 +37,19 @@
 			</svg>
 			<!-- well damn -->
 		</NavItem>
-		<NavItem href="/equipment" title="Equipment" active={$page.url.pathname.startsWith("/equipment")}>
+		<NavItem href="/equipment" title="Equipment" active={page.url.pathname.startsWith("/equipment")}>
 			<Icon src={WrenchScrewdriver} class="w-7 h-7 md:mr-2" stroke-width="1.5" />
 		</NavItem>
-		<NavItem href="/articles" title="Articles" active={$page.url.pathname.startsWith("/articles")}>
+		<NavItem href="/articles" title="Articles" active={page.url.pathname.startsWith("/articles")}>
 			<Icon src={Newspaper} class="w-7 h-7 md:mr-2" stroke-width="1.5" />
 		</NavItem>
-		<!-- <NavItem href="/tools" title="Tools" active={$page.url.pathname.startsWith("/tools")} hidden>
+		<!-- <NavItem href="/tools" title="Tools" active={page.url.pathname.startsWith("/tools")} hidden>
 			<Icon src={Calculator} class="w-7 h-7 md:mr-2" stroke-width="1.5" />
 		</NavItem> -->
-		<NavItem href="/support" title="Support" active={$page.url.pathname.startsWith("/support")} hidden>
+		<NavItem href="/support" title="Support" active={page.url.pathname.startsWith("/support")} hidden>
 			<Icon src={Heart} class="w-7 h-7 md:mr-2" stroke-width="1.5" />
 		</NavItem>
 	</ul>
 	<ThemeToggle />
 </nav>
-<div class="md:h-screen md:min-w-[157px] md:max-w-[158px] w-full h-[64px]" />
+<div class="md:h-screen md:min-w-[157px] md:max-w-[158px] w-full h-[64px]"></div>

@@ -1,9 +1,5 @@
 <script lang="ts">
-	let open = false;
-	export let title: string;
-	export let content: string;
-	export let category: string;
-	export let id = "";
+	let open = $state(false);
 	import { onMount } from "svelte";
 	import { slide, fade, fly } from "svelte/transition";
 	import { page } from "$app/stores";
@@ -12,8 +8,21 @@
 	// import SvelteMarkdown from 'svelte-markdown'
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { copyText } from "$lib/copy";
-	let element: HTMLElement;
-	let intersecting: boolean;
+	interface Props {
+		title: string;
+		content: string;
+		category: string;
+		id?: string;
+	}
+
+	let {
+		title,
+		content,
+		category,
+		id = ""
+	}: Props = $props();
+	let element: HTMLElement = $state();
+	let intersecting: boolean = $state();
 
 	let source = content;
 
@@ -52,7 +61,7 @@
 				transition:fly={{ y: 10, duration: 300 }}
 			>
 				<div class="flex align-start">
-					<button on:click={copyID}>
+					<button onclick={copyID}>
 						<div
 							class="text-3xl text-black dark:text-white opacity-20 hover:opacity-40 duration-300 cursor-pointer copy-id mr-2"
 						>
@@ -61,7 +70,7 @@
 					</button>
 					<button
 						type="button"
-						on:click={() => (open = !open)}
+						onclick={() => (open = !open)}
 						class:faq-active={open}
 						class="collapsible duration-300
 								after:ml-1 text-[20px] md:text-xl hover:translate-x-1 duartion-150 {category} text-left"

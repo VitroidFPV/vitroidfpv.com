@@ -26,7 +26,7 @@
 	let category = slugModule.metadata.category;
 
 	let categoryColor
-	let hexColor
+	let hexColor = $state()
 	switch (category) {
 		case "Video":
 			categoryColor = "green"

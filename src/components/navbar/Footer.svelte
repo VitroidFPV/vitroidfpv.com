@@ -1,4 +1,6 @@
 <script>
+	import { run } from 'svelte/legacy';
+
 	import Link from "$components/Link.svelte";
 	import LinkDetail from "$components/navbar/LinkDetail.svelte";
 	import { onMount } from "svelte";
@@ -33,10 +35,12 @@
 		dark: tinycolor(shade.dark).darken(darkMultiplier * 4).toHexString(),
 	}
 
-	let isDark = true;
-	let colors = [shade1.dark, shade2.dark, shade3.dark, shade4.dark]
+	let isDark = $state(true);
+	let colors = $state([shade1.dark, shade2.dark, shade3.dark, shade4.dark])
 	
-	$: colors = isDark ? [shade1.dark, shade2.dark, shade3.dark, shade4.dark] : [shade1.light, shade2.light, shade3.light, shade4.light];
+	run(() => {
+		colors = isDark ? [shade1.dark, shade2.dark, shade3.dark, shade4.dark] : [shade1.light, shade2.light, shade3.light, shade4.light];
+	});
 
 	onMount(() => {
 		const body = document.body;

@@ -7,11 +7,15 @@
 	import { Icon } from "@steeze-ui/svelte-icon";
 	import { PauseCircle, PlayCircle, StopCircle } from "@steeze-ui/heroicons";
 
-	export let src: string;
+	interface Props {
+		src: string;
+	}
 
-	let play = false;
+	let { src }: Props = $props();
+
+	let play = $state(false);
 	
-	let audioPlayer: HTMLAudioElement;
+	let audioPlayer: HTMLAudioElement = $state();
 
 	function handlePlayPause() {
 		if (play) {
@@ -30,7 +34,7 @@
 	}
 
 	let progressPercent = tweened(0, { duration: 300, easing: cubicOut });
-	let progressElement: HTMLInputElement;
+	let progressElement: HTMLInputElement = $state();
 
 	function handleProgress() {
 		audioPlayer.currentTime = (parseFloat(progressElement.value) / 100) * audioPlayer.duration;
@@ -52,14 +56,14 @@
 
 {#if src}
 	<div class="">
-		<button on:click={handlePlayPause} class="mb-2 text-neutral-500/80 hover:text-cyan/80 duration-300">
+		<button onclick={handlePlayPause} class="mb-2 text-neutral-500/80 hover:text-cyan/80 duration-300">
 			{#if !play}
 				<Icon class="w-8 h-8" src={PlayCircle} />
 			{:else}
 				<Icon class="w-8 h-8" src={PauseCircle} />
 			{/if}
 		</button>
-		<button on:click={handleStop} class="mb-2 text-neutral-500/80 hover:text-cyan/80 duration-300">
+		<button onclick={handleStop} class="mb-2 text-neutral-500/80 hover:text-cyan/80 duration-300">
 			<Icon class="w-8 h-8" src={StopCircle} />
 		</button>
 
@@ -75,8 +79,8 @@
 					max="100"
 					step="0.01"
 					bind:this={progressElement}
-					on:input={handleProgress}
-					on:click={handleProgress}
+					oninput={handleProgress}
+					onclick={handleProgress}
 				>
 			</div>
 		</div>
@@ -87,8 +91,8 @@
 			id="audioPlayer" 
 			controls 
 			bind:this={audioPlayer} 
-			on:timeupdate={handleTimeUpdate} 
-			on:ended={handleEnded}
+			ontimeupdate={handleTimeUpdate} 
+			onended={handleEnded}
 		></audio>
 	</div>
 {/if}

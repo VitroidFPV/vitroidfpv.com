@@ -1,9 +1,14 @@
 <script lang="ts">
 	import Confetti from "svelte-confetti";
 	import { tick } from "svelte";
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 	
 	let active = false;
-	let things: Object[] = []
+	let things: Object[] = $state([])
 	let timeout: any
 	let duration = 1000
 
@@ -38,11 +43,11 @@
 	// }
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<!-- svelte-ignore a11y-no-static-element-interactions -->
-<span on:click={click} class="relative flex justify-center w-full">
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_static_element_interactions -->
+<span onclick={click} class="relative flex justify-center w-full">
 
-	<slot/>
+	{@render children?.()}
 
 
 	{#each things as thing}

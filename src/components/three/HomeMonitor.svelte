@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { T } from "@threlte/core"
 	import { Environment, GLTF, OrbitControls, type ThrelteGltf } from "@threlte/extras"
 	import { useGltf } from "@threlte/extras"
@@ -19,26 +21,36 @@
 		duration: 200,
 	})
 
-	$: if(hovered) {
-		color.set("rgb(255, 204, 0)")
-		opacity.set(0.75)
-	} else {
-		color.set("rgb(170, 170, 170)")
-		opacity.set(0.2)
-	}
 
-	$: console.log($color)
 
 	const monitor = useGltf("/uploads/three/monitor.glb")
 
 	let meshes:Mesh[] = []
 
-	$: if ($monitor) meshes.push($monitor.nodes["monitor"])
-	$: if ($monitor) meshes.push($monitor.nodes["stuff"])
-	$: if ($monitor) meshes.push($monitor.nodes["stuff_highlight"])
 
 
-	let hovered = false
+	let hovered = $state(false)
+	run(() => {
+		if(hovered) {
+			color.set("rgb(255, 204, 0)")
+			opacity.set(0.75)
+		} else {
+			color.set("rgb(170, 170, 170)")
+			opacity.set(0.2)
+		}
+	});
+	run(() => {
+		console.log($color)
+	});
+	run(() => {
+		if ($monitor) meshes.push($monitor.nodes["monitor"])
+	});
+	run(() => {
+		if ($monitor) meshes.push($monitor.nodes["stuff"])
+	});
+	run(() => {
+		if ($monitor) meshes.push($monitor.nodes["stuff_highlight"])
+	});
 </script>
 
 <T.PerspectiveCamera

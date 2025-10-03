@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import Header from "$components/Header.svelte";
 	import MainHeader from "$components/MainHeader.svelte";
 	import CategoryIndex from "$components/faqPage/categoryIndex.svelte";
@@ -38,7 +40,7 @@
 		}
 	}
 
-	let sorted_grouped_modules: {[category: string]: Array<Module>} = {};
+	let sorted_grouped_modules: {[category: string]: Array<Module>} = $state({});
 	// sort grouped_modules in each category by the "order" key into sorted_grouped_modules
 	for (const cat in grouped_modules) {
 		sorted_grouped_modules[cat] = grouped_modules[cat];
@@ -48,9 +50,9 @@
 	}
 	// console.log(JSON.stringify(sorted_grouped_modules, null, 2));
 	
-	let search = "";
-	let searched_grouped_modules: { [key: string]: any[] } = {};
-	$: { 
+	let search = $state("");
+	let searched_grouped_modules: { [key: string]: any[] } = $state({});
+	run(() => { 
 		// match search string to each module title in each category, if category is empty, remove it
 		for (const cat in sorted_grouped_modules) {
 			searched_grouped_modules[cat] = [];
@@ -63,7 +65,7 @@
 				delete searched_grouped_modules[cat];
 			}
 		}
-	}
+	});
 
 	sorted_grouped_modules = Object.fromEntries(
 		Object.entries(sorted_grouped_modules).map(([cat, contents]) => [
@@ -98,7 +100,7 @@
 		return data
 	}
 
-	let deltaVotes: number
+	let deltaVotes: number = $state()
 
 	onMount(() => {
 		getUpvotes().then((data) => {
@@ -233,7 +235,7 @@
 		/>
 		
 		<div class="flex items-center my-4">
-			<div class="bg-[url('https://img.icons8.com/ios-filled/50/0f0f0f/search--v1.png')] dark:bg-[url('https://img.icons8.com/ios-filled/50/f7f7f7/search--v1.png')] relative mr-1 w-8 h-8 bg-contain bg-center" />
+			<div class="bg-[url('https://img.icons8.com/ios-filled/50/0f0f0f/search--v1.png')] dark:bg-[url('https://img.icons8.com/ios-filled/50/f7f7f7/search--v1.png')] relative mr-1 w-8 h-8 bg-contain bg-center"></div>
 			<input
 				type="text"
 				class="w-40 h-12 rounded-full px-3 caret-green p-2 bg-contrast-200 dark:bg-main-200
