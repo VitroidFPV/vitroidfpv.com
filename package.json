@@ -16,9 +16,10 @@
   "devDependencies": {
     "@rgossiaux/svelte-headlessui": "^2.0.0",
     "@sveltejs/adapter-auto": "next",
-    "@sveltejs/adapter-netlify": "^1.0.0-next.88",
-    "@sveltejs/adapter-static": "^1.0.0-next.34",
-    "@sveltejs/kit": "^1.20.4",
+    "@sveltejs/adapter-netlify": "^3.0.0",
+    "@sveltejs/adapter-static": "^3.0.0",
+    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^3.0.0",
     "@tsconfig/svelte": "^3.0.0",
     "@types/color": "^3.0.3",
     "@types/d3-interpolate": "^3.0.1",
