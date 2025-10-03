@@ -7,8 +7,14 @@
 	import { queryParam } from "sveltekit-search-params";
 	import Corner from "$components/Corner.svelte";
 
-	export let open: boolean = false;
-	export let tabTitle: string = "Tab title";
+	interface Props {
+		open?: boolean;
+		tabTitle?: string;
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
+
+	let { open = $bindable(false), tabTitle = "Tab title", children, ...rest }: Props = $props();
 
 	const ctx = getContext<TabCtxType>("ctx") ?? {};
 	// single selection
@@ -61,12 +67,12 @@
 		{/key}
 		<button
 			type="button"
-			on:click={updateURL}
+			onclick={updateURL}
 			role="tab"
 			id="{sanitizedTitle}"
 			class={"tab md:p-4 p-3 rounded-b-3xl md:text-xl text-base md:hover:text-highlight md:dark:hover:text-highlight-dark hover:-translate-y-0.5 duration-300 transition-transform" + (open ?
 			" dark:bg-highlight-dark bg-highlight z-10 tab-open hover:text-inherit -translate-y-0.5 hover:!text-main-200 dark:hover:!text-contrast-50" : "")}
-			{...$$restProps}>
+			{...rest}>
 			<!-- <slot name="tabTitle">{tabTitle}</slot> -->
 			{tabTitle}
 		</button>
@@ -78,7 +84,7 @@
 	{#if open}
 		<div class="hidden tab_content_placeholder">
 			<div transition:fade={{duration: 500}} class="" use:init>
-				<slot />
+				{@render children?.()}
 			</div>
 		</div>
 	{/if}
