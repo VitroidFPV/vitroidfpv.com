@@ -4,7 +4,8 @@
 	import { fly } from 'svelte/transition';
 
 	import type { PageData } from './$types';
-	import type { SvelteComponentTyped } from 'svelte/internal';
+	// import type { SvelteComponentTyped } from 'svelte/internal';
+	import type { Component } from 'svelte';
 	import { onMount } from 'svelte/internal';
 	import type { Module } from "$lib/types/module";
 	import { browser } from '$app/environment';
@@ -18,7 +19,7 @@
 
 	let { data }: Props = $props();
 
-	type C = $$Generic<typeof SvelteComponentTyped<any, any, any>>;
+	type C = $$Generic<typeof Component>;
 	let component = $derived(data.component as unknown as C);
 
 	let categoryColor: string = $state();
