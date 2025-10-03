@@ -85,7 +85,7 @@
 				{/each} -->
 				{#each $parts[url] as part (part.title)}
 					<div transition:slide>
-						<PriceComparison title={part.title} {url} color={part.color} price={part.price} href={part.href}, quantity={part.quantity}/>
+						<PriceComparison title={part.title} {url} color={part.color} price={part.price} href={part.href} quantity={part.quantity}/>
 					</div>
 				{/each}
 				<div class="flex justify-end mt-4">
