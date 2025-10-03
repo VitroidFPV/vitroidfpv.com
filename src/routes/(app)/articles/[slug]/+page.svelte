@@ -4,9 +4,8 @@
 	import { fly } from 'svelte/transition';
 
 	import type { PageData } from './$types';
-	// import type { SvelteComponentTyped } from 'svelte/internal';
 	import type { Component } from 'svelte';
-	import { onMount } from 'svelte/internal';
+	import { onMount } from "svelte";
 	import type { Module } from "$lib/types/module";
 	import { browser } from '$app/environment';
 	import removeMarkdown from "remove-markdown";
