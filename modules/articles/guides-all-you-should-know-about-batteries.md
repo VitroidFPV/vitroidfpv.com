@@ -157,7 +157,7 @@ To get the charge current, multiply the battery capacity in Ah with the C rate (
 
 ## Charging Example
 <Tablist>
-<Tab title="Single-battery Charging" open>
+<Tab tabTitle="Single-battery Charging" open>
 Say we have a 1300mAh 6s LiPo, and we want to charge it alone just by plugging it right into the charger:
 
 
@@ -172,7 +172,7 @@ Say we have a 1300mAh 6s LiPo, and we want to charge it alone just by plugging i
 
 With those settings, you can plug both of the battery plugs into the charger, and start charging. The charger should stop automatically when all of the cells are full and have been balanced. You can then exit back out of the charging mode, unplug the battery, and go fly!
 </Tab>
-<Tab title="Parallel Charging">
+<Tab tabTitle="Parallel Charging">
 Say we have 4 1300mAh 6s LiPos that you want to charge all at one time using a parallel charging board:
 
 
@@ -187,7 +187,7 @@ Say we have 4 1300mAh 6s LiPos that you want to charge all at one time using a p
 
 With those settings set, you can start. Make sure that all batteries are within 0.1V per cell of each other before plugging them in. Plug the parallel charging board into the charger, and then plug all of the batteries in, XT60 first, then all of the balance plugs. Double-check that everything is correct, and you can then charge as you would normally, see above
 </Tab>
-<Tab title="Series Charging">
+<Tab tabTitle="Series Charging">
 Say we have 4 1s 300mAh HV LiPos that you want to charge all at one time using a series charging board:
 
 

@@ -1,4 +1,3 @@
-<!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <script lang="ts">
 	export let color:
 		| "red"
@@ -107,7 +106,7 @@
 {#if isLink}
 	<a
 		{href}
-		class="{colors.bgTransparent} {colors.text} {$$props.class} 
+		class="{colors.bgTransparent} {colors.text}
 		backdrop-blur-md rounded-full outline outline-current duration-300 shadow-xl text-base flex items-center justify-center"
 	>
 		<span class="dark:text-inherit text-black/75 flex gap-2 justify-center items-center">
@@ -118,7 +117,7 @@
 	<a
 		{href}
 		{download}
-		class="{colors.bgTransparent} {colors.text} {$$props.class} 
+		class="{colors.bgTransparent} {colors.text}
 		backdrop-blur-md rounded-full outline outline-current duration-300 shadow-xl text-base flex items-center justify-center"
 	>
 		<span class="dark:text-inherit text-black/75 flex gap-2 justify-center items-center">
@@ -129,7 +128,7 @@
 	<button
 		{type}
 		on:click
-		class="{colors.bgTransparent} {colors.text} {$$props.class} 
+		class="{colors.bgTransparent} {colors.text}
 		backdrop-blur-md rounded-full outline outline-current duration-300 shadow-xl text-base flex items-center justify-center"
 	>
 		<span class="dark:text-inherit text-black/75 flex gap-2 justify-center items-center">

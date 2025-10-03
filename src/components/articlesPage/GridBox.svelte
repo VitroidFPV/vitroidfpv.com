@@ -1,5 +1,3 @@
-<!-- @migration-task Error while migrating Svelte code: Expected a valid element or component name. Components must have a valid variable name or dot notation expression
-https://svelte.dev/e/tag_invalid_name -->
 <script lang="ts">
 	export let title: string = "";
 	export let level: 1 | 2 | 3 | 4 | 5 | 6 = null;
@@ -25,7 +23,19 @@ https://svelte.dev/e/tag_invalid_name -->
 
 <div>
 	{#if level}
-		<h{level} class="text-2xl colored">{title}</h{level}>
+		{#if level === 1}
+			<h1 class="text-2xl colored">{title}</h1>
+		{:else if level === 2}
+			<h2 class="text-2xl colored">{title}</h2>
+		{:else if level === 3}
+			<h3 class="text-2xl colored">{title}</h3>
+		{:else if level === 4}
+			<h4 class="text-2xl colored">{title}</h4>
+		{:else if level === 5}
+			<h5 class="text-2xl colored">{title}</h5>
+		{:else if level === 6}
+			<h6 class="text-2xl colored">{title}</h6>
+		{/if}
 	{/if}
 	<div class="grid {classes} gap-4">
 		<slot />

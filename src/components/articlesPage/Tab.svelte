@@ -1,4 +1,3 @@
-<!-- @migration-task Error while migrating Svelte code: This migration would change the name of a slot (title to title_1) making the component unusable -->
 <script lang="ts">
 	import { getContext } from "svelte";
 	import type { TabCtxType } from "./Tablist.svelte";
@@ -9,7 +8,7 @@
 	import Corner from "$components/Corner.svelte";
 
 	export let open: boolean = false;
-	export let title: string = "Tab title";
+	export let tabTitle: string = "Tab title";
 
 	const ctx = getContext<TabCtxType>("ctx") ?? {};
 	// single selection
