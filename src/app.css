@@ -1,4 +1,9 @@
 @import 'tailwindcss';
+@import '@skeletonlabs/skeleton';
+@import '../vitroidfpv.css';
+@import '@skeletonlabs/skeleton/optional/presets';
+
+@source '../node_modules/@skeletonlabs/skeleton-svelte/dist';
 
 @custom-variant dark (&:is(.dark *));
 
