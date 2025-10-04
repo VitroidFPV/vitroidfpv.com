@@ -1,12 +1,12 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-import { PluginOption } from "vite";
+import tailwindcss from '@tailwindcss/vite';
 
 export function customHmr() {
 	return {
 	name: 'custom-hmr',
 	enforce: 'post',
 	// HMR
-	handleHotUpdate({ file, server }) {
+	handleHotUpdate({ file, server }: { file: string; server: any }) {
 		if (file.endsWith('.css')) {
 		console.log('reloading css file...');
 
@@ -21,7 +21,7 @@ export function customHmr() {
 
 /** @type {import('vite').UserConfig} */
 const config = {
-	plugins: [sveltekit(), customHmr(),],
+	plugins: [tailwindcss(), sveltekit(), customHmr(),],
 	server: {
 		fs: {
 			allow: ["./modules/", "./admin/", '../..']
