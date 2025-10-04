@@ -60,7 +60,7 @@
 	})
 </script>
 
-<li role="presentation" class="!m-0" class:tab-open={open}>
+<li role="presentation" class="m-0!" class:tab-open={open}>
 	<div class="flex flex-row items-start h-fit">
 		{#key open}
 		<Corner fill={open ? "highlight" : "transparent"} rotation={270} invisible/>
@@ -71,7 +71,7 @@
 			role="tab"
 			id="{sanitizedTitle}"
 			class={"tab md:p-4 p-3 rounded-b-3xl md:text-xl text-base md:hover:text-highlight md:dark:hover:text-highlight-dark hover:-translate-y-0.5 duration-300 transition-transform" + (open ?
-			" dark:bg-highlight-dark bg-highlight z-10 tab-open hover:text-inherit -translate-y-0.5 hover:!text-main-200 dark:hover:!text-contrast-50" : "")}
+			" dark:bg-highlight-dark bg-highlight z-10 tab-open hover:text-inherit -translate-y-0.5 hover:text-main-200! dark:hover:text-contrast-50!" : "")}
 			{...rest}>
 			<!-- <slot name="tabTitle">{tabTitle}</slot> -->
 			{tabTitle}

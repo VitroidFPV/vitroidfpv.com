@@ -56,7 +56,7 @@
 	{style} 
 	xmlns="http://www.w3.org/2000/svg" 
 	class:hidden={invisible}
-	class={fillClass + " flex-shrink-0 h-6 w-6 md:visible" + (invisible ? " md:block hidden" : "")}
+	class={fillClass + " shrink-0 h-6 w-6 md:visible" + (invisible ? " md:block hidden" : "")}
 >
 	<path d="M16 0C15.695 8.69847 8.69847 15.695 0 16H16V0Z"/>
 </svg>

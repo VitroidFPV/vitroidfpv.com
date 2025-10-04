@@ -140,7 +140,7 @@
 		
 		{#each {length: 3} as _, i}
 			<div 
-				class="absolute dark:opacity-40 opacity-80 pointer-events-none z-10 !scale-75 saturate-150"
+				class="absolute dark:opacity-40 opacity-80 pointer-events-none z-10 scale-75! saturate-150"
 				style={`top: ${(Math.random() * 50) - 70}%; left: ${(Math.random() * 100) - 50}%; transform: translate(-50%, -50%)`}
 			>
 				<svg width="443" height="470" viewBox="0 0 443 470" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -63,7 +63,7 @@
 <svelte:window onkeydown={keydown} onkeyup={keyup}/>
 
 {#if open}
-	<div in:fade={{duration: 300, delay: 0}} out:fade={{delay: 200}} class="fixed w-screen h-screen top-0 left-0 z-[60] backdrop-blur-sm md:flex hidden items-center justify-center bg-black bg-opacity-80">
+	<div in:fade={{duration: 300, delay: 0}} out:fade={{delay: 200}} class="fixed w-screen h-screen top-0 left-0 z-60 backdrop-blur-sm md:flex hidden items-center justify-center bg-black bg-opacity-80">
 		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 		<div 
 			transition:fly={{duration: 300, y: 200, delay: 100}} 

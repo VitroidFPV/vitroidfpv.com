@@ -385,15 +385,15 @@ info:
 										min=1
 										max=69
 										class="bg-gray-500/10 w-full h-8 rounded-md p-2 text-base duration-300
-										outline-none focus-within:outline-{color} outline-[2px] no-spinner"
+										outline-none focus-within:outline-{color} outline-2 no-spinner"
 										/>
 									</div>
 									<div class="h-8 flex flex-col justify-between ml-1.5 text-neutral-400/40">
 										<button onclick={() => order++} class="hover:text-{color} duration-300">
-											<Icon class="w-3 h-3 stroke-[4]" src={ChevronUp} size="12" theme="default" title="Increase order" />
+											<Icon class="w-3 h-3 stroke-4" src={ChevronUp} size="12" theme="default" title="Increase order" />
 										</button>
 										<button onclick={() => order--} class="hover:text-{color} duration-300">
-											<Icon class="w-3 h-3 stroke-[4] rotate-180 stroke-current" src={ChevronUp} size="12" theme="default" title="Decrease order" />
+											<Icon class="w-3 h-3 stroke-4 rotate-180 stroke-current" src={ChevronUp} size="12" theme="default" title="Decrease order" />
 										</button>
 									</div>
 								</div>
@@ -443,7 +443,7 @@ info:
 			
 			{#each {length: 3} as _, i}
 				<div 
-					class="absolute dark:opacity-40 opacity-80 pointer-events-none z-10 !scale-75 saturate-150"
+					class="absolute dark:opacity-40 opacity-80 pointer-events-none z-10 scale-75! saturate-150"
 					style={`top: ${(Math.random() * 50) - 70}%; left: ${(Math.random() * 100) - 50}%; transform: translate(-50%, -50%)`}
 				>
 					<svg width="443" height="470" viewBox="0 0 443 470" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -27,7 +27,7 @@
 		viewBox="0 0 32 32" 
 		fill="transparent"
 		xmlns="http://www.w3.org/2000/svg"
-		class="h-6 w-6 flex-shrink-0 md:self-end md:rotate-0 rotate-[270deg] md:-mb-px corner"
+		class="h-6 w-6 shrink-0 md:self-end md:rotate-0 rotate-270 md:-mb-px corner"
 	>
 		<path d="M32 0C32 16 16 32 0 32L32 32V0Z" class="md:scale-100 scale-75 origin-bottom-right"/>
 	</svg>
@@ -47,7 +47,7 @@
 		viewBox="0 0 32 32" 
 		fill="transparent"
 		xmlns="http://www.w3.org/2000/svg" 
-		class="h-6 w-6 flex-shrink-0 md:self-end md:rotate-[270deg] rotate-180 md:-mt-px corner"
+		class="h-6 w-6 shrink-0 md:self-end md:rotate-270 rotate-180 md:-mt-px corner"
 	>
 		<path d="M32 0C32 16 16 32 0 32L32 32V0Z" class="md:scale-100 scale-75 origin-bottom-right"/>
 	</svg>

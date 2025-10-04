@@ -44,7 +44,7 @@ function setTemplate(title: string, description: string, category: string, img: 
 		</svg>
 		<div tw="flex justify-between max-h-64 h-fit w-full items-start p-8" style="background-color: ${categoryColor[4]};">
 			<div tw="flex flex-col">
-				<div tw="text-6xl flex max-w-[50rem]" style="color: ${categoryColor[0]}">${title}</div>
+				<div tw="text-6xl flex max-w-200" style="color: ${categoryColor[0]}">${title}</div>
 				<div tw="text-4xl text-white flex pb-2">${description}</div>
 			</div>
 			<div tw="mx-3 px-3 flex h-full items-center text-[70px]" style="font-family: "Caveat"; color: ${categoryColor[0]}">VitroidFPV</div>

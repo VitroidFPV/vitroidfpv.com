@@ -56,7 +56,7 @@
 	})
 </script>
 
-<div class="flex flex-col z-[50] relative">
+<div class="flex flex-col z-50 relative">
 	<!-- <div class="flex flex-col justify-start h-32">
         <div class="max-h-fit max-w-full scale-y-50">
             <svg class="max-w-full h-fit" id="visual" viewBox="0 0 2400 300" width="2400" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
@@ -119,7 +119,7 @@
 	</div>
 	<div class="w-full min-h-32 dark:bg-main-400 bg-contrast-50 md:pl-48 md:pb-8 pb-28 md:px-8">
 		<footer>
-			<div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+			<div class="mx-auto w-full max-w-(--breakpoint-xl) p-4 py-6 lg:py-8">
 				<div class="md:flex md:justify-between">
 				<div class="mb-6 md:mb-0">
 					<a href="https://www.vitroidfpv.com/" class="font-caveat text-highlight dark:text-highlight-dark text-6xl">

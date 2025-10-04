@@ -256,7 +256,7 @@
 								<p>Result:</p>
 								<div
 									class:invisible={isNaN(calculateVolume(size)) || calculateVolume(size) == 0}
-									class="bg-gray-500/30 flex items-center align-middle min-w-[2rem] h-8 ml-2 rounded-md p-2 text-base text-green w-fit duration-300"
+									class="bg-gray-500/30 flex items-center align-middle min-w-8 h-8 ml-2 rounded-md p-2 text-base text-green w-fit duration-300"
 								>
 									{calculateVolume(size)}
 								</div>
@@ -375,7 +375,7 @@
 								<p>Result:</p>
 								<div
 									class:invisible={isNaN(wh) || wh == 0}
-									class="bg-gray-500/30 flex items-center align-middle min-w-[2rem] h-8 ml-2 rounded-md p-2 text-base text-green w-fit duration-300"
+									class="bg-gray-500/30 flex items-center align-middle min-w-8 h-8 ml-2 rounded-md p-2 text-base text-green w-fit duration-300"
 								>
 									{wh > 1000 ? (wh / 1000).toFixed(2) : wh}
 								</div>

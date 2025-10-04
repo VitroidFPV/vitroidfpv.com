@@ -153,7 +153,7 @@
 			</Canvas>
 		</div>
 		<div class="col-span-1 px-4 py-8 bg-neutral-500/10 rounded-3xl backdrop-blur-md border-dashed border-2 border-neutral-500/40 flex duration-300 
-			transition-all justify-between items-center flex-col z-10 max-h-[calc(100vh_-_2rem)]"
+			transition-all justify-between items-center flex-col z-10 max-h-[calc(100vh-2rem)]"
 		>
 			<div class="md green overflow-y-auto px-4 mb-4 transition-container overflow-x-hidden">
 				{#key groupedModules[pages[currentPage].id]}

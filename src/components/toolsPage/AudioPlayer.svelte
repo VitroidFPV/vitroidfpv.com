@@ -69,7 +69,7 @@
 
 		<div class="w-full bg-neutral-500/20 rounded-full overflow-hidden relative">
 			<div class="h-2 bg-cyan rounded-full" style="width: {$progressPercent}%;"></div>
-			<div class="absolute -top-2 w-[calc(100%_+_1rem)] h-full -left-2">
+			<div class="absolute -top-2 w-[calc(100%+1rem)] h-full -left-2">
 				<input
 					type="range"
 					name="progress"

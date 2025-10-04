@@ -135,19 +135,19 @@
 		<ul class="mt-4">
 			<li class="mb-4">
 				<div class="flex">
-					<div class="dark:bg-main-300 bg-contrast-100 min-w-[8rem] shadow-[0px_-10px_0px] shadow-green h-20 rounded-2xl flex items-center justify-center mr-4 mt-2 text-2xl">Easy</div>
+					<div class="dark:bg-main-300 bg-contrast-100 min-w-32 shadow-[0px_-10px_0px] shadow-green h-20 rounded-2xl flex items-center justify-center mr-4 mt-2 text-2xl">Easy</div>
 					<div class=""> - You should be able to put this together as a complete beginner. Parts are easy to source, and you'll have enough space to assemble and solder everything</div>
 				</div>
 			</li>
 			<li class="mb-4">
 				<div class="flex">
-					<div class="dark:bg-main-300 bg-contrast-100 min-w-[8rem] shadow-[0px_-10px_0px] shadow-orange h-20 rounded-2xl flex items-center justify-center mr-4 mt-2 text-2xl">Medium</div>
+					<div class="dark:bg-main-300 bg-contrast-100 min-w-32 shadow-[0px_-10px_0px] shadow-orange h-20 rounded-2xl flex items-center justify-center mr-4 mt-2 text-2xl">Medium</div>
 					<div class=""> - More for intermediate pilots, or if you have more experience with electronics and soldering. Parts usually more expensive and sometimes hard to come across</div>
 				</div>
 			</li>
 			<li class="mb-4">
 				<div class="flex">
-					<div class="dark:bg-main-300 bg-contrast-100 min-w-[8rem] shadow-[0px_-10px_0px] shadow-red h-20 rounded-2xl flex items-center justify-center mr-4 mt-2 text-2xl">Hard</div>
+					<div class="dark:bg-main-300 bg-contrast-100 min-w-32 shadow-[0px_-10px_0px] shadow-red h-20 rounded-2xl flex items-center justify-center mr-4 mt-2 text-2xl">Hard</div>
 					<div class=""> - For experienced pilots that know what they're doing, this shouldn't be your first build. Exotic and pricy parts, tight space to build in, and other various build constraints</div>
 				</div>
 			</li>

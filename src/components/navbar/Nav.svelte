@@ -8,9 +8,9 @@
 </script>
 
 <nav
-	class="md:w-fit bottom-0 md:h-screen w-screen test-nav md:justify-start flex md:flex-col flex-row md:items-center border-highlight dark:border-highlight-dark md:border-r-8 md:border-t-0 border-t-8 fixed z-[60] bg-contrast-100 dark:bg-main-400 md:shadow-2xl md:shadow-black/50 shadow-[0px_-25px_50px_-12px] shadow-black/30 dark:shadow-black/60">
+	class="md:w-fit bottom-0 md:h-screen w-screen test-nav md:justify-start flex md:flex-col flex-row md:items-center border-highlight dark:border-highlight-dark md:border-r-8 md:border-t-0 border-t-8 fixed z-60 bg-contrast-100 dark:bg-main-400 md:shadow-2xl md:shadow-black/50 shadow-[0px_-25px_50px_-12px] shadow-black/30 dark:shadow-black/60">
 	<ul
-		class="md:mt-8 md:pl-2 flex md:flex-col flex-row md:justify-start test-li justify-center px-4 md:h-full h-fit md:px-0 w-full -translate-y-[1px] text-main-100 dark:text-contrast-100 pb-1">
+		class="md:mt-8 md:pl-2 flex md:flex-col flex-row md:justify-start test-li justify-center px-4 md:h-full h-fit md:px-0 w-full -translate-y-px text-main-100 dark:text-contrast-100 pb-1">
 		<NavItem href="/" title="Home" active={page.url.pathname === "/"}>
 			<Icon src={Home} class="w-7 h-7 md:mr-2" stroke-width="1.5" />
 		</NavItem>
