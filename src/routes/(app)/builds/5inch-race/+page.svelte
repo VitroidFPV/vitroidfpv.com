@@ -63,10 +63,12 @@
 				</h1>
 			</div>
 			<Header title="Light, fast, and agile" />
-			<p class="text-xl md:w-1/2">
-				{description}<br><br>
-				This list is specced for 6s, and includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br><br>
-				I try my best to keep up with modern specs and builds, but I'm not a racer... So thanks a lot to <Link external={true} href="https://www.instagram.com/august_fpv/">August FPV</Link> for all of the help and advice on this build
+			<div class="text-xl md:w-1/2">
+				<p>
+					{description}<br><br>
+					This list is specced for 6s, and includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br><br>
+					I try my best to keep up with modern specs and builds, but I'm not a racer... So thanks a lot to <Link external={true} href="https://www.instagram.com/august_fpv/">August FPV</Link> for all of the help and advice on this build
+				</p>
 				<ul class="flex flex-row justify-between w-fit flex-wrap mt-4">
 					<li
 						class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-green before:relative mb-2 mr-8">
@@ -85,6 +87,7 @@
 						Highly varied
 					</li>
 				</ul>
+			</div>
 		</div>
 		<div class="absolute w-full h-full pointer-events-none">
 			<div style="-webkit-mask-image: linear-gradient(transparent, black, transparent);"

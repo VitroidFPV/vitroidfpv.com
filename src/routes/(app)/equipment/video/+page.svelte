@@ -55,10 +55,12 @@
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
 			<MainHeader title={titleRaw} color="green"/>
 			<Header title={"Put the \"V\" in FPV"} />
-			<p class="text-xl md:w-1/2">
-				{description}<br><br>
-				If you're trying to decide, or don't even have any prior experience, this list will hopefully help you!<br><br>
-				Prices may depend on where and when you source the parts, (prices and specs are sourced from the manufacturers website at the time of the writing when possible)
+			<div class="text-xl md:w-1/2">
+				<p>
+					{description}<br><br>
+					If you're trying to decide, or don't even have any prior experience, this list will hopefully help you!<br><br>
+					Prices may depend on where and when you source the parts, (prices and specs are sourced from the manufacturers website at the time of the writing when possible)
+				</p>
 				<ul class="flex flex-row justify-between w-fit flex-wrap mt-4">
 					<li
 						class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-green before:relative mb-2 mr-8">
@@ -77,6 +79,7 @@
 						Highly varied
 					</li>
 				</ul>
+			</div>
 		</div>
 		<div class="absolute w-full h-full pointer-events-none">
 			<div style="-webkit-mask-image: linear-gradient(transparent, black, transparent);"
