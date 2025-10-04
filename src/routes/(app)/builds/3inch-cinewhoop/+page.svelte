@@ -48,10 +48,12 @@
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8">
 			<MainHeader title={titleRaw} color="orange" />
 			<Header title="Slow, safe, cinematic flying, indoors and outdoors" />
-			<p class="text-xl md:w-1/2">
-				{description}<br><br>
-				This list is specced for 4/6s, and includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br><br>
-				The price range for each part is highlighted, so you can quickly find something to suit your budget needs
+			<div class="text-xl md:w-1/2">
+				<p>
+					{description}<br><br>
+					This list is specced for 4/6s, and includes everything to build a full quad, except parts such as cameras, goggles, receiver and radio systems as those vary depending on prefference and you'll find recommendations on this site elsewhere.<br><br>
+					The price range for each part is highlighted, so you can quickly find something to suit your budget needs
+				</p>
 				<ul class="flex flex-row justify-between w-fit flex-wrap mt-4">
 					<li
 						class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-green before:relative mb-2 mr-8">
@@ -70,6 +72,7 @@
 						Highly varied
 					</li>
 				</ul>
+			</div>
 		</div>
 		<div class="absolute w-full h-full pointer-events-none">
 			<div style="-webkit-mask-image: linear-gradient(transparent, black, transparent);"

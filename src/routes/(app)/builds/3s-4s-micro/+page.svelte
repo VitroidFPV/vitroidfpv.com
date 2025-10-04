@@ -63,8 +63,10 @@
 				</h1>
 			</div>
 			<Header title="Light, fast, and agile" />
-			<p class="text-xl md:w-1/2">
-				{description}<br><br>
+			<div class="text-xl md:w-1/2">
+				<p>
+					{description}<br><br>
+				</p>
 				<ul class="flex flex-row justify-between w-fit flex-wrap mt-4">
 					<li
 						class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-green before:relative mb-2 mr-8">
@@ -83,6 +85,7 @@
 						Highly varied
 					</li>
 				</ul>
+			</div>
 		</div>
 		<div class="absolute w-full h-full pointer-events-none">
 			<div style="-webkit-mask-image: linear-gradient(transparent, black, transparent);"
