@@ -21,8 +21,8 @@
 	type C = $$Generic<typeof Component>;
 	let component = $derived(data.component as unknown as C);
 
-	let categoryColor: string = $state();
-	let hexColor: string = $state();
+	let categoryColor: string = $state("");
+	let hexColor: string = $state("");
 	switch (data.frontmatter.category) {
 		case "Guides":
 			categoryColor = "green"
@@ -174,7 +174,7 @@
 	let prefix = data.frontmatter.category;
 	let titleRaw = data.frontmatter.title;
 	let title = " - " + titleRaw;
-	let color = hexColor;
+	let color = $derived(hexColor);
 	let imgRaw = data.frontmatter.img;
 	let img = imgRaw
 	// if imgRaw is relative, add "https://vitroidfpv.com" to the beginning
@@ -283,7 +283,7 @@
 												<div class="h-fit text-lg">{key}</div>
 												<div class="flex justify-center items-center aspect-square">
 													<Progress
-														color={ratingColors[key]}
+														color={ratingColors[key as keyof typeof ratingColors]}
 														percent={value * 10}
 														text={value + "/10"}
 														textStyle="text-base"

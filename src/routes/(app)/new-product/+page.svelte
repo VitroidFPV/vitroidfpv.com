@@ -43,13 +43,13 @@
 	}
 
 	let prefix = "VitroidFPV";
-	let titleRaw = `${manufacturer} ${product}`;
-	let title = " - " + titleRaw;
+	let titleRaw = $derived(`${manufacturer} ${product}`);
+	let title = $derived(" - " + titleRaw);
 	let color = "#ffcc00";
 	let color1 = tinycolor(color).lighten(20).spin(10).toHexString();
 	let color2 = tinycolor(color).darken(20).spin(10).toHexString();
 	// let img = "/uploads/images/1s_toothpick_512.png";
-	let description = `${manufacturer} ${product} is a new product that is available for purchase.`;
+	let description = $derived(`${manufacturer} ${product} is a new product that is available for purchase.`);
 </script>
 
 <svelte:head>

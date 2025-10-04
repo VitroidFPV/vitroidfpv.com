@@ -12,17 +12,9 @@
 
 	const url = page.url.pathname;
 
-	let element: HTMLElement = $state();
-	let intersecting: boolean = $state();
+	let element: HTMLElement | undefined = $state();
+	let intersecting: boolean | undefined = $state();
 
-	let infoArray: string[] = [];
-	if (typeof info === "string") {
-		info.split(";").forEach((item) => {
-			infoArray.push(item);
-		});
-	} else {
-		infoArray = info;
-	}
 	interface Props {
 		color: string;
 		title: string;
@@ -48,27 +40,38 @@
 		point3 = "",
 		point4 = "",
 		point5 = "",
-		info = [] || "",
+		info = [],
 		text,
 		href,
 		img,
 		category = ""
 	}: Props = $props();
 
+	let infoArray: string[] = [];
+	if (typeof info === "string") {
+		info.split(";").forEach((item) => {
+			infoArray.push(item);
+		});
+	} else {
+		infoArray = info;
+	}
+
 	let open = $state(false);
 
 	let infoObjects: { text: string; tooltip: string }[] = $state([]);
 
-	if (info) {
-		// [text<tooltip>", "text<tooltip>", ...]
-		// separate strings in the array into objects with text and tooltip
-		infoObjects = infoArray.map((item) =>  {
-			const [text, tooltip] = String(item).split(/<|>/);
-			return { text, tooltip: tooltip || "" };
-		})
+	$effect(() => {
+		if (info) {
+			// [text<tooltip>", "text<tooltip>", ...]
+			// separate strings in the array into objects with text and tooltip
+			infoObjects = infoArray.map((item) =>  {
+				const [text, tooltip] = String(item).split(/<|>/);
+				return { text, tooltip: tooltip || "" };
+			})
 
-		price = infoObjects[0]?.text;
-	}
+			price = infoObjects[0]?.text;
+		}
+	});
 	
 	let colorHex = $state("");
 
@@ -103,12 +106,12 @@
 					<button 
 						onclick={() => addPart(title, price, color, category, url, href)}
 						class="mr-2 hover:text-current text-contrast-500 duration-300">
-						<Icon class="w-7 h-7" src={Plus} stroke-width="2" />
+						<Icon class="w-7 h-7" src={Plus} stroke-width="2" size="28" theme="default" title="Add to price comparison" />
 						<div class="sr-only">Add to price comparison</div>
 					</button>
 					{#if img}
 						<button onclick={() => open = true} class="hover:text-current text-contrast-500 duration-300">
-							<Icon class="w-7 h-7" src={Photo} stroke-width="2" />
+							<Icon class="w-7 h-7" src={Photo} stroke-width="2" size="28" theme="default" title="View image" />
 							<div class="sr-only">View image</div>
 						</button>
 					{/if}

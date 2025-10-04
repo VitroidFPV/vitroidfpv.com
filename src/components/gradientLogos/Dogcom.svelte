@@ -1,4 +1,4 @@
-<a href="https://www.dogcombattery.com/" target="_blank" rel="noopener noreferrer">
+<a href="https://www.dogcombattery.com/" target="_blank" rel="noopener noreferrer" aria-label="Dogcom Battery">
 	<svg
 		width="100%"
 		height="100%"

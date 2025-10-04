@@ -41,7 +41,7 @@ I will use 3d models across the whole article to help you get a better understan
 	>
 		<span
 			class={"toggle inline-block w-4 rounded-full aspect-square bg-neutral-400/50 duration-300 " + (show3d ? " bg-highlight dark:bg-highlight-dark translate-x-7" : "translate-x-1")}
-		/>
+		></span>
 	</Switch>
 
 Show 3D models (recommended)

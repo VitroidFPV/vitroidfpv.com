@@ -163,6 +163,7 @@
 			<p class="text-xl md:w-1/2 md:px-0">
 				{description}<br><br>
 				Just upload any MP3 file and it will be converted to the specific format required by your radio. In addition, you can easily pick the file you want to replace and it will be automatically match the original file name.<br><br>
+			</p>
 		</div>
 		<div class="absolute w-full h-full pointer-events-none">
 			<div style="-webkit-mask-image: linear-gradient(transparent, black, transparent);"

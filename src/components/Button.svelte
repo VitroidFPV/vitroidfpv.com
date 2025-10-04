@@ -1,94 +1,6 @@
 <script lang="ts">
 	import { createBubbler } from 'svelte/legacy';
-
-	const bubble = createBubbler();
-
-	interface Colors {
-		bg: string;
-		bgTransparent: string;
-		text: string;
-	}
-
-	let colors: Colors = $state();
-	colors = {
-		bg: "bg-green",
-		bgTransparent: "bg-green/10 hover:bg-green/20",
-		text: "text-green",
-	};
-
-	switch (color) {
-		case "red":
-			colors = {
-				bg: "bg-red",
-				bgTransparent: "bg-red/10 hover:bg-red/20",
-				text: "text-red",
-			};
-			break;
-		case "orange":
-			colors = {
-				bg: "bg-orange",
-				bgTransparent: "bg-orange/10 hover:bg-orange/20",
-				text: "text-orange",
-			};
-			break;
-		case "yellow":
-			colors = {
-				bg: "bg-yellow",
-				bgTransparent: "bg-yellow/10 hover:bg-yellow/20",
-				text: "text-yellow",
-			};
-			break;
-		case "green":
-			colors = {
-				bg: "bg-green",
-				bgTransparent: "bg-green/10 hover:bg-green/20",
-				text: "text-green",
-			};
-			break;
-		case "cyan":
-			colors = {
-				bg: "bg-cyan",
-				bgTransparent: "bg-cyan/10 hover:bg-cyan/20",
-				text: "text-cyan",
-			};
-			break;
-		case "blue":
-			colors = {
-				bg: "bg-blue",
-				bgTransparent: "bg-blue/10 hover:bg-blue/20",
-				text: "text-blue",
-			};
-			break;
-		case "violet":
-			colors = {
-				bg: "bg-violet",
-				bgTransparent: "bg-violet/10 hover:bg-violet/20",
-				text: "text-violet",
-			};
-			break;
-		case "highlight":
-			colors = {
-				bg: "bg-highlight",
-				bgTransparent:
-					"bg-highlight/10 hover:bg-highlight/20 dark:bg-highlight-dark/10 dark:hover:bg-highlight-dark/20",
-				text: "text-highlight dark:text-highlight-dark",
-			};
-			break;
-	}
-
-
-	switch (size) {
-		case "sm":
-			colors.bgTransparent += " p-2 outline-[3]";
-			break;
-		case "md":
-			colors.bgTransparent += " md:p-4 p-3 outline-4";
-			break;
-		case "lg":
-			colors.bgTransparent += " md:p-6 p-4 outline-4 text-xl";
-			break;
-	}
-
+	
 	interface Props {
 		color?: 
 		| "red"
@@ -118,6 +30,88 @@
 		type = "button",
 		children
 	}: Props = $props();
+
+	const bubble = createBubbler();
+
+	interface Colors {
+		bg: string;
+		bgTransparent: string;
+		text: string;
+	}
+
+	const baseColors = $derived((() => {
+		switch (color) {
+			case "red":
+				return {
+					bg: "bg-red",
+					bgTransparent: "bg-red/10 hover:bg-red/20",
+					text: "text-red",
+				};
+			case "orange":
+				return {
+					bg: "bg-orange",
+					bgTransparent: "bg-orange/10 hover:bg-orange/20",
+					text: "text-orange",
+				};
+			case "yellow":
+				return {
+					bg: "bg-yellow",
+					bgTransparent: "bg-yellow/10 hover:bg-yellow/20",
+					text: "text-yellow",
+				};
+			case "cyan":
+				return {
+					bg: "bg-cyan",
+					bgTransparent: "bg-cyan/10 hover:bg-cyan/20",
+					text: "text-cyan",
+				};
+			case "blue":
+				return {
+					bg: "bg-blue",
+					bgTransparent: "bg-blue/10 hover:bg-blue/20",
+					text: "text-blue",
+				};
+			case "violet":
+				return {
+					bg: "bg-violet",
+					bgTransparent: "bg-violet/10 hover:bg-violet/20",
+					text: "text-violet",
+				};
+			case "highlight":
+				return {
+					bg: "bg-highlight",
+					bgTransparent:
+						"bg-highlight/10 hover:bg-highlight/20 dark:bg-highlight-dark/10 dark:hover:bg-highlight-dark/20",
+					text: "text-highlight dark:text-highlight-dark",
+				};
+			case "green":
+			default:
+				return {
+					bg: "bg-green",
+					bgTransparent: "bg-green/10 hover:bg-green/20",
+					text: "text-green",
+				};
+		}
+	})());
+
+	const sizeClasses = $derived((() => {
+		switch (size) {
+			case "sm":
+				return " p-2 outline-[3]";
+			case "lg":
+				return " md:p-6 p-4 outline-4 text-xl";
+			case "md":
+			default:
+				return " md:p-4 p-3 outline-4";
+		}
+	})());
+
+	const colors = $derived({
+		bg: baseColors.bg,
+		bgTransparent: baseColors.bgTransparent + sizeClasses,
+		text: baseColors.text,
+	});
+
 </script>
 
 {#if isLink}

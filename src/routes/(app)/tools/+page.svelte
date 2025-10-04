@@ -138,7 +138,7 @@
 	let cellCount = $state(1);
 	let isHv = $state(false);
 	let capacity = $state(0);
-	let wh: number = $state()
+	let wh = $state(0);
 
 	function updateCellCount(increment: boolean) {
 		if (increment) {
@@ -206,7 +206,7 @@
 				class="h-12 w-12 group bg-neutral-500/20 border-2 border-neutral-500/40 shadow-lg
 				hover:bg-highlight hover:border-highlight dark:hover:border-highlight-dark backdrop-blur-md z-10 
 				dark:hover:bg-highlight-dark duration-300 rounded-full flex items-center justify-center relative">
-				<Icon class="w-6 h-6" src={AdjustmentsVertical} />
+				<Icon class="w-6 h-6" src={AdjustmentsVertical} size="24" theme="default" title="Compare" />
 				{#if $compareArray.length > 0}
 					<div class="p-1 absolute h-6 aspect-square bg-contrast-200 dark:bg-main-100 -top-2 -right-2 text-sm rounded-full z-10 shadow-lg">{$compareArray.length}</div>
 				{/if}
@@ -216,7 +216,7 @@
 					<div class="flex">
 						<div class="text-2xl text-highlight dark:text-highlight-dark mb-4 mr-2">Compare</div>
 						<button onclick={() => copyCompare()} class="h-8 w-8 outline outline-2 outline-highlight dark:outline-highlight-dark bg-highlight/20 dark:bg-highlight-dark/20 hover:bg-highlight/40 dark:hover:bg-highlight-dark/40 duration-300 rounded-full flex items-center justify-center relative">
-							<Icon class="w-6 h-6" src={Clipboard} />
+							<Icon class="w-6 h-6" src={Clipboard} size="24" theme="default" title="Copy" />
 						</button>
 					</div>
 					<!-- #each block for $compareArray that updates with the array, and contains a SizeComparison {size} element -->
@@ -329,7 +329,7 @@
 						<p class="mb-4">
 							Given power in <code class="text-yellow">mW</code>,
 							the calculation to get the power in <code class="text-green">dBm</code> is
-							<code><span class="text-green">dBm</span> = 10 × (log10 <span class="text-yellow">mW</span>)
+							<code><span class="text-green">dBm</span> = 10 × (log10 <span class="text-yellow">mW</span>)</code>
 						</p>
 						<button onclick={() => (copyCalc("power"))}>
 							<div class="h-fit w-fit bg-green/90 rounded-md py-1 px-2 cursor-pointer">Copy!</div>
@@ -343,10 +343,10 @@
 						<div class="flex my-4">
 							<div class="h-8 flex flex-col justify-between mr-1 text-neutral-400/40">
 								<button onclick={handlers(() => updateCellCount(true), calculateWh)} class="hover:text-highlight dark:hover:text-highlight-dark duration-300">
-									<Icon class="w-3 h-3" src={ChevronUp} stroke-width="4" />
+									<Icon class="w-3 h-3" src={ChevronUp} stroke-width="4" size="12" theme="default" title="Increase cell count" />
 								</button>
 								<button onclick={handlers(() => updateCellCount(false), calculateWh)} class="hover:text-highlight dark:hover:text-highlight-dark duration-300">
-									<Icon class="w-3 h-3 rotate-180" src={ChevronUp} stroke-width="4" />
+									<Icon class="w-3 h-3 rotate-180" src={ChevronUp} stroke-width="4" size="12" theme="default" title="Decrease cell count" />
 								</button>
 							</div>
 							<div class="flex items-end">

@@ -14,18 +14,20 @@
 
 	const url = page.url.pathname;
 
-	let element: HTMLElement = $state();
-	let intersecting: boolean = $state();
+	let element: HTMLElement | undefined = $state();
+	let intersecting: boolean | undefined = $state();
 
 	
 	let infoArray: string[] = $state([]);
-	if (typeof info === "string") {
-		info.split(";").forEach((item) => {
-			infoArray.push(item);
-		});
-	} else {
-		infoArray = info;
-	}
+	$effect(() => {
+		if (typeof info === "string") {
+			info.split(";").forEach((item) => {
+				infoArray.push(item);
+			});
+		} else {
+			infoArray = info;
+		}
+	});
 	interface Props {
 		// input variables
 		color?: string;
@@ -55,12 +57,12 @@
 		point3 = "",
 		point4 = "",
 		point5 = "",
-		info = [] || "",
+		info = [],
 		text = $bindable("Description"),
 		href = $bindable("/"),
 		img = $bindable("/uploads/placeholder.png"),
 		category = $bindable(""),
-		group = $bindable("" || undefined),
+		group = $bindable(undefined),
 		moduleUrl = "",
 		order = $bindable(0)
 	}: Props = $props();
@@ -73,14 +75,16 @@
 	});
 
 	let infoYaml = $state("");
-	if (info) {
-		infoYaml = infoArray.map((item) => {
-			return `- ${item}`;
-		}).join("\n");
-	}
+	run(() => {
+		if (info) {
+			infoYaml = infoArray.map((item) => {
+				return `- ${item}`;
+			}).join("\n");
+		}
+	});
 
 	// save the original input variables
-	const originalSave = { color, title, point1, point2, point3, point4, point5, infoYaml, text, href, img, category, group, order };
+	let originalSave = $derived({ color, title, point1, point2, point3, point4, point5, infoYaml, text, href, img, category, group, order });
 
 	let canSave = $state(false);
 	// check if the input variables have changed from the saved ones
@@ -89,7 +93,7 @@
 		canSave = JSON.stringify({ color, title, point1, point2, point3, point4, point5, infoYaml, text, href, img, category, group, order }) !== JSON.stringify(originalSave);
 	});
 
-	let open: boolean = $state();
+	let open: boolean = $state(false);
 
 	let infoObjects: { text: string; tooltip: string }[] = $state([]);
 
@@ -147,7 +151,7 @@
 		sanitizedName = `${category.toLowerCase().replace(/\s+/g, "-").replace(/[^a-zA-Z0-9-]/g, "")}-${title.toLocaleLowerCase().replace(/\s+/g, "-").replace(/[^a-zA-Z0-9-]/g, "")}`
 	});
 
-	let autoPath: string = $state();
+	let autoPath = $state("");
 	run(() => {
 		autoPath = `/uploads${url}/${sanitizedName}.png`;
 	});
@@ -268,7 +272,7 @@ info:
 						<button 
 							onclick={() => addPart(title, price, color, category, url, href)}
 							class="hover:stroke-current stroke-contrast-500 duration-300 mr-2">
-							<Icon class="w-7 h-7 stroke-[2.5] stroke-inherit" src={Plus} />
+							<Icon class="w-7 h-7 stroke-[2.5] stroke-inherit" src={Plus} size="28" theme="default" title="Add to price comparison" />
 						</button>
 						<!-- {#if img} -->
 						<button
@@ -281,14 +285,14 @@ info:
 										in:fly={{y: -20, duration: 300}}
 										out:fly={{y: 20, duration: 300}}
 									>
-										<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={Photo} />
+										<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={Photo} size="28" theme="default" title="View image" />
 									</div>
 								{:else}
 									<div
 										in:fly={{y: -20, duration: 300}}
 										out:fly={{y: 20, duration: 300}}
 									>
-										<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={ChainLink} />
+										<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={ChainLink} size="28" theme="default" title="View image" />
 									</div>
 								{/if}
 							</div>
@@ -302,7 +306,7 @@ info:
 									in:fly={{y: -16, duration: 300}}
 									out:fly={{y: 16, duration: 300}}
 								>
-									<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={PencilSquare} />
+									<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={PencilSquare} size="28" theme="default" title="Edit" />
 								</button>
 							{:else}
 								<button
@@ -311,7 +315,7 @@ info:
 									in:fly={{y: -16, duration: 300}}
 									out:fly={{y: 16, duration: 300}}
 								>
-									<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={Eye} />
+									<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={Eye} size="28" theme="default" title="View" />
 								</button>
 							{/if}
 						</div>
@@ -325,7 +329,7 @@ info:
 									class=" hover:stroke-current stroke-contrast-500 duration-300"
 									transition:fly={{y: -16, duration: 300}}
 								>
-									<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={FolderArrowDown} />
+									<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={FolderArrowDown} size="28" theme="default" title="Save" />
 								</button>
 							{/if}
 						</div>
@@ -386,10 +390,10 @@ info:
 									</div>
 									<div class="h-8 flex flex-col justify-between ml-1.5 text-neutral-400/40">
 										<button onclick={() => order++} class="hover:text-{color} duration-300">
-											<Icon class="w-3 h-3 stroke-[4]" src={ChevronUp} />
+											<Icon class="w-3 h-3 stroke-[4]" src={ChevronUp} size="12" theme="default" title="Increase order" />
 										</button>
 										<button onclick={() => order--} class="hover:text-{color} duration-300">
-											<Icon class="w-3 h-3 stroke-[4] rotate-180 stroke-current" src={ChevronUp} />
+											<Icon class="w-3 h-3 stroke-[4] rotate-180 stroke-current" src={ChevronUp} size="12" theme="default" title="Decrease order" />
 										</button>
 									</div>
 								</div>

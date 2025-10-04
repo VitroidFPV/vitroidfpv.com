@@ -23,7 +23,7 @@
 		requestAnimationFrame(animateRotation);
 	}
 
-	let timer: ReturnType<typeof setTimeout> = $state();
+	let timer: ReturnType<typeof setTimeout> | undefined = $state();
 	run(() => {
 		if (hovered) {
 			timer = setTimeout(() => {
@@ -42,7 +42,17 @@
 		
 </script>
 
-<svg width="150" height="150" onmouseenter={() => hovered = true} onmouseleave={() => hovered = false} viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="{svgClass} md:scale-150">
+<svg 
+	width="150" 
+	height="150" 
+	onmouseenter={() => hovered = true} 
+	onmouseleave={() => hovered = false} 
+	viewBox="0 0 200 200" 
+	fill="none" 
+	xmlns="http://www.w3.org/2000/svg" 
+	class="{svgClass} md:scale-150"
+	role="img"
+>
 	<path class="{pathClass} origin-center will-change-transform" style="transform: rotate({degrees}deg)" fill-rule="evenodd" clip-rule="evenodd" d="M92.8079 95.1565C92.9816 94.8991 93.0481 94.5859 92.9687 
 	94.2857C83.8268 59.7442 94.1948 4.97097 99.6692 3.70844C105.241 2.42341 106.009 3.43176 106.009 6.9173C106.009 
 	7.74605 105.962 8.95909 105.902 10.5199V10.52C105.708 15.5238 105.375 24.1017 106.009 35.0506C106.566 44.6669 

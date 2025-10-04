@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
-
 	import { Canvas } from "@threlte/core"
 	import Quad from "./Quad.svelte"
 	import { component } from "$lib/stores/quadStore"
@@ -76,7 +74,7 @@
 	}
 
 	// update the current page when the selected component changes
-	run(() => {
+	$effect(() => {
 		currentPage = Object.keys(pages).findIndex((key) => pages[Number(key)].url == $component.selected)
 	});
 
@@ -100,8 +98,9 @@
 	}
 
 	if (anchor) {
-		currentPage = Object.keys(pages).findIndex((key) => pages[Number(key)].id == anchor)
-		$component.selected = pages[currentPage].url
+		const pageIndex = Object.keys(pages).findIndex((key) => pages[Number(key)].id == anchor)
+		currentPage = pageIndex
+		$component.selected = pages[pageIndex].url
 	}
 
 	let prefix = "VitroidFPV";
