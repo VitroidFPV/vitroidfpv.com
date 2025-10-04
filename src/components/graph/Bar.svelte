@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import { run } from 'svelte/legacy';
 
 	import { Bar } from "svelte-chartjs";
@@ -164,4 +164,4 @@
 
 <div class="h-96 w-full">
 	<Bar {data} {options} />
-</div>
+</div> -->

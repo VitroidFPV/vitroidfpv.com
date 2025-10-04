@@ -16,7 +16,6 @@ date: 2024-02-16T21:28:53.018Z
 	import Tab from "$components/articlesPage/Tab.svelte";
 	import Admonition from "$components/articlesPage/Admonition.svelte";
 	import Chip from "$components/Chip.svelte";
-	import Bar from "$components/graph/Bar.svelte";
 
 	const mcuScores = {
 		"STM32F405 - 168MHz": 556,
@@ -58,7 +57,7 @@ Even if F405's are cheaper now, manufacturers still likely have old expensive st
 
 At its base, the AT32F435 uses the same ARM Cortex-M4 core as the STM32F405, but they run them a lot faster than even the STM32F722 - but with the F722 using more powerful M7 cores, it still outperforms the F435 in terms of raw performance:
 
-<Bar incomingData={mcuScores} />
+<!-- <Bar incomingData={mcuScores} /> -->
 
 While the F722 is still better in terms of raw performance, the F435 has more flash space for the firmware itself - 512KB on the STM32F722 (and F411), 1024KB on the STM32F405 and AT32F435. With the introduction of the Cloud Build system for Betaflight firmware, the lower 512KB flash space isn't as big of an issue, but other firmwares may not have this luxury, and could do with any extra space they can get.
 
