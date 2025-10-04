@@ -10,8 +10,7 @@
     "format": "prettier --write --plugin-search-dir=. .",
     "review": "vite build && vite preview",
     "article": "node ./src/lib/articleWizard.js",
-    "update": "node ./src/lib/updateWizard.js",
-    "postinstall": "patch-package"
+    "update": "node ./src/lib/updateWizard.js"
   },
   "devDependencies": {
     "@rgossiaux/svelte-headlessui": "^2.0.0",
@@ -52,7 +51,10 @@
     },
     "mdsvex": {
       "svelte": "$svelte"
-    }
+    },
+    "react": "$react",
+    "react-dom": "$react-dom",
+    "slate": "^0.91.1"
   },
   "type": "module",
   "dependencies": {
@@ -79,8 +81,8 @@
     "netlify-identity-widget": "^1.9.2",
     "patch-package": "^8.0.0",
     "posthog-js": "^1.256.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "react-markdown": "^8.0.7",
     "rehype-slug": "^5.1.0",
     "remark-admonitions": "^1.2.1",
@@ -89,10 +91,10 @@
     "satori": "^0.0.44",
     "satori-html": "^0.3.0",
     "svelte-collapsible": "^0.2.1",
-    "svelte-french-toast": "^1.2.0",
+    "svelte-french-toast": "^2.0.0-alpha.0",
     "svelte-intersection-observer": "^0.10.0",
     "svelte-range-slider-pips": "^2.0.3",
-    "three": "^0.155.0",
+    "three": "^0.170.0",
     "tinycolor2": "^1.5.2",
     "title-case": "^4.3.1"
   }
