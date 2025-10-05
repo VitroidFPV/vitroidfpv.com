@@ -13,9 +13,9 @@ const config = defineConfig({
 	},
 	remarkPlugins: [remarkGfm, remarkMath],
 	rehypePlugins: [rehypeSlug, rehypeKatex],
-	layout: {
-		_: "/src/components/articlesPage/ArticleLayout.svelte"
-	}
+	// layout: {
+	// 	_: "./src/components/articlesPage/ArticleLayout.svelte"
+	// }
 });
 
 export default config;
