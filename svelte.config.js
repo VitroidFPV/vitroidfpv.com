@@ -18,8 +18,15 @@ const config = {
 			$routes: "./src/routes",
 		},
 	},
-	extensions: [".svelte", ...mdsvexConfig.extensions],
-	preprocess: [vitePreprocess(), mdsvex(mdsvexConfig)],
+	extensions: [".svelte", ...(mdsvexConfig.extensions || [])],
+	preprocess: [
+		vitePreprocess(),
+		{
+			markup: ({ content, filename = '' }) => {
+				return mdsvex(mdsvexConfig).markup({ content, filename });
+			}
+		}
+	],
 };
 
 export default config;

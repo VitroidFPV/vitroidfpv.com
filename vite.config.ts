@@ -41,7 +41,7 @@ const config = {
 		exclude: ['@ffmpeg/ffmpeg', '@ffmpeg/util'],
 	},
 	rollupInputOptions: {
-		external: ['@resvg/resvg-js-win32-x64-msvc'],
+		external: ['@resvg/resvg-js-win32-x64-msvc', '@resvg/resvg-js-linux-x64-gnu'],
 	},
 	ssr: {
 		noExternal: ['three']
