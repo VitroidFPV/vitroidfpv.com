@@ -34,7 +34,7 @@ const config = {
 			$lib: "/src/lib/",
 			$routes: "/src/routes/",
 			// Stub out Node.js-only modules used by decap-cms for browser builds
-			'clean-stack': '/src/lib/stubs/clean-stack.js',
+			// 'clean-stack': '/src/lib/stubs/clean-stack.js',
 		},
 	},
 	optimizeDeps: {

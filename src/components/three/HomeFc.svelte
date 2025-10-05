@@ -22,17 +22,12 @@
 		duration: 200,
 	})
 
-
-
 	const pcb = useGltf("/uploads/three/fc/fc_pcb.glb")
 	const normal = useGltf("/uploads/three/fc/fc_normal.glb")
 	const highlight = useGltf("/uploads/three/fc/fc_highlight.glb")
 
-	let meshes:Mesh[] = []
-
-
 	let hovered = $state(false)
-	run(() => {
+	$effect(() => {
 		if(hovered) {
 			color.set("rgb(214, 57, 91)")
 			opacity.set(0.5)
@@ -40,20 +35,6 @@
 			color.set("rgb(170, 170, 170)")
 			opacity.set(0.2)
 		}
-	});
-	// 
-
-	run(() => {
-		console.log($color)
-	});
-	run(() => {
-		if ($pcb) meshes.push($pcb.nodes["pcb"])
-	});
-	run(() => {
-		if ($normal) meshes.push($normal.nodes["normal"])
-	});
-	run(() => {
-		if ($highlight) meshes.push($highlight.nodes["highlight"])
 	});
 </script>
 
