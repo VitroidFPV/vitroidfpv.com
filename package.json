@@ -9,8 +9,8 @@
     "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
     "format": "prettier --write --plugin-search-dir=. .",
     "review": "vite build && vite preview",
-    "article": "node ./src/lib/articleWizard.js",
-    "update": "node ./src/lib/updateWizard.js"
+    "article": "node ./scripts/articleWizard.js",
+    "update": "node ./scripts/updateWizard.js"
   },
   "devDependencies": {
     "@skeletonlabs/skeleton": "^3.2.2",
