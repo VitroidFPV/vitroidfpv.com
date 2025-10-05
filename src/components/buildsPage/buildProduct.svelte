@@ -60,17 +60,17 @@
 
 	let infoObjects: { text: string; tooltip: string }[] = $state([]);
 
-	$effect(() => {
-		if (info) {
-			// [text<tooltip>", "text<tooltip>", ...]
-			// separate strings in the array into objects with text and tooltip
-			infoObjects = infoArray.map((item) =>  {
-				const [text, tooltip] = String(item).split(/<|>/);
-				return { text, tooltip: tooltip || "" };
-			})
+	if (info) {
+		// [text<tooltip>", "text<tooltip>", ...]
+		// separate strings in the array into objects with text and tooltip
+		infoObjects = infoArray.map((item) =>  {
+			const [text, tooltip] = String(item).split(/<|>/);
+			return { text, tooltip: tooltip || "" };
+		})
+	}
 
-			price = infoObjects[0]?.text;
-		}
+	$effect(() => {
+		price = infoObjects[0]?.text;
 	});
 	
 	let colorHex = $state("");
