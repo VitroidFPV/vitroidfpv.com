@@ -56,7 +56,8 @@
     },
     "react": "$react",
     "react-dom": "$react-dom",
-    "slate": "^0.91.1"
+    "slate": "^0.91.1",
+	"clean-stack": "5.2.0"
   },
   "type": "module",
   "dependencies": {
