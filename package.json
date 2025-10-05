@@ -47,7 +47,8 @@
     "vite-plugin-cross-origin-isolation": "^0.1.6"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.27.3"
+    "@rollup/rollup-linux-x64-gnu": "4.27.3",
+	"@resvg/resvg-js-linux-x64-gnu": "2.6.2"
   },
   "overrides": {
     "mdsvex": {
@@ -64,7 +65,7 @@
     "@ffmpeg/ffmpeg": "^0.12.10",
     "@ffmpeg/util": "^0.12.1",
     "@macfja/svelte-persistent-store": "^2.3.2",
-    "@resvg/resvg-js": "^2.1.0",
+    "@resvg/resvg-js": "^2.6.2",
     "@steeze-ui/heroicons": "^2.2.3",
     "@steeze-ui/svelte-icon": "1.6.0",
     "@tailwindcss/vite": "^4.1.14",
