@@ -46,6 +46,9 @@
     "typescript": "^5.5.0",
     "vite-plugin-cross-origin-isolation": "^0.1.6"
   },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.27.3"
+  },
   "overrides": {
     "mdsvex": {
       "svelte": "$svelte"
