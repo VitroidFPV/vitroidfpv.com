@@ -13,10 +13,10 @@
 	let importModules = import.meta.glob("/modules/builds/3s-4s-micro/*.md", {eager: true});
 	let modules = formatModules(importModules as { [path: string]: Module; });
 
-	function parsePrice(info) {
+	function parsePrice(info: string | undefined) {
 		// parseFloat(info.replace(/[^\d.]/g, ''));
 		// round to 2 decimal places
-		return parseFloat(info.replace(/[^\d.]/g, '')).toFixed(2);
+		return parseFloat(info?.replace(/[^\d.]/g, '') || '0').toFixed(2);
 	}
 
 	// import { priceSum, part } from "$components/buildsPage/stores.js"
@@ -149,7 +149,7 @@
 				<li class="mb-2"><strong>High-end 3 (EU Edition)</strong> - If you're in the EU, certain parts may be hard to come by. I've checked the main stores in Central Europe, so shipping should be similar across the whole continent</li> -->
 			</ul>
 			{#each Object.entries(modules.recommendedProducts) as [group, contents]}
-				<div class="group {group} mt-4 mb-8 rounded-2xl bg-neutral-400/5 overflow-clip outline outline-2 outline-neutral-400/20 p-4">
+				<div class="group {group} mt-4 mb-8 rounded-2xl bg-neutral-400/5 overflow-clip outline-2 outline-neutral-400/20 p-4">
 					{#if group != "undefined"}
 						<div
 							class="text-2xl tracking-tight w-full {group} mb-4"

@@ -8,7 +8,6 @@
 		gfm: true,
 		breaks: true,
 		sanitize: false,
-		smartLists: false,
 		smartypants: false,
 		xhtml: false
 	});

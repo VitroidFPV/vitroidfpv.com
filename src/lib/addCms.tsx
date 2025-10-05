@@ -1,5 +1,4 @@
 import React from "react";
-import { render } from "react-dom";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 // @ts-ignore
 import { config } from "/src/routes/(system)/admin/config.js"

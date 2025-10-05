@@ -13,7 +13,7 @@
 	const modules = import.meta.glob(`/modules/articles/*.{md,svx,svelte,md}`, {eager: true});
 	// console.log(JSON.stringify(modules, null, 2));
 	// sort grouped_modules by date, newest first, add formatted date
-	let date_sorted_modules: any[] = [];
+	let date_sorted_modules: Module[] = [];
 	
 	interface Module {
 		metadata: {
@@ -23,12 +23,18 @@
 			category: string;
 			date: string;
 			author: string;
+			visible: boolean;
 		};
 	}
 
 
-	for (const [key, value] of Object.entries(modules)) {
+	for (const [key, value] of Object.entries(modules as Record<string, Module>)) {
 		const moduleValue = value as unknown as Module;
+		// Skip modules without metadata or date
+		if (!moduleValue.metadata || !moduleValue.metadata.date) {
+			console.warn(`Module ${key} is missing metadata or date`);
+			continue;
+		}
 		const date = new Date(moduleValue.metadata.date);
 		const formattedDate = date.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"});
 		moduleValue.metadata.date = formattedDate;

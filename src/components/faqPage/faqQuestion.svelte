@@ -21,8 +21,8 @@
 		category,
 		id = ""
 	}: Props = $props();
-	let element: HTMLElement = $state();
-	let intersecting: boolean = $state();
+	let element: HTMLElement | undefined = $state();
+	let intersecting: boolean = $state(false);
 
 	let source = content;
 
@@ -41,7 +41,7 @@
 		}
 	}
 
-	function copyID(this: {nextElementSibling: any; "on:click": () => void; class: string; }) {
+	function copyID(this: {nextElementSibling: any; "onclick": () => void; class: string; }) {
 		let id = this.nextElementSibling.id;
 		copyText(page.url.origin + page.url.pathname + "/" + id);
 		// console.log(id);
@@ -82,7 +82,6 @@
 					transition:slide
 					class="top-11 z-10 left-2 absolute content text-xl bg-neutral-500/10 border-2 border-neutral-500/20 backdrop-blur-lg rounded-2xl mb-2 w-full"
 				>
-					<!-- <div class="md:p-8 p-6 text-base md:text-lg leading-relaxed md"><SvelteMarkdown {source} on:parsed={handleParsed}/></div> -->
 					<div class="md:p-8 p-4 text-base md:text-lg leading-relaxed md">{@html content}</div>
 				</div>
 			{/if}

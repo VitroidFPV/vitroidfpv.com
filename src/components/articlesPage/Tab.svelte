@@ -37,19 +37,19 @@
 		decode: (value) => value,
 	});
 
-	if ($query === title) {
+	if ($query === tabTitle) {
 		open = true;
 	}
 
-	let sanitizedTitle = title.replace(/ /g, "-").replace(/[^a-zA-Z0-9-]/g, "");
+	let sanitizedTitle = tabTitle.replace(/ /g, "-").replace(/[^a-zA-Z0-9-]/g, "");
 
 	function updateURL() {
-		$query = title
+		$query = tabTitle
 		open = true;
 	}
 
 	onMount(() => {
-		if ($query === title) {
+		if ($query === tabTitle) {
 			setTimeout(() => {
 				const el = document.getElementById(sanitizedTitle);
 				if (el) {
@@ -71,7 +71,7 @@
 			role="tab"
 			id="{sanitizedTitle}"
 			class={"tab md:p-4 p-3 rounded-b-3xl md:text-xl text-base md:hover:text-highlight md:dark:hover:text-highlight-dark hover:-translate-y-0.5 duration-300 transition-transform" + (open ?
-			" dark:bg-highlight-dark bg-highlight z-10 tab-open hover:text-inherit -translate-y-0.5 hover:text-main-200! dark:hover:text-contrast-50!" : "")}
+			" dark:bg-highlight-dark bg-highlight z-10 tab-open -translate-y-0.5 hover:text-main-200! dark:hover:text-contrast-50!" : "")}
 			{...rest}>
 			<!-- <slot name="tabTitle">{tabTitle}</slot> -->
 			{tabTitle}

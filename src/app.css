@@ -498,5 +498,5 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	@apply w-2 bg-neutral-500/60 rounded-full duration-300 transition-all hover:bg-highlight dark:hover:bg-highlight-dark
+	@apply w-2 bg-neutral-500/60 rounded-full duration-300 transition-all hover:bg-highlight
 }

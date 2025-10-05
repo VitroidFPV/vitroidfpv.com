@@ -2,25 +2,23 @@
 	import { run } from 'svelte/legacy';
 
 	import { T } from "@threlte/core"
-	import { transitions, createTransition, useGltf, Edges } from "@threlte/extras"
-	import { BufferGeometry, MeshBasicMaterial, MeshStandardMaterial } from "three"
-	import type { Material, Mesh } from "three"
-	import { Float } from "@threlte/extras"
+	import { transitions, createTransition, useGltf } from "@threlte/extras"
+	import { MeshStandardMaterial } from "three"
+	import type { Mesh } from "three"
 	import { interactivity } from "@threlte/extras"
 	interactivity()
 	transitions()
 	import { createEventDispatcher } from "svelte";
-	import { interpolateHcl, interpolateLab } from "d3-interpolate";
+	import { interpolateHcl } from "d3-interpolate";
 	import { cubicInOut } from "svelte/easing";
-	import { spring, tweened } from "svelte/motion"
+	import { tweened } from "svelte/motion"
 	const dispatch = createEventDispatcher();
 
 	import { component } from "$lib/stores/quadStore"
 
 	import { theme } from "$lib/stores/themeStore"
-	import { text } from "@sveltejs/kit";
 
-	const flyDown = createTransition<Mesh>((ref) => {
+	const flyDown = createTransition((ref: any) => {
 		return {
 			tick(t) {
 				t = 1 - t
@@ -31,7 +29,7 @@
 		}
 	})
 
-	const pulse = createTransition<Mesh>((ref) => {
+	const pulse = createTransition((ref: any) => {
 		// console.log(ref.scale)
 		return {
 			tick(t) {

@@ -8,7 +8,7 @@ img: /uploads/placeholder.png
 date: 2023-12-1T18:40:51.531Z
 ---
 
-<script lang="ts">
+<script lang="ts" module>
 	import GridBox from "$components/articlesPage/GridBox.svelte";
 	import GridItem from "$components/articlesPage/GridItem.svelte";
 	import Tablist from "$components/articlesPage/Tablist.svelte";

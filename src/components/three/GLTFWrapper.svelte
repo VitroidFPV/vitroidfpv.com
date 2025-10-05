@@ -25,7 +25,7 @@
 		pan = false
 	}: Props = $props();
 
-	const scaleT = createTransition<Mesh>((ref) => {
+	const scaleT = createTransition((ref: any) => {
 		const from = ref.scale.x;
 		return {
 			tick(t) {
@@ -39,7 +39,7 @@
 
 </script>
 
-<Environment path="/uploads/" files="brown_photostudio_01_1k.hdr" />
+<Environment url="/uploads/three/brown_photostudio_01_1k.hdr" />
 
 <T.OrthographicCamera
 	makeDefault

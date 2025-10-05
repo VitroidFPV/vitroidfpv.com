@@ -20,7 +20,7 @@
 	}: Props = $props();
 	// export let author: string
 
-	let categoryColor: string = $state()
+	let categoryColor: string = $state("")
 	switch (category) {
 		case "Guides":
 			categoryColor = "green"

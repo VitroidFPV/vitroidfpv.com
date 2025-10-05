@@ -80,7 +80,7 @@ $20.90/21.90
 
 </GridBox>
 
-![](/uploads/flyfish-2207.png)
+![FlyFish 2207](/uploads/flyfish-2207.png)
 </Tab>
 
 <Tab tabTitle="2306">
@@ -123,7 +123,7 @@ $20.90/21.90
 
 </GridBox>
 
-![](/uploads/flyfish_2306.png)
+![FlyFish 2306](/uploads/flyfish_2306.png)
 
 </Tab>
 
@@ -163,7 +163,7 @@ $14.99
 
 </GridBox>
 
-![](https://cdn.shopify.com/s/files/1/0618/1811/0132/products/Flash-1404-motor-2.jpg?v=1665123558)
+![FlyFish 1404](https://cdn.shopify.com/s/files/1/0618/1811/0132/products/Flash-1404-motor-2.jpg?v=1665123558)
 
 </Tab>
 
@@ -204,7 +204,7 @@ $26.90
 
 </GridBox>
 
-![](https://cdn.shopify.com/s/files/1/0618/1811/0132/products/Flash-2806.5-motor-3.jpg?v=1664266390)
+![FlyFish 2806.5](https://cdn.shopify.com/s/files/1/0618/1811/0132/products/Flash-2806.5-motor-3.jpg?v=1664266390)
 
 </Tab>
 
@@ -322,7 +322,7 @@ Available options:
 
 </GridBox>
 
-![](/uploads/flyfish_volador.png)
+![FlyFish Volador](/uploads/flyfish_volador.png)
 
 </Tab>
 

@@ -15,7 +15,7 @@
 
 	let play = $state(false);
 	
-	let audioPlayer: HTMLAudioElement = $state();
+	let audioPlayer: HTMLAudioElement = $state()!;
 
 	function handlePlayPause() {
 		if (play) {
@@ -34,7 +34,7 @@
 	}
 
 	let progressPercent = tweened(0, { duration: 300, easing: cubicOut });
-	let progressElement: HTMLInputElement = $state();
+	let progressElement: HTMLInputElement = $state()!;
 
 	function handleProgress() {
 		audioPlayer.currentTime = (parseFloat(progressElement.value) / 100) * audioPlayer.duration;
@@ -58,13 +58,13 @@
 	<div class="">
 		<button onclick={handlePlayPause} class="mb-2 text-neutral-500/80 hover:text-cyan/80 duration-300">
 			{#if !play}
-				<Icon class="w-8 h-8" src={PlayCircle} />
+				<Icon class="w-8 h-8" src={PlayCircle} size="32" theme="default" title="Play" />
 			{:else}
-				<Icon class="w-8 h-8" src={PauseCircle} />
+				<Icon class="w-8 h-8" src={PauseCircle} size="32" theme="default" title="Pause" />
 			{/if}
 		</button>
 		<button onclick={handleStop} class="mb-2 text-neutral-500/80 hover:text-cyan/80 duration-300">
-			<Icon class="w-8 h-8" src={StopCircle} />
+			<Icon class="w-8 h-8" src={StopCircle} size="32" theme="default" title="Stop" />
 		</button>
 
 		<div class="w-full bg-neutral-500/20 rounded-full overflow-hidden relative">
