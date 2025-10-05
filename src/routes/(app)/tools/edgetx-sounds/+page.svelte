@@ -5,8 +5,7 @@
 	import Header from "$components/Header.svelte";
 	import Button from "$components/Button.svelte";
 	import AudioPlayer from "$components/toolsPage/AudioPlayer.svelte";
-	import { Listbox, ListboxButton, ListboxOptions, ListboxOption, ListboxLabel } from "@rgossiaux/svelte-headlessui";
-	import { ChevronRight, ArrowPath, ArrowDownTray } from "@steeze-ui/heroicons"
+	import { ArrowPath, ArrowDownTray } from "@steeze-ui/heroicons"
 
 	import tinycolor from "tinycolor2";
 	import toast from "svelte-french-toast";
@@ -244,40 +243,15 @@
 		<div class="col-span-1 xl:order-3 order-5">
 			<div>Destination Options</div>
 			<div class="h-full flex gap-2 items-center">
-				<Listbox
-					class={({open}) => (open ? "gap-2" : " gap-0") + " listbox h-fit whitespace-nowrap"}
+				<select
 					bind:value={selectedSound}
-					
+					class="bg-neutral-500/10 rounded-2xl px-4 py-2 text-base duration-300 outline-none focus-within:outline-cyan outline-[3px] cursor-pointer hover:text-cyan whitespace-nowrap"
 				>
-					{#snippet children({ open })}
-										<ListboxButton
-							class={({open}) => (open ? "text-cyan" : "hover:text-cyan") + " flex items-center duration-300"}
-						>
-							<!-- <Button isLink={false} color="cyan" size="sm">{selectedSort.label}</Button> -->
-							{#if !selectedSound}
-								Select Sound
-							{:else}
-								{selectedSound}
-							{/if}
-							<div class="ml-2 rotate-0 transition-transform" class:rotate-90={open}>
-								<Icon src={ChevronRight} class="w-4 h-4" stroke-width="3" />
-							</div>
-						</ListboxButton>
-						{#if open}
-							<div transition:fly={{y: -10}} class="absolute backdrop-blur-md">
-								<ListboxOptions class="listbox-options h-64 overflow-y-scroll w-48">
-									{#each soundNames as option}
-										<ListboxOption value={option}
-											class={({selected})=> (selected ? "listbox-selected" : "") + " listbox-option"}
-										>
-											{option}
-										</ListboxOption>
-									{/each}
-								</ListboxOptions>
-							</div>
-						{/if}
-														{/snippet}
-								</Listbox>
+					<option value="">Select Sound</option>
+					{#each soundNames as option}
+						<option value={option}>{option}</option>
+					{/each}
+				</select>
 				<div class="w-full">
 					<input
 						type="text"

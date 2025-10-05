@@ -8,9 +8,9 @@
 	onMount(() => {
 		let unsubscribe = theme.subscribe((value) => {
 			if (value === "dark") {
-				window.document.body.classList.add("dark");
+				window.document.documentElement.classList.add("dark");
 			} else {
-				window.document.body.classList.remove("dark");
+				window.document.documentElement.classList.remove("dark");
 			}
 		});
 

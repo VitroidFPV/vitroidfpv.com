@@ -6,7 +6,7 @@
 	import Paragraph from "$components/Paragraph.svelte";
 	import { compareArray } from "$lib/stores/toolsStore";
 	import { slide } from "svelte/transition";
-	import { Switch } from "@rgossiaux/svelte-headlessui";
+	import { Switch } from "@skeletonlabs/skeleton-svelte";
 	import toast from 'svelte-french-toast';
 	import { copyNode } from "$lib/copy";
 
@@ -386,15 +386,12 @@
 								{/if}
 							</div>
 						</div>
-						<div class="flex items-end mb-4 text-base">
-							<Switch 
-								bind:checked={isHv}
-								class={"relative inline-flex items-center rounded-full h-6 w-12 outline outline-2 outline-neutral-400/20 mr-2 duration-300 " + (isHv ? "text-highlight/20 dark:bg-highlight-dark/20 outline-highlight dark:outline-highlight-dark" : "bg-neutral-400/10")}
-							>
-								<span 
-									class={"toggle inline-block w-4 rounded-full aspect-square bg-neutral-400/50 duration-300 " + (isHv ? " bg-highlight dark:bg-highlight-dark translate-x-7" : "translate-x-1")}
-								></span>
-							</Switch>
+						<div class="flex items-end mb-4 text-base gap-2">
+							<Switch
+								name="isHv"
+								checked={isHv}
+								onCheckedChange={(e) => (isHv = e.checked)}
+							/>
 							HV LiPo
 						</div>
 						<p class="mb-4">

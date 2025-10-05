@@ -5,8 +5,7 @@
 
 @source '../node_modules/@skeletonlabs/skeleton-svelte/dist';
 
-@custom-variant dark (&:is(.dark *));
-
+@custom-variant dark (&:where(.dark, .dark *));
 @theme {
   --font-reem-kufi: Reem Kufi, sans-serif;
   --font-caveat: Caveat-Bold;

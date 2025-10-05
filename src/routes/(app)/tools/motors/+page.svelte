@@ -9,12 +9,11 @@
 	import MotorComparison from "$components/toolsPage/MotorComparison.svelte";
 	import { motors } from "$lib/stores/motorsStore";
 	import { undo } from "$lib/stores/motorsStore";
-	import { Listbox, ListboxButton, ListboxOptions, ListboxOption, ListboxLabel } from "@rgossiaux/svelte-headlessui";
 	import { slide, fade, fly } from "svelte/transition";
 	import toast from "svelte-french-toast";
 	import Button from "$components/Button.svelte";	
 	import { Icon } from "@steeze-ui/svelte-icon"
-	import { Clipboard, Plus, ChevronRight } from "@steeze-ui/heroicons"
+	import { Clipboard, Plus } from "@steeze-ui/heroicons"
 	import MotorsTable from "$components/toolsPage/MotorsTable.svelte";
 	import { copyText } from "$lib/copy";
 
@@ -84,11 +83,11 @@
 		{ label: "Surface Area (Low to High)", name: "surface-asc" },
 	]
 
-	let selectedSort: any = $state(null);
+	let selectedSort: string = $state("");
 
 	function sortMotors() {
 		// sort depending on selectedSort
-		switch (selectedSort.name) {
+		switch (selectedSort) {
 			case "volume-desc":
 				motors.update((motors) => motors.sort((a, b) => b.volume - a.volume));
 				break;
@@ -120,7 +119,7 @@
 		});
 	}
 	if (sortQuery) {
-		selectedSort = sortOptions.find((option) => option.name === sortQuery);
+		selectedSort = sortQuery;
 	}
 
 	run(() => {
@@ -147,7 +146,7 @@
 
 		let url = window.location.href.split("?")[0];
 		let motorString = $motors.map(motor => motor.size).join("-");
-		let sortString = selectedSort ? "&sort=" + selectedSort.name : "";
+		let sortString = selectedSort ? "&sort=" + selectedSort : "";
 		let finalURL = url + "?motors=" + motorString + sortString;
 		copyText(finalURL);
 	}
@@ -233,42 +232,18 @@
 </div>
 
 <div class="p-4 md:p-8 content-box">
-	<div class="flex w-full items-center md:justify-end justify-between py-4">
+	<div class="flex w-full items-center md:justify-end justify-between py-4 gap-4">
 		<div>
-			<Listbox
-				class={({open}) => (open ? "gap-2" : " gap-0") + " listbox"}
+			<select
 				bind:value={selectedSort}
-				
+				onchange={sortMotors}
+				class="bg-neutral-500/10 rounded-2xl px-4 py-2 text-base duration-300 outline-none focus-within:outline-cyan outline-[3px] cursor-pointer hover:text-cyan"
 			>
-				{#snippet children({ open })}
-								<ListboxButton
-						class={({open}) => (open ? "text-cyan" : "hover:text-cyan") + " flex items-center duration-300"}
-					>
-						<!-- <Button isLink={false} color="cyan" size="sm">{selectedSort.label}</Button> -->
-						{#if !selectedSort}
-							Sort By
-						{:else}
-							{selectedSort.label}
-						{/if}
-						<div class="ml-2 rotate-0 transition-transform" class:rotate-90={open}>
-							<Icon src={ChevronRight} class="w-4 h-4" stroke-width="3" />
-						</div>
-					</ListboxButton>
-					{#if open}
-						<div transition:fly={{y: -10}} class="absolute backdrop-blur-md">
-							<ListboxOptions class="listbox-options">
-								{#each sortOptions as option}
-									<ListboxOption value={option}
-										class={({selected})=> (selected ? "listbox-selected" : "") + " listbox-option"}
-									>
-										{option.label}
-									</ListboxOption>
-								{/each}
-							</ListboxOptions>
-						</div>
-					{/if}
-											{/snippet}
-						</Listbox>
+				<option value="">Sort By</option>
+				{#each sortOptions as option}
+					<option value={option.name}>{option.label}</option>
+				{/each}
+			</select>
 		</div>
 		<Button isLink={false} size="sm" color="cyan" on:click={copyURL}>
 			<Icon src={Clipboard} class="w-7 h-7"  stroke-width="1.5" />

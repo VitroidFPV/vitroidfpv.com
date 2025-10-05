@@ -1,7 +1,7 @@
 <script lang="ts">
 	let useful: boolean = $state(true)
 	import { fly, fade } from "svelte/transition";
-	import { Switch } from "@rgossiaux/svelte-headlessui";
+	import { Switch } from "@skeletonlabs/skeleton-svelte";
 	import Button from "./Button.svelte";
 	import toast from 'svelte-french-toast';
 	interface Props {
@@ -64,14 +64,11 @@
 	</p>
 	<div class="flex flex-col">
 		<div class="flex">
-				<Switch 
-					bind:checked={useful}
-					class={"relative inline-flex items-center rounded-full h-6 w-12 outline outline-2 outline-neutral-400/20 mr-2 duration-300 " + (useful ? "text-highlight/20 dark:bg-highlight-dark/20 outline-highlight dark:outline-highlight-dark" : "bg-neutral-400/10")}
-				>
-					<span 
-						class={"toggle inline-block w-4 rounded-full aspect-square bg-neutral-400/50 duration-300 " + (useful ? "bg-highlight dark:bg-highlight-dark translate-x-7" : "translate-x-1")}
-					></span>
-				</Switch>
+				<Switch
+					name="useful"
+					checked={useful}
+					onCheckedChange={(e) => (useful = e.checked)}
+				/>
 			<label for="useful" class="ml-2">Did you find this page helpful?</label>
 		</div>
 		<div class="mt-4">
