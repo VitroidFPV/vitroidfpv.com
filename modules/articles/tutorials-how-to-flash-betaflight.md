@@ -48,7 +48,7 @@ Before you do anything, make a backup of your current configuration. This can be
 * **dump** - This will dump the entire configuration, including resource pin definitions, DMA and timer settings, basically the entire target. Useful if you want to transfer absolutely everything if you believe a newer version of your target is off in some way.
 
 Then there's a
-<button class="bg-yellow p-2 px-4 rounded-md text-black text-base inline-block" on:click={() => alert("In the Configurator, not here :)")} >Save to File</button> 
+<button class="bg-yellow p-2 px-4 rounded-md text-black text-base inline-block" onclick={() => alert("In the Configurator, not here :)")} >Save to File</button> 
 
 button in the bottom right that will save the entire CLI output to a file.
 

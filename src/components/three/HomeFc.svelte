@@ -2,7 +2,7 @@
 	import { run } from 'svelte/legacy';
 
 	import { T } from "@threlte/core"
-	import { Environment, GLTF, OrbitControls, type ThrelteGltf } from "@threlte/extras"
+	import { OrbitControls } from "@threlte/extras"
 	import { useGltf } from "@threlte/extras"
 	import type { Mesh } from "three"
 	import { Float } from "@threlte/extras"
@@ -10,7 +10,8 @@
 	interactivity()
 
 	import { spring, tweened } from "svelte/motion"
-	import { interpolateHcl, interpolateLab } from 'd3-interpolate';
+	import { interpolateHcl } from 'd3-interpolate';
+	import { rgbToHexNumber } from '$lib/rgbToHexNumber';
 
 	const color = tweened("rgb(170, 170, 170)", {
 		duration: 200,
@@ -81,8 +82,8 @@
 </Float>
 
 <T.Group
-	on:pointerenter={() => {hovered = true}} 
-	on:pointerleave={() => {hovered = false}}
+	onpointerenter={() => {hovered = true; console.log("enter")}} 
+	onpointerleave={() => {hovered = false; console.log("leave")}}
 	scale={0.66}
 	rotation.z={Math.PI / 4}
 >
@@ -107,7 +108,7 @@
 				is={$normal.nodes["normal"]}
 			>
 				<T.MeshStandardMaterial
-					color={$color}
+					color={rgbToHexNumber($color)}
 					transparent
 					opacity={$opacity}
 					depthWrite={false}
@@ -120,7 +121,7 @@
 				is={$highlight.nodes["highlight"]}
 			>
 				<T.MeshStandardMaterial
-					color={$color}
+					color={rgbToHexNumber($color)}
 					transparent
 					opacity={$opacity}
 					depthWrite={false}

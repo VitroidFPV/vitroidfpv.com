@@ -9,9 +9,8 @@
 
 	import tinycolor from "tinycolor2";
 	import toast from "svelte-french-toast";
-
 	import { FFmpeg } from "@ffmpeg/ffmpeg";
-	import type { LogEvent } from "@ffmpeg/ffmpeg/dist/esm/types";
+	import type { LogEvent } from "@ffmpeg/ffmpeg";
 	import { fetchFile, toBlobURL } from "@ffmpeg/util";
 	import { fly } from "svelte/transition";
 	import { Icon } from "@steeze-ui/svelte-icon";
@@ -33,15 +32,15 @@
 	soundNames.sort();
 	// console.log(soundNames);
 
-	let files: FileList = $state();
-	let inputFileName: string = $state();
-	let inputSrc: string = $state();
+	let files: FileList | undefined = $state();
+	let inputFileName: string | undefined = $state();
+	let inputSrc: string | undefined = $state();
 
 	let soundSearch: string = $state("");
 	let selectedSound: string | undefined = $state();
-	let outputSrc: string = $state();
+	let outputSrc: string | undefined = $state();
 
-	let resultSrc: string = $state();
+	let resultSrc: string | undefined = $state();
 
 	function search() {
 		const filtered = soundNames.filter((name) => name.toLowerCase().includes(soundSearch.toLowerCase()));
@@ -117,7 +116,7 @@
 		message = "Complete transcoding";
 		const data = await ffmpeg.readFile(outputName);
 		console.log("done");
-		resultSrc = URL.createObjectURL(new Blob([data as Uint8Array], { type: "audio/wav" }));
+		resultSrc = URL.createObjectURL(new Blob([data as BlobPart], { type: "audio/wav" }));
 		toast.success("Converted!", {
 			style: "border-radius: 999px; backdrop-filter: blur(8px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); outline: 2px solid #ffffff1f; background-color: rgb(163 163 163 / 0.1); color: #87cc52;",
 			iconTheme: {
@@ -237,7 +236,7 @@
 
 		<div class="col-span-1 flex flex-col justify-between xl:order-2 order-4">
 			<div>Destination Preview</div>
-			<AudioPlayer src={outputSrc} />
+			<AudioPlayer src={outputSrc ?? ''} />
 		</div>
 
 		<div class="col-span-1 xl:order-3 order-5">
@@ -270,15 +269,15 @@
 
 		<div class="col-span-1 flex flex-col justify-between xl:order-4 order-2">
 			<div>Input Preview</div>
-			<AudioPlayer src={inputSrc} />
+			<AudioPlayer src={inputSrc ?? ''} />
 		</div>
 
 		<div class="spacer col-span-1 xl:order-5 order-3"></div>
 
 		{#if selectedSound && files}
 			<div class="order-6">
-				<Button color="cyan" isLink={false} on:click={transcode} size="lg" class="w-full">
-					<Icon src={ArrowPath} class={loading ? "animate-spin w-8 h-8" : "w-8 h-8"} />
+				<Button color="cyan" isLink={false} onclick={transcode} size="lg" class="w-full">
+					<Icon src={ArrowPath} class={loading ? "animate-spin w-8 h-8" : "w-8 h-8"} size="32" theme="default" title="Convert" />
 					Convert
 				</Button>
 			</div>
@@ -291,7 +290,7 @@
 			</a> -->
 			<div class="order-7">
 				<Button isDownload color="cyan" href={resultSrc} download={selectedSound} size="lg" class="w-full">
-					<Icon src={ArrowDownTray} class="w-8 h-8" />
+					<Icon src={ArrowDownTray} class="w-8 h-8" size="32" theme="default" title="Download" />
 					Download
 				</Button>
 			</div>

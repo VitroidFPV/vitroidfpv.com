@@ -57,10 +57,9 @@
 	// this is weird but it prevents it from duplicating on HMR
 	// $motors = loadMotors;
 	// motors.set(loadMotors);
-
 	let newSize = $state("")
-	let newVolume: number = $state()
-	let newSurface: number = $state()
+	let newVolume = $state<number>(NaN)
+	let newSurface = $state<number>(NaN)
 
 	function addMotor() {
 		// if (!$motors.find(motor => motor.size === newSize)) {
@@ -245,8 +244,8 @@
 				{/each}
 			</select>
 		</div>
-		<Button isLink={false} size="sm" color="cyan" on:click={copyURL}>
-			<Icon src={Clipboard} class="w-7 h-7"  stroke-width="1.5" />
+		<Button isLink={false} size="sm" color="cyan" onclick={copyURL}>
+			<Icon src={Clipboard} class="w-7 h-7"  stroke-width="1.5" size="28" theme="default" title="Copy" />
 		</Button>
 	</div>
 	<div class="w-full flex flex-col z-10">
@@ -276,7 +275,7 @@
 					class="text-cyan w-fit"
 					onclick={addMotor}
 				>
-					<Icon src={Plus} class="w-6 h-6 text-neutral-500/50 hover:text-cyan duration-300" stroke-width="3" />
+					<Icon src={Plus} class="w-6 h-6 text-neutral-500/50 hover:text-cyan duration-300" stroke-width="3" size="24" theme="default" title="Add motor" />
 				</button>
 			</div>
 		</div>

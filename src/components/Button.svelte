@@ -17,6 +17,8 @@
 		href?: string;
 		size?: "sm" | "md" | "lg";
 		type?: "button" | "submit" | "reset";
+		class?: string;
+		onclick?: () => void;
 		children?: import('svelte').Snippet;
 	}
 
@@ -28,6 +30,8 @@
 		href = "",
 		size = "md",
 		type = "button",
+		onclick,
+		class: className,
 		children
 	}: Props = $props();
 
@@ -117,7 +121,7 @@
 {#if isLink}
 	<a
 		{href}
-		class="{colors.bgTransparent} {colors.text}
+		class="{colors.bgTransparent} {colors.text} {className}
 		backdrop-blur-md rounded-full outline outline-current duration-300 shadow-xl text-base flex items-center justify-center"
 	>
 		<span class="dark:text-inherit text-black/75 flex gap-2 justify-center items-center">
@@ -128,7 +132,7 @@
 	<a
 		{href}
 		{download}
-		class="{colors.bgTransparent} {colors.text}
+		class="{colors.bgTransparent} {colors.text} {className}
 		backdrop-blur-md rounded-full outline outline-current duration-300 shadow-xl text-base flex items-center justify-center"
 	>
 		<span class="dark:text-inherit text-black/75 flex gap-2 justify-center items-center">
@@ -138,8 +142,8 @@
 {:else}
 	<button
 		{type}
-		onclick={bubble('click')}
-		class="{colors.bgTransparent} {colors.text}
+		{onclick}
+		class="{colors.bgTransparent} {colors.text} {className}
 		backdrop-blur-md rounded-full outline outline-current duration-300 shadow-xl text-base flex items-center justify-center"
 	>
 		<span class="dark:text-inherit text-black/75 flex gap-2 justify-center items-center">

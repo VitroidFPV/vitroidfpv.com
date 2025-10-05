@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { fade, fly } from "svelte/transition";
 	import { spring } from "svelte/motion";
-	import { clickOutside } from '$lib/clickOut.js';
+	import { clickoutside } from '$lib/clickOut.js';
 
 
 	let zoomed: boolean = $state(false);
@@ -43,21 +43,14 @@
 		}
 	}
 
-    import { createEventDispatcher } from 'svelte';
 	interface Props {
 		img?: string;
 		title?: string;
 		open?: boolean;
+		onclickoutside?: () => void;
 	}
 
-	let { img = "/uploads/placeholder.png", title = "Title", open = $bindable(false) }: Props = $props();
-
-    const dispatch = createEventDispatcher();
-
-    function handleClickOutside() {
-        open = false;
-        dispatch('clickOutside');
-    }
+	let { img = "/uploads/placeholder.png", title = "Title", open = $bindable(false), onclickoutside = $bindable(() => {}) }: Props = $props();
 </script>
 
 <svelte:window onkeydown={keydown} onkeyup={keyup}/>
@@ -68,8 +61,6 @@
 		<div 
 			transition:fly={{duration: 300, y: 200, delay: 100}} 
 			class="h-full aspect-auto flex flex-col py-8 justify-center z-10 select-none relative" 
-			use:clickOutside 
-			onclickOutside={handleClickOutside}
 		>
 			<img 
 				class="select-none rounded-2xl object-contain h-full duration-150"
@@ -78,6 +69,8 @@
 				alt={title + " image"}
 				crossorigin="anonymous"
 				onmousemove={(event) => zoom(event)}
+				use:clickoutside
+				onclickoutside={onclickoutside}
 			>
 			{#if !zoomed}
 				<button 

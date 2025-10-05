@@ -10,14 +10,14 @@
 
 	let { name }: Props = $props();
 
-	function submit(event) {
+	function submit(event: SubmitEvent) {
 		event.preventDefault();
-		const form = event.target;
+		const form = event.target as HTMLFormElement;
 		const data = new FormData(form);
 
 		fetch(form.action, {
 			method: "POST",
-			body: new URLSearchParams(data).toString(),
+			body: new URLSearchParams(data as any).toString(),
 			headers: {
 				"Content-Type": "application/x-www-form-urlencoded" 
 			}

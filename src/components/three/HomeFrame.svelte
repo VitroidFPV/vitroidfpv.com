@@ -53,7 +53,7 @@
 		<T.MeshStandardMaterial
 			metalness={0.5}
 			roughness={0.5}
-			color={"#aaaaaa"}
+			color={0xaaaaaa}
 			transparent
 			opacity={0.2}
 			depthWrite={false}

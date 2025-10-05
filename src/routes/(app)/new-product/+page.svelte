@@ -13,7 +13,6 @@
 		gfm: true,
 		breaks: true,
 		sanitize: false,
-		smartLists: false,
 		smartypants: false,
 		xhtml: false,
 	});
@@ -322,8 +321,8 @@
 			type="submit"
 			class="bg-yellow text-black w-28 h-8 rounded-2xl p-3 text-base duration-300 outline-none focus-within:outline-yellow outline-[3px]">Copy</button
 		> -->
-		<Button isLink={false} size="sm" color="yellow" on:click={handleSubmit}>
-			<Icon src={Clipboard} class="w-7 h-7"  stroke-width="1.5" />
+		<Button isLink={false} size="sm" color="yellow" onclick={handleSubmit}>
+			<Icon src={Clipboard} class="w-7 h-7"  stroke-width="1.5" size="28" theme="default" title="Copy" />
 			Copy
 		</Button>
 	</form>

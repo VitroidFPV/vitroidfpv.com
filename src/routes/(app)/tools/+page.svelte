@@ -215,7 +215,7 @@
 				<div transition:expand={{duration: 1000, delay: 0}} id="compare" class="w-64 min-h-fit p-4 absolute bg-neutral-500/10 right-0 top-0 rounded-3xl backdrop-blur-md border-2 border-neutral-500/40 flex flex-col duration-300 transition-all">
 					<div class="flex">
 						<div class="text-2xl text-highlight dark:text-highlight-dark mb-4 mr-2">Compare</div>
-						<button onclick={() => copyCompare()} class="h-8 w-8 outline outline-2 outline-highlight dark:outline-highlight-dark bg-highlight/20 dark:bg-highlight-dark/20 hover:bg-highlight/40 dark:hover:bg-highlight-dark/40 duration-300 rounded-full flex items-center justify-center relative">
+						<button onclick={() => copyCompare()} class="h-8 w-8 outline-2 outline-highlight dark:outline-highlight-dark bg-highlight/20 dark:bg-highlight-dark/20 hover:bg-highlight/40 dark:hover:bg-highlight-dark/40 duration-300 rounded-full flex items-center justify-center relative">
 							<Icon class="w-6 h-6" src={Clipboard} size="24" theme="default" title="Copy" />
 						</button>
 					</div>
@@ -284,7 +284,6 @@
 							>
 								Compare!
 							</button>
-							<!-- <input type="checkbox" on:change={console.log(rounded)} on:input={calculateVolume} name="Rounded" id="Rounded" class="ml-4" bind:checked={rounded}> -->
 						</div>
 					</div>
 				</div>

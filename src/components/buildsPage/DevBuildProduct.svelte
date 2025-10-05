@@ -21,9 +21,7 @@
 	let infoArray: string[] = $state([]);
 	$effect(() => {
 		if (typeof info === "string") {
-			info.split(";").forEach((item) => {
-				infoArray.push(item);
-			});
+			infoArray = info.split(";");
 		} else {
 			infoArray = info;
 		}
@@ -227,7 +225,7 @@ info:
 
 <svelte:window onkeydown={(event) => {if (event.key === "Escape") {open = false}}}/>
 
-<ImgPopout {img} {title} {open} on:clickOutside={() => open = false} />
+<ImgPopout {img} {title} {open} onclickoutside={() => open = false} />
 
 <IntersectionObserver {element} bind:intersecting>
 		<div class="product-box h-full flex flex-col not-intersecting z-10 relative" bind:this={element} class:intersecting={intersecting}>
@@ -373,7 +371,7 @@ info:
 											bind:group={color}
 											onclick={() => selectColor(color)}
 										>
-										<label for={colorBox} class="h-7 w-7 bg-{colorBox} text-{colorBox} outline outline-2 outline-transparent outline-offset-[3px] peer-checked:outline-current block rounded-md cursor-pointer"></label>
+										<label for={colorBox} class="h-7 w-7 bg-{colorBox} text-{colorBox} outline-2 outline-transparent outline-offset-[3px] peer-checked:outline-current block rounded-md cursor-pointer"></label>
 									</div>
 								{/each}
 							</form>

@@ -47,13 +47,13 @@
 	<T 
 		is={$gltf.nodes['Prop004']} 
 		scale={0.66} 
-		on:pointerenter={() => hovered = true} 
-		on:pointerleave={() => hovered = false} 
+		onpointerenter={() => hovered = true} 
+		onpointerleave={() => hovered = false} 
 	>
 		<T.MeshStandardMaterial
 			metalness={0.5}
 			roughness={0.5}
-			color={"#aaaaaa"}
+			color={0xaaaaaa}
 			transparent
 			opacity={0.2}
 			depthWrite={false}
