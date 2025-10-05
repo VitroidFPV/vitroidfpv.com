@@ -12,10 +12,10 @@
 	<ul
 		class="md:mt-8 md:pl-2 flex md:flex-col flex-row md:justify-start test-li justify-center px-4 md:h-full h-fit md:px-0 w-full -translate-y-px text-main-100 dark:text-contrast-100 pb-1">
 		<NavItem href="/" title="Home" active={page.url.pathname === "/"}>
-			<Icon src={Home} class="w-7 h-7 md:mr-2" stroke-width="1.5" />
+			<Icon src={Home} class="w-7 h-7 md:mr-2" stroke-width="1.5" size="28" theme="default" title="Home" />
 		</NavItem>
 		<NavItem href="/faq" title="FAQ" active={page.url.pathname.startsWith("/faq")}>
-			<Icon src={QuestionMarkCircle} class="w-7 h-7 md:mr-2" stroke-width="1.5" />
+			<Icon src={QuestionMarkCircle} class="w-7 h-7 md:mr-2" stroke-width="1.5" size="28" theme="default" title="FAQ" />
 		</NavItem>
 		<NavItem href="/builds" title="Builds" active={page.url.pathname.startsWith("/builds")}>
 			<svg width="150" height="150" viewBox="0 0 200 200" fill="currentColor" stroke-width="8" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 md:mr-2">
@@ -38,16 +38,16 @@
 			<!-- well damn -->
 		</NavItem>
 		<NavItem href="/equipment" title="Equipment" active={page.url.pathname.startsWith("/equipment")}>
-			<Icon src={WrenchScrewdriver} class="w-7 h-7 md:mr-2" stroke-width="1.5" />
+			<Icon src={WrenchScrewdriver} class="w-7 h-7 md:mr-2" stroke-width="1.5" size="28" theme="default" title="Equipment" />
 		</NavItem>
 		<NavItem href="/articles" title="Articles" active={page.url.pathname.startsWith("/articles")}>
-			<Icon src={Newspaper} class="w-7 h-7 md:mr-2" stroke-width="1.5" />
+			<Icon src={Newspaper} class="w-7 h-7 md:mr-2" stroke-width="1.5" size="28" theme="default" title="Articles" />
 		</NavItem>
 		<!-- <NavItem href="/tools" title="Tools" active={page.url.pathname.startsWith("/tools")} hidden>
 			<Icon src={Calculator} class="w-7 h-7 md:mr-2" stroke-width="1.5" />
 		</NavItem> -->
 		<NavItem href="/support" title="Support" active={page.url.pathname.startsWith("/support")} hidden>
-			<Icon src={Heart} class="w-7 h-7 md:mr-2" stroke-width="1.5" />
+			<Icon src={Heart} class="w-7 h-7 md:mr-2" stroke-width="1.5" size="28" theme="default" title="Support" />
 		</NavItem>
 	</ul>
 	<ThemeToggle />

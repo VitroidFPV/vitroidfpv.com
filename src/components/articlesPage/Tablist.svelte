@@ -29,7 +29,7 @@
   }
 </script>
 <div class="bg-neutral-400/5 rounded-2xl border-t-8 border-highlight 
-dark:border-highlight-dark overflow-clip outline outline-2 outline-neutral-500/10 shadow-lg">
+dark:border-highlight-dark overflow-clip outline-2 outline-neutral-500/10 shadow-lg">
 	<ul class="flex list-none! w-full m-0! md:px-2">
 	  	{@render children?.()}
 	</ul>

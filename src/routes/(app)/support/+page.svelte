@@ -10,7 +10,6 @@
 		gfm: true,
 		breaks: true,
 		sanitize: false,
-		smartLists: false,
 		smartypants: false,
 		xhtml: false,
 	});
@@ -112,7 +111,7 @@
 				</div>
 				<div class="md:w-1/3 w-full grid grid-cols-3 grid-rows-1 text-neutral-500/30 md:mr-32">
 					<div class="rotate-[-23deg]">
-						<Icon class="md:h-24 h-20 aspect-square" src={Banknotes} />
+						<Icon class="md:h-24 h-20 aspect-square" src={Banknotes} size="80" theme="default" title="Banknotes" />
 					</div>
 					<div class="col-start-3 col-end-4 rotate-23">
 						<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke="currentColor" class="md:h-24 h-20 aspect-square">
@@ -135,13 +134,13 @@
 				</div>
 				<div class="w-full grid grid-cols-3 md:grid-rows-2 grid-rows-1 text-neutral-500/30 md:ml-32">
 					<div class="md:row-start-2 md:row-end-3 rotate-[-23deg]">
-						<Icon class="md:h-24 h-20 aspect-square" src={Share} />
+						<Icon class="md:h-24 h-20 aspect-square" src={Share} size="80" theme="default" title="Share" />
 					</div>
 					<div class="md:row-start-1 md:row-end-2 col-start-2 col-end-3">
-						<Icon class="md:h-24 h-20 aspect-square" src={ChatBubbleOvalLeft} />
+						<Icon class="md:h-24 h-20 aspect-square" src={ChatBubbleOvalLeft} size="80" theme="default" title="Chat bubble" />
 					</div>
 					<div class="md:row-start-2 md:row-end-3 col-start-3 col-end-4 rotate-23">
-						<Icon class="md:h-24 h-20 aspect-square" src={ClipboardDocument} />
+						<Icon class="md:h-24 h-20 aspect-square" src={ClipboardDocument} size="80" theme="default" title="Clipboard" />
 					</div>
 				</div>
 			</div>
@@ -173,13 +172,13 @@
 				</div>
 				<div class="md:w-1/3 w-full grid grid-cols-3 md:grid-rows-2 grid-rows-1 text-neutral-500/30 md:mr-32">
 					<div class="md:row-start-2 md:row-end-3 rotate-[-23deg]">
-						<Icon class="md:h-24 h-20 aspect-square" src={ShoppingBag} />
+						<Icon class="md:h-24 h-20 aspect-square" src={ShoppingBag} size="80" theme="default" title="Shopping bag" />
 					</div>
 					<div class="md:row-start-1 md:row-end-2 col-start-2 col-end-3">
-						<Icon class="md:h-24 h-20 aspect-square" src={ShoppingCart} />
+						<Icon class="md:h-24 h-20 aspect-square" src={ShoppingCart} size="80" theme="default" title="Shopping cart" />
 					</div>
 					<div class="md:row-start-2 md:row-end-3 col-start-3 col-end-4 rotate-23">
-						<Icon class="md:h-24 h-20 aspect-square" src={BuildingStorefront} />
+						<Icon class="md:h-24 h-20 aspect-square" src={BuildingStorefront} size="80" theme="default" title="Building storefront" />
 					</div>
 				</div>
 			</div>

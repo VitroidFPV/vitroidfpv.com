@@ -14,7 +14,7 @@
 	}
 </script>
 
-<div class="bg-contrast-100 dark:bg-main-200/30 outline-2 outline outline-neutral-500/20 rounded-2xl p-4 shadow-lg">
+<div class="bg-contrast-100 dark:bg-main-200/30 outline-2 outline-neutral-500/20 rounded-2xl p-4 shadow-lg">
 	<div id={removeSpecial(title)} class="text-xl colored mb-2">{title}</div>
 	<div class="text-base grid-item">
 		{@render children?.()}

@@ -52,6 +52,6 @@
 			removePart();
 		}}
 	>
-		<Icon src={Plus} class="w-6 h-6 stroke-neutral-500/50 hover:stroke-red duration-300 rotate-45" stroke-width="3" />
+		<Icon src={Plus} class="w-6 h-6 stroke-neutral-500/50 hover:stroke-red duration-300 rotate-45" stroke-width="3" size="24" theme="default" title="Remove part" />
 	</button>
 </div>
