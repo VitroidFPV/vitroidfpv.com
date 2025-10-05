@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { fade, fly } from "svelte/transition";
 	import { spring } from "svelte/motion";
-	import { clickoutside } from '$lib/clickOut.js';
 
 
 	let zoomed: boolean = $state(false);
@@ -49,6 +48,33 @@
 		open?: boolean;
 		onclickoutside?: () => void;
 	}
+
+	import type { Action } from 'svelte/action';
+
+	/** Dispatch event on click outside of node */
+	const clickoutside: Action<
+		HTMLElement,
+		undefined,
+		{
+			onclickoutside: (e: CustomEvent<HTMLElement>) => void;
+		}
+	> = (node) => {
+		$effect(() => {
+			const handleClick = (event: MouseEvent) => {
+				if (node && !node.contains(event.target as Node) && !event.defaultPrevented) {
+					node.dispatchEvent(
+						new CustomEvent('clickoutside', { detail: node })
+					);
+				}
+			};
+
+			document.addEventListener('click', handleClick, true);
+
+			return () => {
+				document.removeEventListener('click', handleClick, true);
+			};
+		});
+	};
 
 	let { img = "/uploads/placeholder.png", title = "Title", open = $bindable(false), onclickoutside = $bindable(() => {}) }: Props = $props();
 </script>

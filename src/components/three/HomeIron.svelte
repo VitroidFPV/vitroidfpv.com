@@ -27,18 +27,13 @@
 	const tipNormal = useGltf("/uploads/three/iron/tip_normal.glb")
 	const tipHighlight = useGltf("/uploads/three/iron/tip_highlight.glb")
 
-
-	let meshes: any[] = []
-
-
-
 	let transform = spring(0, {
 		damping: 0.5,
 		stiffness: 0.2
 	})
 
 	let hovered = $state(false)
-	run(() => {
+	$effect(() => {
 		if(hovered) {
 			color.set("rgb(255, 151, 66)")
 			opacity.set(0.5)
@@ -46,24 +41,6 @@
 			color.set("rgb(170, 170, 170)")
 			opacity.set(0.2)
 		}
-	});
-	run(() => {
-		console.log([$ironNormal, $ironHighlight, $tipNormal, $tipHighlight])
-	});
-	run(() => {
-		if ($ironNormal) meshes.push($ironNormal.nodes["normal"])
-	});
-	run(() => {
-		if ($ironHighlight) meshes.push($ironHighlight.nodes["highlight"])
-	});
-	run(() => {
-		if ($tipNormal) meshes.push($tipNormal.nodes["tip_normal"])
-	});
-	run(() => {
-		if ($tipHighlight) meshes.push($tipHighlight.nodes["tip_highlight"])
-	});
-	run(() => {
-		console.log(meshes)
 	});
 </script>
 
