@@ -13,6 +13,8 @@
 	import Axis from "$components/gradientLogos/Axis.svelte";
 	import Dogcom from "$components/gradientLogos/Dogcom.svelte";
 
+	import "../../caveat.css"
+
 	let index = 0;
 
 	onMount(() => {

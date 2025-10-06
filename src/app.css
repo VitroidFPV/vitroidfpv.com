@@ -3,7 +3,6 @@
 @import '@skeletonlabs/skeleton/optional/presets';
 
 @import '../vitroidfpv.css';
-@import './fonts.css';
 
 @source '../node_modules/@skeletonlabs/skeleton-svelte/dist';
 
