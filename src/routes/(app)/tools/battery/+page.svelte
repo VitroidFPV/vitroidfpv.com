@@ -1,8 +1,8 @@
 <script>
 	// @ts-nocheck
 
-	let cells = [4];
-	let voltage = [4.2];
+	let cells = $state([4]);
+	let voltage = $state([4.2]);
 	import RangeSlider from "svelte-range-slider-pips";
 </script>
 
@@ -11,10 +11,10 @@
 		<div class="battery flex">
 			<div class="batteryWires flex flex-col items-end justify-center">
 				<div class="xt flex flex-row items-center mt-4" class:hidden={cells == 1}>
-					<div class="xtConnetor h-20 w-12 bg-yellow" />
+					<div class="xtConnetor h-20 w-12 bg-yellow"></div>
 					<div class="flex xtWires w-fit h-16 flex-col justify-between">
-						<div class="h-4 w-32 bg-red" />
-						<div class="h-4 w-32 bg-main-100" />
+						<div class="h-4 w-32 bg-red"></div>
+						<div class="h-4 w-32 bg-main-100"></div>
 					</div>
 				</div>
 				<div class="balance flex flex-row mt-4">
@@ -23,12 +23,12 @@
 							<li class="text-right mr-1">{(voltage * (i + 1)).toFixed(1)}v</li>
 						{/each}
 					</ul>
-					<div class="balConnector min-h-1 w-8 bg-contrast-400" />
+					<div class="balConnector min-h-1 w-8 bg-contrast-400"></div>
 
 					<div class="balWires flex flex-col justify-between h-fit">
-						<div class="h-2 my-1 w-36 bg-red place-center text-xs text-center align-middle" />
+						<div class="h-2 my-1 w-36 bg-red place-center text-xs text-center align-middle"></div>
 						{#each { length: cells } as _, index (index)}
-							<div class="h-2 my-1 w-36 bg-main-100 text-sm -pl-4" />
+							<div class="h-2 my-1 w-36 bg-main-100 text-sm -pl-4"></div>
 						{/each}
 					</div>
 				</div>

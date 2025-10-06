@@ -1,4 +1,6 @@
 <script>
+	import { run } from 'svelte/legacy';
+
 	import Link from "$components/Link.svelte";
 	import LinkDetail from "$components/navbar/LinkDetail.svelte";
 	import { onMount } from "svelte";
@@ -33,10 +35,12 @@
 		dark: tinycolor(shade.dark).darken(darkMultiplier * 4).toHexString(),
 	}
 
-	let isDark = true;
-	let colors = [shade1.dark, shade2.dark, shade3.dark, shade4.dark]
+	let isDark = $state(true);
+	let colors = $state([shade1.dark, shade2.dark, shade3.dark, shade4.dark])
 	
-	$: colors = isDark ? [shade1.dark, shade2.dark, shade3.dark, shade4.dark] : [shade1.light, shade2.light, shade3.light, shade4.light];
+	run(() => {
+		colors = isDark ? [shade1.dark, shade2.dark, shade3.dark, shade4.dark] : [shade1.light, shade2.light, shade3.light, shade4.light];
+	});
 
 	onMount(() => {
 		const body = document.body;
@@ -52,7 +56,7 @@
 	})
 </script>
 
-<div class="flex flex-col z-[50] relative">
+<div class="flex flex-col z-50 relative">
 	<!-- <div class="flex flex-col justify-start h-32">
         <div class="max-h-fit max-w-full scale-y-50">
             <svg class="max-w-full h-fit" id="visual" viewBox="0 0 2400 300" width="2400" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
@@ -115,7 +119,7 @@
 	</div>
 	<div class="w-full min-h-32 dark:bg-main-400 bg-contrast-50 md:pl-48 md:pb-8 pb-28 md:px-8">
 		<footer>
-			<div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+			<div class="mx-auto w-full max-w-(--breakpoint-xl) p-4 py-6 lg:py-8">
 				<div class="md:flex md:justify-between">
 				<div class="mb-6 md:mb-0">
 					<a href="https://www.vitroidfpv.com/" class="font-caveat text-highlight dark:text-highlight-dark text-6xl">

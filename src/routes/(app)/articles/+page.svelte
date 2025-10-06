@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import Header from "$components/Header.svelte";
 	import MainHeader from "$components/MainHeader.svelte";
 	import Paragraph from "$components/Paragraph.svelte";
@@ -11,7 +13,7 @@
 	const modules = import.meta.glob(`/modules/articles/*.{md,svx,svelte,md}`, {eager: true});
 	// console.log(JSON.stringify(modules, null, 2));
 	// sort grouped_modules by date, newest first, add formatted date
-	let date_sorted_modules: any[] = [];
+	let date_sorted_modules: Module[] = [];
 	
 	interface Module {
 		metadata: {
@@ -21,12 +23,18 @@
 			category: string;
 			date: string;
 			author: string;
+			visible: boolean;
 		};
 	}
 
 
-	for (const [key, value] of Object.entries(modules)) {
+	for (const [key, value] of Object.entries(modules as Record<string, Module>)) {
 		const moduleValue = value as unknown as Module;
+		// Skip modules without metadata or date
+		if (!moduleValue.metadata || !moduleValue.metadata.date) {
+			console.warn(`Module ${key} is missing metadata or date`);
+			continue;
+		}
 		const date = new Date(moduleValue.metadata.date);
 		const formattedDate = date.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"});
 		moduleValue.metadata.date = formattedDate;
@@ -50,8 +58,10 @@
 
 	// $: console.log($selectedCategories)
 
-	let selectedModules = date_sorted_modules.filter(module => $selectedCategories.includes(module.metadata.category))
-	$: selectedModules = date_sorted_modules.filter(module => $selectedCategories.includes(module.metadata.category))
+	let selectedModules = $state(date_sorted_modules.filter(module => $selectedCategories.includes(module.metadata.category)))
+	run(() => {
+		selectedModules = date_sorted_modules.filter(module => $selectedCategories.includes(module.metadata.category))
+	});
 
 	function sanitizedTitle(title: string) {
 		return title
@@ -180,7 +190,7 @@
 						<input type="checkbox" value={category.name} bind:group={$selectedCategories} checked={i == 0} name="category" id={category.name} class="hidden peer" required>
 						<label for={category.name} class="flex items-center cursor-pointer ring-2 ring-current px-2 py-1 rounded-full stroke-main-200 dark:stroke-contrast-50 peer-checked:text-{category.color} peer-checked:stroke-{category.color} peer-checked:bg-{category.color}/20 group-hover:text-{category.color} group-hover:stroke-{category.color} duration-300">
 							{category.name}
-							<Icon src={Plus} class={($selectedCategories.includes(category.name) ? "rotate-45" : "") + " w-4 h-4 ml-2 transition-transform"}/>
+							<Icon src={Plus} class={($selectedCategories.includes(category.name) ? "rotate-45" : "") + " w-4 h-4 ml-2 transition-transform"} size="16" theme="default" title="Add category" />
 						</label>
 					</div>
 				{/each}

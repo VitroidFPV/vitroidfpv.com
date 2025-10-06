@@ -57,7 +57,7 @@
 		},
 	}
 
-	let currentPage = 0
+	let currentPage = $state(0)
 
 	function step(back: boolean = false) {
 		if (!back) {
@@ -74,7 +74,9 @@
 	}
 
 	// update the current page when the selected component changes
-	$: currentPage = Object.keys(pages).findIndex((key) => pages[Number(key)].url == $component.selected)
+	$effect(() => {
+		currentPage = Object.keys(pages).findIndex((key) => pages[Number(key)].url == $component.selected)
+	});
 
 	const colors = ["#2AD162", "#90d95b", "#5AD8E6"]
 
@@ -83,12 +85,12 @@
 
 	let modules = import.meta.glob("/modules/anatomy/*/*.svx", {eager: true})
 	modules = Object.fromEntries(Object.entries(modules).filter(([key, value]) => key.includes(infoPath)))
-	let groupedModules: Record<string, any> = {}
+	let groupedModules: Record<string, any> = $state({})
 	for (const [key, value] of Object.entries(pages)) {
 		groupedModules[value.id] = modules[`${infoPath}/${value.id}.svx`] as SvelteComponent
 	}
 
-	let isMobile = false
+	let isMobile = $state(false)
 	let anchor = ""
 	if (typeof window !== "undefined") {
 		isMobile = window.innerWidth < 768
@@ -96,8 +98,9 @@
 	}
 
 	if (anchor) {
-		currentPage = Object.keys(pages).findIndex((key) => pages[Number(key)].id == anchor)
-		$component.selected = pages[currentPage].url
+		const pageIndex = Object.keys(pages).findIndex((key) => pages[Number(key)].id == anchor)
+		currentPage = pageIndex
+		$component.selected = pages[pageIndex].url
 	}
 
 	let prefix = "VitroidFPV";
@@ -127,7 +130,7 @@
 			<div class="flex justify-between w-full px-4 absolute bottom-2">
 				<div>
 					{#if currentPage > 0}
-						<Button color="green" isLink={false} size="md" on:click={() => {step(true)}}>
+						<Button color="green" isLink={false} size="md" onclick={() => {step(true)}}>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 rotate-180">
 								<path stroke-linecap="round" stroke-linejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" />
 							</svg>
@@ -136,7 +139,7 @@
 				</div>
 				<div>
 					{#if currentPage != Object.keys(pages).length - 1}
-						<Button color="green" isLink={false} size="md" on:click={() => {step()}}>
+						<Button color="green" isLink={false} size="md" onclick={() => {step()}}>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 								<path stroke-linecap="round" stroke-linejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" />
 							</svg>
@@ -145,18 +148,19 @@
 				</div>
 			</div>
 			<div class="absolute w-full h-full dark:bg-grid-dark bg-grid-light opacity-10 -z-10 pointer-events-none"></div>
-			<Canvas rendererParameters={{antialias: true}}>
+			<Canvas>
 				<Quad {urls} />
 			</Canvas>
 		</div>
 		<div class="col-span-1 px-4 py-8 bg-neutral-500/10 rounded-3xl backdrop-blur-md border-dashed border-2 border-neutral-500/40 flex duration-300 
-			transition-all justify-between items-center flex-col z-10 max-h-[calc(100vh_-_2rem)]"
+			transition-all justify-between items-center flex-col z-10 max-h-[calc(100vh-2rem)]"
 		>
 			<div class="md green overflow-y-auto px-4 mb-4 transition-container overflow-x-hidden">
 				{#key groupedModules[pages[currentPage].id]}
 					<div in:fly={{x: 20}} out:fly={{x: -20}}>
 						{#if groupedModules[pages[currentPage].id]}
-							<svelte:component this={groupedModules[pages[currentPage].id].default} />
+							{@const SvelteComponent_1 = groupedModules[pages[currentPage].id].default}
+							<SvelteComponent_1 />
 						{/if}
 					</div>
 				{/key}
@@ -231,7 +235,7 @@
 			<p>
 				For the best experience, please open this page on a computer instead.
 			</p>
-			<Button color="green" isLink={false} size="md" on:click={() => isMobile = false}>
+			<Button color="green" isLink={false} size="md" onclick={() => isMobile = false}>
 				Continue anyway
 			</Button>
 		</div>

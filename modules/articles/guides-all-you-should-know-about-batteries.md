@@ -73,7 +73,7 @@ Tells you how many cells are in the battery, connected in series or parallel. A 
 You can see an example of different series connections below
 
 
-![](/uploads/battery_anatomy_nominal.png)
+![Nominal Battery Anatomy](/uploads/battery_anatomy_nominal.png)
 
 
 ## Internal Resistance
@@ -96,7 +96,7 @@ We're lucky that for most sizes and types of crafts, there are tried-and-true ca
 But standards aren't everything. You should still know ***why*** and ***how*** those values are selected. The main thing you should watch out for is the maximum current draw. The manufacturer should provide datasheets with motor tests that will show a maximum current draw **per motor.** Obviously, if they're in a quadcopter, you have to multiply that current rating by 4 for each motor to get the total. Let's say a typical 2207 1850kv motor from FlyFish RC that I recently [wrote about](https://www.vitroidfpv.com/articles/news-flyfish-flash-volador#flash-motors)
 
 
-![](/uploads/motor_test.png)
+![Motor Test](/uploads/motor_test.png)
 
 
 We see that the motor draws about 38A at 100% throttle with a pretty generic 5.1" sized prop and a 6s battery. That gives us approximately 150A of total current draw. This may sound like a lot, but you're not likely to be at 100% throttle all the time, and most batteries can take up to double their C rating for a short period of time. 
@@ -149,7 +149,7 @@ There are basic values you should set before charging and watch out for during c
 
 * Cell count - The cell count on batteries is in series. A 1s battery has only one cell, 6s has 6 cells, and so on. This is what you enter as the Cell count. See the image below once again for a simple explanation of series connection and its effects on voltage
 
-![](/uploads/battery_anatomy_nominal.png)
+![Nominal Battery Anatomy](/uploads/battery_anatomy_nominal.png)
 * Charge current - Depends on the capacity of the battery (usually in mAh) and the C rate. Also above for the battery info, but I'll throw it here too, specifically for charging: \
 To get the charge current, multiply the battery capacity in Ah with the C rate (ideally use 1C, but you can go higher if time constrained). A 1300mAh battery at 1C will be charged at 1.3A (1.3 × 1), at 2C it'll be 2.6A (1.3 × 2), etc...
 * Internal resistance - Usually measured while charging, some chargers may have a dedicated IR measuring mode. Used as a rough estimate of battery health - Under 10mΩ is great, under 20mΩ is fine, above 20 isn't great, and you should retire the battery
@@ -157,7 +157,7 @@ To get the charge current, multiply the battery capacity in Ah with the C rate (
 
 ## Charging Example
 <Tablist>
-<Tab title="Single-battery Charging" open>
+<Tab tabTitle="Single-battery Charging" open>
 Say we have a 1300mAh 6s LiPo, and we want to charge it alone just by plugging it right into the charger:
 
 
@@ -172,7 +172,7 @@ Say we have a 1300mAh 6s LiPo, and we want to charge it alone just by plugging i
 
 With those settings, you can plug both of the battery plugs into the charger, and start charging. The charger should stop automatically when all of the cells are full and have been balanced. You can then exit back out of the charging mode, unplug the battery, and go fly!
 </Tab>
-<Tab title="Parallel Charging">
+<Tab tabTitle="Parallel Charging">
 Say we have 4 1300mAh 6s LiPos that you want to charge all at one time using a parallel charging board:
 
 
@@ -187,7 +187,7 @@ Say we have 4 1300mAh 6s LiPos that you want to charge all at one time using a p
 
 With those settings set, you can start. Make sure that all batteries are within 0.1V per cell of each other before plugging them in. Plug the parallel charging board into the charger, and then plug all of the batteries in, XT60 first, then all of the balance plugs. Double-check that everything is correct, and you can then charge as you would normally, see above
 </Tab>
-<Tab title="Series Charging">
+<Tab tabTitle="Series Charging">
 Say we have 4 1s 300mAh HV LiPos that you want to charge all at one time using a series charging board:
 
 

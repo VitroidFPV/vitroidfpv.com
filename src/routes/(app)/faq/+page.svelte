@@ -17,7 +17,6 @@
 		gfm: true,
 		breaks: true,
 		sanitize: false,
-		smartLists: false,
 		smartypants: false,
 		xhtml: false
 	});
@@ -38,45 +37,31 @@
 		}
 	}
 
-	let sorted_grouped_modules: {[category: string]: Array<Module>} = {};
-	// sort grouped_modules in each category by the "order" key into sorted_grouped_modules
+	// Sort and filter visible modules
+	const sorted_grouped_modules: {[category: string]: Array<Module>} = {};
 	for (const cat in grouped_modules) {
-		sorted_grouped_modules[cat] = grouped_modules[cat];
-		sorted_grouped_modules[cat].sort((a, b) => {
-			return a.metadata.order - b.metadata.order;
-		});
+		sorted_grouped_modules[cat] = grouped_modules[cat]
+			.filter((module) => module.metadata.visible !== false)
+			.sort((a, b) => a.metadata.order - b.metadata.order);
 	}
 	// console.log(JSON.stringify(sorted_grouped_modules, null, 2));
 	
-	let search = "";
-	let searched_grouped_modules: { [key: string]: any[] } = {};
-	$: { 
-		// match search string to each module title in each category, if category is empty, remove it
+	let search = $state("");
+	
+	// Filter modules based on search string
+	const searched_grouped_modules = $derived((() => {
+		const result: { [key: string]: Module[] } = {};
+		// match search string to each module answer in each category, if category is empty, remove it
 		for (const cat in sorted_grouped_modules) {
-			searched_grouped_modules[cat] = [];
-			for (const module of sorted_grouped_modules[cat]) {
-				if (module.metadata.answer.toLowerCase().includes(search.toLowerCase())) {
-					searched_grouped_modules[cat].push(module);
-				}
-			}
-			if (searched_grouped_modules[cat].length === 0) {
-				delete searched_grouped_modules[cat];
+			const filtered = sorted_grouped_modules[cat].filter((module) =>
+				module.metadata.answer.toLowerCase().includes(search.toLowerCase())
+			);
+			if (filtered.length > 0) {
+				result[cat] = filtered;
 			}
 		}
-	}
-
-	sorted_grouped_modules = Object.fromEntries(
-		Object.entries(sorted_grouped_modules).map(([cat, contents]) => [
-			cat,
-			contents.filter((module) => {
-				if (module.metadata.visible === false) {
-					return false;
-				} else {
-					return true;
-				}
-			}),
-		])
-	);
+		return result;
+	})());
 
 	onMount(() => {
 		if (window.location.hash) {
@@ -98,7 +83,7 @@
 		return data
 	}
 
-	let deltaVotes: number
+	let deltaVotes: number | undefined = $state()
 
 	onMount(() => {
 		getUpvotes().then((data) => {
@@ -148,7 +133,7 @@
 					{/if}
 				</div>
 			</div> -->
-			<MainHeader title="{titleRaw}" color="violet" {deltaVotes} />
+			<MainHeader title={titleRaw} color="violet" {deltaVotes} />
 			<Header title="If you need a quick answer, you might find it here!" />
 			<p class="text-xl md:w-1/2">
 				There's a lot of questions in FPV, doesn't matter if you're just starting or not<br><br>
@@ -233,7 +218,7 @@
 		/>
 		
 		<div class="flex items-center my-4">
-			<div class="bg-[url('https://img.icons8.com/ios-filled/50/0f0f0f/search--v1.png')] dark:bg-[url('https://img.icons8.com/ios-filled/50/f7f7f7/search--v1.png')] relative mr-1 w-8 h-8 bg-contain bg-center" />
+			<div class="bg-[url('https://img.icons8.com/ios-filled/50/0f0f0f/search--v1.png')] dark:bg-[url('https://img.icons8.com/ios-filled/50/f7f7f7/search--v1.png')] relative mr-1 w-8 h-8 bg-contain bg-center"></div>
 			<input
 				type="text"
 				class="w-40 h-12 rounded-full px-3 caret-green p-2 bg-contrast-200 dark:bg-main-200

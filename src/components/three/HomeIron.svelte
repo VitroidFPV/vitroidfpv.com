@@ -1,14 +1,16 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { T } from "@threlte/core"
-	import { Environment, GLTF, OrbitControls, type ThrelteGltf } from "@threlte/extras"
+	import { OrbitControls } from "@threlte/extras"
 	import { useGltf } from "@threlte/extras"
-	import { Group, MeshBasicMaterial, MeshStandardMaterial } from "three"
 	import { Float } from "@threlte/extras"
 	import { interactivity } from "@threlte/extras"
 	interactivity()
 
 	import { spring, tweened } from "svelte/motion"
-	import { interpolateHcl, interpolateLab } from 'd3-interpolate';
+	import { interpolateHcl } from 'd3-interpolate';
+	import { rgbToHexNumber } from '$lib/rgbToHexNumber';
 
 	const color = tweened("rgb(170, 170, 170)", {
 		duration: 200,
@@ -19,36 +21,27 @@
 		duration: 200,
 	})
 
-	$: if(hovered) {
-		color.set("rgb(255, 151, 66)")
-		opacity.set(0.5)
-	} else {
-		color.set("rgb(170, 170, 170)")
-		opacity.set(0.2)
-	}
 
 	const ironNormal = useGltf("/uploads/three/iron/iron_normal.glb")
 	const ironHighlight = useGltf("/uploads/three/iron/iron_highlight.glb")
 	const tipNormal = useGltf("/uploads/three/iron/tip_normal.glb")
 	const tipHighlight = useGltf("/uploads/three/iron/tip_highlight.glb")
 
-	$: console.log([$ironNormal, $ironHighlight, $tipNormal, $tipHighlight])
-
-	let meshes: any[] = []
-
-	$: if ($ironNormal) meshes.push($ironNormal.nodes["normal"])
-	$: if ($ironHighlight) meshes.push($ironHighlight.nodes["highlight"])
-	$: if ($tipNormal) meshes.push($tipNormal.nodes["tip_normal"])
-	$: if ($tipHighlight) meshes.push($tipHighlight.nodes["tip_highlight"])
-
-	$: console.log(meshes)
-
 	let transform = spring(0, {
 		damping: 0.5,
 		stiffness: 0.2
 	})
 
-	let hovered = false
+	let hovered = $state(false)
+	$effect(() => {
+		if(hovered) {
+			color.set("rgb(255, 151, 66)")
+			opacity.set(0.5)
+		} else {
+			color.set("rgb(170, 170, 170)")
+			opacity.set(0.2)
+		}
+	});
 </script>
 
 <T.PerspectiveCamera
@@ -76,8 +69,8 @@ fov={25}
 </Float>
 
 <T.Group
-	on:pointerenter={() => {hovered = true; $transform = -4}} 
-	on:pointerleave={() => {hovered = false; $transform = 0}}
+	onpointerenter={() => {hovered = true; $transform = -4}} 
+	onpointerleave={() => {hovered = false; $transform = 0}}
 	scale={0.2}
 	rotation.x={Math.PI / -12}
 	rotation.z={Math.PI / 4}
@@ -88,7 +81,7 @@ fov={25}
 				is={$ironNormal.nodes["normal"]} 
 			>
 				<T.MeshStandardMaterial
-					color={hovered ? "#aaaaaa" : "#aaaaaa"}
+					color={hovered ? 0xaaaaaa : 0xaaaaaa}
 					transparent
 					opacity={hovered ? 0.2 : 0.2}
 					depthWrite={false}
@@ -100,7 +93,7 @@ fov={25}
 				is={$ironHighlight.nodes["highlight"]}
 			>
 				<T.MeshStandardMaterial
-					color={$color}
+					color={rgbToHexNumber($color)}
 					transparent
 					opacity={$opacity}
 					depthWrite={false}
@@ -113,7 +106,7 @@ fov={25}
 				position={[0, 0, $transform]}
 			>
 				<T.MeshStandardMaterial
-					color={"#aaaaaa"}
+					color={0xaaaaaa}
 					transparent
 					opacity={hovered ? 0.2 : 0.2}
 					depthWrite={false}
@@ -126,7 +119,7 @@ fov={25}
 				position={[0, 0, $transform]}
 			>
 				<T.MeshStandardMaterial
-					color={$color}
+					color={rgbToHexNumber($color)}
 					transparent
 					opacity={$opacity}
 					depthWrite={false}

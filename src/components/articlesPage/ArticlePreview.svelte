@@ -1,15 +1,26 @@
 <script lang="ts">
 	import Link from "$components/Link.svelte";
 
-	export let title: string
-	export let description: string
-	export let img: string
-	export let href = ""
-	export let category: string
-	export let date: string
+	interface Props {
+		title: string;
+		description: string;
+		img: string;
+		href?: string;
+		category: string;
+		date: string;
+	}
+
+	let {
+		title,
+		description,
+		img,
+		href = "",
+		category,
+		date
+	}: Props = $props();
 	// export let author: string
 
-	let categoryColor: string
+	let categoryColor: string = $state("")
 	switch (category) {
 		case "Guides":
 			categoryColor = "green"
@@ -51,7 +62,7 @@
 			</div>
 			<div class="card-gradient {category} w-full h-full absolute z-10 duration-300 rounded-2xl"></div>
 			<div style="background-image: url({img});"
-				class="article-card-img bg-center bg-cover scale-[103%] group-hover:scale-[108%] blur-[4px] group-hover:blur-[0.5px] duration-300 h-full w-full saturate-0 absolute brightness-75 rounded-2xl">
+				class="article-card-img bg-center bg-cover scale-[103%] group-hover:scale-[108%] blur-xs group-hover:blur-[0.5px] duration-300 h-full w-full saturate-0 absolute brightness-75 rounded-2xl">
 			</div>
 		</div>
 	</a>

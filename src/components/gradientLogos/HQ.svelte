@@ -1,4 +1,4 @@
-<a href="https://www.hqprop.com/" target="_blank" rel="noopener noreferrer">
+<a href="https://www.hqprop.com/" target="_blank" rel="noopener noreferrer" aria-label="HQ Prop">
 	<svg
 		width="100%"
 		height="100%"

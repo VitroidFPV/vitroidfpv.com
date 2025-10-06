@@ -1,19 +1,24 @@
-<script lang="ts">
+<!-- <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { Bar } from "svelte-chartjs";
 	import ChartDataLabels from "chartjs-plugin-datalabels";
 	import { theme } from "$lib/stores/themeStore"
 
-	// {label: data, label: data, label: data,...}
-	export let incomingData: { [x: string]: number; };
+	
 
 	let labels = Object.keys(incomingData);
 	let values = Object.values(incomingData);	
 
-	let textColor = $theme === "dark" ? "rgba(247, 247, 247, 1)" : "rgba(41, 41, 41, 1)";
-	$: textColor = $theme === "dark" ? "rgba(247, 247, 247, 1)" : "rgba(41, 41, 41, 1)";
+	let textColor = $state($theme === "dark" ? "rgba(247, 247, 247, 1)" : "rgba(41, 41, 41, 1)");
+	run(() => {
+		textColor = $theme === "dark" ? "rgba(247, 247, 247, 1)" : "rgba(41, 41, 41, 1)";
+	});
 
-	let lineColor = $theme === "dark" ? "rgba(247, 247, 247, 0.05)" : "rgba(41, 41, 41, 0.05)";
-	$: lineColor = $theme === "dark" ? "rgba(247, 247, 247, 0.05)" : "rgba(41, 41, 41, 0.05)";
+	let lineColor = $state($theme === "dark" ? "rgba(247, 247, 247, 0.05)" : "rgba(41, 41, 41, 0.05)");
+	run(() => {
+		lineColor = $theme === "dark" ? "rgba(247, 247, 247, 0.05)" : "rgba(41, 41, 41, 0.05)";
+	});
 
 	import {
 		Chart,
@@ -24,6 +29,12 @@
 		CategoryScale,
 		LinearScale,
 	} from "chart.js";
+	interface Props {
+		// {label: data, label: data, label: data,...}
+		incomingData: { [x: string]: number; };
+	}
+
+	let { incomingData }: Props = $props();
 
 	Chart.register(
 		Title,
@@ -69,7 +80,7 @@
 		]
 	}
 
-	let options = {
+	let options = $state({
 		responsive: true,
 		maintainAspectRatio: false,
 		indexAxis: "y",
@@ -129,18 +140,28 @@
 				}
 			}
 		},
-	}
+	})
 
 	// I don't think this should be necessary, but it is...?
-	$: options.plugins.title.color = textColor;
-	$: options.scales.x.ticks.color = textColor;
-	$: options.scales.y.ticks.color = textColor;
-	$: options.plugins.datalabels.color = textColor;
+	run(() => {
+		options.plugins.title.color = textColor;
+	});
+	run(() => {
+		options.scales.x.ticks.color = textColor;
+	});
+	run(() => {
+		options.scales.y.ticks.color = textColor;
+	});
+	run(() => {
+		options.plugins.datalabels.color = textColor;
+	});
 
-	$: options.scales.x.grid.color = lineColor;
+	run(() => {
+		options.scales.x.grid.color = lineColor;
+	});
 
 </script>
 
 <div class="h-96 w-full">
 	<Bar {data} {options} />
-</div>
+</div> -->

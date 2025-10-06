@@ -1,13 +1,9 @@
 <script lang="ts">
 	import { fade, fly } from "svelte/transition";
 	import { spring } from "svelte/motion";
-	import { clickOutside } from '$lib/clickOut.js';
 
 
-	export let img: string = "/uploads/placeholder.png";
-	export let title: string = "Title";
-	export let open: boolean = false;
-	let zoomed: boolean = false;
+	let zoomed: boolean = $state(false);
 
 	let x = spring(0);
 	let y = spring(0);
@@ -46,26 +42,51 @@
 		}
 	}
 
-    import { createEventDispatcher } from 'svelte';
+	interface Props {
+		img?: string;
+		title?: string;
+		open?: boolean;
+		onclickoutside?: () => void;
+	}
 
-    const dispatch = createEventDispatcher();
+	import type { Action } from 'svelte/action';
 
-    function handleClickOutside() {
-        open = false;
-        dispatch('clickOutside');
-    }
+	/** Dispatch event on click outside of node */
+	const clickoutside: Action<
+		HTMLElement,
+		undefined,
+		{
+			onclickoutside: (e: CustomEvent<HTMLElement>) => void;
+		}
+	> = (node) => {
+		$effect(() => {
+			const handleClick = (event: MouseEvent) => {
+				if (node && !node.contains(event.target as Node) && !event.defaultPrevented) {
+					node.dispatchEvent(
+						new CustomEvent('clickoutside', { detail: node })
+					);
+				}
+			};
+
+			document.addEventListener('click', handleClick, true);
+
+			return () => {
+				document.removeEventListener('click', handleClick, true);
+			};
+		});
+	};
+
+	let { img = "/uploads/placeholder.png", title = "Title", open = $bindable(false), onclickoutside = $bindable(() => {}) }: Props = $props();
 </script>
 
-<svelte:window on:keydown={keydown} on:keyup={keyup}/>
+<svelte:window onkeydown={keydown} onkeyup={keyup}/>
 
 {#if open}
-	<div in:fade={{duration: 300, delay: 0}} out:fade={{delay: 200}} class="fixed w-screen h-screen top-0 left-0 z-[60] backdrop-blur-sm md:flex hidden items-center justify-center bg-black bg-opacity-80">
-		<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+	<div in:fade={{duration: 300, delay: 0}} out:fade={{delay: 200}} class="fixed w-screen h-screen top-0 left-0 z-60 backdrop-blur-sm md:flex hidden items-center justify-center bg-black bg-opacity-80">
+		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 		<div 
 			transition:fly={{duration: 300, y: 200, delay: 100}} 
 			class="h-full aspect-auto flex flex-col py-8 justify-center z-10 select-none relative" 
-			use:clickOutside 
-			on:clickOutside={handleClickOutside}
 		>
 			<img 
 				class="select-none rounded-2xl object-contain h-full duration-150"
@@ -73,13 +94,17 @@
 				src={img}
 				alt={title + " image"}
 				crossorigin="anonymous"
-				on:mousemove={(event) => zoom(event)}
+				onmousemove={(event) => zoom(event)}
+				use:clickoutside
+				onclickoutside={onclickoutside}
 			>
 			{#if !zoomed}
 				<button 
-					on:click={() => open = false}
+					onclick={() => open = false}
 					transition:fade={{duration: 50, delay: 0}}
-					class="stroke-red duration-300 absolute top-8 right-0 rounded-full border-2 border-red/40 bg-red/20 hover:bg-red/40">
+					class="stroke-red duration-300 absolute top-8 right-0 rounded-full border-2 border-red/40 bg-red/20 hover:bg-red/40"
+					aria-label="Close"
+				>
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" class="w-7 h-7 rotate-45">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
 					</svg>

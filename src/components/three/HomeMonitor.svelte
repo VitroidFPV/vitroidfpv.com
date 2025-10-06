@@ -1,14 +1,17 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { T } from "@threlte/core"
-	import { Environment, GLTF, OrbitControls, type ThrelteGltf } from "@threlte/extras"
+	import { OrbitControls } from "@threlte/extras"
 	import { useGltf } from "@threlte/extras"
 	import type { Mesh } from "three"
 	import { Float } from "@threlte/extras"
 	import { interactivity } from "@threlte/extras"
 	interactivity()
 
-	import { spring, tweened } from "svelte/motion"
-	import { interpolateHcl, interpolateLab } from 'd3-interpolate';
+	import { tweened } from "svelte/motion"
+	import { interpolateHcl } from 'd3-interpolate';
+	import { rgbToHexNumber } from '$lib/rgbToHexNumber';
 
 	const color = tweened("rgb(170, 170, 170)", {
 		duration: 200,
@@ -19,26 +22,36 @@
 		duration: 200,
 	})
 
-	$: if(hovered) {
-		color.set("rgb(255, 204, 0)")
-		opacity.set(0.75)
-	} else {
-		color.set("rgb(170, 170, 170)")
-		opacity.set(0.2)
-	}
 
-	$: console.log($color)
 
 	const monitor = useGltf("/uploads/three/monitor.glb")
 
 	let meshes:Mesh[] = []
 
-	$: if ($monitor) meshes.push($monitor.nodes["monitor"])
-	$: if ($monitor) meshes.push($monitor.nodes["stuff"])
-	$: if ($monitor) meshes.push($monitor.nodes["stuff_highlight"])
 
 
-	let hovered = false
+	let hovered = $state(false)
+	run(() => {
+		if(hovered) {
+			color.set("rgb(255, 204, 0)")
+			opacity.set(0.75)
+		} else {
+			color.set("rgb(170, 170, 170)")
+			opacity.set(0.2)
+		}
+	});
+	run(() => {
+		console.log($color)
+	});
+	run(() => {
+		if ($monitor) meshes.push($monitor.nodes["monitor"])
+	});
+	run(() => {
+		if ($monitor) meshes.push($monitor.nodes["stuff"])
+	});
+	run(() => {
+		if ($monitor) meshes.push($monitor.nodes["stuff_highlight"])
+	});
 </script>
 
 <T.PerspectiveCamera
@@ -66,8 +79,8 @@
 </Float>
 
 <T.Group
-	on:pointerenter={() => {hovered = true}} 
-	on:pointerleave={() => {hovered = false}}
+	onpointerenter={() => {hovered = true}} 
+	onpointerleave={() => {hovered = false}}
 	scale={0.66}
 	rotation.z={(Math.PI / 16) * -1}
 	position={[0, -0.75, 0]}
@@ -101,7 +114,7 @@
 			is={$monitor.nodes["stuff_highlight"]}
 		>
 			<T.MeshStandardMaterial
-				color={$color}
+				color={rgbToHexNumber($color)}
 				transparent
 				opacity={$opacity}
 				depthWrite={false}

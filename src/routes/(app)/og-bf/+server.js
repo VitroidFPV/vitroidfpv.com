@@ -16,7 +16,7 @@ function setTemplate(title, description) {
 				<div tw="w-full h-full flex flex-col justify-between">
 					<div tw="flex flex-col">
 						<div tw="flex text-[2.25rem] text-white font-bold">Betaflight Docs</div>
-						<div tw="flex text-[6rem] text-[#FFBB00] w-[64rem]">${title}</div>
+						<div tw="flex text-[6rem] text-[#FFBB00] w-5xl">${title}</div>
 					</div>
 					<div tw="flex text-[2.25rem] text-white font-bold pr-48" style="font-family: "Segoe">${description}</div>
 				</div>

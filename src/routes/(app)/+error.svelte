@@ -12,7 +12,7 @@
 	let title = "VitroidFPV - Error";
 	let url = "";
 
-	let open: boolean = false;
+	let open: boolean = $state(false);
 </script>
 
 <svelte:head>
@@ -30,13 +30,13 @@
 <div class="content-box">
 	<MainHeader title="Oops!" color="red"></MainHeader>
 	<Header title="There has been an error loading this page" />
-	<Paragraph>
+	<div>
 		Either it doesn't exist, or I messed something up. If it doesn't exist, you can go <Link>back</Link> to the main site, if you think it's the latter, please contact me
 		<div class="tracking-normal not-intersecting text-main-200 dark:text-contrast-100 border-none flex flex-col mt-2">
 			<div class="flex align-start">
 			<button
 				type="button"
-				on:click={() => (open = !open)}
+				onclick={() => (open = !open)}
 				class:text-highlight={open}
 				class:dark:text-highlight-dark={open}
 				class="collapsible duration-300
@@ -50,5 +50,5 @@
 				</div>
 			{/if}
 		</div>
-	</Paragraph>
+	</div>
 </div>

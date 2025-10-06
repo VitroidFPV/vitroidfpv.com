@@ -1,19 +1,28 @@
 <script lang="ts">
-	let open = false;
-	export let title: string;
-	export let content: string;
-	export let category: string;
-	export let id = "";
+	let open = $state(false);
 	import { onMount } from "svelte";
 	import { slide, fade, fly } from "svelte/transition";
-	import { page } from "$app/stores";
+	import { page } from "$app/state";
 	import toast, { Toaster } from 'svelte-french-toast';
 
 	// import SvelteMarkdown from 'svelte-markdown'
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { copyText } from "$lib/copy";
-	let element: HTMLElement;
-	let intersecting: boolean;
+	interface Props {
+		title: string;
+		content: string;
+		category: string;
+		id?: string;
+	}
+
+	let {
+		title,
+		content,
+		category,
+		id = ""
+	}: Props = $props();
+	let element: HTMLElement | undefined = $state();
+	let intersecting: boolean = $state(false);
 
 	let source = content;
 
@@ -22,7 +31,7 @@
 	});
 
 	function linkOpen() {
-		let hash = $page.url.hash.replace("#", "");
+		let hash = page.url.hash.replace("#", "");
 		if (hash != "") {
 			if (hash == id) {
 				open = true;
@@ -32,9 +41,9 @@
 		}
 	}
 
-	function copyID(this: {nextElementSibling: any; "on:click": () => void; class: string; }) {
+	function copyID(this: {nextElementSibling: any; "onclick": () => void; class: string; }) {
 		let id = this.nextElementSibling.id;
-		copyText($page.url.origin + $page.url.pathname + "/" + id);
+		copyText(page.url.origin + page.url.pathname + "/" + id);
 		// console.log(id);
 	}
 
@@ -52,7 +61,7 @@
 				transition:fly={{ y: 10, duration: 300 }}
 			>
 				<div class="flex align-start">
-					<button on:click={copyID}>
+					<button onclick={copyID}>
 						<div
 							class="text-3xl text-black dark:text-white opacity-20 hover:opacity-40 duration-300 cursor-pointer copy-id mr-2"
 						>
@@ -61,7 +70,7 @@
 					</button>
 					<button
 						type="button"
-						on:click={() => (open = !open)}
+						onclick={() => (open = !open)}
 						class:faq-active={open}
 						class="collapsible duration-300
 								after:ml-1 text-[20px] md:text-xl hover:translate-x-1 duartion-150 {category} text-left"
@@ -73,7 +82,6 @@
 					transition:slide
 					class="top-11 z-10 left-2 absolute content text-xl bg-neutral-500/10 border-2 border-neutral-500/20 backdrop-blur-lg rounded-2xl mb-2 w-full"
 				>
-					<!-- <div class="md:p-8 p-6 text-base md:text-lg leading-relaxed md"><SvelteMarkdown {source} on:parsed={handleParsed}/></div> -->
 					<div class="md:p-8 p-4 text-base md:text-lg leading-relaxed md">{@html content}</div>
 				</div>
 			{/if}

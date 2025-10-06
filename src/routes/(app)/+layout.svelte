@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import "../../app.css";
 	import "../../form.css"
 	import { page } from "$app/stores";
@@ -9,8 +9,13 @@
 	import Transition from "$components/Transition.svelte";
 	import { onMount } from "svelte";
 	import toast, { Toaster } from 'svelte-french-toast';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 	
-	let ready = false;
+	let ready = $state(false);
 	onMount(() => {
 		ready = true;
 	});
@@ -26,7 +31,7 @@
 	<div class="flex md:flex-row flex-col-reverse h-fit page-box min-w-full">
 		<Nav />
 		<Transition refresh={$page.url.pathname}>
-			<slot />
+			{@render children?.()}
 		</Transition>
 	</div>
 	<Footer />

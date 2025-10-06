@@ -170,7 +170,7 @@ Now that you know what to avoid and what to get, it's time to actually buy stuff
 You can find some recommendations for different price points below. They may intersect with each other a bit, but some things just fit into multiple price ranges. Feel free to mix and match items from the different price ranges, to a certain extent. For example, you can get a cheap radio and a more expensive set of goggles, or a cheap set of goggles and a more expensive radio
 
 <Tablist>
-<Tab title="$350 - $450" open>
+<Tab tabTitle="$350 - $450" open>
 
 Some of the most basic things to get you started. Tinywhoops or toothpicks, and an inexpensive radio and goggles. You can get a lot of fun out of these, and they're a great way to get into the hobby
 
@@ -207,7 +207,7 @@ Some of the most basic things to get you started. Tinywhoops or toothpicks, and 
 
 </Tab>
 
-<Tab title="$450 - $600">
+<Tab tabTitle="$450 - $600">
 
 Starting to get into more expensive options, you start to see more performant quads, and higher-end equipment. Also a good place to start if you're looking to fly with a small HD camera
 
@@ -238,7 +238,7 @@ Starting to get into more expensive options, you start to see more performant qu
 
 </Tab>
 
-<Tab title="$600-$1000">
+<Tab tabTitle="$600-$1000">
 
 Now going firmly into the 5" analog quad setups, you'll find a range of radios going from budget to high-end, and nice slimline goggles
 

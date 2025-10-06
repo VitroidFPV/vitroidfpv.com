@@ -1,6 +1,66 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@import '@skeletonlabs/skeleton';
+@import '../vitroidfpv.css';
+@import '@skeletonlabs/skeleton/optional/presets';
+
+@source '../node_modules/@skeletonlabs/skeleton-svelte/dist';
+
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --font-reem-kufi: Reem Kufi, sans-serif;
+  --font-caveat: Caveat-Bold;
+  --font-josefin-sans: Josefin Sans, sans-serif;
+
+  --color-highlight: #90d95b;
+  --color-highlight-dark: #2ad162;
+  --color-pink: #d1288d;
+  --color-red: #d6395b;
+  --color-orange: #ff9742;
+  --color-yellow: #ffcc00;
+  --color-green: #87cc52;
+  --color-cyan: #5ad8e6;
+  --color-blue: #5a6fe6;
+  --color-violet: #9550ba;
+
+  --color-main-50: #657280;
+  --color-main-100: #3d454d;
+  --color-main-200: #292929;
+  --color-main-300: #141414;
+  --color-main-400: #0f0f0f;
+
+  --color-contrast-50: #f7f7f7;
+  --color-contrast-100: #eeeeee;
+  --color-contrast-200: #e2e2e2;
+  --color-contrast-300: #e0e0e0;
+  --color-contrast-400: #cccccc;
+  --color-contrast-500: #adadad;
+
+  --background-size-0w: 0% 3px;
+  --background-size-100w: 100% 3px;
+
+  --background-image-grid-dark: url(/uploads/grid-dark.svg);
+  --background-image-grid-light: url(/uploads/grid-light.svg);
+
+  --breakpoint-3xl: 2000px;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 @layer base {
 
@@ -123,7 +183,7 @@
 	}
 }
 
-@layer components {
+/* @layer components { */
 	/* .nav-active {
 		god is dead and we have killed him
 		@apply  bg-highlight dark:bg-highlight-dark md:rounded-l-2xl md:rounded-br-none rounded-b-3xl relative shadow-highlight dark:shadow-highlight-dark
@@ -167,7 +227,7 @@
 	}
 
 	.nav-hidden-sm {
-		@apply md:flex-col md:!flex !hidden
+		@apply md:flex-col md:flex! hidden!
 	}
 
 	.Recommended.my-8 {@apply order-last}
@@ -276,7 +336,7 @@
 
 	.card.true {@apply hover:h-72}
 
-	.link {@apply text-2xl bg-gradient-to-r bg-no-repeat bg-left-bottom bg-0w hover:bg-100w duration-300 w-fit pb-[-1rem] leading-tight}
+	.link {@apply text-2xl bg-linear-to-r bg-no-repeat bg-bottom-left bg-size-(--background-size-0w) hover:bg-size-(--background-size-100w) duration-300 w-fit pb-[-1rem] leading-tight}
 
 	.link.red {@apply from-red to-red} .link.t-red {@apply text-red}
 	.link.green {@apply from-green to-green} .link.t-green {@apply text-green}
@@ -298,23 +358,23 @@
 	}
 
 	.card-gradient.Guides {
-		@apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-green/50 to-green/50
+		@apply bg-linear-to-r dark:from-black/50 from-neutral-400/50 dark:to-green/50 to-green/50
 	}
 	.card-gradient.Tutorials {
-		@apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-cyan/50 to-cyan/50
+		@apply bg-linear-to-r dark:from-black/50 from-neutral-400/50 dark:to-cyan/50 to-cyan/50
 	}
 	.card-gradient.News {
-		@apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-red/50 to-red/50
+		@apply bg-linear-to-r dark:from-black/50 from-neutral-400/50 dark:to-red/50 to-red/50
 	}
 	.card-gradient.Reviews {
-		@apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-yellow/50 to-yellow/50
+		@apply bg-linear-to-r dark:from-black/50 from-neutral-400/50 dark:to-yellow/50 to-yellow/50
 	}
 	.card-gradient.Misc {
-		@apply bg-gradient-to-r dark:from-black/50 from-neutral-400/50 dark:to-violet/50 to-violet/50
+		@apply bg-linear-to-r dark:from-black/50 from-neutral-400/50 dark:to-violet/50 to-violet/50
 	}
 
 	.listbox {
-		@apply relative duration-300 cursor-pointer z-[60] w-64 text-base
+		@apply relative duration-300 cursor-pointer z-60 w-64 text-base
 	}
 
 	.listbox-options {
@@ -330,7 +390,7 @@
 	}
 
 	.base.svelte-ug60r4 {
-		@apply !bg-red
+		@apply bg-red!
 	}
 
 	/* markdown styles */
@@ -340,7 +400,7 @@
 	.md h2 {@apply text-3xl my-3 tracking-wide mt-8 font-semibold}
 	.mď h2 + * {@apply mt-0}
 	.md h3 {@apply text-2xl my-2 mt-6 tracking-wide font-semibold}
-	.md h3 + * {@apply !mt-0}
+	.md h3 + * {@apply mt-0!}
 	.md h4 {@apply text-xl mt-4 tracking-wide font-semibold}
 	.md h5 {@apply text-green mt-4 tracking-wide font-semibold}
 	.md h6 {@apply inline w-fit float-left mr-1 font-semibold}
@@ -401,16 +461,16 @@
 	.md ol {@apply list-decimal ml-6 my-4 mb-6}
 	.md ol li p {@apply pl-3}
 	.md li {@apply mb-3}
-	.md a {@apply text-base md:text-lg text-highlight bg-gradient-to-r bg-no-repeat bg-left-bottom from-highlight to-highlight bg-0w hover:bg-100w duration-300 w-fit pb-[-1rem] leading-tight}
+	.md a {@apply text-base md:text-lg text-highlight bg-linear-to-r bg-no-repeat bg-bottom-left from-highlight to-highlight bg-size-(--background-size-0w) hover:bg-size-(--background-size-100w) duration-300 w-fit pb-[-1rem] leading-tight}
 	.md pre {@apply whitespace-pre-line}
 	.md pre code {@apply block}
 	.md br+code {@apply block}
 
-	.md .grid .fancy-img {@apply !w-full}
+	.md .grid .fancy-img {@apply w-full!}
 	.md video {@apply w-full h-full rounded-2xl shadow-lg}
 	
 	.md .katex * {
-		@apply !font-[tgheros]
+		@apply font-[tgheros]!
 	}
 
 	body {
@@ -420,7 +480,7 @@
 	body.dark {
 		@apply bg-main-400
 	}
-}
+/* } */
 
 [contenteditable="true"]:focus {
     @apply outline-[none]
@@ -438,5 +498,5 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	@apply w-2 bg-neutral-500/60 rounded-full duration-300 transition-all hover:bg-highlight dark:hover:bg-highlight-dark
+	@apply w-2 bg-neutral-500/60 rounded-full duration-300 transition-all hover:bg-highlight
 }

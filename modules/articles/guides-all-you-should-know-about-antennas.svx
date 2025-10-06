@@ -8,7 +8,7 @@ img: /uploads/placeholder.png
 date: 2023-12-1T18:40:51.531Z
 ---
 
-<script lang="ts">
+<script lang="ts" module>
 	import GridBox from "$components/articlesPage/GridBox.svelte";
 	import GridItem from "$components/articlesPage/GridItem.svelte";
 	import Tablist from "$components/articlesPage/Tablist.svelte";
@@ -17,10 +17,10 @@ date: 2023-12-1T18:40:51.531Z
 	import GLTFWrapper from "$components/three/GLTFWrapper.svelte";
 	import GLTFBox from "$components/three/GLTFBox.svelte";
 
-	import { Switch } from "@rgossiaux/svelte-headlessui"
+	import { Switch } from "@skeletonlabs/skeleton-svelte";
 
-	let show3d = true;
-	let userRotation = 1
+	let show3d = $state(true);
+	let userRotation = $state(1)
 
 	function pipe() {
 		let pipe = new Audio("/uploads/articles/antennas/pipe.mp3")
@@ -34,15 +34,13 @@ Don't worry, there shouldn't be any math here, just some basic concepts and a fe
 
 I will use 3d models across the whole article to help you get a better understanding of what's going on when you can actually interact with it. If this page is too heavy for your device, you can disable the 3d models with the toggle below. From my own testing, it runs fine on a laptop that's a couple of years old and my phone as well though, so it should be okay for most people.
 
-<div class="flex">
-	<Switch
-		bind:checked={show3d}
-		class={"relative inline-flex items-center rounded-full h-6 w-12 outline outline-2 outline-neutral-400/20 mr-2 duration-300 " + (show3d ? "text-highlight/20 dark:bg-highlight-dark/20 outline-highlight dark:outline-highlight-dark" : "bg-neutral-400/10")}
-	>
-		<span
-			class={"toggle inline-block w-4 rounded-full aspect-square bg-neutral-400/50 duration-300 " + (show3d ? " bg-highlight dark:bg-highlight-dark translate-x-7" : "translate-x-1")}
-		/>
-	</Switch>
+<div class="flex gap-2 items-center">
+
+<Switch
+	name="show3d"
+	checked={show3d}
+	onCheckedChange={(e) => (show3d = e.checked)}
+/>
 
 Show 3D models (recommended)
 

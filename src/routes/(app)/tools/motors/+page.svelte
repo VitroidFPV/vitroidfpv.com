@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { page } from "$app/stores";
 	import { onMount } from "svelte";
 	import tinycolor from "tinycolor2";
@@ -7,12 +9,11 @@
 	import MotorComparison from "$components/toolsPage/MotorComparison.svelte";
 	import { motors } from "$lib/stores/motorsStore";
 	import { undo } from "$lib/stores/motorsStore";
-	import { Listbox, ListboxButton, ListboxOptions, ListboxOption, ListboxLabel } from "@rgossiaux/svelte-headlessui";
 	import { slide, fade, fly } from "svelte/transition";
 	import toast from "svelte-french-toast";
 	import Button from "$components/Button.svelte";	
 	import { Icon } from "@steeze-ui/svelte-icon"
-	import { Clipboard, Plus, ChevronRight } from "@steeze-ui/heroicons"
+	import { Clipboard, Plus } from "@steeze-ui/heroicons"
 	import MotorsTable from "$components/toolsPage/MotorsTable.svelte";
 	import { copyText } from "$lib/copy";
 
@@ -56,10 +57,9 @@
 	// this is weird but it prevents it from duplicating on HMR
 	// $motors = loadMotors;
 	// motors.set(loadMotors);
-
-	let newSize = ""
-	let newVolume: number
-	let newSurface: number
+	let newSize = $state("")
+	let newVolume = $state<number>(NaN)
+	let newSurface = $state<number>(NaN)
 
 	function addMotor() {
 		// if (!$motors.find(motor => motor.size === newSize)) {
@@ -82,11 +82,11 @@
 		{ label: "Surface Area (Low to High)", name: "surface-asc" },
 	]
 
-	let selectedSort: any = null;
+	let selectedSort: string = $state("");
 
 	function sortMotors() {
 		// sort depending on selectedSort
-		switch (selectedSort.name) {
+		switch (selectedSort) {
 			case "volume-desc":
 				motors.update((motors) => motors.sort((a, b) => b.volume - a.volume));
 				break;
@@ -118,12 +118,14 @@
 		});
 	}
 	if (sortQuery) {
-		selectedSort = sortOptions.find((option) => option.name === sortQuery);
+		selectedSort = sortQuery;
 	}
 
-	$: if (selectedSort) {
-		sortMotors();
-	}
+	run(() => {
+		if (selectedSort) {
+			sortMotors();
+		}
+	});
 
 	function copyURL() {
 		// add size array as "?motors=2207-2208-2209&sort=volume-desc"
@@ -143,7 +145,7 @@
 
 		let url = window.location.href.split("?")[0];
 		let motorString = $motors.map(motor => motor.size).join("-");
-		let sortString = selectedSort ? "&sort=" + selectedSort.name : "";
+		let sortString = selectedSort ? "&sort=" + selectedSort : "";
 		let finalURL = url + "?motors=" + motorString + sortString;
 		copyText(finalURL);
 	}
@@ -174,7 +176,7 @@
 	<meta name="theme-color" content={color} />
 </svelte:head>
 
-<svelte:window on:keydown={keydown}/>
+<svelte:window onkeydown={keydown}/>
 
 <div class="overflow-x-clip h-fit">
 	<div class="flex flex-col w-full relative px-4 md:px-0">
@@ -229,43 +231,21 @@
 </div>
 
 <div class="p-4 md:p-8 content-box">
-	<div class="flex w-full items-center md:justify-end justify-between py-4">
+	<div class="flex w-full items-center md:justify-end justify-between py-4 gap-4">
 		<div>
-			<Listbox
-				class={({open}) => (open ? "gap-2" : " gap-0") + " listbox"}
+			<select
 				bind:value={selectedSort}
-				let:open
+				onchange={sortMotors}
+				class="bg-neutral-500/10 rounded-2xl px-4 py-2 text-base duration-300 outline-none focus-within:outline-cyan outline-[3px] cursor-pointer hover:text-cyan"
 			>
-				<ListboxButton
-					class={({open}) => (open ? "text-cyan" : "hover:text-cyan") + " flex items-center duration-300"}
-				>
-					<!-- <Button isLink={false} color="cyan" size="sm">{selectedSort.label}</Button> -->
-					{#if !selectedSort}
-						Sort By
-					{:else}
-						{selectedSort.label}
-					{/if}
-					<div class="ml-2 rotate-0 transition-transform" class:rotate-90={open}>
-						<Icon src={ChevronRight} class="w-4 h-4" stroke-width="3" />
-					</div>
-				</ListboxButton>
-				{#if open}
-					<div transition:fly={{y: -10}} class="absolute backdrop-blur-md">
-						<ListboxOptions class="listbox-options">
-							{#each sortOptions as option}
-								<ListboxOption value={option}
-									class={({selected})=> (selected ? "listbox-selected" : "") + " listbox-option"}
-								>
-									{option.label}
-								</ListboxOption>
-							{/each}
-						</ListboxOptions>
-					</div>
-				{/if}
-			</Listbox>
+				<option value="">Sort By</option>
+				{#each sortOptions as option}
+					<option value={option.name}>{option.label}</option>
+				{/each}
+			</select>
 		</div>
-		<Button isLink={false} size="sm" color="cyan" on:click={copyURL}>
-			<Icon src={Clipboard} class="w-7 h-7"  stroke-width="1.5" />
+		<Button isLink={false} size="sm" color="cyan" onclick={copyURL}>
+			<Icon src={Clipboard} class="w-7 h-7"  stroke-width="1.5" size="28" theme="default" title="Copy" />
 		</Button>
 	</div>
 	<div class="w-full flex flex-col z-10">
@@ -277,11 +257,11 @@
 			<div class="flex">
 				<input
 					bind:value={newSize}
-					on:input={() => {
+					oninput={() => {
 						newVolume = calculateVolume(newSize);
 						newSurface = calculateSurface(newSize);
 					}}
-					on:change={addMotor}
+					onchange={addMotor}
 					type="text"
 					placeholder="Add New"
 					class="bg-neutral-500/10 w-28 h-8 rounded-2xl p-3 text-base duration-300
@@ -293,9 +273,9 @@
 				<div class="flex flex-col md:flex-row md:w-fit w-min" class:invisible={isNaN(newVolume) || newVolume == undefined}><span class="text-neutral-400 text-base mr-1 w-fit">Volume: </span>{#if newVolume}{newVolume}{/if}mm³</div>
 				<button
 					class="text-cyan w-fit"
-					on:click={addMotor}
+					onclick={addMotor}
 				>
-					<Icon src={Plus} class="w-6 h-6 text-neutral-500/50 hover:text-cyan duration-300" stroke-width="3" />
+					<Icon src={Plus} class="w-6 h-6 text-neutral-500/50 hover:text-cyan duration-300" stroke-width="3" size="24" theme="default" title="Add motor" />
 				</button>
 			</div>
 		</div>

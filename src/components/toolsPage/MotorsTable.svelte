@@ -1,6 +1,10 @@
 <script lang="ts">
-	export let motors: { size: string, volume: number, surface: number }[]
 	import MotorComparison from "./MotorComparison.svelte";
+	interface Props {
+		motors: { size: string, volume: number, surface: number }[];
+	}
+
+	let { motors }: Props = $props();
 </script>
 
 <div class="py-4 grid 3xl:grid-cols-2 grid-cols-1 gap-x-4">

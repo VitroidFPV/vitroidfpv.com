@@ -1,25 +1,45 @@
 <script lang="ts">
-	export let width = 200;
-	export let lineWidth = 30;
-	export let bgColor = "rgb(163 163 163 / 0.1)";
-	export let color = "#2ad162";
-	export let responsive = true;
-	export let percent = 0;
-	export let rounded = true;
-	export let animation = true;
-	export let text = "";
-	export let textStyle = "";
-	export let delay = 0;
+	import { run } from 'svelte/legacy';
 
-	let svgWidth: number | string = "";
-
-	$: if (responsive) {
-		svgWidth = "100%";
-	} else {
-		svgWidth = width;
+	interface Props {
+		width?: number;
+		lineWidth?: number;
+		bgColor?: string;
+		color?: string;
+		responsive?: boolean;
+		percent?: number;
+		rounded?: boolean;
+		animation?: boolean;
+		text?: string;
+		textStyle?: string;
+		delay?: number;
 	}
 
-	$: offset = 1100 * (1 - percent / 100);
+	let {
+		width = 200,
+		lineWidth = 30,
+		bgColor = "rgb(163 163 163 / 0.1)",
+		color = "#2ad162",
+		responsive = true,
+		percent = 0,
+		rounded = true,
+		animation = true,
+		text = "",
+		textStyle = "",
+		delay = 0
+	}: Props = $props();
+
+	let svgWidth: number | string = $state("");
+
+	run(() => {
+		if (responsive) {
+			svgWidth = "100%";
+		} else {
+			svgWidth = width;
+		}
+	});
+
+	let offset = $derived(1100 * (1 - percent / 100));
 
 	console.log(delay);
 </script>

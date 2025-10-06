@@ -1,7 +1,7 @@
 import adapter from "@sveltejs/adapter-netlify";
 import { mdsvex } from "mdsvex";
 import mdsvexConfig from "./mdsvex.config.js";
-import { vitePreprocess } from "@sveltejs/kit/vite";
+import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 
 /** @type {import("@sveltejs/kit").Config} */
 const config = {
@@ -18,8 +18,15 @@ const config = {
 			$routes: "./src/routes",
 		},
 	},
-	extensions: [".svelte", ...mdsvexConfig.extensions],
-	preprocess: [vitePreprocess(), mdsvex(mdsvexConfig)],
+	extensions: [".svelte", ...(mdsvexConfig.extensions || [])],
+	preprocess: [
+		vitePreprocess(),
+		{
+			markup: ({ content, filename = '' }) => {
+				return mdsvex(mdsvexConfig).markup({ content, filename });
+			}
+		}
+	],
 };
 
 export default config;

@@ -58,13 +58,15 @@
 		<div class="mt-20 mb-10 w-fit z-20 md:pl-8 px-4">
 			<MainHeader title={titleRaw} color="yellow"/>
 			<Header title={`\"What do you mean I can't just use AA's!?\"`} />
-			<p class="text-xl md:w-1/2 md:px-0">
-				{description}<br><br>
-				Batteries we use in FPV are not single-use disposable items, so we need a way to charge them. This list covers chargers and other charging 
-				equipment across a range of price points.
-				<br><br>
-				Always make sure that you're charging in a safe environment, and never leave your batteries unattended while charging. Everything in this list 
-				should be solid, but nothing can truly be completely safe.
+			<div class="text-xl md:w-1/2 md:px-0">
+				<p>
+					{description}<br><br>
+					Batteries we use in FPV are not single-use disposable items, so we need a way to charge them. This list covers chargers and other charging 
+					equipment across a range of price points.
+					<br><br>
+					Always make sure that you're charging in a safe environment, and never leave your batteries unattended while charging. Everything in this list 
+					should be solid, but nothing can truly be completely safe.
+				</p>
 				<ul class="mt-4 grid md:grid-cols-4 grid-cols-2 w-full justify-between">
 					<li
 						class="before:content-[''] before:pr-7 before:rounded-lg before:mr-2 before:bg-green before:relative mb-2 mr-8">
@@ -83,6 +85,7 @@
 						Highly varied
 					</li>
 				</ul>
+			</div>
 		</div>
 		<div class="absolute w-full h-full pointer-events-none">
 			<div style="-webkit-mask-image: linear-gradient(transparent, black, transparent);"

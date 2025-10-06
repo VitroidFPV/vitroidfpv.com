@@ -7,8 +7,14 @@
 	import { queryParam } from "sveltekit-search-params";
 	import Corner from "$components/Corner.svelte";
 
-	export let open: boolean = false;
-	export let title: string = "Tab title";
+	interface Props {
+		open?: boolean;
+		tabTitle?: string;
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
+
+	let { open = $bindable(false), tabTitle = "Tab title", children, ...rest }: Props = $props();
 
 	const ctx = getContext<TabCtxType>("ctx") ?? {};
 	// single selection
@@ -31,19 +37,19 @@
 		decode: (value) => value,
 	});
 
-	if ($query === title) {
+	if ($query === tabTitle) {
 		open = true;
 	}
 
-	let sanitizedTitle = title.replace(/ /g, "-").replace(/[^a-zA-Z0-9-]/g, "");
+	let sanitizedTitle = tabTitle.replace(/ /g, "-").replace(/[^a-zA-Z0-9-]/g, "");
 
 	function updateURL() {
-		$query = title
+		$query = tabTitle
 		open = true;
 	}
 
 	onMount(() => {
-		if ($query === title) {
+		if ($query === tabTitle) {
 			setTimeout(() => {
 				const el = document.getElementById(sanitizedTitle);
 				if (el) {
@@ -54,20 +60,21 @@
 	})
 </script>
 
-<li role="presentation" class="!m-0" class:tab-open={open}>
+<li role="presentation" class="m-0!" class:tab-open={open}>
 	<div class="flex flex-row items-start h-fit">
 		{#key open}
 		<Corner fill={open ? "highlight" : "transparent"} rotation={270} invisible/>
 		{/key}
 		<button
 			type="button"
-			on:click={updateURL}
+			onclick={updateURL}
 			role="tab"
 			id="{sanitizedTitle}"
 			class={"tab md:p-4 p-3 rounded-b-3xl md:text-xl text-base md:hover:text-highlight md:dark:hover:text-highlight-dark hover:-translate-y-0.5 duration-300 transition-transform" + (open ?
-			" dark:bg-highlight-dark bg-highlight z-10 tab-open hover:text-inherit -translate-y-0.5 hover:!text-main-200 dark:hover:!text-contrast-50" : "")}
-			{...$$restProps}>
-			<slot name="title">{title}</slot>
+			" dark:bg-highlight-dark bg-highlight z-10 tab-open -translate-y-0.5 hover:text-main-200! dark:hover:text-contrast-50!" : "")}
+			{...rest}>
+			<!-- <slot name="tabTitle">{tabTitle}</slot> -->
+			{tabTitle}
 		</button>
 		{#key open}
 		<Corner fill={open ? "highlight" : "transparent"} rotation={180} invisible/>
@@ -77,7 +84,7 @@
 	{#if open}
 		<div class="hidden tab_content_placeholder">
 			<div transition:fade={{duration: 500}} class="" use:init>
-				<slot />
+				{@render children?.()}
 			</div>
 		</div>
 	{/if}

@@ -1,4 +1,4 @@
-<a href="https://www.axisflying.com/" target="_blank" rel="noopener noreferrer">
+<a href="https://www.axisflying.com/" target="_blank" rel="noopener noreferrer" aria-label="Axis Flying">
 	<svg
 		width="100%"
 		height="100%"

@@ -8,9 +8,9 @@
 	onMount(() => {
 		let unsubscribe = theme.subscribe((value) => {
 			if (value === "dark") {
-				window.document.body.classList.add("dark");
+				window.document.documentElement.classList.add("dark");
 			} else {
-				window.document.body.classList.remove("dark");
+				window.document.documentElement.classList.remove("dark");
 			}
 		});
 
@@ -20,19 +20,13 @@
 	});
 </script>
 
-<!-- <button
-	on:click={() => ($theme = $theme == "dark" ? "light" : "dark")}
-	class="absolute leading-none text-[0px] right-[5px] top-[-0px] md:relative m-0 md:mt-auto bg-contain bg-no-repeat justify-self-end mb-4 h-12 w-12 bg-[url('https://img.icons8.com/material-outlined/64/a1a1a1/sun--v1.png')] md:scale-75 scale-50 dark:bg-[url('https://img.icons8.com/material-outlined/64/a1a1a1/moon--v1.png')] opacity-80 hover:opacity-100 md:hover:-translate-y-1 duration-300"
-	>Change Theme
-</button> -->
-
 <button
-	on:click={() => ($theme = $theme == "dark" ? "light" : "dark")}
+	onclick={() => ($theme = $theme == "dark" ? "light" : "dark")}
 	class="md:relative absolute justify-self-end md:mb-8 md:mr-0 mr-3 md:top-0 right-0 top-1/4 hover:-translate-y-1 duration-300 opacity-75 hover:opacity-100"
 >
 	{#if $theme == "light"}
-		<Icon src={Sun} class="md:h-8 h-6 aspect-square" stroke-width="2" />
+		<Icon src={Sun} class="md:h-8 h-6 aspect-square" stroke-width="2" size="24" theme="default" title="Light mode" />
 	{:else}
-		<Icon src={Moon} class="md:h-8 h-6 aspect-square" stroke-width="2" />
+		<Icon src={Moon} class="md:h-8 h-6 aspect-square" stroke-width="2" size="24" theme="default" title="Dark mode" />
 	{/if}
 </button>

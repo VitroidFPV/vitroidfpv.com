@@ -39,7 +39,7 @@ They also offer replacement bells for every motor they sell, so you don't have t
 Currently offered sizes are:
 
 <Tablist>
-<Tab title="2207" open>
+<Tab tabTitle="2207" open>
 
 
 Available options:
@@ -80,10 +80,10 @@ $20.90/21.90
 
 </GridBox>
 
-![](/uploads/flyfish-2207.png)
+![FlyFish 2207](/uploads/flyfish-2207.png)
 </Tab>
 
-<Tab title="2306">
+<Tab tabTitle="2306">
 
 
 Available options:
@@ -123,11 +123,11 @@ $20.90/21.90
 
 </GridBox>
 
-![](/uploads/flyfish_2306.png)
+![FlyFish 2306](/uploads/flyfish_2306.png)
 
 </Tab>
 
-<Tab title="1404">
+<Tab tabTitle="1404">
 
 Available options:
 
@@ -163,11 +163,11 @@ $14.99
 
 </GridBox>
 
-![](https://cdn.shopify.com/s/files/1/0618/1811/0132/products/Flash-1404-motor-2.jpg?v=1665123558)
+![FlyFish 1404](https://cdn.shopify.com/s/files/1/0618/1811/0132/products/Flash-1404-motor-2.jpg?v=1665123558)
 
 </Tab>
 
-<Tab title="2806.5">
+<Tab tabTitle="2806.5">
 
 Available options:
 
@@ -204,7 +204,7 @@ $26.90
 
 </GridBox>
 
-![](https://cdn.shopify.com/s/files/1/0618/1811/0132/products/Flash-2806.5-motor-3.jpg?v=1664266390)
+![FlyFish 2806.5](https://cdn.shopify.com/s/files/1/0618/1811/0132/products/Flash-2806.5-motor-3.jpg?v=1664266390)
 
 </Tab>
 
@@ -216,7 +216,7 @@ $26.90
 Slick aluminum-on-carbon frames with fancy colors, reasonable pricing, 3d milled carbon, and integrated XT60 holders
 
 <Tablist>
-<Tab title="Volador VX5/VD5" open>
+<Tab tabTitle="Volador VX5/VD5" open>
 
 Not your typical boxy frames, they have full 7075 aluminum cam cages for a really nice look and all-round camera protection, and durable T700 carbon. Coming in a Squash-X and Deadcat configurations for freestyle and cinematic uses. Heavier than usual, but with the thick carbon plates and 6mm arms that are extra thick in the center, it makes sense
 
@@ -268,7 +268,7 @@ Available options:
 
 </Tab>
 
-<Tab title="Volador VX6/VD6">
+<Tab tabTitle="Volador VX6/VD6">
 
 Very similar in principle to the 5" frames, but with longer 6" arms for mid-range shots, and/or for comfortably carrying slightly heavier cameras (think heavy GoPro 10/11). Could also use 5.5" props as a nice in-between, as the extra 1" of the arms does not add much weight
 
@@ -322,7 +322,7 @@ Available options:
 
 </GridBox>
 
-![](/uploads/flyfish_volador.png)
+![FlyFish Volador](/uploads/flyfish_volador.png)
 
 </Tab>
 

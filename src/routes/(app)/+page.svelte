@@ -209,7 +209,7 @@
 
 	<div class="xl:px-16 md:px-8 px-4 my-8">
 		<h2 class="text-6xl text-highlight dark:text-highlight-dark mb-4">Sponsors</h2>
-		<div class="grid grid-cols-2 xl:grid-cols-4 items-center justify-center max-w-[100vw] xl:gap-32 gap-16">
+		<div class="grid grid-cols-2 xl:grid-cols-4 items-center justify-center max-w-screen xl:gap-32 gap-16">
 			<Radiomaster />
 			<Hq />
 			<Axis />
@@ -493,16 +493,3 @@
 		</div>
 	</div>
 </div>
-
-<style>
-	.transition-container {
-		display: grid;
-		grid-template-rows: 1fr;
-		grid-template-columns: 1fr;
-	}
-
-	.transition-container > * {
-		grid-row: 1;
-		grid-column: 1;
-	}
-</style>

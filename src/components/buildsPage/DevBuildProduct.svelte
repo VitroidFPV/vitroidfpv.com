@@ -1,91 +1,125 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	// @ts-ignore
 	import Link from "$components/Link.svelte";
 	import Chip from "$components/Chip.svelte";
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { addPart } from "$lib/addPart";
-	import { page } from "$app/stores";
+	import { page } from "$app/state";
 	import ImgPopout from "$components/ImgPopout.svelte";
 	import { slide, fly } from "svelte/transition";
 	import { Icon } from "@steeze-ui/svelte-icon";
 	import { Photo, Eye, Plus, Link as ChainLink, PencilSquare, FolderArrowDown, ChevronUp } from "@steeze-ui/heroicons"
 
-	const url = $page.url.pathname;
+	const url = page.url.pathname;
 
-	let element: HTMLElement;
-	let intersecting: boolean;
+	let element: HTMLElement | undefined = $state();
+	let intersecting: boolean | undefined = $state();
 
-	// input variables
-	export let color: string = "red";
-	export let title: string = "Title";
-	export let price: string = "$0.00";
-	export let point1 = "";
-	export let point2 = "";
-	export let point3 = "";
-	export let point4 = "";
-	export let point5 = "";
-	export let info: string[] | string = [] || "";
-	let infoArray: string[] = [];
-	if (typeof info === "string") {
-		info.split(";").forEach((item) => {
-			infoArray.push(item);
-		});
-	} else {
-		infoArray = info;
-	}
-	export let text: string = "Description";
-	export let href: string = "/";
-	export let img: string = "/uploads/placeholder.png";
-	export let category: string = "";
-	export let group = "" || undefined;
-	export let moduleUrl: string = "";
-	export let order: number = 0;
-
-	$: if (!group) {
-		// hacky but whatever
-		group = undefined;
+	
+	let infoArray: string[] = $state([]);
+	$effect(() => {
+		if (typeof info === "string") {
+			infoArray = info.split(";");
+		} else {
+			infoArray = info;
+		}
+	});
+	interface Props {
+		// input variables
+		color?: string;
+		title?: string;
+		price?: string;
+		point1?: string;
+		point2?: string;
+		point3?: string;
+		point4?: string;
+		point5?: string;
+		info?: string[] | string;
+		text?: string;
+		href?: string;
+		img?: string;
+		category?: string;
+		group?: any;
+		moduleUrl?: string;
+		order?: number;
 	}
 
-	let infoYaml = "";
-	if (info) {
-		infoYaml = infoArray.map((item) => {
-			return `- ${item}`;
-		}).join("\n");
-	}
+	let {
+		color = $bindable("red"),
+		title = $bindable("Title"),
+		price = $bindable("$0.00"),
+		point1 = "",
+		point2 = "",
+		point3 = "",
+		point4 = "",
+		point5 = "",
+		info = [],
+		text = $bindable("Description"),
+		href = $bindable("/"),
+		img = $bindable("/uploads/placeholder.png"),
+		category = $bindable(""),
+		group = $bindable(undefined),
+		moduleUrl = "",
+		order = $bindable(0)
+	}: Props = $props();
+
+	run(() => {
+		if (!group) {
+			// hacky but whatever
+			group = undefined;
+		}
+	});
+
+	let infoYaml = $state("");
+	run(() => {
+		if (info) {
+			infoYaml = infoArray.map((item) => {
+				return `- ${item}`;
+			}).join("\n");
+		}
+	});
 
 	// save the original input variables
-	const originalSave = { color, title, point1, point2, point3, point4, point5, infoYaml, text, href, img, category, group, order };
+	let originalSave = $derived({ color, title, point1, point2, point3, point4, point5, infoYaml, text, href, img, category, group, order });
 
-	let canSave = false;
+	let canSave = $state(false);
 	// check if the input variables have changed from the saved ones
 	// if they have, then the user can save
-	$: canSave = JSON.stringify({ color, title, point1, point2, point3, point4, point5, infoYaml, text, href, img, category, group, order }) !== JSON.stringify(originalSave);
+	run(() => {
+		canSave = JSON.stringify({ color, title, point1, point2, point3, point4, point5, infoYaml, text, href, img, category, group, order }) !== JSON.stringify(originalSave);
+	});
 
-	let open: boolean;
+	let open: boolean = $state(false);
 
-	let infoObjects: { text: string; tooltip: string }[] = [];
+	let infoObjects: { text: string; tooltip: string }[] = $state([]);
 
-	$: if (info) {
-		// [text<tooltip>", "text<tooltip>", ...]
-		// separate strings in the array into objects with text and tooltip
-		infoObjects = infoArray.map((item) =>  {
-			const [text, tooltip] = String(item).split(/<|>/);
-			return { text, tooltip: tooltip || "" };
-		})
+	run(() => {
+		if (info) {
+			// [text<tooltip>", "text<tooltip>", ...]
+			// separate strings in the array into objects with text and tooltip
+			infoObjects = infoArray.map((item) =>  {
+				const [text, tooltip] = String(item).split(/<|>/);
+				return { text, tooltip: tooltip || "" };
+			})
 
-		price = infoObjects[0]?.text;
-	}
+			price = infoObjects[0]?.text;
+		}
+	});
 
 	// if infoYaml changes, update the infoArray
-	$: if (infoYaml) {
-		infoArray = infoYaml.split("\n").map((item) => {
-			return item.slice(2);
-		});
-		// remove empty strings from the array
-		infoArray = infoArray.filter((item) => item !== "");
-	}
+	run(() => {
+		if (infoYaml) {
+			infoArray = infoYaml.split("\n").map((item) => {
+				return item.slice(2);
+			});
+			// remove empty strings from the array
+			infoArray = infoArray.filter((item) => item !== "");
+		}
+	});
 
-	let colorHex = "";
+	let colorHex = $state("");
 
 	switch (color) {
 		case "red":
@@ -102,38 +136,48 @@
 			break;
 	}
 
-	let editMode = false;
-	let editPhoto = false;
-	$: if (!editMode) {
-		editPhoto = false;
-	}
+	let editMode = $state(false);
+	let editPhoto = $state(false);
+	run(() => {
+		if (!editMode) {
+			editPhoto = false;
+		}
+	});
 
-	let sanitizedName = `${category.toLowerCase().replace(/\s+/g, "-").replace(/[^a-zA-Z0-9-]/g, "")}-${title.toLocaleLowerCase().replace(/\s+/g, "-").replace(/[^a-zA-Z0-9-]/g, "")}`
-	$: sanitizedName = `${category.toLowerCase().replace(/\s+/g, "-").replace(/[^a-zA-Z0-9-]/g, "")}-${title.toLocaleLowerCase().replace(/\s+/g, "-").replace(/[^a-zA-Z0-9-]/g, "")}`
+	let sanitizedName = $state(`${category.toLowerCase().replace(/\s+/g, "-").replace(/[^a-zA-Z0-9-]/g, "")}-${title.toLocaleLowerCase().replace(/\s+/g, "-").replace(/[^a-zA-Z0-9-]/g, "")}`)
+	run(() => {
+		sanitizedName = `${category.toLowerCase().replace(/\s+/g, "-").replace(/[^a-zA-Z0-9-]/g, "")}-${title.toLocaleLowerCase().replace(/\s+/g, "-").replace(/[^a-zA-Z0-9-]/g, "")}`
+	});
 
-	let autoPath: string;
-	$: autoPath = `/uploads${url}/${sanitizedName}.png`;
+	let autoPath = $state("");
+	run(() => {
+		autoPath = `/uploads${url}/${sanitizedName}.png`;
+	});
 
-	let formattedYaml = "";
-	$: formattedYaml = infoYaml.split("\n").map((item) => {
-		return `  ${item}`;
-	}).join("\n");
+	let formattedYaml = $state("");
+	run(() => {
+		formattedYaml = infoYaml.split("\n").map((item) => {
+			return `  ${item}`;
+		}).join("\n");
+	});
 
-	let content = ""
-	$: content = 
-`---
-color: ${color}
-category: ${category}
-group: ${group}
-visible: true
-order: ${order}
-title: ${title}
-link: ${href}
-img: ${img}
-text: ${text}
-info: 
-${formattedYaml}
----`;
+	let content = $state("")
+	run(() => {
+		content = 
+	`---
+	color: ${color}
+	category: ${category}
+	group: ${group}
+	visible: true
+	order: ${order}
+	title: ${title}
+	link: ${href}
+	img: ${img}
+	text: ${text}
+	info: 
+	${formattedYaml}
+	---`;
+	});
 
 	function confirm() {
 		let path = "";
@@ -179,9 +223,9 @@ info:
 	}
 </script>
 
-<svelte:window on:keydown={(event) => {if (event.key === "Escape") {open = false}}}/>
+<svelte:window onkeydown={(event) => {if (event.key === "Escape") {open = false}}}/>
 
-<ImgPopout {img} {title} {open} on:clickOutside={() => open = false} />
+<ImgPopout {img} {title} {open} onclickoutside={() => open = false} />
 
 <IntersectionObserver {element} bind:intersecting>
 		<div class="product-box h-full flex flex-col not-intersecting z-10 relative" bind:this={element} class:intersecting={intersecting}>
@@ -224,13 +268,13 @@ info:
 					</div>
 					<div class="flex items-center duration-300">
 						<button 
-							on:click={() => addPart(title, price, color, category, url, href)}
+							onclick={() => addPart(title, price, color, category, url, href)}
 							class="hover:stroke-current stroke-contrast-500 duration-300 mr-2">
-							<Icon class="w-7 h-7 stroke-[2.5] stroke-inherit" src={Plus} />
+							<Icon class="w-7 h-7 stroke-[2.5] stroke-inherit" src={Plus} size="28" theme="default" title="Add to price comparison" />
 						</button>
 						<!-- {#if img} -->
 						<button
-							on:click={() => {if (!editMode) {open = true} else {editPhoto = !editPhoto}}}
+							onclick={() => {if (!editMode) {open = true} else {editPhoto = !editPhoto}}}
 							class=" hover:stroke-current stroke-contrast-500 duration-300 mr-2"
 						>
 							<div class="transition-container">
@@ -239,14 +283,14 @@ info:
 										in:fly={{y: -20, duration: 300}}
 										out:fly={{y: 20, duration: 300}}
 									>
-										<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={Photo} />
+										<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={Photo} size="28" theme="default" title="View image" />
 									</div>
 								{:else}
 									<div
 										in:fly={{y: -20, duration: 300}}
 										out:fly={{y: 20, duration: 300}}
 									>
-										<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={ChainLink} />
+										<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={ChainLink} size="28" theme="default" title="View image" />
 									</div>
 								{/if}
 							</div>
@@ -255,21 +299,21 @@ info:
 						<div class="transition-container" class:mr-2={canSave}>
 							{#if !editMode}
 								<button
-									on:click={() => {editMode = true}}
+									onclick={() => {editMode = true}}
 									class=" hover:stroke-current stroke-contrast-500 duration-300"
 									in:fly={{y: -16, duration: 300}}
 									out:fly={{y: 16, duration: 300}}
 								>
-									<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={PencilSquare} />
+									<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={PencilSquare} size="28" theme="default" title="Edit" />
 								</button>
 							{:else}
 								<button
-									on:click={() => {editMode = false}}
+									onclick={() => {editMode = false}}
 									class=" hover:stroke-current stroke-contrast-500 duration-300"
 									in:fly={{y: -16, duration: 300}}
 									out:fly={{y: 16, duration: 300}}
 								>
-									<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={Eye} />
+									<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={Eye} size="28" theme="default" title="View" />
 								</button>
 							{/if}
 						</div>
@@ -279,11 +323,11 @@ info:
 							>
 							{#if canSave}
 								<button
-									on:click={() => {confirm()}}
+									onclick={() => {confirm()}}
 									class=" hover:stroke-current stroke-contrast-500 duration-300"
 									transition:fly={{y: -16, duration: 300}}
 								>
-									<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={FolderArrowDown} />
+									<Icon class="w-7 h-7 stroke-2 stroke-inherit" src={FolderArrowDown} size="28" theme="default" title="Save" />
 								</button>
 							{/if}
 						</div>
@@ -294,7 +338,7 @@ info:
 						{#if editPhoto}
 							<div
 								bind:innerText={img}
-								on:dblclick={() => {img = autoPath}}
+								ondblclick={() => {img = autoPath}}
 								spellcheck="false"
 								contenteditable="true"
 								role="textbox"
@@ -325,9 +369,9 @@ info:
 											id={colorBox} 
 											class="hidden peer" 
 											bind:group={color}
-											on:click={() => selectColor(color)}
+											onclick={() => selectColor(color)}
 										>
-										<label for={colorBox} class="h-7 w-7 bg-{colorBox} text-{colorBox} outline outline-2 outline-transparent outline-offset-[3px] peer-checked:outline-current block rounded-md cursor-pointer"></label>
+										<label for={colorBox} class="h-7 w-7 bg-{colorBox} text-{colorBox} outline-2 outline-transparent outline-offset-[3px] peer-checked:outline-current block rounded-md cursor-pointer"></label>
 									</div>
 								{/each}
 							</form>
@@ -339,15 +383,15 @@ info:
 										min=1
 										max=69
 										class="bg-gray-500/10 w-full h-8 rounded-md p-2 text-base duration-300
-										outline-none focus-within:outline-{color} outline-[2px] no-spinner"
+										outline-none focus-within:outline-{color} outline-2 no-spinner"
 										/>
 									</div>
 									<div class="h-8 flex flex-col justify-between ml-1.5 text-neutral-400/40">
-										<button on:click={() => order++} class="hover:text-{color} duration-300">
-											<Icon class="w-3 h-3 stroke-[4]" src={ChevronUp} />
+										<button onclick={() => order++} class="hover:text-{color} duration-300">
+											<Icon class="w-3 h-3 stroke-4" src={ChevronUp} size="12" theme="default" title="Increase order" />
 										</button>
-										<button on:click={() => order--} class="hover:text-{color} duration-300">
-											<Icon class="w-3 h-3 stroke-[4] rotate-180 stroke-current" src={ChevronUp} />
+										<button onclick={() => order--} class="hover:text-{color} duration-300">
+											<Icon class="w-3 h-3 stroke-4 rotate-180 stroke-current" src={ChevronUp} size="12" theme="default" title="Decrease order" />
 										</button>
 									</div>
 								</div>
@@ -397,7 +441,7 @@ info:
 			
 			{#each {length: 3} as _, i}
 				<div 
-					class="absolute dark:opacity-40 opacity-80 pointer-events-none z-10 !scale-75 saturate-150"
+					class="absolute dark:opacity-40 opacity-80 pointer-events-none z-10 scale-75! saturate-150"
 					style={`top: ${(Math.random() * 50) - 70}%; left: ${(Math.random() * 100) - 50}%; transform: translate(-50%, -50%)`}
 				>
 					<svg width="443" height="470" viewBox="0 0 443 470" fill="none" xmlns="http://www.w3.org/2000/svg">

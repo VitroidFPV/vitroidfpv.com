@@ -7,11 +7,15 @@
 	import { Icon } from "@steeze-ui/svelte-icon";
 	import { PauseCircle, PlayCircle, StopCircle } from "@steeze-ui/heroicons";
 
-	export let src: string;
+	interface Props {
+		src: string;
+	}
 
-	let play = false;
+	let { src }: Props = $props();
+
+	let play = $state(false);
 	
-	let audioPlayer: HTMLAudioElement;
+	let audioPlayer: HTMLAudioElement = $state()!;
 
 	function handlePlayPause() {
 		if (play) {
@@ -30,7 +34,7 @@
 	}
 
 	let progressPercent = tweened(0, { duration: 300, easing: cubicOut });
-	let progressElement: HTMLInputElement;
+	let progressElement: HTMLInputElement = $state()!;
 
 	function handleProgress() {
 		audioPlayer.currentTime = (parseFloat(progressElement.value) / 100) * audioPlayer.duration;
@@ -52,20 +56,20 @@
 
 {#if src}
 	<div class="">
-		<button on:click={handlePlayPause} class="mb-2 text-neutral-500/80 hover:text-cyan/80 duration-300">
+		<button onclick={handlePlayPause} class="mb-2 text-neutral-500/80 hover:text-cyan/80 duration-300">
 			{#if !play}
-				<Icon class="w-8 h-8" src={PlayCircle} />
+				<Icon class="w-8 h-8" src={PlayCircle} size="32" theme="default" title="Play" />
 			{:else}
-				<Icon class="w-8 h-8" src={PauseCircle} />
+				<Icon class="w-8 h-8" src={PauseCircle} size="32" theme="default" title="Pause" />
 			{/if}
 		</button>
-		<button on:click={handleStop} class="mb-2 text-neutral-500/80 hover:text-cyan/80 duration-300">
-			<Icon class="w-8 h-8" src={StopCircle} />
+		<button onclick={handleStop} class="mb-2 text-neutral-500/80 hover:text-cyan/80 duration-300">
+			<Icon class="w-8 h-8" src={StopCircle} size="32" theme="default" title="Stop" />
 		</button>
 
 		<div class="w-full bg-neutral-500/20 rounded-full overflow-hidden relative">
 			<div class="h-2 bg-cyan rounded-full" style="width: {$progressPercent}%;"></div>
-			<div class="absolute -top-2 w-[calc(100%_+_1rem)] h-full -left-2">
+			<div class="absolute -top-2 w-[calc(100%+1rem)] h-full -left-2">
 				<input
 					type="range"
 					name="progress"
@@ -75,8 +79,8 @@
 					max="100"
 					step="0.01"
 					bind:this={progressElement}
-					on:input={handleProgress}
-					on:click={handleProgress}
+					oninput={handleProgress}
+					onclick={handleProgress}
 				>
 			</div>
 		</div>
@@ -87,8 +91,8 @@
 			id="audioPlayer" 
 			controls 
 			bind:this={audioPlayer} 
-			on:timeupdate={handleTimeUpdate} 
-			on:ended={handleEnded}
+			ontimeupdate={handleTimeUpdate} 
+			onended={handleEnded}
 		></audio>
 	</div>
 {/if}

@@ -1,22 +1,28 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { fly } from 'svelte/transition';
 
 	import type { PageData } from './$types';
-	import type { SvelteComponentTyped } from 'svelte/internal';
-	import { onMount } from 'svelte/internal';
+	import type { Component } from 'svelte';
+	import { onMount } from "svelte";
 	import type { Module } from "$lib/types/module";
 	import { browser } from '$app/environment';
 	import removeMarkdown from "remove-markdown";
 	import { html } from 'satori-html';
 	import Progress from '$components/graph/Progress.svelte';
 
-	export let data: PageData;
+	interface Props {
+		data: PageData;
+	}
 
-	type C = $$Generic<typeof SvelteComponentTyped<any, any, any>>;
-	$: component = data.component as unknown as C;
+	let { data }: Props = $props();
 
-	let categoryColor: string;
-	let hexColor: string;
+	type C = $$Generic<typeof Component>;
+	let component = $derived(data.component as unknown as C);
+
+	let categoryColor: string = $state("");
+	let hexColor: string = $state("");
 	switch (data.frontmatter.category) {
 		case "Guides":
 			categoryColor = "green"
@@ -57,10 +63,10 @@
 	// 		content: groups?.content ?? '',
 	// 	}))
 	let htmlString = ""
-	let readTime = 1
+	let readTime = $state(1)
 
 	const headerRegex = /<h([1-6])[^>]*>(.*?)<\/h\1>/gi;
-	let headers: any = []
+	let headers: any = $state([])
 
 	// console.log(headers)
 
@@ -70,7 +76,7 @@
 		threshold: 1
 	}
 
-	let intersectingHeader = ""
+	let intersectingHeader = $state("")
 	let	callback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
 		entries.forEach(entry => {
 			if (entry.isIntersecting) {
@@ -117,15 +123,15 @@
 		}
 	})
 
-	let rating = 0
-	let detailedRating = false
+	let rating = $state(0)
+	let detailedRating = $state(false)
 
-	const detailedRatings = {
+	const detailedRatings = $state({
 		"Design": 0,
 		"Features": 0,
 		"Performance": 0,
 		"Value": 0,
-	}
+	})
 	
 
 	const ratingColors = {
@@ -145,28 +151,30 @@
 		}, 300)
 	})
 
-	$: if (detailedRating) {
-		rating = 0
-		setTimeout(() => {
-			detailedRatings["Design"] = data.frontmatter.design
-			detailedRatings["Features"] = data.frontmatter.features
-			detailedRatings["Performance"] = data.frontmatter.performance
-			detailedRatings["Value"] = data.frontmatter.value
-			rating = Object.values(detailedRatings).reduce((a, b) => a + b) / 4
-		}, 100)
-	} else {
-		setTimeout(() => {
-			detailedRatings["Design"] = 0
-			detailedRatings["Features"] = 0
-			detailedRatings["Performance"] = 0
-			detailedRatings["Value"] = 0
-		}, 100)
-	}
+	run(() => {
+		if (detailedRating) {
+			rating = 0
+			setTimeout(() => {
+				detailedRatings["Design"] = data.frontmatter.design
+				detailedRatings["Features"] = data.frontmatter.features
+				detailedRatings["Performance"] = data.frontmatter.performance
+				detailedRatings["Value"] = data.frontmatter.value
+				rating = Object.values(detailedRatings).reduce((a, b) => a + b) / 4
+			}, 100)
+		} else {
+			setTimeout(() => {
+				detailedRatings["Design"] = 0
+				detailedRatings["Features"] = 0
+				detailedRatings["Performance"] = 0
+				detailedRatings["Value"] = 0
+			}, 100)
+		}
+	});
 
 	let prefix = data.frontmatter.category;
 	let titleRaw = data.frontmatter.title;
 	let title = " - " + titleRaw;
-	let color = hexColor;
+	let color = $derived(hexColor);
 	let imgRaw = data.frontmatter.img;
 	let img = imgRaw
 	// if imgRaw is relative, add "https://vitroidfpv.com" to the beginning
@@ -186,6 +194,8 @@
 	// console.log(description)
 
 	let imgOg = `https://vitroidfpv.com/api/og?title=${titleRaw}&description=${description}&category=${category}&img=${img}`
+
+	const SvelteComponent = $derived(component);
 </script>
 
 <svelte:head>
@@ -265,7 +275,7 @@
 							>
 							Total Score:
 							</span>
-							<button on:click={() => detailedRating = !detailedRating} class="transition-container">
+							<button onclick={() => detailedRating = !detailedRating} class="transition-container">
 								{#if detailedRating}
 									<div class="grid grid-cols-2 grid-rows-2 aspect-square gap-6 gap-y-12" transition:fly>
 										{#each Object.entries(detailedRatings) as [key, value], i}
@@ -273,7 +283,7 @@
 												<div class="h-fit text-lg">{key}</div>
 												<div class="flex justify-center items-center aspect-square">
 													<Progress
-														color={ratingColors[key]}
+														color={ratingColors[key as keyof typeof ratingColors]}
 														percent={value * 10}
 														text={value + "/10"}
 														textStyle="text-base"
@@ -302,8 +312,8 @@
 				<h1 class="text-{categoryColor} md:text-5xl text-4xl mb-2">{data.frontmatter.title}</h1>
 				<h2 class="md:text-3xl text-xl">{data.frontmatter.description}</h2>
 			</div> -->
-			<div class="order-3 article md !duration-300 transition-colors {categoryColor}">
-				<svelte:component this={component} />
+			<div class="order-3 article md duration-300! transition-colors {categoryColor}">
+				<SvelteComponent />
 			</div>
 		</article>
 		<div class="xl:flex xl:flex-col hidden sticky h-fit left-full top-0 pl-4 w-fit max-w-[24rem]">
@@ -313,7 +323,7 @@
 				<a 	href="#{removeSpecial(header.content)}"
 					class={
 					`text-[0.95rem] mb-2 leading-tight heading-${header.level} hover:translate-x-1 hover:text-${categoryColor} duration-300 w-fit border-l-2 border-transparent`
-					+ (header.content === intersectingHeader ? ` text-${categoryColor} !border-current` : "")}
+					+ (header.content === intersectingHeader ? ` text-${categoryColor} border-current!` : "")}
 				>
 					{header.content}
 				</a>

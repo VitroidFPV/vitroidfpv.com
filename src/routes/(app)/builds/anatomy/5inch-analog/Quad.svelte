@@ -8,9 +8,14 @@
 	import { component } from "$lib/stores/quadStore"
 	import Component from "$components/three/quad/Component.svelte"
 
-	// export let value: [number, number, number] = [0, 0, 0]
+	
 
-	export let urls: string[] = []
+	interface Props {
+		// export let value: [number, number, number] = [0, 0, 0]
+		urls?: string[];
+	}
+
+	let { urls = [] }: Props = $props();
 
 	function addSelect(url: string, event: any) {
 		if ($component.selected != url) {
@@ -48,7 +53,7 @@
 	
 </script>
 
-<Environment path="/uploads/three/" files="brown_photostudio_01_1k.hdr" />
+<Environment url="/uploads/three/brown_photostudio_01_1k.hdr" />
 
 <T.PerspectiveCamera
 makeDefault
@@ -65,9 +70,9 @@ fov={25}
 
 <T.Group 
 	rotation={[0, 2.75, 0]} scale={[1,1,1]} 
-	on:click={(event) => {event.stopPropagation(); addSelect(event.object.parent.name, event)}}
-	on:pointerenter={(event) => {event.stopPropagation(); addHover(event.object.parent.name, event)}}
-	on:pointerleave={(event) => {event.stopPropagation(); addHover(event.object.parent.name, event, true)}}
+	onclick={(event: any) => {event.stopPropagation(); addSelect(event.object.parent.name, event)}}
+	onpointerenter={(event: any) => {event.stopPropagation(); addHover(event.object.parent.name, event)}}
+	onpointerleave={(event: any) => {event.stopPropagation(); addHover(event.object.parent.name, event, true)}}
 >
 	{#each urls as url}
 		<Component {url} />

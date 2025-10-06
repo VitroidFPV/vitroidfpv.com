@@ -4,26 +4,49 @@
 	import Chip from "$components/Chip.svelte";
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { addPart } from "$lib/addPart";
-	import { page } from "$app/stores";
+	import { page } from "$app/state";
 	import { spring } from "svelte/motion"
 	import { Icon } from "@steeze-ui/svelte-icon";
 	import { Photo, Plus, } from "@steeze-ui/heroicons";
 	import ImgPopout from "$components/ImgPopout.svelte";
 
-	const url = $page.url.pathname;
+	const url = page.url.pathname;
 
-	let element: HTMLElement;
-	let intersecting: boolean;
+	let element: HTMLElement | undefined = $state();
+	let intersecting: boolean | undefined = $state();
 
-	export let color: string;
-	export let title: string;
-	export let price: string;
-	export let point1 = "";
-	export let point2 = "";
-	export let point3 = "";
-	export let point4 = "";
-	export let point5 = "";
-	export let info: string[] | string = [] || "";
+	interface Props {
+		color: string;
+		title: string;
+		price: string;
+		point1?: string;
+		point2?: string;
+		point3?: string;
+		point4?: string;
+		point5?: string;
+		info?: string[] | string;
+		text: string;
+		href: string;
+		img: string;
+		category?: string;
+	}
+
+	let {
+		color,
+		title,
+		price = $bindable(),
+		point1 = "",
+		point2 = "",
+		point3 = "",
+		point4 = "",
+		point5 = "",
+		info = [],
+		text,
+		href,
+		img,
+		category = ""
+	}: Props = $props();
+
 	let infoArray: string[] = [];
 	if (typeof info === "string") {
 		info.split(";").forEach((item) => {
@@ -32,14 +55,10 @@
 	} else {
 		infoArray = info;
 	}
-	export let text: string;
-	export let href: string;
-	export let img: string;
-	export let category: string = "";
 
-	let open = false;
+	let open = $state(false);
 
-	let infoObjects: { text: string; tooltip: string }[] = [];
+	let infoObjects: { text: string; tooltip: string }[] = $state([]);
 
 	if (info) {
 		// [text<tooltip>", "text<tooltip>", ...]
@@ -48,11 +67,13 @@
 			const [text, tooltip] = String(item).split(/<|>/);
 			return { text, tooltip: tooltip || "" };
 		})
-
-		price = infoObjects[0]?.text;
 	}
+
+	$effect(() => {
+		price = infoObjects[0]?.text;
+	});
 	
-	let colorHex = "";
+	let colorHex = $state("");
 
 	switch (color) {
 		case "red":
@@ -70,9 +91,9 @@
 	}
 </script>
 
-<svelte:window on:keydown={(event) => {if (event.key === "Escape") {open = false}}}/>
+<svelte:window onkeydown={(event) => {if (event.key === "Escape") {open = false}}}/>
 
-<ImgPopout {img} {title} {open} on:clickOutside={() => open = false} />
+<ImgPopout {img} {title} {open} onclickoutside={() => open = false} />
 
 <IntersectionObserver {element} bind:intersecting>
 	<div class="product-box h-full flex flex-col not-intersecting z-10 relative" bind:this={element} class:intersecting={intersecting}>
@@ -83,14 +104,14 @@
 				</div>
 				<div>
 					<button 
-						on:click={() => addPart(title, price, color, category, url, href)}
+						onclick={() => addPart(title, price, color, category, url, href)}
 						class="mr-2 hover:text-current text-contrast-500 duration-300">
-						<Icon class="w-7 h-7" src={Plus} stroke-width="2" />
+						<Icon class="w-7 h-7" src={Plus} stroke-width="2" size="28" theme="default" title="Add to price comparison" />
 						<div class="sr-only">Add to price comparison</div>
 					</button>
 					{#if img}
-						<button on:click={() => open = true} class="hover:text-current text-contrast-500 duration-300">
-							<Icon class="w-7 h-7" src={Photo} stroke-width="2" />
+						<button onclick={() => open = true} class="hover:text-current text-contrast-500 duration-300">
+							<Icon class="w-7 h-7" src={Photo} stroke-width="2" size="28" theme="default" title="View image" />
 							<div class="sr-only">View image</div>
 						</button>
 					{/if}
@@ -119,7 +140,7 @@
 		
 		{#each {length: 3} as _, i}
 			<div 
-				class="absolute dark:opacity-40 opacity-80 pointer-events-none z-10 !scale-75 saturate-150"
+				class="absolute dark:opacity-40 opacity-80 pointer-events-none z-10 scale-75! saturate-150"
 				style={`top: ${(Math.random() * 50) - 70}%; left: ${(Math.random() * 100) - 50}%; transform: translate(-50%, -50%)`}
 			>
 				<svg width="443" height="470" viewBox="0 0 443 470" fill="none" xmlns="http://www.w3.org/2000/svg">

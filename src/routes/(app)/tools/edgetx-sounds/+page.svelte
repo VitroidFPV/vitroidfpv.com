@@ -1,16 +1,16 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import MainHeader from "$components/MainHeader.svelte";
 	import Header from "$components/Header.svelte";
 	import Button from "$components/Button.svelte";
 	import AudioPlayer from "$components/toolsPage/AudioPlayer.svelte";
-	import { Listbox, ListboxButton, ListboxOptions, ListboxOption, ListboxLabel } from "@rgossiaux/svelte-headlessui";
-	import { ChevronRight, ArrowPath, ArrowDownTray } from "@steeze-ui/heroicons"
+	import { ArrowPath, ArrowDownTray } from "@steeze-ui/heroicons"
 
 	import tinycolor from "tinycolor2";
 	import toast from "svelte-french-toast";
-
 	import { FFmpeg } from "@ffmpeg/ffmpeg";
-	import type { LogEvent } from "@ffmpeg/ffmpeg/dist/esm/types";
+	import type { LogEvent } from "@ffmpeg/ffmpeg";
 	import { fetchFile, toBlobURL } from "@ffmpeg/util";
 	import { fly } from "svelte/transition";
 	import { Icon } from "@steeze-ui/svelte-icon";
@@ -32,15 +32,15 @@
 	soundNames.sort();
 	// console.log(soundNames);
 
-	let files: FileList;
-	let inputFileName: string;
-	let inputSrc: string;
+	let files: FileList | undefined = $state();
+	let inputFileName: string | undefined = $state();
+	let inputSrc: string | undefined = $state();
 
-	let soundSearch: string = "";
-	let selectedSound: string | undefined;
-	let outputSrc: string;
+	let soundSearch: string = $state("");
+	let selectedSound: string | undefined = $state();
+	let outputSrc: string | undefined = $state();
 
-	let resultSrc: string;
+	let resultSrc: string | undefined = $state();
 
 	function search() {
 		const filtered = soundNames.filter((name) => name.toLowerCase().includes(soundSearch.toLowerCase()));
@@ -48,23 +48,27 @@
 		selectedSound = filtered[0];
 	}
 
-	$: if (selectedSound && selectedSound != "") {
-		outputSrc = `/uploads/edgetx-sounds/${selectedSound}`;
-		console.log(outputSrc);
-	}
+	run(() => {
+		if (selectedSound && selectedSound != "") {
+			outputSrc = `/uploads/edgetx-sounds/${selectedSound}`;
+			console.log(outputSrc);
+		}
+	});
 
-	$: if (files) {
-		const file = files[0];
-		inputFileName = file.name;
-		inputSrc = URL.createObjectURL(file);
-		console.log(files);
-	}
+	run(() => {
+		if (files) {
+			const file = files[0];
+			inputFileName = file.name;
+			inputSrc = URL.createObjectURL(file);
+			console.log(files);
+		}
+	});
 
 	const baseURL = "https://unpkg.com/@ffmpeg/core@0.12.6/dist/esm";
 	const videoURL = "https://raw.githubusercontent.com/ffmpegwasm/testdata/master/video-15s.avi";
 	let message = "message";
 
-	let loading = false;
+	let loading = $state(false);
 
 	async function transcode() {
 		if (!files) {
@@ -112,7 +116,7 @@
 		message = "Complete transcoding";
 		const data = await ffmpeg.readFile(outputName);
 		console.log("done");
-		resultSrc = URL.createObjectURL(new Blob([data as Uint8Array], { type: "audio/wav" }));
+		resultSrc = URL.createObjectURL(new Blob([data as BlobPart], { type: "audio/wav" }));
 		toast.success("Converted!", {
 			style: "border-radius: 999px; backdrop-filter: blur(8px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); outline: 2px solid #ffffff1f; background-color: rgb(163 163 163 / 0.1); color: #87cc52;",
 			iconTheme: {
@@ -157,6 +161,7 @@
 			<p class="text-xl md:w-1/2 md:px-0">
 				{description}<br><br>
 				Just upload any MP3 file and it will be converted to the specific format required by your radio. In addition, you can easily pick the file you want to replace and it will be automatically match the original file name.<br><br>
+			</p>
 		</div>
 		<div class="absolute w-full h-full pointer-events-none">
 			<div style="-webkit-mask-image: linear-gradient(transparent, black, transparent);"
@@ -231,44 +236,21 @@
 
 		<div class="col-span-1 flex flex-col justify-between xl:order-2 order-4">
 			<div>Destination Preview</div>
-			<AudioPlayer src={outputSrc} />
+			<AudioPlayer src={outputSrc ?? ''} />
 		</div>
 
 		<div class="col-span-1 xl:order-3 order-5">
 			<div>Destination Options</div>
 			<div class="h-full flex gap-2 items-center">
-				<Listbox
-					class={({open}) => (open ? "gap-2" : " gap-0") + " listbox h-fit whitespace-nowrap"}
+				<select
 					bind:value={selectedSound}
-					let:open
+					class="bg-neutral-500/10 rounded-2xl px-4 py-2 text-base duration-300 outline-none focus-within:outline-cyan outline-[3px] cursor-pointer hover:text-cyan whitespace-nowrap"
 				>
-					<ListboxButton
-						class={({open}) => (open ? "text-cyan" : "hover:text-cyan") + " flex items-center duration-300"}
-					>
-						<!-- <Button isLink={false} color="cyan" size="sm">{selectedSort.label}</Button> -->
-						{#if !selectedSound}
-							Select Sound
-						{:else}
-							{selectedSound}
-						{/if}
-						<div class="ml-2 rotate-0 transition-transform" class:rotate-90={open}>
-							<Icon src={ChevronRight} class="w-4 h-4" stroke-width="3" />
-						</div>
-					</ListboxButton>
-					{#if open}
-						<div transition:fly={{y: -10}} class="absolute backdrop-blur-md">
-							<ListboxOptions class="listbox-options h-64 overflow-y-scroll w-48">
-								{#each soundNames as option}
-									<ListboxOption value={option}
-										class={({selected})=> (selected ? "listbox-selected" : "") + " listbox-option"}
-									>
-										{option}
-									</ListboxOption>
-								{/each}
-							</ListboxOptions>
-						</div>
-					{/if}
-				</Listbox>
+					<option value="">Select Sound</option>
+					{#each soundNames as option}
+						<option value={option}>{option}</option>
+					{/each}
+				</select>
 				<div class="w-full">
 					<input
 						type="text"
@@ -279,7 +261,7 @@
 						placeholder="Search..."
 						autocomplete="off"
 						bind:value={soundSearch}
-						on:input={search}
+						oninput={search}
 					>
 				</div>
 			</div>
@@ -287,15 +269,15 @@
 
 		<div class="col-span-1 flex flex-col justify-between xl:order-4 order-2">
 			<div>Input Preview</div>
-			<AudioPlayer src={inputSrc} />
+			<AudioPlayer src={inputSrc ?? ''} />
 		</div>
 
 		<div class="spacer col-span-1 xl:order-5 order-3"></div>
 
 		{#if selectedSound && files}
 			<div class="order-6">
-				<Button color="cyan" isLink={false} on:click={transcode} size="lg" class="w-full">
-					<Icon src={ArrowPath} class={loading ? "animate-spin w-8 h-8" : "w-8 h-8"} />
+				<Button color="cyan" isLink={false} onclick={transcode} size="lg" class="w-full">
+					<Icon src={ArrowPath} class={loading ? "animate-spin w-8 h-8" : "w-8 h-8"} size="32" theme="default" title="Convert" />
 					Convert
 				</Button>
 			</div>
@@ -308,7 +290,7 @@
 			</a> -->
 			<div class="order-7">
 				<Button isDownload color="cyan" href={resultSrc} download={selectedSound} size="lg" class="w-full">
-					<Icon src={ArrowDownTray} class="w-8 h-8" />
+					<Icon src={ArrowDownTray} class="w-8 h-8" size="32" theme="default" title="Download" />
 					Download
 				</Button>
 			</div>

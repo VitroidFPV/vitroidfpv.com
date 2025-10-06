@@ -177,7 +177,7 @@ There are two main voltage regulators onboard - one for 5V and one for 10V - bot
 
 LEDs should be a standard feature on all boards if it was up to me. Useful for races, and just a bunch of extra style points on top! The board has 16 RGB LEDs on it, 4 on each corner. There's a small set of bridge pads that you solder together to enable them, and they can be fully controlled through Betaflight. They're pretty small, but are more than bright enough!
 
-<video controls>
+<video controls muted>
 
 <source src="/uploads/airbot_fenix_leds.mp4" type="video/mp4">
 

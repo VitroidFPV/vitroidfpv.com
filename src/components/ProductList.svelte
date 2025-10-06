@@ -8,12 +8,15 @@
 		gfm: true,
 		breaks: true,
 		sanitize: false,
-		smartLists: false,
 		smartypants: false,
 		xhtml: false
 	});
 
-	export let modules: Record<string, Record<string, Module[]>>;
+	interface Props {
+		modules: Record<string, Record<string, Module[]>>;
+	}
+
+	let { modules }: Props = $props();
 </script>
 
 {#each Object.entries(modules) as [cat, contents], i}
@@ -64,7 +67,7 @@
 					<div class="group {group} my-4 w-full h-fit">
 						{#if group != "undefined" && group != "null" && group != ""}
 							<div
-								class="text-xl tracking-tight w-full px-1 {group} mb-2 border-b-[1px] border-gray-700 text-main-50 dark:text-contrast-500"
+								class="text-xl tracking-tight w-full px-1 {group} mb-2 border-b border-gray-700 text-main-50 dark:text-contrast-500"
 								id={group}>
 								{group}
 							</div>

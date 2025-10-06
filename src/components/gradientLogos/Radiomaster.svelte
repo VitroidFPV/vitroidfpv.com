@@ -1,4 +1,4 @@
-<a href="https://www.radiomasterrc.com/" target="_blank" rel="noopener noreferrer">
+<a href="https://www.radiomasterrc.com/" target="_blank" rel="noopener noreferrer" aria-label="Radiomaster">
 	<svg
 		width="100%"
 		height="100%"

@@ -1,9 +1,13 @@
 <script lang="ts">
-	export let title: string;
-	export let color: string;
-	export let deltaVotes: number = 0;
 
 	import Rating from "$components/Rating.svelte";
+	interface Props {
+		title: string;
+		color: string;
+		deltaVotes?: number;
+	}
+
+	let { title, color, deltaVotes = 0 }: Props = $props();
 </script>
 
 <div class="flex flex-col md:flex-row items-center w-fit">

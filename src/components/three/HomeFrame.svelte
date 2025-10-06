@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { T } from '@threlte/core'
 	import { Environment, GLTF, OrbitControls } from '@threlte/extras'
 	import { useGltf } from '@threlte/extras'
@@ -13,7 +15,9 @@
 
 	const gltf = useGltf('/uploads/three/s1v5.glb')
 
-	$: console.log($gltf)
+	run(() => {
+		console.log($gltf)
+	});
 </script>
 
 <T.PerspectiveCamera
@@ -49,7 +53,7 @@
 		<T.MeshStandardMaterial
 			metalness={0.5}
 			roughness={0.5}
-			color={"#aaaaaa"}
+			color={0xaaaaaa}
 			transparent
 			opacity={0.2}
 			depthWrite={false}

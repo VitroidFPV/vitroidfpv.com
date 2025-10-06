@@ -1,8 +1,19 @@
 <script lang="ts">
-	export let title: string = "";
-	export let href: string = "";
-	export let active: boolean = false;
-	export let hidden: boolean = false;
+	interface Props {
+		title?: string;
+		href?: string;
+		active?: boolean;
+		hidden?: boolean;
+		children?: import('svelte').Snippet;
+	}
+
+	let {
+		title = "",
+		href = "",
+		active = false,
+		hidden = false,
+		children
+	}: Props = $props();
 </script>
 
 <li 
@@ -16,7 +27,7 @@
 		viewBox="0 0 32 32" 
 		fill="transparent"
 		xmlns="http://www.w3.org/2000/svg"
-		class="h-6 w-6 flex-shrink-0 md:self-end md:rotate-0 rotate-[270deg] md:-mb-px corner"
+		class="h-6 w-6 shrink-0 md:self-end md:rotate-0 rotate-270 md:-mb-px corner"
 	>
 		<path d="M32 0C32 16 16 32 0 32L32 32V0Z" class="md:scale-100 scale-75 origin-bottom-right"/>
 	</svg>
@@ -26,7 +37,7 @@
 			data-sveltekit-preload-data="hover"
 			class="flex md:hover:translate-x-1 nav-link duration-300 md:text-lg text-[0px] w-full md:justify-start justify-center"
 		>
-			<slot />
+			{@render children?.()}
 			<p class="md:block hidden">{title}</p>
 		</a>
 	</div>
@@ -36,7 +47,7 @@
 		viewBox="0 0 32 32" 
 		fill="transparent"
 		xmlns="http://www.w3.org/2000/svg" 
-		class="h-6 w-6 flex-shrink-0 md:self-end md:rotate-[270deg] rotate-180 md:-mt-px corner"
+		class="h-6 w-6 shrink-0 md:self-end md:rotate-270 rotate-180 md:-mt-px corner"
 	>
 		<path d="M32 0C32 16 16 32 0 32L32 32V0Z" class="md:scale-100 scale-75 origin-bottom-right"/>
 	</svg>
