@@ -13,6 +13,8 @@
 	import Axis from "$components/gradientLogos/Axis.svelte";
 	import Dogcom from "$components/gradientLogos/Dogcom.svelte";
 
+	import "../../caveat.css"
+
 	let index = 0;
 
 	onMount(() => {
@@ -68,7 +70,7 @@
 		<div class="flex h-full w-full items-center">
 			<div class="mt-64 md:mb-24 mb-16 w-full z-30 h-full">
 				<h1
-					class="md:text-[180px] whitespace-nowrap text-[90px] font-caveat h-fit w-fit leading-none dark:text-highlight-dark duration-500">
+					class="md:text-[180px] whitespace-nowrap text-[90px] font-caveat font-black h-fit w-fit leading-none dark:text-highlight-dark duration-500">
 					Vitroid FPV
 				</h1>
 				<!-- <div class="transition-container md:ml-8 ml-4 mt-8">

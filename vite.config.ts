@@ -21,7 +21,7 @@ export function customHmr() {
 
 /** @type {import('vite').UserConfig} */
 const config = {
-	plugins: [tailwindcss(), sveltekit(), customHmr(),],
+	plugins: [tailwindcss(), sveltekit(), customHmr()],
 	server: {
 		fs: {
 			allow: ["./modules/", "./admin/", '../..']

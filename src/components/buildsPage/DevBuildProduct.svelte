@@ -1,7 +1,4 @@
 <script lang="ts">
-	import { run } from 'svelte/legacy';
-
-	// @ts-ignore
 	import Link from "$components/Link.svelte";
 	import Chip from "$components/Chip.svelte";
 	import IntersectionObserver from "svelte-intersection-observer";
@@ -11,6 +8,7 @@
 	import { slide, fly } from "svelte/transition";
 	import { Icon } from "@steeze-ui/svelte-icon";
 	import { Photo, Eye, Plus, Link as ChainLink, PencilSquare, FolderArrowDown, ChevronUp } from "@steeze-ui/heroicons"
+	import { run } from 'svelte/legacy';
 
 	const url = page.url.pathname;
 
@@ -439,7 +437,7 @@ info:
 				{/if}
 			</div>
 			
-			{#each {length: 3} as _, i}
+			<!-- {#each {length: 3} as _, i}
 				<div 
 					class="absolute dark:opacity-40 opacity-80 pointer-events-none z-10 scale-75! saturate-150"
 					style={`top: ${(Math.random() * 50) - 70}%; left: ${(Math.random() * 100) - 50}%; transform: translate(-50%, -50%)`}
@@ -460,12 +458,12 @@ info:
 						</defs>
 					</svg>
 				</div>
-			{/each}
+			{/each} -->
 		</div>
 </IntersectionObserver>
 
 
-<style>
+<!-- <style>
 	.not-intersecting {
 		opacity: 0;
 		transform: translateX(-5%);
@@ -534,4 +532,4 @@ info:
 		-moz-appearance: textfield;
 		appearance: textfield;
 	}
-</style>
+</style> -->

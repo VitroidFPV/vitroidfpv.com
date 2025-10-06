@@ -1,5 +1,4 @@
 <script lang="ts">
-	// @ts-ignore
 	import Link from "$components/Link.svelte";
 	import Chip from "$components/Chip.svelte";
 	import IntersectionObserver from "svelte-intersection-observer";
@@ -138,7 +137,7 @@
 			{/if}
 		</div>
 		
-		{#each {length: 3} as _, i}
+		<!-- {#each {length: 3} as _, i}
 			<div 
 				class="absolute dark:opacity-40 opacity-80 pointer-events-none z-10 scale-75! saturate-150"
 				style={`top: ${(Math.random() * 50) - 70}%; left: ${(Math.random() * 100) - 50}%; transform: translate(-50%, -50%)`}
@@ -159,13 +158,13 @@
 					</defs>
 				</svg>
 			</div>
-		{/each}
+		{/each} -->
 
 	</div>
 </IntersectionObserver>
 
 
-<style>
+<!-- <style>
 	.not-intersecting {
 		opacity: 0;
 		transform: translateX(-5%);
@@ -225,4 +224,4 @@
 			transition-delay: 0ms;
 		}
 	}
-</style>
+</style> -->

@@ -50,7 +50,7 @@
 							<feFlood flood-opacity="0" result="BackgroundImageFix"/>
 							<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 							<feOffset dy="-32"/>
-							<feGaussianBlur stdDeviation="16"/>
+							<!-- <feGaussianBlur stdDeviation="16"/> -->
 							<feComposite in2="hardAlpha" operator="out"/>
 							<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.07 0"/>
 							<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_2"/>
@@ -156,7 +156,7 @@
 							<feFlood flood-opacity="0" result="BackgroundImageFix"/>
 							<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 							<feOffset dy="-32"/>
-							<feGaussianBlur stdDeviation="16"/>
+							<!-- <feGaussianBlur stdDeviation="16"/> -->
 							<feComposite in2="hardAlpha" operator="out"/>
 							<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0. 0"/>
 							<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_2"/>

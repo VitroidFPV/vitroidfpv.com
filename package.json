@@ -47,8 +47,8 @@
     "vite-plugin-cross-origin-isolation": "^0.1.6"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.27.3",
-	"@resvg/resvg-js-linux-x64-gnu": "2.6.2"
+    "@resvg/resvg-js-linux-x64-gnu": "2.6.2",
+    "@rollup/rollup-linux-x64-gnu": "4.27.3"
   },
   "overrides": {
     "mdsvex": {
@@ -57,7 +57,7 @@
     "react": "$react",
     "react-dom": "$react-dom",
     "slate": "^0.91.1",
-	"clean-stack": "5.2.0"
+    "clean-stack": "5.2.0"
   },
   "type": "module",
   "dependencies": {
