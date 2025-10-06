@@ -1,7 +1,7 @@
 <script lang="ts">
 	import "../../app.css";
 	import "../../form.css"
-	import "../../josefin-sans.css"
+	// import "../../josefin-sans.css"
 	import { page } from "$app/stores";
 	import Nav from "$components/navbar/Nav.svelte";
 	import Footer from "$components/navbar/Footer.svelte";
