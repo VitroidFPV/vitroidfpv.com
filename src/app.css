@@ -184,6 +184,9 @@
 }
 
 /* @layer components { */
+html {
+	@apply bg-surface-50-950
+}
 	/* .nav-active {
 		god is dead and we have killed him
 		@apply  bg-highlight dark:bg-highlight-dark md:rounded-l-2xl md:rounded-br-none rounded-b-3xl relative shadow-highlight dark:shadow-highlight-dark

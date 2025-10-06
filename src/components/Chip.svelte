@@ -25,9 +25,9 @@
 		{@render children?.()} {#if tooltip !== ""} <span class="opacity-50 group-hover/tooltip:opacity-100 ml-2">?</span> {/if}
 	</div>
 	{#if tooltip !== ""}
-		<div class="absolute self-center text-sm whitespace-nowrap z-10 bg-opacity-100 bg-neutral-500/20 border-2 
-		border-neutral-500/40 shadow-lg backdrop-blur-md rounded-full scale-0 group-hover/tooltip:scale-100 bottom-[105%] 
-		duration-300 p-2">
+		<div class="absolute self-center text-sm whitespace-nowrap z-10 bg-opacity-100 bg-surface-100-900 border-2 
+		border-neutral-500/40 shadow-lg rounded-full scale-0 group-hover/tooltip:scale-100 bottom-[105%] 
+		duration-150 p-2">
 			{tooltip}
 		</div>
 	{/if}
