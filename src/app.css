@@ -442,7 +442,7 @@ html {
 	.admonition.type-info h4 {@apply text-cyan}
 
 	.md hr {@apply border-t-2 border-gray-500/50 my-2}
-	.md p {@apply my-4 font-[250]}
+	.md p {@apply my-4}
 	.md .grid-item p, .md .grid p {@apply my-0}
 	.md .grid img {@apply w-full h-full rounded-2xl}
 	.md p:first-of-type {@apply my-0}
