@@ -8,7 +8,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
   --font-reem-kufi: Reem Kufi, sans-serif;
-  --font-caveat: Caveat-Bold;
+  --font-caveat: Caveat;
   --font-josefin-sans: Josefin Sans, sans-serif;
 
   --color-highlight: #90d95b;
@@ -70,12 +70,6 @@
 		font-weight: 400;
 		font-style: normal;
 	}
-	@font-face {
-		font-family: "Caveat-Bold";
-		src: url("/uploads/fonts/Caveat-Bold.ttf") format("truetype");
-		font-weight: 400;
-		font-style: normal;
-	}
 
 	@font-face {
 		font-family: "tgheros";
@@ -103,13 +97,6 @@
 		src: url("/uploads/fonts/texgyreheros-bolditalic.otf") format("opentype");
 		font-weight: 700;
 		font-style: italic;
-	}
-
-	@font-face {
-		font-family: "Josefin Sans";
-		src: url("/uploads/fonts/JosefinSans.ttf") format("truetype");
-		font-style: normal;
-		font-weight: 500;
 	}
 
 	html {
