@@ -1,7 +1,9 @@
 @import 'tailwindcss';
 @import '@skeletonlabs/skeleton';
-@import '../vitroidfpv.css';
 @import '@skeletonlabs/skeleton/optional/presets';
+
+@import '../vitroidfpv.css';
+@import './fonts.css';
 
 @source '../node_modules/@skeletonlabs/skeleton-svelte/dist';
 
