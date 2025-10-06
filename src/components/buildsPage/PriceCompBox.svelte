@@ -60,6 +60,7 @@
 					compareOpen = false;
 				}
 			}}
+			aria-label="Compare products"
 			class="h-12 w-12 group bg-neutral-500/20 border-2 border-neutral-500/40 shadow-lg
 			hover:bg-highlight hover:border-highlight dark:hover:border-highlight-dark backdrop-blur-md z-10 
 			dark:hover:bg-highlight-dark duration-300 rounded-full flex items-center justify-center relative"

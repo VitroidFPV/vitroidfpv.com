@@ -68,15 +68,19 @@
 					name="useful"
 					checked={useful}
 					onCheckedChange={(e) => (useful = e.checked)}
+					ids={{
+						hiddenInput: "useful",
+					}}
 				/>
 			<label for="useful" class="ml-2">Did you find this page helpful?</label>
 		</div>
 		<div class="mt-4">
 			<textarea rows="3" 
+			aria-label="Feedback"
 				class="bg-neutral-500/10 w-full h-32 rounded-2xl p-3 text-base duration-300
 					outline-none focus-within:outline-highlight dark:focus-within:outline-highlight-dark outline-[3px]" name="Feedback"></textarea>
 
-				<input type="text" name="pilotName" class="bg-neutral-500/10 w-42 h-8 rounded-2xl p-3 text-base duration-300
+				<input type="text" name="pilotName" id="pilotName" class="bg-neutral-500/10 w-42 h-8 rounded-2xl p-3 text-base duration-300
 					outline-none focus-within:outline-highlight dark:focus-within:outline-highlight-dark outline-[3px]" />
 				<label for="pilotName" class="ml-2">Pilot Name (optional)</label>
 		</div>
