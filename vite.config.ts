@@ -1,5 +1,6 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import tailwindcss from '@tailwindcss/vite';
+import ViteYaml from '@modyfi/vite-plugin-yaml';
 
 export function customHmr() {
 	return {
@@ -21,7 +22,7 @@ export function customHmr() {
 
 /** @type {import('vite').UserConfig} */
 const config = {
-	plugins: [tailwindcss(), sveltekit(), customHmr()],
+	plugins: [tailwindcss(), sveltekit(), customHmr(), ViteYaml()],
 	server: {
 		fs: {
 			allow: ["./modules/", "./admin/", '../..']

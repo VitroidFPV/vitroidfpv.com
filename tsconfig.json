@@ -10,5 +10,8 @@
 		"outDir": "build",
 		"forceConsistentCasingInFileNames": false,
 		"jsx": "react",
+		"types": [
+			"@modyfi/vite-plugin-yaml/modules"
+		]
 	}
 }
