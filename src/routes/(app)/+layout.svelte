@@ -6,6 +6,7 @@
 	import Nav from "$components/navbar/Nav.svelte";
 	import Footer from "$components/navbar/Footer.svelte";
 	import Analytics from "$components/Analytics.svelte";
+	import AnnouncementBar from "$components/AnnouncementBar.svelte";
 	// @ts-ignore
 	import Transition from "$components/Transition.svelte";
 	import { onMount } from "svelte";
@@ -32,6 +33,7 @@
 	<div class="flex md:flex-row flex-col-reverse h-fit page-box min-w-full">
 		<Nav />
 		<Transition refresh={$page.url.pathname}>
+			<AnnouncementBar />
 			{@render children?.()}
 		</Transition>
 	</div>

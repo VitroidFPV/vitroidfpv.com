@@ -1,0 +1,9 @@
+announcements:
+  # - text: Announcement text template
+  #   type: warning
+  #   active: true
+  #   id: 1
+  - text: The info in the build lists may be a bit out of date, but I'm working on updating them all! Please ask around before buying anything, and please contact me if you have any suggestions!
+    type: warning
+    active: true
+    id: 1
