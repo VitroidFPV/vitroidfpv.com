@@ -43,7 +43,7 @@ If you're unsure about your findings, don't know what something means, or just w
 
 <Admonition type="danger" title="AI/LLMs">
 
-Don't use LLMs like ChatGPT or Gemini for FPV-oriented questions unless you have a way to verify the output. Rremember, these tools are not sentient, they just use statistics to string together sentences that make linguistic sense. Just because it reads like a normal sentence does not make it correct, and without having the knowledge to verify the output, you're likely to end up worse off than you were before.
+Don't use LLMs like ChatGPT or Gemini for FPV-oriented questions unless you have a way to verify the output. Remember, these tools are not sentient, they just use statistics to string together sentences that make linguistic sense. Just because it reads like a normal sentence does not make it correct, and without having the knowledge to verify the output, you're likely to end up worse off than you were before.
 
 The FPV hobby moves at a rate that's impossible to keep up with just with training data alone, and you have an average of 10+ years of progress that's often conflicting that these models have to work through.
 
@@ -51,7 +51,7 @@ Please just ask people.
 
 </Admonition>
 
-A good rule of thumb is that if it can't be found on Google in less than a minute, it's probably something worth asking other people. There are many places where you can get help, be it forums, Reddit communities (r/fpv, r/multicopter), or Discord servers like [Drone Community](https://discord.gg/drones)). Before you ask, there are a few things that you should know:
+A good rule of thumb is that if it can't be found on Google in less than a minute, it's probably something worth asking other people. There are many places where you can get help, be it forums, Reddit communities (r/fpv, r/multicopter), or Discord servers like [Drone Community](https://discord.gg/drones). Before you ask, there are a few things that you should know:
 
 * Ask in the appropriate way and/or place - most forums/discord servers have dedicated places for specific questions. Putting your questions in the appropriate place will go a long way for the people that help out others.
 
@@ -81,9 +81,9 @@ Luckily it's easier to name the few patterns to avoid than to list the ones to l
 
 <!-- * BetaFPV LiteRadio series - BetaFPV has a decent reputation for their micro quads and inexpensive beginner equipment. The LR2 might seem like a good budget option (and the LiteRadio 3 Pro is actually acceptable), but the rest of them rely on low quality gimbals that often tend to fail within about a month of use - you'll start to see the stick signal start to jitter, or even just drop out completely. -->
 
-* Unsupported electronics - The development teams behind open source FPV projects like ELRS, Betaflight and AM32 offer an official hardware support program, where manufacturers can submit their hardware for testing and approval. Hardware that passes gets an official firmware target, and a guarantee that it works as expected. You may run into products claiming to be compatible with this software, but not having an official target. You can run into issues with firmware flashing (no official target, having to hunt down 3rd party ones) or unexpected behavior in flight or on the bench.
-  * No-name electronics - In recent years, there has been an influx of sub-par hardware, mainly on AliExpress. Ignoring low quality components and construction, these FCs and ESCs often use firmware targets from other manufacturers, taking the work of others and potentially breaking after firmware updates if the target is updated.
-  * Brand-name but still unsupported - You'll run into this with products such as the BetaFPV LiteRadio series, Jumper Smart, and the iFlight Commando 14. These controllers use their own implementation of ELRS and their own operating system that are often closed-source and largely undocumented. In addition to no official support, very few people will be able to help you with these products, and you'll likely have to contact the manufacturer directly.
+* Unsupported electronics - The development teams behind open source FPV projects like ExpressLRS (ELRS), Betaflight and AM32 offer an official hardware support program, where manufacturers can submit their hardware for testing and approval. Hardware that passes gets an official firmware target, and a guarantee that it works as expected. You may run into products claiming to be compatible with this software, but not having an official target. You can run into issues with firmware flashing (no official target, having to hunt down 3rd party ones) or unexpected behavior in flight or on the bench.
+	* No-name electronics - In recent years, there has been an influx of sub-par hardware, mainly on AliExpress. Ignoring low quality components and construction, these FCs and ESCs often use firmware targets from other manufacturers, taking the work of others and potentially breaking after firmware updates if the target is updated.
+	* Brand-name but still unsupported - You'll run into this with products such as the BetaFPV LiteRadio series, Jumper Smart, and the iFlight Commando 14. These controllers use their own implementation of ELRS and their own operating system that are often closed-source and largely undocumented. In addition to no official support, very few people will be able to help you with these products, and you'll likely have to contact the manufacturer directly.
 
 * Clone hardware - Usually clones of popular frames, usually the GEPRC Mark 4/Mark 5 frames. They generally use low quality carbon and have little to no quality control. Recently this has also started to affect popular flight control electronics, be wary of SpeedyBee F405 V3/V4 FCs on AliExpress, they've been officially discontinued by the manufacturer.
 
@@ -93,7 +93,7 @@ Those are just a few extremes off the top of my head, if you're unsure about som
 
 ## Stuff to look for
 
-I wouldn't want to tell you what *not* to get and then just stop there. FPV is not all just caution about products, there are manufacturers that have a very clean track record
+I wouldn't want to tell you what *not* to get and then just stop there. FPV is not all just caution about products, there are manufacturers that have a very clean track record:
 
 * Radiomaster - Their controllers and other hardware is some of the best you can get across all price points, from the T8L and Pocket to the GX12 and TX16S MK3.
 
@@ -151,7 +151,7 @@ Some of the most basic things to get you started. Tinywhoops or toothpicks, and 
 	* [Skyzone Cobra S/X](https://www.racedayquads.com/products/skyzone-cobra-x-v2-diversity-5-8ghz-fpv-goggles-w-60-fps-dvr?keyword=skyzone%20cobra) ($249.99) - The best box goggles on the market, but also the most expensive in this category.
 3. Quads:
 	* [BetaFPV Air](https://betafpv.com/collections/air-series) ($80.99-99.99) - Great options for 1s 65/75mm tinywhoops that are relatively competitive in weight and performance to dedicated self-built options.
-	* [Happymodel Crux3](https://www.getfpv.com/happymodel-crux3-1s-elrs-3-toothpick-racing-drone-bnf.html) ($118.99) - A good 1s toothpick, great for flying outdoors in your backyard or at a park. Being a 1s quad, it's still pretty cheap to maintain
+	* [Happymodel Crux3](https://www.getfpv.com/happymodel-crux3-1s-elrs-3-toothpick-racing-drone-bnf.html) ($118.99) - A good 1s toothpick, great for flying outdoors in your backyard or at a park. Being a 1s quad, it's still pretty cheap to maintain. A little bit of soldering is required to upgrade the battery connector to BT2.0/A30, maybe XT30.
 	* [Happymodel Bassline](https://www.getfpv.com/happymodel-bassline-2s-toothpick-analog-drone.html) ($123.99) - It's a great option if you want something a little more nimble than the Crux3, and it's even smaller! It runs on 2s batteries so you will need a proper charger for it though
 
 4. Chargers:
@@ -244,7 +244,7 @@ This is where you will set up the quad to fly. You will need to set up your radi
 
 * Flight controller - You will need to set up the FC to have the right settings for your quad. This usually involves setting up the receiver settings so that it can read the radio inputs, checking if the FC/ESC spins the motors in the right direction and order, and setting up the VTX so that the FC can control its settings like output power and frequency. With the necessary settings out of the way, you can go make the more personal changes such as OSD layout, modes, and PID tuning (if you understand what you're doing).
 
-* ESC - If you have a BlHeli_S ESC, you should flash it with BlueJay firmware to get the most out of it (like bidirectional DShot and higher motor PWM frequencies). If it's an AM32 ESC, you should set the rough kv of your motors in the ESC settings.
+* ESC - If you have a BlHeli_S ESC, you should flash it with BlueJay firmware to get the most out of it with features that improve filtering and performance. If it's an AM32 ESC, you should set the rough kv of your motors in the ESC settings.
 
 * Goggles - If you're on analog, the process is pretty simple. You just need to set them to the same band and channel as the VTX, as analog doesn't need any kind of binding. If you're on DJI, you will need to activate both devices, and then pair them up.
 
@@ -256,7 +256,7 @@ So now you hopefully have it working, and you can finally go fly it! Yay! But no
 
 * Make sure that the battery is charged up fully (4.2v/cell for flight).
 
-* Absolutely make sure that you're in a safe area to fly, and that you're not going to fly over people or anything like that if something goes wrong (wrong board orientation, bad PID tuning or bad motor/prop direction causing a flip on take off or even a flyaway, etc).
+* Absolutely make sure that you're in a safe area to fly, and that you're not going to fly over people (remember, you are people too!) or anything like that if something goes wrong (wrong board orientation, bad PID tuning or bad motor/prop direction causing a flip on take off or even a flyaway, etc). Tinywhoops can be flown indoors, anything larger should be flown outdoors!
 
 * If all of that is good, you can go fly! Have fun, and try to not immediately crash it
 
