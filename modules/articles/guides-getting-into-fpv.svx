@@ -3,10 +3,10 @@ title: Getting into FPV
 description: The (more or less) definitive guide into FPV
 category: Guides
 author: Vitroid
-img: /uploads/nazgul-evoque-f5d-analog-1000x1000.jpg
+img: /uploads/articles/getting-into-fpv/getting-into-fpv-thumbnail.png
 date: 2022-11-08T19:05:19.289Z
 updated: 2026-02-24T19:08:57.527Z
-visible: false
+visible: true
 ---
 
 <script>
