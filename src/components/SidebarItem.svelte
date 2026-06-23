@@ -8,10 +8,12 @@
 
 	let {
 		href,
+		label,
 		active = false,
 		children
 	}: {
 		href: RouteIdWithSearchOrHash | PathnameWithSearchOrHash
+		label: string
 		active?: boolean
 		children: Snippet
 	} = $props()
@@ -20,12 +22,22 @@
 <li class="relative z-10 h-12 p-3 px-4 pr-6 rounded-l-3xl">
 	<a
 		href={resolve(href)}
-		class="sidebar-link flex items-center gap-2 font-semibold
+		class="sidebar-link flex items-center gap-2
 		{active
 			? 'sidebar-link--active text-primary-contrast-dark'
-			: 'text-surface-contrast-light'}"
+			: 'dark:text-surface-contrast-light text-surface-contrast-dark'}"
 	>
 		{@render children()}
+		<span class="inline-grid">
+			<span
+				class="invisible col-start-1 row-start-1 font-bold"
+				aria-hidden="true">{label}</span
+			>
+			<span
+				class="col-start-1 row-start-1 {active ? 'font-bold' : 'font-medium'}"
+				>{label}</span
+			>
+		</span>
 	</a>
 </li>
 

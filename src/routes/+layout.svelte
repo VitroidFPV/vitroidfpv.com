@@ -7,12 +7,14 @@
 	let { children } = $props()
 </script>
 
-<svelte:head
-	><link
+<svelte:head>
+	<link
 		rel="icon"
 		href={favicon}
-	/></svelte:head
->
+	/>
+	<title>VitroidFPV</title>
+</svelte:head>
+
 <div class="grid grid-cols-[auto_1fr]">
 	<!-- Sidebar -->
 	<aside class="sticky top-0 col-span-1 h-screen">

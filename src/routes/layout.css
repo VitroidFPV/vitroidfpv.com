@@ -5,3 +5,5 @@
 @import "@skeletonlabs/skeleton-svelte";
 
 @import "../../vitroidfpv.css";
+
+@custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
