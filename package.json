@@ -41,5 +41,8 @@
 	"dependencies": {
 		"@fontsource-variable/geist": "^5.2.9",
 		"@lucide/svelte": "^1.21.0"
+	},
+	"optionalDependencies": {
+		"@rolldown/binding-linux-x64-gnu": "^1.1.3"
 	}
 }
