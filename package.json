@@ -39,6 +39,7 @@
 		"vite": "^8.0.16"
 	},
 	"dependencies": {
+		"@fontsource-variable/caveat": "^5.2.8",
 		"@fontsource-variable/geist": "^5.2.9",
 		"@lucide/svelte": "^1.21.0"
 	},

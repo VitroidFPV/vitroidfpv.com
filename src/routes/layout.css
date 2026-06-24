@@ -7,3 +7,28 @@
 @import "../../vitroidfpv.css";
 
 @custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
+
+@font-face {
+	font-family: "VCR OSD Mono";
+	src: url("../lib/assets/VCR-OSD-Mono.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@theme {
+	--font-caveat: "Caveat Variable", system-ui, sans-serif;
+	--font-vcr-osd: "VCR OSD Mono", ui-monospace, monospace;
+
+	--animate-scroll: scroll-y linear infinite;
+
+	@keyframes scroll-y {
+		from {
+			transform: translateY(0);
+		}
+
+		to {
+			transform: translateY(-50%);
+		}
+	}
+}
