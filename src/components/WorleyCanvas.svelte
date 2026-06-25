@@ -121,7 +121,9 @@
 	}
 </script>
 
-<div class="relative h-full w-full">
+<div
+	class="relative h-full w-full mask-[linear-gradient(to_bottom,transparent,black_20%,black_50%,transparent)]"
+>
 	<canvas
 		{@attach setupRenderer}
 		class="block h-full w-full"

@@ -209,18 +209,33 @@
 	<div
 		class="absolute bottom-0 left-0 w-full h-full pointer-events-none flex items-end"
 	>
-		<div class="pb-56">
-			<h1 class="text-[12rem] font-bold font-caveat text-primary-500">
+		<div class="pb-56 pl-12 flex flex-col gap-4">
+			<h1
+				class="text-[12rem] -ml-8 -mb-12 font-bold font-caveat text-primary-500 text-shadow-[0px_0px_32px_var(--color-primary-500)] bold-text-effect text-shadow-primary-500/10"
+			>
 				Vitroid FPV
 			</h1>
+			<p class="text-2xl font-extralight">
+				Making FPV <span class="text-primary-500 font-medium tracking-wide"
+					>easier</span
+				>. One line of code at a time.
+			</p>
 		</div>
 	</div>
 	<div
 		class="pointer-events-none absolute top-0 right-4 h-full max-w-full flex gap-2"
 	>
 		<TextScroller />
-		<TextScroller />
+		<TextScroller reverse />
 	</div>
 </div>
 
-<div class="h-screen w-full bg-blue-500"></div>
+<!-- <div class="pt-64 px-10">
+	<h2 class="text-4xl font-medium font-josefin-sans text-surface-500">About</h2>
+</div> -->
+
+<style>
+	.bold-text-effect {
+		-webkit-text-stroke: 2px var(--color-primary-500);
+	}
+</style>

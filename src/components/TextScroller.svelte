@@ -31,44 +31,46 @@
 		"ARM_SWITCH",
 		"NONE",
 		"UNKNOWN",
-		" BEACON ON",
-		"ARM IN %d.%d",
+		"BEACON ON",
+		"ARM IN 6.7",
 		"FAIL SAFE",
-		"ESC %d%s",
-		"ESC+",
+		"ESC 1CTR",
+		"ESC 1CTR 2T+",
 		">CRASH FLIP<",
 		"CRASHFLIP SW",
 		"LAUNCH",
-		"LAUNCH %d",
+		"LAUNCH 45",
 		"RSSI LOW",
 		"RSSI DBM",
 		"RSNR LOW",
 		"LINK QUALITY",
-		" LAND NOW",
+		"LAND NOW",
 		"CPU OVERLOAD",
 		"RESCUE N/A",
 		"RESCUE OFF",
 		"POSHOLD FAIL",
 		"HEADFREE",
-		"CORE %c: %3d%c",
+		"CORE °: 75C",
 		"LOW BATTERY",
 		"OVER CAP",
 		"BATTERY CONT",
 		"BATT < FULL",
-		"  * * * *",
+		"* * * *",
 		"CHIRP EXC FINISHED"
 	]
 
 	let {
 		count = 24,
-		duration = 40,
+		duration = 100,
 		gap = "gap-8",
-		refreshOnLoop = true
+		refreshOnLoop = true,
+		reverse = false
 	}: {
 		count?: number
 		duration?: number
 		gap?: string
 		refreshOnLoop?: boolean
+		reverse?: boolean
 	} = $props()
 
 	function pickRandom(): string {
@@ -96,14 +98,14 @@
 		if (refreshOnLoop) {
 			loopCount++
 		}
+		requestAnimationFrame(syncHover)
 	}
 
 	function hitTest(clientX: number, clientY: number): string | null {
 		if (!root) return null
 
-		const items = root.querySelectorAll<HTMLElement>(
-			'[data-scroller-column="visible"] [data-scroller-item]'
-		)
+		const items = root.querySelectorAll<HTMLElement>("[data-scroller-item]")
+		let match: string | null = null
 
 		for (const el of items) {
 			const rect = el.getBoundingClientRect()
@@ -113,11 +115,11 @@
 				clientY >= rect.top &&
 				clientY <= rect.bottom
 			) {
-				return el.dataset.scrollerItem ?? null
+				match = el.dataset.scrollerItem ?? null
 			}
 		}
 
-		return null
+		return match
 	}
 
 	function setHovered(key: string | null) {
@@ -147,11 +149,7 @@
 		const motionReduced = window.matchMedia("(prefers-reduced-motion: reduce)")
 
 		const tick = () => {
-			if (
-				pointerActive &&
-				!motionReduced.matches &&
-				root
-			) {
+			if (pointerActive && !motionReduced.matches && root) {
 				const { left, right, top, bottom } = root.getBoundingClientRect()
 				if (
 					pointerX >= left &&
@@ -183,16 +181,15 @@
 {#snippet column(hidden = false)}
 	<div
 		class="flex shrink-0 flex-col items-center pb-16 font-vcr-osd text-2xl tracking-[0.08em] uppercase {gap}"
-		data-scroller-column={hidden ? "hidden" : "visible"}
 		aria-hidden={hidden || undefined}
 	>
-		{#each sequence as item, index (`${index}-${item}`)}
-			{@const key = `${index}-${item}`}
+		{#each sequence as item, index (`${loopCount}-${index}-${item}`)}
+			{@const key = `${loopCount}-${index}-${item}`}
 			<span
 				data-scroller-item={key}
 				class="inline-block [writing-mode:sideways-lr] transition-colors duration-200 {hoveredKey ===
 				key
-					? 'text-primary-500'
+					? 'text-primary-500 text-shadow-[0px_0px_32px] text-shadow-primary-500/90'
 					: ''}">{item}</span
 			>
 		{/each}
@@ -208,6 +205,7 @@
 		class="flex h-max flex-col animate-scroll motion-reduce:animate-none"
 		style:animation-duration="{duration}s"
 		onanimationiteration={onLoop}
+		style:animation-direction={reverse ? "reverse" : "normal"}
 	>
 		{@render column()}
 		{@render column(true)}

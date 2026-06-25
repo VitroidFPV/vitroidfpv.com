@@ -19,6 +19,7 @@
 @theme {
 	--font-caveat: "Caveat Variable", system-ui, sans-serif;
 	--font-vcr-osd: "VCR OSD Mono", ui-monospace, monospace;
+	--font-josefin-sans: "Josefin Sans Variable", system-ui, sans-serif;
 
 	--animate-scroll: scroll-y linear infinite;
 

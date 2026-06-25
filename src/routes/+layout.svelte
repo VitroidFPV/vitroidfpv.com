@@ -3,6 +3,7 @@
 	import favicon from "$lib/assets/favicon.svg"
 	import "@fontsource-variable/geist/wght.css"
 	import "@fontsource-variable/caveat/wght.css"
+	import "@fontsource-variable/josefin-sans/wght.css"
 	import Sidebar from "$components/Sidebar.svelte"
 
 	let { children } = $props()
