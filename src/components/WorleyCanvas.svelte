@@ -38,6 +38,21 @@
 
 	let error = $state<string | null>(null)
 	let renderer: WorleyRenderer | null = null
+	let themeMode = $state(
+		typeof document !== "undefined"
+			? (document.documentElement.getAttribute("data-mode") ?? "dark")
+			: "dark"
+	)
+	const lightBackground = $derived(themeMode === "light")
+
+	$effect(() => {
+		const root = document.documentElement
+		const observer = new MutationObserver(() => {
+			themeMode = root.getAttribute("data-mode") ?? "dark"
+		})
+		observer.observe(root, { attributes: true, attributeFilter: ["data-mode"] })
+		return () => observer.disconnect()
+	})
 
 	function pointerToMouse(
 		canvas: HTMLCanvasElement,
@@ -100,6 +115,7 @@
 					indicatorFill,
 					indicatorRing,
 					indicatorAlpha,
+					lightBackground,
 					onFrame: onframe
 				})
 			})

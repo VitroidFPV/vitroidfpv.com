@@ -15,6 +15,7 @@ uniform float u_mouse_noise_boost;
 uniform float u_indicator_fill;
 uniform float u_indicator_ring;
 uniform float u_indicator_alpha;
+uniform float u_light_background;
 
 out vec4 outColor;
 
@@ -176,8 +177,12 @@ void main() {
 	float indicator = clamp(fill + ring, 0.0, 1.0);
 	vec3 indicatorRgb = vec3(0.71, 1, 0.08); // rgb(180, 255, 20)
 
-	vec3 voronoiRgb = vec3(inverted * 0.1);
-	float voronoiAlpha = inverted;
+	// Deviate ~10% from the page background: lighten on dark, subtly darken on light.
+	float swirlStrength = inverted;
+	vec3 darkBgRgb = vec3(swirlStrength * 0.15);
+	vec3 lightBgRgb = vec3(1.0 - swirlStrength * 0.05);
+	vec3 voronoiRgb = mix(darkBgRgb, lightBgRgb, u_light_background);
+	float voronoiAlpha = swirlStrength;
 	vec3 rgb = mix(voronoiRgb, indicatorRgb, indicator);
 	float alpha = max(voronoiAlpha, indicator * u_indicator_alpha);
 	outColor = vec4(rgb, alpha);

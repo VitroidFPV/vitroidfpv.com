@@ -23,6 +23,7 @@ export type WorleyOptions = {
 	indicatorFill?: number
 	indicatorRing?: number
 	indicatorAlpha?: number
+	lightBackground?: boolean
 	onFrame?: (stats: FrameStats) => void
 }
 
@@ -60,6 +61,7 @@ export class WorleyRenderer {
 		indicatorFill: WebGLUniformLocation
 		indicatorRing: WebGLUniformLocation
 		indicatorAlpha: WebGLUniformLocation
+		lightBackground: WebGLUniformLocation
 	}
 	private animationId = 0
 	private startTime = performance.now()
@@ -80,6 +82,7 @@ export class WorleyRenderer {
 	private indicatorFill = 0.35
 	private indicatorRing = 1
 	private indicatorAlpha = 0.92
+	private lightBackground = false
 	private onFrame?: (stats: FrameStats) => void
 	private lastFrameTime = 0
 	private smoothedFps = 0
@@ -111,6 +114,7 @@ export class WorleyRenderer {
 		const indicatorFill = gl.getUniformLocation(this.program, "u_indicator_fill")
 		const indicatorRing = gl.getUniformLocation(this.program, "u_indicator_ring")
 		const indicatorAlpha = gl.getUniformLocation(this.program, "u_indicator_alpha")
+		const lightBackground = gl.getUniformLocation(this.program, "u_light_background")
 
 		if (
 			!resolution ||
@@ -126,7 +130,8 @@ export class WorleyRenderer {
 			!mouseNoiseBoost ||
 			!indicatorFill ||
 			!indicatorRing ||
-			!indicatorAlpha
+			!indicatorAlpha ||
+			!lightBackground
 		) {
 			throw new Error("Missing shader uniforms")
 		}
@@ -145,7 +150,8 @@ export class WorleyRenderer {
 			mouseNoiseBoost,
 			indicatorFill,
 			indicatorRing,
-			indicatorAlpha
+			indicatorAlpha,
+			lightBackground
 		}
 
 		const vao = gl.createVertexArray()
@@ -180,6 +186,7 @@ export class WorleyRenderer {
 		indicatorFill,
 		indicatorRing,
 		indicatorAlpha,
+		lightBackground,
 		onFrame
 	}: WorleyOptions) {
 		if (scale !== undefined) this.scale = scale
@@ -193,6 +200,7 @@ export class WorleyRenderer {
 		if (indicatorFill !== undefined) this.indicatorFill = indicatorFill
 		if (indicatorRing !== undefined) this.indicatorRing = indicatorRing
 		if (indicatorAlpha !== undefined) this.indicatorAlpha = indicatorAlpha
+		if (lightBackground !== undefined) this.lightBackground = lightBackground
 		if (onFrame !== undefined) this.onFrame = onFrame
 	}
 
@@ -245,6 +253,7 @@ export class WorleyRenderer {
 		gl.uniform1f(this.uniforms.indicatorFill, this.indicatorFill)
 		gl.uniform1f(this.uniforms.indicatorRing, this.indicatorRing)
 		gl.uniform1f(this.uniforms.indicatorAlpha, this.indicatorAlpha)
+		gl.uniform1f(this.uniforms.lightBackground, this.lightBackground ? 1 : 0)
 
 		gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
 	}

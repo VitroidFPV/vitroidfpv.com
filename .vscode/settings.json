@@ -8,8 +8,12 @@
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": "explicit"
+		"source.fixAll.eslint": "always"
 	},
 	"eslint.useFlatConfig": true,
-	"eslint.validate": ["javascript", "typescript", "svelte"]
+	"eslint.validate": [
+		"javascript",
+		"typescript",
+		"svelte"
+	]
 }

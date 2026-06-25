@@ -31,6 +31,14 @@
 	// URL { href: "http://localhost:3000/experiments/worley?controls", origin: "http://localhost:3000", protocol: "http:", username: "", password: "", host: "localhost:3000", hostname: "localhost", port: "3000", pathname: "/experiments/worley", search: "?controls" }
 
 	let controls = $derived(url.search.includes("controls"))
+
+	let age = $derived(() => {
+		const now = new Date()
+		const start = new Date(2005, 5, 19) // June is month 5 in JS Date (0-indexed)
+		const diff = now.getTime() - start.getTime()
+		const years = diff / (1000 * 60 * 60 * 24 * 365.2425) // average year length
+		return years
+	})
 </script>
 
 <svelte:head>
@@ -230,9 +238,41 @@
 	</div>
 </div>
 
-<!-- <div class="pt-64 px-10">
-	<h2 class="text-4xl font-medium font-josefin-sans text-surface-500">About</h2>
-</div> -->
+<div class="py-64 px-10">
+	<div class="flex">
+		<h2
+			class="text-6xl w-fit font-semibold font-josefin-sans text-primary-500 [writing-mode:sideways-lr] text-end"
+		>
+			About...
+		</h2>
+		<div class="text-lg font-extralight max-w-[70ch] space-y-4">
+			<p class="">
+				Heyo! I'm a {age().toFixed(0)} year old FPV pilot turned developer mostly
+				out of boredom and a little bit of spite.
+			</p>
+			<p>
+				This site started all the way back in 2021 as my first programming
+				project. It was essentially a fancy way to show part recommendations
+				from a google sheet that me and my friends made and shared around at the
+				time. Now it's... still mostly that, but even fancier and with actual
+				added functionality here and there.
+			</p>
+			<p>
+				I'm also working on a couple of other projects that you may or may not
+				have heard of, like <a
+					href="https://betaflight.com"
+					class="text-primary-500 hover:underline font-normal">Betaflight</a
+				>. Me and a good friend of mine started work on an alternative
+				documentation website, and it eventually became official, with us now on
+				the dev team! I mostly work on the documentation and the app itself,
+				having helped taking it out of its old native wrapper and into the
+				browser directly. The latest release of the app is built around a much
+				more modern UI framework and architecture which I helped introduce.
+			</p>
+			<p>Enough about me, let's see what you can actually find here!</p>
+		</div>
+	</div>
+</div>
 
 <style>
 	.bold-text-effect {
