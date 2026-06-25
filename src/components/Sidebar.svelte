@@ -41,8 +41,7 @@
 
 		return path === "/"
 			? page.url.pathname === "/"
-			: page.url.pathname === path ||
-					page.url.pathname.startsWith(`${path}/`)
+			: page.url.pathname === path || page.url.pathname.startsWith(`${path}/`)
 	}
 
 	let activeIndex = $derived.by(() => {
@@ -55,17 +54,23 @@
 	)
 </script>
 
-<div class="flex flex-col h-full border-r-4 border-primary-500 py-8">
-	<ul class="relative h-full list-none pl-4 gap-2 flex flex-col">
+<div
+	class="flex flex-col h-full border-l-4 md:border-l-0 md:border-r-4 border-primary-500 py-8 bg-surface-50-950 gap-4"
+>
+	<ul
+		class="relative mt-auto md:mt-0 md:h-full list-none pl-4 gap-2 flex flex-col"
+	>
 		<li
 			aria-hidden="true"
-			class="sidebar-highlight pointer-events-none absolute left-4 right-0 top-0 h-12 rounded-l-3xl bg-primary-500"
+			class="sidebar-highlight pointer-events-none absolute md:left-4 md:right-0 left-0 right-4 top-0 h-12 md:rounded-l-3xl rounded-r-3xl md:rounded-r-none bg-primary-500"
 			class:invisible={activeIndex === null}
 			style:transform={`translateY(${highlightOffset})`}
 		>
-			<Corner class="absolute bottom-full right-0 size-6 text-primary-500" />
 			<Corner
-				class="absolute top-full right-0 size-6 text-primary-500 -rotate-90"
+				class="absolute bottom-full md:right-0 md:left-auto left-0 size-6 text-primary-500 md:rotate-0 rotate-90"
+			/>
+			<Corner
+				class="absolute top-full md:right-0 md:left-auto left-0 size-6 text-primary-500 md:-rotate-90 -rotate-180"
 			/>
 		</li>
 
@@ -79,7 +84,7 @@
 			</SidebarItem>
 		{/each}
 	</ul>
-	<div class="w-full flex justify-center mt-auto">
+	<div class="w-full flex justify-center md:mt-auto md:mb-0 mb-16">
 		<ThemeSwitch />
 	</div>
 </div>

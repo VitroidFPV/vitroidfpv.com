@@ -217,13 +217,16 @@
 	<div
 		class="absolute bottom-0 left-0 w-full h-full pointer-events-none flex items-end"
 	>
-		<div class="pb-56 pl-12 flex flex-col gap-4">
+		<div class="pb-56 md:pl-12 pl-2 flex flex-col gap-4">
 			<h1
-				class="text-[12rem] -ml-8 -mb-12 font-bold font-caveat text-primary-500 text-shadow-[0px_0px_32px_var(--color-primary-500)] bold-text-effect text-shadow-primary-500/10"
+				class="text-[4rem] md:text-[6rem] lg:text-[12rem] md:-ml-8 -ml-2 md:-mb-12 -mb-8 font-bold font-caveat text-primary-500 text-shadow-[0px_0px_32px_var(--color-primary-500)] bold-text-effect text-shadow-primary-500/10"
 			>
 				Vitroid FPV
 			</h1>
-			<p class="text-2xl font-extralight">
+			<!-- 7rem roughly the width of the text scrollers -->
+			<p
+				class="text-2xl font-extralight md:max-w-[70ch] max-w-[calc(100vw-7rem)]"
+			>
 				Making FPV <span class="text-primary-500 font-medium tracking-wide"
 					>easier</span
 				>. One line of code at a time.
@@ -238,14 +241,14 @@
 	</div>
 </div>
 
-<div class="py-64 px-10">
+<div class="py-64 md:px-10 px-2">
 	<div class="flex">
 		<h2
-			class="text-6xl w-fit font-semibold font-josefin-sans text-primary-500 [writing-mode:sideways-lr] text-end"
+			class="md:text-6xl text-4xl w-fit font-semibold font-josefin-sans text-primary-500 [writing-mode:sideways-lr] text-end"
 		>
 			About...
 		</h2>
-		<div class="text-lg font-extralight max-w-[70ch] space-y-4">
+		<div class="md:text-lg text-base font-extralight max-w-[70ch] space-y-4">
 			<p class="">
 				Heyo! I'm a {age().toFixed(0)} year old FPV pilot turned developer mostly
 				out of boredom and a little bit of spite.
@@ -275,7 +278,10 @@
 </div>
 
 <style>
-	.bold-text-effect {
-		-webkit-text-stroke: 2px var(--color-primary-500);
+	@media (min-width: 768px) {
+		/* md breakpoint is 768px in Tailwind */
+		.bold-text-effect {
+			-webkit-text-stroke: 2px var(--color-primary-500);
+		}
 	}
 </style>
