@@ -4,6 +4,8 @@
 	import { page } from "$app/state"
 	import { MediaQuery } from "svelte/reactivity"
 	import TextScroller from "$components/TextScroller.svelte"
+	import type { Attachment } from "svelte/attachments"
+	import { fly } from "svelte/transition"
 
 	const isMobile = new MediaQuery("(hover: none) and (pointer: coarse)", true)
 
@@ -32,12 +34,51 @@
 
 	let controls = $derived(url.search.includes("controls"))
 
-	let age = $derived(() => {
+	let age = $derived.by(() => {
 		const now = new Date()
 		const start = new Date(2005, 5, 19) // June is month 5 in JS Date (0-indexed)
 		const diff = now.getTime() - start.getTime()
 		const years = diff / (1000 * 60 * 60 * 24 * 365.2425) // average year length
 		return years
+	})
+
+	let activeSection = $state("ABOUT")
+	const sectionTitleSlotCount = 5
+	const sectionTitleCharDelay = 45
+	const sectionTitleCharDuration = 220
+
+	function trackSection(title: string): Attachment<HTMLElement> {
+		return (node) => {
+			const observer = new IntersectionObserver(
+				(entries) => {
+					for (const entry of entries) {
+						if (entry.isIntersecting) activeSection = title
+					}
+				},
+				// Activate a section once it reaches the upper third of the viewport,
+				// roughly where the sticky title sits
+				{ rootMargin: "-25% 0px -60% 0px" }
+			)
+			observer.observe(node)
+			return () => observer.disconnect()
+		}
+	}
+
+	let activeSectionSlots = $derived.by(() => {
+		const chars = activeSection.split("")
+		const padding = sectionTitleSlotCount - chars.length
+
+		return Array.from({ length: sectionTitleSlotCount }, (_, index) => {
+			const charIndex = index - padding
+			const char = charIndex >= 0 ? chars[charIndex] : null
+
+			return {
+				index,
+				char,
+				key: `${activeSection}-${index}-${char ?? ""}`,
+				delay: (sectionTitleSlotCount - index - 1) * sectionTitleCharDelay
+			}
+		})
 	})
 </script>
 
@@ -241,38 +282,104 @@
 	</div>
 </div>
 
-<div class="py-64 md:px-10 px-2">
+<div class="md:px-8 px-2 pt-64">
 	<div class="flex">
 		<h2
-			class="md:text-6xl text-4xl w-fit font-semibold font-josefin-sans text-primary-500 [writing-mode:sideways-lr] text-end"
+			class="md:text-[6rem] text-4xl w-[1em] shrink-0 self-start overflow-hidden font-bold font-josefin-sans text-primary-500 [writing-mode:sideways-lr] text-end sticky top-8 mr-6"
+			aria-label={activeSection}
 		>
-			About...
+			<div
+				class="relative inline-flex w-[1em] shrink-0 justify-end overflow-hidden"
+				style:height="{sectionTitleSlotCount}em"
+				aria-hidden="true"
+			>
+				{#each activeSectionSlots as slot (slot.index)}
+					<span
+						class="relative inline-grid h-[1em] w-[1em] shrink-0 place-items-center overflow-hidden"
+					>
+						{#key slot.key}
+							{#if slot.char}
+								<span
+									class="col-start-1 row-start-1 will-change-transform"
+									in:fly|global={{
+										duration: sectionTitleCharDuration,
+										delay: slot.delay,
+										x: 100
+									}}
+									out:fly|global={{
+										duration: sectionTitleCharDuration,
+										delay: slot.delay,
+										x: -100
+									}}>{slot.char}</span
+								>
+							{/if}
+						{/key}
+					</span>
+				{/each}
+			</div>
 		</h2>
-		<div class="md:text-lg text-base font-extralight max-w-[70ch] space-y-4">
-			<p class="">
-				Heyo! I'm a {age().toFixed(0)} year old FPV pilot turned developer mostly
-				out of boredom and a little bit of spite.
-			</p>
-			<p>
-				This site started all the way back in 2021 as my first programming
-				project. It was essentially a fancy way to show part recommendations
-				from a google sheet that me and my friends made and shared around at the
-				time. Now it's... still mostly that, but even fancier and with actual
-				added functionality here and there.
-			</p>
-			<p>
-				I'm also working on a couple of other projects that you may or may not
-				have heard of, like <a
-					href="https://betaflight.com"
-					class="text-primary-500 hover:underline font-normal">Betaflight</a
-				>. Me and a good friend of mine started work on an alternative
-				documentation website, and it eventually became official, with us now on
-				the dev team! I mostly work on the documentation and the app itself,
-				having helped taking it out of its old native wrapper and into the
-				browser directly. The latest release of the app is built around a much
-				more modern UI framework and architecture which I helped introduce.
-			</p>
-			<p>Enough about me, let's see what you can actually find here!</p>
+		<div class="flex-1 flex flex-col gap-96">
+			<section
+				{@attach trackSection("ABOUT")}
+				class="md:text-3xl text-base font-extralight md:max-w-[calc(100%-8rem)] space-y-10 pb-64"
+			>
+				<p class="">
+					Heyo! I'm a {age.toFixed(0)} year old FPV pilot turned developer
+					mostly out of boredom and a little bit of spite.
+				</p>
+				<p>
+					This site started all the way back in 2021 as my first programming
+					project. It was essentially a fancy way to show part recommendations
+					from a google sheet that me and my friends made and shared around at
+					the time. Now it's... still mostly that, but even fancier and with
+					actual added functionality here and there.
+				</p>
+				<p>
+					I'm also working on a couple of other projects that you may or may not
+					have heard of, like <a
+						href="https://betaflight.com"
+						class="text-primary-500 hover:underline font-normal">Betaflight</a
+					>. Me and a good friend of mine started work on an alternative
+					documentation website, and it eventually became official, with us now
+					on the dev team! I mostly work on the documentation and the app
+					itself, having helped taking it out of its old native wrapper and into
+					the browser directly. The latest release of the app is built around a
+					much more modern UI framework and architecture which I helped
+					introduce.
+				</p>
+				<p>Enough about me, let's see what you can actually find here!</p>
+			</section>
+
+			<section
+				{@attach trackSection("FAQ")}
+				class="md:text-3xl text-base font-extralight md:max-w-[calc(100%-8rem)] space-y-10 pb-64"
+			>
+				<p class="">
+					Heyo! I'm a {age.toFixed(0)} year old FPV pilot turned developer
+					mostly out of boredom and a little bit of spite.
+				</p>
+				<p>
+					This site started all the way back in 2021 as my first programming
+					project. It was essentially a fancy way to show part recommendations
+					from a google sheet that me and my friends made and shared around at
+					the time. Now it's... still mostly that, but even fancier and with
+					actual added functionality here and there.
+				</p>
+				<p>
+					I'm also working on a couple of other projects that you may or may not
+					have heard of, like <a
+						href="https://betaflight.com"
+						class="text-primary-500 hover:underline font-normal">Betaflight</a
+					>. Me and a good friend of mine started work on an alternative
+					documentation website, and it eventually became official, with us now
+					on the dev team! I mostly work on the documentation and the app
+					itself, having helped taking it out of its old native wrapper and into
+					the browser directly. The latest release of the app is built around a
+					much more modern UI framework and architecture which I helped
+					introduce.
+				</p>
+				<p>Enough about me, let's see what you can actually find here!</p>
+			</section>
 		</div>
 	</div>
 </div>

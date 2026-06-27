@@ -15,5 +15,6 @@
 		"javascript",
 		"typescript",
 		"svelte"
-	]
+	],
+	"editor.formatOnSaveMode": "modifications"
 }
