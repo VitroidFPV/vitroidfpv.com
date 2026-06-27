@@ -10,3 +10,5 @@ Well, almost. Can't ever catch them all.
 The gear section offers lists of all the exciting (and not so exciting) stuff you need to get in the air. Remote controllers from tiny gamepad-like devices to full-sized handheld bricks, goggles ranging from budget-friendly analog to high-end digital (and video receiver modules to match), chargers for batteries ranging from small 1s packs for tinywhoops to large 6s packs for freestyle, racing, and beyond.
 
 You'll also likely need some antennas, tools, build materials, spare parts and all sorts of different accessories. Those may unfortunately be (re)added later.
+
+<a href="/lists" class="btn btn-lg preset-filled-primary-500">Gear acquisition syndrome is real</a>

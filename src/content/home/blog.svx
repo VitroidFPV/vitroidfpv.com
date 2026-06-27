@@ -10,3 +10,5 @@ And also, writing "blogs" makes me feel like an old person. But I do prefer writ
 I write about just about anything that comes to mind. Funny sentence. But I try my best to keep it organized into News, Reviews, Guides, Tutorials, and Misc for everything else.
 
 Everything written here is my own opinion only. Unless specified otherwise, when I want to make myself sound way more important.
+
+<a href="/articles" class="btn btn-lg preset-filled-primary-500">Read my NOT blogs</a>
