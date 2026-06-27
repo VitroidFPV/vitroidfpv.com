@@ -1,0 +1,12 @@
+---
+title: Donate
+order: 6
+---
+
+### Support the site and keep it running!
+
+I run this site on my own time and resources. And I myself run on a potentially dangerous dosage of caffeine that requires constant monetary input.
+
+If this site (or any of my other projects) has helped to make your FPV experience even just a little better in any way, please consider donating to support my work. Every little bit helps!
+
+<a href="https://ko-fi.com/vitroid" class="btn md:btn-lg preset-filled-primary-500">Keep me awake</a>

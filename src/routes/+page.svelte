@@ -328,6 +328,7 @@
 					<section.component {age} />
 				</section>
 			{/each}
+			<div class="h-1/2"></div>
 		</div>
 	</div>
 </div>
