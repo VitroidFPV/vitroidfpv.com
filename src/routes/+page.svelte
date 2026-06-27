@@ -286,7 +286,7 @@
 <div class="md:px-8 px-2 pt-64">
 	<div class="flex">
 		<h2
-			class="md:text-[6rem] text-4xl w-[1.15em] font-geist-mono shrink-0 self-start overflow-hidden font-black text-primary-500 [writing-mode:sideways-lr] text-end sticky top-8 md:mr-6 mr-2"
+			class="md:text-[6rem] text-4xl w-[1.15em] font-geist-mono shrink-0 self-start overflow-hidden font-black text-primary-500 [writing-mode:sideways-lr] text-end sticky top-8 md:mr-6 mr-1 md:ml-0 -ml-2"
 			aria-label={activeSection}
 		>
 			<div
@@ -323,7 +323,7 @@
 			{#each homeSections as section (section.title)}
 				<section
 					{@attach trackSection(section.title)}
-					class="home-section md:text-3xl text-base font-extralight md:max-w-[calc(100%-7rem)] max-w-[calc(100%-4rem)] space-y-10 pb-64"
+					class="home-section md:text-3xl text-sm font-extralight md:max-w-[calc(100%-7rem)] max-w-[calc(100%-2.25rem)] md:space-y-10 space-y-4 pb-64"
 				>
 					<section.component {age} />
 				</section>

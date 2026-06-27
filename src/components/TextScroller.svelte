@@ -180,7 +180,7 @@
 
 {#snippet column(hidden = false)}
 	<div
-		class="flex shrink-0 flex-col items-center pb-16 font-vcr-osd md:text-2xl text-lg tracking-[0.08em] uppercase {gap}"
+		class="flex shrink-0 flex-col items-center pb-16 font-vcr-osd md:text-2xl text-xs tracking-[0.08em] uppercase {gap}"
 		aria-hidden={hidden || undefined}
 	>
 		{#each sequence as item, index (`${loopCount}-${index}-${item}`)}

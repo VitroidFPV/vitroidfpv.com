@@ -11,4 +11,4 @@ I write about just about anything that comes to mind. Funny sentence. But I try 
 
 Everything written here is my own opinion only. Unless specified otherwise, when I want to make myself sound way more important.
 
-<a href="/articles" class="btn btn-lg preset-filled-primary-500">Read my NOT blogs</a>
+<a href="/articles" class="btn md:btn-lg preset-filled-primary-500">Read my NOT blogs</a>

@@ -11,5 +11,5 @@ The builds section hosts lists of parts for all sorts of different builds, picke
 
 There were many different builds on this site over the years, but I can only keep up with so much. Right now, only a select few are available publicly. It's a surprising amount of work to keep everything up to date and make sure it's all working correctly across different price points and use cases.
 
-<a href="/lists" class="btn btn-lg preset-filled-primary-500">Browse for your next build</a>
+<a href="/lists" class="btn md:btn-lg preset-filled-primary-500">Browse for your next build</a>
 

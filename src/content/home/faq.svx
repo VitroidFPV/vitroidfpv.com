@@ -11,4 +11,4 @@ Sorted into categories to be quickly found - Starting Out, Building, Betaflight,
 
 The aim is to provide mostly simple and quick answers, but some questions may be more complex and require a a longer explanation. Those will usually have a short synopsis of the answer, and a link to a detailed guide article.
 
-<a href="/faq" class="btn btn-lg preset-filled-primary-500">Get Answers in the FAQ</a>
+<a href="/faq" class="btn md:btn-lg preset-filled-primary-500">Get Answers in the FAQ</a>

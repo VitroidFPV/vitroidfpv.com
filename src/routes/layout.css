@@ -43,5 +43,5 @@
 }
 
 .home-section h3 {
-	@apply font-semibold text-primary-500 md:text-4xl text-xl;
+	@apply font-semibold text-primary-500 md:text-4xl text-lg;
 }

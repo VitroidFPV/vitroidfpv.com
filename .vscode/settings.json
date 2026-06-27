@@ -1,7 +1,13 @@
 {
 	"files.associations": {
-		"*.css": "tailwindcss"
+		"*.css": "tailwindcss",
+		"*.svx": "svx"
 	},
+	"tailwindCSS.includeLanguages": {
+		"svelte": "html",
+		"svx": "html"
+	},
+	"tailwindCSS.experimental.configFile": "src/routes/layout.css",
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"[svelte]": {

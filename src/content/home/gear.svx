@@ -11,4 +11,4 @@ The gear section offers lists of all the exciting (and not so exciting) stuff yo
 
 You'll also likely need some antennas, tools, build materials, spare parts and all sorts of different accessories. Those may unfortunately be (re)added later.
 
-<a href="/lists" class="btn btn-lg preset-filled-primary-500">Gear acquisition syndrome is real</a>
+<a href="/lists" class="btn md:btn-lg preset-filled-primary-500 whitespace-break-spaces text-center ">Gear acquisition syndrome is real</a>
