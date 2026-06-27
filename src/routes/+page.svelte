@@ -10,6 +10,11 @@
 
 	const isMobile = new MediaQuery("(hover: none) and (pointer: coarse)", true)
 
+	const scrollerEasterEgg = {
+		label: "SECRET LINK",
+		href: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+	}
+
 	const modes: { value: WorleyMode; label: string }[] = [
 		{ value: "f1", label: "Distance — F1" },
 		{ value: "f2", label: "Distance — F2" },
@@ -278,8 +283,8 @@
 	<div
 		class="pointer-events-none fixed top-0 md:right-4 right-1 h-full max-w-full flex md:gap-2 gap-0"
 	>
-		<TextScroller />
-		<TextScroller reverse />
+		<TextScroller easterEgg={scrollerEasterEgg} />
+		<TextScroller reverse easterEgg={scrollerEasterEgg} />
 	</div>
 </div>
 

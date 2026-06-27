@@ -59,25 +59,38 @@
 		"CHIRP EXC FINISHED"
 	]
 
+	type ScrollerItem = {
+		text: string
+		href?: string
+	}
+
 	let {
 		count = 24,
 		duration = 100,
 		gap = "gap-8",
 		refreshOnLoop = true,
-		reverse = false
+		reverse = false,
+		easterEgg,
+		easterEggChance = 0.1
 	}: {
 		count?: number
 		duration?: number
 		gap?: string
 		refreshOnLoop?: boolean
 		reverse?: boolean
+		easterEgg?: { label: string; href: string }
+		easterEggChance?: number
 	} = $props()
 
-	function pickRandom(): string {
-		return sourceItems[Math.floor(Math.random() * sourceItems.length)]
+	function pickRandom(): ScrollerItem {
+		if (easterEgg && Math.random() < easterEggChance) {
+			return { text: easterEgg.label, href: easterEgg.href }
+		}
+
+		return { text: sourceItems[Math.floor(Math.random() * sourceItems.length)] }
 	}
 
-	function generateSequence(length: number): string[] {
+	function generateSequence(length: number): ScrollerItem[] {
 		return Array.from({ length }, pickRandom)
 	}
 
@@ -183,15 +196,28 @@
 		class="flex shrink-0 flex-col items-center pb-16 font-vcr-osd md:text-2xl text-xs tracking-[0.08em] uppercase {gap}"
 		aria-hidden={hidden || undefined}
 	>
-		{#each sequence as item, index (`${loopCount}-${index}-${item}`)}
-			{@const key = `${loopCount}-${index}-${item}`}
-			<span
-				data-scroller-item={key}
-				class="inline-block [writing-mode:sideways-lr] transition-colors duration-200 {hoveredKey ===
-				key
-					? 'text-primary-500 text-shadow-[0px_0px_32px] text-shadow-primary-500/90'
-					: ''}">{item}</span
-			>
+		{#each sequence as item, index (`${loopCount}-${index}-${item.text}`)}
+			{@const key = `${loopCount}-${index}-${item.text}`}
+			{@const hoverClass =
+				hoveredKey === key
+					? "text-primary-500 text-shadow-[0px_0px_32px] text-shadow-primary-500/90"
+					: ""}
+			{#if item.href}
+				<a
+					href={item.href}
+					target="_blank"
+					rel="noopener noreferrer"
+					data-scroller-item={key}
+					class="pointer-events-auto inline-block [writing-mode:sideways-lr] transition-colors duration-200 {hoverClass}"
+					>{item.text}</a
+				>
+			{:else}
+				<span
+					data-scroller-item={key}
+					class="inline-block [writing-mode:sideways-lr] transition-colors duration-200 {hoverClass}"
+					>{item.text}</span
+				>
+			{/if}
 		{/each}
 	</div>
 {/snippet}
