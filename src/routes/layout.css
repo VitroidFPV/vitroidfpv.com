@@ -20,6 +20,7 @@
 	--font-caveat: "Caveat Variable", system-ui, sans-serif;
 	--font-vcr-osd: "VCR OSD Mono", ui-monospace, monospace;
 	--font-josefin-sans: "Josefin Sans Variable", system-ui, sans-serif;
+	--font-geist-mono: "Geist Mono Variable", ui-monospace, monospace;
 
 	--animate-scroll: scroll-y linear infinite;
 
@@ -32,4 +33,15 @@
 			transform: translateY(-50%);
 		}
 	}
+}
+
+.btn {
+	@apply font-semibold;
+	&.btn-lg {
+		@apply md:py-4 md:px-6 md:text-xl;
+	}
+}
+
+.home-section h3 {
+	@apply font-semibold text-primary-500 md:text-4xl text-xl;
 }

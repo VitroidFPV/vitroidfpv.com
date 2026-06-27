@@ -1,0 +1,15 @@
+---
+title: Builds
+order: 3
+---
+
+### Get parts for your first build, or inspiration for your next one!
+
+Bind and Fly (BNF) drones have gotten a lot better since I first started flying and eventually writing this site. But building your own is still my recommended way to get started. You learn a lot about how everything goes together and how it all works when you do it yourself. And when it breaks, you already have all the tools and knowledge to fix it.
+
+The builds section hosts lists of parts for all sorts of different builds, picked to be compatible with each other, and to be of good quality. Every item is indicated with a price range respective to the total build cost, lists the most important specs, and offers a concise description. You can view images of the parts, and add them to a shopping list as you go to sum up the total price.
+
+There were many different builds on this site over the years, but I can only keep up with so much. Right now, only a select few are available publicly. It's a surprising amount of work to keep everything up to date and make sure it's all working correctly across different price points and use cases.
+
+<a href="/lists" class="btn btn-lg preset-filled-primary-500">Browse for your next build</a>
+

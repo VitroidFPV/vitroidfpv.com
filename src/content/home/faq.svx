@@ -1,0 +1,14 @@
+---
+title: FAQ
+order: 2
+---
+
+### Find quick answers to the most frequently asked questions!
+
+It's no secret that FPV is not a very easy hobby to get into. There's a lot to learn when you're just starting out, and it can be overwhelming. But time and time again, some questions come up time and time again, so I've compiled a list of the most frequently asked questions here. You can even learn what some of the items scrolling by on the right mean!
+
+Sorted into categories to be quickly found - Starting Out, Building, Betaflight, Video, Radio, Hardware, it covers everything from "How much does it cost to get started with FPV?" to "My motors won't slow down after moving throttle". Suggestions for new questions and direct contributions are welcome!
+
+The aim is to provide mostly simple and quick answers, but some questions may be more complex and require a a longer explanation. Those will usually have a short synopsis of the answer, and a link to a detailed guide article.
+
+<a href="/faq" class="btn btn-lg preset-filled-primary-500">Get Answers in the FAQ</a>

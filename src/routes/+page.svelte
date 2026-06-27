@@ -6,6 +6,7 @@
 	import TextScroller from "$components/TextScroller.svelte"
 	import type { Attachment } from "svelte/attachments"
 	import { fly } from "svelte/transition"
+	import { homeSections } from "$lib/home/sections"
 
 	const isMobile = new MediaQuery("(hover: none) and (pointer: coarse)", true)
 
@@ -42,8 +43,8 @@
 		return years
 	})
 
-	let activeSection = $state("ABOUT")
-	const sectionTitleSlotCount = 5
+	let activeSection = $state(homeSections[0]?.title ?? "")
+	const sectionTitleSlotCount = 6
 	const sectionTitleCharDelay = 45
 	const sectionTitleCharDuration = 220
 
@@ -275,7 +276,7 @@
 		</div>
 	</div>
 	<div
-		class="pointer-events-none absolute top-0 right-4 h-full max-w-full flex gap-2"
+		class="pointer-events-none fixed top-0 md:right-4 right-1 h-full max-w-full flex md:gap-2 gap-0"
 	>
 		<TextScroller />
 		<TextScroller reverse />
@@ -285,17 +286,17 @@
 <div class="md:px-8 px-2 pt-64">
 	<div class="flex">
 		<h2
-			class="md:text-[6rem] text-4xl w-[1em] shrink-0 self-start overflow-hidden font-bold font-josefin-sans text-primary-500 [writing-mode:sideways-lr] text-end sticky top-8 mr-6"
+			class="md:text-[6rem] text-4xl w-[1.15em] font-geist-mono shrink-0 self-start overflow-hidden font-black text-primary-500 [writing-mode:sideways-lr] text-end sticky top-8 md:mr-6 mr-2"
 			aria-label={activeSection}
 		>
 			<div
-				class="relative inline-flex w-[1em] shrink-0 justify-end overflow-hidden"
+				class="relative inline-flex w-[1.15em] shrink-0 justify-end overflow-hidden"
 				style:height="{sectionTitleSlotCount}em"
 				aria-hidden="true"
 			>
 				{#each activeSectionSlots as slot (slot.index)}
 					<span
-						class="relative inline-grid h-[1em] w-[1em] shrink-0 place-items-center overflow-hidden"
+						class="relative inline-grid w-[1.15em] shrink-0 place-items-center overflow-hidden"
 					>
 						{#key slot.key}
 							{#if slot.char}
@@ -318,68 +319,15 @@
 				{/each}
 			</div>
 		</h2>
-		<div class="flex-1 flex flex-col gap-96">
-			<section
-				{@attach trackSection("ABOUT")}
-				class="md:text-3xl text-base font-extralight md:max-w-[calc(100%-8rem)] space-y-10 pb-64"
-			>
-				<p class="">
-					Heyo! I'm a {age.toFixed(0)} year old FPV pilot turned developer
-					mostly out of boredom and a little bit of spite.
-				</p>
-				<p>
-					This site started all the way back in 2021 as my first programming
-					project. It was essentially a fancy way to show part recommendations
-					from a google sheet that me and my friends made and shared around at
-					the time. Now it's... still mostly that, but even fancier and with
-					actual added functionality here and there.
-				</p>
-				<p>
-					I'm also working on a couple of other projects that you may or may not
-					have heard of, like <a
-						href="https://betaflight.com"
-						class="text-primary-500 hover:underline font-normal">Betaflight</a
-					>. Me and a good friend of mine started work on an alternative
-					documentation website, and it eventually became official, with us now
-					on the dev team! I mostly work on the documentation and the app
-					itself, having helped taking it out of its old native wrapper and into
-					the browser directly. The latest release of the app is built around a
-					much more modern UI framework and architecture which I helped
-					introduce.
-				</p>
-				<p>Enough about me, let's see what you can actually find here!</p>
-			</section>
-
-			<section
-				{@attach trackSection("FAQ")}
-				class="md:text-3xl text-base font-extralight md:max-w-[calc(100%-8rem)] space-y-10 pb-64"
-			>
-				<p class="">
-					Heyo! I'm a {age.toFixed(0)} year old FPV pilot turned developer
-					mostly out of boredom and a little bit of spite.
-				</p>
-				<p>
-					This site started all the way back in 2021 as my first programming
-					project. It was essentially a fancy way to show part recommendations
-					from a google sheet that me and my friends made and shared around at
-					the time. Now it's... still mostly that, but even fancier and with
-					actual added functionality here and there.
-				</p>
-				<p>
-					I'm also working on a couple of other projects that you may or may not
-					have heard of, like <a
-						href="https://betaflight.com"
-						class="text-primary-500 hover:underline font-normal">Betaflight</a
-					>. Me and a good friend of mine started work on an alternative
-					documentation website, and it eventually became official, with us now
-					on the dev team! I mostly work on the documentation and the app
-					itself, having helped taking it out of its old native wrapper and into
-					the browser directly. The latest release of the app is built around a
-					much more modern UI framework and architecture which I helped
-					introduce.
-				</p>
-				<p>Enough about me, let's see what you can actually find here!</p>
-			</section>
+		<div class="flex-1 flex flex-col md:gap-64 gap-16">
+			{#each homeSections as section (section.title)}
+				<section
+					{@attach trackSection(section.title)}
+					class="home-section md:text-3xl text-base font-extralight md:max-w-[calc(100%-7rem)] max-w-[calc(100%-4rem)] space-y-10 pb-64"
+				>
+					<section.component {age} />
+				</section>
+			{/each}
 		</div>
 	</div>
 </div>
@@ -390,5 +338,9 @@
 		.bold-text-effect {
 			-webkit-text-stroke: 2px var(--color-primary-500);
 		}
+	}
+
+	.home-section :global(a:hover) {
+		text-decoration: underline;
 	}
 </style>

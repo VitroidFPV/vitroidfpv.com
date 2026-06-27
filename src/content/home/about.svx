@@ -1,0 +1,18 @@
+---
+title: ABOUT
+order: 1
+---
+
+<script lang="ts">
+	let { age }: { age: number } = $props()
+</script>
+
+### Heyo! 
+
+I'm a {age.toFixed(0)} year old FPV pilot turned developer mostly out of boredom and a little bit of spite.
+
+This site started all the way back in 2021 as my first programming project. It was essentially a fancy way to show part recommendations from a google sheet that me and my friends made and shared around at the time. Now it's... still mostly that, but even fancier and with actual added functionality here and there.
+
+I'm also working on a couple of other projects that you may or may not have heard of, like [Betaflight](https://betaflight.com). Me and a good friend of mine started work on an alternative documentation website, and it eventually became official, with us now on the dev team! I mostly work on the documentation and the app itself, having helped taking it out of its old native wrapper and into the browser directly. The latest release of the app is built around a much more modern UI framework and architecture which I helped introduce.
+
+Enough about me, let's see what you can actually find here!

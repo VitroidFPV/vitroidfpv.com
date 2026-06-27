@@ -1,0 +1,12 @@
+---
+title: Blog
+order: 5
+---
+
+### "Articles" was too long for this fancy title thingy.
+
+And also, writing "blogs" makes me feel like an old person. But I do prefer written content over videos when it comes to learning and sharing knowledge. I hope you do as well if you made it this far down.
+
+I write about just about anything that comes to mind. Funny sentence. But I try my best to keep it organized into News, Reviews, Guides, Tutorials, and Misc for everything else.
+
+Everything written here is my own opinion only. Unless specified otherwise, when I want to make myself sound way more important.
