@@ -1,7 +1,7 @@
 <script lang="ts">
 	import swirl from "$lib/assets/swirl-bg.svg"
 	import type { Snippet } from "svelte"
-	let { h1, h2, description, children }: { h1?: string, h2?: string, description?: Snippet, children?: Snippet } = $props()
+	let { h1, h2, description, children, ghostTitleClass = " md:text-[24rem] text-[12rem]"}: { h1?: string, h2?: string, description?: Snippet, children?: Snippet, ghostTitleClass?: string } = $props()
 </script>
 
 <div class="relative min-h-screen overflow-hidden">
@@ -14,10 +14,10 @@
 			alt=""
 			class="md:size-[350%] size-[200%] aspect-square object-cover dark:opacity-20 opacity-50 -translate-y-1/3"
 		/>
-		<h1 class="absolute top-0 right-0 md:-mr-28 -mr-20 md:text-[24rem] text-[12rem] font-bold font-josefin-sans pointer-events-none text-surface-50-950 [writing-mode:sideways-lr] text-outline">{h1}</h1>
+		<h1 class="absolute top-0 right-0 md:-mr-28 -mr-20 {ghostTitleClass} font-bold font-josefin-sans pointer-events-none text-surface-50-950 [writing-mode:sideways-lr] text-outline">{h1}</h1>
 	</div>
 	<div class="relative z-0 pt-32 md:pl-8 pl-2 flex flex-col gap-4">
-		<h1 class="md:text-[12rem] text-6xl font-bold font-josefin-sans text-primary-500">{h1}</h1>
+		<h1 class="md:text-[12rem] text-6xl font-bold font-josefin-sans text-primary-500 -ml-4">{h1}</h1>
 		<h2 class="text-2xl font-bold text-primary-500">{h2}</h2>
 		<div class="flex flex-col gap-4 max-w-3xl md:text-lg md">
 			{@render description?.()}
