@@ -1,0 +1,9 @@
+---
+title: FAQ
+description: Find quick answers to the most frequently asked questions!
+---
+It's no secret that FPV is not a very easy hobby to get into. There's a lot to learn when you're just starting out, and it can be overwhelming. But time and time again, some questions come up time and time again, so I've compiled a list of the most frequently asked questions here.
+
+The aim is to provide mostly simple and quick answers, but some questions may be more complex and require a a longer explanation. Those will usually have a short synopsis of the answer, and a link to a detailed guide article.
+
+The FAQ is continuously updated and expanded, so check back regularly for new questions and answers. If you would like to suggest changes or contribute directly, visit https://github.com/VitroidFPV/vitroidfpv.com/

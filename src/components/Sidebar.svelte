@@ -8,7 +8,7 @@
 		RouteIdWithSearchOrHash
 	} from "$app/types"
 	import type { Component } from "svelte"
-	import { House, CircleQuestionMark, List, Newspaper } from "@lucide/svelte"
+	import { House, CircleQuestionMark, Newspaper, Rocket, Toolbox } from "@lucide/svelte"
 
 	type SidebarHref = RouteIdWithSearchOrHash | PathnameWithSearchOrHash
 
@@ -21,7 +21,9 @@
 	const navItems: NavItem[] = [
 		{ href: "/", label: "Home", icon: House },
 		{ href: "/faq", label: "FAQ", icon: CircleQuestionMark },
-		{ href: "/lists", label: "Lists", icon: List },
+		// { href: "/lists", label: "Lists", icon: List },
+		{ href: "/builds", label: "Builds", icon: Rocket },
+		{ href: "/equipment", label: "Gear", icon: Toolbox },
 		{ href: "/articles", label: "Articles", icon: Newspaper }
 	]
 

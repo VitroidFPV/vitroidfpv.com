@@ -1,5 +1,5 @@
 <script lang="ts">
-	import FaqContent, { metadata } from "./faq-page.svx"
+	import FaqContent, { metadata } from "./equipment-page.svx"
 	import PageWrapper from "$components/PageWrapper.svelte"
 </script>
 
