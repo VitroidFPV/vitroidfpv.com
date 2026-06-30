@@ -45,3 +45,9 @@
 .home-section h3 {
 	@apply font-semibold text-primary-500 md:text-4xl text-lg;
 }
+
+.md {
+	a {
+		@apply text-primary-500 hover:underline;
+	}
+}
