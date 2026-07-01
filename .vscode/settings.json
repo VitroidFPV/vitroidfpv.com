@@ -7,7 +7,7 @@
 		"svelte": "html",
 		"svx": "html"
 	},
-	"tailwindCSS.experimental.configFile": "src/routes/layout.css",
+	"tailwindCSS.experimental.configFile": "src/routes/main.css",
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"[svelte]": {

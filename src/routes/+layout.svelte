@@ -1,5 +1,5 @@
 <script lang="ts">
-	import "./layout.css"
+	import "./main.css"
 	import favicon from "$lib/assets/favicon.svg"
 	import "@fontsource-variable/geist/wght.css"
 	import "@fontsource-variable/geist-mono/wght.css"
