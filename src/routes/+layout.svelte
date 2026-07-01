@@ -9,6 +9,7 @@
 	import { Menu } from "@lucide/svelte"
 	import { fade } from "svelte/transition"
 	import { afterNavigate } from "$app/navigation"
+	import Footer from "$components/Footer.svelte"
 
 	let sidebarOpen = $state(false)
 
@@ -66,11 +67,12 @@
 	<!-- Main -->
 	<main class="col-span-1">
 		{@render children()}
+		<Footer />
 	</main>
-	<aside class="fixed bottom-4 right-4 z-40">
+	<aside class="fixed bottom-4 right-4 z-40 md:hidden">
 		<button
 			type="button"
-			class="btn preset-filled-surface-100-900 aspect-square md:hidden"
+			class="btn preset-filled-surface-100-900 aspect-square"
 			aria-label="Toggle sidebar"
 			onclick={() => (sidebarOpen = !sidebarOpen)}
 		>

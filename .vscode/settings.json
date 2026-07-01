@@ -22,5 +22,8 @@
 		"typescript",
 		"svelte"
 	],
-	"editor.formatOnSaveMode": "modifications"
+	"editor.formatOnSaveMode": "modifications",
+	"emmet.includeLanguages": {
+		"svelte": "html"
+	}
 }

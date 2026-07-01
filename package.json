@@ -43,6 +43,7 @@
 		"@fontsource-variable/geist": "^5.2.9",
 		"@fontsource-variable/geist-mono": "^5.2.8",
 		"@fontsource-variable/josefin-sans": "^5.2.8",
+		"@icons-pack/svelte-simple-icons": "^7.2.0",
 		"@lucide/svelte": "^1.21.0"
 	},
 	"optionalDependencies": {
