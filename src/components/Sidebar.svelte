@@ -8,7 +8,7 @@
 		RouteIdWithSearchOrHash
 	} from "$app/types"
 	import type { Component } from "svelte"
-	import { House, CircleQuestionMark, Newspaper, Rocket, Toolbox } from "@lucide/svelte"
+	import { House, CircleQuestionMark, Newspaper, Rocket, Toolbox, Wrench } from "@lucide/svelte"
 
 	type SidebarHref = RouteIdWithSearchOrHash | PathnameWithSearchOrHash
 
@@ -24,7 +24,8 @@
 		// { href: "/lists", label: "Lists", icon: List },
 		{ href: "/builds", label: "Builds", icon: Rocket },
 		{ href: "/equipment", label: "Gear", icon: Toolbox },
-		{ href: "/articles", label: "Articles", icon: Newspaper }
+		{ href: "/articles", label: "Articles", icon: Newspaper },
+		{ href: "/tools", label: "Tools", icon: Wrench }
 	]
 
 	function pathnameFromHref(href: SidebarHref) {
