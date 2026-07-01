@@ -4,7 +4,7 @@
 	let { h1, h2, description, children, ghostTitleClass = " md:text-[24rem] text-[12rem]"}: { h1?: string, h2?: string, description?: Snippet, children?: Snippet, ghostTitleClass?: string } = $props()
 </script>
 
-<div class="relative min-h-screen overflow-hidden">
+<div class="relative min-h-screen overflow-hidden pb-16">
 	<div
 		aria-hidden="true"
 		class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-screen mask-[linear-gradient(to_bottom,transparent,black_20%,black_50%,transparent)]"

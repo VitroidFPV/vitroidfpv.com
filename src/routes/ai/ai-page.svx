@@ -2,3 +2,12 @@
 title: AI
 description: Boo!
 ---
+I know, kinda scary nowadays. But the way to make it less scary is to talk about it. Hopefully in a constructive way.
+
+I use LLMs to assist in writing the code behind most of my projects nowadays. They're really useful tools for many things. But it's not like everything you see here is thought of, designed, and implemented by an LLM without any human intervention. At its core, I enjoy the process of learning, design, and creation. As I write this word by word, the only LLM-assisted piece of software is Cursor quickly trying to finish the rest of this sentence - to no avail. I think it's great to help me get unstuck, to do large but mostly benign refactoring tasks, or at most to let me quickly get a proof of concept that I manually refine. 
+
+Overall, everything that you see here is designed by me, with a few sections being created by an LLM from a specific example of my design. The fancy background on the landing page for example, that's based on a shader setup that I use a lot in Blender to create the effect - an LLM was used to bring it out of shader nodes to GLSL, and then to WebGL to be rendered directly on the page. All of the articles, product recommendations and descriptions are written by me, at most I'll get an inline suggestion for the rest of a sentence or two. 
+
+Despite the modern buzzwords, I don't like having fleets of agents and sub-agents writing 37 thousand lines of code per week. I don't like to just sit in front of a text box trying to steer an autocomplete machine to do my work for me. I don't think it's very fun, nor really sustainable going forward. I despise the blind and blatant use of LLMs and image generation models for any kind of creative work replacing actual human creativity. And as you may have noticed, I also don't like calling these things "AI"... the term is overused to the point of being meaningless.
+
+TL;DR: I'm a real human, this site is designed by me, and all the content in it is written by me. LLMs are useful tools, but we must resist the urge to see nails everywhere while holding a very environmentally heavy hammer.
