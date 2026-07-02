@@ -6,6 +6,9 @@ import { sveltekit } from "@sveltejs/kit/vite"
 import { defineConfig } from "vite"
 
 export default defineConfig({
+	ssr: {
+		noExternal: ["@skeletonlabs/skeleton-svelte"]
+	},
 	plugins: [
 		tailwindcss(),
 		sveltekit({

@@ -4,10 +4,10 @@
 	let { h1, h2, description, children, ghostTitleClass = " md:text-[24rem] text-[12rem]"}: { h1?: string, h2?: string, description?: Snippet, children?: Snippet, ghostTitleClass?: string } = $props()
 </script>
 
-<div class="relative min-h-screen overflow-hidden pb-16">
+<div class="relative flex min-h-screen flex-col gap-16 pb-16">
 	<div
 		aria-hidden="true"
-		class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-screen mask-[linear-gradient(to_bottom,transparent,black_20%,black_50%,transparent)]"
+		class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-screen overflow-hidden mask-[linear-gradient(to_bottom,transparent,black_20%,black_50%,transparent)]"
 	>
 		<img
 			src={swirl}
@@ -19,7 +19,7 @@
 	<div class="relative z-0 pt-32 md:pl-8 pl-2 flex flex-col gap-4">
 		<h1 class="md:text-[12rem] text-6xl font-bold font-josefin-sans text-primary-500 -ml-4">{h1}</h1>
 		<h2 class="text-2xl font-bold text-primary-500">{h2}</h2>
-		<div class="flex flex-col gap-4 max-w-3xl md:text-lg md">
+		<div class="flex flex-col max-w-3xl md:text-lg prose">
 			{@render description?.()}
 		</div>
 	</div>

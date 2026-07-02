@@ -5,6 +5,8 @@ declare module "*.glsl?raw" {
 	export default source
 }
 
+declare module "@skeletonlabs/skeleton-svelte"
+
 declare module "*.md" {
 	import type { Component } from "svelte"
 

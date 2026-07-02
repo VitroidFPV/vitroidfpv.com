@@ -51,3 +51,15 @@
 		@apply text-primary-500 hover:underline;
 	}
 }
+
+.prose {
+	@apply prose-neutral prose-p:mb-2 prose-p:not-first:mt-2 prose-p:text-surface-950-50 prose-a:text-primary-500 prose-a:no-underline prose-a:hover:underline
+}
+
+@layer components {
+	[id^="accordion:"] {
+		[id*="trigger"] {
+			@apply hover:bg-primary-500/10 hover:text-primary-500;
+		}
+	}
+}
