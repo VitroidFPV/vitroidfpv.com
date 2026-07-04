@@ -1,11 +1,15 @@
 <script lang="ts">
+	import type { BuildModelDepthTreatment } from "$lib/builds/depthTreatment"
 	import type { BuildModel } from "$lib/builds/models"
 	import { T } from "@threlte/core"
 	import { OrbitControls, useGltf, useDraco } from "@threlte/extras"
 	import { untrack } from "svelte"
 	import { Vector3, type BufferGeometry } from "three"
 
-	let { model }: { model: BuildModel } = $props()
+	let {
+		model,
+		depthTreatment = "prepass"
+	}: { model: BuildModel; depthTreatment?: BuildModelDepthTreatment } = $props()
 
 	const dracoLoader = useDraco()
 	const gltf = useGltf(untrack(() => model.path), {dracoLoader})
@@ -59,28 +63,64 @@
 	/>
 </T.PerspectiveCamera>
 
-{#if modelScene}
-	<T.Mesh
-		geometry={modelScene.geometry}
-		position={modelScene.position}
-		scale={modelScene.scale}
-		rotation={model.rotation}
-	>
-		<T.MeshBasicMaterial
-			metalness={0.5}
-			roughness={0.5}
-			color={0xaaaaaa}
+{#snippet edges(geometry: BufferGeometry)}
+	<T.LineSegments>
+		<T.EdgesGeometry args={[geometry, 15]} />
+		<T.LineBasicMaterial
+			color="rgb(127.5, 127.5, 127.5)"
 			transparent
-			opacity={0.1}
-			depthWrite={false}
+			opacity={0.2}
+			depthWrite={depthTreatment === "prepass" ? false : undefined}
+			depthTest={depthTreatment === "prepass" ? true : undefined}
 		/>
-		<T.LineSegments>
-			<T.EdgesGeometry args={[modelScene.geometry, 15]} />
-			<T.LineBasicMaterial
-				color="rgb(127.5, 127.5, 127.5)"
+	</T.LineSegments>
+{/snippet}
+
+{#if modelScene}
+	{#if depthTreatment === "legacy"}
+		<T.Mesh
+			geometry={modelScene.geometry}
+			position={modelScene.position}
+			scale={modelScene.scale}
+			rotation={model.rotation}
+		>
+			<T.MeshBasicMaterial
+				color={0xaaaaaa}
 				transparent
-				opacity={0.2}
+				opacity={0.1}
+				depthWrite={true}
+				depthTest={true}
 			/>
-		</T.LineSegments>
-	</T.Mesh>
+			{@render edges(modelScene.geometry)}
+		</T.Mesh>
+	{:else}
+		<T.Group
+			position={modelScene.position}
+			scale={modelScene.scale}
+			rotation={model.rotation}
+		>
+			<T.Mesh geometry={modelScene.geometry} renderOrder={0}>
+				<T.MeshBasicMaterial colorWrite={false} depthWrite={true} depthTest={true} />
+			</T.Mesh>
+			<T.Mesh geometry={modelScene.geometry} renderOrder={1}>
+				<T.MeshBasicMaterial
+					color={0xaaaaaa}
+					transparent
+					opacity={0.1}
+					depthWrite={false}
+					depthTest={true}
+				/>
+			</T.Mesh>
+			<T.LineSegments renderOrder={2}>
+				<T.EdgesGeometry args={[modelScene.geometry, 15]} />
+				<T.LineBasicMaterial
+					color="rgb(127.5, 127.5, 127.5)"
+					transparent
+					opacity={0.2}
+					depthWrite={false}
+					depthTest={true}
+				/>
+			</T.LineSegments>
+		</T.Group>
+	{/if}
 {/if}

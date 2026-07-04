@@ -16,7 +16,7 @@ export const buildModels = {
 		nodeName: "flipmode",
 		targetSize: BUILD_MODEL_TARGET_SIZE,
 		rotation: [Math.PI / 8, 0, 0] as BuildModelRotation,
-		autoRotateSpeed: BUILD_MODEL_AUTO_ROTATE_SPEED * -1
+		autoRotateSpeed: BUILD_MODEL_AUTO_ROTATE_SPEED
 	}
 } as const
 
