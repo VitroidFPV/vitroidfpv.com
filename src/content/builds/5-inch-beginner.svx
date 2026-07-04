@@ -3,6 +3,7 @@ title: 5" Beginner
 price: "~$250"
 order: 1
 image: /builds/S1V5.svg
+useModel: true
 color: primary
 features:
   - title: Weight

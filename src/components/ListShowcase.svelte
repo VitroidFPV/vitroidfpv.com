@@ -1,4 +1,5 @@
 <script lang="ts">
+	import GraphicsCanvas from "$components/graphics/Canvas.svelte"
 	import SplitEdge from "$components/graphics/SplitEdge.svelte"
 	import gggyrate from "$lib/assets/gggyrate.svg"
 	import {
@@ -14,6 +15,7 @@
 		price,
 		image,
 		imageAlt = title,
+		useModel = false,
 		color = "primary",
 		features,
 		Description
@@ -22,6 +24,7 @@
 		price: string
 		image: string
 		imageAlt?: string
+		useModel?: boolean
 		color?: BuildColor
 		features: BuildFeature[]
 		Description: Component
@@ -117,16 +120,22 @@
 		class="img-container right-0 flex h-full w-full lg:items-center items-end justify-center absolute lg:w-[calc(100%-2rem)] lg:justify-end"
 	>
 		<div
-			class="h-full w-full px-2 lg:pr-2 2xl:pr-8 flex items-end justify-end lg:items-center"
+			class="h-full w-full px-2 lg:pr-0 2xl:pr-8 flex items-end justify-end lg:items-center"
 		>
 			<div
-				class="aspect-square items-center justify-center flex w-full lg:w-auto"
+				class="aspect-square items-center justify-center flex lg:h-full h-auto w-full lg:w-max"
 			>
-				<img
-					src={image}
-					alt={imageAlt}
-					class="pointer-events-none w-full select-none -mb-16 lg:mb-0"
-				/>
+				{#if useModel}
+					<GraphicsCanvas
+						class="size-full min-h-0 max-w-full select-none lg:mb-0 cursor-grab"
+					/>
+				{:else}
+					<img
+						src={image}
+						alt={imageAlt}
+						class="pointer-events-none w-full select-none -mb-16 lg:mb-0"
+					/>
+				{/if}
 			</div>
 		</div>
 	</div>

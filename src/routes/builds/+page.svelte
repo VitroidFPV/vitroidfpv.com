@@ -19,6 +19,7 @@
 				title={build.title}
 				price={build.price}
 				image={build.image}
+				useModel={build.useModel}
 				color={build.color}
 				features={build.features}
 				Description={build.component}
