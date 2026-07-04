@@ -1,16 +1,20 @@
 <script lang="ts">
 	import { browser } from "$app/environment"
+	import type { BuildModel } from "$lib/builds/models"
 	import { Canvas } from "@threlte/core"
 
-	import S1V5 from "./S1V5.svelte"
+	import BuildModelScene from "./BuildModel.svelte"
 
-	let { class: className }: { class?: string } = $props()
+	let { class: className, model }: { class?: string; model: BuildModel } =
+		$props()
 </script>
 
 <div class={className}>
 	{#if browser}
 		<Canvas>
-			<S1V5 />
+			{#key model.id}
+				<BuildModelScene {model} />
+			{/key}
 		</Canvas>
 	{/if}
 </div>

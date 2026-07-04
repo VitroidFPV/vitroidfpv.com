@@ -3,6 +3,7 @@ title: 5" Advanced
 price: "~$350"
 order: 2
 image: /builds/S1V5.svg
+model: flipmode
 color: warning
 features:
   - title: Weight

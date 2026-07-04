@@ -7,6 +7,7 @@
 		buildColorClasses,
 		type BuildColor
 	} from "$lib/builds/colors"
+	import type { BuildModel } from "$lib/builds/models"
 	import type { BuildFeature } from "$lib/builds/sections"
 	import type { Component } from "svelte"
 
@@ -15,7 +16,7 @@
 		price,
 		image,
 		imageAlt = title,
-		useModel = false,
+		model = null,
 		color = "primary",
 		features,
 		Description
@@ -24,7 +25,7 @@
 		price: string
 		image: string
 		imageAlt?: string
-		useModel?: boolean
+		model?: BuildModel | null
 		color?: BuildColor
 		features: BuildFeature[]
 		Description: Component
@@ -41,14 +42,14 @@
 )}
 	<div class="flex gap-2">
 		<div class="h-full w-1 rounded-full {barClass} shrink-0"></div>
-		<div class="flex flex-col lg:gap-2 gap-0">
+		<div class="flex flex-col gap-0 lg:gap-2">
 			<div class="flex items-center gap-1 text-surface-600-400">
 				{#if Icon}
-					<Icon class="lg:size-5 size-3" />
+					<Icon class="size-3 lg:size-5" />
 				{/if}
 				<h4 class="text-xs 2xl:text-sm">{featureTitle}</h4>
 			</div>
-			<p class="text-sm font-bold xl:text-lg 2xl:text-xl whitespace-nowrap">
+			<p class="text-sm font-bold whitespace-nowrap xl:text-lg 2xl:text-xl">
 				{description}
 			</p>
 		</div>
@@ -64,29 +65,29 @@
 			<img
 				src={gggyrate}
 				alt=""
-				class="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 lg:scale-200 lg:opacity-5 transition-all duration-300 lg:group-hover:scale-205 scale-300 opacity-10"
+				class="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 scale-300 opacity-10 transition-all duration-300 lg:scale-200 lg:opacity-5 lg:group-hover:scale-205"
 			/>
 			<div
-				class="text-container relative flex h-fit w-full flex-col lg:gap-4 gap-2 p-2 md:p-4 lg:p-8"
+				class="text-container relative flex h-fit w-full flex-col gap-2 p-2 md:p-4 lg:gap-4 lg:p-8"
 			>
 				<div class="flex w-full items-center justify-between">
 					<h3
-						class="font-josefin-sans font-bold {colors.text} text-4xl xl:text-5xl 2xl:text-8xl pt-2 lg:pt-0 -mb-2 lg:mb-0"
+						class="font-josefin-sans font-bold {colors.text} -mb-2 pt-2 text-4xl lg:mb-0 lg:pt-0 xl:text-5xl 2xl:text-8xl"
 					>
 						{title}
 					</h3>
 					<span
-						class="pr-16 font-josefin-sans text-2xl font-bold {colors.text} lg:text-4xl lg:block hidden"
+						class="pr-16 font-josefin-sans text-2xl font-bold {colors.text} hidden lg:block lg:text-4xl"
 						>{price}</span
 					>
 				</div>
 				<div
-					class="prose flex-1 lg:pr-16 text-sm lg:text-base text-surface-950-50 2xl:text-lg"
+					class="prose flex-1 text-sm text-surface-950-50 lg:pr-16 lg:text-base 2xl:text-lg"
 				>
 					<Description />
 				</div>
 				<div class="flex flex-1 justify-between">
-					<div class="grid flex-1 grid-cols-2 gap-4 lg:pb-0 pb-4">
+					<div class="grid flex-1 grid-cols-2 gap-4 pb-4 lg:pb-0">
 						{#each features as feature (feature.title)}
 							{@render featureItem(
 								feature.title,
@@ -96,12 +97,12 @@
 							)}
 						{/each}
 					</div>
-					<div class="h-full w-0 lg:w-1/2 2xl:w-16 spacer"></div>
+					<div class="spacer h-full w-0 lg:w-1/2 2xl:w-16"></div>
 				</div>
 				<div
-					class="spacer aspect-8/1 w-full h-full lg:hidden flex items-center justify-end -mb-4"
+					class="spacer -mb-4 flex aspect-8/1 h-full w-full items-center justify-end lg:hidden"
 				>
-					<span class="text-2xl font-bold font-josefin-sans {colors.text}"
+					<span class="font-josefin-sans text-2xl font-bold {colors.text}"
 						>{price}</span
 					>
 				</div>
@@ -115,25 +116,26 @@
 			class="absolute top-0 right-0 hidden h-full w-auto text-surface-100-900 transition-all duration-300 {colors.splitEdgeHover} lg:block"
 		/>
 	</div>
-	<div class="aspect-square w-full lg:hidden block spacer -mt-16"></div>
+	<div class="spacer -mt-16 block aspect-square w-full lg:hidden"></div>
 	<div
-		class="img-container right-0 flex h-full w-full lg:items-center items-end justify-center absolute lg:w-[calc(100%-2rem)] lg:justify-end"
+		class="img-container absolute right-0 flex h-full w-full items-end justify-center lg:w-[calc(100%-2rem)] lg:items-center lg:justify-end"
 	>
 		<div
-			class="h-full w-full px-2 lg:pr-0 2xl:pr-8 flex items-end justify-end lg:items-center"
+			class="flex h-full w-full items-end justify-end px-2 lg:items-center lg:pr-0 2xl:pr-8"
 		>
 			<div
-				class="aspect-square items-center justify-center flex lg:h-full h-auto w-full lg:w-max"
+				class="flex aspect-square h-auto w-full items-center justify-center lg:h-full lg:w-max"
 			>
-				{#if useModel}
+				{#if model}
 					<GraphicsCanvas
-						class="size-full min-h-0 max-w-full select-none lg:mb-0 cursor-grab"
+						{model}
+						class="size-full min-h-0 max-w-full cursor-grab select-none lg:mb-0"
 					/>
 				{:else}
 					<img
 						src={image}
 						alt={imageAlt}
-						class="pointer-events-none w-full select-none -mb-16 lg:mb-0"
+						class="pointer-events-none -mb-16 w-full select-none lg:mb-0"
 					/>
 				{/if}
 			</div>

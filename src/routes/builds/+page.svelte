@@ -13,13 +13,13 @@
 	{#snippet description()}
 		<FaqContent />
 	{/snippet}
-	<div class="flex flex-col gap-8 px-2 lg:px-4 xl:px-8 pb-8">
+	<div class="flex flex-col gap-8 px-2 pb-8 lg:px-4 xl:px-8">
 		{#each buildSections as build (build.slug)}
 			<ListShowcase
 				title={build.title}
 				price={build.price}
 				image={build.image}
-				useModel={build.useModel}
+				model={build.model}
 				color={build.color}
 				features={build.features}
 				Description={build.component}

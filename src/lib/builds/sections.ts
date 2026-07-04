@@ -1,6 +1,7 @@
 import type { Component } from "svelte"
 import { resolveBuildColor, type BuildColor } from "./colors"
 import { resolveBuildIcon, type BuildIcon } from "./icons"
+import { resolveBuildModel, type BuildModel } from "./models"
 
 export type BuildFeatureMetadata = {
 	title: string
@@ -14,6 +15,7 @@ export type BuildSectionMetadata = {
 	order: number
 	image: string
 	useModel?: boolean
+	model?: string
 	color?: string
 	features: BuildFeatureMetadata[]
 }
@@ -30,7 +32,7 @@ export type BuildSection = {
 	price: string
 	order: number
 	image: string
-	useModel: boolean
+	model: BuildModel | null
 	color: BuildColor
 	features: BuildFeature[]
 	component: Component
@@ -46,9 +48,12 @@ function getBuildSlug(path: string): string {
 	return match?.[1] ?? path
 }
 
-const modules = import.meta.glob<BuildSectionModule>("../../content/builds/*.svx", {
-	eager: true
-})
+const modules = import.meta.glob<BuildSectionModule>(
+	"../../content/builds/*.svx",
+	{
+		eager: true
+	}
+)
 
 export const buildSections: BuildSection[] = Object.entries(modules)
 	.map(([path, module]) => ({
@@ -57,7 +62,10 @@ export const buildSections: BuildSection[] = Object.entries(modules)
 		price: module.metadata.price,
 		order: module.metadata.order,
 		image: module.metadata.image,
-		useModel: module.metadata.useModel ?? false,
+		model: resolveBuildModel(
+			module.metadata.model,
+			module.metadata.useModel ?? false
+		),
 		color: resolveBuildColor(module.metadata.color),
 		features: module.metadata.features.map((feature) => ({
 			title: feature.title,
