@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Corner from "$components/Corner.svelte"
+	import Corner from "$components/graphics/Corner.svelte"
 	import { SiGithub, SiYoutube, SiInstagram } from "@icons-pack/svelte-simple-icons"
 </script>
 

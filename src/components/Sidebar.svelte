@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Corner from "$components/Corner.svelte"
+	import Corner from "$components/graphics/Corner.svelte"
 	import SidebarItem from "$components/SidebarItem.svelte"
 	import { page } from "$app/state"
 	import ThemeSwitch from "$components/ThemeSwitch.svelte"
