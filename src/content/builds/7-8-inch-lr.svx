@@ -3,6 +3,7 @@ title: 7-8" LR
 price: "~$350"
 order: 3
 image: /builds/S1V5.svg
+model: mario8
 color: error
 features:
   - title: Weight
