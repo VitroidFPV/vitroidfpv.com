@@ -1,0 +1,25 @@
+---
+title: 5" Beginner
+price: "~$250"
+order: 1
+image: /builds/S1V5.svg
+color: primary
+features:
+  - title: Weight
+    description: 600-900g
+    icon: weight
+  - title: Stack Mounting
+    description: 30x30
+    icon: ruler
+  - title: VTX Mounting
+    description: 20x20/zipties
+    icon: ruler
+  - title: Flight Time
+    description: ~5-10 min
+    icon: battery
+  - title: Range
+    description: ~1-2km
+    icon: signal
+---
+
+Specced out to be easy to assemble, with affordable and accessible parts and electronics that should be easy to solder. This build should be perfect to get you started in the world of FPV.

@@ -2,6 +2,7 @@
 	import FaqContent, { metadata } from "./builds-page.svx"
 	import ListShowcase from "$components/ListShowcase.svelte"
 	import PageWrapper from "$components/PageWrapper.svelte"
+	import { buildSections } from "$lib/builds/sections"
 </script>
 
 <PageWrapper
@@ -12,5 +13,16 @@
 	{#snippet description()}
 		<FaqContent />
 	{/snippet}
-	<ListShowcase />
+	<div class="flex flex-col gap-8 px-2 lg:px-4 xl:px-8 pb-8">
+		{#each buildSections as build (build.slug)}
+			<ListShowcase
+				title={build.title}
+				price={build.price}
+				image={build.image}
+				color={build.color}
+				features={build.features}
+				Description={build.component}
+			/>
+		{/each}
+	</div>
 </PageWrapper>

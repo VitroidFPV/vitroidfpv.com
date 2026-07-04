@@ -1,0 +1,25 @@
+---
+title: 5" Advanced
+price: "~$350"
+order: 2
+image: /builds/S1V5.svg
+color: warning
+features:
+  - title: Weight
+    description: 600-900g
+    icon: weight
+  - title: Stack Mounting
+    description: 30x30
+    icon: ruler
+  - title: VTX Mounting
+    description: 20x20/zipties
+    icon: ruler
+  - title: Flight Time
+    description: ~5-10 min
+    icon: battery
+  - title: Range
+    description: ~3-5km
+    icon: signal
+---
+
+High performance electronics and the occasional speciality frame make this build perfect for reliable recording situations, surviving hardcore bando bashing, and getting the most out of one quad.
