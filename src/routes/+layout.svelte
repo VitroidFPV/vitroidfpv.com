@@ -45,7 +45,7 @@
 	<title>VitroidFPV</title>
 </svelte:head>
 
-<div class="grid grid-cols-1 md:grid-cols-[auto_1fr] relative">
+<div class="relative grid grid-cols-1 md:grid-cols-[auto_1fr]">
 	<!-- Backdrop (mobile only) -->
 	{#if sidebarOpen}
 		<button
@@ -58,9 +58,9 @@
 	{/if}
 	<!-- Sidebar -->
 	<aside
-		class="fixed md:sticky right-0 top-0 col-span-1 h-dvh z-30 transition-transform duration-200 {sidebarOpen
+		class="fixed top-0 right-0 z-30 col-span-1 h-dvh transition-transform duration-200 md:sticky {sidebarOpen
 			? 'translate-x-0'
-			: 'md:translate-x-0 translate-x-full'}"
+			: 'translate-x-full md:translate-x-0'}"
 	>
 		<Sidebar />
 	</aside>
@@ -69,10 +69,10 @@
 		{@render children()}
 		<Footer />
 	</main>
-	<aside class="fixed bottom-4 right-4 z-40 md:hidden">
+	<aside class="fixed right-4 bottom-4 z-40 md:hidden">
 		<button
 			type="button"
-			class="btn preset-filled-surface-100-900 aspect-square"
+			class="btn aspect-square preset-filled-surface-100-900"
 			aria-label="Toggle sidebar"
 			onclick={() => (sidebarOpen = !sidebarOpen)}
 		>

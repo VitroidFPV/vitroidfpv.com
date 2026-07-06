@@ -193,7 +193,7 @@
 
 {#snippet column(hidden = false)}
 	<div
-		class="flex shrink-0 flex-col items-center pb-16 font-vcr-osd md:text-2xl text-xs tracking-[0.08em] uppercase {gap}"
+		class="flex shrink-0 flex-col items-center pb-16 font-vcr-osd text-xs tracking-[0.08em] uppercase md:text-2xl {gap}"
 		aria-hidden={hidden || undefined}
 	>
 		{#each sequence as item, index (`${loopCount}-${index}-${item.text}`)}
@@ -208,13 +208,13 @@
 					target="_blank"
 					rel="noopener noreferrer"
 					data-scroller-item={key}
-					class="pointer-events-auto inline-block [writing-mode:sideways-lr] transition-colors duration-200 {hoverClass}"
+					class="pointer-events-auto inline-block transition-colors duration-200 [writing-mode:sideways-lr] {hoverClass}"
 					>{item.text}</a
 				>
 			{:else}
 				<span
 					data-scroller-item={key}
-					class="inline-block [writing-mode:sideways-lr] transition-colors duration-200 {hoverClass}"
+					class="inline-block transition-colors duration-200 [writing-mode:sideways-lr] {hoverClass}"
 					>{item.text}</span
 				>
 			{/if}
@@ -228,7 +228,7 @@
 	aria-live="off"
 >
 	<div
-		class="flex h-max flex-col animate-scroll motion-reduce:animate-none"
+		class="flex h-max animate-scroll flex-col motion-reduce:animate-none"
 		style:animation-duration="{duration}s"
 		onanimationiteration={onLoop}
 		style:animation-direction={reverse ? "reverse" : "normal"}

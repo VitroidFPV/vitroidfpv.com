@@ -26,10 +26,10 @@ function getQuestionSlug(path: string): string {
 	return match?.[1] ?? path
 }
 
-const sectionModules = import.meta.glob(
-	"../../content/faq/*/metadata.json",
-	{ eager: true, import: "default" }
-) as Record<string, FaqSectionMetadata>
+const sectionModules = import.meta.glob("../../content/faq/*/metadata.json", {
+	eager: true,
+	import: "default"
+}) as Record<string, FaqSectionMetadata>
 
 const questionModules = import.meta.glob<FaqQuestionModule>(
 	"../../content/faq/*/*.svx",

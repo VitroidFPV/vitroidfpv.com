@@ -8,7 +8,10 @@
 	let { model }: { model: BuildModel } = $props()
 
 	const dracoLoader = useDraco()
-	const gltf = useGltf(untrack(() => model.path), {dracoLoader})
+	const gltf = useGltf(
+		untrack(() => model.path),
+		{ dracoLoader }
+	)
 
 	const modelScene = $derived.by(
 		(): {
@@ -65,10 +68,20 @@
 		scale={modelScene.scale}
 		rotation={model.rotation}
 	>
-		<T.Mesh geometry={modelScene.geometry} renderOrder={0}>
-			<T.MeshBasicMaterial colorWrite={false} depthWrite={true} depthTest={true} />
+		<T.Mesh
+			geometry={modelScene.geometry}
+			renderOrder={0}
+		>
+			<T.MeshBasicMaterial
+				colorWrite={false}
+				depthWrite={true}
+				depthTest={true}
+			/>
 		</T.Mesh>
-		<T.Mesh geometry={modelScene.geometry} renderOrder={1}>
+		<T.Mesh
+			geometry={modelScene.geometry}
+			renderOrder={1}
+		>
 			<T.MeshBasicMaterial
 				color={0xaaaaaa}
 				transparent

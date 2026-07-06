@@ -23,13 +23,13 @@
 	) => string
 </script>
 
-<li class="relative z-10 h-12 p-3 px-4 pr-6 rounded-l-3xl">
+<li class="relative z-10 h-12 rounded-l-3xl p-3 px-4 pr-6">
 	<a
 		href={resolveHref(href)}
 		class="sidebar-link flex items-center gap-2
 		{active
 			? 'sidebar-link--active text-primary-contrast-dark'
-			: 'dark:text-surface-contrast-light text-surface-contrast-dark'}"
+			: 'text-surface-contrast-dark dark:text-surface-contrast-light'}"
 	>
 		{@render children()}
 		<span class="inline-grid">

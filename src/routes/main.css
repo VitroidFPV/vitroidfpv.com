@@ -38,12 +38,12 @@
 .btn {
 	@apply font-semibold;
 	&.btn-lg {
-		@apply md:py-4 md:px-6 md:text-xl;
+		@apply md:px-6 md:py-4 md:text-xl;
 	}
 }
 
 .home-section h3 {
-	@apply font-semibold text-primary-500 md:text-4xl text-lg;
+	@apply text-lg font-semibold text-primary-500 md:text-4xl;
 }
 
 .md {
@@ -53,7 +53,7 @@
 }
 
 .prose {
-	@apply prose-neutral prose-p:mb-2 prose-p:not-first:mt-2 prose-p:text-surface-950-50 prose-a:text-primary-500 prose-a:no-underline prose-a:hover:underline
+	@apply prose-neutral prose-p:mb-2 prose-p:text-surface-950-50 prose-p:not-first:mt-2 prose-a:text-primary-500 prose-a:no-underline prose-a:hover:underline;
 }
 
 @layer components {

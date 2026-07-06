@@ -16,9 +16,12 @@ type HomeSectionModule = {
 	metadata: HomeSectionMetadata
 }
 
-const modules = import.meta.glob<HomeSectionModule>("../../content/home/*.svx", {
-	eager: true
-})
+const modules = import.meta.glob<HomeSectionModule>(
+	"../../content/home/*.svx",
+	{
+		eager: true
+	}
+)
 
 export const homeSections: HomeSection[] = Object.values(modules)
 	.map((module) => ({

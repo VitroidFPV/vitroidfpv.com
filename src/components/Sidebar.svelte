@@ -8,7 +8,14 @@
 		RouteIdWithSearchOrHash
 	} from "$app/types"
 	import type { Component } from "svelte"
-	import { House, CircleQuestionMark, Newspaper, Rocket, Toolbox, Wrench } from "@lucide/svelte"
+	import {
+		House,
+		CircleQuestionMark,
+		Newspaper,
+		Rocket,
+		Toolbox,
+		Wrench
+	} from "@lucide/svelte"
 
 	type SidebarHref = RouteIdWithSearchOrHash | PathnameWithSearchOrHash
 
@@ -58,22 +65,22 @@
 </script>
 
 <div
-	class="flex flex-col h-full border-l-4 md:border-l-0 md:border-r-4 border-primary-500 py-8 bg-surface-50-950 gap-4"
+	class="flex h-full flex-col gap-4 border-l-4 border-primary-500 bg-surface-50-950 py-8 md:border-r-4 md:border-l-0"
 >
 	<ul
-		class="relative mt-auto md:mt-0 md:h-full list-none pl-4 gap-2 flex flex-col"
+		class="relative mt-auto flex list-none flex-col gap-2 pl-4 md:mt-0 md:h-full"
 	>
 		<li
 			aria-hidden="true"
-			class="sidebar-highlight pointer-events-none absolute md:left-4 md:right-0 left-0 right-4 top-0 h-12 md:rounded-l-3xl rounded-r-3xl md:rounded-r-none bg-primary-500"
+			class="sidebar-highlight pointer-events-none absolute top-0 right-4 left-0 h-12 rounded-r-3xl bg-primary-500 md:right-0 md:left-4 md:rounded-l-3xl md:rounded-r-none"
 			class:invisible={activeIndex === null}
 			style:transform={`translateY(${highlightOffset})`}
 		>
 			<Corner
-				class="absolute bottom-full md:right-0 md:left-auto left-0 size-6 text-primary-500 md:rotate-0 rotate-90"
+				class="absolute bottom-full left-0 size-6 rotate-90 text-primary-500 md:right-0 md:left-auto md:rotate-0"
 			/>
 			<Corner
-				class="absolute top-full md:right-0 md:left-auto left-0 size-6 text-primary-500 md:-rotate-90 -rotate-180"
+				class="absolute top-full left-0 size-6 -rotate-180 text-primary-500 md:right-0 md:left-auto md:-rotate-90"
 			/>
 		</li>
 
@@ -87,7 +94,7 @@
 			</SidebarItem>
 		{/each}
 	</ul>
-	<div class="w-full flex justify-center md:mt-auto md:mb-0 mb-16">
+	<div class="mb-16 flex w-full justify-center md:mt-auto md:mb-0">
 		<ThemeSwitch />
 	</div>
 </div>

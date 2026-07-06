@@ -4,7 +4,11 @@
 	import { Check, ChevronDownIcon, ClipboardPlus } from "@lucide/svelte"
 	import { Accordion } from "@skeletonlabs/skeleton-svelte"
 	import PageWrapper from "$components/PageWrapper.svelte"
-	import { buildFaqQuestionUrl, faqSections, findFaqQuestionById } from "$lib/faq/sections"
+	import {
+		buildFaqQuestionUrl,
+		faqSections,
+		findFaqQuestionById
+	} from "$lib/faq/sections"
 	import type { HTMLAttributes } from "svelte/elements"
 	import { onMount, tick } from "svelte"
 	import { slide } from "svelte/transition"
@@ -36,7 +40,10 @@
 		const wasOpen = current.includes(question.id)
 
 		if (!wasOpen) {
-			openBySection = { ...openBySection, [section.id]: [...current, question.id] }
+			openBySection = {
+				...openBySection,
+				[section.id]: [...current, question.id]
+			}
 		}
 
 		await tick()
@@ -82,12 +89,17 @@
 	}
 </script>
 
-<PageWrapper h1={metadata.title as string} h2={metadata.description as string}>
+<PageWrapper
+	h1={metadata.title as string}
+	h2={metadata.description as string}
+>
 	{#snippet description()}
 		<FaqIntro />
 	{/snippet}
 
-	<div class="relative z-0 flex flex-col gap-16 px-2 pb-16 [overflow-anchor:none] md:pl-8 md:pr-8">
+	<div
+		class="relative z-0 flex flex-col gap-16 px-2 pb-16 [overflow-anchor:none] md:pr-8 md:pl-8"
+	>
 		{#each faqSections as section (section.id)}
 			<section class="flex flex-col gap-4">
 				<div>
@@ -132,10 +144,13 @@
 									class="shrink-0 rounded-full p-2 hover:bg-primary-500/10 hover:text-primary-500 {copiedQuestionId ===
 									question.id
 										? 'visible'
-										: 'md:invisible group-hover:visible'}"
+										: 'group-hover:visible md:invisible'}"
 									onclick={(event) => {
 										event.stopPropagation()
-										copyToClipboard(question.id, buildFaqQuestionUrl(page.url, question.id))
+										copyToClipboard(
+											question.id,
+											buildFaqQuestionUrl(page.url, question.id)
+										)
 									}}
 								>
 									{#if copiedQuestionId === question.id}
@@ -146,7 +161,11 @@
 								</button>
 							</h3>
 							<Accordion.ItemContent>
-								{#snippet element(attributes: HTMLAttributes<HTMLDivElement> & { hidden?: boolean })}
+								{#snippet element(
+									attributes: HTMLAttributes<HTMLDivElement> & {
+										hidden?: boolean
+									}
+								)}
 									{#if !attributes.hidden}
 										<div
 											{...attributes}

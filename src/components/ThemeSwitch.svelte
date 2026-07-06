@@ -13,8 +13,8 @@
 	type="button"
 	aria-label="Toggle theme"
 	onclick={toggleMode}
-	class="hover:text-primary-500 transition-colors duration-200"
+	class="transition-colors duration-200 hover:text-primary-500"
 >
-	<Sun class="size-8 hidden dark:block" />
+	<Sun class="hidden size-8 dark:block" />
 	<Moon class="size-8 dark:hidden" />
 </button>
