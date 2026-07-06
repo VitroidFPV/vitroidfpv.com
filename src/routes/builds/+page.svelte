@@ -1,12 +1,8 @@
 <script lang="ts">
-	import { page } from "$app/state"
 	import FaqContent, { metadata } from "./builds-page.svx"
 	import ListShowcase from "$components/ListShowcase.svelte"
 	import PageWrapper from "$components/PageWrapper.svelte"
-	import { resolveBuildModelDepthMode } from "$lib/builds/depthTreatment"
 	import { buildSections } from "$lib/builds/sections"
-
-	const modelDepthMode = $derived(resolveBuildModelDepthMode(page.url.searchParams))
 </script>
 
 <PageWrapper
@@ -24,7 +20,6 @@
 				price={build.price}
 				image={build.image}
 				model={build.model}
-				modelDepthMode={modelDepthMode}
 				color={build.color}
 				features={build.features}
 				Description={build.component}

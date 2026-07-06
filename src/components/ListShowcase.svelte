@@ -7,7 +7,6 @@
 		buildColorClasses,
 		type BuildColor
 	} from "$lib/builds/colors"
-	import type { BuildModelDepthMode } from "$lib/builds/depthTreatment"
 	import type { BuildModel } from "$lib/builds/models"
 	import type { BuildFeature } from "$lib/builds/sections"
 	import type { Component } from "svelte"
@@ -18,7 +17,6 @@
 		image,
 		imageAlt = title,
 		model = null,
-		modelDepthMode = "prepass",
 		color = "primary",
 		features,
 		Description
@@ -28,7 +26,6 @@
 		image: string
 		imageAlt?: string
 		model?: BuildModel | null
-		modelDepthMode?: BuildModelDepthMode
 		color?: BuildColor
 		features: BuildFeature[]
 		Description: Component
@@ -130,38 +127,10 @@
 				class="flex aspect-square h-auto w-full items-center justify-center lg:h-full lg:w-max"
 			>
 				{#if model}
-					{#if modelDepthMode === "compare"}
-						<div class="grid size-full min-h-0 max-w-full grid-cols-2 gap-2">
-							<div class="relative min-h-0">
-								<span
-									class="pointer-events-none absolute top-1 left-1 z-10 rounded bg-surface-950-50/80 px-1.5 py-0.5 text-[10px] font-medium text-surface-50-950"
-									>Legacy</span
-								>
-								<GraphicsCanvas
-									{model}
-									depthTreatment="legacy"
-									class="size-full min-h-0 cursor-grab select-none lg:mb-0"
-								/>
-							</div>
-							<div class="relative min-h-0">
-								<span
-									class="pointer-events-none absolute top-1 left-1 z-10 rounded bg-surface-950-50/80 px-1.5 py-0.5 text-[10px] font-medium text-surface-50-950"
-									>Pre-pass</span
-								>
-								<GraphicsCanvas
-									{model}
-									depthTreatment="prepass"
-									class="size-full min-h-0 cursor-grab select-none lg:mb-0"
-								/>
-							</div>
-						</div>
-					{:else}
-						<GraphicsCanvas
-							{model}
-							depthTreatment={modelDepthMode}
-							class="size-full min-h-0 max-w-full cursor-grab select-none lg:mb-0"
-						/>
-					{/if}
+					<GraphicsCanvas
+						{model}
+						class="size-full min-h-0 max-w-full cursor-grab select-none lg:mb-0"
+					/>
 				{:else}
 					<img
 						src={image}
