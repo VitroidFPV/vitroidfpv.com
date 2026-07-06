@@ -17,6 +17,8 @@ export type WorleyOptions = {
 	threshold?: number
 	speed?: number
 	mode?: WorleyMode
+	enabled?: boolean
+	pixelRatioCap?: number
 	mouseFalloff?: number
 	mouseScaleBoost?: number
 	mouseNoiseBoost?: number
@@ -40,12 +42,139 @@ export type FrameStats = {
 	frameTime: number
 	/** Exponentially smoothed frames per second */
 	fps: number
+	/** Milliseconds spent issuing the draw call on the CPU */
+	drawTime: number
+	/** GPU draw duration in milliseconds, when timer queries are available */
+	gpuTime?: number
+	/** Device pixel ratio used for the render target */
+	pixelRatio: number
+	/** Current render target width */
+	width: number
+	/** Current render target height */
+	height: number
+}
+
+export type WorleyMetricSummary = {
+	samples: number
+	gpuSamples: number
+	averageFrameTime: number | null
+	p95FrameTime: number | null
+	worstFrameTime: number | null
+	averageFps: number | null
+	averageDrawTime: number | null
+	p95DrawTime: number | null
+	averageGpuTime: number | null
+	p95GpuTime: number | null
+	pixelRatio: number | null
+	width: number | null
+	height: number | null
+}
+
+type WorleyMetricStore = {
+	frames: FrameStats[]
+	reset: () => void
+	summary: () => WorleyMetricSummary
+}
+
+type TimerQueryExtension = {
+	TIME_ELAPSED_EXT: number
+	GPU_DISJOINT_EXT: number
+}
+
+declare global {
+	interface Window {
+		__worleyMetrics?: WorleyMetricStore
+	}
+}
+
+const MAX_METRIC_FRAMES = 3600
+const METRIC_SUMMARY_INTERVAL = 15
+
+function average(values: number[]) {
+	if (values.length === 0) return null
+	return values.reduce((total, value) => total + value, 0) / values.length
+}
+
+function percentile(values: number[], p: number) {
+	if (values.length === 0) return null
+	const sorted = [...values].sort((a, b) => a - b)
+	const index = Math.min(
+		sorted.length - 1,
+		Math.max(0, Math.ceil(sorted.length * p) - 1)
+	)
+	return sorted[index]
+}
+
+function shouldCollectMetrics() {
+	return (
+		typeof window !== "undefined" &&
+		new URLSearchParams(window.location.search).has("worley-metrics")
+	)
+}
+
+function metricsEnabled() {
+	return shouldCollectMetrics() || window.__worleyMetrics !== undefined
+}
+
+function getMetricStore() {
+	window.__worleyMetrics ??= {
+		frames: [],
+		reset() {
+			this.frames = []
+		},
+		summary() {
+			const frames = this.frames.filter((frame) => frame.frameTime > 0)
+			const frameTimes = frames.map((frame) => frame.frameTime)
+			const drawTimes = frames.map((frame) => frame.drawTime)
+			const gpuTimes = frames
+				.map((frame) => frame.gpuTime)
+				.filter((time): time is number => time !== undefined)
+			const latestFrame = frames[frames.length - 1]
+
+			return {
+				samples: frames.length,
+				gpuSamples: gpuTimes.length,
+				averageFrameTime: average(frameTimes),
+				p95FrameTime: percentile(frameTimes, 0.95),
+				worstFrameTime: frameTimes.length ? Math.max(...frameTimes) : null,
+				averageFps: average(frames.map((frame) => frame.fps)),
+				averageDrawTime: average(drawTimes),
+				p95DrawTime: percentile(drawTimes, 0.95),
+				averageGpuTime: average(gpuTimes),
+				p95GpuTime: percentile(gpuTimes, 0.95),
+				pixelRatio: latestFrame?.pixelRatio ?? null,
+				width: latestFrame?.width ?? null,
+				height: latestFrame?.height ?? null
+			}
+		}
+	}
+
+	return window.__worleyMetrics
+}
+
+function recordMetrics(stats: FrameStats) {
+	const metrics = getMetricStore()
+	metrics.frames.push({ ...stats })
+
+	if (metrics.frames.length > MAX_METRIC_FRAMES) {
+		metrics.frames.splice(0, metrics.frames.length - MAX_METRIC_FRAMES)
+	}
+
+	if (metrics.frames.length % METRIC_SUMMARY_INTERVAL === 0) {
+		document.documentElement.dataset.worleyMetrics = JSON.stringify(
+			metrics.summary()
+		)
+	}
 }
 
 export class WorleyRenderer {
 	private gl: WebGL2RenderingContext
 	private program: WebGLProgram
 	private vao: WebGLVertexArrayObject
+	private timerQueryExtension: TimerQueryExtension | null = null
+	private pendingTimerQueries: WebGLQuery[] = []
+	private latestGpuTime: number | undefined
+	private collectMetrics = shouldCollectMetrics()
 	private uniforms: {
 		resolution: WebGLUniformLocation
 		time: WebGLUniformLocation
@@ -64,7 +193,10 @@ export class WorleyRenderer {
 		lightBackground: WebGLUniformLocation
 	}
 	private animationId = 0
+	private running = false
 	private startTime = performance.now()
+	private pixelRatio = 1
+	private pixelRatioCap = 2
 	private scale = 86.9
 	private noiseScale = 0.8
 	private threshold = 0.214
@@ -96,6 +228,9 @@ export class WorleyRenderer {
 		if (!gl) throw new Error("WebGL2 is not supported")
 
 		this.gl = gl
+		this.timerQueryExtension = gl.getExtension(
+			"EXT_disjoint_timer_query_webgl2"
+		) as TimerQueryExtension | null
 		gl.enable(gl.BLEND)
 		gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA)
 		this.program = createProgram(gl, vertexShader, fragmentShader)
@@ -109,12 +244,30 @@ export class WorleyRenderer {
 		const mouse = gl.getUniformLocation(this.program, "u_mouse")
 		const mouseActive = gl.getUniformLocation(this.program, "u_mouse_active")
 		const mouseFalloff = gl.getUniformLocation(this.program, "u_mouse_falloff")
-		const mouseScaleBoost = gl.getUniformLocation(this.program, "u_mouse_scale_boost")
-		const mouseNoiseBoost = gl.getUniformLocation(this.program, "u_mouse_noise_boost")
-		const indicatorFill = gl.getUniformLocation(this.program, "u_indicator_fill")
-		const indicatorRing = gl.getUniformLocation(this.program, "u_indicator_ring")
-		const indicatorAlpha = gl.getUniformLocation(this.program, "u_indicator_alpha")
-		const lightBackground = gl.getUniformLocation(this.program, "u_light_background")
+		const mouseScaleBoost = gl.getUniformLocation(
+			this.program,
+			"u_mouse_scale_boost"
+		)
+		const mouseNoiseBoost = gl.getUniformLocation(
+			this.program,
+			"u_mouse_noise_boost"
+		)
+		const indicatorFill = gl.getUniformLocation(
+			this.program,
+			"u_indicator_fill"
+		)
+		const indicatorRing = gl.getUniformLocation(
+			this.program,
+			"u_indicator_ring"
+		)
+		const indicatorAlpha = gl.getUniformLocation(
+			this.program,
+			"u_indicator_alpha"
+		)
+		const lightBackground = gl.getUniformLocation(
+			this.program,
+			"u_light_background"
+		)
 
 		if (
 			!resolution ||
@@ -174,12 +327,60 @@ export class WorleyRenderer {
 		this.vao = vao
 	}
 
+	private pollGpuTimers() {
+		const { gl, timerQueryExtension } = this
+		if (!timerQueryExtension) return
+
+		const disjoint = gl.getParameter(timerQueryExtension.GPU_DISJOINT_EXT) as
+			boolean | number
+
+		while (this.pendingTimerQueries.length > 0) {
+			const query = this.pendingTimerQueries[0]
+			const available = gl.getQueryParameter(
+				query,
+				gl.QUERY_RESULT_AVAILABLE
+			) as boolean
+
+			if (!available) return
+
+			this.pendingTimerQueries.shift()
+
+			if (!disjoint) {
+				const elapsedNs = gl.getQueryParameter(query, gl.QUERY_RESULT) as number
+				this.latestGpuTime = elapsedNs / 1_000_000
+			}
+
+			gl.deleteQuery(query)
+		}
+	}
+
+	private beginGpuTimer() {
+		const { gl, timerQueryExtension } = this
+		if (!timerQueryExtension || this.pendingTimerQueries.length > 8) return null
+
+		const query = gl.createQuery()
+		if (!query) return null
+
+		gl.beginQuery(timerQueryExtension.TIME_ELAPSED_EXT, query)
+		return query
+	}
+
+	private endGpuTimer(query: WebGLQuery | null) {
+		const { gl, timerQueryExtension } = this
+		if (!timerQueryExtension || !query) return
+
+		gl.endQuery(timerQueryExtension.TIME_ELAPSED_EXT)
+		this.pendingTimerQueries.push(query)
+	}
+
 	setOptions({
 		scale,
 		noiseScale,
 		threshold,
 		speed,
 		mode,
+		enabled,
+		pixelRatioCap,
 		mouseFalloff,
 		mouseScaleBoost,
 		mouseNoiseBoost,
@@ -194,6 +395,9 @@ export class WorleyRenderer {
 		if (threshold !== undefined) this.threshold = threshold
 		if (speed !== undefined) this.speed = speed
 		if (mode !== undefined) this.mode = mode
+		if (pixelRatioCap !== undefined) {
+			this.pixelRatioCap = Math.max(0.5, pixelRatioCap)
+		}
 		if (mouseFalloff !== undefined) this.mouseFalloff = mouseFalloff
 		if (mouseScaleBoost !== undefined) this.mouseScaleBoost = mouseScaleBoost
 		if (mouseNoiseBoost !== undefined) this.mouseNoiseBoost = mouseNoiseBoost
@@ -202,6 +406,19 @@ export class WorleyRenderer {
 		if (indicatorAlpha !== undefined) this.indicatorAlpha = indicatorAlpha
 		if (lightBackground !== undefined) this.lightBackground = lightBackground
 		if (onFrame !== undefined) this.onFrame = onFrame
+		if (enabled !== undefined) this.setEnabled(enabled)
+	}
+
+	set options(options: WorleyOptions) {
+		this.setOptions(options)
+	}
+
+	setEnabled(enabled: boolean) {
+		if (enabled) {
+			this.start()
+		} else {
+			this.stop()
+		}
 	}
 
 	setMouse(mouse: MouseState) {
@@ -214,9 +431,10 @@ export class WorleyRenderer {
 		const { clientWidth, clientHeight } = this.canvas
 		if (clientWidth === 0 || clientHeight === 0) return
 
-		const dpr = Math.min(window.devicePixelRatio || 1, 2)
+		const dpr = Math.min(window.devicePixelRatio || 1, this.pixelRatioCap)
 		const width = Math.floor(clientWidth * dpr)
 		const height = Math.floor(clientHeight * dpr)
+		this.pixelRatio = dpr
 
 		if (this.canvas.width !== width || this.canvas.height !== height) {
 			this.canvas.width = width
@@ -226,6 +444,9 @@ export class WorleyRenderer {
 
 	private draw() {
 		const { gl } = this
+		this.pollGpuTimers()
+		const drawStart = performance.now()
+		const timerQuery = this.beginGpuTimer()
 		const elapsed = ((performance.now() - this.startTime) / 1000) * this.speed
 		const mouseLerp = this.targetMouseActive > 0 ? 0.18 : 0.08
 
@@ -239,7 +460,11 @@ export class WorleyRenderer {
 		gl.useProgram(this.program)
 		gl.bindVertexArray(this.vao)
 
-		gl.uniform2f(this.uniforms.resolution, this.canvas.width, this.canvas.height)
+		gl.uniform2f(
+			this.uniforms.resolution,
+			this.canvas.width,
+			this.canvas.height
+		)
 		gl.uniform1f(this.uniforms.time, elapsed)
 		gl.uniform1f(this.uniforms.scale, this.scale)
 		gl.uniform1f(this.uniforms.noiseScale, this.noiseScale)
@@ -256,10 +481,21 @@ export class WorleyRenderer {
 		gl.uniform1f(this.uniforms.lightBackground, this.lightBackground ? 1 : 0)
 
 		gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
+		this.endGpuTimer(timerQuery)
+
+		return performance.now() - drawStart
 	}
 
 	start() {
+		if (this.running) return
+		this.running = true
+		this.lastFrameTime = 0
+		this.smoothedFps = 0
+		this.startTime = performance.now()
+
 		const loop = (now: DOMHighResTimeStamp) => {
+			if (!this.running) return
+
 			const frameTime = this.lastFrameTime > 0 ? now - this.lastFrameTime : 0
 			this.lastFrameTime = now
 
@@ -272,24 +508,42 @@ export class WorleyRenderer {
 			}
 
 			this.resize()
-			this.draw()
-			this.onFrame?.({ frameTime, fps: this.smoothedFps })
+			const drawTime = this.draw()
+			const stats = {
+				frameTime,
+				fps: this.smoothedFps,
+				drawTime,
+				gpuTime: this.latestGpuTime,
+				pixelRatio: this.pixelRatio,
+				width: this.canvas.width,
+				height: this.canvas.height
+			}
+
+			this.onFrame?.(stats)
+			if (this.collectMetrics || metricsEnabled()) recordMetrics(stats)
 
 			this.animationId = requestAnimationFrame(loop)
 		}
 
-		this.lastFrameTime = 0
-		this.smoothedFps = 0
 		this.animationId = requestAnimationFrame(loop)
 	}
 
 	stop() {
+		if (!this.running) return
+		this.running = false
 		cancelAnimationFrame(this.animationId)
+		this.animationId = 0
+		this.lastFrameTime = 0
+		this.smoothedFps = 0
 	}
 
 	destroy() {
 		this.stop()
 		const { gl } = this
+		for (const query of this.pendingTimerQueries) {
+			gl.deleteQuery(query)
+		}
+		this.pendingTimerQueries = []
 		gl.deleteProgram(this.program)
 		gl.deleteVertexArray(this.vao)
 	}

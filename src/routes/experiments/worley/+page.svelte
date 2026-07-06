@@ -200,13 +200,31 @@
 						<dt class="text-surface-500">FPS</dt>
 						<dd>{frameStats.fps.toFixed(1)}</dd>
 					</div>
+					<div class="flex justify-between gap-4">
+						<dt class="text-surface-500">Draw CPU</dt>
+						<dd>{frameStats.drawTime.toFixed(2)} ms</dd>
+					</div>
+					{#if frameStats.gpuTime !== undefined}
+						<div class="flex justify-between gap-4">
+							<dt class="text-surface-500">Draw GPU</dt>
+							<dd>{frameStats.gpuTime.toFixed(2)} ms</dd>
+						</div>
+					{/if}
+					<div class="flex justify-between gap-4">
+						<dt class="text-surface-500">Render</dt>
+						<dd>
+							{frameStats.width}×{frameStats.height} @ {frameStats.pixelRatio.toFixed(
+								2
+							)}×
+						</dd>
+					</div>
 				</dl>
 			{/if}
 		</aside>
 	</div>
 {/if}
 
-<div class="max-w-screen h-screen">
+<div class="h-screen max-w-screen">
 	<WorleyCanvas
 		{scale}
 		{noiseScale}
@@ -219,6 +237,7 @@
 		{indicatorFill}
 		{indicatorRing}
 		{indicatorAlpha}
+		pixelRatioCap={2}
 		onframe={(stats) => (frameStats = stats)}
 	/>
 </div>

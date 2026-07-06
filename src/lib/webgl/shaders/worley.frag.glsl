@@ -19,77 +19,59 @@ uniform float u_light_background;
 
 out vec4 outColor;
 
-vec4 fade4(vec4 t) {
+vec3 fade3(vec3 t) {
 	return t * t * t * (t * (t * 6.0 - 15.0) + 10.0);
 }
 
-float hash41(vec4 p) {
-	return fract(sin(dot(p, vec4(127.1, 311.7, 74.7, 269.5))) * 43758.5453123);
+float hash31(vec3 p) {
+	return fract(sin(dot(p, vec3(127.1, 311.7, 269.5))) * 43758.5453123);
 }
 
-vec4 gradient4(vec4 p) {
-	vec4 g = vec4(
-		hash41(p + vec4(0.0, 0.0, 0.0, 0.0)),
-		hash41(p + vec4(19.1, 0.0, 0.0, 0.0)),
-		hash41(p + vec4(0.0, 47.2, 0.0, 0.0)),
-		hash41(p + vec4(0.0, 0.0, 83.3, 0.0))
+vec3 gradient3(vec3 p) {
+	vec3 g = vec3(
+		hash31(p + vec3(0.0, 0.0, 0.0)),
+		hash31(p + vec3(19.1, 0.0, 0.0)),
+		hash31(p + vec3(0.0, 47.2, 0.0))
 	);
 
 	return normalize(g * 2.0 - 1.0);
 }
 
-float gradientDot(vec4 lattice, vec4 offset) {
-	return dot(gradient4(lattice), offset);
+float gradientDot3(vec3 lattice, vec3 offset) {
+	return dot(gradient3(lattice), offset);
 }
 
-float perlin4d(vec4 p) {
-	vec4 cell = floor(p);
-	vec4 local = fract(p);
-	vec4 blend = fade4(local);
+float perlin3d(vec3 p) {
+	vec3 cell = floor(p);
+	vec3 local = fract(p);
+	vec3 blend = fade3(local);
 
-	float n0000 = gradientDot(cell + vec4(0.0, 0.0, 0.0, 0.0), local - vec4(0.0, 0.0, 0.0, 0.0));
-	float n1000 = gradientDot(cell + vec4(1.0, 0.0, 0.0, 0.0), local - vec4(1.0, 0.0, 0.0, 0.0));
-	float n0100 = gradientDot(cell + vec4(0.0, 1.0, 0.0, 0.0), local - vec4(0.0, 1.0, 0.0, 0.0));
-	float n1100 = gradientDot(cell + vec4(1.0, 1.0, 0.0, 0.0), local - vec4(1.0, 1.0, 0.0, 0.0));
-	float n0010 = gradientDot(cell + vec4(0.0, 0.0, 1.0, 0.0), local - vec4(0.0, 0.0, 1.0, 0.0));
-	float n1010 = gradientDot(cell + vec4(1.0, 0.0, 1.0, 0.0), local - vec4(1.0, 0.0, 1.0, 0.0));
-	float n0110 = gradientDot(cell + vec4(0.0, 1.0, 1.0, 0.0), local - vec4(0.0, 1.0, 1.0, 0.0));
-	float n1110 = gradientDot(cell + vec4(1.0, 1.0, 1.0, 0.0), local - vec4(1.0, 1.0, 1.0, 0.0));
-	float n0001 = gradientDot(cell + vec4(0.0, 0.0, 0.0, 1.0), local - vec4(0.0, 0.0, 0.0, 1.0));
-	float n1001 = gradientDot(cell + vec4(1.0, 0.0, 0.0, 1.0), local - vec4(1.0, 0.0, 0.0, 1.0));
-	float n0101 = gradientDot(cell + vec4(0.0, 1.0, 0.0, 1.0), local - vec4(0.0, 1.0, 0.0, 1.0));
-	float n1101 = gradientDot(cell + vec4(1.0, 1.0, 0.0, 1.0), local - vec4(1.0, 1.0, 0.0, 1.0));
-	float n0011 = gradientDot(cell + vec4(0.0, 0.0, 1.0, 1.0), local - vec4(0.0, 0.0, 1.0, 1.0));
-	float n1011 = gradientDot(cell + vec4(1.0, 0.0, 1.0, 1.0), local - vec4(1.0, 0.0, 1.0, 1.0));
-	float n0111 = gradientDot(cell + vec4(0.0, 1.0, 1.0, 1.0), local - vec4(0.0, 1.0, 1.0, 1.0));
-	float n1111 = gradientDot(cell + vec4(1.0, 1.0, 1.0, 1.0), local - vec4(1.0, 1.0, 1.0, 1.0));
+	float n000 = gradientDot3(cell + vec3(0.0, 0.0, 0.0), local - vec3(0.0, 0.0, 0.0));
+	float n100 = gradientDot3(cell + vec3(1.0, 0.0, 0.0), local - vec3(1.0, 0.0, 0.0));
+	float n010 = gradientDot3(cell + vec3(0.0, 1.0, 0.0), local - vec3(0.0, 1.0, 0.0));
+	float n110 = gradientDot3(cell + vec3(1.0, 1.0, 0.0), local - vec3(1.0, 1.0, 0.0));
+	float n001 = gradientDot3(cell + vec3(0.0, 0.0, 1.0), local - vec3(0.0, 0.0, 1.0));
+	float n101 = gradientDot3(cell + vec3(1.0, 0.0, 1.0), local - vec3(1.0, 0.0, 1.0));
+	float n011 = gradientDot3(cell + vec3(0.0, 1.0, 1.0), local - vec3(0.0, 1.0, 1.0));
+	float n111 = gradientDot3(cell + vec3(1.0, 1.0, 1.0), local - vec3(1.0, 1.0, 1.0));
 
-	float nx00 = mix(n0000, n1000, blend.x);
-	float nx10 = mix(n0100, n1100, blend.x);
-	float nx01 = mix(n0010, n1010, blend.x);
-	float nx11 = mix(n0110, n1110, blend.x);
+	float nx00 = mix(n000, n100, blend.x);
+	float nx10 = mix(n010, n110, blend.x);
+	float nx01 = mix(n001, n101, blend.x);
+	float nx11 = mix(n011, n111, blend.x);
 	float nxy0 = mix(nx00, nx10, blend.y);
 	float nxy1 = mix(nx01, nx11, blend.y);
-	float nxyz0 = mix(nxy0, nxy1, blend.z);
 
-	float mx00 = mix(n0001, n1001, blend.x);
-	float mx10 = mix(n0101, n1101, blend.x);
-	float mx01 = mix(n0011, n1011, blend.x);
-	float mx11 = mix(n0111, n1111, blend.x);
-	float mxy0 = mix(mx00, mx10, blend.y);
-	float mxy1 = mix(mx01, mx11, blend.y);
-	float nxyz1 = mix(mxy0, mxy1, blend.z);
-
-	return clamp(mix(nxyz0, nxyz1, blend.w) * 0.5 + 0.5, 0.0, 1.0);
+	return clamp(mix(nxy0, nxy1, blend.z) * 0.5 + 0.5, 0.0, 1.0);
 }
 
-float fbm4(vec4 p) {
+float fbm3(vec3 p) {
 	float value = 0.0;
 	float amplitude = 0.5;
 	float weight = 0.0;
 
 	for (int octave = 0; octave < 2; octave++) {
-		value += perlin4d(p) * amplitude;
+		value += perlin3d(p) * amplitude;
 		weight += amplitude;
 		p *= 2.0;
 		amplitude *= 0.5;
@@ -147,7 +129,7 @@ void main() {
 	float localNoiseScale = u_noise_scale * mix(1.0, u_mouse_noise_boost, mouseInfluence);
 	float localScale = u_scale * mix(1.0, u_mouse_scale_boost, mouseInfluence);
 
-	float noiseFactor = fbm4(vec4(aspectUv * localNoiseScale, 0.0, u_time * 0.08));
+	float noiseFactor = fbm3(vec3(aspectUv * localNoiseScale, u_time * 0.08));
 	vec3 voronoiInput = vec3(noiseFactor) * localScale;
 	vec2 distances = voronoi3(voronoiInput);
 	float value;

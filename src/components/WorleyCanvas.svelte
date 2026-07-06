@@ -5,6 +5,7 @@
 		type MouseState,
 		type WorleyMode
 	} from "$lib/webgl/worley"
+	import { createSubscriber, MediaQuery } from "svelte/reactivity"
 
 	type Props = {
 		scale?: number
@@ -18,6 +19,7 @@
 		indicatorFill?: number
 		indicatorRing?: number
 		indicatorAlpha?: number
+		pixelRatioCap?: number
 		onframe?: (stats: FrameStats) => void
 	}
 
@@ -33,26 +35,41 @@
 		indicatorFill = 0.35,
 		indicatorRing = 1,
 		indicatorAlpha = 0.92,
+		pixelRatioCap = 2,
 		onframe
 	}: Props = $props()
 
-	let error = $state<string | null>(null)
-	let renderer: WorleyRenderer | null = null
-	let themeMode = $state(
-		typeof document !== "undefined"
-			? (document.documentElement.getAttribute("data-mode") ?? "dark")
-			: "dark"
+	const reducedMotion = new MediaQuery(
+		"(prefers-reduced-motion: reduce)",
+		false
 	)
-	const lightBackground = $derived(themeMode === "light")
-
-	$effect(() => {
-		const root = document.documentElement
-		const observer = new MutationObserver(() => {
-			themeMode = root.getAttribute("data-mode") ?? "dark"
+	const subscribeToThemeMode = createSubscriber((update) => {
+		const observer = new MutationObserver(update)
+		observer.observe(document.documentElement, {
+			attributes: true,
+			attributeFilter: ["data-mode"]
 		})
-		observer.observe(root, { attributes: true, attributeFilter: ["data-mode"] })
+
 		return () => observer.disconnect()
 	})
+
+	let error = $state<string | null>(null)
+	let renderer: WorleyRenderer | null = null
+	let visibilityState = $state<DocumentVisibilityState>(
+		typeof document !== "undefined" ? document.visibilityState : "visible"
+	)
+	let canvasVisible = $state(false)
+	const pageVisible = $derived(visibilityState === "visible")
+	const themeMode = $derived.by(() => {
+		if (typeof document === "undefined") return "dark"
+
+		subscribeToThemeMode()
+		return document.documentElement.getAttribute("data-mode") ?? "dark"
+	})
+	const lightBackground = $derived(themeMode === "light")
+	const shouldRender = $derived(
+		pageVisible && canvasVisible && !reducedMotion.current
+	)
 
 	function pointerToMouse(
 		canvas: HTMLCanvasElement,
@@ -76,6 +93,15 @@
 		error = null
 
 		let instance: WorleyRenderer | null = null
+		const visibilityObserver =
+			typeof IntersectionObserver !== "undefined"
+				? new IntersectionObserver(
+						([entry]) => {
+							canvasVisible = entry?.isIntersecting ?? false
+						},
+						{ rootMargin: "200px 0px" }
+					)
+				: null
 
 		const handlePointerEnter = (event: PointerEvent) => {
 			instance?.setMouse(
@@ -96,14 +122,20 @@
 		canvas.addEventListener("pointerenter", handlePointerEnter)
 		canvas.addEventListener("pointermove", handlePointerMove)
 		canvas.addEventListener("pointerleave", handlePointerLeave)
+		if (visibilityObserver) {
+			visibilityObserver.observe(canvas)
+		} else {
+			canvasVisible = true
+		}
 
 		try {
 			instance = new WorleyRenderer(canvas)
-			instance.start()
 			renderer = instance
 
 			$effect(() => {
-				instance?.setOptions({
+				if (!instance) return
+
+				instance.options = {
 					scale,
 					noiseScale,
 					threshold,
@@ -116,14 +148,18 @@
 					indicatorRing,
 					indicatorAlpha,
 					lightBackground,
+					enabled: shouldRender,
+					pixelRatioCap,
 					onFrame: onframe
-				})
+				}
 			})
 
 			return () => {
 				canvas.removeEventListener("pointerenter", handlePointerEnter)
 				canvas.removeEventListener("pointermove", handlePointerMove)
 				canvas.removeEventListener("pointerleave", handlePointerLeave)
+				visibilityObserver?.disconnect()
+				canvasVisible = false
 				instance?.destroy()
 				if (renderer === instance) renderer = null
 			}
@@ -131,11 +167,15 @@
 			canvas.removeEventListener("pointerenter", handlePointerEnter)
 			canvas.removeEventListener("pointermove", handlePointerMove)
 			canvas.removeEventListener("pointerleave", handlePointerLeave)
+			visibilityObserver?.disconnect()
+			canvasVisible = false
 			error = e instanceof Error ? e.message : "Failed to initialize WebGL"
 			renderer = null
 		}
 	}
 </script>
+
+<svelte:document bind:visibilityState />
 
 <div
 	class="relative h-full w-full mask-[linear-gradient(to_bottom,transparent,black_20%,black_50%,transparent)]"

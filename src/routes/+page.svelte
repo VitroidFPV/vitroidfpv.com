@@ -238,13 +238,31 @@
 						<dt class="text-surface-500">FPS</dt>
 						<dd>{frameStats.fps.toFixed(1)}</dd>
 					</div>
+					<div class="flex justify-between gap-4">
+						<dt class="text-surface-500">Draw CPU</dt>
+						<dd>{frameStats.drawTime.toFixed(2)} ms</dd>
+					</div>
+					{#if frameStats.gpuTime !== undefined}
+						<div class="flex justify-between gap-4">
+							<dt class="text-surface-500">Draw GPU</dt>
+							<dd>{frameStats.gpuTime.toFixed(2)} ms</dd>
+						</div>
+					{/if}
+					<div class="flex justify-between gap-4">
+						<dt class="text-surface-500">Render</dt>
+						<dd>
+							{frameStats.width}×{frameStats.height} @ {frameStats.pixelRatio.toFixed(
+								2
+							)}×
+						</dd>
+					</div>
 				</dl>
 			{/if}
 		</aside>
 	</div>
 {/if}
 
-<div class="max-w-screen h-screen relative">
+<div class="relative h-screen max-w-screen">
 	{#if !isMobile.current}
 		<WorleyCanvas
 			{scale}
@@ -258,40 +276,44 @@
 			{indicatorFill}
 			{indicatorRing}
 			{indicatorAlpha}
+			pixelRatioCap={1.5}
 			onframe={(stats) => (frameStats = stats)}
 		/>
 	{/if}
 	<div
-		class="absolute bottom-0 left-0 w-full h-full pointer-events-none flex items-end"
+		class="pointer-events-none absolute bottom-0 left-0 flex h-full w-full items-end"
 	>
-		<div class="pb-56 md:pl-12 pl-2 flex flex-col gap-4">
+		<div class="flex flex-col gap-4 pb-56 pl-2 md:pl-12">
 			<h1
-				class="text-[4rem] md:text-[6rem] lg:text-[12rem] md:-ml-8 -ml-2 md:-mb-12 -mb-8 font-bold font-caveat text-primary-500 text-shadow-[0px_0px_32px_var(--color-primary-500)] bold-text-effect text-shadow-primary-500/10"
+				class="bold-text-effect -mb-8 -ml-2 font-caveat text-[4rem] font-bold text-primary-500 text-shadow-[0px_0px_32px_var(--color-primary-500)] text-shadow-primary-500/10 md:-mb-12 md:-ml-8 md:text-[6rem] lg:text-[12rem]"
 			>
 				Vitroid FPV
 			</h1>
 			<!-- 7rem roughly the width of the text scrollers -->
 			<p
-				class="text-2xl font-extralight md:max-w-[70ch] max-w-[calc(100vw-7rem)]"
+				class="max-w-[calc(100vw-7rem)] text-2xl font-extralight md:max-w-[70ch]"
 			>
-				Making FPV <span class="text-primary-500 font-medium tracking-wide"
+				Making FPV <span class="font-medium tracking-wide text-primary-500"
 					>easier</span
 				>. One line of code at a time.
 			</p>
 		</div>
 	</div>
 	<div
-		class="pointer-events-none fixed top-0 md:right-4 right-1 h-full max-w-full flex md:gap-2 gap-0"
+		class="pointer-events-none fixed top-0 right-1 flex h-full max-w-full gap-0 md:right-4 md:gap-2"
 	>
 		<TextScroller easterEgg={scrollerEasterEgg} />
-		<TextScroller reverse easterEgg={scrollerEasterEgg} />
+		<TextScroller
+			reverse
+			easterEgg={scrollerEasterEgg}
+		/>
 	</div>
 </div>
 
-<div class="md:px-8 px-2 pt-64">
+<div class="px-2 pt-64 md:px-8">
 	<div class="flex">
 		<h2
-			class="md:text-[6rem] text-4xl w-[1.15em] font-geist-mono shrink-0 self-start overflow-hidden font-black text-primary-500 [writing-mode:sideways-lr] text-end sticky top-8 md:mr-6 mr-1 md:ml-0 -ml-2"
+			class="sticky top-8 mr-1 -ml-2 w-[1.15em] shrink-0 self-start overflow-hidden text-end font-geist-mono text-4xl font-black text-primary-500 [writing-mode:sideways-lr] md:mr-6 md:ml-0 md:text-[6rem]"
 			aria-label={activeSection}
 		>
 			<div
@@ -324,11 +346,11 @@
 				{/each}
 			</div>
 		</h2>
-		<div class="flex-1 flex flex-col md:gap-64 gap-16">
+		<div class="flex flex-1 flex-col gap-16 md:gap-64">
 			{#each homeSections as section (section.title)}
 				<section
 					{@attach trackSection(section.title)}
-					class="home-section md:text-3xl text-sm font-extralight md:max-w-[calc(100%-7rem)] max-w-[calc(100%-2.25rem)] md:space-y-10 space-y-4 pb-64"
+					class="home-section max-w-[calc(100%-2.25rem)] space-y-4 pb-64 text-sm font-extralight md:max-w-[calc(100%-7rem)] md:space-y-10 md:text-3xl"
 				>
 					<section.component {age} />
 				</section>
