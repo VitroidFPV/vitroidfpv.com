@@ -17,15 +17,11 @@
 		active?: boolean
 		children: Snippet
 	} = $props()
-
-	const resolveHref = resolve as (
-		route: RouteIdWithSearchOrHash | PathnameWithSearchOrHash
-	) => string
 </script>
 
 <li class="relative z-10 h-12 rounded-l-3xl p-3 px-4 pr-6">
 	<a
-		href={resolveHref(href)}
+		href={resolve(href as "/")}
 		class="sidebar-link flex items-center gap-2
 		{active
 			? 'sidebar-link--active text-primary-contrast-dark'

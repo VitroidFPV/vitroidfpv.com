@@ -206,7 +206,7 @@
 				<a
 					href={item.href}
 					target="_blank"
-					rel="noopener noreferrer"
+					rel="external noopener noreferrer"
 					data-scroller-item={key}
 					class="pointer-events-auto inline-block transition-colors duration-200 [writing-mode:sideways-lr] {hoverClass}"
 					>{item.text}</a

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Corner from "$components/graphics/Corner.svelte"
+	import { resolve } from "$app/paths"
 	import {
 		SiGithub,
 		SiYoutube,
@@ -14,12 +15,19 @@
 	external: boolean = false
 )}
 	<li class="flex flex-col">
-		<a
-			{href}
-			class="w-fit font-semibold hover:underline {external ? 'external' : ''}"
-			target={external ? "_blank" : "_self"}
-			rel="noopener noreferrer">{label}</a
-		>
+		{#if external}
+			<a
+				{href}
+				class="external w-fit font-semibold hover:underline"
+				target="_blank"
+				rel="external noopener noreferrer">{label}</a
+			>
+		{:else}
+			<a
+				href={resolve(href as "/")}
+				class="w-fit font-semibold hover:underline">{label}</a
+			>
+		{/if}
 		<p class="text-xs">{description}</p>
 	</li>
 {/snippet}
