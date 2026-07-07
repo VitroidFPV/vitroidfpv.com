@@ -25,6 +25,14 @@ export const guidePartColors = {
 			"rounded-full bg-error-500/20 px-2 py-1 text-xs font-semibold text-error-500",
 		link: "fancy-link text-2xl font-semibold text-error-500",
 		iconHover: "transition-colors duration-300 hover:text-error-500"
+	},
+	secondary: {
+		text: "text-secondary-500",
+		bar: "bg-secondary-500",
+		price:
+			"rounded-full bg-secondary-500/20 px-2 py-1 text-xs font-semibold text-secondary-500",
+		link: "fancy-link text-2xl font-semibold text-secondary-500",
+		iconHover: "transition-colors duration-300 hover:text-secondary-500"
 	}
 } as const
 
@@ -104,6 +112,11 @@ const partModules = import.meta.glob<BuildGuidePartModule>(
 	{ eager: true }
 )
 
+const partRawModules = import.meta.glob<string>(
+	"../../content/builds/*/*/*.svx",
+	{ eager: true, query: "?raw", import: "default" }
+)
+
 const partImageModules = import.meta.glob<Picture>(
 	"../../content/builds/*/images/*.{avif,AVIF,gif,GIF,heif,HEIF,jpeg,JPEG,jpg,JPG,png,PNG,tiff,TIFF,webp,WEBP}",
 	{
@@ -112,6 +125,11 @@ const partImageModules = import.meta.glob<Picture>(
 		import: "default"
 	}
 )
+
+function extractGuidePartBody(raw: string): string {
+	const match = raw.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n?([\s\S]*)$/)
+	return match?.[1]?.trim() ?? ""
+}
 
 function resolvePartImage(
 	buildSlug: string,
@@ -126,6 +144,8 @@ function resolvePartImage(
 export type BuildGuidePart = {
 	id: string
 	slug: string
+	buildSlug: string
+	sectionSlug: string
 	title: string
 	url: string
 	order: number
@@ -133,7 +153,9 @@ export type BuildGuidePart = {
 	price?: string
 	tags: BuildGuidePartTag[]
 	image: Picture | null
+	imageFilename?: string
 	imageAlt: string
+	body: string
 	component: Component
 }
 
@@ -179,6 +201,8 @@ for (const [path, module] of Object.entries(partModules)) {
 	section.parts.push({
 		id: `${buildSlug}-${sectionSlug}-${partSlug}`,
 		slug: partSlug,
+		buildSlug,
+		sectionSlug,
 		title: module.metadata.title,
 		url: module.metadata.url,
 		order: module.metadata.order,
@@ -186,7 +210,9 @@ for (const [path, module] of Object.entries(partModules)) {
 		price: module.metadata.price,
 		tags: (module.metadata.tags ?? []).map(parseBuildGuideTag),
 		image: resolvePartImage(buildSlug, module.metadata.image),
+		imageFilename: module.metadata.image,
 		imageAlt: module.metadata.imageAlt ?? module.metadata.title,
+		body: extractGuidePartBody(partRawModules[path] ?? ""),
 		component: module.default
 	})
 }

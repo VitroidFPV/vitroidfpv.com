@@ -1,10 +1,13 @@
 <script lang="ts">
+	import { dev } from "$app/environment"
 	import BuildGuidePart from "$components/BuildGuidePart.svelte"
+	import BuildGuidePartCard from "$components/BuildGuidePartCard.svelte"
 	import BuildIntro, { metadata } from "./5inch-beginner-page.svx"
 	import PageWrapper from "$components/PageWrapper.svelte"
 	import { getBuildGuideSections } from "$lib/builds/guide-sections"
 
-	const guideSections = getBuildGuideSections("5inch-beginner")
+	const buildSlug = "5inch-beginner"
+	const guideSections = getBuildGuideSections(buildSlug)
 </script>
 
 <PageWrapper
@@ -25,10 +28,26 @@
 					</div>
 				{/if}
 			</div>
-			<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+			<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
 				{#each section.parts as part (part.id)}
-					<BuildGuidePart {part} />
+					{#if dev}
+						<BuildGuidePartCard
+							{buildSlug}
+							sections={guideSections}
+							{section}
+							{part}
+						/>
+					{:else}
+						<BuildGuidePart {part} />
+					{/if}
 				{/each}
+				{#if dev}
+					<BuildGuidePartCard
+						{buildSlug}
+						sections={guideSections}
+						{section}
+					/>
+				{/if}
 			</div>
 		{/each}
 	</div>
