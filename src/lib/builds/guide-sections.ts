@@ -1,3 +1,4 @@
+import type { Picture } from "@sveltejs/enhanced-img"
 import type { Component } from "svelte"
 
 export const guidePartColors = {
@@ -52,6 +53,8 @@ export type BuildGuidePartMetadata = {
 	color: string
 	price?: string
 	tags?: string[]
+	image?: string
+	imageAlt?: string
 }
 
 export type BuildGuideSectionMetadata = {
@@ -101,6 +104,25 @@ const partModules = import.meta.glob<BuildGuidePartModule>(
 	{ eager: true }
 )
 
+const partImageModules = import.meta.glob<Picture>(
+	"../../content/builds/*/images/*.{avif,AVIF,gif,GIF,heif,HEIF,jpeg,JPEG,jpg,JPG,png,PNG,tiff,TIFF,webp,WEBP}",
+	{
+		eager: true,
+		query: { enhanced: true, imgSizes: "100vw" },
+		import: "default"
+	}
+)
+
+function resolvePartImage(
+	buildSlug: string,
+	imageFilename?: string
+): Picture | null {
+	if (!imageFilename) return null
+
+	const imagePath = `../../content/builds/${buildSlug}/images/${imageFilename}`
+	return partImageModules[imagePath] ?? null
+}
+
 export type BuildGuidePart = {
 	id: string
 	slug: string
@@ -110,6 +132,8 @@ export type BuildGuidePart = {
 	color: GuidePartColor
 	price?: string
 	tags: BuildGuidePartTag[]
+	image: Picture | null
+	imageAlt: string
 	component: Component
 }
 
@@ -161,6 +185,8 @@ for (const [path, module] of Object.entries(partModules)) {
 		color: resolveGuidePartColor(module.metadata.color),
 		price: module.metadata.price,
 		tags: (module.metadata.tags ?? []).map(parseBuildGuideTag),
+		image: resolvePartImage(buildSlug, module.metadata.image),
+		imageAlt: module.metadata.imageAlt ?? module.metadata.title,
 		component: module.default
 	})
 }

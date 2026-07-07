@@ -4,6 +4,7 @@ url: https://example.com
 order: 1
 color: success
 price: "$13.99"
+image: t-motor-velox-v3.webp
 tags:
   - 2207/2306<Stator size>
   - 1750/1950/2050KV

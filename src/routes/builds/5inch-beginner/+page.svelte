@@ -1,12 +1,13 @@
 <script lang="ts">
 	import BuildIntro, { metadata } from "./5inch-beginner-page.svx"
+	import BuildPartImageButton from "$components/BuildPartImageButton.svelte"
 	import BuildTagTooltip from "$components/BuildTagTooltip.svelte"
 	import PageWrapper from "$components/PageWrapper.svelte"
 	import {
 		getBuildGuideSections,
 		guidePartColors
 	} from "$lib/builds/guide-sections"
-	import { Plus, Image } from "@lucide/svelte"
+	import { Plus } from "@lucide/svelte"
 
 	const guideSections = getBuildGuideSections("5inch-beginner")
 </script>
@@ -36,7 +37,13 @@
 						<div class="h-full w-1 rounded-full {colors.bar}"></div>
 						<div class="flex flex-1 flex-col gap-2">
 							<div class="flex items-center justify-between gap-2">
-								<a href={part.url} class={colors.link}>{part.title}</a>
+								<a
+									href={part.url}
+									class={colors.link}
+									target="_blank"
+									rel="external noopener noreferrer">{part.title}</a
+								>
+
 								<div class="flex gap-2 text-surface-500">
 									<button
 										type="button"
@@ -45,13 +52,13 @@
 									>
 										<Plus class="size-8" />
 									</button>
-									<button
-										type="button"
-										class={colors.iconHover}
-										aria-label="View images"
-									>
-										<Image class="size-7" />
-									</button>
+									{#if part.image}
+										<BuildPartImageButton
+											src={part.image}
+											alt={part.imageAlt}
+											class={colors.iconHover}
+										/>
+									{/if}
 								</div>
 							</div>
 							<div class="flex flex-wrap gap-1">
