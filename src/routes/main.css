@@ -63,3 +63,37 @@
 		}
 	}
 }
+
+.fancy-link {
+	@apply relative w-fit;
+
+	&::after {
+		content: "";
+		@apply absolute bottom-0 left-0 h-0.75 w-full bg-current;
+		transform: scaleX(0);
+		transform-origin: bottom right;
+		transition: transform 300ms;
+	}
+
+	&:hover::after {
+		transform: scaleX(1);
+		transform-origin: bottom left;
+	}
+}
+
+.fancy-link-xl {
+	@apply relative w-fit;
+
+	&::after {
+		content: "";
+		@apply absolute -bottom-2 left-0 h-1.5 w-full bg-current;
+		transform: scaleX(0);
+		transform-origin: bottom right;
+		transition: transform 300ms;
+	}
+
+	&:hover::after {
+		transform: scaleX(1);
+		transform-origin: bottom left;
+	}
+}
