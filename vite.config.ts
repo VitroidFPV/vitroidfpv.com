@@ -2,6 +2,7 @@ import { mdsvex } from "mdsvex"
 import { mdsvexSvelte5ModuleScript } from "./mdsvex-svelte5-preprocess"
 import tailwindcss from "@tailwindcss/vite"
 import adapter from "@sveltejs/adapter-auto"
+import { enhancedImages } from "@sveltejs/enhanced-img"
 import { sveltekit } from "@sveltejs/kit/vite"
 import { defineConfig } from "vite"
 
@@ -10,6 +11,7 @@ export default defineConfig({
 		noExternal: ["@skeletonlabs/skeleton-svelte"]
 	},
 	plugins: [
+		enhancedImages(),
 		tailwindcss(),
 		sveltekit({
 			alias: {
