@@ -19,6 +19,7 @@
 				title={build.title}
 				price={build.price}
 				image={build.image}
+				url={build.url}
 				model={build.model}
 				color={build.color}
 				features={build.features}

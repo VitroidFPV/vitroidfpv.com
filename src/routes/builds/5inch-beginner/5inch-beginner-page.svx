@@ -1,0 +1,5 @@
+---
+title: 5" Beginner
+description: Cheap, durable, and easy to put together and repair
+---
+Specced out to be easy to assemble, with affordable and accessible parts and electronics that should be easy to solder. This build should be perfect to get you started in the world of FPV.

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from "$app/paths"
 	import GraphicsCanvas from "$components/graphics/Canvas.svelte"
 	import SplitEdge from "$components/graphics/SplitEdge.svelte"
 	import gggyrate from "$lib/assets/gggyrate.svg"
@@ -16,6 +17,7 @@
 		price,
 		image,
 		imageAlt = title,
+		url,
 		model = null,
 		color = "primary",
 		features,
@@ -25,6 +27,7 @@
 		price: string
 		image: string
 		imageAlt?: string
+		url?: string
 		model?: BuildModel | null
 		color?: BuildColor
 		features: BuildFeature[]
@@ -72,11 +75,20 @@
 				class="text-container relative flex h-fit w-full flex-col gap-2 p-2 md:p-4 lg:gap-4 lg:p-8"
 			>
 				<div class="flex w-full items-center justify-between">
-					<h3
-						class="font-josefin-sans font-bold {colors.text} fancy-link-xl -mb-2 pt-2 text-4xl lg:mb-0 lg:pt-0 xl:text-5xl 2xl:text-8xl"
-					>
-						{title}
-					</h3>
+					{#if url}
+						<a
+							href={resolve(url as "/")}
+							class="font-josefin-sans font-bold {colors.text} fancy-link-xl -mb-2 pt-2 text-4xl lg:mb-0 lg:pt-0 xl:text-5xl 2xl:text-8xl"
+						>
+							{title}
+						</a>
+					{:else}
+						<h3
+							class="font-josefin-sans font-bold {colors.text} -mb-2 pt-2 text-4xl lg:mb-0 lg:pt-0 xl:text-5xl 2xl:text-8xl"
+						>
+							{title}
+						</h3>
+					{/if}
 					<span
 						class="pr-16 font-josefin-sans text-2xl font-bold {colors.text} hidden lg:block lg:text-4xl"
 						>{price}</span

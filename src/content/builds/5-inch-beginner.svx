@@ -2,6 +2,7 @@
 title: 5" Beginner
 price: "~$250"
 order: 1
+url: /builds/5inch-beginner
 image: /builds/S1V5.svg
 model: s1v5
 color: primary
