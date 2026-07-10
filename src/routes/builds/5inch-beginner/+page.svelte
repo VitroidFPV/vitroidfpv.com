@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { dev } from "$app/environment"
 	import BuildGuidePart from "$components/BuildGuidePart.svelte"
-	import BuildGuidePartCard from "$components/BuildGuidePartCard.svelte"
-	import BuildGuideSectionHeading from "$components/BuildGuideSectionHeading.svelte"
+	import BuildGuidePartCard from "$components/BuildGuideDevPart.svelte"
+	import BuildGuideSectionHeading from "$components/BuildGuideDevHeading.svelte"
 	import BuildIntro, { metadata } from "./5inch-beginner-page.svx"
 	import PageWrapper from "$components/PageWrapper.svelte"
 	import { getBuildGuideSections } from "$lib/builds/guide-sections"
