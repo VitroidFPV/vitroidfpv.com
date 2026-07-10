@@ -19,6 +19,17 @@
 
 	const colorOptions = Object.keys(guidePartColors) as GuidePartColor[]
 
+	const imageFormats = ["webp", "png", "jpg", "jpeg", "avif", "gif"] as const
+	type ImageFormat = (typeof imageFormats)[number]
+
+	function parseImageFormat(filename: string): ImageFormat | "" {
+		const match = filename.match(/\.([^.]+)$/)
+		if (!match) return ""
+
+		const ext = match[1].toLowerCase()
+		return imageFormats.includes(ext as ImageFormat) ? (ext as ImageFormat) : ""
+	}
+
 	let {
 		buildSlug,
 		sections,
@@ -38,7 +49,7 @@
 	let url = $state("")
 	let order = $state(1)
 	let color = $state<GuidePartColor>("success")
-	let imageFilename = $state("")
+	let imageFormat = $state<ImageFormat | "">("")
 	let sectionSlug = $state("")
 	let price = $state("")
 	let tagsInput = $state("")
@@ -62,13 +73,17 @@
 
 	const previewPrice = $derived(price.trim() || undefined)
 
+	const imageFilename = $derived(
+		imageFormat && slug.trim() ? `${slug.trim()}.${imageFormat}` : undefined
+	)
+
 	const currentSnapshot = $derived(
 		JSON.stringify({
 			title,
 			url,
 			order,
 			color,
-			imageFilename,
+			imageFormat,
 			price,
 			tagsInput,
 			body,
@@ -113,7 +128,7 @@
 			orderSectionSlug = section.id
 			order = nextOrderForSection(section.id)
 			color = "success"
-			imageFilename = ""
+			imageFormat = ""
 			price = ""
 			tagsInput = ""
 			body = ""
@@ -125,7 +140,7 @@
 				url: "",
 				order,
 				color: "success",
-				imageFilename: "",
+				imageFormat: "",
 				price: "",
 				tagsInput: "",
 				body: "",
@@ -142,7 +157,9 @@
 		orderSectionSlug = nextPart.sectionSlug
 		order = nextPart.order
 		color = nextPart.color
-		imageFilename = nextPart.imageFilename ?? ""
+		imageFormat = nextPart.imageFilename
+			? parseImageFormat(nextPart.imageFilename)
+			: ""
 		price = nextPart.price ?? ""
 		tagsInput = formatGuidePartTagsFromParsed(nextPart.tags)
 		body = nextPart.body
@@ -154,7 +171,9 @@
 			url: nextPart.url,
 			order: nextPart.order,
 			color: nextPart.color,
-			imageFilename: nextPart.imageFilename ?? "",
+			imageFormat: nextPart.imageFilename
+				? parseImageFormat(nextPart.imageFilename)
+				: "",
 			price: nextPart.price ?? "",
 			tagsInput: formatGuidePartTagsFromParsed(nextPart.tags),
 			body: nextPart.body,
@@ -203,7 +222,7 @@
 				order,
 				color,
 				price: price.trim() || undefined,
-				image: imageFilename.trim() || undefined,
+				image: imageFilename,
 				tags,
 				body
 			})
@@ -408,21 +427,24 @@
 				class="mt-2 flex flex-col gap-2"
 				transition:slide
 			>
-				<div class="flex flex-col gap-2 pt-2">
+				<div class="flex gap-2 pt-2">
 					<input
 						type="url"
 						bind:value={url}
 						spellcheck="false"
-						class={fieldClass}
+						class="{fieldClass} w-full min-w-0"
 						placeholder="https://example.com"
 					/>
-					<input
-						type="text"
-						bind:value={imageFilename}
-						spellcheck="false"
-						class={fieldClass}
-						placeholder="image.webp"
-					/>
+					<select
+						bind:value={imageFormat}
+						class="{fieldClass} w-min"
+						aria-label="Image format"
+					>
+						<option value="">No image</option>
+						{#each imageFormats as format (format)}
+							<option value={format}>{format}</option>
+						{/each}
+					</select>
 				</div>
 
 				{#if previewPrice || previewTags.length > 0}
@@ -448,7 +470,7 @@
 
 				<textarea
 					bind:value={tagsInput}
-					rows={2}
+					rows={4}
 					spellcheck="false"
 					class="{fieldClass} min-h-0 text-xs"
 					placeholder="One tag per line. Use label&lt;tooltip&gt; for tooltips."
