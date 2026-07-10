@@ -27,7 +27,6 @@
 	type NewPartDraft = {
 		title: string
 		url: string
-		order: number
 		color: GuidePartColor
 		imageFormat: ImageFormat | ""
 		sectionSlug: string
@@ -35,6 +34,12 @@
 		tagsInput: string
 		body: string
 		slug: string
+	}
+
+	const lastAssignedOrderBySection: Record<string, number> = {}
+
+	function sectionOrderKey(buildSlug: string, sectionSlug: string) {
+		return `${buildSlug}:${sectionSlug}`
 	}
 
 	function parseImageFormat(filename: string): ImageFormat | "" {
@@ -129,14 +134,17 @@
 		const targetSection = sections.find(
 			(entry) => entry.id === targetSectionSlug
 		)
-		if (!targetSection) return 1
+		const fromData = targetSection
+			? targetSection.parts.reduce(
+					(max, entry) => Math.max(max, entry.order),
+					0
+				) + 1
+			: 1
+		const lastAssigned =
+			lastAssignedOrderBySection[sectionOrderKey(buildSlug, targetSectionSlug)] ??
+			0
 
-		return (
-			targetSection.parts.reduce(
-				(max, entry) => Math.max(max, entry.order),
-				0
-			) + 1
-		)
+		return Math.max(fromData, lastAssigned + 1)
 	}
 
 	function getNewPartDraft(): NewPartDraft | null {
@@ -150,7 +158,6 @@
 			if (
 				typeof draft.title !== "string" ||
 				typeof draft.url !== "string" ||
-				typeof draft.order !== "number" ||
 				typeof draft.color !== "string" ||
 				typeof draft.imageFormat !== "string" ||
 				typeof draft.sectionSlug !== "string" ||
@@ -186,7 +193,7 @@
 			url = draft?.url ?? ""
 			sectionSlug = draft?.sectionSlug ?? section.id
 			orderSectionSlug = sectionSlug
-			order = draft?.order ?? nextOrderForSection(sectionSlug)
+			order = nextOrderForSection(sectionSlug)
 			color = draft?.color ?? "success"
 			imageFormat = draft?.imageFormat ?? ""
 			price = draft?.price ?? ""
@@ -252,7 +259,6 @@
 		const draft: NewPartDraft = {
 			title,
 			url,
-			order,
 			color,
 			imageFormat,
 			sectionSlug,
@@ -333,6 +339,9 @@
 			editMode = false
 
 			if (isNew) {
+				lastAssignedOrderBySection[
+					sectionOrderKey(buildSlug, activeSectionSlug)
+				] = order
 				clearNewPartDraft()
 				resetFromPart(null)
 			}
