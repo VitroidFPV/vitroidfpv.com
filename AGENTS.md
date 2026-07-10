@@ -29,3 +29,8 @@ You MUST use this tool whenever writing Svelte code before sending it to the use
 
 Generates a Svelte Playground link with the provided code.
 After completing the code, ask the user if they want a playground link. Only call this tool after user confirmation and NEVER if code was written to files in their project.
+
+## Rules
+
+### 1. Dev server
+Assume that the vite dev server is running on port 3000, but check before performing any network actions. If the server is not running,  Don't start the server yourself unless instructed to do so. Just stop the conversation and ask the user to start it.Otherwise we just get dozens of orphaned node processes running the same code and locking up file access permissions.
