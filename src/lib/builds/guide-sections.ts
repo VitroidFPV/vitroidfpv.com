@@ -45,13 +45,13 @@ export type BuildGuidePartTag = {
 
 const buildGuideTagPattern = /^(.+)<([^>]+)>$/
 
-export function parseBuildGuideTag(tag: string): BuildGuidePartTag {
-	const match = tag.match(buildGuideTagPattern)
+export function parseBuildGuideTag(tag: string | number): BuildGuidePartTag {
+	const match = String(tag).match(buildGuideTagPattern)
 	if (match) {
 		return { label: match[1], tooltip: match[2] }
 	}
 
-	return { label: tag }
+	return { label: String(tag) }
 }
 
 export type BuildGuidePartMetadata = {
