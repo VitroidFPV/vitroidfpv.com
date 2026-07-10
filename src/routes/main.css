@@ -53,7 +53,7 @@
 }
 
 .prose {
-	@apply prose-neutral prose-p:mb-2 prose-p:text-surface-950-50 prose-p:not-first:mt-2 prose-a:text-primary-500 prose-a:no-underline prose-a:hover:underline;
+	@apply text-surface-950-50 prose-neutral prose-p:mb-2 prose-p:not-first:mt-2 prose-a:text-primary-500 prose-a:no-underline prose-a:hover:underline;
 }
 
 @layer components {

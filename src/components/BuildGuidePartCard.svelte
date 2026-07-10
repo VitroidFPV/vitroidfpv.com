@@ -100,7 +100,12 @@
 	)
 
 	const fieldClass =
-		"w-full rounded-md bg-surface-500/10 px-2 py-1 text-sm break-all focus-visible:outline-none focus-visible:outline-[3px] focus-visible:outline-surface-400/20"
+		"rounded-md bg-surface-500/10 p-0! outline-4 outline-surface-500/10"
+
+	const descriptionFieldClass = `${fieldClass} break-normal`
+
+	const controlClass =
+		"rounded-md bg-surface-500/10 text-sm break-all px-2 py-1"
 
 	function nextOrderForSection(targetSectionSlug: string): number {
 		const targetSection = sections.find(
@@ -265,105 +270,29 @@
 	}
 </script>
 
-<div class="flex h-fit gap-2">
+<div class="flex h-fit min-w-0 gap-2">
 	<div class="w-1 shrink-0 self-stretch rounded-full {colors.bar}"></div>
 
-	<div class="flex flex-1 flex-col">
-		<div class="flex items-start justify-between gap-2">
-			<div class="flex w-full flex-col pr-2">
-				{#if editMode || isNew}
-					<div
-						class="mb-4 flex items-center gap-2"
-						transition:slide
-					>
-						<select
-							bind:value={sectionSlug}
-							class="{fieldClass} min-w-0 flex-1"
-						>
-							{#each sections as entry (entry.id)}
-								<option value={entry.id}>{entry.title}</option>
-							{/each}
-						</select>
+	<div class="part-content flex min-w-0 flex-1 flex-col">
+		<div class="flex min-w-0 items-center justify-between gap-2">
+			{#if !editMode && !isNew}
+				<a
+					href={url}
+					class={colors.link}
+					target="_blank"
+					rel="external noopener noreferrer">{title}</a
+				>
+			{:else}
+				<input
+					type="text"
+					bind:value={title}
+					spellcheck="false"
+					class="{fieldClass} {colors.link} min-w-0 flex-1 text-2xl! font-semibold"
+					placeholder="Part title"
+				/>
+			{/if}
 
-						<div
-							class="flex shrink-0 gap-1"
-							role="radiogroup"
-							aria-label="Part color"
-						>
-							{#each colorOptions as option (option)}
-								<button
-									type="button"
-									role="radio"
-									aria-checked={color === option}
-									aria-label={option}
-									class="size-6 rounded-md {guidePartColors[option]
-										.bar} outline-2 transition-colors {color === option
-										? 'outline-current'
-										: 'outline-transparent'}"
-									onclick={() => (color = option)}
-								></button>
-							{/each}
-						</div>
-
-						<div class="flex shrink-0">
-							<input
-								type="number"
-								min="1"
-								max="69"
-								bind:value={order}
-								class="no-spinner h-8 w-12 rounded-md bg-surface-500/10 p-2 text-base outline-none focus-within:outline-2 focus-within:outline-current"
-							/>
-							<div
-								class="ml-1 flex h-8 flex-col justify-between text-surface-500/40"
-							>
-								<button
-									type="button"
-									class="hover:text-current {colors.text}"
-									aria-label="Increase order"
-									onclick={() => order++}
-								>
-									<ChevronUp class="size-3 stroke-3" />
-								</button>
-								<button
-									type="button"
-									class="rotate-180 hover:text-current {colors.text}"
-									aria-label="Decrease order"
-									onclick={() => order > 1 && order--}
-								>
-									<ChevronUp class="size-3 stroke-3" />
-								</button>
-							</div>
-						</div>
-					</div>
-				{/if}
-
-				{#if !editMode && !isNew}
-					<a
-						href={url}
-						class={colors.link}
-						target="_blank"
-						rel="external noopener noreferrer">{title}</a
-					>
-				{:else}
-					<div class="flex gap-2">
-						<input
-							type="text"
-							bind:value={title}
-							spellcheck="false"
-							class="{fieldClass} {colors.link} w-full flex-1 text-2xl font-semibold focus-visible:outline-current"
-							placeholder="Part title"
-						/>
-						<input
-							type="text"
-							bind:value={price}
-							class="{fieldClass} {colors.price} flex-1"
-							placeholder="$0.00"
-						/>
-					</div>
-				{/if}
-			</div>
-
-			<div class="flex items-center gap-2 text-surface-500">
+			<div class="flex shrink-0 items-center gap-2 text-surface-500">
 				{#if !editMode}
 					<button
 						type="button"
@@ -423,21 +352,141 @@
 		</div>
 
 		{#if editMode || isNew}
+			<div class="flex flex-wrap items-center gap-1">
+				<input
+					type="text"
+					bind:value={price}
+					spellcheck="false"
+					class="{colors.price} price-tag-input border-0 outline outline-current"
+					placeholder="$0.00"
+				/>
+				{#each previewTags as tag (tag.label)}
+					{#if tag.tooltip}
+						<BuildTagTooltip
+							label={tag.label}
+							tooltip={tag.tooltip}
+						/>
+					{:else}
+						<span
+							class="rounded-full bg-surface-500/20 px-2 py-1 text-xs font-medium text-surface-900-100"
+							>{tag.label}</span
+						>
+					{/if}
+				{/each}
+			</div>
+		{:else if !isNew}
+			<div class="flex flex-wrap gap-1">
+				{#if previewPrice}
+					<span class={colors.price}>{previewPrice}</span>
+				{/if}
+				{#each previewTags as tag (tag.label)}
+					{#if tag.tooltip}
+						<BuildTagTooltip
+							label={tag.label}
+							tooltip={tag.tooltip}
+						/>
+					{:else}
+						<span
+							class="rounded-full bg-surface-500/20 px-2 py-1 text-xs font-medium text-surface-900-100"
+							>{tag.label}</span
+						>
+					{/if}
+				{/each}
+			</div>
+		{/if}
+
+		{#if editMode || isNew}
+			<textarea
+				bind:value={body}
+				rows={5}
+				spellcheck="false"
+				class="prose {descriptionFieldClass} min-h-24 w-full resize-y"
+				placeholder="Part description"></textarea>
+		{:else if !isNew}
+			<div class="prose">
+				{#if part}
+					<part.component />
+				{/if}
+			</div>
+		{/if}
+
+		{#if editMode || isNew}
 			<div
-				class="mt-2 flex flex-col gap-2"
+				class="flex flex-col gap-2 border-t border-surface-500/10 pt-2"
 				transition:slide
 			>
-				<div class="flex gap-2 pt-2">
+				<div class="flex min-w-0 flex-wrap items-center gap-2">
+					<select
+						bind:value={sectionSlug}
+						class="{controlClass} min-w-0 flex-1"
+					>
+						{#each sections as entry (entry.id)}
+							<option value={entry.id}>{entry.title}</option>
+						{/each}
+					</select>
+
+					<div
+						class="flex shrink-0 gap-1"
+						role="radiogroup"
+						aria-label="Part color"
+					>
+						{#each colorOptions as option (option)}
+							<button
+								type="button"
+								role="radio"
+								aria-checked={color === option}
+								aria-label={option}
+								class="size-6 rounded-md {guidePartColors[option]
+									.bar} outline-2 transition-colors {color === option
+									? 'outline-current'
+									: 'outline-transparent'}"
+								onclick={() => (color = option)}
+							></button>
+						{/each}
+					</div>
+
+					<div class="flex shrink-0">
+						<input
+							type="number"
+							min="1"
+							max="69"
+							bind:value={order}
+							class="no-spinner h-8 w-12 rounded-md bg-surface-500/10 p-2 text-base outline-none focus-within:outline-2 focus-within:outline-current"
+						/>
+						<div
+							class="ml-1 flex h-8 flex-col justify-between text-surface-500/40"
+						>
+							<button
+								type="button"
+								class="hover:text-current {colors.text}"
+								aria-label="Increase order"
+								onclick={() => order++}
+							>
+								<ChevronUp class="size-3 stroke-3" />
+							</button>
+							<button
+								type="button"
+								class="rotate-180 hover:text-current {colors.text}"
+								aria-label="Decrease order"
+								onclick={() => order > 1 && order--}
+							>
+								<ChevronUp class="size-3 stroke-3" />
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="flex min-w-0 gap-2">
 					<input
 						type="url"
 						bind:value={url}
 						spellcheck="false"
-						class="{fieldClass} w-full min-w-0"
+						class="{controlClass} min-w-0 flex-1"
 						placeholder="https://example.com"
 					/>
 					<select
 						bind:value={imageFormat}
-						class="{fieldClass} w-min"
+						class="{controlClass} shrink-0"
 						aria-label="Image format"
 					>
 						<option value="">No image</option>
@@ -447,68 +496,13 @@
 					</select>
 				</div>
 
-				{#if previewPrice || previewTags.length > 0}
-					<div class="flex flex-wrap gap-1">
-						{#if previewPrice}
-							<span class={colors.price}>{previewPrice}</span>
-						{/if}
-						{#each previewTags as tag (tag.label)}
-							{#if tag.tooltip}
-								<BuildTagTooltip
-									label={tag.label}
-									tooltip={tag.tooltip}
-								/>
-							{:else}
-								<span
-									class="rounded-full bg-surface-500/20 px-2 py-1 text-xs font-medium text-surface-900-100"
-									>{tag.label}</span
-								>
-							{/if}
-						{/each}
-					</div>
-				{/if}
-
 				<textarea
 					bind:value={tagsInput}
 					rows={4}
 					spellcheck="false"
-					class="{fieldClass} min-h-0 text-xs"
+					class="{controlClass} min-h-0 text-xs"
 					placeholder="One tag per line. Use label&lt;tooltip&gt; for tooltips."
 				></textarea>
-
-				<textarea
-					bind:value={body}
-					rows={5}
-					spellcheck="false"
-					class="{fieldClass} min-h-24 resize-y"
-					placeholder="Part description"></textarea>
-			</div>
-		{:else if !isNew}
-			{#if previewPrice || previewTags.length > 0}
-				<div class="mt-2 flex flex-wrap gap-1">
-					{#if previewPrice}
-						<span class={colors.price}>{previewPrice}</span>
-					{/if}
-					{#each previewTags as tag (tag.label)}
-						{#if tag.tooltip}
-							<BuildTagTooltip
-								label={tag.label}
-								tooltip={tag.tooltip}
-							/>
-						{:else}
-							<span
-								class="rounded-full bg-surface-500/20 px-2 py-1 text-xs font-medium text-surface-900-100"
-								>{tag.label}</span
-							>
-						{/if}
-					{/each}
-				</div>
-			{/if}
-
-			<div class="prose mt-2">
-				{#if part}
-					<part.component />
-				{/if}
 			</div>
 		{/if}
 
@@ -532,5 +526,15 @@
 	.no-spinner {
 		-moz-appearance: textfield;
 		appearance: textfield;
+	}
+
+	.price-tag-input {
+		field-sizing: content;
+		width: auto;
+		min-width: 5ch;
+	}
+
+	.part-content > :not(:first-child) {
+		margin-top: 0.5rem;
 	}
 </style>
