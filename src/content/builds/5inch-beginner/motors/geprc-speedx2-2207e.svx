@@ -1,0 +1,13 @@
+---
+title: GEPRC SPEEDX2 2207E
+url: https://geprc.com/product/geprc-speedx2-2207e-motor/
+order: 5
+color: error
+price: $14.99
+image: geprc-speedx2-2207e.jpg
+tags:
+  - "2207/2306<Stator size>"
+  - 1960/2020kv
+  - 34.5g
+---
+GEPRC have been around for a while, but their motors were always either too expensive or not something I'd recommend. These have turned both of those around, they're some of the cheapest unibell motors around while also performing well.

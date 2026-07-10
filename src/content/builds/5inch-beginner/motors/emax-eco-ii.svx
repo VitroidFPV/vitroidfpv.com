@@ -1,0 +1,13 @@
+---
+title: Emax ECO II
+url: https://emaxmodel.com/products/emax-eco-ii-series-2207-3-6s-1700kv-1900kv-2400kv-brushless-motor-for-rc-drone-fpv-racing?variant=36534578774174
+order: 3
+color: success
+price: $12.99
+image: emax-eco-ii.jpg
+tags:
+  - "2207/2306<Stator Size>"
+  - 1700/1900kv
+  - 33.6g
+---
+Having been around for a while, they've cemented themselves as a reliable option, often for the lowest price on this list. They may not be as widely available due to the III's being out, but Emax are still making them!

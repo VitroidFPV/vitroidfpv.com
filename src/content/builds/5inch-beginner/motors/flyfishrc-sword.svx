@@ -1,0 +1,13 @@
+---
+title: FlyFishRC Sword
+url: https://www.flyfish-rc.com/collections/sword-series/products/sword-2207-6s-fpv-motor?variant=42328188616884
+order: 4
+color: warning
+price: $14.90
+image: flyfishrc-sword.png
+tags:
+  - "2207<Stator size>"
+  - 1850/1950/2050kv
+  - 38g
+---
+FlyFishRC are a relatively new manufacturer, their first big item were the Flash series motors that quickly became popular with many bando pilots. The Sword series brings similar performance at a much lower cost.

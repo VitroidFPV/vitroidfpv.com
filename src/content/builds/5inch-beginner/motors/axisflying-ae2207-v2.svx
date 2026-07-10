@@ -1,0 +1,13 @@
+---
+title: AxisFlying AE2207 V2
+url: https://www.axisflying.com/products/5inch-brushless-economic-fpv-motor-ae2207-v2?VariantsId=10371
+order: 2
+color: error
+price: $15.90
+image: axisflying-ae2207-v2.jpg
+tags:
+  - "2207<Stator Size>"
+  - "1750/1860/1960/2100kv<all the kv!!!>"
+  - 35.2g
+---
+AxisFlying is still a relatively new brand in FPV, but their motors have become some of the best budget motors, often going on sale for even less than what's listed here. The neutral color should go well with basically any build.
