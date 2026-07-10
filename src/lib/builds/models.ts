@@ -21,7 +21,7 @@ export const buildModels = {
 	mario8: {
 		path: "/models/builds/mario8.glb",
 		nodeName: "Assembly",
-		targetSize: BUILD_MODEL_TARGET_SIZE,
+		targetSize: BUILD_MODEL_TARGET_SIZE * 1.1,
 		rotation: [Math.PI / 8, 0, 0] as BuildModelRotation,
 		autoRotateSpeed: BUILD_MODEL_AUTO_ROTATE_SPEED
 	}
