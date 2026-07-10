@@ -12,8 +12,10 @@
 	const colors = $derived(guidePartColors[part.color])
 </script>
 
-<div class="flex gap-2">
-	<div class="h-full w-1 rounded-full {colors.bar}"></div>
+<div class="flex h-fit gap-2">
+	<div
+		class="w-1 shrink-0 self-stretch rounded-full {colors.bar} mt-1 mb-3"
+	></div>
 	<div class="flex flex-1 flex-col gap-2">
 		<div class="flex items-center justify-between gap-2">
 			<a
@@ -46,7 +48,10 @@
 			{/if}
 			{#each part.tags as tag (tag.label)}
 				{#if tag.tooltip}
-					<BuildTagTooltip label={tag.label} tooltip={tag.tooltip} />
+					<BuildTagTooltip
+						label={tag.label}
+						tooltip={tag.tooltip}
+					/>
 				{:else}
 					<span
 						class="rounded-full bg-surface-500/20 px-2 py-1 text-xs font-medium text-surface-900-100"

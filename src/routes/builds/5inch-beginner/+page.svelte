@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { dev } from "$app/environment"
+	import { page } from "$app/state"
 	import BuildGuidePart from "$components/BuildGuidePart.svelte"
 	import BuildGuidePartCard from "$components/BuildGuideDevPart.svelte"
 	import BuildGuideSectionHeading from "$components/BuildGuideDevHeading.svelte"
@@ -9,6 +10,7 @@
 
 	const buildSlug = "5inch-beginner"
 	const guideSections = getBuildGuideSections(buildSlug)
+	const showDevUi = $derived(dev && !page.url.searchParams.has("public"))
 </script>
 
 <PageWrapper
@@ -22,7 +24,7 @@
 	<div class="flex flex-col gap-8 px-2 pb-8 lg:px-4 xl:px-8">
 		{#each guideSections as section (section.id)}
 			<div>
-				{#if dev}
+				{#if showDevUi}
 					<BuildGuideSectionHeading
 						{buildSlug}
 						sections={guideSections}
@@ -41,7 +43,7 @@
 			</div>
 			<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
 				{#each section.parts as part (part.id)}
-					{#if dev}
+					{#if showDevUi}
 						<BuildGuidePartCard
 							{buildSlug}
 							sections={guideSections}
@@ -52,7 +54,7 @@
 						<BuildGuidePart {part} />
 					{/if}
 				{/each}
-				{#if dev}
+				{#if showDevUi}
 					<BuildGuidePartCard
 						{buildSlug}
 						sections={guideSections}
@@ -61,7 +63,7 @@
 				{/if}
 			</div>
 		{/each}
-		{#if dev}
+		{#if showDevUi}
 			<BuildGuideSectionHeading
 				{buildSlug}
 				sections={guideSections}

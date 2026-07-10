@@ -141,8 +141,9 @@
 				) + 1
 			: 1
 		const lastAssigned =
-			lastAssignedOrderBySection[sectionOrderKey(buildSlug, targetSectionSlug)] ??
-			0
+			lastAssignedOrderBySection[
+				sectionOrderKey(buildSlug, targetSectionSlug)
+			] ?? 0
 
 		return Math.max(fromData, lastAssigned + 1)
 	}
@@ -358,7 +359,9 @@
 </script>
 
 <div class="flex h-fit min-w-0 gap-2">
-	<div class="w-1 shrink-0 self-stretch rounded-full {colors.bar}"></div>
+	<div
+		class="w-1 shrink-0 self-stretch rounded-full {colors.bar} mt-1 mb-3"
+	></div>
 
 	<div class="part-content flex min-w-0 flex-1 flex-col">
 		<div class="flex min-w-0 items-center justify-between gap-2">
