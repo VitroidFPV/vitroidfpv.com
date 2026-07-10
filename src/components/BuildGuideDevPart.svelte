@@ -1,5 +1,7 @@
 <script lang="ts">
+	import { browser } from "$app/environment"
 	import BuildPartImageButton from "$components/BuildPartImageButton.svelte"
+	import BuildGuideImageDownloader from "$components/BuildGuideImageDownloader.svelte"
 	import BuildTagTooltip from "$components/BuildTagTooltip.svelte"
 	import {
 		guidePartColors,
@@ -21,6 +23,19 @@
 
 	const imageFormats = ["webp", "png", "jpg", "jpeg", "avif", "gif"] as const
 	type ImageFormat = (typeof imageFormats)[number]
+
+	type NewPartDraft = {
+		title: string
+		url: string
+		order: number
+		color: GuidePartColor
+		imageFormat: ImageFormat | ""
+		sectionSlug: string
+		price: string
+		tagsInput: string
+		body: string
+		slug: string
+	}
 
 	function parseImageFormat(filename: string): ImageFormat | "" {
 		const match = filename.match(/\.([^.]+)$/)
@@ -66,6 +81,9 @@
 	const colors = $derived(guidePartColors[color])
 
 	const activeSectionSlug = $derived(sectionSlug || section.id)
+	const newPartDraftKey = $derived(
+		`build-guide-new-part:${buildSlug}:${section.id}`
+	)
 
 	const previewTags = $derived(
 		parseGuidePartTagsInput(tagsInput).map(parseBuildGuideTag)
@@ -121,23 +139,60 @@
 		)
 	}
 
+	function getNewPartDraft(): NewPartDraft | null {
+		if (!browser) return null
+
+		try {
+			const raw = sessionStorage.getItem(newPartDraftKey)
+			if (!raw) return null
+
+			const draft = JSON.parse(raw) as Partial<NewPartDraft>
+			if (
+				typeof draft.title !== "string" ||
+				typeof draft.url !== "string" ||
+				typeof draft.order !== "number" ||
+				typeof draft.color !== "string" ||
+				typeof draft.imageFormat !== "string" ||
+				typeof draft.sectionSlug !== "string" ||
+				typeof draft.price !== "string" ||
+				typeof draft.tagsInput !== "string" ||
+				typeof draft.body !== "string" ||
+				typeof draft.slug !== "string" ||
+				!colorOptions.includes(draft.color as GuidePartColor) ||
+				(!imageFormats.includes(draft.imageFormat as ImageFormat) &&
+					draft.imageFormat !== "")
+			) {
+				return null
+			}
+
+			return draft as NewPartDraft
+		} catch {
+			return null
+		}
+	}
+
+	function clearNewPartDraft() {
+		if (browser) sessionStorage.removeItem(newPartDraftKey)
+	}
+
 	function resetFromPart(nextPart: BuildGuidePart | null) {
 		saveMessage = null
 		saveError = null
 
 		if (!nextPart) {
+			const draft = getNewPartDraft()
 			editMode = true
-			title = ""
-			url = ""
-			sectionSlug = section.id
-			orderSectionSlug = section.id
-			order = nextOrderForSection(section.id)
-			color = "success"
-			imageFormat = ""
-			price = ""
-			tagsInput = ""
-			body = ""
-			slug = ""
+			title = draft?.title ?? ""
+			url = draft?.url ?? ""
+			sectionSlug = draft?.sectionSlug ?? section.id
+			orderSectionSlug = sectionSlug
+			order = draft?.order ?? nextOrderForSection(sectionSlug)
+			color = draft?.color ?? "success"
+			imageFormat = draft?.imageFormat ?? ""
+			price = draft?.price ?? ""
+			tagsInput = draft?.tagsInput ?? ""
+			body = draft?.body ?? ""
+			slug = draft?.slug ?? ""
 			originalSlug = ""
 			originalSectionSlug = section.id
 			originalSnapshot = JSON.stringify({
@@ -189,6 +244,24 @@
 
 	$effect(() => {
 		resetFromPart(part)
+	})
+
+	$effect(() => {
+		if (!browser || !isNew) return
+
+		const draft: NewPartDraft = {
+			title,
+			url,
+			order,
+			color,
+			imageFormat,
+			sectionSlug,
+			price,
+			tagsInput,
+			body,
+			slug
+		}
+		sessionStorage.setItem(newPartDraftKey, JSON.stringify(draft))
 	})
 
 	$effect(() => {
@@ -260,6 +333,7 @@
 			editMode = false
 
 			if (isNew) {
+				clearNewPartDraft()
 				resetFromPart(null)
 			}
 		} catch (err) {
@@ -267,6 +341,10 @@
 		} finally {
 			saving = false
 		}
+	}
+
+	function handleImageDownload(result: { extension: string }) {
+		imageFormat = parseImageFormat(`image.${result.extension}`)
 	}
 </script>
 
@@ -494,6 +572,12 @@
 							<option value={format}>{format}</option>
 						{/each}
 					</select>
+					<BuildGuideImageDownloader
+						{buildSlug}
+						{title}
+						{slug}
+						ondownload={handleImageDownload}
+					/>
 				</div>
 
 				<textarea
