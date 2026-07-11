@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { browser } from "$app/environment"
-	import BuildPartImageButton from "$components/BuildPartImageButton.svelte"
-	import BuildGuideImageDownloader from "$components/BuildGuideImageDownloader.svelte"
-	import BuildTagTooltip from "$components/BuildTagTooltip.svelte"
+	import ImageButton from "$components/BuildGuide/ImageButton.svelte"
+	import ImageDownloader from "$components/BuildGuide/ImageDownloader.svelte"
+	import TagTooltip from "$components/BuildGuide/TagTooltip.svelte"
 	import {
 		guidePartColors,
 		parseBuildGuideTag,
@@ -394,7 +394,7 @@
 				{/if}
 
 				{#if part?.image && !editMode && !isNew}
-					<BuildPartImageButton
+					<ImageButton
 						src={part.image}
 						alt={part.imageAlt}
 						class={colors.iconHover}
@@ -452,7 +452,7 @@
 				/>
 				{#each previewTags as tag (tag.label)}
 					{#if tag.tooltip}
-						<BuildTagTooltip
+						<TagTooltip
 							label={tag.label}
 							tooltip={tag.tooltip}
 						/>
@@ -471,7 +471,7 @@
 				{/if}
 				{#each previewTags as tag (tag.label)}
 					{#if tag.tooltip}
-						<BuildTagTooltip
+						<TagTooltip
 							label={tag.label}
 							tooltip={tag.tooltip}
 						/>
@@ -584,7 +584,7 @@
 							<option value={format}>{format}</option>
 						{/each}
 					</select>
-					<BuildGuideImageDownloader
+					<ImageDownloader
 						{buildSlug}
 						{title}
 						{slug}

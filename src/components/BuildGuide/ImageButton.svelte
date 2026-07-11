@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BuildPartImage from "$components/BuildPartImage.svelte"
+	import PartImage from "$components/BuildGuide/PartImage.svelte"
 	import type { Picture } from "@sveltejs/enhanced-img"
 	import { Dialog, Portal, Tooltip } from "@skeletonlabs/skeleton-svelte"
 	import { Image, X } from "@lucide/svelte"
@@ -45,7 +45,7 @@
 					? 'tooltip-closing'
 					: ''}"
 			>
-				<BuildPartImage
+				<PartImage
 					{src}
 					{alt}
 					class="max-h-96 w-96"
@@ -77,7 +77,7 @@
 				>
 					<X class="size-6" />
 				</Dialog.CloseTrigger>
-				<BuildPartImage
+				<PartImage
 					{src}
 					{alt}
 					class="max-h-[90svh]"

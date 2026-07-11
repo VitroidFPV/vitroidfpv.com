@@ -1,6 +1,6 @@
 <script lang="ts">
-	import BuildPartImageButton from "$components/BuildPartImageButton.svelte"
-	import BuildTagTooltip from "$components/BuildTagTooltip.svelte"
+	import ImageButton from "$components/BuildGuide/ImageButton.svelte"
+	import TagTooltip from "$components/BuildGuide/TagTooltip.svelte"
 	import {
 		guidePartColors,
 		type BuildGuidePart
@@ -34,7 +34,7 @@
 					<Plus class="size-8" />
 				</button>
 				{#if part.image}
-					<BuildPartImageButton
+					<ImageButton
 						src={part.image}
 						alt={part.imageAlt}
 						class={colors.iconHover}
@@ -48,7 +48,7 @@
 			{/if}
 			{#each part.tags as tag (tag.label)}
 				{#if tag.tooltip}
-					<BuildTagTooltip
+					<TagTooltip
 						label={tag.label}
 						tooltip={tag.tooltip}
 					/>

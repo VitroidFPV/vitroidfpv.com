@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { dev } from "$app/environment"
 	import { page } from "$app/state"
-	import BuildGuidePart from "$components/BuildGuidePart.svelte"
-	import BuildGuidePartCard from "$components/BuildGuideDevPart.svelte"
-	import BuildGuideSectionHeading from "$components/BuildGuideDevHeading.svelte"
+	import DevSectionHeading from "$components/BuildGuide/DevSectionHeading.svelte"
+	import DevPartCard from "$components/BuildGuide/DevPartCard.svelte"
+	import PartCard from "$components/BuildGuide/PartCard.svelte"
+	import SectionHeading from "$components/BuildGuide/SectionHeading.svelte"
 	import BuildIntro, { metadata } from "./5inch-beginner-page.svx"
 	import PageWrapper from "$components/PageWrapper.svelte"
 	import { getBuildGuideSections } from "$lib/builds/guide-sections"
@@ -25,37 +26,30 @@
 		{#each guideSections as section (section.id)}
 			<div>
 				{#if showDevUi}
-					<BuildGuideSectionHeading
+					<DevSectionHeading
 						{buildSlug}
 						sections={guideSections}
 						{section}
 					/>
 				{:else}
-					<h3 class="h-18 font-josefin-sans text-6xl font-bold">
-						{section.title}
-					</h3>
-					{#if section.description}
-						<div class="prose">
-							<p>{section.description}</p>
-						</div>
-					{/if}
+					<SectionHeading {section} />
 				{/if}
 			</div>
 			<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
 				{#each section.parts as part (part.id)}
 					{#if showDevUi}
-						<BuildGuidePartCard
+						<DevPartCard
 							{buildSlug}
 							sections={guideSections}
 							{section}
 							{part}
 						/>
 					{:else}
-						<BuildGuidePart {part} />
+						<PartCard {part} />
 					{/if}
 				{/each}
 				{#if showDevUi}
-					<BuildGuidePartCard
+					<DevPartCard
 						{buildSlug}
 						sections={guideSections}
 						{section}
@@ -64,7 +58,7 @@
 			</div>
 		{/each}
 		{#if showDevUi}
-			<BuildGuideSectionHeading
+			<DevSectionHeading
 				{buildSlug}
 				sections={guideSections}
 			/>
