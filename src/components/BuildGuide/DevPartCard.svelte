@@ -376,7 +376,7 @@
 				aria-label="Edit part"
 				onclick={() => (editMode = true)}
 			>
-				<Pencil class="size-7" />
+				<Pencil class="size-6 md:size-7" />
 			</button>
 		{/snippet}
 		{#snippet footer()}
@@ -396,7 +396,7 @@
 				bind:value={title}
 				oninput={handleTitleInput}
 				spellcheck="false"
-				class="{fieldClass} {colors.link} min-w-0 flex-1 text-2xl! font-semibold"
+				class="{fieldClass} {colors.link} min-w-0 flex-1 text-xl! font-semibold md:text-2xl!"
 				placeholder="Part title"
 			/>
 
@@ -409,9 +409,9 @@
 					onclick={savePart}
 				>
 					{#if saving}
-						<Loader2 class="size-7 animate-spin" />
+						<Loader2 class="size-5 animate-spin md:size-6" />
 					{:else}
-						<Save class="size-7" />
+						<Save class="size-6 md:size-7" />
 					{/if}
 				</button>
 
@@ -422,7 +422,7 @@
 						aria-label="View part"
 						onclick={exitEditMode}
 					>
-						<Eye class="size-7" />
+						<Eye class="size-6 md:size-7" />
 					</button>
 				{/if}
 			</div>

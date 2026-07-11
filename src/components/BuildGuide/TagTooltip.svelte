@@ -20,7 +20,7 @@
 	closeDelay={durationMs}
 >
 	<Tooltip.Trigger
-		class="rounded-full bg-surface-500/20 px-2 py-1 text-xs font-medium text-surface-900-100"
+		class="rounded-full bg-surface-500/20 px-2 py-1 text-[11px] font-medium text-surface-900-100 md:text-xs"
 		onpointerenter={() => (tooltipClosing = false)}
 		onpointerleave={() => (tooltipClosing = true)}
 		onfocus={() => (tooltipClosing = false)}

@@ -34,7 +34,7 @@
 	</div>
 	<div class="relative z-0 flex flex-col gap-4 pt-32 pl-2 md:pl-8">
 		<h1
-			class="-ml-4 font-josefin-sans text-6xl font-bold text-primary-500 md:text-[12rem]"
+			class="font-josefin-sans text-5xl font-bold text-primary-500 md:-ml-4 md:text-[12rem]"
 		>
 			{h1}
 		</h1>

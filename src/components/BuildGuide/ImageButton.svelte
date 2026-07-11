@@ -36,7 +36,7 @@
 		onfocus={() => (tooltipClosing = false)}
 		onblur={() => (tooltipClosing = true)}
 	>
-		<Image class="size-7" />
+		<Image class="size-6 md:size-7" />
 	</Tooltip.Trigger>
 	<Portal>
 		<Tooltip.Positioner>
@@ -65,17 +65,17 @@
 			class="fixed inset-0 z-50 bg-surface-50-950/80 backdrop-blur-sm"
 		/>
 		<Dialog.Positioner
-			class="fixed inset-0 z-50 flex items-center justify-center p-4"
+			class="fixed inset-0 z-50 flex items-center justify-center p-1 md:p-4"
 		>
 			<Dialog.Content
 				class="relative flex max-h-svh max-w-svw items-center justify-center border-0 bg-transparent p-0 shadow-none {dialogAnimation}"
 			>
 				<Dialog.Title class="sr-only">{alt}</Dialog.Title>
 				<Dialog.CloseTrigger
-					class="absolute top-4 right-4 z-10 rounded-full bg-surface-50-950/80 p-2 text-surface-600-400 backdrop-blur-sm transition-colors hover:text-surface-950-50"
+					class="absolute top-2 right-2 z-10 rounded-full bg-surface-50-950/80 p-2 text-surface-600-400 backdrop-blur-sm transition-colors hover:text-surface-950-50 md:top-4 md:right-4"
 					aria-label="Close image"
 				>
-					<X class="size-6" />
+					<X class="size-5 md:size-6" />
 				</Dialog.CloseTrigger>
 				<PartImage
 					{src}
@@ -83,7 +83,7 @@
 					class="max-h-[90svh]"
 					sizes="100vw"
 					fetchpriority="high"
-					style="max-width: min(90svw, {src.img
+					style="max-width: min(100svw, {src.img
 						.w}px); max-height: min(90svh, {src.img.h}px)"
 				/>
 			</Dialog.Content>

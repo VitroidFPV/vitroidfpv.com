@@ -58,7 +58,7 @@
 	{/if}
 	<!-- Sidebar -->
 	<aside
-		class="fixed top-0 right-0 z-30 col-span-1 h-dvh transition-transform duration-200 md:sticky {sidebarOpen
+		class="fixed top-0 right-0 z-30 col-span-1 h-dvh transition-transform duration-200 will-change-transform md:sticky {sidebarOpen
 			? 'translate-x-0'
 			: 'translate-x-full md:translate-x-0'}"
 	>

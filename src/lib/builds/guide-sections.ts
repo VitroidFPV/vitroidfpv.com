@@ -6,32 +6,32 @@ export const guidePartColors = {
 		text: "text-success-500",
 		bar: "bg-success-500",
 		price:
-			"rounded-full bg-success-500/20 px-2 py-1 text-xs font-semibold text-success-500",
-		link: "fancy-link text-2xl font-semibold text-success-500",
+			"flex items-center justify-center rounded-full bg-success-500/20 px-2 py-1 text-[11px] font-semibold text-success-500 md:text-xs",
+		link: "fancy-link md:text-2xl text-xl font-semibold text-success-500",
 		iconHover: "transition-colors duration-300 hover:text-success-500"
 	},
 	warning: {
 		text: "text-warning-500",
 		bar: "bg-warning-500",
 		price:
-			"rounded-full bg-warning-500/20 px-2 py-1 text-xs font-semibold text-warning-500",
-		link: "fancy-link text-2xl font-semibold text-warning-500",
+			"flex items-center justify-center rounded-full bg-warning-500/20 px-2 py-1 text-[11px] font-semibold text-warning-500 md:text-xs",
+		link: "fancy-link md:text-2xl text-xl font-semibold text-warning-500",
 		iconHover: "transition-colors duration-300 hover:text-warning-500"
 	},
 	error: {
 		text: "text-error-500",
 		bar: "bg-error-500",
 		price:
-			"rounded-full bg-error-500/20 px-2 py-1 text-xs font-semibold text-error-500",
-		link: "fancy-link text-2xl font-semibold text-error-500",
+			"flex items-center justify-center rounded-full bg-error-500/20 px-2 py-1 text-[11px] font-semibold text-error-500 md:text-xs",
+		link: "fancy-link md:text-2xl text-xl font-semibold text-error-500",
 		iconHover: "transition-colors duration-300 hover:text-error-500"
 	},
 	secondary: {
 		text: "text-secondary-500",
 		bar: "bg-secondary-500",
 		price:
-			"rounded-full bg-secondary-500/20 px-2 py-1 text-xs font-semibold text-secondary-500",
-		link: "fancy-link text-2xl font-semibold text-secondary-500",
+			"flex items-center justify-center rounded-full bg-secondary-500/20 px-2 py-1 text-[11px] font-semibold text-secondary-500 md:text-xs",
+		link: "fancy-link md:text-2xl text-xl font-semibold text-secondary-500",
 		iconHover: "transition-colors duration-300 hover:text-secondary-500"
 	}
 } as const

@@ -18,9 +18,9 @@
 
 <div class="flex h-fit min-w-0 gap-2">
 	<div
-		class="mt-1 mb-3 w-1 shrink-0 self-stretch rounded-full {colors.bar}"
+		class="w-1 shrink-0 self-stretch rounded-full md:my-1 {colors.bar}"
 	></div>
-	<div class="flex min-w-0 flex-1 flex-col gap-2">
+	<div class="flex min-w-0 flex-1 flex-col gap-1 md:gap-2">
 		{@render children()}
 	</div>
 </div>

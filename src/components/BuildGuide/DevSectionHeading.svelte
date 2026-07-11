@@ -202,7 +202,7 @@
 					aria-label="Edit section"
 					onclick={() => (editMode = true)}
 				>
-					<Pencil class="size-7" />
+					<Pencil class="size-6 md:size-7" />
 				</button>
 			{/snippet}
 		</SectionHeadingView>
@@ -224,7 +224,7 @@
 					bind:value={title}
 					oninput={handleTitleInput}
 					spellcheck="false"
-					class="{fieldClass} -mt-0.5 mb-0.5 h-18 font-josefin-sans text-6xl font-bold"
+					class="{fieldClass} -mt-0.5 mb-0.5 h-18 font-josefin-sans text-5xl font-bold md:text-6xl"
 					placeholder="Section title"
 				/>
 				<textarea
@@ -273,9 +273,9 @@
 					onclick={saveSection}
 				>
 					{#if saving}
-						<Loader2 class="size-7 animate-spin" />
+						<Loader2 class="size-5 animate-spin md:size-6" />
 					{:else}
-						<Save class="size-7" />
+						<Save class="size-6 md:size-7" />
 					{/if}
 				</button>
 				{#if !isNew}
@@ -287,9 +287,9 @@
 						onclick={removeSection}
 					>
 						{#if removing}
-							<Loader2 class="size-7 animate-spin" />
+							<Loader2 class="size-5 animate-spin md:size-6" />
 						{:else}
-							<Trash2 class="size-7" />
+							<Trash2 class="size-6 md:size-7" />
 						{/if}
 					</button>
 				{/if}
@@ -301,7 +301,7 @@
 						aria-label="View section"
 						onclick={exitEditMode}
 					>
-						<Eye class="size-7" />
+						<Eye class="size-6 md:size-7" />
 					</button>
 				{/if}
 			</div>

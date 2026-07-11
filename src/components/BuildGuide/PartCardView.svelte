@@ -53,7 +53,7 @@
 				class={colors.iconHover}
 				aria-label="Add to build list"
 			>
-				<Plus class="size-7 stroke-[2.5]" />
+				<Plus class="size-5 stroke-[2.5] md:size-6" />
 			</button>
 			{#if image}
 				<ImageButton
