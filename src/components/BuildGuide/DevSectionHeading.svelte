@@ -1,8 +1,10 @@
 <script lang="ts">
+	import SectionHeadingView from "$components/BuildGuide/SectionHeadingView.svelte"
 	import type { BuildGuideSection } from "$lib/builds/guide-sections"
 	import { serializeGuideSection } from "$lib/builds/serialize-guide-section"
 	import { slugifyGuidePartTitle } from "$lib/builds/serialize-guide-part"
 	import { ChevronUp, Eye, Loader2, Pencil, Save, Trash2 } from "@lucide/svelte"
+	import { untrack } from "svelte"
 
 	let {
 		buildSlug,
@@ -84,15 +86,12 @@
 		})
 	}
 
-	$effect(() => {
-		resetFromSection(section)
-	})
+	untrack(() => resetFromSection(section))
 
-	$effect(() => {
-		if (title) {
-			slug = slugifyGuidePartTitle(title)
-		}
-	})
+	function handleTitleInput(event: Event) {
+		const nextTitle = (event.currentTarget as HTMLInputElement).value
+		if (nextTitle) slug = slugifyGuidePartTitle(nextTitle)
+	}
 
 	function exitEditMode() {
 		editMode = false
@@ -182,27 +181,48 @@
 			saveMessage = `Removed ${payload.path}. Refresh to see updates.`
 			editMode = false
 		} catch (err) {
-			saveError = err instanceof Error ? err.message : "Failed to remove section"
+			saveError =
+				err instanceof Error ? err.message : "Failed to remove section"
 		} finally {
 			removing = false
 		}
 	}
 </script>
 
-<div class="flex flex-col gap-2">
-	<div class="flex items-start justify-between gap-2">
-		<div class="flex min-w-0 flex-1 flex-col gap-2">
-			{#if !editMode && !isNew}
-				<h3 class="h-18 font-josefin-sans text-6xl font-bold">{title}</h3>
-				<div class="prose min-h-[1.5em]">
-					{#if description.trim()}
-						<p>{description}</p>
-					{/if}
-				</div>
-			{:else}
+{#if !editMode && !isNew}
+	<div class="flex flex-col gap-2">
+		<SectionHeadingView
+			{title}
+			{description}
+		>
+			{#snippet actions()}
+				<button
+					type="button"
+					class="transition-colors duration-300 hover:text-primary-500"
+					aria-label="Edit section"
+					onclick={() => (editMode = true)}
+				>
+					<Pencil class="size-7" />
+				</button>
+			{/snippet}
+		</SectionHeadingView>
+
+		{#if saveMessage}
+			<p class="text-sm text-success-500">{saveMessage}</p>
+		{/if}
+
+		{#if saveError}
+			<p class="text-sm text-error-500">{saveError}</p>
+		{/if}
+	</div>
+{:else}
+	<div class="flex flex-col gap-2">
+		<div class="flex items-start justify-between gap-2">
+			<div class="flex min-w-0 flex-1 flex-col gap-2">
 				<input
 					type="text"
 					bind:value={title}
+					oninput={handleTitleInput}
 					spellcheck="false"
 					class="{fieldClass} -mt-0.5 mb-0.5 h-18 font-josefin-sans text-6xl font-bold"
 					placeholder="Section title"
@@ -213,11 +233,9 @@
 					spellcheck="false"
 					class="{fieldClass} prose mb-2 min-h-[1.5em] resize-none text-surface-900-100"
 					placeholder="Section description"></textarea>
-			{/if}
-		</div>
+			</div>
 
-		<div class="flex shrink-0 items-start gap-2 text-surface-500">
-			{#if editMode || isNew}
+			<div class="flex shrink-0 items-start gap-2 text-surface-500">
 				<div class="flex shrink-0">
 					<input
 						type="number"
@@ -275,19 +293,8 @@
 						{/if}
 					</button>
 				{/if}
-			{/if}
 
-			{#if !isNew}
-				{#if !editMode}
-					<button
-						type="button"
-						class="transition-colors duration-300 hover:text-primary-500"
-						aria-label="Edit section"
-						onclick={() => (editMode = true)}
-					>
-						<Pencil class="size-7" />
-					</button>
-				{:else}
+				{#if !isNew}
 					<button
 						type="button"
 						class="transition-colors duration-300 hover:text-primary-500"
@@ -297,18 +304,18 @@
 						<Eye class="size-7" />
 					</button>
 				{/if}
-			{/if}
+			</div>
 		</div>
+
+		{#if saveMessage}
+			<p class="text-sm text-success-500">{saveMessage}</p>
+		{/if}
+
+		{#if saveError}
+			<p class="text-sm text-error-500">{saveError}</p>
+		{/if}
 	</div>
-
-	{#if saveMessage}
-		<p class="text-sm text-success-500">{saveMessage}</p>
-	{/if}
-
-	{#if saveError}
-		<p class="text-sm text-error-500">{saveError}</p>
-	{/if}
-</div>
+{/if}
 
 <style>
 	.no-spinner::-webkit-outer-spin-button,

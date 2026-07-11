@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { browser } from "$app/environment"
-	import ImageButton from "$components/BuildGuide/ImageButton.svelte"
 	import ImageDownloader from "$components/BuildGuide/ImageDownloader.svelte"
-	import TagTooltip from "$components/BuildGuide/TagTooltip.svelte"
+	import PartCardFrame from "$components/BuildGuide/PartCardFrame.svelte"
+	import PartCardView from "$components/BuildGuide/PartCardView.svelte"
+	import PartTags from "$components/BuildGuide/PartTags.svelte"
 	import {
 		guidePartColors,
 		parseBuildGuideTag,
@@ -16,7 +17,8 @@
 		serializeGuidePart,
 		slugifyGuidePartTitle
 	} from "$lib/builds/serialize-guide-part"
-	import { ChevronUp, Eye, Loader2, Pencil, Plus, Save } from "@lucide/svelte"
+	import { ChevronUp, Eye, Loader2, Pencil, Save } from "@lucide/svelte"
+	import { untrack } from "svelte"
 	import { slide } from "svelte/transition"
 
 	const colorOptions = Object.keys(guidePartColors) as GuidePartColor[]
@@ -250,9 +252,7 @@
 		})
 	}
 
-	$effect(() => {
-		resetFromPart(part)
-	})
+	untrack(() => resetFromPart(part))
 
 	$effect(() => {
 		if (!browser || !isNew) return
@@ -271,18 +271,18 @@
 		sessionStorage.setItem(newPartDraftKey, JSON.stringify(draft))
 	})
 
-	$effect(() => {
-		if (title) {
-			slug = slugifyGuidePartTitle(title)
-		}
-	})
+	function handleTitleInput(event: Event) {
+		const nextTitle = (event.currentTarget as HTMLInputElement).value
+		if (nextTitle) slug = slugifyGuidePartTitle(nextTitle)
+	}
 
-	$effect(() => {
-		if (orderSectionSlug === activeSectionSlug) return
+	function handleSectionChange(event: Event) {
+		sectionSlug = (event.currentTarget as HTMLSelectElement).value
+		if (orderSectionSlug === sectionSlug) return
 
-		orderSectionSlug = activeSectionSlug
-		order = nextOrderForSection(activeSectionSlug)
-	})
+		orderSectionSlug = sectionSlug
+		order = nextOrderForSection(sectionSlug)
+	}
 
 	function exitEditMode() {
 		editMode = false
@@ -358,249 +358,197 @@
 	}
 </script>
 
-<div class="flex h-fit min-w-0 gap-2">
-	<div
-		class="w-1 shrink-0 self-stretch rounded-full {colors.bar} mt-1 mb-3"
-	></div>
-
-	<div class="part-content flex min-w-0 flex-1 flex-col">
-		<div class="flex min-w-0 items-center justify-between gap-2">
-			{#if !editMode && !isNew}
-				<a
-					href={url}
-					class={colors.link}
-					target="_blank"
-					rel="external noopener noreferrer">{title}</a
-				>
-			{:else}
-				<input
-					type="text"
-					bind:value={title}
-					spellcheck="false"
-					class="{fieldClass} {colors.link} min-w-0 flex-1 text-2xl! font-semibold"
-					placeholder="Part title"
-				/>
+{#if !editMode && !isNew && part}
+	<PartCardView
+		{title}
+		{url}
+		{color}
+		price={previewPrice}
+		tags={previewTags}
+		image={part.image}
+		imageAlt={part.imageAlt}
+		Description={part.component}
+	>
+		{#snippet actions()}
+			<button
+				type="button"
+				class={colors.iconHover}
+				aria-label="Edit part"
+				onclick={() => (editMode = true)}
+			>
+				<Pencil class="size-7" />
+			</button>
+		{/snippet}
+		{#snippet footer()}
+			{#if saveMessage}
+				<p class="text-sm text-success-500">{saveMessage}</p>
 			{/if}
+			{#if saveError}
+				<p class="text-sm text-error-500">{saveError}</p>
+			{/if}
+		{/snippet}
+	</PartCardView>
+{:else}
+	<PartCardFrame {color}>
+		<div class="flex min-w-0 items-center justify-between gap-2">
+			<input
+				type="text"
+				bind:value={title}
+				oninput={handleTitleInput}
+				spellcheck="false"
+				class="{fieldClass} {colors.link} min-w-0 flex-1 text-2xl! font-semibold"
+				placeholder="Part title"
+			/>
 
 			<div class="flex shrink-0 items-center gap-2 text-surface-500">
-				{#if !editMode}
-					<button
-						type="button"
-						class={colors.iconHover}
-						aria-label="Add to build list"
-					>
-						<Plus class="size-7 stroke-[2.5]" />
-					</button>
-				{/if}
-
-				{#if part?.image && !editMode && !isNew}
-					<ImageButton
-						src={part.image}
-						alt={part.imageAlt}
-						class={colors.iconHover}
-					/>
-				{/if}
-
-				{#if editMode || isNew}
-					<button
-						type="button"
-						class="{colors.iconHover} disabled:pointer-events-none disabled:opacity-40"
-						aria-label={saving ? "Saving part" : "Save part"}
-						disabled={!canSave || saving}
-						onclick={savePart}
-					>
-						{#if saving}
-							<Loader2 class="size-7 animate-spin" />
-						{:else}
-							<Save class="size-7" />
-						{/if}
-					</button>
-				{/if}
+				<button
+					type="button"
+					class="{colors.iconHover} disabled:pointer-events-none disabled:opacity-40"
+					aria-label={saving ? "Saving part" : "Save part"}
+					disabled={!canSave || saving}
+					onclick={savePart}
+				>
+					{#if saving}
+						<Loader2 class="size-7 animate-spin" />
+					{:else}
+						<Save class="size-7" />
+					{/if}
+				</button>
 
 				{#if !isNew}
-					{#if !editMode}
-						<button
-							type="button"
-							class={colors.iconHover}
-							aria-label="Edit part"
-							onclick={() => (editMode = true)}
-						>
-							<Pencil class="size-7" />
-						</button>
-					{:else}
-						<button
-							type="button"
-							class={colors.iconHover}
-							aria-label="View part"
-							onclick={exitEditMode}
-						>
-							<Eye class="size-7" />
-						</button>
-					{/if}
+					<button
+						type="button"
+						class={colors.iconHover}
+						aria-label="View part"
+						onclick={exitEditMode}
+					>
+						<Eye class="size-7" />
+					</button>
 				{/if}
 			</div>
 		</div>
 
-		{#if editMode || isNew}
-			<div class="flex flex-wrap items-center gap-1">
-				<input
-					type="text"
-					bind:value={price}
-					spellcheck="false"
-					class="{colors.price} price-tag-input border-0 outline outline-current"
-					placeholder="$0.00"
-				/>
-				{#each previewTags as tag (tag.label)}
-					{#if tag.tooltip}
-						<TagTooltip
-							label={tag.label}
-							tooltip={tag.tooltip}
-						/>
-					{:else}
-						<span
-							class="rounded-full bg-surface-500/20 px-2 py-1 text-xs font-medium text-surface-900-100"
-							>{tag.label}</span
-						>
-					{/if}
-				{/each}
-			</div>
-		{:else if !isNew}
-			<div class="flex flex-wrap gap-1">
-				{#if previewPrice}
-					<span class={colors.price}>{previewPrice}</span>
-				{/if}
-				{#each previewTags as tag (tag.label)}
-					{#if tag.tooltip}
-						<TagTooltip
-							label={tag.label}
-							tooltip={tag.tooltip}
-						/>
-					{:else}
-						<span
-							class="rounded-full bg-surface-500/20 px-2 py-1 text-xs font-medium text-surface-900-100"
-							>{tag.label}</span
-						>
-					{/if}
-				{/each}
-			</div>
-		{/if}
-
-		{#if editMode || isNew}
-			<textarea
-				bind:value={body}
-				rows={5}
+		<div class="flex flex-wrap items-center gap-1">
+			<input
+				type="text"
+				bind:value={price}
 				spellcheck="false"
-				class="prose {descriptionFieldClass} min-h-24 w-full resize-y"
-				placeholder="Part description"></textarea>
-		{:else if !isNew}
-			<div class="prose">
-				{#if part}
-					<part.component />
-				{/if}
-			</div>
-		{/if}
+				class="{colors.price} price-tag-input border-0 outline outline-current"
+				placeholder="$0.00"
+			/>
+			<PartTags
+				tags={previewTags}
+				priceClass={colors.price}
+			/>
+		</div>
 
-		{#if editMode || isNew}
-			<div
-				class="flex flex-col gap-2 border-t border-surface-500/10 pt-2"
-				transition:slide
-			>
-				<div class="flex min-w-0 flex-wrap items-center gap-2">
-					<select
-						bind:value={sectionSlug}
-						class="{controlClass} min-w-0 flex-1"
-					>
-						{#each sections as entry (entry.id)}
-							<option value={entry.id}>{entry.title}</option>
-						{/each}
-					</select>
+		<textarea
+			bind:value={body}
+			rows={5}
+			spellcheck="false"
+			class="prose {descriptionFieldClass} min-h-24 w-full resize-y"
+			placeholder="Part description"></textarea>
 
-					<div
-						class="flex shrink-0 gap-1"
-						role="radiogroup"
-						aria-label="Part color"
-					>
-						{#each colorOptions as option (option)}
-							<button
-								type="button"
-								role="radio"
-								aria-checked={color === option}
-								aria-label={option}
-								class="size-6 rounded-md {guidePartColors[option]
-									.bar} outline-2 transition-colors {color === option
-									? 'outline-current'
-									: 'outline-transparent'}"
-								onclick={() => (color = option)}
-							></button>
-						{/each}
-					</div>
+		<div
+			class="flex flex-col gap-2 border-t border-surface-500/10 pt-2"
+			transition:slide
+		>
+			<div class="flex min-w-0 flex-wrap items-center gap-2">
+				<select
+					value={sectionSlug}
+					onchange={handleSectionChange}
+					class="{controlClass} min-w-0 flex-1"
+				>
+					{#each sections as entry (entry.id)}
+						<option value={entry.id}>{entry.title}</option>
+					{/each}
+				</select>
 
-					<div class="flex shrink-0">
-						<input
-							type="number"
-							min="1"
-							max="69"
-							bind:value={order}
-							class="no-spinner h-8 w-12 rounded-md bg-surface-500/10 p-2 text-base outline-none focus-within:outline-2 focus-within:outline-current"
-						/>
-						<div
-							class="ml-1 flex h-8 flex-col justify-between text-surface-500/40"
-						>
-							<button
-								type="button"
-								class="hover:text-current {colors.text}"
-								aria-label="Increase order"
-								onclick={() => order++}
-							>
-								<ChevronUp class="size-3 stroke-3" />
-							</button>
-							<button
-								type="button"
-								class="rotate-180 hover:text-current {colors.text}"
-								aria-label="Decrease order"
-								onclick={() => order > 1 && order--}
-							>
-								<ChevronUp class="size-3 stroke-3" />
-							</button>
-						</div>
-					</div>
+				<div
+					class="flex shrink-0 gap-1"
+					role="radiogroup"
+					aria-label="Part color"
+				>
+					{#each colorOptions as option (option)}
+						<button
+							type="button"
+							role="radio"
+							aria-checked={color === option}
+							aria-label={option}
+							class="size-6 rounded-md {guidePartColors[option]
+								.bar} outline-2 transition-colors {color === option
+								? 'outline-current'
+								: 'outline-transparent'}"
+							onclick={() => (color = option)}
+						></button>
+					{/each}
 				</div>
 
-				<div class="flex min-w-0 gap-2">
+				<div class="flex shrink-0">
 					<input
-						type="url"
-						bind:value={url}
-						spellcheck="false"
-						class="{controlClass} min-w-0 flex-1"
-						placeholder="https://example.com"
+						type="number"
+						min="1"
+						max="69"
+						bind:value={order}
+						class="no-spinner h-8 w-12 rounded-md bg-surface-500/10 p-2 text-base outline-none focus-within:outline-2 focus-within:outline-current"
 					/>
-					<select
-						bind:value={imageFormat}
-						class="{controlClass} shrink-0"
-						aria-label="Image format"
+					<div
+						class="ml-1 flex h-8 flex-col justify-between text-surface-500/40"
 					>
-						<option value="">No image</option>
-						{#each imageFormats as format (format)}
-							<option value={format}>{format}</option>
-						{/each}
-					</select>
-					<ImageDownloader
-						{buildSlug}
-						{title}
-						{slug}
-						ondownload={handleImageDownload}
-					/>
+						<button
+							type="button"
+							class="hover:text-current {colors.text}"
+							aria-label="Increase order"
+							onclick={() => order++}
+						>
+							<ChevronUp class="size-3 stroke-3" />
+						</button>
+						<button
+							type="button"
+							class="rotate-180 hover:text-current {colors.text}"
+							aria-label="Decrease order"
+							onclick={() => order > 1 && order--}
+						>
+							<ChevronUp class="size-3 stroke-3" />
+						</button>
+					</div>
 				</div>
-
-				<textarea
-					bind:value={tagsInput}
-					rows={4}
-					spellcheck="false"
-					class="{controlClass} min-h-0 text-xs"
-					placeholder="One tag per line. Use label&lt;tooltip&gt; for tooltips."
-				></textarea>
 			</div>
-		{/if}
+
+			<div class="flex min-w-0 gap-2">
+				<input
+					type="url"
+					bind:value={url}
+					spellcheck="false"
+					class="{controlClass} min-w-0 flex-1"
+					placeholder="https://example.com"
+				/>
+				<select
+					bind:value={imageFormat}
+					class="{controlClass} shrink-0"
+					aria-label="Image format"
+				>
+					<option value="">No image</option>
+					{#each imageFormats as format (format)}
+						<option value={format}>{format}</option>
+					{/each}
+				</select>
+				<ImageDownloader
+					{buildSlug}
+					{title}
+					{slug}
+					ondownload={handleImageDownload}
+				/>
+			</div>
+
+			<textarea
+				bind:value={tagsInput}
+				rows={4}
+				spellcheck="false"
+				class="{controlClass} min-h-0 text-xs"
+				placeholder="One tag per line. Use label&lt;tooltip&gt; for tooltips."
+			></textarea>
+		</div>
 
 		{#if saveMessage}
 			<p class="mt-2 text-sm text-success-500">{saveMessage}</p>
@@ -609,8 +557,8 @@
 		{#if saveError}
 			<p class="mt-2 text-sm text-error-500">{saveError}</p>
 		{/if}
-	</div>
-</div>
+	</PartCardFrame>
+{/if}
 
 <style>
 	.no-spinner::-webkit-outer-spin-button,
@@ -628,9 +576,5 @@
 		field-sizing: content;
 		width: auto;
 		min-width: 5ch;
-	}
-
-	.part-content > :not(:first-child) {
-		margin-top: 0.5rem;
 	}
 </style>
