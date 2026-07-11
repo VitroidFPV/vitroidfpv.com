@@ -10,6 +10,7 @@
 	import { fade } from "svelte/transition"
 	import { afterNavigate } from "$app/navigation"
 	import Footer from "$components/Footer.svelte"
+	import ToastViewport from "$components/ToastViewport.svelte"
 
 	let sidebarOpen = $state(false)
 
@@ -80,3 +81,5 @@
 		</button>
 	</aside>
 </div>
+
+<ToastViewport />

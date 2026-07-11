@@ -6,6 +6,7 @@
 		type WorleyMode
 	} from "$lib/webgl/worley"
 	import { createSubscriber, MediaQuery } from "svelte/reactivity"
+	import { toastError } from "$lib/toaster"
 
 	type Props = {
 		scale?: number
@@ -53,7 +54,6 @@
 		return () => observer.disconnect()
 	})
 
-	let error = $state<string | null>(null)
 	let renderer: WorleyRenderer | null = null
 	let visibilityState = $state<DocumentVisibilityState>(
 		typeof document !== "undefined" ? document.visibilityState : "visible"
@@ -90,8 +90,6 @@
 	}
 
 	function setupRenderer(canvas: HTMLCanvasElement) {
-		error = null
-
 		let instance: WorleyRenderer | null = null
 		const visibilityObserver =
 			typeof IntersectionObserver !== "undefined"
@@ -169,7 +167,9 @@
 			canvas.removeEventListener("pointerleave", handlePointerLeave)
 			visibilityObserver?.disconnect()
 			canvasVisible = false
-			error = e instanceof Error ? e.message : "Failed to initialize WebGL"
+			toastError({
+				title: e instanceof Error ? e.message : "Failed to initialize WebGL"
+			})
 			renderer = null
 		}
 	}
@@ -185,9 +185,4 @@
 		class="block h-full w-full"
 		aria-label="4D noise-driven Voronoi texture visualization"
 	></canvas>
-	{#if error}
-		<p class="absolute inset-0 flex items-center justify-center text-error-500">
-			{error}
-		</p>
-	{/if}
 </div>

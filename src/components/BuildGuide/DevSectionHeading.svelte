@@ -3,6 +3,7 @@
 	import type { BuildGuideSection } from "$lib/builds/guide-sections"
 	import { serializeGuideSection } from "$lib/builds/serialize-guide-section"
 	import { slugifyGuidePartTitle } from "$lib/builds/serialize-guide-part"
+	import { toastError, toastSuccess } from "$lib/toaster"
 	import { ChevronUp, Eye, Loader2, Pencil, Save, Trash2 } from "@lucide/svelte"
 	import { untrack } from "svelte"
 
@@ -27,8 +28,6 @@
 	let originalSnapshot = $state("")
 	let saving = $state(false)
 	let removing = $state(false)
-	let saveMessage = $state<string | null>(null)
-	let saveError = $state<string | null>(null)
 
 	const currentSnapshot = $derived(
 		JSON.stringify({
@@ -53,9 +52,6 @@
 	}
 
 	function resetFromSection(nextSection: BuildGuideSection | null) {
-		saveMessage = null
-		saveError = null
-
 		if (!nextSection) {
 			editMode = true
 			title = ""
@@ -99,9 +95,6 @@
 	}
 
 	async function saveSection() {
-		saveMessage = null
-		saveError = null
-
 		if (!canSave) return
 
 		const nextSlug = slug.trim()
@@ -135,14 +128,18 @@
 			const payload = (await response.json()) as { path: string }
 			originalSlug = nextSlug
 			originalSnapshot = currentSnapshot
-			saveMessage = `Saved ${payload.path}. Refresh to see updates.`
+			toastSuccess({
+				title: `Saved ${payload.path}. Refresh to see updates.`
+			})
 			editMode = false
 
 			if (isNew) {
 				resetFromSection(null)
 			}
 		} catch (err) {
-			saveError = err instanceof Error ? err.message : "Failed to save section"
+			toastError({
+				title: err instanceof Error ? err.message : "Failed to save section"
+			})
 		} finally {
 			saving = false
 		}
@@ -156,8 +153,6 @@
 		)
 		if (!confirmed) return
 
-		saveMessage = null
-		saveError = null
 		removing = true
 
 		try {
@@ -178,11 +173,14 @@
 			}
 
 			const payload = (await response.json()) as { path: string }
-			saveMessage = `Removed ${payload.path}. Refresh to see updates.`
+			toastSuccess({
+				title: `Removed ${payload.path}. Refresh to see updates.`
+			})
 			editMode = false
 		} catch (err) {
-			saveError =
-				err instanceof Error ? err.message : "Failed to remove section"
+			toastError({
+				title: err instanceof Error ? err.message : "Failed to remove section"
+			})
 		} finally {
 			removing = false
 		}
@@ -206,14 +204,6 @@
 				</button>
 			{/snippet}
 		</SectionHeadingView>
-
-		{#if saveMessage}
-			<p class="text-sm text-success-500">{saveMessage}</p>
-		{/if}
-
-		{#if saveError}
-			<p class="text-sm text-error-500">{saveError}</p>
-		{/if}
 	</div>
 {:else}
 	<div class="flex flex-col gap-2">
@@ -231,7 +221,7 @@
 					bind:value={description}
 					rows={1}
 					spellcheck="false"
-					class="{fieldClass} prose mb-2 min-h-[1.5em] resize-none text-surface-900-100"
+					class="{fieldClass} prose mb-2 min-h-[1.5em] w-full resize-none text-surface-900-100"
 					placeholder="Section description"></textarea>
 			</div>
 
@@ -306,14 +296,6 @@
 				{/if}
 			</div>
 		</div>
-
-		{#if saveMessage}
-			<p class="text-sm text-success-500">{saveMessage}</p>
-		{/if}
-
-		{#if saveError}
-			<p class="text-sm text-error-500">{saveError}</p>
-		{/if}
 	</div>
 {/if}
 

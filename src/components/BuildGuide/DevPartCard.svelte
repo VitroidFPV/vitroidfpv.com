@@ -18,6 +18,7 @@
 		slugifyGuidePartTitle
 	} from "$lib/builds/serialize-guide-part"
 	import { ChevronUp, Eye, Loader2, Pencil, Save } from "@lucide/svelte"
+	import { toastError, toastSuccess } from "$lib/toaster"
 	import { untrack } from "svelte"
 	import { slide } from "svelte/transition"
 
@@ -82,14 +83,25 @@
 	let originalSectionSlug = $state("")
 	let originalSnapshot = $state("")
 	let saving = $state(false)
-	let saveMessage = $state<string | null>(null)
-	let saveError = $state<string | null>(null)
 
 	const colors = $derived(guidePartColors[color])
 
 	const activeSectionSlug = $derived(sectionSlug || section.id)
 	const newPartDraftKey = $derived(
 		`build-guide-new-part:${buildSlug}:${section.id}`
+	)
+	const newPartDraft = $derived(
+		JSON.stringify({
+			title,
+			url,
+			color,
+			imageFormat,
+			sectionSlug,
+			price,
+			tagsInput,
+			body,
+			slug
+		})
 	)
 
 	const previewTags = $derived(
@@ -186,9 +198,6 @@
 	}
 
 	function resetFromPart(nextPart: BuildGuidePart | null) {
-		saveMessage = null
-		saveError = null
-
 		if (!nextPart) {
 			const draft = getNewPartDraft()
 			editMode = true
@@ -257,18 +266,7 @@
 	$effect(() => {
 		if (!browser || !isNew) return
 
-		const draft: NewPartDraft = {
-			title,
-			url,
-			color,
-			imageFormat,
-			sectionSlug,
-			price,
-			tagsInput,
-			body,
-			slug
-		}
-		sessionStorage.setItem(newPartDraftKey, JSON.stringify(draft))
+		sessionStorage[newPartDraftKey] = newPartDraft
 	})
 
 	function handleTitleInput(event: Event) {
@@ -290,9 +288,6 @@
 	}
 
 	async function savePart() {
-		saveMessage = null
-		saveError = null
-
 		if (!canSave) return
 
 		const nextSlug = slug.trim()
@@ -336,7 +331,9 @@
 			originalSlug = nextSlug
 			originalSectionSlug = activeSectionSlug
 			originalSnapshot = currentSnapshot
-			saveMessage = `Saved ${payload.path}. Refresh to see updates.`
+			toastSuccess({
+				title: `Saved ${payload.path}. Refresh to see updates.`
+			})
 			editMode = false
 
 			if (isNew) {
@@ -347,7 +344,9 @@
 				resetFromPart(null)
 			}
 		} catch (err) {
-			saveError = err instanceof Error ? err.message : "Failed to save part"
+			toastError({
+				title: err instanceof Error ? err.message : "Failed to save part"
+			})
 		} finally {
 			saving = false
 		}
@@ -378,14 +377,6 @@
 			>
 				<Pencil class="size-6 md:size-7" />
 			</button>
-		{/snippet}
-		{#snippet footer()}
-			{#if saveMessage}
-				<p class="text-sm text-success-500">{saveMessage}</p>
-			{/if}
-			{#if saveError}
-				<p class="text-sm text-error-500">{saveError}</p>
-			{/if}
 		{/snippet}
 	</PartCardView>
 {:else}
@@ -549,14 +540,6 @@
 				placeholder="One tag per line. Use label&lt;tooltip&gt; for tooltips."
 			></textarea>
 		</div>
-
-		{#if saveMessage}
-			<p class="mt-2 text-sm text-success-500">{saveMessage}</p>
-		{/if}
-
-		{#if saveError}
-			<p class="mt-2 text-sm text-error-500">{saveError}</p>
-		{/if}
 	</PartCardFrame>
 {/if}
 

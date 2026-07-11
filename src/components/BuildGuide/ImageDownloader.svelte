@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Dialog, Portal } from "@skeletonlabs/skeleton-svelte"
+	import { toastError, toastSuccess, toastWarning } from "$lib/toaster"
 	import {
 		ChevronLeft,
 		ChevronRight,
@@ -42,8 +43,6 @@
 	let hasNext = $state(false)
 	let searching = $state(false)
 	let downloadingId = $state<string | null>(null)
-	let message = $state<string | null>(null)
-	let searchError = $state<string | null>(null)
 
 	const effectiveQuery = $derived(query.trim() || title.trim())
 	const canSearch = $derived(effectiveQuery.length > 0 && !searching)
@@ -60,8 +59,6 @@
 		if (!canSearch) return
 
 		searching = true
-		message = null
-		searchError = null
 
 		try {
 			const response = await fetch(
@@ -79,11 +76,13 @@
 			results = payload?.results ?? []
 			page = payload?.page ?? targetPage
 			hasNext = payload?.hasNext ?? false
-			if (results.length === 0)
-				message = "No images found. Try a broader query."
+			if (results.length === 0) {
+				toastWarning({ title: "No images found. Try a broader query." })
+			}
 		} catch (reason) {
-			searchError =
-				reason instanceof Error ? reason.message : "Image search failed"
+			toastError({
+				title: reason instanceof Error ? reason.message : "Image search failed"
+			})
 		} finally {
 			searching = false
 		}
@@ -100,8 +99,6 @@
 		if (!slug.trim() || downloadingId) return
 
 		downloadingId = result.id
-		message = null
-		searchError = null
 
 		try {
 			const response = await fetch("/api/dev/download-build-image", {
@@ -123,10 +120,14 @@
 			}
 
 			ondownload({ extension: payload.extension, path: payload.path })
-			message = `Downloaded ${payload.path}. Save the part to use it.`
+			toastSuccess({
+				title: `Downloaded ${payload.path}. Save the part to use it.`
+			})
 		} catch (reason) {
-			searchError =
-				reason instanceof Error ? reason.message : "Image download failed"
+			toastError({
+				title:
+					reason instanceof Error ? reason.message : "Image download failed"
+			})
 		} finally {
 			downloadingId = null
 		}
@@ -297,8 +298,6 @@
 							</button>
 						</nav>
 					{/if}
-					{#if message}<p class="text-success-500">{message}</p>{/if}
-					{#if searchError}<p class="text-error-500">{searchError}</p>{/if}
 					<p class="text-surface-500">
 						Results via DuckDuckGo. Check the source's usage rights before
 						publishing.
