@@ -221,7 +221,7 @@
 					bind:value={description}
 					rows={1}
 					spellcheck="false"
-					class="{fieldClass} prose mb-2 min-h-[1.5em] w-full resize-none text-surface-900-100"
+					class="{fieldClass} description-field prose mb-2 min-h-[1.5em] w-full resize-none text-surface-900-100"
 					placeholder="Section description"></textarea>
 			</div>
 
@@ -309,5 +309,9 @@
 	.no-spinner {
 		-moz-appearance: textfield;
 		appearance: textfield;
+	}
+
+	.description-field {
+		field-sizing: content;
 	}
 </style>

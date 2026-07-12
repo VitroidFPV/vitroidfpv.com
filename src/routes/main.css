@@ -52,8 +52,8 @@
 	}
 }
 
-.prose {
-	@apply text-sm text-surface-950-50 prose-neutral md:text-base prose-p:mb-2 prose-p:not-first:mt-2 prose-p:last:mb-0 prose-a:text-primary-500 prose-a:no-underline prose-a:hover:underline;
+@utility prose {
+	@apply max-w-none text-sm text-surface-950-50 prose-neutral md:text-base prose-p:mb-2 prose-p:not-first:mt-2 prose-p:last:mb-0 prose-a:text-primary-500 prose-a:no-underline prose-a:hover:underline;
 }
 
 @layer components {
