@@ -11,7 +11,7 @@ tags:
   - "3/2mm Plates<Bottom/Top>"
   - Carbon Cam Cage
   - 19mm Cams
-  - 30x30/20x20 Stacks
-  - 20x20 VTXs
+  - 20/30.5mm Stacks
+  - 20mm VTXs
 ---
 A very popular entry level frame that's been around for a while, standing the test of time. Its open source nature makes it cheap to cut wherever it's sold, while also making it easy to get spare parts and 3D printed accessories.

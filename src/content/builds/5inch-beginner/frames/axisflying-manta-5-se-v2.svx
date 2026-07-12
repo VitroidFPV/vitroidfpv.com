@@ -13,7 +13,7 @@ tags:
   - "3/3/2mm Plates<Bottom/Mid/Top>"
   - Aluminum Cam Cage
   - 14-mm Cams
-  - 30x30/20x20 Stacks
+  - 20/30.5mm Stacks
   - 20x20 VTXs
 ---
 AxisFlying mostly focused on the high end frame market for a while, that changed with the Manta 5 SE. Over its lifespan, it evolved into a really capable frame for its price, with many features sticking around from their premium options. My only complaint is that it's hard to tag :D.

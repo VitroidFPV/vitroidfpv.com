@@ -11,7 +11,7 @@ tags:
   - "2.5/2/2mm Plates<Bottom/Mid/Top>"
   - Aluminum Cam Cage
   - 19-20mm Cams
-  - 30x30/20x20 Stacks
-  - "30x30/25.5x25.5/20x20 VTXs<evil long tag>"
+  - 20/30.5mm Stacks
+  - "20/25.5/30.5mm VTXs"
 ---
 If the MK5 is meant for more casual use, the Vapor 5 should survive anything you throw at it. X and DC options with regular and O4 Pro variants make it a fairly universal tank of a frame. Might wanna watch the weight though.

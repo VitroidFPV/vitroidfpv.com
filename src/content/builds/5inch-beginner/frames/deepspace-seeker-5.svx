@@ -10,7 +10,7 @@ tags:
   - "2.5/2.5/2mm Plates<Bottom/Mid/Top>"
   - Aluminum Cam Cage
   - 14-20mm Cams
-  - 30x30/20x20 Stacks
-  - "30x30/25.5x25.5/20x20 VTXs<evil long tag>"
+  - 20/30.5mm Stacks
+  - "20/25.5/30.5mm VTXs"
 ---
 DeepSpace is a very new name in FPV, but their catalog is already nothing to scoff at. The Seeker 5 is a premium frame with most of the pointless bits removed, leaving only the important stuff. That does mean that we can no longer blame the weight on redundtant plastic though.
