@@ -1,0 +1,17 @@
+---
+title: GEPRC Vapor X5/D5
+url: https://geprc.com/product/gep-vapor-x5-frame/
+order: 5
+color: error
+price: $63.99
+image: geprc-vapor-x5d5.jpg
+tags:
+  - 185.6g
+  - 5mm Arms
+  - "2.5/2/2mm Plates<Bottom/Mid/Top>"
+  - Aluminum Cam Cage
+  - 19-20mm Cams
+  - 30x30/20x20 Stacks
+  - "30x30/25.5x25.5/20x20 VTXs<evil long tag>"
+---
+If the MK5 is meant for more casual use, the Vapor 5 should survive anything you throw at it. X and DC options with regular and O4 Pro variants make it a fairly universal tank of a frame. Might wanna watch the weight though.

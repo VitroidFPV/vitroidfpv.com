@@ -1,0 +1,17 @@
+---
+title: TBS Source One V5
+url: https://newbeedrone.com/products/tbs-source-one-v5-1-5-inch
+order: 1
+color: success
+price: $26.99
+image: tbs-source-one-v5.jpg
+tags:
+  - 145g
+  - 4mm Arms
+  - "3/2mm Plates<Bottom/Top>"
+  - Carbon Cam Cage
+  - 19mm Cams
+  - 30x30/20x20 Stacks
+  - 20x20 VTXs
+---
+A very popular entry level frame that's been around for a while, standing the test of time. Its open source nature makes it cheap to cut wherever it's sold, while also making it easy to get spare parts and 3D printed accessories.

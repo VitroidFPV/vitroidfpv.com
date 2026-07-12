@@ -1,0 +1,17 @@
+---
+title: TBS Source One V6
+url: https://www.team-blacksheep.com/products/product:8547
+order: 2
+color: success
+price: $29.95
+image: tbs-source-one-v6.jpg
+tags:
+  - 136.5g
+  - 6mm Arms
+  - "2.5/2/2mm Plates<Bottom/Mid/Top>"
+  - Carbon Cam Cage
+  - Any Cams
+  - 30x30/20x20 Stacks
+  - 20x20 VTXs
+---
+The V6 brings thicker arms, a wider body, and a cam mounting system that can fit many different cameras, including DJI O4 Pro. The only downside being the action camera mounting pushing the center of gravity too far back. Great for flying without an action cam, if you need one I'd consider other options from this list.
