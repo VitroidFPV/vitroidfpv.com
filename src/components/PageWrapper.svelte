@@ -1,20 +1,28 @@
 <script lang="ts">
 	import swirl from "$lib/assets/swirl-bg.svg"
+	import Seo from "$components/Seo.svelte"
 	import type { Snippet } from "svelte"
 	let {
 		h1,
 		h2,
+		seoDescription = h2,
 		description,
 		children,
 		ghostTitleClass = " md:text-[24rem] text-[12rem]"
 	}: {
 		h1?: string
 		h2?: string
+		seoDescription?: string
 		description?: Snippet
 		children?: Snippet
 		ghostTitleClass?: string
 	} = $props()
 </script>
+
+<Seo
+	title={h1}
+	description={seoDescription}
+/>
 
 <div class="relative flex min-h-screen flex-col gap-16 pb-16 lg:pb-0">
 	<div

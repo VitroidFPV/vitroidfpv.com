@@ -2,6 +2,7 @@
 	import WorleyCanvas from "$components/WorleyCanvas.svelte"
 	import type { FrameStats, WorleyMode } from "$lib/webgl/worley"
 	import { page } from "$app/state"
+	import Seo from "$components/Seo.svelte"
 
 	const modes: { value: WorleyMode; label: string }[] = [
 		{ value: "f1", label: "Distance — F1" },
@@ -29,9 +30,10 @@
 	let controls = $derived(url.search.includes("controls"))
 </script>
 
-<svelte:head>
-	<title>Worley Noise · Experiments · VitroidFPV</title>
-</svelte:head>
+<Seo
+	title="Worley Noise · Experiments"
+	description="An interactive WebGL experiment with animated Worley and Voronoi noise."
+/>
 
 <!-- <div class="flex h-[calc(100vh-2rem)] flex-col gap-4 p-4">
 	<header class="space-y-1">

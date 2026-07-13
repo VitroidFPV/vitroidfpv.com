@@ -7,6 +7,7 @@
 	import type { Attachment } from "svelte/attachments"
 	import { fly } from "svelte/transition"
 	import { homeSections } from "$lib/home/sections"
+	import Seo from "$components/Seo.svelte"
 
 	const isMobile = new MediaQuery("(hover: none) and (pointer: coarse)", true)
 
@@ -88,9 +89,7 @@
 	})
 </script>
 
-<svelte:head>
-	<title>VitroidFPV</title>
-</svelte:head>
+<Seo />
 
 {#if controls}
 	<div class="absolute top-0 right-0 z-10">

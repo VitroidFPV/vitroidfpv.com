@@ -1,4 +1,5 @@
 ---
 title: Projects
 description: All the projects I made or contributed to
+seoDescription: A collection of FPV, web, and open-source projects I have made or contributed to.
 ---

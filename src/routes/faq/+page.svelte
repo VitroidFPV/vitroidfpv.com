@@ -92,6 +92,7 @@
 <PageWrapper
 	h1={metadata.title as string}
 	h2={metadata.description as string}
+	seoDescription={metadata.seoDescription as string}
 >
 	{#snippet description()}
 		<FaqIntro />

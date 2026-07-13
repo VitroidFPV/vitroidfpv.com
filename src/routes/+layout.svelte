@@ -43,7 +43,6 @@
 		rel="icon"
 		href={favicon}
 	/>
-	<title>VitroidFPV</title>
 </svelte:head>
 
 <div class="relative grid grid-cols-1 md:grid-cols-[auto_1fr]">

@@ -1,6 +1,7 @@
 ---
 title: Articles
 description: Totally not a blog
+seoDescription: News, reviews, guides, tutorials, and assorted thoughts about FPV, technology, and everything in between.
 ---
 I write about just about anything that comes to mind. Funny sentence. But I try my best to keep it organized into News, Reviews, Guides, Tutorials, and Misc for everything else.
 

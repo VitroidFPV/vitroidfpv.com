@@ -1,5 +1,6 @@
 ---
 title: Tools
 description: Tools and calculators for FPV
+seoDescription: A collection of useful FPV tools, calculators, and utilities that do not quite fit anywhere else.
 ---
 A collection of different tools, calculators, and other useful things for FPV that wouldn't fit anywhere else.

@@ -1,6 +1,7 @@
 ---
 title: AI
 description: Boo!
+seoDescription: How I use AI as a practical tool for coding, learning, prototyping, and refining my projects without losing the human part.
 ---
 I know, kinda scary nowadays. But the way to make it less scary is to talk about it. Hopefully in a constructive way.
 

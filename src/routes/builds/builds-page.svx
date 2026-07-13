@@ -1,6 +1,7 @@
 ---
 title: Builds
 description: Get parts for your first build, or inspiration for your next one!
+seoDescription: Compatible FPV drone parts lists for your first build, or inspiration for your next one, with practical specs and guidance.
 ---
 Bind and Fly (BNF) drones have gotten a lot better since I first started flying and eventually writing this site. But building your own is still my recommended way to get started. You learn a lot about how everything goes together and how it all works when you do it yourself. And when it breaks, you already have all the tools and knowledge to fix it.
 
