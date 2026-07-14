@@ -1,0 +1,22 @@
+---
+title: GEPRC Taker F405 BLS 50A
+url: https://geprc.com/product/geprc-taker-f405-bls-50a-stack/
+order: 1
+color: success
+price: $57.99
+image: geprc-taker-f405-bls-50a.jpg
+tags:
+  - "ICM42688P<IMU - Gyroscope/Accelerometer>"
+  - 6 UARTs
+  - 4 Motors
+  - I2C
+  - 16MB Blackbox
+  - 3.3V
+  - "5V 3A x2<how and why they put two of these on there is beyond me>"
+  - 12V 2.5A
+  - 50A Nominal
+  - "55A Peak<5s>"
+  - BLHeli_S
+  - 21g
+---
+One of the first members in the Taker family which now spans dozens. It still holds its ground very well at a price that's hard to beat, and you don't really loose out on anything.

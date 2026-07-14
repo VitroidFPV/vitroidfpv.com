@@ -1,0 +1,22 @@
+---
+title: GEPRC Taker F405 BLS 60A V2
+url: https://geprc.com/product/geprc-taker-f405-bls-60a-v2-stack/
+order: 2
+color: success
+price: $71.99
+image: geprc-taker-f405-bls-60a-v2.jpg
+tags:
+  - "ICM42688P<IMU - Gyroscope/Accelerometer>"
+  - "BMP280<Barometer>"
+  - 6 UARTs
+  - 4 Motors
+  - I2C
+  - 16MB Blackbox
+  - 5V 3A
+  - 12V 2.5A
+  - 60A Nominal
+  - "65A Peak<5s>"
+  - BLHeli_S
+  - 22.2g
+---
+An updated version of the previous stack, adding a barometer, a beefier ESC, and 6 ESC/signal outputs. Even if it's not necessarily kosher to do that with Betaflight on F405 nowadays, you can start to play around with some more experimental setups.

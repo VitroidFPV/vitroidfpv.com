@@ -1,0 +1,22 @@
+---
+title: GEPRC Taker F722 BT 60A
+url: https://geprc.com/product/taker-f722-bt-8bit-60a-stack/
+order: 3
+color: success
+price: $69.99
+image: geprc-taker-f722-bt-60a.jpg
+tags:
+  - "ICM42688P<IMU - Gyroscope/Accelerometer>"
+  - "BMP280<Barometer>"
+  - 4 UARTs
+  - 4 Motors
+  - I2C
+  - 512MB Blackbox
+  - 5V 3A
+  - 12V 2.5A
+  - 60A Nominal
+  - "65A Peak<5s>"
+  - BLHeli_S
+  - 22.2g
+---
+F722 might not be as much of an advantage as it once was, but there's still a lot to like here. Massive integrated blackbox storage and Bluetooth for wireless setup, for a price that's very close to the previous one. At the time of writing this, Bluetooth hardware inclusion was temporarily paused, but it likely brought the price even lower.
