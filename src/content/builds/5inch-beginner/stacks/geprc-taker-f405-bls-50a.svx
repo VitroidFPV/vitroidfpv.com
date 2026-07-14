@@ -16,7 +16,7 @@ tags:
   - 12V 2.5A
   - 50A Nominal
   - "55A Peak<5s>"
-  - BLHeli_S
+  - "BLHeli_S<ESC Firmware>"
   - 21g
 ---
 One of the first members in the Taker family which now spans dozens. It still holds its ground very well at a price that's hard to beat, and you don't really loose out on anything.

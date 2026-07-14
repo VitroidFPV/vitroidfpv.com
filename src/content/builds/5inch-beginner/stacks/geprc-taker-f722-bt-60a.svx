@@ -16,7 +16,7 @@ tags:
   - 12V 2.5A
   - 60A Nominal
   - "65A Peak<5s>"
-  - BLHeli_S
+  - "BLHeli_S<ESC Firmware>"
   - 22.2g
 ---
 F722 might not be as much of an advantage as it once was, but there's still a lot to like here. Massive integrated blackbox storage and Bluetooth for wireless setup, for a price that's very close to the previous one. At the time of writing this, Bluetooth hardware inclusion was temporarily paused, but it likely brought the price even lower.

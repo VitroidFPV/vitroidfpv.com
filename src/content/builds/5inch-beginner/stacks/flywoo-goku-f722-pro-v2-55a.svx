@@ -1,0 +1,23 @@
+---
+title: Flywoo Goku F722 Pro V2 55A
+url: "https://flywoo.net/products/goku-f7-pro-v2-55a-32bit-30x30-stack"
+order: 4
+color: error
+price: $84.99
+image: flywoo-goku-f722-pro-v2-55a.jpg
+tags:
+  - "ICM42688P/MPU6000<IMU - Gyroscope/Accelerometer>"
+  - "DPS310/SPL06<Barometer>"
+  - 6 UARTs
+  - 8 Motors
+  - I2C
+  - 16MB Blackbox
+  - 5V 3A
+  - 10V 3A
+  - "10V Switch<Software-toggleable output for a VTX>"
+  - 55A Nominal
+  - "60A Peak<10s>"
+  - "AM32<ESC Firmware>"
+  - 24.9g
+---
+Flywoo always focused more on smaller drones, their 5" electronics were often priced too high or weren't at a level I'd recommend. Their new lineup of white boards is solid across the line, even up to 5" and up. 8 motor outputs and a considerable amount of other IO make it a good option for exotic builds as well.

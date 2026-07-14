@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Portal, Tooltip } from "@skeletonlabs/skeleton-svelte"
+	import { Info } from "@lucide/svelte"
 
 	let {
 		label,
@@ -26,12 +27,15 @@
 		onfocus={() => (tooltipClosing = false)}
 		onblur={() => (tooltipClosing = true)}
 	>
-		{label}
+		<div class="flex items-center gap-1">
+			{label}
+			<Info class="size-4" />
+		</div>
 	</Tooltip.Trigger>
 	<Portal>
 		<Tooltip.Positioner>
 			<Tooltip.Content
-				class="build-tooltip-content origin-bottom rounded-full bg-surface-200-800/20 px-2 py-1 text-xs font-medium text-surface-900-100 backdrop-blur-xs {tooltipClosing
+				class="build-tooltip-content origin-bottom rounded-full border border-surface-500/20 bg-surface-100-900/30 px-2 py-1 text-xs font-medium text-surface-900-100 backdrop-blur-sm {tooltipClosing
 					? 'tooltip-closing'
 					: ''}"
 			>

@@ -1,0 +1,22 @@
+---
+title: T-Motor Velox V70A F7 SE 8S
+url: "https://www.t-hobby.com/products/4-in1-fpv-stack-v70a-f7-se-8"
+order: 5
+color: error
+price: $85.90
+image: t-motor-velox-v70a-f7-se-8s.jpg
+tags:
+  - "ICM42688P<IMU - Gyroscope/Accelerometer>"
+  - "DPS310<Barometer>"
+  - 6 UARTs
+  - 8 Motors
+  - I2C
+  - 128MB Blackbox
+  - 5V 2A
+  - 10V 1.5A
+  - 70A Nominal
+  - 75A Peak
+  - "AM32<ESC Firmware>"
+  - 20.3g
+---
+Like I wrote in the Motors section, T-Motor makes another appearance. It's overall a very capable stack with a lot of testing behind it. What makes it interesting is the 8s rating. Realistically that means it should survive a lot better on 6s. Unrealistically... not that I'm encouraging you to go build an 8s drone as your first, butttttttt

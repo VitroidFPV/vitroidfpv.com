@@ -1,0 +1,22 @@
+---
+title: Sequre H743 V2 + Blueson A2 65A
+url: https://sequremall.com/search?q=h743%20v2%20FC%20sequre%20blueson%20a2%206s%2065a
+order: 6
+color: warning
+price: $79.98
+image: sequre-h743-v2-blueson-a2-65a.webp
+tags:
+  - "ICM42688P<IMU - Gyroscope/Accelerometer>"
+  - "BMP280/DPS310/DPS368<Barometer>"
+  - 6 UARTs
+  - 8 Motors
+  - I2C
+  - 16MB Blackbox
+  - 5V 2.5A
+  - 10V 2A
+  - 65A Nominal
+  - 120A Peak
+  - "AM32<ESC Firmware>"
+  - 24.3g
+---
+I wanted to keep this list limited to stacks so that you don't have to hunt down separate boards. But this is such a deal that I had to include it. I think the only reason they're not sold as a stack is because it'd kill their other options, and I think they tried to nerf it because it was even cheaper before. With a high-end H743 MCU and a hefty ESC, these are specs you'd see well above $100.
