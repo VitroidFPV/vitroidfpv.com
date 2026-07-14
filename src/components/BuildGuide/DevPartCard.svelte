@@ -19,7 +19,7 @@
 	} from "$lib/builds/serialize-guide-part"
 	import { ChevronUp, Eye, Loader2, Pencil, Save } from "@lucide/svelte"
 	import { toastError, toastSuccess } from "$lib/toaster"
-	import { untrack } from "svelte"
+	import { tick, untrack } from "svelte"
 	import { slide } from "svelte/transition"
 
 	const colorOptions = Object.keys(guidePartColors) as GuidePartColor[]
@@ -68,6 +68,7 @@
 	const isNew = $derived(part === null)
 
 	let editMode = $state(false)
+	let editControlsVisible = $state(true)
 	let title = $state("")
 	let url = $state("")
 	let order = $state(1)
@@ -282,9 +283,25 @@
 		order = nextOrderForSection(sectionSlug)
 	}
 
-	function exitEditMode() {
-		editMode = false
-		resetFromPart(part)
+	async function enterEditMode() {
+		editControlsVisible = false
+		editMode = true
+		await tick()
+		editControlsVisible = true
+	}
+
+	let resetAfterExit = false
+
+	function exitEditMode(reset = true) {
+		resetAfterExit = reset
+		editControlsVisible = false
+	}
+
+	function finishExitEditMode() {
+		if (resetAfterExit) resetFromPart(part)
+		else editMode = false
+
+		editControlsVisible = true
 	}
 
 	async function savePart() {
@@ -334,15 +351,13 @@
 			toastSuccess({
 				title: `Saved ${payload.path}. Refresh to see updates.`
 			})
-			editMode = false
-
 			if (isNew) {
 				lastAssignedOrderBySection[
 					sectionOrderKey(buildSlug, activeSectionSlug)
 				] = order
 				clearNewPartDraft()
 				resetFromPart(null)
-			}
+			} else exitEditMode(false)
 		} catch (err) {
 			toastError({
 				title: err instanceof Error ? err.message : "Failed to save part"
@@ -373,7 +388,7 @@
 				type="button"
 				class={colors.iconHover}
 				aria-label="Edit part"
-				onclick={() => (editMode = true)}
+				onclick={enterEditMode}
 			>
 				<Pencil class="size-6 md:size-7" />
 			</button>
@@ -411,7 +426,7 @@
 						type="button"
 						class={colors.iconHover}
 						aria-label="View part"
-						onclick={exitEditMode}
+						onclick={() => exitEditMode()}
 					>
 						<Eye class="size-6 md:size-7" />
 					</button>
@@ -430,6 +445,7 @@
 			<PartTags
 				tags={previewTags}
 				priceClass={colors.price}
+				displayContents
 			/>
 		</div>
 
@@ -440,106 +456,109 @@
 			class="prose {descriptionFieldClass} min-h-24 w-full resize-y"
 			placeholder="Part description"></textarea>
 
-		<div
-			class="flex flex-col gap-2 border-t border-surface-500/10 pt-2"
-			transition:slide
-		>
-			<div class="flex min-w-0 flex-wrap items-center gap-2">
-				<select
-					value={sectionSlug}
-					onchange={handleSectionChange}
-					class="{controlClass} min-w-0 flex-1"
-				>
-					{#each sections as entry (entry.id)}
-						<option value={entry.id}>{entry.title}</option>
-					{/each}
-				</select>
-
-				<div
-					class="flex shrink-0 gap-1"
-					role="radiogroup"
-					aria-label="Part color"
-				>
-					{#each colorOptions as option (option)}
-						<button
-							type="button"
-							role="radio"
-							aria-checked={color === option}
-							aria-label={option}
-							class="size-6 rounded-md {guidePartColors[option]
-								.bar} outline-2 transition-colors {color === option
-								? 'outline-current'
-								: 'outline-transparent'}"
-							onclick={() => (color = option)}
-						></button>
-					{/each}
-				</div>
-
-				<div class="flex shrink-0">
-					<input
-						type="number"
-						min="1"
-						max="69"
-						bind:value={order}
-						class="no-spinner h-8 w-12 rounded-md bg-surface-500/10 p-2 text-base outline-none focus-within:outline-2 focus-within:outline-current"
-					/>
-					<div
-						class="ml-1 flex h-8 flex-col justify-between text-surface-500/40"
+		{#if editControlsVisible}
+			<div
+				class="flex flex-col gap-2 border-t border-surface-500/10 pt-2"
+				transition:slide
+				onoutroend={finishExitEditMode}
+			>
+				<div class="flex min-w-0 flex-wrap items-center gap-2">
+					<select
+						value={sectionSlug}
+						onchange={handleSectionChange}
+						class="{controlClass} min-w-0 flex-1"
 					>
-						<button
-							type="button"
-							class="hover:text-current {colors.text}"
-							aria-label="Increase order"
-							onclick={() => order++}
+						{#each sections as entry (entry.id)}
+							<option value={entry.id}>{entry.title}</option>
+						{/each}
+					</select>
+
+					<div
+						class="flex shrink-0 gap-1"
+						role="radiogroup"
+						aria-label="Part color"
+					>
+						{#each colorOptions as option (option)}
+							<button
+								type="button"
+								role="radio"
+								aria-checked={color === option}
+								aria-label={option}
+								class="size-6 rounded-md {guidePartColors[option]
+									.bar} outline-2 transition-colors {color === option
+									? 'outline-current'
+									: 'outline-transparent'}"
+								onclick={() => (color = option)}
+							></button>
+						{/each}
+					</div>
+
+					<div class="flex shrink-0">
+						<input
+							type="number"
+							min="1"
+							max="69"
+							bind:value={order}
+							class="no-spinner h-8 w-12 rounded-md bg-surface-500/10 p-2 text-base outline-none focus-within:outline-2 focus-within:outline-current"
+						/>
+						<div
+							class="ml-1 flex h-8 flex-col justify-between text-surface-500/40"
 						>
-							<ChevronUp class="size-3 stroke-3" />
-						</button>
-						<button
-							type="button"
-							class="rotate-180 hover:text-current {colors.text}"
-							aria-label="Decrease order"
-							onclick={() => order > 1 && order--}
-						>
-							<ChevronUp class="size-3 stroke-3" />
-						</button>
+							<button
+								type="button"
+								class="hover:text-current {colors.text}"
+								aria-label="Increase order"
+								onclick={() => order++}
+							>
+								<ChevronUp class="size-3 stroke-3" />
+							</button>
+							<button
+								type="button"
+								class="rotate-180 hover:text-current {colors.text}"
+								aria-label="Decrease order"
+								onclick={() => order > 1 && order--}
+							>
+								<ChevronUp class="size-3 stroke-3" />
+							</button>
+						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="flex min-w-0 gap-2">
-				<input
-					type="url"
-					bind:value={url}
+				<div class="flex min-w-0 gap-2">
+					<input
+						type="url"
+						bind:value={url}
+						spellcheck="false"
+						class="{controlClass} min-w-0 flex-1"
+						placeholder="https://example.com"
+					/>
+					<select
+						bind:value={imageFormat}
+						class="{controlClass} shrink-0"
+						aria-label="Image format"
+					>
+						<option value="">No image</option>
+						{#each imageFormats as format (format)}
+							<option value={format}>{format}</option>
+						{/each}
+					</select>
+					<ImageDownloader
+						{buildSlug}
+						{title}
+						{slug}
+						ondownload={handleImageDownload}
+					/>
+				</div>
+
+				<textarea
+					bind:value={tagsInput}
+					rows={4}
 					spellcheck="false"
-					class="{controlClass} min-w-0 flex-1"
-					placeholder="https://example.com"
-				/>
-				<select
-					bind:value={imageFormat}
-					class="{controlClass} shrink-0"
-					aria-label="Image format"
-				>
-					<option value="">No image</option>
-					{#each imageFormats as format (format)}
-						<option value={format}>{format}</option>
-					{/each}
-				</select>
-				<ImageDownloader
-					{buildSlug}
-					{title}
-					{slug}
-					ondownload={handleImageDownload}
-				/>
+					class="{controlClass} min-h-0 text-xs"
+					placeholder="One tag per line. Use label&lt;tooltip&gt; for tooltips."
+				></textarea>
 			</div>
-
-			<textarea
-				bind:value={tagsInput}
-				rows={4}
-				spellcheck="false"
-				class="{controlClass} min-h-0 text-xs"
-				placeholder="One tag per line. Use label&lt;tooltip&gt; for tooltips."
-			></textarea>
-		</div>
+		{/if}
 	</PartCardFrame>
 {/if}
 

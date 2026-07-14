@@ -6,16 +6,20 @@
 		tags,
 		price,
 		priceClass,
+		displayContents = false,
 		class: className = ""
 	}: {
 		tags: BuildGuidePartTag[]
 		price?: string
 		priceClass: string
+		displayContents?: boolean
 		class?: string
 	} = $props()
 </script>
 
-<div class="flex flex-wrap gap-1 {className}">
+<div
+	class="{displayContents ? 'contents' : 'flex flex-wrap gap-1'} {className}"
+>
 	{#if price}
 		<span class={priceClass}>{price}</span>
 	{/if}
