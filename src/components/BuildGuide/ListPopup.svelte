@@ -163,7 +163,6 @@
 						<div class="tags-scroll w-full min-w-0 overflow-x-auto">
 							<PartTags
 								tags={item.part.tags}
-								price={item.part.price}
 								priceClass={guidePartColors[item.part.color].price}
 								elevatedTooltips
 								class="flex w-max flex-nowrap! gap-1 *:shrink-0 *:whitespace-nowrap"
@@ -214,7 +213,9 @@
 						</div>
 					</div>
 					{#if item.part.price}
-						<span class="text-lg font-semibold">{item.part.price}</span>
+						<span class="font-geist-mono text-lg font-semibold"
+							>{item.part.price}</span
+						>
 					{/if}
 					<button
 						type="button"
@@ -237,7 +238,7 @@
 	>
 		{#if items.length > 0}
 			<div class="flex items-end gap-1">
-				<span class="text-2xl font-semibold text-success-500"
+				<span class="font-geist-mono text-2xl font-semibold text-success-500"
 					>{formattedTotal}</span
 				>
 			</div>
