@@ -20,6 +20,7 @@
 		image,
 		imageAlt,
 		Description,
+		onaddtolist,
 		actions,
 		footer
 	}: {
@@ -31,6 +32,7 @@
 		image: Picture | null
 		imageAlt: string
 		Description: Component
+		onaddtolist?: () => void
 		actions?: Snippet
 		footer?: Snippet
 	} = $props()
@@ -52,6 +54,7 @@
 				type="button"
 				class={colors.iconHover}
 				aria-label="Add to build list"
+				onclick={onaddtolist}
 			>
 				<Plus class="size-5 stroke-[2.5] md:size-6" />
 			</button>

@@ -57,12 +57,14 @@
 		buildSlug,
 		sections,
 		section,
-		part = null
+		part = null,
+		onaddtolist
 	}: {
 		buildSlug: string
 		sections: BuildGuideSection[]
 		section: BuildGuideSection
 		part?: BuildGuidePart | null
+		onaddtolist?: () => void
 	} = $props()
 
 	const isNew = $derived(part === null)
@@ -382,6 +384,7 @@
 		image={part.image}
 		imageAlt={part.imageAlt}
 		Description={part.component}
+		{onaddtolist}
 	>
 		{#snippet actions()}
 			<button

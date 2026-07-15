@@ -2,7 +2,13 @@
 	import PartCardView from "$components/BuildGuide/PartCardView.svelte"
 	import type { BuildGuidePart } from "$lib/builds/guide-sections"
 
-	let { part }: { part: BuildGuidePart } = $props()
+	let {
+		part,
+		onaddtolist
+	}: {
+		part: BuildGuidePart
+		onaddtolist?: () => void
+	} = $props()
 </script>
 
 <PartCardView
@@ -14,4 +20,5 @@
 	image={part.image}
 	imageAlt={part.imageAlt}
 	Description={part.component}
+	{onaddtolist}
 />
