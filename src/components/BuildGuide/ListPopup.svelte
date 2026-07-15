@@ -128,7 +128,7 @@
 		state
 	]} transition-transform duration-300"
 >
-	<div class="flex flex-col p-4 pb-2">
+	<div class="flex flex-col p-4 pb-1">
 		{#each items as item (item.part.id)}
 			<div
 				class="mb-3 flex gap-2"
