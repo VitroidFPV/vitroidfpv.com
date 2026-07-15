@@ -70,16 +70,36 @@ export const POST: RequestHandler = async ({ request }) => {
 
 	await mkdir(imageDirectory, { recursive: true })
 	const filename = `${slug}.${extension}`
-	await writeFile(path.join(imageDirectory, filename), bytes)
+	const targetPath = path.join(imageDirectory, filename)
 
-	const oldVariants = (await readdir(imageDirectory)).filter(
-		(entry) => entry !== filename && entry.startsWith(`${slug}.`)
+	// Remove existing variants before writing. On Windows, truncating an in-use
+	// file (e.g. while Vite is serving it) fails with an opaque UNKNOWN error.
+	const existingVariants = (await readdir(imageDirectory)).filter((entry) =>
+		entry.startsWith(`${slug}.`)
 	)
-	await Promise.all(
-		oldVariants.map((entry) =>
-			unlink(path.join(imageDirectory, entry)).catch(() => undefined)
+	for (const entry of existingVariants) {
+		try {
+			await unlink(path.join(imageDirectory, entry))
+		} catch (reason) {
+			error(
+				409,
+				reason instanceof Error
+					? `Could not replace ${entry}: ${reason.message}`
+					: `Could not replace ${entry}`
+			)
+		}
+	}
+
+	try {
+		await writeFile(targetPath, bytes)
+	} catch (reason) {
+		error(
+			500,
+			reason instanceof Error
+				? `Failed to save ${filename}: ${reason.message}`
+				: `Failed to save ${filename}`
 		)
-	)
+	}
 
 	return json({
 		success: true,
