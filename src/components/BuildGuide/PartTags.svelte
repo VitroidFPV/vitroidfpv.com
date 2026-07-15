@@ -7,12 +7,14 @@
 		price,
 		priceClass,
 		displayContents = false,
+		elevatedTooltips = false,
 		class: className = ""
 	}: {
 		tags: BuildGuidePartTag[]
 		price?: string
 		priceClass: string
 		displayContents?: boolean
+		elevatedTooltips?: boolean
 		class?: string
 	} = $props()
 </script>
@@ -28,6 +30,7 @@
 			<TagTooltip
 				label={tag.label}
 				tooltip={tag.tooltip}
+				elevated={elevatedTooltips}
 			/>
 		{:else}
 			<span

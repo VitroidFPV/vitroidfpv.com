@@ -146,7 +146,7 @@
 						/>
 					{/if}
 				</div>
-				<div class="mr-8 flex min-w-0 flex-1 flex-col gap-1">
+				<div class="mr-4 flex min-w-0 flex-1 flex-col gap-1">
 					<h3 class="text-lg">
 						<a
 							href={item.part.url}
@@ -165,6 +165,7 @@
 								tags={item.part.tags}
 								price={item.part.price}
 								priceClass={guidePartColors[item.part.color].price}
+								elevatedTooltips
 								class="flex w-max flex-nowrap! gap-1 *:shrink-0 *:whitespace-nowrap"
 							/>
 						</div>
@@ -229,10 +230,10 @@
 	</div>
 	<SplitCorner
 		fillClass="fill-surface-950"
-		class="absolute top-full right-0 h-16 text-surface-100-900"
+		class="pointer-events-none absolute top-full right-0 h-16 text-surface-100-900"
 	/>
 	<div
-		class="absolute top-full left-0 flex h-16 w-full items-center justify-end gap-4 px-2"
+		class="absolute top-full right-0 flex h-16 items-center justify-end gap-4 px-4"
 	>
 		{#if items.length > 0}
 			<div class="flex items-end gap-1">

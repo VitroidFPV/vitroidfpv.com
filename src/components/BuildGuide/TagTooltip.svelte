@@ -5,11 +5,13 @@
 	let {
 		label,
 		tooltip,
-		durationMs = 150
+		durationMs = 150,
+		elevated = false
 	}: {
 		label: string
 		tooltip: string
 		durationMs?: number
+		elevated?: boolean
 	} = $props()
 
 	let tooltipClosing = $state(false)
@@ -33,7 +35,7 @@
 		</div>
 	</Tooltip.Trigger>
 	<Portal>
-		<Tooltip.Positioner>
+		<Tooltip.Positioner class={elevated ? "z-20!" : undefined}>
 			<Tooltip.Content
 				class="build-tooltip-content origin-bottom rounded-full border border-surface-500/20 bg-surface-100-900/30 px-2 py-1 text-xs font-medium text-surface-900-100 backdrop-blur-sm {tooltipClosing
 					? 'tooltip-closing'
