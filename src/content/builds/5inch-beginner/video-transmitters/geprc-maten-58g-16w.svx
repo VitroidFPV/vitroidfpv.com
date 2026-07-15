@@ -1,0 +1,15 @@
+---
+title: GEPRC Maten 5.8G 1.6W
+url: https://geprc.com/product/geprc-maten-5-8g-1-6w-vtx/
+order: 7
+color: warning
+price: $47.99
+image: geprc-maten-58g-16w.jpg
+tags:
+  - 1.6W
+  - 30.5x30.5mm
+  - 7-36V
+  - "MMCX<Antenna Connector>"
+  - 17.5g
+---
+With the 30.5x30.5 mounting pattern, this VTX is the biggest on this list. As long as you make sure it fits into the frame you picked out (many on this list do), you should have a solid experience without any overheating.

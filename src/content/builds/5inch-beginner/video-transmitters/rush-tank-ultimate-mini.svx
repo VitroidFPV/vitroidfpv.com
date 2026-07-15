@@ -1,0 +1,15 @@
+---
+title: Rush Tank Ultimate Mini
+url: https://rushfpv.net/products/tank-ultimate-mini-vtx
+order: 4
+color: warning
+price: $43.99
+image: rush-tank-ultimate-mini.jpg
+tags:
+  - 800mW
+  - 20x20mm
+  - 7-36V
+  - "MMCX<Antenna Connector>"
+  - 5.4g
+---
+Rush VTXs are also some of the best. They may be a bit harder to come by for a reasonable price nowadays, but if you do - you're in luck. It's pretty compact, and can be held down with the standard 20x20mm bolt pattern. It would be my personal pick for most of these setups.

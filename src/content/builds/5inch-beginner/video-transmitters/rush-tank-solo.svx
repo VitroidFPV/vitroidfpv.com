@@ -1,0 +1,15 @@
+---
+title: Rush Tank SOLO
+url: https://rushfpv.net/products/tank-solo-vtx
+order: 5
+color: warning
+price: $45.99
+image: rush-tank-solo.jpg
+tags:
+  - 1.6W
+  - 20x20mm
+  - 7-36V
+  - "MMCX<Antenna Connector>"
+  - 12g
+---
+The reasonable way to do long range. I don't think there's ever a need for more than 1.6W, I have one of these in my 8" LR rig and I had perfect video as far as I've been able to take it. And you still keep the 20x20 mounting for what's otherwise a pretty sizeable VTX.

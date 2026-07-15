@@ -1,0 +1,15 @@
+---
+title: AxisFlying S-MURFS V2 1.6W
+url: https://www.axisflying.com/products/s-murfs-v2-58g-16w-1?VariantsId=10362
+order: 8
+color: warning
+price: $44.90
+image: axisflying-s-murfs-v2-16w.jpg
+tags:
+  - 1.6W
+  - 30.5x30.5mm
+  - 7-36V
+  - "MMCX<Antenna Connector>"
+  - 14.2g
+---
+The specs and performance largely follow the previous two, you probably notice the main difference by looking at the photos. The name is self-explanatory, this VTX is strikingly blue. Might not fit well for all builds, but it can also really compliment the rest.

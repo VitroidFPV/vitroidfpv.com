@@ -1,0 +1,15 @@
+---
+title: TBS Unify Pro 5G8 V3
+url: https://www.team-blacksheep.com/products/prod:unify_pro_sma
+order: 2
+color: success
+price: $40.95
+image: tbs-unify-pro-5g8-v3.jpg
+tags:
+  - 800mW
+  - No Mounting
+  - 4.5-5.5V
+  - "U.FL/IPEX<Antenna Connector>"
+  - 5g
+---
+A slightly larger, slightly less advanced brother to the Pro32 Nano. Just because it can't read barcodes does not make it any less useful though. You have more output power, and a connector to avoid soldering if you really don't wanna do that. Still BYO mounting solution though.

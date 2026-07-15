@@ -1,0 +1,15 @@
+---
+title: TBS Unify Pro32 DP
+url: https://www.team-blacksheep.com/products/prod:pro32_dp
+order: 3
+color: error
+price: $50.95
+image: tbs-unify-pro32-dp.jpg
+tags:
+  - 3W
+  - No Mounting
+  - 6-25V
+  - "MMCX<Antenna Connector>"
+  - 8.7g
+---
+Possibly the last VTX you'll ever need. 3W is more than you'll ever reasonably need, but it might come in handy if you want to try some long-range flying, or need all the penetration you can get for flying in bandos or other RF intensive areas.

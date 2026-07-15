@@ -1,0 +1,15 @@
+---
+title: Sub250 Send T1600
+url: https://sub250.com/products/sub250-send-t1600-vtx?_pos=3&_sid=936363fb9&_ss=r
+order: 6
+color: success
+price: $41.99
+image: sub250-send-t1600.jpg
+tags:
+  - 1.6W
+  - 20x20mm
+  - 7-36V
+  - "MMCX<Antenna Connector>"
+  - 15.9g
+---
+Don't let the name deceive you. Sub250 do mostly make small sub250g drones, but they went all in for their 3.5" builds with this one. Being a pretty lowkey, nondescript black box, it should go well with any build.

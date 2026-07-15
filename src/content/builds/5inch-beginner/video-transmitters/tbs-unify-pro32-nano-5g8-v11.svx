@@ -1,0 +1,15 @@
+---
+title: TBS Unify Pro32 Nano 5G8 V1.1
+url: https://www.team-blacksheep.com/products/prod:unifypro32_nano
+order: 1
+color: success
+price: $34.95
+image: tbs-unify-pro32-nano-5g8-v11.jpg
+tags:
+  - "500mW+<What the \"+\" means, I don't know>"
+  - No Mounting
+  - 5-13V
+  - "U.FL/IPEX<Antenna Connector>"
+  - 1g
+---
+TBS has been in FPV for basically as long as it's existed, their stuff has always been some of the best. These small VTXs are mostly seen in tightly packed race quads, but 500mW of good quality video is more than enough for freestyle. Bring your own zipties and double-sided tape! Or just print a holder for it, that works too.
