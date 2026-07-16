@@ -1,5 +1,6 @@
 <script lang="ts">
 	import SplitCorner from "$components/graphics/SplitCorner.svelte"
+	import ImageButton from "$components/BuildGuide/ImageButton.svelte"
 	import PartImage from "$components/BuildGuide/PartImage.svelte"
 	import PartTags from "$components/BuildGuide/PartTags.svelte"
 	import {
@@ -132,22 +133,32 @@
 		class="flex max-h-[50vh] max-w-full flex-col overflow-y-auto rounded-2xl"
 	>
 		{#each items as item (item.part.id)}
+			{const partImage = item.part.image}
 			<div
 				class="flex shrink-0 gap-2 not-last:mb-2 md:not-last:mb-3"
 				in:slide={{ duration: items.length === 1 ? 0 : 300 }}
 				out:slide={{ duration: 300 }}
 			>
-				<div
-					class="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-surface-100-900 md:size-16"
-				>
-					{#if item.part.image}
+				{#if partImage}
+					{#snippet thumbnail()}
 						<PartImage
-							src={item.part.image}
+							src={partImage}
 							alt={item.part.imageAlt}
 							sizes="64px"
 						/>
-					{/if}
-				</div>
+					{/snippet}
+					<ImageButton
+						src={partImage}
+						alt={item.part.imageAlt}
+						trigger={thumbnail}
+						showTooltip={false}
+						class="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-surface-100-900 md:size-16"
+					/>
+				{:else}
+					<div
+						class="size-14 shrink-0 rounded-2xl bg-surface-100-900 md:size-16"
+					></div>
+				{/if}
 				<div
 					class="flex min-w-0 flex-1 flex-col justify-between md:flex-row md:gap-2"
 				>

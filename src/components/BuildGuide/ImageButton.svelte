@@ -3,15 +3,20 @@
 	import type { Picture } from "@sveltejs/enhanced-img"
 	import { Dialog, Portal, Tooltip } from "@skeletonlabs/skeleton-svelte"
 	import { Image, X } from "@lucide/svelte"
+	import type { Snippet } from "svelte"
 
 	let {
 		src,
 		alt,
-		class: className = ""
+		class: className = "",
+		trigger,
+		showTooltip = true
 	}: {
 		src: Picture
 		alt: string
 		class?: string
+		trigger?: Snippet
+		showTooltip?: boolean
 	} = $props()
 
 	let dialogOpen = $state(false)
@@ -25,6 +30,7 @@
 	positioning={{ placement: "top" }}
 	openDelay={0}
 	closeDelay={50}
+	disabled={!showTooltip}
 >
 	<Tooltip.Trigger
 		type="button"
@@ -36,7 +42,11 @@
 		onfocus={() => (tooltipClosing = false)}
 		onblur={() => (tooltipClosing = true)}
 	>
-		<Image class="size-6 md:size-7" />
+		{#if trigger}
+			{@render trigger()}
+		{:else}
+			<Image class="size-6 md:size-7" />
+		{/if}
 	</Tooltip.Trigger>
 	<Portal>
 		<Tooltip.Positioner>
