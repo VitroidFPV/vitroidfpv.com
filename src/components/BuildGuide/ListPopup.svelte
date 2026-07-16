@@ -129,125 +129,126 @@
 		state
 	]} p-2 pb-2 transition-transform duration-300 md:p-4 md:pb-4"
 >
-	<div
-		class="flex max-h-[50vh] max-w-full flex-col overflow-y-auto rounded-2xl"
-	>
-		{#each items as item (item.part.id)}
-			{const partImage = item.part.image}
-			<div
-				class="flex shrink-0 gap-2 not-last:mb-2 md:not-last:mb-3"
-				in:slide={{ duration: items.length === 1 ? 0 : 300 }}
-				out:slide={{ duration: 300 }}
-			>
-				{#if partImage}
-					{#snippet thumbnail()}
-						<PartImage
+	<div class="max-h-[50vh] max-w-full overflow-y-auto rounded-2xl">
+		<div class="flex flex-col overflow-clip">
+			{#each items as item (item.part.id)}
+				{const partImage = item.part.image}
+				<div
+					class="mb-2 flex shrink-0 gap-2 md:mb-3"
+					in:slide={{ duration: items.length === 1 ? 0 : 300 }}
+					out:slide={{ duration: 300 }}
+				>
+					{#if partImage}
+						{#snippet thumbnail()}
+							<PartImage
+								src={partImage}
+								alt={item.part.imageAlt}
+								sizes="64px"
+							/>
+						{/snippet}
+						<ImageButton
 							src={partImage}
 							alt={item.part.imageAlt}
-							sizes="64px"
+							trigger={thumbnail}
+							showTooltip={false}
+							class="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-surface-100-900 md:size-16"
 						/>
-					{/snippet}
-					<ImageButton
-						src={partImage}
-						alt={item.part.imageAlt}
-						trigger={thumbnail}
-						showTooltip={false}
-						class="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-surface-100-900 md:size-16"
-					/>
-				{:else}
-					<div
-						class="size-14 shrink-0 rounded-2xl bg-surface-100-900 md:size-16"
-					></div>
-				{/if}
-				<div
-					class="flex min-w-0 flex-1 flex-col justify-between md:flex-row md:gap-2"
-				>
-					<div class="mr-4 flex min-w-0 flex-1 flex-col gap-1">
-						<h3 class="md:text-lg">
-							<a
-								href={item.part.url}
-								class="fancy-link font-semibold {guidePartColors[
-									item.part.color
-								].text}"
-								target="_blank"
-								rel="external noopener noreferrer">{item.part.title}</a
-							>
-						</h3>
+					{:else}
 						<div
-							class="tags-fade-wrap relative hidden w-full min-w-0 md:block"
-							{@attach tagsScrollFade}
-						>
-							<div class="tags-scroll w-full min-w-0 overflow-x-auto">
-								<PartTags
-									tags={item.part.tags}
-									priceClass={guidePartColors[item.part.color].price}
-									elevatedTooltips
-									class="flex w-max flex-nowrap! gap-1 *:shrink-0 *:whitespace-nowrap"
-								/>
-							</div>
-							<div
-								class="tags-fade"
-								aria-hidden="true"
-							></div>
-						</div>
-					</div>
+							class="size-14 shrink-0 rounded-2xl bg-surface-100-900 md:size-16"
+						></div>
+					{/if}
 					<div
-						class="flex shrink-0 items-center justify-end gap-2 md:justify-start"
+						class="flex min-w-0 flex-1 flex-col justify-between md:flex-row md:gap-2"
 					>
-						<div class="flex shrink-0 items-center">
-							<input
-								type="number"
-								min="1"
-								max="69"
-								value={item.quantity}
-								aria-label={`${item.part.title} quantity`}
-								oninput={(event) => handleQuantityInput(event, item.part.id)}
-								class="no-spinner w-10 rounded-xl bg-surface-100-900 px-2 py-1 text-sm outline-none"
-							/>
-							<div class="ml-1 flex flex-col items-center">
-								<button
-									type="button"
-									class="text-surface-500/40 disabled:opacity-30 {guidePartColors[
+						<div class="mr-4 flex min-w-0 flex-1 flex-col gap-1">
+							<h3 class="md:text-lg">
+								<a
+									href={item.part.url}
+									class="fancy-link font-semibold {guidePartColors[
 										item.part.color
-									].iconHover}"
-									aria-label={`Increase ${item.part.title} quantity`}
-									disabled={item.quantity >= 69}
-									onclick={() =>
-										onquantitychange(item.part.id, item.quantity + 1)}
+									].text}"
+									target="_blank"
+									rel="external noopener noreferrer">{item.part.title}</a
 								>
-									<ChevronUp class="size-4 stroke-3" />
-								</button>
-								<button
-									type="button"
-									class="rotate-180 text-surface-500/40 disabled:opacity-30 {guidePartColors[
-										item.part.color
-									].iconHover}"
-									aria-label={`Decrease ${item.part.title} quantity`}
-									disabled={item.quantity <= 1}
-									onclick={() =>
-										onquantitychange(item.part.id, item.quantity - 1)}
-								>
-									<ChevronUp class="size-4 stroke-3" />
-								</button>
+							</h3>
+							<div
+								class="tags-fade-wrap relative hidden w-full min-w-0 md:block"
+								{@attach tagsScrollFade}
+							>
+								<div class="tags-scroll w-full min-w-0 overflow-x-auto">
+									<PartTags
+										tags={item.part.tags}
+										priceClass={guidePartColors[item.part.color].price}
+										elevatedTooltips
+										class="flex w-max flex-nowrap! gap-1 *:shrink-0 *:whitespace-nowrap"
+									/>
+								</div>
+								<div
+									class="tags-fade"
+									aria-hidden="true"
+								></div>
 							</div>
 						</div>
-						{#if item.part.price}
-							<span class="font-geist-mono font-semibold md:text-lg"
-								>{item.part.price}</span
-							>
-						{/if}
-						<button
-							type="button"
-							class="text-surface-500 transition-colors hover:text-error-500"
-							aria-label={`Remove ${item.part.title} from build list`}
-							onclick={() => onremove(item.part.id)}
+						<div
+							class="flex shrink-0 items-center justify-end gap-2 md:justify-start"
 						>
-							<X class="size-6" />
-						</button>
+							<div class="flex shrink-0 items-center">
+								<input
+									type="number"
+									min="1"
+									max="69"
+									value={item.quantity}
+									aria-label={`${item.part.title} quantity`}
+									oninput={(event) => handleQuantityInput(event, item.part.id)}
+									class="no-spinner w-10 rounded-xl bg-surface-100-900 px-2 py-1 text-sm outline-none"
+								/>
+								<div class="ml-1 flex flex-col items-center">
+									<button
+										type="button"
+										class="text-surface-500/40 disabled:opacity-30 {guidePartColors[
+											item.part.color
+										].iconHover}"
+										aria-label={`Increase ${item.part.title} quantity`}
+										disabled={item.quantity >= 69}
+										onclick={() =>
+											onquantitychange(item.part.id, item.quantity + 1)}
+									>
+										<ChevronUp class="size-4 stroke-3" />
+									</button>
+									<button
+										type="button"
+										class="rotate-180 text-surface-500/40 disabled:opacity-30 {guidePartColors[
+											item.part.color
+										].iconHover}"
+										aria-label={`Decrease ${item.part.title} quantity`}
+										disabled={item.quantity <= 1}
+										onclick={() =>
+											onquantitychange(item.part.id, item.quantity - 1)}
+									>
+										<ChevronUp class="size-4 stroke-3" />
+									</button>
+								</div>
+							</div>
+							{#if item.part.price}
+								<span class="font-geist-mono font-semibold md:text-lg"
+									>{item.part.price}</span
+								>
+							{/if}
+							<button
+								type="button"
+								class="text-surface-500 transition-colors hover:text-error-500"
+								aria-label={`Remove ${item.part.title} from build list`}
+								onclick={() => onremove(item.part.id)}
+							>
+								<X class="size-6" />
+							</button>
+						</div>
 					</div>
 				</div>
-			</div>
-		{/each}
+			{/each}
+			<div class="-mt-2 h-0 shrink-0 md:-mt-3"></div>
+		</div>
 	</div>
 	<SplitCorner
 		fillClass="fill-surface-50-950"
