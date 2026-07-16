@@ -3,6 +3,7 @@ title: DeepSpace Seeker 5
 url: https://www.deepspacefpv.com/DeepSpace-SEEKER5-5inch-FPV-freestyle-Frame-Kit-DC-XL-p6217742.html
 order: 6
 color: error
+price: $62.90
 image: deepspace-seeker-5.png
 tags:
   - 190g
@@ -11,6 +12,6 @@ tags:
   - Aluminum Cam Cage
   - 14-20mm Cams
   - 20/30.5mm Stacks
-  - "20/25.5/30.5mm VTXs"
+  - 20/25.5/30.5mm VTXs
 ---
 DeepSpace is a very new name in FPV, but their catalog is already nothing to scoff at. The Seeker 5 is a premium frame with most of the pointless bits removed, leaving only the important stuff. That does mean that we can no longer blame the weight on redundtant plastic though.
