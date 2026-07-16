@@ -214,7 +214,7 @@
 					bind:value={title}
 					oninput={handleTitleInput}
 					spellcheck="false"
-					class="{fieldClass} -mt-0.5 mb-0.5 h-18 font-josefin-sans text-5xl font-bold md:text-6xl"
+					class="{fieldClass} -mt-0.5 mb-0.5 h-fit font-josefin-sans text-5xl font-bold md:h-18 md:text-6xl"
 					placeholder="Section title"
 				/>
 				<textarea

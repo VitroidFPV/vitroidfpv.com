@@ -37,7 +37,7 @@
 	onOpenChange={handleOpenChange}
 >
 	<Tooltip.Trigger
-		class="rounded-full bg-surface-500/20 px-2 py-1 text-[11px] font-medium text-surface-900-100 md:text-xs"
+		class="rounded-full bg-surface-500/10 px-2 py-1 text-[11px] font-medium text-surface-900-100 md:text-xs dark:bg-surface-500/20"
 		onclick={toggleOpen}
 		onpointerenter={() => (tooltipClosing = false)}
 		onpointerleave={() => (tooltipClosing = true)}

@@ -12,9 +12,9 @@
 	} = $props()
 </script>
 
-<div class="flex items-start justify-between gap-2">
+<div class="flex items-start justify-between gap-2 pt-8 md:pt-16">
 	<div class="flex min-w-0 flex-1 flex-col gap-2">
-		<h3 class="h-18 font-josefin-sans text-5xl font-bold md:text-6xl">
+		<h3 class="h-fit font-josefin-sans text-5xl font-bold md:h-18 md:text-6xl">
 			{title}
 		</h3>
 		<div class="prose min-h-[1.5em]">

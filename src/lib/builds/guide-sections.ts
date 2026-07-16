@@ -6,7 +6,7 @@ export const guidePartColors = {
 		text: "text-success-500",
 		bar: "bg-success-500",
 		price:
-			"flex items-center justify-center rounded-full bg-success-500/20 px-2 py-1 text-[11px] font-semibold text-success-500 md:text-xs",
+			"flex items-center justify-center rounded-full dark:bg-success-500/20 bg-success-500/30 px-2 py-1 text-[11px] font-semibold dark:text-success-500 text-success-700 md:text-xs",
 		link: "fancy-link md:text-2xl text-xl font-semibold text-success-500",
 		iconHover: "transition-colors duration-300 hover:text-success-500"
 	},
@@ -14,7 +14,7 @@ export const guidePartColors = {
 		text: "text-warning-500",
 		bar: "bg-warning-500",
 		price:
-			"flex items-center justify-center rounded-full bg-warning-500/20 px-2 py-1 text-[11px] font-semibold text-warning-500 md:text-xs",
+			"flex items-center justify-center rounded-full dark:bg-warning-500/20 bg-warning-500/30 px-2 py-1 text-[11px] font-semibold dark:text-warning-500 text-warning-600 md:text-xs",
 		link: "fancy-link md:text-2xl text-xl font-semibold text-warning-500",
 		iconHover: "transition-colors duration-300 hover:text-warning-500"
 	},
