@@ -27,7 +27,7 @@
 <div class="relative flex min-h-screen flex-col gap-16 pb-16 lg:pb-0">
 	<div
 		aria-hidden="true"
-		class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-screen overflow-hidden mask-[linear-gradient(to_bottom,transparent,black_20%,black_50%,transparent)]"
+		class="page-background pointer-events-none absolute inset-x-0 top-0 -z-10 h-screen overflow-hidden mask-[linear-gradient(to_bottom,transparent,black_20%,black_50%,transparent)]"
 	>
 		<img
 			src={swirl}
@@ -42,7 +42,7 @@
 	</div>
 	<div class="relative z-0 flex flex-col gap-4 pt-32 pl-2 md:pl-8">
 		<h1
-			class="font-josefin-sans text-5xl font-bold text-primary-500 md:-ml-4 md:text-[12rem]"
+			class="main-heading font-josefin-sans text-5xl font-bold text-primary-500 md:-ml-4 md:text-[12rem]"
 		>
 			{h1}
 		</h1>
@@ -55,6 +55,23 @@
 </div>
 
 <style>
+	.page-background::after {
+		position: absolute;
+		z-index: 1;
+		inset: 0;
+		content: "";
+		background: radial-gradient(
+			ellipse 65% 50% at 35% 30%,
+			color-mix(in oklab, var(--color-primary-500) 8%, transparent),
+			transparent 70%
+		);
+	}
+
+	.main-heading {
+		text-shadow: 0 0 2rem
+			color-mix(in oklab, var(--color-primary-500) 8%, transparent);
+	}
+
 	.text-outline {
 		/* -webkit-text-stroke: 2px red; */
 		text-shadow:
