@@ -1,0 +1,9 @@
+---
+title: Receivers
+order: 6
+---
+All ELRS. If you're building a new quad as a beginner, anything else doesn't make sense. All of these are officially supported, which means that they passed official developer testing, and they have firmware targets available in ELRS Configurator. Also, glossary for the listings here: 
+- "2.4GHz" - runs on one channel in one frequency band. The most common operational mode.
+- "2.4GHz + 2.4GHz" - two channels at the same time in one frequency band. In ELRS terms, it's called Gemini.
+- "2.4GHz/900MHz" - one channel, but you can pick between 2.4GHz and 900MHz if needed.
+- "2.4GHz + 900MHz" - two channels, each one on a different band. Called "Gemini Xrossband (GemX)".
