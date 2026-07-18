@@ -1,0 +1,15 @@
+---
+title: RadioMaster RP4TD-M
+url: https://radiomasterrc.com/products/rp4td-m-expresslrs-2-4ghz-mini-true-diversity-receiver
+order: 3
+color: warning
+price: $19.99
+image: radiomaster-rp4td-m.webp
+tags:
+  - "ESP32-PICO-D4<MCU>"
+  - "SX1281<LoRa Transceiver>"
+  - 2.4GHz+2.4GHz
+  - 10mW
+  - 1.0g
+---
+The smaller variant of the RP4TD, this receiver keeps the same true diversity (Gemini) setup, at a smaller footprint. The only "compromise" is the 10mW of telemetry power, but I'd get this one to get better signal coverage across all orientations, not for breaking range records.

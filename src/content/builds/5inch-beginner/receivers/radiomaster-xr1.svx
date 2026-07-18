@@ -1,0 +1,15 @@
+---
+title: RadioMaster XR1
+url: https://radiomasterrc.com/products/xr1-nano-multi-frequency-expresslrs-receiver?variant=46486320480448
+order: 2
+color: success
+price: $11.99
+image: radiomaster-xr1.jpg
+tags:
+  - "ESP32-C3<MCU>"
+  - "LR1121<LoRa Transceiver>"
+  - 2.4GHz/900MHz
+  - 100mW
+  - 1.0g
+---
+By all means, a decent upgrade over the RP1, with a newer Espressif MCU, the top-of-the-line LR1121, higher telemetry output power, and more. Yet somehow it's cheaper. No clue how they managed that, but it's by far the most flexible option at this price point.

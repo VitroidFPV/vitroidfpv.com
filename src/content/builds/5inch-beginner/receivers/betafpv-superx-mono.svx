@@ -1,0 +1,15 @@
+---
+title: BetaFPV SuperX Mono
+url: https://betafpv.com/collections/receivers/products/superx-elrs-gemini-xross-receiver?variant=42236044116102
+order: 5
+color: success
+price: $13.99
+image: betafpv-superx-mono.jpg
+tags:
+  - "ESP32-C3<MCU>"
+  - "LR1121<LoRa Transceiver>"
+  - 2.4GHz/900MHz
+  - 100mW
+  - 0.82g
+---
+Similar situation as what the XR1 is to the RP1. The SuperX Mono is also an LR1121-based receiver with the latest bells and whistles. Sadly, the antenna recesses didn't carry over, kind of a shame.

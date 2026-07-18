@@ -1,0 +1,15 @@
+---
+title: SpeedyBee Nano
+url: https://www.speedybee.com/speedybee-nano-2-4g-2-4g-tcxo-915m-expresslrs-elrs-receiver/
+order: 8
+color: success
+price: $10.99
+image: speedybee-nano.jpg
+tags:
+  - "EPS8285<MCU>"
+  - "SX1281<LoRa Transceiver>"
+  - 2.4GHz
+  - 100mW
+  - 0.7g
+---
+Largely similar to the BetaFPV ELRS Nano, but Speedybee's offering can often be found for basically the same price, with a much lower risk of clones popping up... or at least I haven't seen any so far.

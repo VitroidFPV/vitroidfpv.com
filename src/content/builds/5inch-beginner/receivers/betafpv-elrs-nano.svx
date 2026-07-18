@@ -1,0 +1,15 @@
+---
+title: BetaFPV ELRS Nano
+url: https://betafpv.com/collections/receivers/products/elrs-nano-receiver?variant=40838513819782
+order: 4
+color: success
+price: $9.99
+image: betafpv-elrs-nano.jpg
+tags:
+  - "EPS8285<MCU>"
+  - "SX1281<LoRa Transceiver>"
+  - 2.4GHz
+  - 100mW
+  - 0.7g
+---
+By far the cheapest officially supported option, but it's pretty capable despite the price. Higher telemetry output power than the RP1 with a similarly nice antenna, but it's a bit larger. Watch our for clones though, especially on AliExpress, as it's possibly the most commonly cloned receiver out there, sadly.

@@ -1,0 +1,15 @@
+---
+title: RadioMaster RP1
+url: https://radiomasterrc.com/products/rp1-expresslrs-2-4ghz-nano-receiver
+order: 1
+color: warning
+price: $18.99
+image: radiomaster-rp1.webp
+tags:
+  - "EPS8285<MCU>"
+  - "SX1281<LoRa Transceiver>"
+  - 2.4GHz
+  - 10mW
+  - 0.54g
+---
+Radiomaster is likely the best RC manufacturer (at least for FPV quads), IMO they set the baseline for everything ELRS nowadays.  The RP1 is small and light, but still has big soldering pads and antennas that are my personal favorite, given their nice recess for a ziptie.

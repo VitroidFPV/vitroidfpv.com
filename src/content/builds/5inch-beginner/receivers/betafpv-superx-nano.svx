@@ -1,0 +1,15 @@
+---
+title: BetaFPV SuperX Nano
+url: https://betafpv.com/collections/receivers/products/superx-elrs-gemini-xross-receiver?variant=42233388793990
+order: 7
+color: error
+price: $23.99
+image: betafpv-superx-nano.jpg
+tags:
+  - "ESP32-C3<MCU>"
+  - "LR1121<LoRa Transceiver>"
+  - 2.4GHz+900MHz
+  - 100mW
+  - 1.45g
+---
+When planning out this list, I didn't think I'd include any GemX receivers since they mostly hang around $40. I was pleasantly surprised when I saw this one barely more expensive than the SuperD. Probably overkill for a regular 5" build, but it can be useful in congested RF environments

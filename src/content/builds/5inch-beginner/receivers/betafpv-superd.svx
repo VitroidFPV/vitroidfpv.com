@@ -1,0 +1,15 @@
+---
+title: BetaFPV SuperD
+url: https://betafpv.com/collections/receivers/products/superd-elrs-2-4g-diversity-receiver
+order: 6
+color: warning
+price: $19.99
+image: betafpv-superd.jpg
+tags:
+  - "ESP32-PICO-D4<MCU>"
+  - "SX1281<LoRa Transceiver>"
+  - 2.4GHz+2.4GHz
+  - 100mW
+  - 1.1g
+---
+Once again, similar to the RP4TD-M. But this time we have more telemetry power to play around with, at the same price. Better for long range telemetry downlink, but I'd trust RM hardware a little bit more... then again, they both passed review, they should both perform as expected
