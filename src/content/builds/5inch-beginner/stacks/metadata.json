@@ -1,5 +1,0 @@
-{
-	"title": "Stacks",
-	"description": "Only 30.5x30.5mm mounting, the smaller ones with 20x20 don't perform very well at a budget level. We'll be mostly sticking to STM32 F405 microcontrollers since F722 don't offer much of an advantage while being a bit more expensive, and H743 can go even higher in price.",
-	"order": 3
-}

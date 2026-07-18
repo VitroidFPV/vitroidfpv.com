@@ -1,0 +1,5 @@
+---
+title: Motors
+order: 1
+---
+2207 and 2306 are the most common stator sizes you'll see on 5" builds. A 2207 motor has a stator 22m wide and 7mm tall, the larger the total volume, the more torque the motor has. For 6s batteries, you'll want to stay around 1700-2000kv - the higher, the faster. They all have M5 prop shafts, look for M5 flanged lock nuts as spares.

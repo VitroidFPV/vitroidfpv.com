@@ -21,7 +21,7 @@
 
 	let editMode = $state(false)
 	let title = $state("")
-	let description = $state("")
+	let body = $state("")
 	let order = $state(1)
 	let slug = $state("")
 	let originalSlug = $state("")
@@ -32,7 +32,7 @@
 	const currentSnapshot = $derived(
 		JSON.stringify({
 			title,
-			description,
+			body,
 			order,
 			slug
 		})
@@ -55,13 +55,13 @@
 		if (!nextSection) {
 			editMode = true
 			title = ""
-			description = ""
+			body = ""
 			order = nextOrder()
 			slug = ""
 			originalSlug = ""
 			originalSnapshot = JSON.stringify({
 				title: "",
-				description: "",
+				body: "",
 				order,
 				slug: ""
 			})
@@ -70,13 +70,13 @@
 
 		editMode = false
 		title = nextSection.title
-		description = nextSection.description
+		body = nextSection.body
 		order = nextSection.order
 		slug = nextSection.id
 		originalSlug = nextSection.id
 		originalSnapshot = JSON.stringify({
 			title: nextSection.title,
-			description: nextSection.description,
+			body: nextSection.body,
 			order: nextSection.order,
 			slug: nextSection.id
 		})
@@ -103,8 +103,8 @@
 		try {
 			const content = serializeGuideSection({
 				title: title.trim(),
-				description,
-				order
+				order,
+				body
 			})
 
 			const response = await fetch("/api/dev/save-build-guide-section", {
@@ -191,7 +191,7 @@
 	<div class="flex flex-col gap-2">
 		<SectionHeadingView
 			{title}
-			{description}
+			content={section?.component}
 		>
 			{#snippet actions()}
 				<button
@@ -218,11 +218,11 @@
 					placeholder="Section title"
 				/>
 				<textarea
-					bind:value={description}
+					bind:value={body}
 					rows={1}
 					spellcheck="false"
-					class="{fieldClass} description-field prose mb-2 min-h-[1.5em] w-full resize-none text-surface-900-100"
-					placeholder="Section description"></textarea>
+					class="{fieldClass} body-field prose mb-2 min-h-[1.5em] w-full resize-none text-surface-900-100"
+					placeholder="Section content (SVX)"></textarea>
 			</div>
 
 			<div class="flex shrink-0 items-start gap-2 text-surface-500">
@@ -311,7 +311,7 @@
 		appearance: textfield;
 	}
 
-	.description-field {
+	.body-field {
 		field-sizing: content;
 	}
 </style>

@@ -2,7 +2,6 @@ import type { Component } from "svelte"
 
 export type FaqSectionMetadata = {
 	title: string
-	description: string
 	order: number
 }
 
@@ -16,6 +15,11 @@ type FaqQuestionModule = {
 	metadata: FaqQuestionMetadata
 }
 
+type FaqSectionModule = {
+	default: Component
+	metadata: FaqSectionMetadata
+}
+
 function getSectionSlug(path: string): string {
 	const match = path.match(/\/faq\/([^/]+)\//)
 	return match?.[1] ?? path
@@ -26,13 +30,13 @@ function getQuestionSlug(path: string): string {
 	return match?.[1] ?? path
 }
 
-const sectionModules = import.meta.glob("../../content/faq/*/metadata.json", {
-	eager: true,
-	import: "default"
-}) as Record<string, FaqSectionMetadata>
+const sectionModules = import.meta.glob<FaqSectionModule>(
+	"../../content/faq/*/metadata.svx",
+	{ eager: true }
+)
 
 const questionModules = import.meta.glob<FaqQuestionModule>(
-	"../../content/faq/*/*.svx",
+	["../../content/faq/*/*.svx", "!../../content/faq/*/metadata.svx"],
 	{ eager: true }
 )
 
@@ -47,20 +51,20 @@ export type FaqQuestion = {
 export type FaqSection = {
 	id: string
 	title: string
-	description: string
 	order: number
+	component: Component
 	questions: FaqQuestion[]
 }
 
 const sectionsBySlug = new Map<string, FaqSection>()
 
-for (const [path, metadata] of Object.entries(sectionModules)) {
+for (const [path, module] of Object.entries(sectionModules)) {
 	const slug = getSectionSlug(path)
 	sectionsBySlug.set(slug, {
 		id: slug,
-		title: metadata.title,
-		description: metadata.description,
-		order: metadata.order,
+		title: module.metadata.title,
+		order: module.metadata.order,
+		component: module.default,
 		questions: []
 	})
 }

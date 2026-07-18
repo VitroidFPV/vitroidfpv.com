@@ -7,5 +7,5 @@
 
 <SectionHeadingView
 	title={section.title}
-	description={section.description}
+	content={section.component}
 />

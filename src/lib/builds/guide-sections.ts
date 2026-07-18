@@ -67,13 +67,17 @@ export type BuildGuidePartMetadata = {
 
 export type BuildGuideSectionMetadata = {
 	title: string
-	description: string
 	order: number
 }
 
 type BuildGuidePartModule = {
 	default: Component
 	metadata: BuildGuidePartMetadata
+}
+
+type BuildGuideSectionModule = {
+	default: Component
+	metadata: BuildGuideSectionMetadata
 }
 
 function getBuildSlug(path: string): string {
@@ -99,21 +103,23 @@ function resolveGuidePartColor(color: string): GuidePartColor {
 	throw new Error(`Unknown guide part color "${color}"`)
 }
 
-const sectionModules = import.meta.glob(
-	"../../content/builds/*/*/metadata.json",
-	{
-		eager: true,
-		import: "default"
-	}
-) as Record<string, BuildGuideSectionMetadata>
+const sectionModules = import.meta.glob<BuildGuideSectionModule>(
+	"../../content/builds/*/*/metadata.svx",
+	{ eager: true }
+)
+
+const sectionRawModules = import.meta.glob<string>(
+	"../../content/builds/*/*/metadata.svx",
+	{ eager: true, query: "?raw", import: "default" }
+)
 
 const partModules = import.meta.glob<BuildGuidePartModule>(
-	"../../content/builds/*/*/*.svx",
+	["../../content/builds/*/*/*.svx", "!../../content/builds/*/*/metadata.svx"],
 	{ eager: true }
 )
 
 const partRawModules = import.meta.glob<string>(
-	"../../content/builds/*/*/*.svx",
+	["../../content/builds/*/*/*.svx", "!../../content/builds/*/*/metadata.svx"],
 	{ eager: true, query: "?raw", import: "default" }
 )
 
@@ -163,14 +169,15 @@ export type BuildGuideSection = {
 	id: string
 	buildSlug: string
 	title: string
-	description: string
 	order: number
+	body: string
+	component: Component
 	parts: BuildGuidePart[]
 }
 
 const sectionsByBuild = new Map<string, Map<string, BuildGuideSection>>()
 
-for (const [path, metadata] of Object.entries(sectionModules)) {
+for (const [path, module] of Object.entries(sectionModules)) {
 	const buildSlug = getBuildSlug(path)
 	const sectionSlug = getSectionSlug(path)
 
@@ -183,9 +190,10 @@ for (const [path, metadata] of Object.entries(sectionModules)) {
 	buildSections.set(sectionSlug, {
 		id: sectionSlug,
 		buildSlug,
-		title: metadata.title,
-		description: metadata.description,
-		order: metadata.order,
+		title: module.metadata.title,
+		order: module.metadata.order,
+		body: extractGuidePartBody(sectionRawModules[path] ?? ""),
+		component: module.default,
 		parts: []
 	})
 }

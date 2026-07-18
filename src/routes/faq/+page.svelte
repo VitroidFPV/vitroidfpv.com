@@ -105,9 +105,9 @@
 			<section class="flex flex-col gap-4">
 				<div>
 					<h2 class="text-2xl font-bold text-primary-500">{section.title}</h2>
-					{#if section.description}
-						<p class="text-surface-600-400">{section.description}</p>
-					{/if}
+					<div class="prose max-w-none text-surface-600-400">
+						<section.component />
+					</div>
 				</div>
 
 				<Accordion

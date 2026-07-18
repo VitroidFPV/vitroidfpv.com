@@ -73,10 +73,10 @@ export const POST: RequestHandler = async ({ request }) => {
 		await mkdir(sectionDir, { recursive: true })
 	}
 
-	await writeFile(path.join(sectionDir, "metadata.json"), content, "utf-8")
+	await writeFile(path.join(sectionDir, "metadata.svx"), content, "utf-8")
 
 	return json({
 		success: true,
-		path: `src/content/builds/${buildSlug}/${sectionSlug}/metadata.json`
+		path: `src/content/builds/${buildSlug}/${sectionSlug}/metadata.svx`
 	})
 }

@@ -1,13 +1,13 @@
 <script lang="ts">
-	import type { Snippet } from "svelte"
+	import type { Component, Snippet } from "svelte"
 
 	let {
 		title,
-		description,
+		content: Content,
 		actions
 	}: {
 		title: string
-		description: string
+		content?: Component
 		actions?: Snippet
 	} = $props()
 </script>
@@ -17,9 +17,9 @@
 		<h3 class="h-fit font-josefin-sans text-5xl font-bold md:h-18 md:text-6xl">
 			{title}
 		</h3>
-		<div class="prose min-h-[1.5em]">
-			{#if description.trim()}
-				<p>{description}</p>
+		<div class="prose min-h-[1.5em] max-w-none">
+			{#if Content}
+				<Content />
 			{/if}
 		</div>
 	</div>
