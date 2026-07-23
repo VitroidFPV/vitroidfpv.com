@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Dialog, Portal } from "@skeletonlabs/skeleton-svelte"
-	import { toastError, toastSuccess, toastWarning } from "$lib/toaster"
+	import { toastError, toastWarning } from "$lib/toaster"
 	import {
 		ChevronLeft,
 		ChevronRight,
@@ -120,9 +120,6 @@
 			}
 
 			ondownload({ extension: payload.extension, path: payload.path })
-			toastSuccess({
-				title: `Downloaded ${payload.path}. Save the part to use it.`
-			})
 		} catch (reason) {
 			toastError({
 				title:

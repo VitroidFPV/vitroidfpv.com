@@ -369,8 +369,21 @@
 		}
 	}
 
-	function handleImageDownload(result: { extension: string }) {
+	async function handleImageDownload(result: {
+		extension: string
+		path: string
+	}) {
 		imageFormat = parseImageFormat(`image.${result.extension}`)
+
+		if (isNew) {
+			toastSuccess({
+				title: `Downloaded ${result.path}. Save the part to use it.`
+			})
+			return
+		}
+
+		await tick()
+		await savePart()
 	}
 </script>
 
@@ -555,9 +568,9 @@
 
 				<textarea
 					bind:value={tagsInput}
-					rows={4}
+					rows={5}
 					spellcheck="false"
-					class="{controlClass} min-h-0 text-xs"
+					class="{controlClass} tags-input min-h-[1.5em] w-full resize-y text-xs"
 					placeholder="One tag per line. Use label&lt;tooltip&gt; for tooltips."
 				></textarea>
 			</div>
@@ -581,5 +594,9 @@
 		field-sizing: content;
 		width: auto;
 		min-width: 5ch;
+	}
+
+	.tags-input {
+		field-sizing: content;
 	}
 </style>
