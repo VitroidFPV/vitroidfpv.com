@@ -1,0 +1,16 @@
+---
+title: BetaFPV C04
+url: https://betafpv.com/products/c04-fpv-camera
+order: 6
+color: success
+price: $13.99
+image: betafpv-c04.jpg
+tags:
+  - 1200 TVL
+  - 160°
+  - 14mm
+  - "1/3\""
+  - "4:3"
+  - 2.74g
+---
+BetaFPV basically only makes stuff for micro builds, but the C04 camera might be handy if you're really tight on budget. The specs seem pretty decent, but you're locked to 4:3 and have no way to change any settings. You'll also need to source your own 19mm adapter.

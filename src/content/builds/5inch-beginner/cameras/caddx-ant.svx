@@ -1,0 +1,16 @@
+---
+title: Caddx Ant
+url: https://www.caddxfpv.com/products/caddx-ant-analog-camera
+order: 1
+color: success
+price: $17.90
+image: caddx-ant.jpg
+tags:
+  - 1200 TVL
+  - 165°
+  - 14mm
+  - "1/3\""
+  - "16:9/4:3"
+  - 2g
+---
+The Ant cameras are really popular on smaller (2-3.5") builds, but they hold their ground on 5" quads pretty well. With the included 19mm adapter, they can fit into basically any 5" frame here, I carry one or two of them as spares and use them in my basher quads.

@@ -1,0 +1,16 @@
+---
+title: Caddx Ratel 2
+url: https://www.caddxfpv.com/products/ratel-2-1-1-8inch-starlight-sensor-freestyle-fpv-camera
+order: 2
+color: error
+price: $30.99
+image: caddx-ratel-2.jpg
+tags:
+  - 1200 TVL
+  - 165°
+  - 19mm
+  - "1/1.8\""
+  - "16:9/4:3"
+  - 5.9g
+---
+The best looking analog camera IMO. They're available everywhere, and at a decent price compared to higher-end cams. It's said to have a higher-than-average latency... but I haven't noticed anything on mine, it's unlikely you would either on a first build, and for the looks it's probably worth it.

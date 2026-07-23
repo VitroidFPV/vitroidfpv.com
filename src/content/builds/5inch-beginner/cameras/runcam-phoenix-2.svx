@@ -1,0 +1,16 @@
+---
+title: Runcam Phoenix 2
+url: https://shop.runcam.com/runcam-phoenix-2/
+order: 3
+color: error
+price: $29.99
+image: runcam-phoenix-2.jpg
+tags:
+  - 1000 TVL
+  - 155°
+  - 19mm
+  - "1/2\""
+  - "16:9/4:3"
+  - 9g
+---
+Another popular option, some people prefer it over the Ratel 2, I tried both and still prefer the Ratel. That said though, it's a very consistent camera, and I didn't mind the video quality much. If you can't find a Ratel 2, it would be my replacement pick.

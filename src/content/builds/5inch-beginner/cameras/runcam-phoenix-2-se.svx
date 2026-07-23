@@ -1,0 +1,16 @@
+---
+title: Runcam Phoenix 2 SE
+url: https://shop.runcam.com/runcam-phoenix-2-special-edition/
+order: 4
+color: warning
+price: $24.99
+image: runcam-phoenix-2-se.jpg
+tags:
+  - 1000 TVL
+  - 160°
+  - 19mm
+  - "1/2\""
+  - "16:9/4:3"
+  - 8.6g
+---
+The special edition of the Phoenix 2 has an improved CPU, a fancy lens hood (oddly similar to the DJI O3 that came out befor a little before), slightly larger FOV, and a tighter enclosure further preventing water/dust from getting in. All at a lower price than the original.
