@@ -13,4 +13,4 @@ tags:
   - "4:3"
   - 2.74g
 ---
-BetaFPV basically only makes stuff for micro builds, but the C04 camera might be handy if you're really tight on budget. The specs seem pretty decent, but you're locked to 4:3 and have no way to change any settings. You'll also need to source your own 19mm adapter.
+BetaFPV basically only makes stuff for micros, but the C04 camera might be handy if you're really tight on budget. The specs seem pretty decent, but you're locked to 4:3 and have no way to change any settings. You'll also need to source your own 19mm adapter, and watch out for the "older" C04 which was a camera + VTX combo!

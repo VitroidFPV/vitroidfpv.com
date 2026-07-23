@@ -8,7 +8,7 @@ image: foxeer-razer.jpg
 tags:
   - 1200 TVL
   - 150°
-  - "14/19/21mm<Nano/Micro/Mini>"
+  - "14/19mm<Nano/Micro>"
   - "1/3\""
   - "16:9/4:3"
   - 4.5g
