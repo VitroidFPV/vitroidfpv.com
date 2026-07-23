@@ -2,4 +2,6 @@
 title: Video Transmitters
 order: 4
 ---
-Or VTXs in short. Due to how variable the analog video market has become, there'll be quite a lot of them listed here so that you can hopefully find at least one in stock near you. Higher output power = higher range, but it's not 1-1, and output power isn't everything. A cleaner VTX at lower power will likely outrange a noisy VTX that's blasting 2W+
+Or VTXs in short. Due to how variable the analog video market has become, there'll be quite a lot of them listed here so that you can hopefully find at least one in stock near you. Higher output power = higher range, but it's not 1-1, and output power isn't everything. A cleaner VTX at lower power will likely outrange a noisy VTX that's blasting 2W+.
+
+Everything here is analog, since it's still the cheapest and most common video transmission option. But all of the frames and stacks here are digital-ready if you plan on going digital now or in the future. Just skip the analog stuff and you'll be good to go.

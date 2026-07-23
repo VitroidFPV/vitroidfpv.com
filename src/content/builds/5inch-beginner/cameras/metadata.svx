@@ -2,4 +2,6 @@
 title: Cameras
 order: 5
 ---
-Mostly 19mm, some 14mm with a small adapter if you need to save cost.
+All of the frames on this list should fit 19mm cameras, or 14mm ones with a small adapter that's either included, or easily purchased/printed. In simple terms, TVL refers to the camera's resolution, but that's not a clean value when processed down to NTSC/PAL for analog. Look at review and comparison videos to find the camera that looks the best to you.
+
+Everything here is analog, since it's still the cheapest and most common video transmission option. But all of the frames and stacks here are digital-ready if you plan on going digital now or in the future. Just skip the analog stuff and you'll be good to go.

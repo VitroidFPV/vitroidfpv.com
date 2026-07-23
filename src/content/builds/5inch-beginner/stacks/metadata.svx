@@ -3,3 +3,5 @@ title: Stacks
 order: 3
 ---
 Only 30.5x30.5mm mounting, the smaller ones with 20x20 don't perform very well at a budget level. We'll be mostly sticking to STM32 F405 microcontrollers since F722 don't offer much of an advantage while being a bit more expensive, and H743 can go even higher in price.
+
+I only added stacks that use FCs which went through some form of developer testing, and all of the manufacturers work with the Betaflight team directly. As Betaflight rolls out the "Officially Supported" verification for more FCs, I'll be updating this list to include them.
