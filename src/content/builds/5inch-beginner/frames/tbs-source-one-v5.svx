@@ -10,7 +10,7 @@ tags:
   - 4mm Arms
   - "3/2mm Plates<Bottom/Top>"
   - Carbon Cam Cage
-  - 19mm Cams
+  - 14-19mm Cams
   - 20/30.5mm Stacks
   - 20mm VTXs
 ---

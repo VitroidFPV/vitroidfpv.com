@@ -12,7 +12,7 @@ tags:
   - 5.5mm Arms (X)
   - "3/3/2mm Plates<Bottom/Mid/Top>"
   - Aluminum Cam Cage
-  - 14-mm Cams
+  - 14-20mm Cams
   - 20/30.5mm Stacks
   - 20x20 VTXs
 ---
