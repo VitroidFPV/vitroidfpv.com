@@ -57,6 +57,10 @@ const modules = import.meta.glob<BuildSectionModule>(
 	}
 )
 
+export function getBuildSectionByUrl(url: string): BuildSection | undefined {
+	return buildSections.find((build) => build.url === url)
+}
+
 export const buildSections: BuildSection[] = Object.entries(modules)
 	.map(([path, module]) => ({
 		slug: getBuildSlug(path),

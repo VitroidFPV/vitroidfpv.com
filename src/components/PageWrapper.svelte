@@ -6,6 +6,7 @@
 		h1,
 		h2,
 		seoDescription = h2,
+		seoImage,
 		description,
 		children,
 		ghostTitleClass = " md:text-[24rem] text-[12rem]"
@@ -13,6 +14,7 @@
 		h1?: string
 		h2?: string
 		seoDescription?: string
+		seoImage?: string
 		description?: Snippet
 		children?: Snippet
 		ghostTitleClass?: string
@@ -22,6 +24,7 @@
 <Seo
 	title={h1}
 	description={seoDescription}
+	image={seoImage}
 />
 
 <div class="relative flex min-h-screen flex-col gap-16 pb-16 lg:pb-0">

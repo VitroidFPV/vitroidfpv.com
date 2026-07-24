@@ -8,11 +8,13 @@
 	import BuildIntro, { metadata } from "./5inch-beginner-page.svx"
 	import PageWrapper from "$components/PageWrapper.svelte"
 	import { getBuildGuideSections } from "$lib/builds/guide-sections"
+	import { getBuildSectionByUrl } from "$lib/builds/sections"
 	import type { BuildGuidePart } from "$lib/builds/guide-sections"
 	import ListPopup from "$components/BuildGuide/ListPopup.svelte"
 	import { onMount } from "svelte"
 
 	const buildSlug = "5inch-beginner"
+	const buildSection = getBuildSectionByUrl(`/builds/${buildSlug}`)
 	const guideSections = getBuildGuideSections(buildSlug)
 	const guidePartsById = new Map(
 		guideSections.flatMap((section) =>
@@ -147,6 +149,7 @@
 	h1={metadata.title as string}
 	h2={metadata.description as string}
 	seoDescription={metadata.seoDescription as string}
+	seoImage={buildSection?.image}
 >
 	{#snippet description()}
 		<BuildIntro />

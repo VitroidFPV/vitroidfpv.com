@@ -8,16 +8,19 @@
 
 	let {
 		title = SITE_NAME,
-		description = DEFAULT_DESCRIPTION
+		description = DEFAULT_DESCRIPTION,
+		image
 	}: {
 		title?: string
 		description?: string
+		image?: string
 	} = $props()
 
 	let documentTitle = $derived(
 		title === SITE_NAME ? SITE_NAME : `${title} · ${SITE_NAME}`
 	)
 	let canonicalUrl = $derived(new URL(page.url.pathname, SITE_URL).href)
+	let imageUrl = $derived(image ? new URL(image, SITE_URL).href : undefined)
 </script>
 
 <svelte:head>
@@ -79,10 +82,16 @@
 		property="og:url"
 		content={canonicalUrl}
 	/>
+	{#if imageUrl}
+		<meta
+			property="og:image"
+			content={imageUrl}
+		/>
+	{/if}
 
 	<meta
 		name="twitter:card"
-		content="summary"
+		content={imageUrl ? "summary_large_image" : "summary"}
 	/>
 	<meta
 		name="twitter:title"
@@ -92,4 +101,10 @@
 		name="twitter:description"
 		content={description}
 	/>
+	{#if imageUrl}
+		<meta
+			name="twitter:image"
+			content={imageUrl}
+		/>
+	{/if}
 </svelte:head>
