@@ -2,7 +2,7 @@
 	import { page } from "$app/state"
 
 	const SITE_NAME = "VitroidFPV"
-	const SITE_URL = "https://vitroidfpv.com"
+	const SITE_URL = "https://next.vitroidfpv.com"
 	const DEFAULT_DESCRIPTION = "Making FPV easier. One line of code at a time."
 	const THEME_COLOR = "#9AD040"
 
