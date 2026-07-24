@@ -95,7 +95,7 @@
 					>
 				</div>
 				<div
-					class="prose flex-1 text-sm text-surface-950-50 lg:pr-16 lg:text-base 2xl:text-lg"
+					class="prose max-w-[95%] flex-1 text-sm text-surface-950-50 lg:pr-16 lg:text-base 2xl:text-lg"
 				>
 					<Description />
 				</div>

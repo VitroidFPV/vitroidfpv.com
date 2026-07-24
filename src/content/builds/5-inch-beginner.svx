@@ -3,6 +3,8 @@ title: 5" Beginner
 price: "~$250"
 order: 1
 url: /builds/5inch-beginner
+description: Cheap, durable, and easy to put together and repair
+seoDescription: A beginner-friendly 5-inch FPV drone build using affordable, durable parts that are easy to assemble, fly, and repair.
 image: /builds/S1V5.svg
 model: s1v5
 color: primary

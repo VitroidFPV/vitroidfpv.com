@@ -40,3 +40,29 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+
+## Adding a build guide
+
+Build-guide pages share the page shell, shopping list, and development editor in
+`src/components/BuildGuide/BuildGuidePage.svelte`.
+
+1. Add the build card and page metadata to `src/content/builds/<build>.svx`.
+   Include `url`, `description`, and `seoDescription` when the guide is ready to
+   publish.
+2. Add sections under
+   `src/content/builds/<guide-slug>/<section-slug>/metadata.svx` and parts beside
+   each section's metadata file. Put product images in
+   `src/content/builds/<guide-slug>/images`.
+3. Add the route with only the shared page component:
+
+```svelte
+<script lang="ts">
+	import BuildGuidePage from "$components/BuildGuide/BuildGuidePage.svelte"
+</script>
+
+<BuildGuidePage buildSlug="<guide-slug>" />
+```
+
+The guide slug must match the URL segment in the build metadata and the guide's
+content directory. During development, append `?public` to preview the page
+without editing controls.

@@ -15,6 +15,8 @@ export type BuildSectionMetadata = {
 	order: number
 	image: string
 	url?: string
+	description?: string
+	seoDescription?: string
 	useModel?: boolean
 	model?: string
 	color?: string
@@ -34,6 +36,8 @@ export type BuildSection = {
 	order: number
 	image: string
 	url?: string
+	description?: string
+	seoDescription?: string
 	model: BuildModel | null
 	color: BuildColor
 	features: BuildFeature[]
@@ -69,6 +73,8 @@ export const buildSections: BuildSection[] = Object.entries(modules)
 		order: module.metadata.order,
 		image: module.metadata.image,
 		url: module.metadata.url,
+		description: module.metadata.description,
+		seoDescription: module.metadata.seoDescription,
 		model: resolveBuildModel(
 			module.metadata.model,
 			module.metadata.useModel ?? false
