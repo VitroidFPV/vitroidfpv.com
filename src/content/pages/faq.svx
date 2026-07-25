@@ -3,7 +3,7 @@ title: FAQ
 description: Find quick answers to the most frequently asked questions!
 seoDescription: Quick, practical answers to frequently asked FPV questions, from getting started to choosing gear, building, and flying.
 ---
-It's no secret that FPV is not a very easy hobby to get into. There's a lot to learn when you're just starting out, and it can be overwhelming. But time and time again, some questions come up time and time again, so I've compiled a list of the most frequently asked questions here.
+It's no secret that FPV is not a very easy hobby to get into. There's a lot to learn when you're just starting out, and it can be overwhelming. But some questions come up time and time again, so I've compiled a list of the most frequent ones here.
 
 The aim is to provide mostly simple and quick answers, but some questions may be more complex and require a a longer explanation. Those will usually have a short synopsis of the answer, and a link to a detailed guide article.
 
