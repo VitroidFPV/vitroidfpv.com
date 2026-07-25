@@ -1,11 +1,11 @@
 <script lang="ts">
-	import type { BuildModel } from "$lib/builds/models"
+	import type { BuildCatalogModel } from "$lib/build-catalog/models"
 	import { T } from "@threlte/core"
 	import { OrbitControls, useGltf, useDraco } from "@threlte/extras"
 	import { untrack } from "svelte"
 	import { Vector3, type BufferGeometry } from "three"
 
-	let { model }: { model: BuildModel } = $props()
+	let { model }: { model: BuildCatalogModel } = $props()
 
 	const dracoLoader = useDraco()
 	const gltf = useGltf(

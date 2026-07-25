@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BuildGuidePage from "$components/BuildGuide/BuildGuidePage.svelte"
+	import BuildGuidePage from "$components/build-guides/BuildGuidePage.svelte"
 </script>
 
-<BuildGuidePage buildSlug="5inch-beginner" />
+<BuildGuidePage guideSlug="5inch-beginner" />

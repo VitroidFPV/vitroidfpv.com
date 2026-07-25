@@ -1,0 +1,8 @@
+---
+title: 5" Beginner
+subtitle: Cheap, durable, and easy to put together and repair
+seoDescription: A beginner-friendly 5-inch FPV drone build using affordable, durable parts that are easy to assemble, fly, and repair.
+seoImage: /builds/S1V5.svg
+---
+
+Specced out to be easy to assemble, with affordable and accessible parts and electronics that should be easy to solder. This build should be perfect to get you started in the world of FPV.

@@ -1,14 +1,10 @@
 <script lang="ts">
-	import FaqContent, { metadata } from "./tools-page.svx"
-	import PageWrapper from "$components/PageWrapper.svelte"
+	import ContentPage from "$components/content/ContentPage.svelte"
+	import PageContent, { metadata } from "$content/pages/tools.svx"
 </script>
 
-<PageWrapper
-	h1={metadata.title as string}
-	h2={metadata.description as string}
-	seoDescription={metadata.seoDescription as string}
->
-	{#snippet description()}
-		<FaqContent />
-	{/snippet}
-</PageWrapper>
+<ContentPage
+	{metadata}
+	source="src/content/pages/tools.svx"
+	Content={PageContent}
+/>

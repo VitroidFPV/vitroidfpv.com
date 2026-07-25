@@ -3,16 +3,13 @@
 	import { afterNavigate } from "$app/navigation"
 	import { Check, ChevronDownIcon, ClipboardPlus } from "@lucide/svelte"
 	import { Accordion } from "@skeletonlabs/skeleton-svelte"
-	import PageWrapper from "$components/PageWrapper.svelte"
-	import {
-		buildFaqQuestionUrl,
-		faqSections,
-		findFaqQuestionById
-	} from "$lib/faq/sections"
+	import ContentPage from "$components/content/ContentPage.svelte"
+	import { faqSections, findFaqQuestionById } from "$lib/faq/content"
+	import { getFaqQuestionUrl } from "$lib/faq/links"
 	import type { HTMLAttributes } from "svelte/elements"
 	import { onMount, tick } from "svelte"
 	import { slide } from "svelte/transition"
-	import FaqIntro, { metadata } from "./faq-page.svx"
+	import PageContent, { metadata } from "$content/pages/faq.svx"
 
 	const SLIDE_DURATION = 150
 
@@ -89,15 +86,11 @@
 	}
 </script>
 
-<PageWrapper
-	h1={metadata.title as string}
-	h2={metadata.description as string}
-	seoDescription={metadata.seoDescription as string}
+<ContentPage
+	{metadata}
+	source="src/content/pages/faq.svx"
+	Content={PageContent}
 >
-	{#snippet description()}
-		<FaqIntro />
-	{/snippet}
-
 	<div
 		class="relative z-0 flex flex-col gap-16 px-2 pb-16 [overflow-anchor:none] md:pr-8 md:pl-8"
 	>
@@ -106,7 +99,7 @@
 				<div>
 					<h2 class="text-2xl font-bold text-primary-500">{section.title}</h2>
 					<div class="prose max-w-none text-surface-600-400">
-						<section.component />
+						<section.Content />
 					</div>
 				</div>
 
@@ -150,7 +143,7 @@
 										event.stopPropagation()
 										copyToClipboard(
 											question.id,
-											buildFaqQuestionUrl(page.url, question.id)
+											getFaqQuestionUrl(page.url, question.id)
 										)
 									}}
 								>
@@ -173,7 +166,7 @@
 											class="md prose max-w-none"
 											transition:slide={{ duration: SLIDE_DURATION }}
 										>
-											<question.component />
+											<question.Content />
 										</div>
 									{/if}
 								{/snippet}
@@ -184,4 +177,4 @@
 			</section>
 		{/each}
 	</div>
-</PageWrapper>
+</ContentPage>

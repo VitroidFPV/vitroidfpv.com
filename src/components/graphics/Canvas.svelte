@@ -1,12 +1,14 @@
 <script lang="ts">
 	import { browser } from "$app/environment"
-	import type { BuildModel } from "$lib/builds/models"
+	import type { BuildCatalogModel } from "$lib/build-catalog/models"
 	import { Canvas } from "@threlte/core"
 
 	import BuildModelScene from "./BuildModel.svelte"
 
-	let { class: className, model }: { class?: string; model: BuildModel } =
-		$props()
+	let {
+		class: className,
+		model
+	}: { class?: string; model: BuildCatalogModel } = $props()
 </script>
 
 <div class={className}>

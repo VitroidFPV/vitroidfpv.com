@@ -1,23 +1,19 @@
 import { dev } from "$app/environment"
+import {
+	assertBuildGuideSlug,
+	directoryExists,
+	getBuildGuideSectionDirectory,
+	getBuildGuideSectionFile
+} from "$lib/server/build-guides/files"
 import { error, json } from "@sveltejs/kit"
-import { access, mkdir, rename, writeFile } from "node:fs/promises"
-import path from "node:path"
+import { mkdir, rename, writeFile } from "node:fs/promises"
 import type { RequestHandler } from "./$types"
 
-const slugPattern = /^[a-z0-9-]+$/
-
-function assertSafeSegment(value: string, label: string) {
-	if (!slugPattern.test(value)) {
-		error(400, `Invalid ${label}`)
-	}
-}
-
-async function directoryExists(dirPath: string): Promise<boolean> {
+function validateSlug(value: string, label: string): string {
 	try {
-		await access(dirPath)
-		return true
-	} catch {
-		return false
+		return assertBuildGuideSlug(value, label)
+	} catch (reason) {
+		error(400, reason instanceof Error ? reason.message : `Invalid ${label}`)
 	}
 }
 
@@ -26,35 +22,28 @@ export const POST: RequestHandler = async ({ request }) => {
 		error(404, "Not found")
 	}
 
-	const { buildSlug, sectionSlug, content, previousSectionSlug } =
+	const { guideSlug, sectionSlug, content, previousSectionSlug } =
 		(await request.json()) as {
-			buildSlug?: string
+			guideSlug?: string
 			sectionSlug?: string
 			content?: string
 			previousSectionSlug?: string
 		}
 
-	if (!buildSlug || !sectionSlug || !content) {
+	if (!guideSlug || !sectionSlug || !content) {
 		error(400, "Missing required fields")
 	}
 
-	assertSafeSegment(buildSlug, "build slug")
-	assertSafeSegment(sectionSlug, "section slug")
-
-	const contentRoot = path.join(process.cwd(), "src", "content", "builds")
-	const sectionDir = path.join(contentRoot, buildSlug, sectionSlug)
-
-	if (!sectionDir.startsWith(contentRoot)) {
-		error(400, "Invalid path")
-	}
+	validateSlug(guideSlug, "guide slug")
+	validateSlug(sectionSlug, "section slug")
+	const sectionDir = getBuildGuideSectionDirectory(guideSlug, sectionSlug)
 
 	if (previousSectionSlug) {
-		assertSafeSegment(previousSectionSlug, "previous section slug")
-
-		const previousDir = path.join(contentRoot, buildSlug, previousSectionSlug)
-		if (!previousDir.startsWith(contentRoot)) {
-			error(400, "Invalid path")
-		}
+		validateSlug(previousSectionSlug, "previous section slug")
+		const previousDir = getBuildGuideSectionDirectory(
+			guideSlug,
+			previousSectionSlug
+		)
 
 		if (previousSectionSlug !== sectionSlug) {
 			if (!(await directoryExists(previousDir))) {
@@ -73,10 +62,14 @@ export const POST: RequestHandler = async ({ request }) => {
 		await mkdir(sectionDir, { recursive: true })
 	}
 
-	await writeFile(path.join(sectionDir, "metadata.svx"), content, "utf-8")
+	await writeFile(
+		getBuildGuideSectionFile(guideSlug, sectionSlug),
+		content,
+		"utf-8"
+	)
 
 	return json({
 		success: true,
-		path: `src/content/builds/${buildSlug}/${sectionSlug}/metadata.svx`
+		path: `src/content/builds/guides/${guideSlug}/sections/${sectionSlug}/_section.svx`
 	})
 }

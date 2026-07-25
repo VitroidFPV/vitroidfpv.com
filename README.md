@@ -20,13 +20,14 @@ bun x sv@0.16.1 create --template minimal --types ts --add prettier eslint tailw
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Install dependencies and start the development server with Bun:
 
 ```sh
-npm run dev
+bun install
+bun run dev
 
 # or start the server and open the app in a new browser tab
-npm run dev -- --open
+bun run dev -- --open
 ```
 
 ## Building
@@ -34,35 +35,16 @@ npm run dev -- --open
 To create a production version of your app:
 
 ```sh
-npm run build
+bun run build
 ```
 
-You can preview the production build with `npm run preview`.
+You can preview the production build with `bun run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
 
-## Adding a build guide
+## Developer documentation
 
-Build-guide pages share the page shell, shopping list, and development editor in
-`src/components/BuildGuide/BuildGuidePage.svelte`.
-
-1. Add the build card and page metadata to `src/content/builds/<build>.svx`.
-   Include `url`, `description`, and `seoDescription` when the guide is ready to
-   publish.
-2. Add sections under
-   `src/content/builds/<guide-slug>/<section-slug>/metadata.svx` and parts beside
-   each section's metadata file. Put product images in
-   `src/content/builds/<guide-slug>/images`.
-3. Add the route with only the shared page component:
-
-```svelte
-<script lang="ts">
-	import BuildGuidePage from "$components/BuildGuide/BuildGuidePage.svelte"
-</script>
-
-<BuildGuidePage buildSlug="<guide-slug>" />
-```
-
-The guide slug must match the URL segment in the build metadata and the guide's
-content directory. During development, append `?public` to preview the page
-without editing controls.
+- [Content authoring](docs/content-authoring.md): add pages, home sections, FAQ
+  entries, build cards, complete guides, parts, and images.
+- [Content architecture](docs/content-architecture.md): understand loader
+  ownership, validation, identifiers, and the editor/server boundary.

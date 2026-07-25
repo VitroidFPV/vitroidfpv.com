@@ -6,7 +6,7 @@
 	import TextScroller from "$components/TextScroller.svelte"
 	import type { Attachment } from "svelte/attachments"
 	import { fly } from "svelte/transition"
-	import { homeSections } from "$lib/home/sections"
+	import { homeSections } from "$lib/home/content"
 	import Seo from "$components/Seo.svelte"
 
 	const isMobile = new MediaQuery("(hover: none) and (pointer: coarse)", true)
@@ -351,7 +351,7 @@
 					{@attach trackSection(section.title)}
 					class="home-section max-w-[calc(100%-2.25rem)] space-y-4 pb-64 text-sm font-extralight md:max-w-[calc(100%-7rem)] md:space-y-10 md:text-3xl"
 				>
-					<section.component {age} />
+					<section.Content {age} />
 				</section>
 			{/each}
 			<div class="h-1/2"></div>

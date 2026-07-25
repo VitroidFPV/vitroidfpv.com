@@ -1,31 +1,19 @@
 <script lang="ts">
-	import FaqContent, { metadata } from "./builds-page.svx"
-	import ListShowcase from "$components/ListShowcase.svelte"
-	import PageWrapper from "$components/PageWrapper.svelte"
-	import { buildSections } from "$lib/builds/sections"
+	import BuildCatalogCard from "$components/build-catalog/BuildCatalogCard.svelte"
+	import ContentPage from "$components/content/ContentPage.svelte"
+	import PageContent, { metadata } from "$content/pages/builds.svx"
+	import { buildCatalogEntries } from "$lib/build-catalog/content"
 </script>
 
-<PageWrapper
-	h1={metadata.title as string}
-	h2={metadata.description as string}
-	seoDescription={metadata.seoDescription as string}
+<ContentPage
+	{metadata}
+	source="src/content/pages/builds.svx"
+	Content={PageContent}
 	ghostTitleClass=" md:text-[20rem] text-[12rem]"
 >
-	{#snippet description()}
-		<FaqContent />
-	{/snippet}
 	<div class="flex flex-col gap-8 px-2 pb-8 lg:px-4 xl:px-8">
-		{#each buildSections as build (build.slug)}
-			<ListShowcase
-				title={build.title}
-				price={build.price}
-				image={build.image}
-				url={build.url}
-				model={build.model}
-				color={build.color}
-				features={build.features}
-				Description={build.component}
-			/>
+		{#each buildCatalogEntries as entry (entry.slug)}
+			<BuildCatalogCard {entry} />
 		{/each}
 	</div>
-</PageWrapper>
+</ContentPage>

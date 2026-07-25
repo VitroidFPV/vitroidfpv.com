@@ -1,14 +1,17 @@
 import { dev } from "$app/environment"
+import {
+	assertBuildGuideSlug,
+	getBuildGuidePartFile
+} from "$lib/server/build-guides/files"
 import { error, json } from "@sveltejs/kit"
-import { writeFile, unlink } from "node:fs/promises"
-import path from "node:path"
+import { unlink, writeFile } from "node:fs/promises"
 import type { RequestHandler } from "./$types"
 
-const slugPattern = /^[a-z0-9-]+$/
-
-function assertSafeSegment(value: string, label: string) {
-	if (!slugPattern.test(value)) {
-		error(400, `Invalid ${label}`)
+function validateSlug(value: string, label: string): string {
+	try {
+		return assertBuildGuideSlug(value, label)
+	} catch (reason) {
+		error(400, reason instanceof Error ? reason.message : `Invalid ${label}`)
 	}
 }
 
@@ -18,73 +21,52 @@ export const POST: RequestHandler = async ({ request }) => {
 	}
 
 	const {
-		buildSlug,
+		guideSlug,
 		sectionSlug,
-		slug,
+		partSlug,
 		content,
-		previousSlug,
+		previousPartSlug,
 		previousSectionSlug
 	} = (await request.json()) as {
-		buildSlug?: string
+		guideSlug?: string
 		sectionSlug?: string
-		slug?: string
+		partSlug?: string
 		content?: string
-		previousSlug?: string
+		previousPartSlug?: string
 		previousSectionSlug?: string
 	}
 
-	if (!buildSlug || !sectionSlug || !slug || !content) {
+	if (!guideSlug || !sectionSlug || !partSlug || !content) {
 		error(400, "Missing required fields")
 	}
 
-	assertSafeSegment(buildSlug, "build slug")
-	assertSafeSegment(sectionSlug, "section slug")
-	assertSafeSegment(slug, "part slug")
-
-	const filePath = path.join(
-		process.cwd(),
-		"src",
-		"content",
-		"builds",
-		buildSlug,
-		sectionSlug,
-		`${slug}.svx`
-	)
-
-	const contentRoot = path.join(process.cwd(), "src", "content", "builds")
-	if (!filePath.startsWith(contentRoot)) {
-		error(400, "Invalid path")
-	}
+	validateSlug(guideSlug, "guide slug")
+	validateSlug(sectionSlug, "section slug")
+	validateSlug(partSlug, "part slug")
+	const filePath = getBuildGuidePartFile(guideSlug, sectionSlug, partSlug)
 
 	await writeFile(filePath, content, "utf-8")
 
 	const shouldDeletePrevious =
-		previousSlug &&
-		slugPattern.test(previousSlug) &&
-		(previousSlug !== slug ||
-			(previousSectionSlug &&
-				previousSectionSlug !== sectionSlug &&
-				slugPattern.test(previousSectionSlug)))
+		previousPartSlug &&
+		(previousPartSlug !== partSlug ||
+			(previousSectionSlug && previousSectionSlug !== sectionSlug))
 
 	if (shouldDeletePrevious) {
 		const deleteSectionSlug = previousSectionSlug ?? sectionSlug
-		const previousPath = path.join(
-			process.cwd(),
-			"src",
-			"content",
-			"builds",
-			buildSlug,
+		validateSlug(deleteSectionSlug, "previous section slug")
+		validateSlug(previousPartSlug, "previous part slug")
+		const previousPath = getBuildGuidePartFile(
+			guideSlug,
 			deleteSectionSlug,
-			`${previousSlug}.svx`
+			previousPartSlug
 		)
-
-		if (previousPath.startsWith(contentRoot) && previousPath !== filePath) {
+		if (previousPath !== filePath)
 			await unlink(previousPath).catch(() => undefined)
-		}
 	}
 
 	return json({
 		success: true,
-		path: `src/content/builds/${buildSlug}/${sectionSlug}/${slug}.svx`
+		path: `src/content/builds/guides/${guideSlug}/sections/${sectionSlug}/${partSlug}.svx`
 	})
 }

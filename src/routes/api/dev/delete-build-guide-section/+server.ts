@@ -1,14 +1,18 @@
 import { dev } from "$app/environment"
+import {
+	assertBuildGuideSlug,
+	directoryExists,
+	getBuildGuideSectionDirectory
+} from "$lib/server/build-guides/files"
 import { error, json } from "@sveltejs/kit"
-import { access, rm } from "node:fs/promises"
-import path from "node:path"
+import { rm } from "node:fs/promises"
 import type { RequestHandler } from "./$types"
 
-const slugPattern = /^[a-z0-9-]+$/
-
-function assertSafeSegment(value: string, label: string) {
-	if (!slugPattern.test(value)) {
-		error(400, `Invalid ${label}`)
+function validateSlug(value: string, label: string): string {
+	try {
+		return assertBuildGuideSlug(value, label)
+	} catch (reason) {
+		error(400, reason instanceof Error ? reason.message : `Invalid ${label}`)
 	}
 }
 
@@ -17,28 +21,19 @@ export const POST: RequestHandler = async ({ request }) => {
 		error(404, "Not found")
 	}
 
-	const { buildSlug, sectionSlug } = (await request.json()) as {
-		buildSlug?: string
+	const { guideSlug, sectionSlug } = (await request.json()) as {
+		guideSlug?: string
 		sectionSlug?: string
 	}
 
-	if (!buildSlug || !sectionSlug) {
+	if (!guideSlug || !sectionSlug) {
 		error(400, "Missing required fields")
 	}
 
-	assertSafeSegment(buildSlug, "build slug")
-	assertSafeSegment(sectionSlug, "section slug")
-
-	const contentRoot = path.join(process.cwd(), "src", "content", "builds")
-	const sectionDir = path.join(contentRoot, buildSlug, sectionSlug)
-
-	if (!sectionDir.startsWith(contentRoot)) {
-		error(400, "Invalid path")
-	}
-
-	try {
-		await access(sectionDir)
-	} catch {
+	validateSlug(guideSlug, "guide slug")
+	validateSlug(sectionSlug, "section slug")
+	const sectionDir = getBuildGuideSectionDirectory(guideSlug, sectionSlug)
+	if (!(await directoryExists(sectionDir))) {
 		error(404, "Section not found")
 	}
 
@@ -46,6 +41,6 @@ export const POST: RequestHandler = async ({ request }) => {
 
 	return json({
 		success: true,
-		path: `src/content/builds/${buildSlug}/${sectionSlug}`
+		path: `src/content/builds/guides/${guideSlug}/sections/${sectionSlug}`
 	})
 }
