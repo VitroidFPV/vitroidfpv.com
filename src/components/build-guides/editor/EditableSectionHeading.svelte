@@ -46,7 +46,9 @@
 	)
 
 	const fieldClass =
-		"w-full rounded-md bg-surface-500/10 p-0! break-all ring-4 ring-surface-500/10"
+		"w-full rounded-md bg-surface-500/10 p-0! ring-4 ring-surface-500/10"
+
+	const descriptionFieldClass = `${fieldClass} break-normal`
 
 	function nextOrder(): number {
 		return sections.reduce((max, entry) => Math.max(max, entry.order), 0) + 1
@@ -207,7 +209,7 @@
 		</SectionHeadingView>
 	</div>
 {:else}
-	<div class="flex flex-col gap-2">
+	<div class="flex flex-col gap-2 pt-8 md:pt-16">
 		<div class="flex items-start justify-between gap-2">
 			<div class="flex min-w-0 flex-1 flex-col gap-2">
 				<input
@@ -222,7 +224,7 @@
 					bind:value={body}
 					rows={1}
 					spellcheck="false"
-					class="{fieldClass} body-field prose mb-2 min-h-[1.5em] w-full resize-none text-surface-900-100"
+					class="{descriptionFieldClass} body-field prose min-h-[1.5em] w-full max-w-[100ch] resize-none text-surface-900-100"
 					placeholder="Section content (SVX)"></textarea>
 			</div>
 

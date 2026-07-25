@@ -17,7 +17,7 @@
 		<h3 class="h-fit font-josefin-sans text-5xl font-bold md:h-18 md:text-6xl">
 			{title}
 		</h3>
-		<div class="prose min-h-[1.5em] max-w-none">
+		<div class="prose min-h-[1.5em] max-w-[100ch]">
 			{#if Content}
 				<Content />
 			{/if}
