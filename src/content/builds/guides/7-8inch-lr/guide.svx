@@ -1,0 +1,10 @@
+---
+title: 7-8" LR
+subtitle: Mountain diving without the wingsuit and danger.
+color: error
+seoDescription: A long range FPV drone build that can easily fly with large batteries and action cameras. Long flight time and range to go exploring, get cinematic footage, or dive off cliffs.
+seoImage: /builds/mario8.png
+---
+
+Made to carry an action camera and large 6s 2p/3p batteries, this build is perfect for long range flights, mountain diving action, and steady cinematic footage.
+

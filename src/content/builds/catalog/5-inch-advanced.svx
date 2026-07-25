@@ -2,7 +2,7 @@
 title: 5" Advanced
 price: "~$350"
 order: 2
-image: /builds/S1V5.svg
+href: /builds/5inch-advanced
 model: flipmode
 color: warning
 specs:
@@ -23,4 +23,4 @@ specs:
     icon: signal
 ---
 
-High performance electronics and the occasional speciality frame make this build perfect for reliable recording situations, surviving hardcore bando bashing, and getting the most out of one quad.
+High performance electronics and the occasional speciality frame make this build perfect for reliable recording needs, surviving hardcore bando bashing, and getting the most out of one quad.

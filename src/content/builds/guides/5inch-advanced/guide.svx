@@ -1,0 +1,9 @@
+---
+title: 5" Advanced
+subtitle: No limits, no compromises, with a price to match
+color: warning
+seoDescription: An advanced 5inch FPV drone build using high performance electronics and frames, no limits on performance and price.
+seoImage: /builds/flipmode.png
+---
+
+High performance electronics and the occasional speciality frame make this build perfect for reliable recording needs, surviving hardcore bando bashing, and getting the most out of one quad.
