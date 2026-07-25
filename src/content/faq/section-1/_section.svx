@@ -1,5 +1,0 @@
----
-title: Section 1
-order: 1
----
-Section 1 description

@@ -1,0 +1,10 @@
+---
+title: What are some good sims?
+order: 4
+---
+There's a ton of different sims out there, some better than most, some free, but most paid.
+
+- [Velocidrone](https://www.velocidrone.com/) (~$22.5) - The best physics out of everything. May not be the prettiest, but it's the closest to real flight.
+- [Liftoff](https://store.steampowered.com/app/410340/Liftoff_FPV_Drone_Racing/) ($20) - Decent graphics, decent physics, decent starting guide, and it's on Steam. It doesn't excel at anything, but it's pretty good all-around.
+- [Uncrashed](https://store.steampowered.com/app/1682970/Uncrashed__FPV_Drone_Simulator/) ($13) - Considered by many to be a more modern alternative to Liftoff. The graphics are better, and they have more detailed maps. Also on Steam.
+- [Orqa FPV SkyDive](https://store.steampowered.com/app/1278060/FPV_SkyDive__FPV_Drone_Simulator/) (Free!) - There are a couple of other free sims out there, but this one is likely the best. By far the best physics and graphics out of all the free options.

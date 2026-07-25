@@ -1,0 +1,10 @@
+---
+title: Where to buy FPV stuff?
+order: 3
+---
+
+First of all, skip Amazon or any large "basic" store. If they have FPV gear, it'll be overpriced at best, and fake at worst. There are many good FPV-specific stores, which you choose depends on your location and preferences, there's probably more than you'd think.
+
+- US - [PyroDrone](https://pyrodrone.com/) (CA), [GetFPV](https://www.getfpv.com/) (FL), [RaceDayQuads](https://www.racedayquads.com/) (FL), and [Wrekd](https://wrekd.com/) (FL) for almost everything, then there's also [NewBeeDrone](https://newbeedrone.com/) (CA), [Tiny Whoop](https://www.tinywhoop.com/) (CO), and [WeBleedFPV](https://webleedfpv.com/) (NY) for tinywhoops and small quads specifically.
+- Europe - [Rotorama](https://www.rotorama.cz/) (CZ), [HobbyDrone](https://www.hobbydrone.cz/) (CZ), [Drone FPV Racer](https://www.drone-fpv-racer.com/en/) (FR), [n-Factory](https://n-factory.de/) (DE), and [FPV24](https://www.fpv24.com/en/) (DE) are the biggest ones that I can think of. You can find a lot more on [fpvmarket.eu](https://fpvmarket.eu/).
+- UK - [HobbyRC](https://www.hobbyrc.co.uk/), [UnmannedTechShop](https://www.unmannedtechshop.co.uk/), and [YourFPV](https://yourfpv.co.uk/) should cover almost everything. Consider [Supafly FPV](https://supaflyfpv.com/) as well, they're a UK-based frame manufacturer, they offer parts closely tailored to their frames as well.

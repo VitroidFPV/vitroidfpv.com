@@ -161,12 +161,17 @@
 									}
 								)}
 									{#if !attributes.hidden}
-										<div
-											{...attributes}
-											class="md prose max-w-none"
-											transition:slide={{ duration: SLIDE_DURATION }}
-										>
-											<question.Content />
+										<div class="flex h-fit min-w-0 gap-0 pl-2">
+											<div
+												class="w-1 shrink-0 self-stretch rounded-full bg-primary-500 md:my-1"
+											></div>
+											<div
+												{...attributes}
+												class="md prose max-w-none"
+												transition:slide={{ duration: SLIDE_DURATION }}
+											>
+												<question.Content />
+											</div>
 										</div>
 									{/if}
 								{/snippet}

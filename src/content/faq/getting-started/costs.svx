@@ -1,0 +1,12 @@
+---
+title: How much does it cost to get into FPV?
+order: 1
+---
+The price range for getting into the hobby is quite wide, anywhere from ~$50 to $1000+.
+
+- $60-$150 - You can get a proper hobby-grade remote that will be useful if/when you decide to go further. With a good remote and a simulator, you can get a feel for the controls and see if you'd enjoy FPV. You'll find specific recommendations further down the page!
+- $300-400 - Cheapest you can reasonably get flying for real. This will get you a tinywhoop to fly indoors, a proper radio, and some budget goggles that can last you a while. Skip pretty much all of the "everything in one box" kits, they don't last.
+- $500-600 - Cheapest you can get a 5" setup if you want to carry an action camera - same radio and goggles as before, but the quad will obviously be more expensive. Alternatively, you can go 3.5", save a bit of money, and put it towards better gear.
+- ~$700 - This is where I would aim for with a solid analog setup. You'd get good slimline goggles, a good charging setup and tools, and a proper quad.
+- ~$800 - Pretty much the top end for analog as it gets. Spending more than this on analog won't get you anything more, and it makes more sense to go digital beyond this point.
+- $1000+ - About the most you can reasonably spend. High-end digital FPV systems, and high end radio equipment.
