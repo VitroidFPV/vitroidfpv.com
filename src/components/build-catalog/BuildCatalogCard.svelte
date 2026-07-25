@@ -122,7 +122,7 @@
 						model={entry.model}
 						class="size-full min-h-0 max-w-full cursor-grab select-none lg:mb-0"
 					/>
-				{:else}
+				{:else if entry.image}
 					<img
 						src={entry.image}
 						alt={entry.title}

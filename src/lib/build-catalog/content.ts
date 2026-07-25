@@ -49,7 +49,7 @@ export const buildCatalogEntries: BuildCatalogEntry[] = Object.entries(modules)
 			title: readRequiredString(metadata, "title", source),
 			price: readRequiredString(metadata, "price", source),
 			order: readRequiredNumber(metadata, "order", source),
-			image: readRequiredString(metadata, "image", source),
+			image: readOptionalString(metadata, "image", source),
 			href: readOptionalString(metadata, "href", source),
 			description: readOptionalString(metadata, "description", source),
 			seoDescription: readOptionalString(metadata, "seoDescription", source),

@@ -14,7 +14,7 @@ export type BuildCatalogEntry = {
 	title: string
 	price: string
 	order: number
-	image: string
+	image?: string
 	href?: string
 	description?: string
 	seoDescription?: string
