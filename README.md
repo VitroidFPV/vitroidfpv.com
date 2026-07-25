@@ -1,22 +1,18 @@
-# sv
+# Vitroid FPV
+Your quick source of all FPV info, in a convenient place.
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+This site is a constantly evolving project of mine, started around June 2021 as a small thing for me to learn a bit of HTML, a year later completely rewritten in Svelte and Tailwind, to make it modular, and allow others to contribute easily, and then rewritten again with 5 more years of experience.
 
-## Creating a project
+If you want to request content, please make a [Content Suggestion issue](https://github.com/VitroidFPV/VitroidFPV/issues/new/choose), or make a [direct content request](https://ko-fi.com/vitroid/commissions).
 
-If you're seeing this, you've probably already done this step. Congrats!
+## What can you find here?
 
-```sh
-# create a new project
-npx sv create my-app
-```
+Right now, there are four main pages available:
 
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-bun x sv@0.16.1 create --template minimal --types ts --add prettier eslint tailwindcss="plugins:typography" sveltekit-adapter="adapter:auto" mdsvex mcp="ide:cursor+setup:local" --install bun ./
-```
+- ❓ [FAQ](https://next.vitroidfpv.com/faq) - Quick answers to frequently asked questions in the world of FPV
+- 🔧 [Builds](https://next.vitroidfpv.com/builds) - All different kinds of (not only) quadcopters, from beginner to advanced
+- 🛠️ [Equipment](https://next.vitroidfpv.com/equipment) - All the things you will need to get flying - Batteries and chargers, video and radio equipment, and tools to put it all together
+- 📰 [Articles](https://next.vitroidfpv.com/articles) - Reviews, FPV news, guides/tutorials, and more in something that's definitely not a blog
 
 ## Developing
 
