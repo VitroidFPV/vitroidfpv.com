@@ -6,4 +6,12 @@ seoDescription: A beginner-friendly 5-inch FPV drone build using affordable, dur
 seoImage: /builds/s1v5.png
 ---
 
+<script lang="ts">
+	import { Image, Plus } from "@lucide/svelte";
+</script>
+
 Specced out to be easy to assemble, with affordable and accessible parts and electronics that should be easy to solder. This build should be perfect to get you started in the world of FPV.
+
+You can view the product photos by hovering or clicking over the <Image class="inline-block size-[1.25em] text-primary-500" aria-hidden="true" /> (image) icon, and add a product to a shopping list by clicking the <Plus class="inline-block size-[1.25em] text-primary-500" aria-hidden="true" /> (plus) icon.
+
+All of the parts here link to the manufacturer's website and use the manufacturer's suggested retail price (MSRP) whenever possible, it's up to you to find them at your local store. The prices are listed in USD, before any taxes, shipping, or tariffs... good luck to our US pilots.
