@@ -13,7 +13,11 @@ export type GuidePartFormData = {
 }
 
 function yamlQuote(value: string): string {
-	if (/[:#{}[\],&*?|>!%@`"'\\]/.test(value) || value.startsWith(" ") || value.endsWith(" ")) {
+	if (
+		/[:#{}[\],&*?|>!%@`"'\\]/.test(value) ||
+		value.startsWith(" ") ||
+		value.endsWith(" ")
+	) {
 		return `"${value.replace(/\\/g, "\\\\").replace(/"/g, '\\"')}"`
 	}
 

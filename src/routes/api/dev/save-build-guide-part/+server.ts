@@ -17,15 +17,21 @@ export const POST: RequestHandler = async ({ request }) => {
 		error(404, "Not found")
 	}
 
-	const { buildSlug, sectionSlug, slug, content, previousSlug, previousSectionSlug } =
-		(await request.json()) as {
-			buildSlug?: string
-			sectionSlug?: string
-			slug?: string
-			content?: string
-			previousSlug?: string
-			previousSectionSlug?: string
-		}
+	const {
+		buildSlug,
+		sectionSlug,
+		slug,
+		content,
+		previousSlug,
+		previousSectionSlug
+	} = (await request.json()) as {
+		buildSlug?: string
+		sectionSlug?: string
+		slug?: string
+		content?: string
+		previousSlug?: string
+		previousSectionSlug?: string
+	}
 
 	if (!buildSlug || !sectionSlug || !slug || !content) {
 		error(400, "Missing required fields")

@@ -17,15 +17,11 @@
 		"source.fixAll.eslint": "always"
 	},
 	"eslint.useFlatConfig": true,
-	"eslint.validate": [
-		"javascript",
-		"typescript",
-		"svelte"
-	],
+	"eslint.validate": ["javascript", "typescript", "svelte"],
 	"editor.formatOnSaveMode": "file",
 	"emmet.includeLanguages": {
 		"svelte": "html"
-	},
+	}
 	// "prettier.useEditorConfig": false,
 	// "prettier.requireConfig": true
 }
