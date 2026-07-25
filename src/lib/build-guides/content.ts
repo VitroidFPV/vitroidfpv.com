@@ -8,7 +8,7 @@ import {
 	type CompiledSvxModule
 } from "$lib/content/metadata"
 import { parseBuildGuidePartTag } from "./tags"
-import { resolveBuildGuidePartAccent } from "./theme"
+import { resolveBuildGuideAccent, resolveBuildGuidePartAccent } from "./theme"
 import type { BuildGuide, BuildGuidePart, BuildGuideSection } from "./types"
 import { getBuildGuidePartId } from "./types"
 
@@ -68,6 +68,10 @@ for (const [source, module] of Object.entries(guideModules)) {
 		slug,
 		title: readRequiredString(metadata, "title", source),
 		subtitle: readRequiredString(metadata, "subtitle", source),
+		accent: resolveBuildGuideAccent(
+			readOptionalString(metadata, "color", source),
+			source
+		),
 		seoDescription: readOptionalString(metadata, "seoDescription", source),
 		seoImage: readOptionalString(metadata, "seoImage", source),
 		Intro: module.default,

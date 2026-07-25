@@ -8,12 +8,14 @@
 	import SectionHeading from "$components/build-guides/SectionHeading.svelte"
 	import PageWrapper from "$components/PageWrapper.svelte"
 	import { getBuildGuide } from "$lib/build-guides/content"
+	import { buildGuideAccentValues } from "$lib/build-guides/theme"
 	import type { BuildGuidePart } from "$lib/build-guides/types"
 	import { onMount } from "svelte"
 
 	let { guideSlug }: { guideSlug: string } = $props()
 
 	const guide = $derived(getBuildGuide(guideSlug))
+	const guideAccent = $derived(buildGuideAccentValues[guide.accent])
 	const GuideIntro = $derived(guide.Intro)
 	const guideSections = $derived(guide.sections)
 	const guidePartsById = $derived(
@@ -152,6 +154,8 @@
 	h2={guide.subtitle}
 	seoDescription={guide.seoDescription}
 	seoImage={guide.seoImage}
+	primaryColor={guideAccent.primary500}
+	themeColor={guideAccent.themeColor}
 >
 	{#snippet description()}
 		<GuideIntro />

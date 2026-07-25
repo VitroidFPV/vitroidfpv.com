@@ -1,3 +1,45 @@
+export const buildGuideColors = ["success", "warning", "error"] as const
+
+export type BuildGuideColor = (typeof buildGuideColors)[number]
+export type BuildGuideAccent = "primary" | BuildGuideColor
+
+export const buildGuideAccentValues: Record<
+	BuildGuideAccent,
+	{
+		primary500?: string
+		themeColor: string
+	}
+> = {
+	primary: {
+		themeColor: "#9AD040"
+	},
+	success: {
+		primary500: "var(--color-success-500)",
+		themeColor: "#9AD040"
+	},
+	warning: {
+		primary500: "var(--color-warning-500)",
+		themeColor: "#FA9633"
+	},
+	error: {
+		primary500: "var(--color-error-500)",
+		themeColor: "#DD3854"
+	}
+}
+
+export function resolveBuildGuideAccent(
+	value: string | undefined,
+	source: string
+): BuildGuideAccent {
+	if (value === undefined) return "primary"
+	if (buildGuideColors.includes(value as BuildGuideColor)) {
+		return value as BuildGuideColor
+	}
+	throw new Error(
+		`Invalid metadata in "${source}": unknown build guide color "${value}"`
+	)
+}
+
 export const buildGuidePartAccentClasses = {
 	success: {
 		text: "text-success-500",

@@ -7,6 +7,8 @@
 		h2,
 		seoDescription = h2,
 		seoImage,
+		primaryColor,
+		themeColor,
 		description,
 		children,
 		ghostTitleClass = " md:text-[24rem] text-[12rem]"
@@ -15,6 +17,8 @@
 		h2?: string
 		seoDescription?: string
 		seoImage?: string
+		primaryColor?: string
+		themeColor?: string
 		description?: Snippet
 		children?: Snippet
 		ghostTitleClass?: string
@@ -25,9 +29,13 @@
 	title={h1}
 	description={seoDescription}
 	image={seoImage}
+	{themeColor}
 />
 
-<div class="relative flex min-h-screen flex-col gap-16 pb-16 lg:pb-0">
+<div
+	class="relative flex min-h-screen flex-col gap-16 pb-16 lg:pb-0"
+	style:--color-primary-500={primaryColor}
+>
 	<div
 		aria-hidden="true"
 		class="page-background pointer-events-none absolute inset-x-0 top-0 -z-10 h-screen overflow-hidden mask-[linear-gradient(to_bottom,transparent,black_20%,black_50%,transparent)]"

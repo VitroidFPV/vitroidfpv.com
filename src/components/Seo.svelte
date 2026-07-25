@@ -4,16 +4,18 @@
 	const SITE_NAME = "VitroidFPV"
 	const SITE_URL = "https://next.vitroidfpv.com"
 	const DEFAULT_DESCRIPTION = "Making FPV easier. One line of code at a time."
-	const THEME_COLOR = "#9AD040"
+	const DEFAULT_THEME_COLOR = "#9AD040"
 
 	let {
 		title = SITE_NAME,
 		description = DEFAULT_DESCRIPTION,
-		image
+		image,
+		themeColor = DEFAULT_THEME_COLOR
 	}: {
 		title?: string
 		description?: string
 		image?: string
+		themeColor?: string
 	} = $props()
 
 	let documentTitle = $derived(
@@ -39,11 +41,11 @@
 	/>
 	<meta
 		name="theme-color"
-		content={THEME_COLOR}
+		content={themeColor}
 	/>
 	<meta
 		name="msapplication-TileColor"
-		content={THEME_COLOR}
+		content={themeColor}
 	/>
 	<meta
 		name="application-name"

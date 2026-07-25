@@ -1,6 +1,6 @@
 import type { Picture } from "@sveltejs/enhanced-img"
 import type { Component } from "svelte"
-import type { BuildGuidePartAccent } from "./theme"
+import type { BuildGuideAccent, BuildGuidePartAccent } from "./theme"
 
 export type BuildGuidePartTag = {
 	label: string
@@ -37,6 +37,7 @@ export type BuildGuide = {
 	slug: string
 	title: string
 	subtitle: string
+	accent: BuildGuideAccent
 	seoDescription?: string
 	seoImage?: string
 	Intro: Component
