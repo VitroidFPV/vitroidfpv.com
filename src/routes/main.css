@@ -53,10 +53,16 @@
 }
 
 @utility prose {
-	@apply max-w-none text-sm text-surface-950-50 prose-neutral md:text-base prose-p:mb-2 prose-p:not-first:mt-2 prose-p:last:mb-0 prose-a:text-primary-500 prose-a:no-underline prose-a:hover:underline;
+	@apply max-w-none text-sm text-surface-950-50 prose-neutral md:text-base prose-p:mb-2 prose-p:not-first:mt-2 prose-p:last:mb-0 prose-a:text-primary-500 prose-a:no-underline prose-a:hover:underline prose-strong:text-surface-950-50 prose-img:rounded-2xl;
 }
 
 @layer components {
+	.faq {
+		img {
+			@apply max-h-96 w-auto;
+		}
+	}
+
 	[id^="accordion:"] {
 		[id*="trigger"] {
 			@apply hover:bg-primary-500/10 hover:text-primary-500;

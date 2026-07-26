@@ -98,7 +98,7 @@
 			<section class="flex flex-col gap-4">
 				<div>
 					<h2 class="text-2xl font-bold text-primary-500">{section.title}</h2>
-					<div class="prose max-w-none text-surface-600-400">
+					<div class="faq prose max-w-none text-surface-600-400">
 						<section.Content />
 					</div>
 				</div>
@@ -167,7 +167,7 @@
 											></div>
 											<div
 												{...attributes}
-												class="md prose max-w-none"
+												class="md faq prose max-w-none"
 												transition:slide={{ duration: SLIDE_DURATION }}
 											>
 												<question.Content />
