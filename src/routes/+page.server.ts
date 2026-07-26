@@ -1,4 +1,5 @@
 import type { PageServerLoad } from "./$types"
+import { formatElapsedTime } from "$lib/format-elapsed-time"
 
 const repositoryApiUrl =
 	"https://api.github.com/repos/VitroidFPV/vitroidfpv.com"
@@ -71,18 +72,6 @@ function getCommitCount(linkHeader: string | null, fallback: number) {
 	return fallback
 }
 
-function formatRelativeDate(value: string) {
-	const elapsedSeconds = Math.max(
-		0,
-		Math.floor((Date.now() - new Date(value).getTime()) / 1000)
-	)
-
-	if (elapsedSeconds < 60) return `${elapsedSeconds}s ago`
-	if (elapsedSeconds < 3600) return `${Math.floor(elapsedSeconds / 60)}m ago`
-	if (elapsedSeconds < 86400) return `${Math.floor(elapsedSeconds / 3600)}h ago`
-	return `${Math.floor(elapsedSeconds / 86400)}d ago`
-}
-
 function formatAbsoluteDate(value: string) {
 	const parts = Object.fromEntries(
 		dateFormatter
@@ -99,7 +88,7 @@ function formatStats(stats: RepositoryStats) {
 		latestCommit: {
 			...stats.latestCommit,
 			absoluteDate: formatAbsoluteDate(stats.latestCommit.committedAt),
-			relativeDate: formatRelativeDate(stats.latestCommit.committedAt)
+			relativeDate: formatElapsedTime(stats.latestCommit.committedAt)
 		},
 		latestYear: new Date(stats.latestCommit.committedAt).getUTCFullYear()
 	}

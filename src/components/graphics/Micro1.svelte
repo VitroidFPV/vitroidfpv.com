@@ -1,5 +1,7 @@
 <script lang="ts">
 	import VitroidFPVQR from "$components/graphics/VitroidFPVQR.svelte"
+	import { formatElapsedTime } from "$lib/format-elapsed-time"
+	import { onMount } from "svelte"
 	import {
 		GitCommitHorizontal,
 		Hash,
@@ -16,6 +18,7 @@
 		createdYear: number
 		latestCommit: {
 			absoluteDate: string
+			committedAt: string
 			message: string
 			relativeDate: string
 			sha: string
@@ -30,6 +33,25 @@
 	}
 
 	let { stats }: Props = $props()
+	let currentTime = $state<number | null>(null)
+
+	let relativeDate = $derived.by(() => {
+		if (!stats) return "—"
+		if (currentTime === null) return stats.latestCommit.relativeDate
+
+		return formatElapsedTime(stats.latestCommit.committedAt, currentTime)
+	})
+
+	onMount(() => {
+		const updateCurrentTime = () => {
+			currentTime = Date.now()
+		}
+
+		updateCurrentTime()
+		const interval = window.setInterval(updateCurrentTime, 1000)
+
+		return () => window.clearInterval(interval)
+	})
 </script>
 
 <div
@@ -86,7 +108,7 @@
 				<div class="flex items-center gap-1">
 					<GitCommitHorizontal class="size-4" />
 					<ClockFading class="size-4" />
-					{stats?.latestCommit.relativeDate ?? "—"}
+					{relativeDate}
 				</div>
 				{stats ? `(${stats.latestCommit.absoluteDate})` : ""}
 			</div>
