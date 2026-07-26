@@ -8,6 +8,10 @@
 	import { fly } from "svelte/transition"
 	import { homeSections } from "$lib/home/content"
 	import Seo from "$components/Seo.svelte"
+	import Micro1 from "$components/graphics/Micro1.svelte"
+	import type { PageProps } from "./$types"
+
+	let { data }: PageProps = $props()
 
 	const isMobile = new MediaQuery("(hover: none) and (pointer: coarse)", true)
 
@@ -279,6 +283,7 @@
 			onframe={(stats) => (frameStats = stats)}
 		/>
 	{/if}
+	<Micro1 stats={data.repositoryStats} />
 	<div
 		class="pointer-events-none absolute bottom-0 left-0 flex h-full w-full items-end"
 	>
