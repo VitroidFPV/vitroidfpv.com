@@ -2,4 +2,4 @@
 title: Getting Started
 order: 1
 ---
-Getting started description
+Questions that usually come up before you even consider buying anything FPV-related.

@@ -1,0 +1,46 @@
+---
+title: How to solder?
+order: 4
+---
+
+<script lang="ts">
+	import Image from "$components/content/Image.svelte"
+	import AdafruitSolderCard from "/src/content/faq/images/adafruit-solder-card.png"
+	import AdafruitSolderPhoto from "/src/content/faq/images/adafruit-solder-photo.jpg"
+</script>
+
+Very good question, not very easy to answer without a wall of text. But we can go over the basics here.
+
+You'll need to practice. Get a dedicated practice board, or a sacrificial dead PCB to practice on. You don't want to turn your nice and working electronics into very expensive practice boards. You'll also need good equipment. The good stuff does not cost more than a whole stack, buying cheap just means you'll be buying twice.
+
+Equipped with good equipment and something to practice on, you're ready to solder:
+
+1. Set the iron to 320-420°C. The range is quite wide, lower temps are fine for smaller joints, for larger ones you can increase your chances of success with higher temps.
+2. When the iron reaches the set temperature, clean the tip by stabbing the brass wool a couple of times. Then melt a small amount of solder on the tip, that helps with thermal transfer.
+3. Apply a small amount of flux to the pad or joint you're working on. Good solder should have a flux/rosin core, you really don't need much.
+4. Make sure the thing you're soldering won't move around. You can use helping hands, or screw it down into the frame.
+
+Now you're done with the preparation, you can actually start soldering:
+
+1. Touch the soldering iron tip to the pad or joint you're working on. Small pads heat up almost instantly, larger ones take a bit longer. Just how long will depend on many variables, but you'll get a feel for it with practice.
+2. When the pad is hot enough, apply solder to it. Don't melt it against the tip itself hoping it will flow down, push it between the tip and the hot pad. On larger pads, it might not want to stick or to not cover the entire pad, you can move the tip across the surface of the whole pad to spread it out.
+3. Don't cook it for too long, small pads should be done in a second at most, larger ones can take a few. The tinned pad should have a round and shiny, almost mirror-like surface. If it doesn't after ~5-10 seconds, something isn't right. You should stop, and ask others for advice.
+4. Tin the wire ends. Strip off a length of insulation just a bit longer than the pad, and prepare them by twisting the wire strands together. There are different ways to tin them, I like putting the tip under the wire, and melting the solder on top of it. Larger wires might need more angles to get solder to properly flow through them, but again - don't overdo it. Too much heat and solder for too long will wick up through the wire and make it stiff and hard to work with.
+5. Put the tinned wire on the tinned pad. Then put the tip on top of both, and press down. *Again*, small stuff should melt together almost instantly, motor pads can take 1-3 seconds, and battery pads can take even longer - you can help speed it up by melting the solder on the pad right before you put the wire on top of it. Stop what you're doing if it's not looking right after ~10-15 seconds, and ask others to check what's going on and give you advice.
+
+Aaaaand we're still left with a wall of text. But now that you hopefully have good results on a practice board, you can try on the real thing. If it doesn't look right, don't panic. Take a step back, and don't be afraid to ask for help. Lastly, here are some good reference images and helpful resources to help you out:
+
+<Image
+	images={[
+		{
+			src: AdafruitSolderCard,
+			description: "Adafruit Solder Card",
+			url: "https://blog.adafruit.com/2016/12/26/new-reference-card-soldering-101/",
+		},
+		{
+			src: AdafruitSolderPhoto,
+			description: "Adafruit Common Soldering Problems",
+			url: "https://learn.adafruit.com/adafruit-guide-excellent-soldering/common-problems",
+		}
+	]}
+/>

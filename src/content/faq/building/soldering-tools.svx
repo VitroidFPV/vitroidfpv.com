@@ -1,0 +1,12 @@
+---
+title: What do I need for soldering?
+order: 3
+---
+- Soldering Iron - There'll be a more in-depth list on the [tools](/tools) page. But in short - Pine64 [Pinecil V2](https://pine64.com/product/pinecil-smart-mini-portable-soldering-iron/) ($26), Sequre [SI012 Pro](https://sequremall.com/products/sequre-si012-pro-intelligent-oled-electric-soldering-iron-with-adjustable-sensitivity-and-built-in-buzzer-for-t12-ts-soldering-iron-tips-supports-pd3-0-qc2-0-dc5525-power-supply) ($25), or FNIRSI [HS-02](https://www.fnirsi.com/products/hs-02?variant=45192934654170) ($36).
+- Solder - 60/40 or 63/37 leaded solder is the best option for most applications. No, you will not get lead poisoning unless you eat it crayon style. Lead-free solder is harder to use for beginners, but leaded can be harder to find. Stick to Kester or MG Chemicals, TBS also sells their own branded solder, it should be the easiest to find, though at a slight premium.
+- Flux - I'd recommend no-clean flux in a small syringe. There are tubs and pens, but IMO a syringe is the smoothest one to use. Many generic options are available, if you want something more specific, ask around. TBS also has flux, same thing as the soler with availability and cost.
+- Brass Wool - Used to clean the soldering iron tip during use. Skip the wet sponges, and anything that claims to be brass, but looks more orange than yellow - more than likely it's just copper, which will mess up the tip. No product links, you can find generic ones everywhere.
+- Silicone Mat - Protects your work surface from the soldering iron, heated boards, and stray solder blobs. Many of them will also have some organizational features, like trays or dividers, so they can double as a general working mat.
+- Helping Hands - Great for holding lighter components during soldering. I'd avoid the big bulky ones, larger electronics are better held in place inside the frame. Anything generic will do just fine for the small stuff.
+- Smoke Stopper - When you're done soldering, you could just connect the battery directly, but if you didn't do a good job, or missed something during the build, it could very quickly go up in smoke or flames. A smoke stopper is a simple device that cuts off power to anything that's connected to it if it pulls too much current.
+- Multimeter - Not necessary to get right from the start, but they're very useful for testing and troubleshooting when you know what you're looking for.

@@ -1,0 +1,15 @@
+---
+title: What materials and supplies should I get?
+order: 2
+---
+All of the consumables, tiny parts, materials, and accessories that you should have on hand.
+
+- Screws - M2 and M3 button head hex socket screws are basically all you'll need for anything from 2-7" and beyond. I'd recommend getting a set of many different lengths, they usually come in handy sectioned boxes too. Go for steel ones, they're a good balance of strength and cost.
+- Tapes - Yes, plural. Electrical tape for basic tasks, Kapton tape for high-heat applications (holding down boards for example), fabric tape for motor wires specifically, and thick double-sided tape to hold down all sorts of stuff.
+- Wires - 28-30AWG for regular applications, then the rest will vary depending on your build. 5" builds will generally use 12AWG for the battery wires and 20AWG for the motor wires. Make sure to get stranded, silicone insulated wires. Plastic insulated wires are a pain to solder, solid core wires are an absolute no-go.
+- Wire Connectors - Almost all FCs nowadays use JST-SH connectors. You can find expensive pre-made connector harness kits, but really you should just get a pre-crimped kit with separate connector housings - then you can make your own as needed.
+- Heatshrink - Wire insulation for builds and repairs and protecting small components. Get an assorted kit of different sizes, similar to the screws.
+- Prop Nuts/Screws
+  - 5" builds will almost always have a single M5 shaft, and a matching M5 nut. Specifically, an M5 nylock flange nut, ideally with an anti-slip bottom. The only ones that I've found so far that fit all those criteria are [these](https://www.aliexpress.com/item/32554579907.html) (on AliExpress)... everything else has a smooth bottom or isn't nylock. Or maybe I'm just too picky.
+  - ~3" builds will use a "T-Mount" system, with a short and smooth M2 shaft, and two M2 7mm long screws to hold the prop in place. Most screw kits I've seen only come with 6 and 8mm lengths, you'll likely need to get 7mm ones on their own.
+- Zipties - 2-4mm wide ones, useful for basically everything. I know people whose builds are like 90% ziptie.

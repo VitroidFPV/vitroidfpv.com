@@ -1,0 +1,7 @@
+---
+title: What do I need for assembly?
+order: 1
+---
+- Hex drivers - 1.5mm, 2mm and 2.5mm should be all you need. Tinywhoops will also use small phillips screws, but you probably have a few usable screwdrivers for those already.
+- 8mm Socket Wrench - For M5 prop nuts. You can get away with those small pocket prop tools, but they're kinda awkward to use, I much prefer a proper ratchet.
+- Screw/Parts Tray - Keep the small bits from rolling around when you're working.
