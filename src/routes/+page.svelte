@@ -265,7 +265,7 @@
 	</div>
 {/if}
 
-<div class="relative h-screen max-w-screen">
+<div class="relative h-[75svh] max-w-screen md:h-screen">
 	{#if !isMobile.current}
 		<WorleyCanvas
 			{scale}
@@ -285,9 +285,9 @@
 	{/if}
 	<Micro1 stats={data.repositoryStats} />
 	<div
-		class="pointer-events-none absolute bottom-0 left-0 flex h-full w-full items-end"
+		class="pointer-events-none bottom-0 left-0 flex h-full w-full items-end md:absolute"
 	>
-		<div class="flex flex-col gap-4 pb-56 pl-2 md:pl-12">
+		<div class="flex flex-col gap-4 pb-16 pl-2 md:pb-56 md:pl-12">
 			<h1
 				class="bold-text-effect -mb-8 -ml-2 font-caveat text-[4rem] font-bold text-primary-500 text-shadow-[0px_0px_32px_var(--color-primary-500)] text-shadow-primary-500/10 md:-mb-12 md:-ml-8 md:text-[6rem] lg:text-[12rem]"
 			>
@@ -314,7 +314,7 @@
 	</div>
 </div>
 
-<div class="px-2 pt-64 md:px-8">
+<div class="px-2 pt-16 md:px-8 md:pt-64">
 	<div class="flex">
 		<h2
 			class="sticky top-8 mr-1 -ml-2 w-[1.15em] shrink-0 self-start overflow-hidden text-end font-geist-mono text-4xl font-black text-primary-500 [writing-mode:sideways-lr] md:mr-6 md:ml-0 md:text-[6rem]"
