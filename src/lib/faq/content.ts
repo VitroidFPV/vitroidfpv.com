@@ -4,12 +4,14 @@ import {
 	readRequiredString,
 	type CompiledSvxModule
 } from "$lib/content/metadata"
+import { createFaqQuestionDescription } from "$lib/faq/description"
 import type { Component } from "svelte"
 
 export type FaqQuestion = {
 	id: string
 	slug: string
 	title: string
+	description: string
 	order: number
 	Content: Component
 }
@@ -44,6 +46,11 @@ const sectionModules = import.meta.glob<CompiledSvxModule>(
 const questionModules = import.meta.glob<CompiledSvxModule>(
 	["../../content/faq/*/*.svx", "!../../content/faq/*/_section.svx"],
 	{ eager: true }
+)
+
+const questionSources = import.meta.glob<string>(
+	["../../content/faq/*/*.svx", "!../../content/faq/*/_section.svx"],
+	{ eager: true, query: "?raw", import: "default" }
 )
 
 const sectionsBySlug = new Map<string, FaqSection>()
@@ -82,11 +89,17 @@ for (const [source, module] of Object.entries(questionModules)) {
 	}
 	questionIds.add(id)
 
+	const questionSource = questionSources[source]
+	if (typeof questionSource !== "string") {
+		throw new Error(`Could not read FAQ question content from "${source}"`)
+	}
+
 	const metadata = readMetadataRecord(module.metadata, source)
 	section.questions.push({
 		id,
 		slug,
 		title: readRequiredString(metadata, "title", source),
+		description: createFaqQuestionDescription(questionSource),
 		order: readRequiredNumber(metadata, "order", source),
 		Content: module.default
 	})

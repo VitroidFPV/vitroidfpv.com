@@ -5,7 +5,9 @@
 	let {
 		h1,
 		h2,
+		seoTitle = h1,
 		seoDescription = h2,
+		seoPath,
 		seoImage,
 		primaryColor,
 		themeColor,
@@ -15,7 +17,9 @@
 	}: {
 		h1?: string
 		h2?: string
+		seoTitle?: string
 		seoDescription?: string
+		seoPath?: string
 		seoImage?: string
 		primaryColor?: string
 		themeColor?: string
@@ -26,8 +30,9 @@
 </script>
 
 <Seo
-	title={h1}
+	title={seoTitle}
 	description={seoDescription}
+	path={seoPath}
 	image={seoImage}
 	{themeColor}
 />

@@ -9,11 +9,13 @@
 	let {
 		title = SITE_NAME,
 		description = DEFAULT_DESCRIPTION,
+		path,
 		image,
 		themeColor = DEFAULT_THEME_COLOR
 	}: {
 		title?: string
 		description?: string
+		path?: string
 		image?: string
 		themeColor?: string
 	} = $props()
@@ -21,7 +23,7 @@
 	let documentTitle = $derived(
 		title === SITE_NAME ? SITE_NAME : `${title} · ${SITE_NAME}`
 	)
-	let canonicalUrl = $derived(new URL(page.url.pathname, SITE_URL).href)
+	let canonicalUrl = $derived(new URL(path ?? page.url.pathname, SITE_URL).href)
 	let imageUrl = $derived(image ? new URL(image, SITE_URL).href : undefined)
 </script>
 

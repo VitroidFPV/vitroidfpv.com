@@ -8,12 +8,18 @@
 		source,
 		Content,
 		ghostTitleClass,
+		seoTitle,
+		seoDescription,
+		seoPath,
 		children
 	}: {
 		metadata: unknown
 		source: string
 		Content: Component
 		ghostTitleClass?: string
+		seoTitle?: string
+		seoDescription?: string
+		seoPath?: string
 		children?: Snippet
 	} = $props()
 
@@ -23,7 +29,9 @@
 <PageWrapper
 	h1={pageMetadata.title}
 	h2={pageMetadata.description}
-	seoDescription={pageMetadata.seoDescription}
+	seoTitle={seoTitle ?? pageMetadata.title}
+	seoDescription={seoDescription ?? pageMetadata.seoDescription}
+	{seoPath}
 	{ghostTitleClass}
 >
 	{#snippet description()}

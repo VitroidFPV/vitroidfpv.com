@@ -5,7 +5,11 @@
 	import { Accordion } from "@skeletonlabs/skeleton-svelte"
 	import ContentPage from "$components/content/ContentPage.svelte"
 	import { faqSections, findFaqQuestionById } from "$lib/faq/content"
-	import { getFaqQuestionUrl } from "$lib/faq/links"
+	import {
+		FAQ_QUESTION_QUERY_PARAM,
+		getFaqQuestionIdFromUrl,
+		getFaqQuestionUrl
+	} from "$lib/faq/links"
 	import type { HTMLAttributes } from "svelte/elements"
 	import { onMount, tick } from "svelte"
 	import { slide } from "svelte/transition"
@@ -17,9 +21,19 @@
 	let copyTimeout: ReturnType<typeof setTimeout> | undefined
 	let openBySection = $state<Record<string, string[]>>({})
 	let handledDeepLink = $state<string | null>(null)
+	const selectedFaqQuestion = $derived(
+		findFaqQuestionById(getFaqQuestionIdFromUrl(page.url) ?? "")
+	)
+	const selectedFaqPath = $derived(
+		selectedFaqQuestion
+			? `${page.url.pathname}?${FAQ_QUESTION_QUERY_PARAM}=${encodeURIComponent(
+					selectedFaqQuestion.question.id
+				)}`
+			: undefined
+	)
 
 	async function openQuestionFromUrl() {
-		const questionId = page.url.hash.slice(1)
+		const questionId = getFaqQuestionIdFromUrl(page.url)
 		if (!questionId) {
 			handledDeepLink = null
 			return
@@ -28,7 +42,10 @@
 		if (handledDeepLink === questionId) return
 
 		const match = findFaqQuestionById(questionId)
-		if (!match) return
+		if (!match) {
+			handledDeepLink = null
+			return
+		}
 
 		handledDeepLink = questionId
 
@@ -59,11 +76,17 @@
 	}
 
 	onMount(() => {
+		const previousScrollRestoration = history.scrollRestoration
 		if ("scrollRestoration" in history) {
 			history.scrollRestoration = "manual"
 		}
 
 		void openQuestionFromUrl()
+
+		return () => {
+			clearTimeout(copyTimeout)
+			history.scrollRestoration = previousScrollRestoration
+		}
 	})
 
 	afterNavigate(() => {
@@ -90,6 +113,9 @@
 	{metadata}
 	source="src/content/pages/faq.svx"
 	Content={PageContent}
+	seoTitle={selectedFaqQuestion?.question.title}
+	seoDescription={selectedFaqQuestion?.question.description}
+	seoPath={selectedFaqPath}
 >
 	<div
 		class="relative z-0 flex flex-col gap-16 px-2 pb-16 [overflow-anchor:none] md:pr-8 md:pl-8"
