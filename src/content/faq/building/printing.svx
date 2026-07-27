@@ -1,0 +1,9 @@
+---
+title: What can I print for my drones, and what materials to use?
+order: 7
+---
+Printing entire frames or props is generally not a good idea as seen above. But that doesn't mean that FPV is completely devoid of printable stuff - the two expensive tech hobbies do have a pretty large overlap.
+
+Most of what we use is printed out of TPU, specifically 95A shore hardness. Not a material that casual printers usually deal with, but it's perfect for FPV. Mounts for electronics and other peripherals, protection for the carbon fiber ends, motors, and the insides that aren't protected by the frame. Or entire custom canopies and mounting bodies.
+
+PLA and PETG have smaller uses given their rigidity. Protective guards for goggles and controllers, cases, custom tools, and more. Even on a drone they have some uses, like 100% solid skids for the bottom of the frame if you want to try sliding around on the ground.

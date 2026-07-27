@@ -1,0 +1,11 @@
+---
+title: Can I 3D print my own frame?
+order: 5
+---
+You can... but it's generally not a good idea.
+
+If you want something functional and reliable, skip 3D printing entirely, and just get a pre-made carbon fiber frame - look at the [5" Beginner Build](/builds/5inch-beginner) for some good options. It's not worth the hassle and potential cost when it performs rapid unscheduled disassembly mid-flight.
+
+If you're looking to experiment with 3D printing and drone tech, you probably could. But keep in mind that layered extruded plastic has nowhere near the same structural integrity as carbon fiber. All the time I see people printing frames as if they were still meant to be cut out of much stronger sheets of carbon fiber - you have an entire new spatial dimension to work with, use it! Engineering filaments are almost mandatory, PLA and PETG won't cut it.
+
+But even then, I'd recommend starting with a nice carbon frame so that you can learn how everything works before you start adding your own variables. If a printed frame starts to misbehave, you'll have no idea where to look to fix it.

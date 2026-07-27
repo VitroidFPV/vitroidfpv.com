@@ -1,0 +1,7 @@
+---
+title: Can I 3D print my own propellers?
+order: 6
+---
+No.
+
+Unless your goal is to create a planar shrapnel launcher. Then maybe.
