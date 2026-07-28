@@ -72,7 +72,12 @@
 			document.activeElement.blur()
 		}
 
-		document.getElementById(questionId)?.scrollIntoView()
+		document.getElementById(questionId)?.scrollIntoView({
+			behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+				? "auto"
+				: "smooth",
+			block: "start"
+		})
 	}
 
 	onMount(() => {
