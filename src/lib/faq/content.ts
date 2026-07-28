@@ -5,6 +5,13 @@ import {
 	type CompiledSvxModule
 } from "$lib/content/metadata"
 import { createFaqQuestionDescription } from "$lib/faq/description"
+import {
+	createSearchDocument,
+	faqQuestionSearchUrl,
+	faqSearchDocumentId
+} from "$lib/search/document"
+import { svxToPlainText } from "$lib/search/svx"
+import type { SearchDocument } from "$lib/search/types"
 import type { Component } from "svelte"
 
 export type FaqQuestion = {
@@ -72,6 +79,7 @@ for (const [source, module] of Object.entries(sectionModules)) {
 }
 
 const questionIds = new Set<string>()
+const searchDocuments: SearchDocument[] = []
 
 for (const [source, module] of Object.entries(questionModules)) {
 	const sectionSlug = getSectionSlug(source)
@@ -95,14 +103,28 @@ for (const [source, module] of Object.entries(questionModules)) {
 	}
 
 	const metadata = readMetadataRecord(module.metadata, source)
+	const title = readRequiredString(metadata, "title", source)
+	const description = createFaqQuestionDescription(questionSource)
 	section.questions.push({
 		id,
 		slug,
-		title: readRequiredString(metadata, "title", source),
-		description: createFaqQuestionDescription(questionSource),
+		title,
+		description,
 		order: readRequiredNumber(metadata, "order", source),
 		Content: module.default
 	})
+	searchDocuments.push(
+		createSearchDocument({
+			id: faqSearchDocumentId(sectionSlug, slug),
+			title,
+			description,
+			body: svxToPlainText(questionSource),
+			keywords: `${section.title} ${sectionSlug.replaceAll("-", " ")}`,
+			section: section.title,
+			url: faqQuestionSearchUrl(id),
+			collection: "faq"
+		})
+	)
 }
 
 export const faqSections: FaqSection[] = Array.from(sectionsBySlug.values())
@@ -111,6 +133,8 @@ export const faqSections: FaqSection[] = Array.from(sectionsBySlug.values())
 		questions: [...section.questions].sort((a, b) => a.order - b.order)
 	}))
 	.sort((a, b) => a.order - b.order)
+
+export const faqSearchDocuments = searchDocuments
 
 export function findFaqQuestionById(questionId: string) {
 	for (const section of faqSections) {

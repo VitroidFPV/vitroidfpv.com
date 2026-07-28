@@ -11,6 +11,13 @@ import { resolveBuildCatalogIcon } from "./icons"
 import { resolveBuildCatalogModel } from "./models"
 import { resolveBuildCatalogAccent } from "./theme"
 import type { BuildCatalogEntry, BuildCatalogSpec } from "./types"
+import {
+	buildCatalogSearchDocumentId,
+	buildCatalogSearchUrl,
+	createSearchDocument
+} from "$lib/search/document"
+import { svxToPlainText } from "$lib/search/svx"
+import type { SearchDocument } from "$lib/search/types"
 
 function getSlug(source: string): string {
 	const match = source.match(/\/([^/]+)\.svx$/)
@@ -24,7 +31,13 @@ const modules = import.meta.glob<CompiledSvxModule>(
 	{ eager: true }
 )
 
-export const buildCatalogEntries: BuildCatalogEntry[] = Object.entries(modules)
+const sources = import.meta.glob<string>("../../content/builds/catalog/*.svx", {
+	eager: true,
+	query: "?raw",
+	import: "default"
+})
+
+const records = Object.entries(modules)
 	.map(([source, module]) => {
 		const metadata = readMetadataRecord(module.metadata, source)
 		const specs: BuildCatalogSpec[] = readRequiredArray(
@@ -44,7 +57,7 @@ export const buildCatalogEntries: BuildCatalogEntry[] = Object.entries(modules)
 			}
 		})
 
-		return {
+		const entry: BuildCatalogEntry = {
 			slug: getSlug(source),
 			title: readRequiredString(metadata, "title", source),
 			price: readRequiredString(metadata, "price", source),
@@ -65,5 +78,37 @@ export const buildCatalogEntries: BuildCatalogEntry[] = Object.entries(modules)
 			specs,
 			Summary: module.default
 		}
+
+		const rawSource = sources[source]
+		if (typeof rawSource !== "string") {
+			throw new Error(`Could not read build catalog content from "${source}"`)
+		}
+
+		const searchDocument = createSearchDocument({
+			id: buildCatalogSearchDocumentId(entry.slug),
+			title: entry.title,
+			description: entry.seoDescription ?? entry.description ?? "",
+			body: svxToPlainText(rawSource),
+			keywords: [
+				entry.price,
+				entry.description,
+				...entry.specs.flatMap((spec) => [spec.title, spec.description])
+			]
+				.filter(Boolean)
+				.join(" "),
+			section: "Builds",
+			url: buildCatalogSearchUrl(entry.slug),
+			collection: "build"
+		})
+
+		return { entry, searchDocument }
 	})
-	.sort((a, b) => a.order - b.order)
+	.sort((a, b) => a.entry.order - b.entry.order)
+
+export const buildCatalogEntries: BuildCatalogEntry[] = records.map(
+	({ entry }) => entry
+)
+
+export const buildCatalogSearchDocuments: SearchDocument[] = records.map(
+	({ searchDocument }) => searchDocument
+)

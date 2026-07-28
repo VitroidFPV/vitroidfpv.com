@@ -50,6 +50,7 @@
 		"@threlte/core": "^8.5.16",
 		"@threlte/extras": "^9.21.0",
 		"@types/three": "^0.185.0",
+		"minisearch": "^7.2.0",
 		"three": "^0.185.1"
 	},
 	"optionalDependencies": {

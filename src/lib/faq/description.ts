@@ -1,3 +1,5 @@
+import { svxToPlainText } from "../search/svx"
+
 const MAX_DESCRIPTION_LENGTH = 320
 
 function truncateAtWord(value: string, maxLength: number): string {
@@ -11,18 +13,5 @@ function truncateAtWord(value: string, maxLength: number): string {
 }
 
 export function createFaqQuestionDescription(source: string): string {
-	const plainText = source
-		.replace(/^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)/, "")
-		.replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, " ")
-		.replace(/<[A-Z][\w.]*\b[\s\S]*?\/>/g, " ")
-		.replace(/!\[([^\]]*)\]\([^)]+\)/g, "$1")
-		.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
-		.replace(/`([^`]+)`/g, "$1")
-		.replace(/<[^>]+>/g, " ")
-		.replace(/^\s*(?:[-+*]|\d+\.)\s+/gm, "")
-		.replace(/[*_~>#]/g, "")
-		.replace(/\s+/g, " ")
-		.trim()
-
-	return truncateAtWord(plainText, MAX_DESCRIPTION_LENGTH)
+	return truncateAtWord(svxToPlainText(source), MAX_DESCRIPTION_LENGTH)
 }

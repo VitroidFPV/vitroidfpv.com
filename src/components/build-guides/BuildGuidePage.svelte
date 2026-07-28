@@ -174,7 +174,10 @@
 
 	<div class="flex flex-col gap-8 px-2 pb-8 lg:px-4 xl:px-8">
 		{#each guideSections as section (section.id)}
-			<div>
+			<div
+				id={section.id}
+				class="scroll-mt-8"
+			>
 				{#if showDevUi}
 					<EditableSectionHeading
 						{guideSlug}
@@ -187,20 +190,25 @@
 			</div>
 			<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
 				{#each section.parts as part (part.id)}
-					{#if showDevUi}
-						<EditablePartCard
-							{guideSlug}
-							sections={guideSections}
-							{section}
-							{part}
-							onaddtolist={() => addPart(part)}
-						/>
-					{:else}
-						<PartCard
-							{part}
-							onaddtolist={() => addPart(part)}
-						/>
-					{/if}
+					<div
+						id={part.id}
+						class="scroll-mt-8"
+					>
+						{#if showDevUi}
+							<EditablePartCard
+								{guideSlug}
+								sections={guideSections}
+								{section}
+								{part}
+								onaddtolist={() => addPart(part)}
+							/>
+						{:else}
+							<PartCard
+								{part}
+								onaddtolist={() => addPart(part)}
+							/>
+						{/if}
+					</div>
 				{/each}
 				{#if showDevUi}
 					<EditablePartCard

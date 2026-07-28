@@ -13,7 +13,12 @@
 >
 	<div class="flex flex-col gap-8 px-2 pb-8 lg:px-4 xl:px-8">
 		{#each buildCatalogEntries as entry (entry.slug)}
-			<BuildCatalogCard {entry} />
+			<div
+				id={entry.slug}
+				class="scroll-mt-8"
+			>
+				<BuildCatalogCard {entry} />
+			</div>
 		{/each}
 	</div>
 </ContentPage>
