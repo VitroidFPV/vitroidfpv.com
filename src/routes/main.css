@@ -8,6 +8,11 @@
 
 @custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
 
+.search-input::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+	appearance: none;
+}
+
 @font-face {
 	font-family: "VCR OSD Mono";
 	src: url("../lib/assets/VCR-OSD-Mono.ttf") format("truetype");

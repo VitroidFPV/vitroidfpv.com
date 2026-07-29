@@ -3,7 +3,7 @@
 	import { resolve } from "$app/paths"
 	import SearchResults from "$components/search/SearchResults.svelte"
 	import { SearchController } from "$lib/search/controller.svelte"
-	import { ArrowRight, Search, X } from "@lucide/svelte"
+	import { ArrowRight, CircleX, Search, X } from "@lucide/svelte"
 	import { Dialog, Portal, Tooltip } from "@skeletonlabs/skeleton-svelte"
 	import { onDestroy } from "svelte"
 	import type { Attachment } from "svelte/attachments"
@@ -213,7 +213,7 @@
 								aria-label="Search the site"
 								aria-controls="site-search-results"
 								autocomplete="off"
-								class="h-12 min-w-0 flex-1 border-0 bg-transparent px-0 text-base outline-none placeholder:text-surface-400 md:h-14 md:text-lg"
+								class="search-input h-12 min-w-0 flex-1 border-0 bg-transparent px-0 text-base outline-none placeholder:text-surface-400 md:h-14 md:text-lg"
 								oninput={(event) => search.queue(event.currentTarget.value)}
 								onkeydown={handleInputKeydown}
 							/>
@@ -224,14 +224,14 @@
 									aria-label="Clear search"
 									onclick={clearSearch}
 								>
-									<X
+									<CircleX
 										class="size-4"
 										aria-hidden="true"
 									/>
 								</button>
 							{/if}
 							<Dialog.CloseTrigger
-								class="-mr-1 w-fit rounded-full p-2 text-surface-500 transition hover:bg-surface-500/10 hover:text-primary-500 focus-visible:ring-2 focus-visible:ring-primary-500"
+								class="-mr-1 hidden w-fit rounded-full p-2 text-surface-500 transition hover:bg-surface-500/10 hover:text-primary-500 focus-visible:ring-2 focus-visible:ring-primary-500 md:inline-flex"
 								aria-label="Close search"
 							>
 								<X

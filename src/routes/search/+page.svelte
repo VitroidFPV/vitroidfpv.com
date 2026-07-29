@@ -10,7 +10,7 @@
 		searchCollections,
 		type SearchCollection
 	} from "$lib/search/types"
-	import { Search, X } from "@lucide/svelte"
+	import { CircleX, Search } from "@lucide/svelte"
 	import { onDestroy } from "svelte"
 	import type { Attachment } from "svelte/attachments"
 
@@ -127,7 +127,7 @@
 					placeholder="Search for soldering, motors, simulators…"
 					aria-label="Search the site"
 					autocomplete="off"
-					class="h-16 min-w-0 flex-1 border-0 bg-transparent px-0 text-lg outline-none placeholder:text-surface-400 md:h-20 md:text-2xl"
+					class="search-input h-16 min-w-0 flex-1 border-0 bg-transparent px-0 text-lg outline-none placeholder:text-surface-400 md:h-20 md:text-2xl"
 					oninput={(event) => search.queue(event.currentTarget.value)}
 				/>
 				{#if search.query}
@@ -137,7 +137,7 @@
 						aria-label="Clear search"
 						onclick={clearSearch}
 					>
-						<X
+						<CircleX
 							class="size-5"
 							aria-hidden="true"
 						/>
