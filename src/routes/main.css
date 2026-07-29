@@ -17,6 +17,9 @@
 }
 
 @theme {
+	--text-xxs: calc(0.625rem * var(--text-scaling));
+	--text-xxs--line-height: calc(calc(0.875 / 0.625) * var(--text-scaling));
+
 	--font-caveat: "Caveat Variable", system-ui, sans-serif;
 	--font-vcr-osd: "VCR OSD Mono", ui-monospace, monospace;
 	--font-josefin-sans: "Josefin Sans Variable", system-ui, sans-serif;

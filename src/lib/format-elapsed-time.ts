@@ -17,5 +17,5 @@ export function formatElapsedTime(
 	if (days > 0 || hours > 0 || minutes > 0) parts.push(`${minutes}m`)
 	parts.push(`${seconds}s`)
 
-	return `${parts.join(" ")} ago`
+	return `${parts.join(" ")}`
 }

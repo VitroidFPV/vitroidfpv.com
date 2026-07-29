@@ -58,7 +58,7 @@
 			role="presentation"
 			class="pr-4"
 		>
-			<hr class="hr" />
+			<hr class="hr border-surface-100-900" />
 		</li>
 
 		<SearchDialog />

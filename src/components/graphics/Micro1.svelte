@@ -60,7 +60,9 @@
 	<div class="relative hidden aspect-square h-full md:block">
 		<VitroidFPVQR class="absolute inset-0 size-full" />
 	</div>
-	<div class="text flex flex-col justify-between gap-1 text-xs font-medium">
+	<div
+		class="text flex flex-col justify-between gap-1 text-xxs font-medium md:text-xs"
+	>
 		<div
 			class="-my-1 flex justify-between font-semibold uppercase md:gap-4 md:text-lg"
 		>
@@ -74,7 +76,7 @@
 		</div>
 		<div class="h-px w-full bg-primary-500"></div>
 		<div class="flex flex-col">
-			<div class="flex justify-between text-xs">
+			<div class="flex justify-between text-xxs md:text-xs">
 				<div class="flex items-center gap-1">
 					<GitCommitHorizontal class="size-4" />
 					<Hash class="size-4" />
@@ -109,12 +111,13 @@
 					<GitCommitHorizontal class="size-4" />
 					<ClockFading class="size-4" />
 					{relativeDate}
+					<span class="hidden md:inline">ago</span>
 				</div>
 				{stats ? `(${stats.latestCommit.absoluteDate})` : ""}
 			</div>
 		</div>
 		<div class="h-px w-full bg-primary-500"></div>
-		<div class="flex justify-between text-xs uppercase">
+		<div class="flex justify-between text-xxs uppercase md:text-xs">
 			<div class="flex items-center gap-1">
 				<Gauge class="size-4" />
 				Fly Fast
