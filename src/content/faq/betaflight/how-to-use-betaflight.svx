@@ -1,0 +1,7 @@
+---
+title: How to use Betaflight?
+order: 2
+---
+"Betaflight" can mean two different things in this context. There's the Betaflight firmware that runs on the flight controller itself, and the Betaflight App that's used to configure the firmware. I'll assume you're asking about how to set up your brand new drone with Betaflight.
+
+If you're using anything made in the last ~3 years (firmware version 4.3 or newer), you can just open https://app.betaflight.com in any modern desktop browser (okay, almost any... sorry Safari), and have access to everything that previously required an entirely separate app. Anything older will require older versions of the app, they can be downloaded from the "Assets" section of the GitHub [release page](https://github.com/betaflight/betaflight-configurator/releases/tag/10.10.0). I'll focus on the current way that things work, other guides out there cover the older stuff.

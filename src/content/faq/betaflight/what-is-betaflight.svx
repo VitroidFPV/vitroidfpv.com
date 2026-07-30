@@ -1,0 +1,9 @@
+---
+title: What is Betaflight?
+order: 1
+---
+Betaflight is flight control firmware for freestyle, racing, and other high-performance FPV multicopters. It's basically the operating system of the entire drone. Much like a normal operating system lets you connect and set up different peripherals to do different things. Except on something that has the computing power of a Pentium desktop from 1995.
+
+Betaflight is also open source! Hundreds of people have contributed to the project over the many years since its inception, and many even before that. Its history can be traced all the way back to MultiWii, a project that essentially kickstarted modern flight control, as the name would suggest using parts scavenged from Wii remotes.
+
+There are other flight control firmware options out there like INav and Ardupilot, but those are a lot more complex, and specialized in their use case, and given my very limited experience with them, I won't be covering them here - there are many other, much better resources specifically for those projects.

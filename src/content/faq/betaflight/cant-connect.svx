@@ -1,0 +1,10 @@
+---
+title: I can't connect to the Betaflight App!
+order: 4
+---
+If you've followed the steps in the previous question and can't connect, there are a few things you can try:
+- The Betaflight app is only meant to connect to flight control boards running Betaflight firmware. If you're using a different firmware, you need to use its own dedicated software. If you're trying to connect a remote controller or any other FPV device that's not in a drone, that won't work either!
+- If you're connecting to a drone, make sure that what you're connecting to is actually a flight controller. With modern FPV systems, there will often be more than one USB port on the drone - one is for the flight controller, and one is for the video transmitter, which has nothing to do with Betaflight!
+- Some USB cables only carry data, not power. Try a different cable.
+- Some flight controllers are poorly designed, and won't work nicely with USB C to USB C cables. Try a USB A to USB C cable, or try connecting the flight controller end of the cable upside down.
+- If you're on Windows, you might need to fix the drivers. Over time it's gotten a lot better, but on slightly older systems, you might need proper drivers for the computer and App itself to recognize the flight controller for connecting and flashing. Download the [ImpulseRC Driver Fixer](https://github.com/ImpulseRC/ImpulseRC_Driver_Fixer/releases/tag/v1_forever), run it, and follow the instructions.

@@ -1,0 +1,11 @@
+---
+title: How to connect to the Betaflight App?
+order: 3
+---
+Open https://app.betaflight.com in your browser like mentioned in the previous question. If this is the first time you're connecting a specific flight controller to the App, you'll need to add it first.
+
+Based on the specific version of the App, there will be a dropdown menu either in the top right or top left of the screen. Expand it, and select "I can't find my flight controller". You should then see a browser popup with one or more devices, the flight controller should be listed as "Betaflight STM32xxxx" or "Betaflight - BOARDNAME". Select it, and click "Connect". That lets the browser remember the device, and you don't need to do it again for future connections.
+
+When you have a flight controller that's available in the dropdown, you can click the "Connect" button in the App itself. You should immediately see the default "Setup" tab, or whichever tab you opened before with the "Reopen last tab on connect" setting enabled.
+
+If not, proceed to the next question.

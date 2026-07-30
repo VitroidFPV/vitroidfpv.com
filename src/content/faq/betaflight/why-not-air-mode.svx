@@ -1,0 +1,7 @@
+---
+title: When and why to ever disable Air mode?
+order: 6
+---
+As mentioned in the previous question, Air mode is a modifier on top of Acro mode, allowing the flight controller to have more authority over the drone movement at low throttle levels. In very simple terms, it does this by allowing the motors to spin up faster than what the throttle input allows.
+
+This is what you want for basically everything. But it can be annoying in certain situations. Small crafts with prop guards can often get "stuck" to walls and other obstacles when crashed into them because of Air mode. It can also cause the drone to bounce when landing/touching down because it overcorrects - not an issue most of the time, but if you want to slide around on the ground or perch on top of something, you might want to disable Air mode.

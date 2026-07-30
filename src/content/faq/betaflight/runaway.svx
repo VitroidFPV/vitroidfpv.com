@@ -1,0 +1,18 @@
+---
+title: The drone keeps flipping after takeoff!
+order: 8
+---
+You can be glad it's only flipping, and not flying away. Nowadays, the flight controller will detect any unexpected movement, and in most cases, it will immediately shut the motors down. In the past, this could lead to a runaway/flyaway situation.
+
+It can happen for a multitude of reasons, most of which can be summed up as "something isn't spinning like it should":
+- The motors aren't spinning in the direction that the flight controller expects them to spin in.
+- The motors aren't where the flight controller expects them to be.
+- The propellers aren't installed correctly based on how the motors spin.
+
+All of these issues can be fixed in one place. Remove the propellers, connect to the App, and go to the `Motors` tab. You'll see a diagram showing which way the flight controller expects the motors to spin, and where the motors should be relative to the flight controller. You can connect a battery, and slowly spin the motors with the sliders to see which way they're spinning one by one. If they're spinning in the wrong direction, you can use the `Motor Direction` button to change the directions with a simple process. If they're not in the correct order, you can use the `Reorder motors` button to swap the motors around to the correct order with a similar process.
+
+When the motors are spinning in the correct direction and order, you can reinstall the propellers correctly. The "leading edge" of the propeller should be leading in the direction that the motor is spinning in. The props should also have some raised text, that's almost always on the top side of the prop. Regardless of whether the motor is above or below the prop, the text should be on the top side of the prop should always face towards the sky.
+
+- The flight controller is not correctly aligned
+
+You can check for this in the `Setup` tab. Tilt the drone forward/backward, left/right, and turn it left/right to see how it's responding. If it's off, you can change the `Board Alignment` in the `Configuration` tab, or in the latest versions, you can change them in the `Sensors` tab, where you can also follow a simple automatic alignment process. Shoutout Yaros ;)

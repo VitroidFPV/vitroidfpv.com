@@ -1,0 +1,7 @@
+---
+title: How do I enable Acro mode?
+order: 5
+---
+Acro mode is the default flight mode in Betaflight. Other modes can modify or override its behavior - if Angle or Horizon mode aren't active, you're in Acro!
+
+If you're in Air mode, you're also in Acro! Air mode is a modifier on top of Acro mode, allowing the flight controller to have more authority over the drone movement at low throttle levels. You generally want to keep Air mode permanently enabled unless you know what you're gaining by disabling it.

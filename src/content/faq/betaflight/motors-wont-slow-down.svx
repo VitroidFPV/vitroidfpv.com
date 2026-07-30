@@ -1,0 +1,9 @@
+---
+title: My motors won't slow down even at 0 throttle!
+order: 7
+---
+This is a very common "issue" that people run into. It's nothing wrong with the firmware or flight controller though, it's doing exactly what it's supposed to.
+
+In flight, the flight controller constantly measures its orientation, and tries to correct against any deviation from the desired orientation. This is what keeps the drone stable and flying level.
+
+If you don't have the propellers installed, or they're installed incorrectly, the flight controller can't correct against any deviation, and when it can't correct itself (fast enough), it will "try" harder and harder, spinning up the motors more and more.
