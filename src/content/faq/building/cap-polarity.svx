@@ -1,0 +1,9 @@
+---
+title: How to tell the polarity of an electrolytic capacitor?
+order: 8
+---
+Electrolytic capacitors are used on ESCs to smooth out the voltage spikes and noise coming from the motors. They are polarized, if you put it on backwards it will explode in an entertaining manner.
+
+On caps with a plastic wrap, it will most often be a white/gold band with a "- - -" pattern. On smaller metal ones, there will be a semi-circle mark on the top of the cap, indicating the negative side.
+
+Another easy tell is that the negative lead is always shorter.
