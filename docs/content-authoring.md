@@ -378,7 +378,7 @@ The editor can:
 - delete a section and all of its parts;
 - add and edit parts;
 - move, rename, and reorder parts;
-- search for and download a part image.
+- search for a part image or download one directly from a public URL.
 
 Editor saves write directly to `src/content/builds/guides`. Refresh after a
 successful save to load the rebuilt content modules. Image search results come

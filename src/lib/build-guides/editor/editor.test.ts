@@ -51,6 +51,8 @@ describe("build guide serialization", () => {
 				order: 1,
 				color: "success",
 				price: "$29.99",
+				image: "tbs-source-one.jpg",
+				imageAlt: "TBS Source One frame viewed from above",
 				tags: ["30x30<Mounting>"],
 				body: "Durable frame."
 			})
@@ -62,6 +64,8 @@ describe("build guide serialization", () => {
 				"order: 1",
 				"color: success",
 				"price: $29.99",
+				"image: tbs-source-one.jpg",
+				"imageAlt: TBS Source One frame viewed from above",
 				"tags:",
 				'  - "30x30<Mounting>"',
 				"---",
