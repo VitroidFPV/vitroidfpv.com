@@ -20,6 +20,7 @@
 		image,
 		imageAlt,
 		Description,
+		descriptionText,
 		onaddtolist,
 		actions,
 		footer
@@ -31,7 +32,8 @@
 		tags: BuildGuidePartTag[]
 		image: Picture | null
 		imageAlt: string
-		Description: Component
+		Description?: Component
+		descriptionText?: string
 		onaddtolist?: () => void
 		actions?: Snippet
 		footer?: Snippet
@@ -74,7 +76,11 @@
 		priceClass={colors.price}
 	/>
 	<div class="prose">
-		<Description />
+		{#if Description}
+			<Description />
+		{:else if descriptionText}
+			<p class="whitespace-pre-wrap">{descriptionText}</p>
+		{/if}
 	</div>
 	{@render footer?.()}
 </PartCardFrame>
