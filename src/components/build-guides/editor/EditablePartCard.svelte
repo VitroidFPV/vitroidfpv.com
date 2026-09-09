@@ -18,6 +18,7 @@
 	import { parseBuildGuidePartTag } from "$lib/build-guides/tags"
 	import type {
 		BuildGuidePart,
+		BuildGuidePartTag,
 		BuildGuideSection
 	} from "$lib/build-guides/types"
 	import { toastError, toastSuccess } from "$lib/toaster"
@@ -54,6 +55,11 @@
 		tagsInput: string
 		body: string
 		slug: string
+	}
+
+	type TagDraft = {
+		id: number
+		value: string
 	}
 
 	const lastAssignedOrderBySection: Record<string, number> = {}
@@ -98,7 +104,7 @@
 	let manualImageUrl = $state("")
 	let sectionSlug = $state("")
 	let price = $state("")
-	let tagsInput = $state("")
+	let tagDrafts = $state<TagDraft[]>([])
 	let orderSectionSlug = $state<string | null>(null)
 	let body = $state("")
 	let slug = $state("")
@@ -108,6 +114,9 @@
 	let saving = $state(false)
 	let downloadingManualImage = $state(false)
 	let settingsOpen = $state(false)
+	let previewMode = $state(false)
+	let tagsPreviewMode = $state(false)
+	let nextTagId = 0
 
 	const colors = $derived(buildGuidePartAccentClasses[color])
 
@@ -118,6 +127,10 @@
 	const manualImageUrlId = $derived(
 		`manual-image-url-${part?.id ?? `${guideSlug}-${section.id}-new`}`
 	)
+	const rawTags = $derived(
+		tagDrafts.map((tag) => tag.value.trim()).filter(Boolean)
+	)
+	const tagsInput = $derived(rawTags.join("\n"))
 	const newPartDraft = $derived(
 		JSON.stringify({
 			title,
@@ -134,10 +147,19 @@
 		})
 	)
 
-	const previewTags = $derived(
-		parseBuildGuideTagsInput(tagsInput).map((tag) =>
-			parseBuildGuidePartTag(tag)
+	const invalidTagIds = $derived(
+		new Set(
+			tagDrafts
+				.filter((tag) => tag.value.trim() && !tryParseTag(tag.value.trim()))
+				.map((tag) => tag.id)
 		)
+	)
+	const tagsValid = $derived(invalidTagIds.size === 0)
+	const previewTags = $derived(
+		rawTags.flatMap((tag) => {
+			const parsed = tryParseTag(tag)
+			return parsed ? [parsed] : []
+		})
 	)
 
 	const previewPrice = $derived(price.trim() || undefined)
@@ -172,8 +194,10 @@
 		title.trim().length > 0 &&
 			url.trim().length > 0 &&
 			slugValid &&
+			tagsValid &&
 			(isNew || currentSnapshot !== originalSnapshot)
 	)
+	const canPreview = $derived(tagsValid)
 
 	const fieldClass =
 		"rounded-md bg-surface-500/10 p-0! outline-4 outline-surface-500/10"
@@ -184,6 +208,87 @@
 		"rounded-md bg-surface-500/10 text-sm break-all px-2 py-1"
 	const dialogAnimation =
 		"transition transition-discrete opacity-0 starting:data-[state=open]:opacity-0 data-[state=open]:opacity-100"
+
+	function tryParseTag(rawTag: string): BuildGuidePartTag | null {
+		try {
+			return parseBuildGuidePartTag(rawTag)
+		} catch {
+			return null
+		}
+	}
+
+	function createTagDraft(value: string): TagDraft {
+		return { id: nextTagId++, value }
+	}
+
+	function resetTags(tagsInput: string) {
+		tagDrafts = [
+			...parseBuildGuideTagsInput(tagsInput).map(createTagDraft),
+			createTagDraft("")
+		]
+		tagsPreviewMode = false
+	}
+
+	function finishTagEdit(tag: TagDraft) {
+		const value = tag.value.trim()
+		if (!value) {
+			if (tag.id !== tagDrafts.at(-1)?.id) {
+				tagDrafts = tagDrafts.filter((entry) => entry.id !== tag.id)
+			}
+			return
+		}
+
+		tag.value = value
+	}
+
+	function handleTagInput(tag: TagDraft, event: Event) {
+		tag.value = (event.currentTarget as HTMLInputElement).value
+		if (tag.value && tag.id === tagDrafts.at(-1)?.id) {
+			tagDrafts.push(createTagDraft(""))
+		}
+	}
+
+	async function handleTagKeydown(tag: TagDraft, event: KeyboardEvent) {
+		if (
+			event.key === "Backspace" &&
+			event.altKey &&
+			!event.ctrlKey &&
+			!event.metaKey
+		) {
+			event.preventDefault()
+			const currentInput = event.currentTarget as HTMLInputElement
+			if (tag.id === tagDrafts.at(-1)?.id) {
+				const previousTag = tagDrafts.at(-2)
+				if (!previousTag) return
+
+				tagDrafts = tagDrafts.filter((entry) => entry.id !== previousTag.id)
+				await tick()
+				currentInput.focus()
+				return
+			}
+
+			const tagIndex = tagDrafts.findIndex((entry) => entry.id === tag.id)
+			const previousInput = currentInput.previousElementSibling
+			const nextInput = currentInput.nextElementSibling
+			const focusTarget =
+				tagIndex > 0 && tagIndex === tagDrafts.length - 2
+					? previousInput
+					: nextInput
+			tagDrafts = tagDrafts.filter((entry) => entry.id !== tag.id)
+			await tick()
+			if (focusTarget instanceof HTMLInputElement) focusTarget.focus()
+			return
+		}
+
+		if (event.key !== "Enter") return
+
+		event.preventDefault()
+		if (!(event.currentTarget as HTMLInputElement).value.trim()) return
+
+		const nextInput = (event.currentTarget as HTMLInputElement)
+			.nextElementSibling
+		if (nextInput instanceof HTMLInputElement) nextInput.focus()
+	}
 
 	function nextOrderForSection(targetSectionSlug: string): number {
 		const targetSection = sections.find(
@@ -248,6 +353,7 @@
 	function resetFromPart(nextPart: BuildGuidePart | null) {
 		settingsOpen = false
 		manualImageUrl = ""
+		previewMode = false
 
 		if (!nextPart) {
 			const draft = getNewPartDraft()
@@ -262,7 +368,7 @@
 			imageFilenameStem = draft?.imageFilenameStem ?? ""
 			imageAlt = draft?.imageAlt ?? ""
 			price = draft?.price ?? ""
-			tagsInput = draft?.tagsInput ?? ""
+			resetTags(draft?.tagsInput ?? "")
 			body = draft?.body ?? ""
 			slug = draft?.slug ?? ""
 			originalSlug = ""
@@ -296,7 +402,7 @@
 		imageFilenameStem = nextPart.imageFilename?.replace(/\.[^.]+$/, "") ?? ""
 		imageAlt = nextPart.imageAlt
 		price = nextPart.price ?? ""
-		tagsInput = formatParsedBuildGuideTags(nextPart.tags)
+		resetTags(formatParsedBuildGuideTags(nextPart.tags))
 		body = getBuildGuidePartSource(
 			nextPart.guideSlug,
 			nextPart.sectionSlug,
@@ -346,6 +452,7 @@
 	}
 
 	async function enterEditMode() {
+		previewMode = false
 		editControlsVisible = false
 		editMode = true
 		await tick()
@@ -353,15 +460,24 @@
 	}
 
 	let resetAfterExit = false
+	let previewAfterExit = false
 
-	function exitEditMode(reset = true) {
+	function exitEditMode(reset = true, preview = false) {
 		resetAfterExit = reset
+		previewAfterExit = preview
 		editControlsVisible = false
+	}
+
+	function previewPart() {
+		if (canPreview) exitEditMode(false, true)
 	}
 
 	function finishExitEditMode() {
 		if (resetAfterExit) resetFromPart(part)
-		else editMode = false
+		else {
+			editMode = false
+			previewMode = previewAfterExit
+		}
 
 		editControlsVisible = true
 	}
@@ -370,7 +486,6 @@
 		if (!canSave) return
 
 		const nextSlug = slug.trim()
-		const tags = parseBuildGuideTagsInput(tagsInput)
 
 		saving = true
 
@@ -383,7 +498,7 @@
 				price: price.trim() || undefined,
 				image: imageFilename,
 				imageAlt: imageAlt.trim() || undefined,
-				tags,
+				tags: rawTags,
 				body
 			})
 
@@ -489,16 +604,17 @@
 	}
 </script>
 
-{#if !editMode && !isNew && part}
+{#if previewMode || (!editMode && !isNew && part)}
 	<PartCardView
 		{title}
 		{url}
 		accent={color}
 		price={previewPrice}
 		tags={previewTags}
-		image={part.image}
-		imageAlt={part.imageAlt}
-		Description={part.Content}
+		image={part?.image ?? null}
+		imageAlt={imageAlt.trim() || title}
+		Description={part?.Content}
+		descriptionText={part ? undefined : body}
 		{onaddtolist}
 	>
 		{#snippet actions()}
@@ -539,16 +655,15 @@
 					{/if}
 				</button>
 
-				{#if !isNew}
-					<button
-						type="button"
-						class={colors.iconHover}
-						aria-label="View part"
-						onclick={() => exitEditMode()}
-					>
-						<Eye class="size-6 md:size-7" />
-					</button>
-				{/if}
+				<button
+					type="button"
+					class="{colors.iconHover} disabled:pointer-events-none disabled:opacity-40"
+					aria-label="Preview part"
+					disabled={!canPreview}
+					onclick={previewPart}
+				>
+					<Eye class="size-6 md:size-7" />
+				</button>
 			</div>
 		</div>
 
@@ -560,11 +675,55 @@
 				class="{colors.price} price-tag-input border-0 outline outline-current"
 				placeholder="$0.00"
 			/>
-			<PartTags
-				tags={previewTags}
-				priceClass={colors.price}
-				displayContents
-			/>
+			{#if tagsPreviewMode}
+				<PartTags
+					tags={previewTags}
+					priceClass={colors.price}
+					displayContents
+				/>
+				<button
+					type="button"
+					class="rounded-full bg-surface-500/10 p-1 text-surface-500 transition-colors hover:bg-surface-500/20 hover:text-current"
+					aria-label="Edit tags"
+					onclick={() => (tagsPreviewMode = false)}
+				>
+					<Pencil class="size-3.5" />
+				</button>
+			{:else}
+				{#each tagDrafts as tag, index (tag.id)}
+					<input
+						type="text"
+						value={tag.value}
+						spellcheck="false"
+						aria-label={index === tagDrafts.length - 1
+							? "Add tag. Use label<tooltip> for tooltips. Alt+Backspace removes the previous tag."
+							: `Tag ${index + 1}. Use label<tooltip> for tooltips. Alt+Backspace removes this tag.`}
+						aria-keyshortcuts="Alt+Backspace"
+						aria-invalid={invalidTagIds.has(tag.id)}
+						title={index === tagDrafts.length - 1
+							? "Use label<tooltip> for tooltips. Alt+Backspace removes the previous tag."
+							: "Use label<tooltip> for tooltips. Alt+Backspace removes this tag."}
+						class="tag-chip-input rounded-full border-0 bg-surface-500/10 px-2 py-1 text-[11px] font-medium outline outline-surface-500/25 transition-[background-color,outline-color] focus:bg-surface-500/20 focus:outline-2 focus:outline-surface-500/75 md:text-xs dark:bg-surface-500/20 {invalidTagIds.has(
+							tag.id
+						)
+							? 'text-error-500 outline-error-500/50 focus:outline-error-500'
+							: 'text-surface-900-100'}"
+						placeholder={index === tagDrafts.length - 1 ? "+ tag" : undefined}
+						oninput={(event) => handleTagInput(tag, event)}
+						onkeydown={(event) => handleTagKeydown(tag, event)}
+						onblur={() => finishTagEdit(tag)}
+					/>
+				{/each}
+				<button
+					type="button"
+					class="rounded-full bg-surface-500/10 p-1 text-surface-500 transition-colors hover:bg-surface-500/20 hover:text-current disabled:pointer-events-none disabled:opacity-40"
+					aria-label="Preview tags"
+					disabled={!tagsValid}
+					onclick={() => (tagsPreviewMode = true)}
+				>
+					<Eye class="size-3.5" />
+				</button>
+			{/if}
 		</div>
 
 		<textarea
@@ -803,14 +962,6 @@
 						</Portal>
 					</Dialog>
 				</div>
-
-				<textarea
-					bind:value={tagsInput}
-					rows={5}
-					spellcheck="false"
-					class="{controlClass} tags-input min-h-[1.5em] w-full resize-y text-xs"
-					placeholder="One tag per line. Use label&lt;tooltip&gt; for tooltips."
-				></textarea>
 			</div>
 		{/if}
 	</PartCardFrame>
@@ -834,7 +985,10 @@
 		min-width: 5ch;
 	}
 
-	.tags-input {
+	.tag-chip-input {
 		field-sizing: content;
+		width: auto;
+		min-width: 4ch;
+		max-width: 100%;
 	}
 </style>
