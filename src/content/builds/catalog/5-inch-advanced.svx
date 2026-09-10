@@ -1,7 +1,7 @@
 ---
 title: 5" Advanced
 price: "~$350"
-order: 2
+order: 3
 href: /builds/5inch-advanced
 model: flipmode
 color: warning

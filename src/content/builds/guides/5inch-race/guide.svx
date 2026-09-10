@@ -1,0 +1,9 @@
+---
+title: 5" Race
+subtitle: Nyoooooooooom
+color: warning
+seoDescription: A lightweight 5inch FPV drone build using high performance electronics and frames, perfect for racing.
+seoImage: /builds/dito.png
+---
+
+Lightweight and compact frames, high kv motors, small yet powerful electronics, and really high speeds. If you want to get into racing, learn about some parts to add to your fleet, or just want a fast and nimble quad, this build is for you!

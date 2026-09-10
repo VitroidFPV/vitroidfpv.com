@@ -1,7 +1,7 @@
 ---
 title: 7-8" LR
 price: "~$350"
-order: 3
+order: 4
 href: /builds/7-8inch-lr
 model: mario8
 color: error

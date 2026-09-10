@@ -1,0 +1,26 @@
+---
+title: 5" Race
+price: "~$300"
+order: 2
+href: /builds/5inch-race
+model: dito
+color: warning
+specs:
+  - title: Weight
+    description: 400-550g
+    icon: weight
+  - title: Stack Mounting
+    description: 20x20
+    icon: ruler
+  - title: VTX Mounting
+    description: 20x20/zipties
+    icon: ruler
+  - title: Flight Time
+    description: ~3-6 min
+    icon: battery
+  - title: Range
+    description: ~1km
+    icon: signal
+---
+
+Lightweight and compact frames, high kv motors, small yet powerful electronics, and really high speeds. If you want to get into racing, learn about some parts to add to your fleet, or just want a fast and nimble quad, this build is for you!

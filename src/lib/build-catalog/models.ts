@@ -24,6 +24,13 @@ export const buildCatalogModels = {
 		targetSize: BUILD_CATALOG_MODEL_TARGET_SIZE * 1.1,
 		rotation: [Math.PI / 8, 0, 0] as BuildCatalogModelRotation,
 		autoRotateSpeed: BUILD_CATALOG_MODEL_AUTO_ROTATE_SPEED
+	},
+	dito: {
+		path: "/models/builds/dito.glb",
+		nodeName: "dito",
+		targetSize: BUILD_CATALOG_MODEL_TARGET_SIZE * 0.9,
+		rotation: [Math.PI / 8, 0, 0] as BuildCatalogModelRotation,
+		autoRotateSpeed: BUILD_CATALOG_MODEL_AUTO_ROTATE_SPEED
 	}
 } as const
 
