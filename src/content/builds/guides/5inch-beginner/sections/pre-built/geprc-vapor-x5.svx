@@ -1,0 +1,16 @@
+---
+title: GEPRC Vapor X5
+url: https://geprc.com/product/geprc-vapor-x5-analog-freestyle-fpv-drone/
+order: 1
+color: success
+price: $236.99
+image: geprc-vapor-x5.jpg
+tags:
+  - 409g
+  - 2207 1960kv
+  - F722 FC
+  - 60A ESC
+  - 1.6W VTX
+  - Barometer
+---
+The new Vapor series from GEPRC has quickly replaced the older Nazguls, as they became something I'd no longer want to recommend. The Vapors have good specs, a whole bunch of options for analog/digital and X/DC geometry, and even 6" variants, all without much clutter.

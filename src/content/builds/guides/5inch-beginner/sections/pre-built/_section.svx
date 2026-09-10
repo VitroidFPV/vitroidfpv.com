@@ -1,0 +1,7 @@
+---
+title: Pre-Built
+order: 7
+---
+Even though this guide is mostly focused on building a drone yourself, sometimes a pre-built one just makes more sense. Many of these are based on frames and other parts mentioned in this guide, they may sometimes be cheaper than buying everything separately!
+
+All of these are analog, with ELRS receivers. But they should all have DJI O4 options too.

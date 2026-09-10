@@ -1,0 +1,17 @@
+---
+title: AxisFlying Manta 5 SE V2
+url: https://www.axisflying.com/products/manta-5-se-v2-squeshed-x-h743-fc?VariantsId=10631
+order: 2
+color: warning
+price: $255
+image: axisflying-manta-5-se-v2.jpg
+tags:
+  - "410/448g<X/DC>"
+  - "2207 1960kv/2505 1750kv<X/DC>"
+  - H743 FC
+  - 60A ESC
+  - 1.6W VTX
+  - GPS
+  - Barometer
+---
+BNFs from AxisFlying were (and to some degree still are) mostly aimed towards higher end markets. The SE series bring them down to a reasonable price, yet still with some nice comfort featues like an integrated XT60 connector, GPS installed and set up from the factory, and more!

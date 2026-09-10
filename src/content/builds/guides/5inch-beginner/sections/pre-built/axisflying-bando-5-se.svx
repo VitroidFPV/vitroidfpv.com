@@ -1,0 +1,17 @@
+---
+title: AxisFlying Bando 5 SE
+url: https://www.axisflying.com/products/bando-5-se?VariantsId=10787
+order: 3
+color: error
+price: $289
+image: axisflying-bando-5-se.jpg
+tags:
+  - 459g
+  - 2207 1960kv
+  - F405 FC
+  - 60A ESC
+  - 1.6W VTX
+  - GPS
+  - Barometer
+---
+The Bando 5 is a really interesting frame with its full metal body. It houses a more reasonable FC with the same powerful ESC, all in a pretty compact package. As the name suggests, it's built to be tougher for bando flying, hopefully being better for harder abuse.
