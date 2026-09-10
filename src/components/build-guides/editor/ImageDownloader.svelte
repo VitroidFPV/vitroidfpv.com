@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { tick } from "svelte"
 	import { Dialog, Portal } from "@skeletonlabs/skeleton-svelte"
 	import { toastError, toastWarning } from "$lib/toaster"
 	import {
@@ -88,9 +89,12 @@
 		}
 	}
 
-	function handleOpenChange(details: { open: boolean }) {
+	async function handleOpenChange(details: { open: boolean }) {
 		dialogOpen = details.open
-		if (details.open && results.length === 0 && canSearch) {
+		if (!details.open) return
+
+		await tick()
+		if (dialogOpen && results.length === 0 && canSearch) {
 			void searchImages(1)
 		}
 	}
