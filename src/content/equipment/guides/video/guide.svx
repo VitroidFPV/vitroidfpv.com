@@ -1,0 +1,8 @@
+---
+title: Video
+subtitle: Wouldn't be FPV without the "V"
+color: success
+seoDescription: FPV video gear recommendations, from budget-friendly analog goggles to high-end digital head units and matching receiver modules.
+---
+
+Cameras, goggles, antennas, video receivers, and any other misc accessories for all of your video equipment. Can't have FPV without the "view" part.

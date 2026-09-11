@@ -11,34 +11,33 @@ src/content/
 ├── pages/                 Generic content-page introductions
 ├── home/                  Landing-page sections
 ├── faq/                   FAQ sections and questions
-└── builds/
-    ├── catalog/           Cards shown on /builds
-    └── guides/            Complete build guides
+├── builds/
+│   ├── catalog/           Cards shown on /builds
+│   └── guides/            Complete build guides
+└── equipment/
+    ├── catalog/           Cards shown on /equipment
+    └── guides/            Complete equipment guides
 ```
-
-Equipment cards live in `src/content/equipment/catalog/` and render on
-`/equipment` through the same catalog loader.
 
 The corresponding loaders are:
 
-| Content              | Loader                        | Public API                           |
-| -------------------- | ----------------------------- | ------------------------------------ |
-| Shared page metadata | `src/lib/content/metadata.ts` | `parsePageMetadata`                  |
-| Home sections        | `src/lib/home/content.ts`     | `homeSections`                       |
-| FAQ sections         | `src/lib/faq/content.ts`      | `faqSections`                        |
-| Catalog cards        | `src/lib/catalog/content.ts`  | `getCatalogEntries`                  |
-| Guides               | `src/lib/guides/content.ts`   | `getBuildGuide`, `getEquipmentGuide` |
+| Content                       | Loader                        | Public API                           |
+| ----------------------------- | ----------------------------- | ------------------------------------ |
+| Shared page metadata          | `src/lib/content/metadata.ts` | `parsePageMetadata`                  |
+| Home sections                 | `src/lib/home/content.ts`     | `homeSections`                       |
+| FAQ sections                  | `src/lib/faq/content.ts`      | `faqSections`                        |
+| Catalog cards (builds & gear) | `src/lib/catalog/content.ts`  | `getCatalogEntries`                  |
+| Guides (builds & gear)        | `src/lib/guides/content.ts`   | `getBuildGuide`, `getEquipmentGuide` |
 
 The catalog and guide loaders each serve multiple content roots (`builds` and
 `equipment`) from one implementation. The root is derived from each source
 path; per-root configuration only supplies the search collection, section
-label, and public URL base. Content roots without matching content simply
-contribute nothing.
+label, and public URL base.
 
 The systems are intentionally independent:
 
-- A build catalog entry describes one card on `/builds`.
-- A build guide describes one complete guide page.
+- A catalog entry describes one card on `/builds` or `/equipment`.
+- A guide describes one complete guide page.
 - A guide does not need a catalog entry, and a catalog entry does not need a
   guide.
 - Routes choose which content to render, but do not parse or cast frontmatter.

@@ -2,7 +2,10 @@ import {
 	BatteryMedium,
 	RulerDimensionLine,
 	SignalHigh,
-	Weight
+	Weight,
+	RectangleGoggles,
+	Antenna,
+	Cpu,
 } from "@lucide/svelte"
 import type { Component } from "svelte"
 
@@ -12,7 +15,10 @@ export const buildCatalogIcons = {
 	weight: Weight,
 	ruler: RulerDimensionLine,
 	battery: BatteryMedium,
-	signal: SignalHigh
+	signal: SignalHigh,
+	goggles: RectangleGoggles,
+	antenna: Antenna,
+	cpu: Cpu
 } as const satisfies Record<string, BuildCatalogIcon>
 
 export type BuildCatalogIconId = keyof typeof buildCatalogIcons
