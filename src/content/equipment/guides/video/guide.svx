@@ -1,8 +1,8 @@
 ---
 title: Video
-subtitle: Goggles and video receivers for digital and analog
+subtitle: Wouldn't be FPV without the "V"
 color: success
 seoDescription: FPV video gear recommendations, from budget-friendly analog goggles to high-end digital head units and matching receiver modules.
 ---
 
-Everything that gets your camera feed to your eyes. Goggles range from budget-friendly analog to high-end digital head units, with video receiver modules and standalone receivers to match whatever system you fly.
+Cameras, goggles, antennas, video receivers, and any other misc accessories for all of your video equipment. Can't have FPV without the "view" part.

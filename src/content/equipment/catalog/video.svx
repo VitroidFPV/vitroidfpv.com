@@ -1,6 +1,6 @@
 ---
 title: Video
-price: "~$100+"
+price: WIP
 order: 1
 href: /equipment/video
 description: Goggles and video receivers for flying digital or analog
@@ -8,12 +8,18 @@ seoDescription: FPV video gear recommendations, from budget-friendly analog gogg
 model: hdzeroGoggles2
 color: success
 specs:
-  - title: Goggles
-    description: Digital & analog
-    icon: signal
-  - title: Receivers
-    description: Module & standalone
-    icon: signal
+  - title: Analog Goggles
+    description: Box & Slimline
+    icon: goggles
+  - title: Digital Goggles
+    description: Box & Slimline
+    icon: goggles
+  - title: Video Receivers
+    description: Analog & Digital
+    icon: cpu
+  - title: Antennas
+    description: Directional & Omni
+    icon: antenna
 ---
 
-Everything that gets your camera feed to your eyes, from budget-friendly analog goggles to high-end digital head units, with video receiver modules and standalone receivers to match.
+Cameras, goggles, antennas, video receivers, and any other misc accessories for all of your video equipment. Can't have FPV without the "view" part
