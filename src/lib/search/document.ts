@@ -1,5 +1,5 @@
 import { FAQ_QUESTION_QUERY_PARAM } from "../faq/links"
-import type { SearchDocument } from "./types"
+import type { SearchCollection, SearchDocument } from "./types"
 
 function normalizeText(value: string | undefined): string {
 	return value?.replace(/\s+/g, " ").trim() ?? ""
@@ -43,43 +43,57 @@ export function faqQuestionSearchUrl(questionId: string): string {
 	return `/faq?${FAQ_QUESTION_QUERY_PARAM}=${encodeURIComponent(questionId)}`
 }
 
-export function buildCatalogSearchDocumentId(slug: string): string {
-	return `build:catalog:${slug}`
+export function catalogSearchDocumentId(
+	collection: SearchCollection,
+	slug: string
+): string {
+	return `${collection}:catalog:${slug}`
 }
 
-export function buildGuideSearchDocumentId(guideSlug: string): string {
-	return `build:guide:${guideSlug}`
+export function catalogSearchUrl(basePath: string, slug: string): string {
+	return `${basePath}#${encodeURIComponent(slug)}`
 }
 
-export function buildGuideSectionSearchDocumentId(
+export function guideSearchDocumentId(
+	collection: SearchCollection,
+	guideSlug: string
+): string {
+	return `${collection}:guide:${guideSlug}`
+}
+
+export function guideSectionSearchDocumentId(
+	collection: SearchCollection,
 	guideSlug: string,
 	sectionSlug: string
 ): string {
-	return `build:section:${guideSlug}:${sectionSlug}`
+	return `${collection}:section:${guideSlug}:${sectionSlug}`
 }
 
-export function buildGuidePartSearchDocumentId(
+export function guidePartSearchDocumentId(
+	collection: SearchCollection,
 	guideSlug: string,
 	sectionSlug: string,
 	partSlug: string
 ): string {
-	return `build:part:${guideSlug}:${sectionSlug}:${partSlug}`
+	return `${collection}:part:${guideSlug}:${sectionSlug}:${partSlug}`
 }
 
-export function buildCatalogSearchUrl(slug: string): string {
-	return `/builds#${encodeURIComponent(slug)}`
+export function guideSearchUrl(basePath: string, guideSlug: string): string {
+	return `${basePath}/${encodeURIComponent(guideSlug)}`
 }
 
-export function buildGuideSectionSearchUrl(
+export function guideSectionSearchUrl(
+	basePath: string,
 	guideSlug: string,
 	sectionSlug: string
 ): string {
-	return `/builds/${encodeURIComponent(guideSlug)}#${encodeURIComponent(sectionSlug)}`
+	return `${basePath}/${encodeURIComponent(guideSlug)}#${encodeURIComponent(sectionSlug)}`
 }
 
-export function buildGuidePartSearchUrl(
+export function guidePartSearchUrl(
+	basePath: string,
 	guideSlug: string,
 	partId: string
 ): string {
-	return `/builds/${encodeURIComponent(guideSlug)}#${encodeURIComponent(partId)}`
+	return `${basePath}/${encodeURIComponent(guideSlug)}#${encodeURIComponent(partId)}`
 }

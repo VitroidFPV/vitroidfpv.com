@@ -104,8 +104,8 @@ describe("MiniSearch configuration", () => {
 			})
 		])
 
-		expect(searchIndex(duplicateIndex, "soldering").map((result) => result.id)).toEqual(
-			["faq:soldering", "page:workshop"]
-		)
+		expect(
+			searchIndex(duplicateIndex, "soldering").map((result) => result.id)
+		).toEqual(["faq:soldering", "page:workshop"])
 	})
 })

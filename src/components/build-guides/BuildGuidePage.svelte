@@ -8,7 +8,7 @@
 	import PartCard from "$components/build-guides/PartCard.svelte"
 	import SectionHeading from "$components/build-guides/SectionHeading.svelte"
 	import PageWrapper from "$components/PageWrapper.svelte"
-	import { getBuildGuide } from "$lib/build-guides/content"
+	import { getBuildGuide } from "$lib/guides/content"
 	import { buildGuideAccentValues } from "$lib/build-guides/theme"
 	import type { BuildGuidePart } from "$lib/build-guides/types"
 	import { onMount } from "svelte"

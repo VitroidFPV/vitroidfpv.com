@@ -2,7 +2,9 @@
 	import BuildCatalogCard from "$components/build-catalog/BuildCatalogCard.svelte"
 	import ContentPage from "$components/content/ContentPage.svelte"
 	import PageContent, { metadata } from "$content/pages/builds.svx"
-	import { buildCatalogEntries } from "$lib/build-catalog/content"
+	import { getCatalogEntries } from "$lib/catalog/content"
+
+	const buildCatalogEntries = getCatalogEntries("builds")
 </script>
 
 <ContentPage
