@@ -8,14 +8,14 @@
 	import PartCard from "$components/build-guides/PartCard.svelte"
 	import SectionHeading from "$components/build-guides/SectionHeading.svelte"
 	import PageWrapper from "$components/PageWrapper.svelte"
-	import { getBuildGuide } from "$lib/guides/content"
 	import { buildGuideAccentValues } from "$lib/build-guides/theme"
-	import type { BuildGuidePart } from "$lib/build-guides/types"
+	import type { BuildGuide, BuildGuidePart } from "$lib/build-guides/types"
 	import { onMount } from "svelte"
 
-	let { guideSlug }: { guideSlug: string } = $props()
+	let { guide, editable = false }: { guide: BuildGuide; editable?: boolean } =
+		$props()
 
-	const guide = $derived(getBuildGuide(guideSlug))
+	const guideSlug = $derived(guide.slug)
 	const guideAccent = $derived(buildGuideAccentValues[guide.accent])
 	const GuideIntro = $derived(guide.Intro)
 	const guideSections = $derived(guide.sections)
@@ -26,8 +26,10 @@
 			)
 		)
 	)
-	const listStorageKey = $derived(`build-guide-list:${guideSlug}`)
-	const showDevUi = $derived(dev && !page.url.searchParams.has("public"))
+	const listStorageKey = $derived(`build-guide-list:${guide.slug}`)
+	const showDevUi = $derived(
+		editable && dev && !page.url.searchParams.has("public")
+	)
 
 	type BuildListItem = {
 		part: BuildGuidePart

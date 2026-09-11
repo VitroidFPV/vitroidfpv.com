@@ -340,9 +340,13 @@ Guide routes are explicit. Add
 ```svelte
 <script lang="ts">
 	import BuildGuidePage from "$components/build-guides/BuildGuidePage.svelte"
+	import { getBuildGuide } from "$lib/guides/content"
 </script>
 
-<BuildGuidePage guideSlug="<guide-slug>" />
+<BuildGuidePage
+	guide={getBuildGuide("<guide-slug>")}
+	editable
+/>
 ```
 
 Add a catalog entry with `href: /builds/<guide-slug>` only when the guide should
