@@ -2,6 +2,7 @@
 title: Video
 price: "~$100+"
 order: 1
+href: /equipment/video
 description: Goggles and video receivers for flying digital or analog
 seoDescription: FPV video gear recommendations, from budget-friendly analog goggles to high-end digital setups and matching receiver modules.
 model: hdzeroGoggles2
