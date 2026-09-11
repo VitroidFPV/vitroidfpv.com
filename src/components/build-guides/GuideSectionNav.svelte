@@ -56,7 +56,10 @@
 
 <nav
 	aria-label="Build guide sections"
-	class="sticky top-0 z-20 bg-surface-50-950/65 px-2 pt-1 pb-2 backdrop-blur-xl lg:px-4 xl:px-8"
+	class={[
+		"sticky top-0 z-20 px-2 pt-1 pb-2 lg:px-4 xl:px-8",
+		isStuck && "bg-surface-50-950/65 backdrop-blur-xl"
+	]}
 	{@attach registerStickyNav}
 >
 	<div

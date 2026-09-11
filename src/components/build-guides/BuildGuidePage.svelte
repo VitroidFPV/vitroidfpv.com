@@ -179,7 +179,7 @@
 		{#each guideSections as section (section.id)}
 			<section
 				id={section.id}
-				class="flex scroll-mt-12 flex-col gap-8"
+				class="flex scroll-mt-12 flex-col gap-8 lg:not-first:mt-16"
 				aria-label={section.title}
 			>
 				<div>
