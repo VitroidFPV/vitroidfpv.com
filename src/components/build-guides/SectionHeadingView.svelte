@@ -6,10 +6,14 @@
 	let {
 		title,
 		content: Content,
+		heading,
+		description,
 		actions
 	}: {
 		title: string
 		content?: Component
+		heading?: Snippet
+		description?: Snippet
 		actions?: Snippet
 	} = $props()
 
@@ -69,18 +73,24 @@
 	</div>
 
 	<div class="flex min-w-0 flex-1 flex-col gap-3">
-		<div class="flex w-fit flex-col">
-			<h3
-				class="h-fit font-josefin-sans text-5xl leading-none font-bold md:text-6xl"
-			>
-				{title}
-			</h3>
+		<div class="flex w-fit max-w-full flex-col">
+			{#if heading}
+				{@render heading()}
+			{:else}
+				<h3
+					class="h-fit font-josefin-sans text-5xl leading-none font-bold md:text-6xl"
+				>
+					{title}
+				</h3>
+			{/if}
 			<div
 				class={`h-1 w-full rounded-full duration-300 ${isViewportBelowHeading ? " bg-primary-500" : " bg-surface-500"}`}
 			></div>
 		</div>
 		<div class="prose min-h-[1.5em] max-w-[100ch]">
-			{#if Content}
+			{#if description}
+				{@render description()}
+			{:else if Content}
 				<Content />
 			{/if}
 		</div>
