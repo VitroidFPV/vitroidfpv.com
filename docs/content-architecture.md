@@ -18,13 +18,19 @@ src/content/
 
 The corresponding loaders are:
 
-| Content              | Loader                             | Public API            |
-| -------------------- | ---------------------------------- | --------------------- |
-| Shared page metadata | `src/lib/content/metadata.ts`      | `parsePageMetadata`   |
-| Home sections        | `src/lib/home/content.ts`          | `homeSections`        |
-| FAQ sections         | `src/lib/faq/content.ts`           | `faqSections`         |
-| Build cards          | `src/lib/build-catalog/content.ts` | `buildCatalogEntries` |
-| Build guides         | `src/lib/build-guides/content.ts`  | `getBuildGuide`       |
+| Content              | Loader                        | Public API                           |
+| -------------------- | ----------------------------- | ------------------------------------ |
+| Shared page metadata | `src/lib/content/metadata.ts` | `parsePageMetadata`                  |
+| Home sections        | `src/lib/home/content.ts`     | `homeSections`                       |
+| FAQ sections         | `src/lib/faq/content.ts`      | `faqSections`                        |
+| Catalog cards        | `src/lib/catalog/content.ts`  | `getCatalogEntries`                  |
+| Guides               | `src/lib/guides/content.ts`   | `getBuildGuide`, `getEquipmentGuide` |
+
+The catalog and guide loaders each serve multiple content roots (`builds` and
+`equipment`) from one implementation. The root is derived from each source
+path; per-root configuration only supplies the search collection, section
+label, and public URL base. Content roots without matching content simply
+contribute nothing.
 
 The systems are intentionally independent:
 

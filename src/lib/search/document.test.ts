@@ -1,11 +1,14 @@
 import { describe, expect, test } from "bun:test"
 import {
-	buildGuidePartSearchDocumentId,
-	buildGuidePartSearchUrl,
-	buildGuideSectionSearchUrl,
+	catalogSearchDocumentId,
+	catalogSearchUrl,
 	createSearchDocument,
 	faqQuestionSearchUrl,
-	faqSearchDocumentId
+	faqSearchDocumentId,
+	guidePartSearchDocumentId,
+	guidePartSearchUrl,
+	guideSectionSearchDocumentId,
+	guideSectionSearchUrl
 } from "./document"
 
 describe("search documents", () => {
@@ -14,27 +17,36 @@ describe("search documents", () => {
 			"faq:getting-started:sims"
 		)
 		expect(
-			buildGuidePartSearchDocumentId(
+			guidePartSearchDocumentId(
+				"build",
 				"5inch-beginner",
 				"frames",
 				"tbs-source-one-v6"
 			)
 		).toBe("build:part:5inch-beginner:frames:tbs-source-one-v6")
+		expect(guideSectionSearchDocumentId("equipment", "video", "goggles")).toBe(
+			"equipment:section:video:goggles"
+		)
+		expect(catalogSearchDocumentId("equipment", "video")).toBe(
+			"equipment:catalog:video"
+		)
 	})
 
 	test("creates stable deep links", () => {
 		expect(faqQuestionSearchUrl("getting-started-sims")).toBe(
 			"/faq?question=getting-started-sims"
 		)
-		expect(buildGuideSectionSearchUrl("5inch-beginner", "frames")).toBe(
+		expect(guideSectionSearchUrl("/builds", "5inch-beginner", "frames")).toBe(
 			"/builds/5inch-beginner#frames"
 		)
 		expect(
-			buildGuidePartSearchUrl(
+			guidePartSearchUrl(
+				"/builds",
 				"5inch-beginner",
 				"5inch-beginner-frames-tbs-source-one-v6"
 			)
 		).toBe("/builds/5inch-beginner#5inch-beginner-frames-tbs-source-one-v6")
+		expect(catalogSearchUrl("/equipment", "video")).toBe("/equipment#video")
 	})
 
 	test("normalizes fields and rejects external destinations", () => {

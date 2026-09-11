@@ -7,20 +7,55 @@ import {
 	readRequiredString,
 	type CompiledSvxModule
 } from "$lib/content/metadata"
-import { parseBuildGuidePartTag } from "./tags"
-import { resolveBuildGuideAccent, resolveBuildGuidePartAccent } from "./theme"
-import type { BuildGuide, BuildGuidePart, BuildGuideSection } from "./types"
-import { getBuildGuidePartId } from "./types"
+import { parseBuildGuidePartTag } from "$lib/build-guides/tags"
 import {
-	buildGuidePartSearchDocumentId,
-	buildGuidePartSearchUrl,
-	buildGuideSearchDocumentId,
-	buildGuideSectionSearchDocumentId,
-	buildGuideSectionSearchUrl,
-	createSearchDocument
+	resolveBuildGuideAccent,
+	resolveBuildGuidePartAccent
+} from "$lib/build-guides/theme"
+import type {
+	BuildGuide,
+	BuildGuidePart,
+	BuildGuideSection
+} from "$lib/build-guides/types"
+import { getBuildGuidePartId } from "$lib/build-guides/types"
+import {
+	createSearchDocument,
+	guidePartSearchDocumentId,
+	guidePartSearchUrl,
+	guideSearchDocumentId,
+	guideSearchUrl,
+	guideSectionSearchDocumentId,
+	guideSectionSearchUrl
 } from "$lib/search/document"
 import { svxToPlainText } from "$lib/search/svx"
-import type { SearchDocument } from "$lib/search/types"
+import type { SearchCollection, SearchDocument } from "$lib/search/types"
+
+export const guideRoots = ["builds", "equipment"] as const
+
+export type GuideRoot = (typeof guideRoots)[number]
+
+const guideRootConfigs: Record<
+	GuideRoot,
+	{
+		collection: SearchCollection
+		searchSection: string
+		basePath: string
+		label: string
+	}
+> = {
+	builds: {
+		collection: "build",
+		searchSection: "Builds",
+		basePath: "/builds",
+		label: "build guide"
+	},
+	equipment: {
+		collection: "equipment",
+		searchSection: "Gear",
+		basePath: "/equipment",
+		label: "equipment guide"
+	}
+}
 
 function pathMatch(source: string, pattern: RegExp, label: string): string {
 	const match = source.match(pattern)
@@ -29,50 +64,77 @@ function pathMatch(source: string, pattern: RegExp, label: string): string {
 	return match[1]
 }
 
+function getGuideRoot(source: string): GuideRoot {
+	const match = source.match(/\/content\/([^/]+)\/guides\//)
+	if (!match || !guideRoots.includes(match[1] as GuideRoot)) {
+		throw new Error(`Could not read guide root from "${source}"`)
+	}
+	return match[1] as GuideRoot
+}
+
 function getGuideSlug(source: string) {
-	return pathMatch(source, /\/guides\/([^/]+)\//, "build guide")
+	return pathMatch(source, /\/guides\/([^/]+)\//, "guide")
 }
 
 function getSectionSlug(source: string) {
-	return pathMatch(source, /\/sections\/([^/]+)\//, "build guide section")
+	return pathMatch(source, /\/sections\/([^/]+)\//, "guide section")
 }
 
 function getPartSlug(source: string) {
-	return pathMatch(source, /\/([^/]+)\.svx$/, "build guide part")
+	return pathMatch(source, /\/([^/]+)\.svx$/, "guide part")
 }
 
 const guideModules = import.meta.glob<CompiledSvxModule>(
-	"../../content/builds/guides/*/guide.svx",
+	[
+		"../../content/builds/guides/*/guide.svx",
+		"../../content/equipment/guides/*/guide.svx"
+	],
 	{ eager: true }
 )
 const sectionModules = import.meta.glob<CompiledSvxModule>(
-	"../../content/builds/guides/*/sections/*/_section.svx",
+	[
+		"../../content/builds/guides/*/sections/*/_section.svx",
+		"../../content/equipment/guides/*/sections/*/_section.svx"
+	],
 	{ eager: true }
 )
 const partModules = import.meta.glob<CompiledSvxModule>(
 	[
 		"../../content/builds/guides/*/sections/*/*.svx",
-		"!../../content/builds/guides/*/sections/*/_section.svx"
+		"!../../content/builds/guides/*/sections/*/_section.svx",
+		"../../content/equipment/guides/*/sections/*/*.svx",
+		"!../../content/equipment/guides/*/sections/*/_section.svx"
 	],
 	{ eager: true }
 )
 const guideSources = import.meta.glob<string>(
-	"../../content/builds/guides/*/guide.svx",
+	[
+		"../../content/builds/guides/*/guide.svx",
+		"../../content/equipment/guides/*/guide.svx"
+	],
 	{ eager: true, query: "?raw", import: "default" }
 )
 const sectionSources = import.meta.glob<string>(
-	"../../content/builds/guides/*/sections/*/_section.svx",
+	[
+		"../../content/builds/guides/*/sections/*/_section.svx",
+		"../../content/equipment/guides/*/sections/*/_section.svx"
+	],
 	{ eager: true, query: "?raw", import: "default" }
 )
 const partSources = import.meta.glob<string>(
 	[
 		"../../content/builds/guides/*/sections/*/*.svx",
-		"!../../content/builds/guides/*/sections/*/_section.svx"
+		"!../../content/builds/guides/*/sections/*/_section.svx",
+		"../../content/equipment/guides/*/sections/*/*.svx",
+		"!../../content/equipment/guides/*/sections/*/_section.svx"
 	],
 	{ eager: true, query: "?raw", import: "default" }
 )
 const imageModules = import.meta.glob<Picture>(
-	"../../content/builds/guides/*/images/*.{avif,AVIF,gif,GIF,heif,HEIF,jpeg,JPEG,jpg,JPG,png,PNG,tiff,TIFF,webp,WEBP}",
+	[
+		"../../content/builds/guides/*/images/*.{avif,AVIF,gif,GIF,heif,HEIF,jpeg,JPEG,jpg,JPG,png,PNG,tiff,TIFF,webp,WEBP}",
+		"../../content/equipment/guides/*/images/*.{avif,AVIF,gif,GIF,heif,HEIF,jpeg,JPEG,jpg,JPG,png,PNG,tiff,TIFF,webp,WEBP}"
+	],
 	{
 		eager: true,
 		query: { enhanced: true, imgSizes: "100vw" },
@@ -84,11 +146,17 @@ const guides = new Map<string, BuildGuide>()
 const sectionsByGuide = new Map<string, Map<string, BuildGuideSection>>()
 const searchDocuments: SearchDocument[] = []
 
+function guideKey(root: GuideRoot, slug: string): string {
+	return `${root}:${slug}`
+}
+
 for (const [source, module] of Object.entries(guideModules)) {
+	const root = getGuideRoot(source)
 	const slug = getGuideSlug(source)
-	if (guides.has(slug)) {
-		throw new Error(`Duplicate build guide identifier "${slug}" in "${source}"`)
+	if (guides.has(guideKey(root, slug))) {
+		throw new Error(`Duplicate guide identifier "${slug}" in "${source}"`)
 	}
+	const rootConfig = guideRootConfigs[root]
 	const metadata = readMetadataRecord(module.metadata, source)
 	const guide: BuildGuide = {
 		slug,
@@ -103,43 +171,39 @@ for (const [source, module] of Object.entries(guideModules)) {
 		Intro: module.default,
 		sections: []
 	}
-	guides.set(slug, guide)
+	guides.set(guideKey(root, slug), guide)
 
 	const rawSource = guideSources[source]
 	if (typeof rawSource !== "string") {
-		throw new Error(`Could not read build guide content from "${source}"`)
+		throw new Error(`Could not read guide content from "${source}"`)
 	}
 	searchDocuments.push(
 		createSearchDocument({
-			id: buildGuideSearchDocumentId(slug),
+			id: guideSearchDocumentId(rootConfig.collection, slug),
 			title: guide.title,
 			description: guide.seoDescription ?? guide.subtitle,
 			body: svxToPlainText(rawSource),
 			keywords: `${guide.subtitle} ${slug.replaceAll("-", " ")}`,
-			section: "Builds",
-			url: `/builds/${encodeURIComponent(slug)}`,
-			collection: "build"
+			section: rootConfig.searchSection,
+			url: guideSearchUrl(rootConfig.basePath, slug),
+			collection: rootConfig.collection
 		})
 	)
 }
 
 for (const [source, module] of Object.entries(sectionModules)) {
+	const root = getGuideRoot(source)
 	const guideSlug = getGuideSlug(source)
-	const guide = guides.get(guideSlug)
+	const guide = guides.get(guideKey(root, guideSlug))
 	if (!guide) {
-		throw new Error(
-			`Orphan build guide section "${source}" has no guide metadata`
-		)
+		throw new Error(`Orphan guide section "${source}" has no guide metadata`)
 	}
 	const sectionSlug = getSectionSlug(source)
-	let sections = sectionsByGuide.get(guideSlug)
-	if (!sections) {
-		sections = new Map()
-		sectionsByGuide.set(guideSlug, sections)
-	}
+	const sections = sectionsByGuide.get(guideKey(root, guideSlug)) ?? new Map()
+	sectionsByGuide.set(guideKey(root, guideSlug), sections)
 	if (sections.has(sectionSlug)) {
 		throw new Error(
-			`Duplicate build guide section identifier "${sectionSlug}" in "${source}"`
+			`Duplicate guide section identifier "${sectionSlug}" in "${source}"`
 		)
 	}
 	const metadata = readMetadataRecord(module.metadata, source)
@@ -155,19 +219,27 @@ for (const [source, module] of Object.entries(sectionModules)) {
 
 	const rawSource = sectionSources[source]
 	if (typeof rawSource !== "string") {
-		throw new Error(`Could not read build guide section from "${source}"`)
+		throw new Error(`Could not read guide section from "${source}"`)
 	}
 	const sectionBody = svxToPlainText(rawSource)
 	searchDocuments.push(
 		createSearchDocument({
-			id: buildGuideSectionSearchDocumentId(guideSlug, sectionSlug),
+			id: guideSectionSearchDocumentId(
+				guideRootConfigs[root].collection,
+				guideSlug,
+				sectionSlug
+			),
 			title: section.title,
 			description: sectionBody,
 			body: sectionBody,
 			keywords: `${guide.title} ${sectionSlug.replaceAll("-", " ")}`,
 			section: guide.title,
-			url: buildGuideSectionSearchUrl(guideSlug, sectionSlug),
-			collection: "build"
+			url: guideSectionSearchUrl(
+				guideRootConfigs[root].basePath,
+				guideSlug,
+				sectionSlug
+			),
+			collection: guideRootConfigs[root].collection
 		})
 	)
 }
@@ -175,27 +247,32 @@ for (const [source, module] of Object.entries(sectionModules)) {
 const partIds = new Set<string>()
 
 for (const [source, module] of Object.entries(partModules)) {
+	const root = getGuideRoot(source)
 	const guideSlug = getGuideSlug(source)
+	const guide = guides.get(guideKey(root, guideSlug))
+	if (!guide) {
+		throw new Error(`Orphan guide part "${source}" has no guide metadata`)
+	}
 	const sectionSlug = getSectionSlug(source)
-	const section = sectionsByGuide.get(guideSlug)?.get(sectionSlug)
+	const section = sectionsByGuide
+		.get(guideKey(root, guideSlug))
+		?.get(sectionSlug)
 	if (!section) {
 		throw new Error(
-			`Orphan build guide part "${source}" references missing section "${sectionSlug}"`
+			`Orphan guide part "${source}" references missing section "${sectionSlug}"`
 		)
 	}
 	const slug = getPartSlug(source)
 	const id = getBuildGuidePartId(guideSlug, sectionSlug, slug)
 	if (partIds.has(id)) {
-		throw new Error(
-			`Duplicate build guide part identifier "${id}" in "${source}"`
-		)
+		throw new Error(`Duplicate guide part identifier "${id}" in "${source}"`)
 	}
 	partIds.add(id)
 
 	const metadata = readMetadataRecord(module.metadata, source)
 	const imageFilename = readOptionalString(metadata, "image", source)
 	const imagePath = imageFilename
-		? `../../content/builds/guides/${guideSlug}/images/${imageFilename}`
+		? `../../content/${root}/guides/${guideSlug}/images/${imageFilename}`
 		: undefined
 	const image = imagePath ? imageModules[imagePath] : undefined
 	if (imageFilename && !image) {
@@ -205,6 +282,7 @@ for (const [source, module] of Object.entries(partModules)) {
 	}
 
 	const title = readRequiredString(metadata, "title", source)
+	const rootConfig = guideRootConfigs[root]
 	const part: BuildGuidePart = {
 		id,
 		slug,
@@ -237,32 +315,37 @@ for (const [source, module] of Object.entries(partModules)) {
 
 	const rawSource = partSources[source]
 	if (typeof rawSource !== "string") {
-		throw new Error(`Could not read build guide part from "${source}"`)
+		throw new Error(`Could not read guide part from "${source}"`)
 	}
 	const partBody = svxToPlainText(rawSource)
 	searchDocuments.push(
 		createSearchDocument({
-			id: buildGuidePartSearchDocumentId(guideSlug, sectionSlug, slug),
+			id: guidePartSearchDocumentId(
+				rootConfig.collection,
+				guideSlug,
+				sectionSlug,
+				slug
+			),
 			title: part.title,
 			description: partBody,
 			body: partBody,
 			keywords: [
-				guides.get(guideSlug)?.title,
+				guide.title,
 				section.title,
 				part.price,
 				...part.tags.flatMap((tag) => [tag.label, tag.tooltip])
 			]
 				.filter(Boolean)
 				.join(" "),
-			section: `${guides.get(guideSlug)?.title ?? guideSlug} · ${section.title}`,
-			url: buildGuidePartSearchUrl(guideSlug, part.id),
-			collection: "build"
+			section: `${guide.title} · ${section.title}`,
+			url: guidePartSearchUrl(rootConfig.basePath, guideSlug, part.id),
+			collection: rootConfig.collection
 		})
 	)
 }
 
-for (const [guideSlug, guide] of guides) {
-	const sections = Array.from(sectionsByGuide.get(guideSlug)?.values() ?? [])
+for (const [key, guide] of guides) {
+	const sections = Array.from(sectionsByGuide.get(key)?.values() ?? [])
 		.map((section) => ({
 			...section,
 			parts: [...section.parts].sort((a, b) => a.order - b.order)
@@ -271,10 +354,22 @@ for (const [guideSlug, guide] of guides) {
 	guide.sections = sections
 }
 
-export function getBuildGuide(guideSlug: string): BuildGuide {
-	const guide = guides.get(guideSlug)
-	if (!guide) throw new Error(`No build guide found for "${guideSlug}"`)
+export function getGuide(root: GuideRoot, guideSlug: string): BuildGuide {
+	const guide = guides.get(guideKey(root, guideSlug))
+	if (!guide) {
+		throw new Error(
+			`No ${guideRootConfigs[root].label} found for "${guideSlug}"`
+		)
+	}
 	return guide
 }
 
-export const buildGuideSearchDocuments = searchDocuments
+export function getBuildGuide(guideSlug: string): BuildGuide {
+	return getGuide("builds", guideSlug)
+}
+
+export function getEquipmentGuide(guideSlug: string): BuildGuide {
+	return getGuide("equipment", guideSlug)
+}
+
+export const guideSearchDocuments: SearchDocument[] = searchDocuments
