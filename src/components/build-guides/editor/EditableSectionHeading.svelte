@@ -46,7 +46,7 @@
 	)
 
 	const fieldClass =
-		"w-full rounded-md bg-surface-500/10 p-0! ring-4 ring-surface-500/10"
+		"rounded-md bg-surface-500/10 p-0! ring-4 ring-surface-500/10"
 
 	const descriptionFieldClass = `${fieldClass} break-normal`
 
@@ -191,115 +191,110 @@
 </script>
 
 {#if !editMode && !isNew}
-	<div class="flex flex-col gap-2">
-		<SectionHeadingView
-			{title}
-			content={section?.Content}
-		>
-			{#snippet actions()}
+	<SectionHeadingView
+		{title}
+		content={section?.Content}
+	>
+		{#snippet actions()}
+			<button
+				type="button"
+				class="transition-colors duration-300 hover:text-primary-500"
+				aria-label="Edit section"
+				onclick={() => (editMode = true)}
+			>
+				<Pencil class="size-6 md:size-7" />
+			</button>
+		{/snippet}
+	</SectionHeadingView>
+{:else}
+	<SectionHeadingView {title}>
+		{#snippet heading()}
+			<input
+				type="text"
+				bind:value={title}
+				oninput={handleTitleInput}
+				spellcheck="false"
+				class="{fieldClass} title-field h-fit max-w-full font-josefin-sans text-5xl leading-none font-bold md:text-6xl"
+				placeholder="Section title"
+			/>
+		{/snippet}
+		{#snippet description()}
+			<textarea
+				bind:value={body}
+				rows={1}
+				spellcheck="false"
+				class="{descriptionFieldClass} body-field prose min-h-[1.5em] w-full max-w-[100ch] resize-none text-surface-900-100"
+				placeholder="Section content (SVX)"></textarea>
+		{/snippet}
+		{#snippet actions()}
+			<div class="flex shrink-0">
+				<input
+					type="number"
+					min="1"
+					max="69"
+					bind:value={order}
+					class="no-spinner h-8 w-12 rounded-md bg-surface-500/10 p-2 text-base outline-none focus-within:outline-2 focus-within:outline-primary-500"
+				/>
+				<div class="ml-1 flex h-8 flex-col justify-between text-surface-500/40">
+					<button
+						type="button"
+						class="hover:text-primary-500"
+						aria-label="Increase order"
+						onclick={() => order++}
+					>
+						<ChevronUp class="size-3 stroke-3" />
+					</button>
+					<button
+						type="button"
+						class="rotate-180 hover:text-primary-500"
+						aria-label="Decrease order"
+						onclick={() => order > 1 && order--}
+					>
+						<ChevronUp class="size-3 stroke-3" />
+					</button>
+				</div>
+			</div>
+			<button
+				type="button"
+				class="transition-colors duration-300 hover:text-primary-500 disabled:pointer-events-none disabled:opacity-40"
+				aria-label={saving ? "Saving section" : "Save section"}
+				disabled={!canSave || saving}
+				onclick={saveSection}
+			>
+				{#if saving}
+					<Loader2 class="size-5 animate-spin md:size-6" />
+				{:else}
+					<Save class="size-6 md:size-7" />
+				{/if}
+			</button>
+			{#if !isNew}
+				<button
+					type="button"
+					class="transition-colors duration-300 hover:text-error-500 disabled:pointer-events-none disabled:opacity-40"
+					aria-label={removing ? "Removing section" : "Remove section"}
+					disabled={removing || saving}
+					onclick={removeSection}
+				>
+					{#if removing}
+						<Loader2 class="size-5 animate-spin md:size-6" />
+					{:else}
+						<Trash2 class="size-6 md:size-7" />
+					{/if}
+				</button>
+			{/if}
+
+			{#if !isNew}
 				<button
 					type="button"
 					class="transition-colors duration-300 hover:text-primary-500"
-					aria-label="Edit section"
-					onclick={() => (editMode = true)}
+					aria-label="View section"
+					onclick={exitEditMode}
 				>
-					<Pencil class="size-6 md:size-7" />
+					<Eye class="size-6 md:size-7" />
 				</button>
-			{/snippet}
-		</SectionHeadingView>
-	</div>
-{:else}
-	<div class="flex flex-col gap-2 pt-8 md:pt-16">
-		<div class="flex items-start justify-between gap-2">
-			<div class="flex min-w-0 flex-1 flex-col gap-2">
-				<input
-					type="text"
-					bind:value={title}
-					oninput={handleTitleInput}
-					spellcheck="false"
-					class="{fieldClass} -mt-0.5 mb-0.5 h-fit font-josefin-sans text-5xl font-bold md:h-18 md:text-6xl"
-					placeholder="Section title"
-				/>
-				<textarea
-					bind:value={body}
-					rows={1}
-					spellcheck="false"
-					class="{descriptionFieldClass} body-field prose min-h-[1.5em] w-full max-w-[100ch] resize-none text-surface-900-100"
-					placeholder="Section content (SVX)"></textarea>
-			</div>
-
-			<div class="flex shrink-0 items-start gap-2 text-surface-500">
-				<div class="flex shrink-0">
-					<input
-						type="number"
-						min="1"
-						max="69"
-						bind:value={order}
-						class="no-spinner h-8 w-12 rounded-md bg-surface-500/10 p-2 text-base outline-none focus-within:outline-2 focus-within:outline-primary-500"
-					/>
-					<div
-						class="ml-1 flex h-8 flex-col justify-between text-surface-500/40"
-					>
-						<button
-							type="button"
-							class="hover:text-primary-500"
-							aria-label="Increase order"
-							onclick={() => order++}
-						>
-							<ChevronUp class="size-3 stroke-3" />
-						</button>
-						<button
-							type="button"
-							class="rotate-180 hover:text-primary-500"
-							aria-label="Decrease order"
-							onclick={() => order > 1 && order--}
-						>
-							<ChevronUp class="size-3 stroke-3" />
-						</button>
-					</div>
-				</div>
-				<button
-					type="button"
-					class="transition-colors duration-300 hover:text-primary-500 disabled:pointer-events-none disabled:opacity-40"
-					aria-label={saving ? "Saving section" : "Save section"}
-					disabled={!canSave || saving}
-					onclick={saveSection}
-				>
-					{#if saving}
-						<Loader2 class="size-5 animate-spin md:size-6" />
-					{:else}
-						<Save class="size-6 md:size-7" />
-					{/if}
-				</button>
-				{#if !isNew}
-					<button
-						type="button"
-						class="transition-colors duration-300 hover:text-error-500 disabled:pointer-events-none disabled:opacity-40"
-						aria-label={removing ? "Removing section" : "Remove section"}
-						disabled={removing || saving}
-						onclick={removeSection}
-					>
-						{#if removing}
-							<Loader2 class="size-5 animate-spin md:size-6" />
-						{:else}
-							<Trash2 class="size-6 md:size-7" />
-						{/if}
-					</button>
-				{/if}
-
-				{#if !isNew}
-					<button
-						type="button"
-						class="transition-colors duration-300 hover:text-primary-500"
-						aria-label="View section"
-						onclick={exitEditMode}
-					>
-						<Eye class="size-6 md:size-7" />
-					</button>
-				{/if}
-			</div>
-		</div>
-	</div>
+			{/if}
+		{/snippet}
+	</SectionHeadingView>
 {/if}
 
 <style>
@@ -315,6 +310,11 @@
 	}
 
 	.body-field {
+		field-sizing: content;
+	}
+
+	.title-field {
+		min-width: 6ch;
 		field-sizing: content;
 	}
 </style>

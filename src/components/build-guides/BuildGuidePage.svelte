@@ -3,6 +3,7 @@
 	import { page } from "$app/state"
 	import EditablePartCard from "$components/build-guides/editor/EditablePartCard.svelte"
 	import EditableSectionHeading from "$components/build-guides/editor/EditableSectionHeading.svelte"
+	import GuideSectionNav from "$components/build-guides/GuideSectionNav.svelte"
 	import GuideShoppingList from "$components/build-guides/GuideShoppingList.svelte"
 	import PartCard from "$components/build-guides/PartCard.svelte"
 	import SectionHeading from "$components/build-guides/SectionHeading.svelte"
@@ -172,52 +173,57 @@
 		/>
 	</div>
 
-	<div class="flex flex-col gap-8 px-2 pb-8 lg:px-4 xl:px-8">
+	<GuideSectionNav sections={guideSections} />
+
+	<div class="flex flex-col gap-12 px-2 pb-8 lg:px-4 xl:px-8">
 		{#each guideSections as section (section.id)}
-			<div
+			<section
 				id={section.id}
-				class="scroll-mt-8"
+				class="flex scroll-mt-12 flex-col gap-8 lg:not-first:mt-16"
+				aria-label={section.title}
 			>
-				{#if showDevUi}
-					<EditableSectionHeading
-						{guideSlug}
-						sections={guideSections}
-						{section}
-					/>
-				{:else}
-					<SectionHeading {section} />
-				{/if}
-			</div>
-			<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
-				{#each section.parts as part (part.id)}
-					<div
-						id={part.id}
-						class="scroll-mt-8"
-					>
-						{#if showDevUi}
-							<EditablePartCard
-								{guideSlug}
-								sections={guideSections}
-								{section}
-								{part}
-								onaddtolist={() => addPart(part)}
-							/>
-						{:else}
-							<PartCard
-								{part}
-								onaddtolist={() => addPart(part)}
-							/>
-						{/if}
-					</div>
-				{/each}
-				{#if showDevUi}
-					<EditablePartCard
-						{guideSlug}
-						sections={guideSections}
-						{section}
-					/>
-				{/if}
-			</div>
+				<div>
+					{#if showDevUi}
+						<EditableSectionHeading
+							{guideSlug}
+							sections={guideSections}
+							{section}
+						/>
+					{:else}
+						<SectionHeading {section} />
+					{/if}
+				</div>
+				<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
+					{#each section.parts as part (part.id)}
+						<div
+							id={part.id}
+							class="scroll-mt-16"
+						>
+							{#if showDevUi}
+								<EditablePartCard
+									{guideSlug}
+									sections={guideSections}
+									{section}
+									{part}
+									onaddtolist={() => addPart(part)}
+								/>
+							{:else}
+								<PartCard
+									{part}
+									onaddtolist={() => addPart(part)}
+								/>
+							{/if}
+						</div>
+					{/each}
+					{#if showDevUi}
+						<EditablePartCard
+							{guideSlug}
+							sections={guideSections}
+							{section}
+						/>
+					{/if}
+				</div>
+			</section>
 		{/each}
 		{#if showDevUi}
 			<EditableSectionHeading
