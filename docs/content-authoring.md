@@ -365,6 +365,30 @@ guide, section directory, or part file changes that ID and can invalidate saved
 selections. Preserve published slugs unless the change includes a data
 migration.
 
+## Add an equipment guide
+
+Equipment guides follow the same structure as build guides, but live under
+`src/content/equipment/guides/<guide-slug>/` and load through the shared guide
+loader in `src/lib/guides/content.ts`. Guide, section, and part frontmatter is
+identical to the build guide fields above.
+
+Add the route as `src/routes/equipment/<guide-slug>/+page.svelte`:
+
+```svelte
+<script lang="ts">
+	import BuildGuidePage from "$components/build-guides/BuildGuidePage.svelte"
+	import { getEquipmentGuide } from "$lib/guides/content"
+</script>
+
+<BuildGuidePage guide={getEquipmentGuide("<guide-slug>")} />
+```
+
+Omit `editable` for equipment guides: the development editor writes to
+`src/content/builds/guides` only and must not be enabled for equipment pages.
+
+Add a catalog entry in `src/content/equipment/catalog/` with
+`href: /equipment/<guide-slug>` to feature the guide as a card on `/equipment`.
+
 ## Use the development build-guide editor
 
 In development, a guide page shows editing controls automatically:

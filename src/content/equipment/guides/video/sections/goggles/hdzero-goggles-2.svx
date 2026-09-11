@@ -1,0 +1,13 @@
+---
+title: HDZero Goggles 2
+url: https://www.hd-zero.com/
+order: 1
+color: success
+price: ~$399
+tags:
+  - 1080p
+  - Digital
+  - "Analog<Receiver module ready>"
+---
+
+HDZero's second-generation goggles pair a low-latency 1080p digital panel with a module bay for analog receivers, letting you fly both digital and analog fleets from a single head unit.
