@@ -16,6 +16,9 @@ src/content/
     └── guides/            Complete build guides
 ```
 
+Equipment cards live in `src/content/equipment/catalog/` and render on
+`/equipment` through the same catalog loader.
+
 The corresponding loaders are:
 
 | Content              | Loader                        | Public API                           |

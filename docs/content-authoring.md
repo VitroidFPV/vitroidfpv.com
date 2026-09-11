@@ -169,6 +169,10 @@ Catalog cards displayed on `/builds` live in:
 src/content/builds/catalog/<entry-slug>.svx
 ```
 
+Gear catalog cards displayed on `/equipment` live in
+`src/content/equipment/catalog/<entry-slug>.svx` and use the same frontmatter,
+except that `useModel` is ignored — set `model` explicitly to show a 3D model.
+
 Example:
 
 ```svx
