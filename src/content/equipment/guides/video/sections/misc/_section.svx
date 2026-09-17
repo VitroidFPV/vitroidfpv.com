@@ -1,0 +1,5 @@
+---
+title: Misc
+order: 5
+---
+Everything that didn't deserve a whole section of its own, put together. Did you know I have a favorite MMCX to SMA adapter?

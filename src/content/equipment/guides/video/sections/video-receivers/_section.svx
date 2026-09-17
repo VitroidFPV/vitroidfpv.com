@@ -1,0 +1,7 @@
+---
+title: Video Receivers
+order: 3
+---
+Most goggles should already come with their own VRX - why would I want one?
+
+The stock video receivers are often not the best. This section should help you upgrade if you need better performance, or if you just want to add analog to a compatible digital goggle.
