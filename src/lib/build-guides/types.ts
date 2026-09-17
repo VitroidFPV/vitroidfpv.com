@@ -2,6 +2,10 @@ import type { Picture } from "@sveltejs/enhanced-img"
 import type { Component } from "svelte"
 import type { BuildGuideAccent, BuildGuidePartAccent } from "./theme"
 
+export const guideRoots = ["builds", "equipment"] as const
+
+export type GuideRoot = (typeof guideRoots)[number]
+
 export type BuildGuidePartTag = {
 	label: string
 	tooltip?: string

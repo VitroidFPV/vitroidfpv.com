@@ -2,6 +2,7 @@
 	import { tick } from "svelte"
 	import { Dialog, Portal } from "@skeletonlabs/skeleton-svelte"
 	import { toastError, toastWarning } from "$lib/toaster"
+	import type { GuideRoot } from "$lib/build-guides/types"
 	import {
 		ChevronLeft,
 		ChevronRight,
@@ -26,11 +27,13 @@
 	}
 
 	let {
+		guideRoot,
 		guideSlug,
 		title,
 		partSlug,
 		ondownload
 	}: {
+		guideRoot: GuideRoot
 		guideSlug: string
 		title: string
 		partSlug: string
@@ -109,6 +112,7 @@
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
+					guideRoot,
 					guideSlug,
 					partSlug: partSlug.trim(),
 					imageUrl: result.imageUrl

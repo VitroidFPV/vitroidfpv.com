@@ -1,6 +1,7 @@
 import { dev } from "$app/environment"
 import {
 	assertBuildGuideSlug,
+	assertGuideRoot,
 	getBuildGuidePartFile
 } from "$lib/server/build-guides/files"
 import { error, json } from "@sveltejs/kit"
@@ -15,12 +16,21 @@ function validateSlug(value: string, label: string): string {
 	}
 }
 
+function validateGuideRoot(value: string) {
+	try {
+		return assertGuideRoot(value)
+	} catch (reason) {
+		error(400, reason instanceof Error ? reason.message : "Invalid guide root")
+	}
+}
+
 export const POST: RequestHandler = async ({ request }) => {
 	if (!dev) {
 		error(404, "Not found")
 	}
 
 	const {
+		guideRoot,
 		guideSlug,
 		sectionSlug,
 		partSlug,
@@ -28,6 +38,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		previousPartSlug,
 		previousSectionSlug
 	} = (await request.json()) as {
+		guideRoot?: string
 		guideSlug?: string
 		sectionSlug?: string
 		partSlug?: string
@@ -36,14 +47,20 @@ export const POST: RequestHandler = async ({ request }) => {
 		previousSectionSlug?: string
 	}
 
-	if (!guideSlug || !sectionSlug || !partSlug || !content) {
+	if (!guideRoot || !guideSlug || !sectionSlug || !partSlug || !content) {
 		error(400, "Missing required fields")
 	}
 
+	const validGuideRoot = validateGuideRoot(guideRoot)
 	validateSlug(guideSlug, "guide slug")
 	validateSlug(sectionSlug, "section slug")
 	validateSlug(partSlug, "part slug")
-	const filePath = getBuildGuidePartFile(guideSlug, sectionSlug, partSlug)
+	const filePath = getBuildGuidePartFile(
+		guideSlug,
+		sectionSlug,
+		partSlug,
+		validGuideRoot
+	)
 
 	await writeFile(filePath, content, "utf-8")
 
@@ -59,7 +76,8 @@ export const POST: RequestHandler = async ({ request }) => {
 		const previousPath = getBuildGuidePartFile(
 			guideSlug,
 			deleteSectionSlug,
-			previousPartSlug
+			previousPartSlug,
+			validGuideRoot
 		)
 		if (previousPath !== filePath)
 			await unlink(previousPath).catch(() => undefined)
@@ -67,6 +85,6 @@ export const POST: RequestHandler = async ({ request }) => {
 
 	return json({
 		success: true,
-		path: `src/content/builds/guides/${guideSlug}/sections/${sectionSlug}/${partSlug}.svx`
+		path: `src/content/${validGuideRoot}/guides/${guideSlug}/sections/${sectionSlug}/${partSlug}.svx`
 	})
 }

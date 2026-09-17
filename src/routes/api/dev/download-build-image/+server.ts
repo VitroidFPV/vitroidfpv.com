@@ -2,6 +2,7 @@ import { dev } from "$app/environment"
 import { fetchPublicUrl } from "$lib/server/dev-image-fetch"
 import {
 	assertBuildGuideSlug,
+	assertGuideRoot,
 	getBuildGuideImagesDirectory,
 	resolveBuildGuidePath
 } from "$lib/server/build-guides/files"
@@ -21,21 +22,27 @@ const extensionsByContentType: Record<string, string> = {
 export const POST: RequestHandler = async ({ request }) => {
 	if (!dev) error(404, "Not found")
 
-	const { guideSlug, partSlug, imageUrl } = (await request.json()) as {
-		guideSlug?: string
-		partSlug?: string
-		imageUrl?: string
-	}
+	const { guideRoot, guideSlug, partSlug, imageUrl } =
+		(await request.json()) as {
+			guideRoot?: string
+			guideSlug?: string
+			partSlug?: string
+			imageUrl?: string
+		}
 
-	if (!guideSlug || !partSlug || !imageUrl)
+	if (!guideRoot || !guideSlug || !partSlug || !imageUrl)
 		error(400, "Missing required fields")
+	let validGuideRoot
 	try {
+		validGuideRoot = assertGuideRoot(guideRoot)
 		assertBuildGuideSlug(guideSlug, "guide slug")
 		assertBuildGuideSlug(partSlug, "image slug")
 	} catch (reason) {
 		error(
 			400,
-			reason instanceof Error ? reason.message : "Invalid guide or image slug"
+			reason instanceof Error
+				? reason.message
+				: "Invalid guide root, guide slug, or image slug"
 		)
 	}
 
@@ -67,7 +74,7 @@ export const POST: RequestHandler = async ({ request }) => {
 	const bytes = new Uint8Array(await response.arrayBuffer())
 	if (bytes.byteLength > maxImageBytes) error(413, "Image is larger than 20 MB")
 
-	const imageDirectory = getBuildGuideImagesDirectory(guideSlug)
+	const imageDirectory = getBuildGuideImagesDirectory(guideSlug, validGuideRoot)
 
 	await mkdir(imageDirectory, { recursive: true })
 	const filename = `${partSlug}.${extension}`
@@ -107,6 +114,6 @@ export const POST: RequestHandler = async ({ request }) => {
 		filename,
 		extension,
 		fileSize: bytes.byteLength,
-		path: `src/content/builds/guides/${guideSlug}/images/${filename}`
+		path: `src/content/${validGuideRoot}/guides/${guideSlug}/images/${filename}`
 	})
 }
