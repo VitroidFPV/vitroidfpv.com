@@ -19,7 +19,8 @@
 	import type {
 		BuildGuidePart,
 		BuildGuidePartTag,
-		BuildGuideSection
+		BuildGuideSection,
+		GuideRoot
 	} from "$lib/build-guides/types"
 	import { toastError, toastSuccess } from "$lib/toaster"
 	import { Dialog, Portal } from "@skeletonlabs/skeleton-svelte"
@@ -64,8 +65,12 @@
 
 	const lastAssignedOrderBySection: Record<string, number> = {}
 
-	function sectionOrderKey(guideSlug: string, sectionSlug: string) {
-		return `${guideSlug}:${sectionSlug}`
+	function sectionOrderKey(
+		guideRoot: GuideRoot,
+		guideSlug: string,
+		sectionSlug: string
+	) {
+		return `${guideRoot}:${guideSlug}:${sectionSlug}`
 	}
 
 	function parseImageFormat(filename: string): ImageFormat | "" {
@@ -77,12 +82,14 @@
 	}
 
 	let {
+		guideRoot,
 		guideSlug,
 		sections,
 		section,
 		part = null,
 		onaddtolist
 	}: {
+		guideRoot: GuideRoot
 		guideSlug: string
 		sections: BuildGuideSection[]
 		section: BuildGuideSection
@@ -122,7 +129,7 @@
 
 	const activeSectionSlug = $derived(sectionSlug || section.id)
 	const newPartDraftKey = $derived(
-		`build-guide-new-part:${guideSlug}:${section.id}`
+		`build-guide-new-part:${guideRoot}:${guideSlug}:${section.id}`
 	)
 	const manualImageUrlId = $derived(
 		`manual-image-url-${part?.id ?? `${guideSlug}-${section.id}-new`}`
@@ -302,7 +309,7 @@
 			: 1
 		const lastAssigned =
 			lastAssignedOrderBySection[
-				sectionOrderKey(guideSlug, targetSectionSlug)
+				sectionOrderKey(guideRoot, guideSlug, targetSectionSlug)
 			] ?? 0
 
 		return Math.max(fromData, lastAssigned + 1)
@@ -404,6 +411,7 @@
 		price = nextPart.price ?? ""
 		resetTags(formatParsedBuildGuideTags(nextPart.tags))
 		body = getBuildGuidePartSource(
+			guideRoot,
 			nextPart.guideSlug,
 			nextPart.sectionSlug,
 			nextPart.slug
@@ -421,6 +429,7 @@
 			price: nextPart.price ?? "",
 			tagsInput: formatParsedBuildGuideTags(nextPart.tags),
 			body: getBuildGuidePartSource(
+				guideRoot,
 				nextPart.guideSlug,
 				nextPart.sectionSlug,
 				nextPart.slug
@@ -506,6 +515,7 @@
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
+					guideRoot,
 					guideSlug,
 					sectionSlug: activeSectionSlug,
 					partSlug: nextSlug,
@@ -531,7 +541,7 @@
 			})
 			if (isNew) {
 				lastAssignedOrderBySection[
-					sectionOrderKey(guideSlug, activeSectionSlug)
+					sectionOrderKey(guideRoot, guideSlug, activeSectionSlug)
 				] = order
 				clearNewPartDraft()
 				resetFromPart(null)
@@ -574,6 +584,7 @@
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
+					guideRoot,
 					guideSlug,
 					partSlug: slug.trim(),
 					imageUrl: manualImageUrl.trim()
@@ -768,6 +779,7 @@
 					</div>
 
 					<ImageDownloader
+						{guideRoot}
 						{guideSlug}
 						{title}
 						partSlug={slug}

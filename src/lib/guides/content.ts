@@ -15,9 +15,10 @@ import {
 import type {
 	BuildGuide,
 	BuildGuidePart,
-	BuildGuideSection
+	BuildGuideSection,
+	GuideRoot
 } from "$lib/build-guides/types"
-import { getBuildGuidePartId } from "$lib/build-guides/types"
+import { getBuildGuidePartId, guideRoots } from "$lib/build-guides/types"
 import {
 	createSearchDocument,
 	guidePartSearchDocumentId,
@@ -30,9 +31,8 @@ import {
 import { svxToPlainText } from "$lib/search/svx"
 import type { SearchCollection, SearchDocument } from "$lib/search/types"
 
-export const guideRoots = ["builds", "equipment"] as const
-
-export type GuideRoot = (typeof guideRoots)[number]
+export { guideRoots }
+export type { GuideRoot }
 
 const guideRootConfigs: Record<
 	GuideRoot,

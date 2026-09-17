@@ -3,4 +3,8 @@
 	import { getEquipmentGuide } from "$lib/guides/content"
 </script>
 
-<BuildGuidePage guide={getEquipmentGuide("video")} />
+<BuildGuidePage
+	guide={getEquipmentGuide("video")}
+	guideRoot="equipment"
+	editable
+/>

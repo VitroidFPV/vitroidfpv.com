@@ -3,16 +3,18 @@
 	import { slugifyBuildGuideTitle } from "$lib/build-guides/editor/part"
 	import { serializeBuildGuideSection } from "$lib/build-guides/editor/section"
 	import { getBuildGuideSectionSource } from "$lib/build-guides/editor/source"
-	import type { BuildGuideSection } from "$lib/build-guides/types"
+	import type { BuildGuideSection, GuideRoot } from "$lib/build-guides/types"
 	import { toastError, toastSuccess } from "$lib/toaster"
 	import { ChevronUp, Eye, Loader2, Pencil, Save, Trash2 } from "@lucide/svelte"
 	import { untrack } from "svelte"
 
 	let {
+		guideRoot,
 		guideSlug,
 		sections,
 		section = null
 	}: {
+		guideRoot: GuideRoot
 		guideSlug: string
 		sections: BuildGuideSection[]
 		section?: BuildGuideSection | null
@@ -73,13 +75,21 @@
 
 		editMode = false
 		title = nextSection.title
-		body = getBuildGuideSectionSource(nextSection.guideSlug, nextSection.id)
+		body = getBuildGuideSectionSource(
+			guideRoot,
+			nextSection.guideSlug,
+			nextSection.id
+		)
 		order = nextSection.order
 		slug = nextSection.id
 		originalSlug = nextSection.id
 		originalSnapshot = JSON.stringify({
 			title: nextSection.title,
-			body: getBuildGuideSectionSource(nextSection.guideSlug, nextSection.id),
+			body: getBuildGuideSectionSource(
+				guideRoot,
+				nextSection.guideSlug,
+				nextSection.id
+			),
 			order: nextSection.order,
 			slug: nextSection.id
 		})
@@ -114,6 +124,7 @@
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
+					guideRoot,
 					guideSlug,
 					sectionSlug: nextSlug,
 					previousSectionSlug: originalSlug || undefined,
@@ -163,6 +174,7 @@
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
+					guideRoot,
 					guideSlug,
 					sectionSlug: originalSlug
 				})

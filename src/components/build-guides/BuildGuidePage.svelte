@@ -9,11 +9,22 @@
 	import SectionHeading from "$components/build-guides/SectionHeading.svelte"
 	import PageWrapper from "$components/PageWrapper.svelte"
 	import { buildGuideAccentValues } from "$lib/build-guides/theme"
-	import type { BuildGuide, BuildGuidePart } from "$lib/build-guides/types"
+	import type {
+		BuildGuide,
+		BuildGuidePart,
+		GuideRoot
+	} from "$lib/build-guides/types"
 	import { onMount } from "svelte"
 
-	let { guide, editable = false }: { guide: BuildGuide; editable?: boolean } =
-		$props()
+	let {
+		guide,
+		guideRoot = "builds",
+		editable = false
+	}: {
+		guide: BuildGuide
+		guideRoot?: GuideRoot
+		editable?: boolean
+	} = $props()
 
 	const guideSlug = $derived(guide.slug)
 	const guideAccent = $derived(buildGuideAccentValues[guide.accent])
@@ -187,6 +198,7 @@
 				<div>
 					{#if showDevUi}
 						<EditableSectionHeading
+							{guideRoot}
 							{guideSlug}
 							sections={guideSections}
 							{section}
@@ -203,6 +215,7 @@
 						>
 							{#if showDevUi}
 								<EditablePartCard
+									{guideRoot}
 									{guideSlug}
 									sections={guideSections}
 									{section}
@@ -219,6 +232,7 @@
 					{/each}
 					{#if showDevUi}
 						<EditablePartCard
+							{guideRoot}
 							{guideSlug}
 							sections={guideSections}
 							{section}
@@ -229,6 +243,7 @@
 		{/each}
 		{#if showDevUi}
 			<EditableSectionHeading
+				{guideRoot}
 				{guideSlug}
 				sections={guideSections}
 			/>

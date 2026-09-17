@@ -35,6 +35,12 @@ describe("build guide filesystem paths", () => {
 		).toBe("_section.svx")
 	})
 
+	test("resolves equipment guides inside the equipment content root", () => {
+		expect(getBuildGuideSectionFile("video", "goggles", "equipment")).toContain(
+			"/src/content/equipment/guides/video/sections/goggles/"
+		)
+	})
+
 	test("preserves stable persisted part identifiers", () => {
 		expect(
 			getBuildGuidePartId("5inch-beginner", "frames", "tbs-source-one-v5")
