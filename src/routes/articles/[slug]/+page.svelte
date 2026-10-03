@@ -32,7 +32,7 @@
 				class="flex min-w-0 flex-1 flex-col gap-5 xl:justify-center xl:gap-6 xl:py-8"
 			>
 				<h1
-					class="font-josefin-sans text-5xl leading-tight font-bold text-primary-500 sm:text-7xl xl:text-8xl 2xl:text-9xl"
+					class="font-josefin-sans text-5xl leading-tight font-bold text-primary-500 sm:text-7xl xl:text-7xl 2xl:text-8xl"
 				>
 					{data.article.title}
 				</h1>
