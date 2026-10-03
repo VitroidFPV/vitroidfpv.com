@@ -49,4 +49,10 @@ Trailing text after the image.`
 	test("preserves underscores in model numbers", () => {
 		expect(svxToPlainText("Model AE2207_V2")).toBe("Model AE2207_V2")
 	})
+
+	test("removes heading markers inside list items", () => {
+		expect(svxToPlainText("* ###### FPV:\n  First person view flying.")).toBe(
+			"FPV: First person view flying."
+		)
+	})
 })

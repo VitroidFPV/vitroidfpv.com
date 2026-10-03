@@ -7,10 +7,13 @@ import {
 	type CompiledSvxModule
 } from "$lib/content/metadata"
 import { svxToPlainText } from "$lib/search/svx"
+import { createSearchDocument } from "$lib/search/document"
+import type { SearchDocument } from "$lib/search/types"
 import type { Component } from "svelte"
 
 export type Article = {
 	slug: string
+	category: string
 	title: string
 	description: string
 	author?: string
@@ -31,6 +34,18 @@ function getArticleSlug(source: string): string {
 	}
 
 	return match[1].replaceAll("/", "-")
+}
+
+function getArticleCategory(slug: string): string {
+	const section = slug.split("-")[0]
+	const singularCategories: Record<string, string> = {
+		guides: "Guide",
+		reviews: "Review"
+	}
+	return (
+		singularCategories[section] ??
+		section.replace(/^./, (letter) => letter.toUpperCase())
+	)
 }
 
 const articleModules = import.meta.glob<CompiledSvxModule>(
@@ -62,6 +77,7 @@ const articleImagePlaceholders = import.meta.glob<string>(
 )
 
 const articles = new Map<string, Article>()
+export const articleSearchDocuments: SearchDocument[] = []
 
 for (const [source, module] of Object.entries(articleModules)) {
 	const slug = getArticleSlug(source)
@@ -74,9 +90,8 @@ for (const [source, module] of Object.entries(articleModules)) {
 	if (typeof rawSource !== "string") {
 		throw new Error(`Could not read article content from "${source}"`)
 	}
-	const wordCount = svxToPlainText(rawSource)
-		.split(/\s+/)
-		.filter(Boolean).length
+	const body = svxToPlainText(rawSource)
+	const wordCount = body.split(/\s+/).filter(Boolean).length
 	const imageFilename = readOptionalString(metadata, "image", source)
 	const imagePath = imageFilename
 		? `../../content/articles/images/${imageFilename}`
@@ -95,8 +110,9 @@ for (const [source, module] of Object.entries(articleModules)) {
 			`Could not create article image placeholder for "${source}"`
 		)
 	}
-	articles.set(slug, {
+	const article: Article = {
 		slug,
+		category: getArticleCategory(slug),
 		title: readRequiredString(metadata, "title", source),
 		description: readRequiredString(metadata, "description", source),
 		author: readOptionalString(metadata, "author", source),
@@ -108,9 +124,33 @@ for (const [source, module] of Object.entries(articleModules)) {
 		visible: readOptionalBoolean(metadata, "visible", source) ?? true,
 		accessible: readOptionalBoolean(metadata, "accessible", source) ?? true,
 		Content: module.default
-	})
+	}
+	articles.set(slug, article)
+
+	if (article.visible && article.accessible) {
+		articleSearchDocuments.push(
+			createSearchDocument({
+				id: `blog:${slug}`,
+				title: article.title,
+				description: article.description,
+				body,
+				keywords: `${article.category} ${slug.replaceAll("-", " ")}`,
+				section: article.category,
+				url: `/articles/${encodeURIComponent(slug)}`,
+				collection: "blog"
+			})
+		)
+	}
 }
 
 export function getArticle(slug: string): Article | undefined {
 	return articles.get(slug)
+}
+
+export function getVisibleArticles(): Article[] {
+	return [...articles.values()]
+		.filter((article) => article.visible && article.accessible)
+		.sort((a, b) =>
+			(b.updated ?? b.date ?? "").localeCompare(a.updated ?? a.date ?? "")
+		)
 }

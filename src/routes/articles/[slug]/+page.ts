@@ -1,9 +1,18 @@
+import { resolve } from "$app/paths"
 import { getArticle } from "$lib/articles/content"
-import { formatArticleDate } from "$lib/format-article-date"
-import { error } from "@sveltejs/kit"
+import { error, redirect } from "@sveltejs/kit"
 import type { PageLoad } from "./$types"
 
 export const load: PageLoad = ({ params }) => {
+	if (params.slug.startsWith("tutorials-")) {
+		redirect(
+			308,
+			resolve("/articles/[slug]", {
+				slug: params.slug.replace(/^tutorials-/, "guides-")
+			})
+		)
+	}
+
 	const article = getArticle(params.slug)
 
 	if (!article?.accessible) {
@@ -11,10 +20,6 @@ export const load: PageLoad = ({ params }) => {
 	}
 
 	return {
-		article,
-		postedDate: article.date ? formatArticleDate(article.date) : undefined,
-		updatedDate: article.updated
-			? formatArticleDate(article.updated)
-			: undefined
+		article
 	}
 }

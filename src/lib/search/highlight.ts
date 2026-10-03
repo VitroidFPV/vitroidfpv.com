@@ -70,3 +70,20 @@ export function createSearchExcerpt(
 		end < text.length ? "…" : ""
 	}`
 }
+
+export function createSearchResultExcerpt(
+	description: string,
+	body: string,
+	terms: readonly string[],
+	maxLength = 180
+): string {
+	const lowerTerms = uniqueTerms(terms).map((term) => term.toLowerCase())
+	const descriptionMatches = lowerTerms.some((term) =>
+		description.toLowerCase().includes(term)
+	)
+	const bodyMatches = lowerTerms.some((term) =>
+		body.toLowerCase().includes(term)
+	)
+	const source = descriptionMatches || !bodyMatches ? description || body : body
+	return createSearchExcerpt(source, terms, maxLength)
+}

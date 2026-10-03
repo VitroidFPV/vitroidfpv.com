@@ -25,6 +25,8 @@
 	--text-xxs: calc(0.625rem * var(--text-scaling));
 	--text-xxs--line-height: calc(calc(0.875 / 0.625) * var(--text-scaling));
 
+	--breakpoint-3xl: 112rem;
+
 	--font-caveat: "Caveat Variable", system-ui, sans-serif;
 	--font-vcr-osd: "VCR OSD Mono", ui-monospace, monospace;
 	--font-josefin-sans: "Josefin Sans Variable", system-ui, sans-serif;
@@ -76,6 +78,44 @@
 			@apply hover:bg-primary-500/10 hover:text-primary-500;
 		}
 	}
+}
+
+.article-prose :is(h1, h2, h3, h4, h5, h6) {
+	@apply text-surface-950-50;
+}
+
+.article-prose :is(h1, h2) {
+	scroll-margin-top: 2rem;
+}
+
+.article-prose blockquote {
+	@apply border-surface-500/40 text-surface-700-300;
+}
+
+.article-prose > :is(h1, h2, h3, h4, h5, h6) {
+	margin-block: 3rem 0.75rem;
+}
+
+.article-prose > :is(h1, h2, h3, h4, h5, h6):first-child {
+	margin-top: 0;
+}
+
+.article-prose .admonition-body > :is(h1, h2, h3, h4, h5, h6):first-child {
+	margin-block: 1.25rem 1rem;
+}
+
+.article-prose .article-image-grid > p {
+	margin: 0;
+}
+
+.article-prose .article-image-grid :is(h3, h4, h5, h6) {
+	margin: 0 0 0.5rem;
+}
+
+.article-prose .article-image-grid img {
+	width: 100%;
+	max-height: none;
+	margin: 0;
 }
 
 .fancy-link {

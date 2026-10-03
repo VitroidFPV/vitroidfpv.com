@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { resolve } from "$app/paths"
 	import { getSidebarIconForUrl } from "$lib/navigation/sidebar"
-	import { createSearchExcerpt, highlightText } from "$lib/search/highlight"
+	import {
+		createSearchResultExcerpt,
+		highlightText
+	} from "$lib/search/highlight"
 	import { searchCollectionLabels, type SearchHit } from "$lib/search/types"
 	import { ArrowUpRight } from "@lucide/svelte"
 
@@ -18,8 +21,9 @@
 
 <ol class="flex flex-col gap-2">
 	{#each results as result (result.id)}
-		{@const excerpt = createSearchExcerpt(
-			result.description || result.body,
+		{@const excerpt = createSearchResultExcerpt(
+			result.description,
+			result.body,
 			result.terms,
 			compact ? 140 : 220
 		)}
