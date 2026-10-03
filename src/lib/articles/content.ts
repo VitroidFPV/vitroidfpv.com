@@ -39,7 +39,7 @@ function getArticleCategory(slug: string): string {
 	const singularCategories: Record<string, string> = {
 		guides: "Guide",
 		reviews: "Review",
-		tutorials: "Tutorial"
+		tutorials: "Guide"
 	}
 	return (
 		singularCategories[section] ??

@@ -34,13 +34,14 @@
 	>
 		{#each articles as article (article.slug)}
 			<article
-				class="group relative flex min-h-56 flex-col overflow-hidden rounded-3xl border-2 border-surface-200-800 bg-surface-50-950 transition-colors duration-150 focus-within:border-primary-500 hover:border-primary-500 sm:flex-row"
+				class="article-card group relative flex min-h-56 flex-col overflow-hidden rounded-3xl border-2 border-surface-200-800 bg-surface-50-950 transition-colors duration-150 sm:flex-row"
+				data-category={article.category}
 				id={article.slug}
 			>
 				<a
 					href={resolve("/articles/[slug]", { slug: article.slug })}
 					aria-label={article.title}
-					class="absolute inset-0 z-10 rounded-3xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
+					class="absolute inset-0 z-10 rounded-3xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--article-accent)]"
 				></a>
 				<div
 					class="relative aspect-[16/9] w-full shrink-0 overflow-hidden bg-surface-100-900 sm:aspect-auto sm:w-56"
@@ -74,12 +75,14 @@
 				</div>
 
 				<div class="flex flex-1 flex-col justify-between gap-6 p-5 sm:p-6">
-					<div class="font-geist-mono text-sm font-bold text-primary-500">
+					<div
+						class="font-geist-mono text-sm font-bold text-[var(--article-accent)]"
+					>
 						{article.category}
 					</div>
 					<div class="flex flex-col gap-4">
 						<h3
-							class="font-josefin-sans text-3xl font-bold transition-colors duration-150 group-focus-within:text-primary-500 group-hover:text-primary-500"
+							class="font-josefin-sans text-3xl font-bold transition-colors duration-150 group-focus-within:text-[var(--article-accent)] group-hover:text-[var(--article-accent)]"
 						>
 							{article.title}
 						</h3>
@@ -93,7 +96,7 @@
 								updated={article.updated}
 							/>
 							<ArrowUpRight
-								class="transition-transform duration-150 group-focus-within:translate-x-1 group-focus-within:-translate-y-1 group-focus-within:text-primary-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-primary-500"
+								class="transition-transform text-(--article-accent) duration-150 group-focus-within:translate-x-1 group-focus-within:-translate-y-1 group-hover:translate-x-1 group-hover:-translate-y-1"
 							/>
 						</div>
 					</div>
@@ -102,3 +105,37 @@
 		{/each}
 	</div>
 </ContentPage>
+
+<style>
+	.article-card[data-category="Guide"] {
+		--article-hue: var(--color-primary-500);
+	}
+
+	.article-card[data-category="Review"] {
+		--article-hue: var(--color-yellow-400);
+	}
+
+	.article-card[data-category="News"] {
+		--article-hue: var(--color-rose-500);
+	}
+
+	.article-card[data-category="Misc"] {
+		--article-hue: var(--color-purple-500);
+	}
+
+	.article-card {
+		--article-accent: color-mix(
+			in oklab,
+			var(--article-hue, var(--color-primary-500)) 65%,
+			black
+		);
+	}
+
+	:global([data-mode="dark"]) .article-card {
+		--article-accent: var(--article-hue, var(--color-primary-500));
+	}
+
+	.article-card:is(:hover, :focus-within) {
+		border-color: var(--article-accent);
+	}
+</style>
