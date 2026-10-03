@@ -38,8 +38,7 @@ function getArticleCategory(slug: string): string {
 	const section = slug.split("-")[0]
 	const singularCategories: Record<string, string> = {
 		guides: "Guide",
-		reviews: "Review",
-		tutorials: "Guide"
+		reviews: "Review"
 	}
 	return (
 		singularCategories[section] ??
