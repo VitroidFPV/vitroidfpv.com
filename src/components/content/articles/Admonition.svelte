@@ -84,7 +84,7 @@
 		<Corner class="absolute top-0 left-full rotate-180 {colors[type].text}" />
 		<Corner class="absolute top-full left-0 rotate-180 {colors[type].text}" />
 	</div>
-	<div>
+	<div class="admonition-body">
 		{@render children?.()}
 	</div>
 </aside>
