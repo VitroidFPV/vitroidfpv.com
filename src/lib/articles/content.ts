@@ -16,6 +16,7 @@ export type Article = {
 	author?: string
 	readingMinutes: number
 	image?: Picture
+	imagePlaceholder?: string
 	date?: string
 	updated?: string
 	visible: boolean
@@ -51,6 +52,15 @@ const articleImages = import.meta.glob<Picture>(
 	}
 )
 
+const articleImagePlaceholders = import.meta.glob<string>(
+	"../../content/articles/images/*.{avif,gif,jpeg,jpg,png,webp}",
+	{
+		eager: true,
+		query: { w: "24", format: "webp", inline: true },
+		import: "default"
+	}
+)
+
 const articles = new Map<string, Article>()
 
 for (const [source, module] of Object.entries(articleModules)) {
@@ -68,12 +78,21 @@ for (const [source, module] of Object.entries(articleModules)) {
 		.split(/\s+/)
 		.filter(Boolean).length
 	const imageFilename = readOptionalString(metadata, "image", source)
-	const image = imageFilename
-		? articleImages[`../../content/articles/images/${imageFilename}`]
+	const imagePath = imageFilename
+		? `../../content/articles/images/${imageFilename}`
+		: undefined
+	const image = imagePath ? articleImages[imagePath] : undefined
+	const imagePlaceholder = imagePath
+		? articleImagePlaceholders[imagePath]
 		: undefined
 	if (imageFilename && !image) {
 		throw new Error(
 			`Invalid metadata in "${source}": referenced image "${imageFilename}" was not found`
+		)
+	}
+	if (imageFilename && !imagePlaceholder) {
+		throw new Error(
+			`Could not create article image placeholder for "${source}"`
 		)
 	}
 	articles.set(slug, {
@@ -83,6 +102,7 @@ for (const [source, module] of Object.entries(articleModules)) {
 		author: readOptionalString(metadata, "author", source),
 		readingMinutes: Math.max(1, Math.ceil(wordCount / 200)),
 		image,
+		imagePlaceholder,
 		date: readOptionalString(metadata, "date", source),
 		updated: readOptionalString(metadata, "updated", source),
 		visible: readOptionalBoolean(metadata, "visible", source) ?? true,

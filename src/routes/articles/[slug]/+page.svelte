@@ -1,6 +1,7 @@
 <script lang="ts">
 	import PageWrapper from "$components/PageWrapper.svelte"
 	import { Portal, Tooltip } from "@skeletonlabs/skeleton-svelte"
+	import { onMount } from "svelte"
 
 	let { data }: import("./$types").PageProps = $props()
 
@@ -13,6 +14,15 @@
 	)
 
 	let tooltipClosing = $state(false)
+	let heroImage = $state<HTMLImageElement | undefined>()
+	let loadedImageSlug = $state<string | null>(null)
+	const imageLoaded = $derived(loadedImageSlug === data.article.slug)
+
+	onMount(() => {
+		if (heroImage?.complete && heroImage.naturalWidth > 0) {
+			loadedImageSlug = data.article.slug
+		}
+	})
 </script>
 
 <PageWrapper
@@ -105,14 +115,29 @@
 			</div>
 			{#if data.article.image}
 				<div
-					class="aspect-square w-full shrink-0 overflow-hidden rounded-4xl sm:max-w-xl xl:self-center xl:justify-self-end p-1 bg-surface-100-900 border-surface-200-800 border"
+					class="aspect-square w-full shrink-0 overflow-hidden rounded-4xl border border-surface-200-800 bg-surface-100-900 p-1 sm:max-w-xl xl:self-center xl:justify-self-end"
 				>
-					<enhanced:img
-						src={data.article.image}
-						alt={data.article.title}
-						sizes="(min-width: 1024px) 66vh, 100vw"
-						class="h-full w-full object-cover rounded-[28px]"
-					/>
+					<div class="relative h-full w-full overflow-hidden rounded-[28px]">
+						<img
+							src={data.article.imagePlaceholder}
+							alt=""
+							class="absolute inset-0 h-full w-full scale-110 object-cover blur-xl motion-safe:transition-opacity motion-safe:duration-300 {imageLoaded
+								? 'opacity-0'
+								: 'opacity-100'}"
+						/>
+						<enhanced:img
+							bind:this={heroImage}
+							src={data.article.image}
+							alt={data.article.title}
+							sizes="(min-width: 640px) 576px, 100vw"
+							fetchpriority="high"
+							loading="eager"
+							onload={() => (loadedImageSlug = data.article.slug)}
+							class="absolute inset-0 h-full w-full object-cover motion-safe:transition-opacity motion-safe:duration-300 {imageLoaded
+								? 'opacity-100'
+								: 'opacity-0'}"
+						/>
+					</div>
 				</div>
 			{:else}
 				<div
