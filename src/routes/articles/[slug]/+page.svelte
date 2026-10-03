@@ -6,12 +6,6 @@
 	let { data }: import("./$types").PageProps = $props()
 
 	const ArticleContent = $derived(data.article.Content)
-	const category = $derived(
-		data.article.slug
-			.split("-")[0]
-			.replace(/s$/, "")
-			.replace(/^./, (letter) => letter.toUpperCase())
-	)
 
 	let tooltipClosing = $state(false)
 	let heroImage = $state<HTMLImageElement | undefined>()
@@ -50,7 +44,9 @@
 					class="flex flex-wrap items-center gap-x-5 gap-y-2 font-geist-mono xl:justify-between"
 				>
 					<div class="flex gap-3 text-surface-600-400">
-						<span class="font-bold text-primary-500">{category}</span>
+						<span class="font-bold text-primary-500"
+							>{data.article.category}</span
+						>
 						{#if data.article.author}
 							By
 							<span class="font-bold text-primary-500"

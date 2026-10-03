@@ -11,6 +11,7 @@ import type { Component } from "svelte"
 
 export type Article = {
 	slug: string
+	category: string
 	title: string
 	description: string
 	author?: string
@@ -31,6 +32,19 @@ function getArticleSlug(source: string): string {
 	}
 
 	return match[1].replaceAll("/", "-")
+}
+
+function getArticleCategory(slug: string): string {
+	const section = slug.split("-")[0]
+	const singularCategories: Record<string, string> = {
+		guides: "Guide",
+		reviews: "Review",
+		tutorials: "Tutorial"
+	}
+	return (
+		singularCategories[section] ??
+		section.replace(/^./, (letter) => letter.toUpperCase())
+	)
 }
 
 const articleModules = import.meta.glob<CompiledSvxModule>(
@@ -97,6 +111,7 @@ for (const [source, module] of Object.entries(articleModules)) {
 	}
 	articles.set(slug, {
 		slug,
+		category: getArticleCategory(slug),
 		title: readRequiredString(metadata, "title", source),
 		description: readRequiredString(metadata, "description", source),
 		author: readOptionalString(metadata, "author", source),
@@ -113,4 +128,10 @@ for (const [source, module] of Object.entries(articleModules)) {
 
 export function getArticle(slug: string): Article | undefined {
 	return articles.get(slug)
+}
+
+export function getVisibleArticles(): Article[] {
+	return [...articles.values()]
+		.filter((article) => article.visible && article.accessible)
+		.sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""))
 }
