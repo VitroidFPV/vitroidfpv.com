@@ -12,6 +12,7 @@
 		primaryColor,
 		themeColor,
 		description,
+		hero,
 		children,
 		ghostTitleClass = " md:text-[24rem] text-[12rem]"
 	}: {
@@ -24,6 +25,7 @@
 		primaryColor?: string
 		themeColor?: string
 		description?: Snippet
+		hero?: Snippet
 		children?: Snippet
 		ghostTitleClass?: string
 	} = $props()
@@ -56,17 +58,21 @@
 			{h1}
 		</h1>
 	</div>
-	<div class="relative z-0 flex flex-col gap-4 pt-32 pl-2 md:pl-8">
-		<h1
-			class="main-heading font-josefin-sans text-5xl font-bold text-primary-500 md:-ml-4 md:text-[12rem]"
-		>
-			{h1}
-		</h1>
-		<h2 class="text-2xl font-bold text-primary-500">{h2}</h2>
-		<div class="prose flex max-w-3xl flex-col md:text-lg">
-			{@render description?.()}
+	{#if hero}
+		{@render hero()}
+	{:else}
+		<div class="relative z-0 flex flex-col gap-4 pt-32 pl-2 md:pl-8">
+			<h1
+				class="main-heading font-josefin-sans text-5xl font-bold text-primary-500 md:-ml-4 md:text-[12rem]"
+			>
+				{h1}
+			</h1>
+			<h2 class="text-2xl font-bold text-primary-500">{h2}</h2>
+			<div class="prose flex max-w-3xl flex-col md:text-lg">
+				{@render description?.()}
+			</div>
 		</div>
-	</div>
+	{/if}
 	{@render children?.()}
 </div>
 
