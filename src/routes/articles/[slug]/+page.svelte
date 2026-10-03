@@ -144,7 +144,7 @@
 	{/snippet}
 
 	<div class="flex flex-col gap-12 px-4 pb-8 sm:px-6 lg:px-4 xl:px-8">
-		<div class="md faq prose"><ArticleContent /></div>
+		<div class="md article-prose prose"><ArticleContent /></div>
 	</div>
 </PageWrapper>
 

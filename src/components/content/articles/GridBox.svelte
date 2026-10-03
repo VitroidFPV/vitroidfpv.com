@@ -15,13 +15,13 @@
 	} = $props()
 </script>
 
-<div class="my-6">
+<div class="my-4">
 	{#if title}<svelte:element
 			this={level ? `h${level}` : "h3"}
 			class="mb-3 text-xl font-semibold">{title}</svelte:element
 		>{/if}
 	<div
-		class="grid gap-4 {cols === 3
+		class="article-image-grid grid gap-4 {cols === 3
 			? 'sm:grid-cols-3'
 			: cols === 4
 				? 'sm:grid-cols-4'

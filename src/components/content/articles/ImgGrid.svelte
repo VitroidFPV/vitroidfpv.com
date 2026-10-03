@@ -4,7 +4,7 @@
 </script>
 
 <div
-	class="my-6 grid items-center gap-4 {cols === 3
+	class="article-image-grid my-4 grid items-center gap-4 {cols === 3
 		? 'sm:grid-cols-3'
 		: cols === 4
 			? 'sm:grid-cols-4'
