@@ -88,10 +88,10 @@
 					<div class="flex flex-col gap-2 font-geist-mono text-xs">
 						<div class="flex items-center justify-between text-surface-600-400">
 							<div>{article.readingMinutes} min read</div>
-						<ArticleDate
-							postedDate={article.postedDate}
-							updatedDate={article.updatedDate}
-						/>
+							<ArticleDate
+								date={article.date}
+								updated={article.updated}
+							/>
 							<ArrowUpRight
 								class="transition-transform duration-150 group-focus-within:translate-x-1 group-focus-within:-translate-y-1 group-focus-within:text-primary-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-primary-500"
 							/>

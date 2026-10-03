@@ -1,15 +1,17 @@
 <script lang="ts">
-	import type { ArticleDateDisplay } from "$lib/format-article-date"
+	import { formatArticleDate } from "$lib/format-article-date"
 	import { Portal, Tooltip } from "@skeletonlabs/skeleton-svelte"
 
 	let {
-		postedDate,
-		updatedDate
+		date,
+		updated
 	}: {
-		postedDate?: ArticleDateDisplay
-		updatedDate?: ArticleDateDisplay
+		date?: string
+		updated?: string
 	} = $props()
 
+	const postedDate = $derived(date ? formatArticleDate(date) : undefined)
+	const updatedDate = $derived(updated ? formatArticleDate(updated) : undefined)
 	let tooltipClosing = $state(false)
 </script>
 

@@ -57,8 +57,8 @@
 						{data.article.readingMinutes} minute read
 					</div>
 					<ArticleDate
-						postedDate={data.postedDate}
-						updatedDate={data.updatedDate}
+						date={data.article.date}
+						updated={data.article.updated}
 					/>
 				</div>
 			</div>
