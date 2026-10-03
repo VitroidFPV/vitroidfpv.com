@@ -41,10 +41,10 @@
 				<a
 					href={resolve("/articles/[slug]", { slug: article.slug })}
 					aria-label={article.title}
-					class="absolute inset-0 z-10 rounded-3xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--article-accent)]"
+					class="absolute inset-0 z-10 rounded-3xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--article-accent)"
 				></a>
 				<div
-					class="relative aspect-[16/9] w-full shrink-0 overflow-hidden bg-surface-100-900 sm:aspect-auto sm:w-56"
+					class="relative aspect-video w-full shrink-0 overflow-hidden bg-surface-100-900 sm:aspect-auto sm:w-56"
 				>
 					{#if article.image}
 						{#if article.imagePlaceholder}
@@ -76,13 +76,13 @@
 
 				<div class="flex flex-1 flex-col justify-between gap-6 p-5 sm:p-6">
 					<div
-						class="font-geist-mono text-sm font-bold text-[var(--article-accent)]"
+						class="font-geist-mono text-sm font-bold text-(--article-accent)"
 					>
 						{article.category}
 					</div>
 					<div class="flex flex-col gap-4">
 						<h3
-							class="font-josefin-sans text-3xl font-bold transition-colors duration-150 group-focus-within:text-[var(--article-accent)] group-hover:text-[var(--article-accent)]"
+							class="font-josefin-sans text-3xl font-bold transition-colors duration-150 group-focus-within:text-(--article-accent) group-hover:text-(--article-accent)"
 						>
 							{article.title}
 						</h3>
