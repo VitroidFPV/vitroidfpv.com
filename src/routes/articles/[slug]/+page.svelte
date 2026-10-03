@@ -1,13 +1,12 @@
 <script lang="ts">
 	import PageWrapper from "$components/PageWrapper.svelte"
-	import { Portal, Tooltip } from "@skeletonlabs/skeleton-svelte"
+	import ArticleDate from "$components/content/ArticleDate.svelte"
 	import { onMount } from "svelte"
 
 	let { data }: import("./$types").PageProps = $props()
 
 	const ArticleContent = $derived(data.article.Content)
 
-	let tooltipClosing = $state(false)
 	let heroImage = $state<HTMLImageElement | undefined>()
 	let loadedImageSlug = $state<string | null>(null)
 	const imageLoaded = $derived(loadedImageSlug === data.article.slug)
@@ -57,56 +56,10 @@
 					<div class="text-surface-600-400">
 						{data.article.readingMinutes} minute read
 					</div>
-					{#if data.updatedDate}
-						{#if data.postedDate}
-							<Tooltip
-								positioning={{ placement: "top" }}
-								openDelay={300}
-								closeDelay={150}
-							>
-								<Tooltip.Trigger
-									type="button"
-									class="flex cursor-default gap-3 font-geist-mono"
-									onpointerenter={() => (tooltipClosing = false)}
-									onpointerleave={() => (tooltipClosing = true)}
-									onfocus={() => (tooltipClosing = false)}
-									onblur={() => (tooltipClosing = true)}
-								>
-									<span class="text-surface-600-400"
-										>{data.updatedDate.relative
-											? "Updated"
-											: "Updated On"}</span
-									>
-									<span class="font-bold">{data.updatedDate.text}</span>
-								</Tooltip.Trigger>
-								<Portal>
-									<Tooltip.Positioner>
-										<Tooltip.Content
-											class="article-date-tooltip origin-bottom rounded-md border border-surface-500/30 bg-surface-50-950 px-2 py-1 text-xs text-surface-500 shadow-sm {tooltipClosing
-												? 'tooltip-closing'
-												: ''}"
-										>
-											Originally posted {data.postedDate.text}
-										</Tooltip.Content>
-									</Tooltip.Positioner>
-								</Portal>
-							</Tooltip>
-						{:else}
-							<div class="flex gap-3">
-								<span class="text-surface-600-400"
-									>{data.updatedDate.relative ? "Updated" : "Updated On"}</span
-								>
-								<span class="font-bold">{data.updatedDate.text}</span>
-							</div>
-						{/if}
-					{:else if data.postedDate}
-						<div class="flex gap-3">
-							<span class="text-surface-600-400"
-								>{data.postedDate.relative ? "Posted" : "Posted On"}</span
-							>
-							<span class="font-bold">{data.postedDate.text}</span>
-						</div>
-					{/if}
+					<ArticleDate
+						postedDate={data.postedDate}
+						updatedDate={data.updatedDate}
+					/>
 				</div>
 			</div>
 			{#if data.article.image}
@@ -147,29 +100,3 @@
 		<div class="md article-prose prose"><ArticleContent /></div>
 	</div>
 </PageWrapper>
-
-<style>
-	:global(.article-date-tooltip:not([hidden]):not(.tooltip-closing)) {
-		animation: article-date-tooltip-in 150ms ease;
-	}
-
-	:global(.article-date-tooltip.tooltip-closing:not([hidden])) {
-		opacity: 0;
-		scale: 0.9;
-		transition:
-			transform 150ms ease,
-			opacity 150ms ease;
-	}
-
-	@keyframes article-date-tooltip-in {
-		from {
-			opacity: 0;
-			scale: 0.9;
-		}
-
-		to {
-			opacity: 1;
-			scale: 1;
-		}
-	}
-</style>

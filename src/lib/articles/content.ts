@@ -133,5 +133,7 @@ export function getArticle(slug: string): Article | undefined {
 export function getVisibleArticles(): Article[] {
 	return [...articles.values()]
 		.filter((article) => article.visible && article.accessible)
-		.sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""))
+		.sort((a, b) =>
+			(b.updated ?? b.date ?? "").localeCompare(a.updated ?? a.date ?? "")
+		)
 }
