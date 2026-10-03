@@ -7,6 +7,8 @@ import {
 	type CompiledSvxModule
 } from "$lib/content/metadata"
 import { svxToPlainText } from "$lib/search/svx"
+import { createSearchDocument } from "$lib/search/document"
+import type { SearchDocument } from "$lib/search/types"
 import type { Component } from "svelte"
 
 export type Article = {
@@ -75,6 +77,7 @@ const articleImagePlaceholders = import.meta.glob<string>(
 )
 
 const articles = new Map<string, Article>()
+export const articleSearchDocuments: SearchDocument[] = []
 
 for (const [source, module] of Object.entries(articleModules)) {
 	const slug = getArticleSlug(source)
@@ -87,9 +90,8 @@ for (const [source, module] of Object.entries(articleModules)) {
 	if (typeof rawSource !== "string") {
 		throw new Error(`Could not read article content from "${source}"`)
 	}
-	const wordCount = svxToPlainText(rawSource)
-		.split(/\s+/)
-		.filter(Boolean).length
+	const body = svxToPlainText(rawSource)
+	const wordCount = body.split(/\s+/).filter(Boolean).length
 	const imageFilename = readOptionalString(metadata, "image", source)
 	const imagePath = imageFilename
 		? `../../content/articles/images/${imageFilename}`
@@ -108,7 +110,7 @@ for (const [source, module] of Object.entries(articleModules)) {
 			`Could not create article image placeholder for "${source}"`
 		)
 	}
-	articles.set(slug, {
+	const article: Article = {
 		slug,
 		category: getArticleCategory(slug),
 		title: readRequiredString(metadata, "title", source),
@@ -122,7 +124,23 @@ for (const [source, module] of Object.entries(articleModules)) {
 		visible: readOptionalBoolean(metadata, "visible", source) ?? true,
 		accessible: readOptionalBoolean(metadata, "accessible", source) ?? true,
 		Content: module.default
-	})
+	}
+	articles.set(slug, article)
+
+	if (article.visible && article.accessible) {
+		articleSearchDocuments.push(
+			createSearchDocument({
+				id: `blog:${slug}`,
+				title: article.title,
+				description: article.description,
+				body,
+				keywords: `${article.category} ${slug.replaceAll("-", " ")}`,
+				section: article.category,
+				url: `/articles/${encodeURIComponent(slug)}`,
+				collection: "blog"
+			})
+		)
+	}
 }
 
 export function getArticle(slug: string): Article | undefined {
