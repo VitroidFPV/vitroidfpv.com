@@ -2,11 +2,16 @@
 	// import PageWrapper from "$components/PageWrapper.svelte"
 
 	import { Portal, Tooltip } from "@skeletonlabs/skeleton-svelte"
-	import { CircleQuestionMark } from "@lucide/svelte"
 
 	let { data }: import("./$types").PageProps = $props()
 
 	const ArticleContent = $derived(data.article.Content)
+	const category = $derived(
+		data.article.slug
+			.split("-")[0]
+			.replace(/s$/, "")
+			.replace(/^./, (letter) => letter.toUpperCase())
+	)
 
 	let tooltipClosing = $state(false)
 </script>
@@ -31,14 +36,11 @@
 	class="relative flex min-h-screen w-full flex-col gap-10 pb-16 lg:gap-16 lg:pb-0"
 >
 	<div
-		class="hero flex w-full flex-col gap-8 p-4 sm:p-6 xl:grid xl:min-h-[66vh] xl:grid-cols-2 xl:gap-16 xl:p-8"
+		class="hero flex w-full flex-col gap-8 p-4 sm:p-6 xl:grid xl:grid-cols-2 xl:gap-16 xl:p-8"
 	>
 		<div
-			class="flex min-w-0 flex-1 flex-col gap-5 xl:justify-between xl:gap-0 xl:py-16"
+			class="flex min-w-0 flex-1 flex-col gap-5 xl:justify-center xl:gap-6 xl:py-8"
 		>
-			<div class="flex items-center gap-1 font-geist-mono text-primary-500">
-				<CircleQuestionMark class="size-5" /><span>Guides</span>
-			</div>
 			<h1
 				class="font-josefin-sans text-5xl leading-tight font-bold text-primary-500 sm:text-7xl xl:text-8xl 2xl:text-9xl"
 			>
@@ -46,16 +48,17 @@
 			</h1>
 			<h2 class="text-lg font-medium sm:text-xl">{data.article.description}</h2>
 			<div
-				class="flex flex-wrap items-center gap-x-5 gap-y-2 xl:justify-between"
+				class="flex flex-wrap items-center gap-x-5 gap-y-2 font-geist-mono xl:justify-between"
 			>
-				{#if data.article.author}
-					<div class="flex gap-3 font-geist-mono text-surface-600-400">
-						Written By <span class="font-bold text-primary-500"
-							>{data.article.author}</span
+				<div class="flex gap-3 text-surface-600-400">
+					<span class="font-bold text-primary-500">{category}</span>
+					{#if data.article.author}
+						By
+						<span class="font-bold text-primary-500">{data.article.author}</span
 						>
-					</div>
-				{/if}
-				<div class="font-geist-mono text-surface-600-400">
+					{/if}
+				</div>
+				<div class="text-surface-600-400">
 					{data.article.readingMinutes} minute read
 				</div>
 				{#if data.updatedDate}
@@ -91,7 +94,7 @@
 							</Portal>
 						</Tooltip>
 					{:else}
-						<div class="flex gap-3 font-geist-mono">
+						<div class="flex gap-3">
 							<span class="text-surface-600-400"
 								>{data.updatedDate.relative ? "Updated" : "Updated On"}</span
 							>
@@ -99,7 +102,7 @@
 						</div>
 					{/if}
 				{:else if data.postedDate}
-					<div class="flex gap-3 font-geist-mono">
+					<div class="flex gap-3">
 						<span class="text-surface-600-400"
 							>{data.postedDate.relative ? "Posted" : "Posted On"}</span
 						>
@@ -110,7 +113,7 @@
 		</div>
 		{#if data.article.image}
 			<div
-				class="aspect-square w-full shrink-0 overflow-hidden rounded-4xl sm:max-w-xl xl:max-w-none xl:self-center"
+				class="aspect-square w-full shrink-0 overflow-hidden rounded-4xl sm:max-w-xl xl:self-center xl:justify-self-end"
 			>
 				<enhanced:img
 					src={data.article.image}
@@ -121,7 +124,7 @@
 			</div>
 		{:else}
 			<div
-				class="aspect-square w-full shrink-0 rounded-4xl bg-neutral-500/10 sm:max-w-xl xl:max-w-none xl:self-center"
+				class="aspect-square w-full shrink-0 rounded-4xl bg-neutral-500/10 sm:max-w-xl xl:self-center xl:justify-self-end"
 			></div>
 		{/if}
 	</div>
