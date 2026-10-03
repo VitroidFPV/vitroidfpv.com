@@ -84,6 +84,10 @@
 	@apply text-surface-950-50;
 }
 
+.article-prose blockquote {
+	@apply border-surface-500/40 text-surface-700-300;
+}
+
 .article-prose > :is(h1, h2, h3, h4, h5, h6) {
 	margin-block: 3rem 0.75rem;
 }
