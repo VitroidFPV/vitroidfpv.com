@@ -4,6 +4,7 @@
 	import { fade, slide } from "svelte/transition"
 	import { flip } from "svelte/animate"
 	import { afterNavigate, replaceState } from "$app/navigation"
+	import { resolve } from "$app/paths"
 	import { page } from "$app/state"
 	import { onDestroy } from "svelte"
 	import { statorVolume, statorSurfaceArea } from "$lib/tools/motor-size"
@@ -67,7 +68,8 @@
 		url.searchParams.set("sort", sortBy)
 		if (url.href !== window.location.href) {
 			copied = false
-			replaceState(url, page.state)
+			const next = `${url.pathname}${url.search}${url.hash}`
+			replaceState(resolve(next as "/"), page.state)
 		}
 	}
 
