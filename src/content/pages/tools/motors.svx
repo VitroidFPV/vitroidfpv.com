@@ -1,0 +1,8 @@
+---
+title: Motors
+description: Advanced Stator Size Calculator
+seoDescription: Easily calculate and compare different motos in terms of stator volume and surface area!
+---
+Easily calculate and compare different motos in terms of stator volume and surface area!
+
+This calculator is a greatly expanded version of the smaller calculator on the Tools page. It comes with better UX for adding comparisons, sort options, and an API-style URL that you can use to share comparisons with others!

@@ -1,0 +1,11 @@
+---
+title: Power Conversion
+---
+
+dBm is a unit of power measurement. It is a logarithmic unit (unlike Watts), and is used to compare the power of different signals.
+
+The relationship between dBm and mW is as follows:
+
+$$
+\text{mW} = 10^{\frac{\text{dBm}}{10}}, \quad \text{dBm} = 10 \cdot \log_{10}(\text{mW})
+$$

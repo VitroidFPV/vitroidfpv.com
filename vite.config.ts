@@ -1,5 +1,7 @@
 import { mdsvex } from "mdsvex"
-import { mdsvexSvelte5ModuleScript } from "./mdsvex-svelte5-preprocess"
+import { mdsvexSvelte5Preprocess } from "./mdsvex-svelte5-preprocess"
+import rehypeKatex from "rehype-katex"
+import remarkMath from "remark-math"
 import tailwindcss from "@tailwindcss/vite"
 import adapter from "@sveltejs/adapter-auto"
 import { enhancedImages } from "@sveltejs/enhanced-img"
@@ -29,8 +31,12 @@ export default defineConfig({
 			// See https://svelte.dev/docs/kit/adapters for more information about adapters.
 			adapter: adapter(),
 			preprocess: [
-				mdsvex({ extensions: [".svx", ".md"] }),
-				mdsvexSvelte5ModuleScript()
+				mdsvex({
+					extensions: [".svx", ".md"],
+					remarkPlugins: [remarkMath],
+					rehypePlugins: [rehypeKatex]
+				}),
+				mdsvexSvelte5Preprocess()
 			],
 			extensions: [".svelte", ".svx", ".md"]
 		})

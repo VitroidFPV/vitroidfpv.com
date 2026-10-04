@@ -1,0 +1,15 @@
+---
+title: Motor Size Calculator
+---
+
+The motor stator size is listed as `XXYY`/`XXYY.Y`, with `xx` being the width, and `yy` being the height. A 2207 motor will have a stator 22mm wide, and 7mm high
+
+The formulas for the volume and surface area of a cylinder are:
+
+$$
+V = \pi \left(\frac{d}{2}\right)^2 h
+\qquad
+A = \pi d\left(\frac{d}{2} + h\right)
+$$
+
+An advanced calculator for comparisons is [here](/tools/motors)
