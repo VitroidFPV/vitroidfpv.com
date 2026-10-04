@@ -1,8 +1,8 @@
 import type { PreprocessorGroup } from "svelte/compiler"
 
 // mdsvex 0.12.7 still emits <script context="module"> for frontmatter metadata.
-// Svelte 5 expects <script module> instead.
-export function mdsvexSvelte5ModuleScript(): PreprocessorGroup {
+// KaTeX annotations also contain TeX braces, which Svelte reads as expressions.
+export function mdsvexSvelte5Preprocess(): PreprocessorGroup {
 	return {
 		markup: ({ content, filename }) => {
 			if (!filename?.endsWith(".md") && !filename?.endsWith(".svx")) {
@@ -10,7 +10,13 @@ export function mdsvexSvelte5ModuleScript(): PreprocessorGroup {
 			}
 
 			return {
-				code: content.replace(/<script context="module">/g, "<script module>")
+				code: content
+					.replace(/<script context="module">/g, "<script module>")
+					.replace(
+						/(<annotation\b[^>]*>)([\s\S]*?)(<\/annotation>)/g,
+						(_, open, tex, close) =>
+							`${open}${tex.replaceAll("{", "&#123;").replaceAll("}", "&#125;")}${close}`
+					)
 			}
 		}
 	}

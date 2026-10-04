@@ -1,5 +1,6 @@
 <script lang="ts">
 	import "./main.css"
+	import "katex/dist/katex.min.css"
 	import favicon from "$lib/assets/favicon.svg"
 	import "@fontsource-variable/geist/wght.css"
 	import "@fontsource-variable/geist-mono/wght.css"

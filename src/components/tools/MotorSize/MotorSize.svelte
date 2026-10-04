@@ -68,7 +68,7 @@
 		/>
 	</label>
 
-	<div class="flex items-center gap-2">
+	<div class="flex items-center gap-4">
 		<div class="flex items-center gap-1">
 			Volume: <span
 				class="inline-flex h-8 w-20 rounded-full bg-surface-100-900 px-2 py-1"
