@@ -11,3 +11,5 @@ V = \pi \left(\frac{d}{2}\right)^2 h
 \qquad
 A = \pi d\left(\frac{d}{2} + h\right)
 $$
+
+An advanced calculator for comparisons is [here](/tools/motors)
