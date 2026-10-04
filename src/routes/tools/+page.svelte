@@ -4,6 +4,7 @@
 
 	import MotorSize from "$components/tools/MotorSize/MotorSize.svelte"
 	import PowerConversion from "$components/tools/PowerConversion/PowerConversion.svelte"
+	import BatteryWh from "$components/tools/BatteryWh/BatteryWh.svelte"
 </script>
 
 <ContentPage
@@ -16,5 +17,6 @@
 	>
 		<MotorSize />
 		<PowerConversion />
+		<BatteryWh />
 	</div>
 </ContentPage>

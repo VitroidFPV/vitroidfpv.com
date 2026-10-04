@@ -1,0 +1,12 @@
+---
+title: Battery Wh Calculator
+---
+
+Wh [watt-hour] is a measure of energy. It denotes the amount of power (in watts) consumed over a period of time (in hours).
+It can be used to compare the energy capacity of different batteries when they differ in cell count, chemistry, or capacity.
+
+$$
+Wh = \frac{V \times mAh}{1000}
+\qquad
+V = V_{nominal} \times N_{cells}
+$$
