@@ -5,7 +5,7 @@ import {
 	Weight,
 	RectangleGoggles,
 	Antenna,
-	Cpu,
+	Cpu
 } from "@lucide/svelte"
 import type { Component } from "svelte"
 

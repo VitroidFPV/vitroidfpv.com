@@ -96,7 +96,7 @@
 								updated={article.updated}
 							/>
 							<ArrowUpRight
-								class="transition-transform text-(--article-accent) duration-150 group-focus-within:translate-x-1 group-focus-within:-translate-y-1 group-hover:translate-x-1 group-hover:-translate-y-1"
+								class="text-(--article-accent) transition-transform duration-150 group-focus-within:translate-x-1 group-focus-within:-translate-y-1 group-hover:translate-x-1 group-hover:-translate-y-1"
 							/>
 						</div>
 					</div>
