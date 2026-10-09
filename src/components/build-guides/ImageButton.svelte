@@ -20,10 +20,15 @@
 	} = $props()
 
 	let dialogOpen = $state(false)
+	let dialogImageLoaded = $state(false)
+	let previewLoaded = $state(false)
+	let tooltipOpen = $state(false)
 	let tooltipClosing = $state(false)
 
-	const dialogAnimation =
-		"transition transition-discrete opacity-0 starting:data-[state=open]:opacity-0 data-[state=open]:opacity-100"
+	function openDialog() {
+		dialogImageLoaded = false
+		dialogOpen = true
+	}
 </script>
 
 <Tooltip
@@ -31,17 +36,33 @@
 	openDelay={0}
 	closeDelay={50}
 	disabled={!showTooltip}
+	onOpenChange={(details: { open: boolean }) => (tooltipOpen = details.open)}
 >
 	<Tooltip.Trigger
 		type="button"
-		class={className}
+		class="relative {className}"
 		aria-label="View image of {alt}"
-		onclick={() => (dialogOpen = true)}
+		onclick={openDialog}
 		onpointerenter={() => (tooltipClosing = false)}
 		onpointerleave={() => (tooltipClosing = true)}
 		onfocus={() => (tooltipClosing = false)}
 		onblur={() => (tooltipClosing = true)}
 	>
+		{#if showTooltip}
+			<span
+				aria-hidden="true"
+				class="pointer-events-none absolute inset-0 overflow-hidden opacity-0"
+			>
+				<PartImage
+					{src}
+					alt=""
+					sizes="384px"
+					loading="lazy"
+					fetchpriority="low"
+					onload={() => (previewLoaded = true)}
+				/>
+			</span>
+		{/if}
 		{#if trigger}
 			{@render trigger()}
 		{:else}
@@ -55,12 +76,14 @@
 					? 'tooltip-closing'
 					: ''}"
 			>
-				<PartImage
-					{src}
-					{alt}
-					class="max-h-96 w-96"
-					sizes="384px"
-				/>
+				{#if tooltipOpen}
+					<PartImage
+						{src}
+						{alt}
+						class="max-h-96 w-96"
+						sizes="384px"
+					/>
+				{/if}
 			</Tooltip.Content>
 		</Tooltip.Positioner>
 	</Portal>
@@ -78,7 +101,9 @@
 			class="fixed inset-0 z-50 flex items-center justify-center p-1 md:p-4"
 		>
 			<Dialog.Content
-				class="relative flex max-h-svh max-w-svw items-center justify-center border-0 bg-transparent p-0 shadow-none {dialogAnimation}"
+				class="relative flex max-h-svh max-w-svw items-center justify-center border-0 bg-transparent p-0 shadow-none"
+				style="width: min(100svw, {src.img.w}px, {(90 * src.img.w) /
+					src.img.h}svh); aspect-ratio: {src.img.w} / {src.img.h}"
 			>
 				<Dialog.Title class="sr-only">{alt}</Dialog.Title>
 				<Dialog.CloseTrigger
@@ -87,15 +112,37 @@
 				>
 					<X class="size-5 md:size-6" />
 				</Dialog.CloseTrigger>
-				<PartImage
-					{src}
-					{alt}
-					class="max-h-[90svh]"
-					sizes="100vw"
-					fetchpriority="high"
-					style="max-width: min(100svw, {src.img
-						.w}px); max-height: min(90svh, {src.img.h}px)"
-				/>
+				{#if previewLoaded || dialogOpen}
+					<div
+						aria-hidden="true"
+						class="pointer-events-none absolute inset-0 overflow-hidden rounded-xl motion-safe:transition-opacity motion-safe:duration-100 {dialogImageLoaded
+							? 'opacity-0'
+							: 'opacity-100'}"
+					>
+						<PartImage
+							{src}
+							alt=""
+							class="max-h-[90svh]"
+							sizes="384px"
+							style="max-width: min(100svw, {src.img
+								.w}px); max-height: min(90svh, {src.img.h}px)"
+						/>
+					</div>
+				{/if}
+				{#if dialogOpen}
+					<PartImage
+						{src}
+						{alt}
+						class="max-h-[90svh] motion-safe:transition-opacity motion-safe:duration-100 {dialogImageLoaded
+							? 'opacity-100'
+							: 'opacity-0'}"
+						sizes="100vw"
+						fetchpriority="high"
+						onload={() => (dialogImageLoaded = true)}
+						style="max-width: min(100svw, {src.img
+							.w}px); max-height: min(90svh, {src.img.h}px)"
+					/>
+				{/if}
 			</Dialog.Content>
 		</Dialog.Positioner>
 	</Portal>
