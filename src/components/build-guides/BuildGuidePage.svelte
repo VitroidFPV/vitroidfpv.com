@@ -175,7 +175,7 @@
 		<GuideIntro />
 	{/snippet}
 
-	<div class="fixed top-0 right-0 z-10">
+	<div class="fixed top-0 right-0 z-30">
 		<GuideShoppingList
 			items={listItems}
 			pageTitle={guide.title}

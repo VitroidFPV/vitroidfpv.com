@@ -70,7 +70,7 @@
 		{/if}
 	</Tooltip.Trigger>
 	<Portal>
-		<Tooltip.Positioner>
+		<Tooltip.Positioner class="z-40!">
 			<Tooltip.Content
 				class="build-part-image-tooltip origin-bottom overflow-hidden rounded-2xl border border-surface-100-900 bg-surface-50-950 p-1 shadow-xl backdrop-blur-xs {tooltipClosing
 					? 'tooltip-closing'
