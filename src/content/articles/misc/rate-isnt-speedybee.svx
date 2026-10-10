@@ -66,7 +66,56 @@ It is also true that FPV companies split apart pretty often, the most famous exa
 
 But those are all essentially clean separations into new standalone brands/teams/companies, not a rebranding to get around regulatory issues.
 
+## Paper Trail
+
+The main motivation for the rumor seems to be that SpeedyBee is struggling to get their boards out, so they're going through a shell company to get around regulatory issues. Rate would be a new company that exploded onto the market with a bunch of products all at once after SpeedyBee started running into trouble, and we might see a paper trail connecting SpeedyBee to Rate. But that's not the case here, like... at all.
+
+### Dates
+
+The RateFPV website has been registered since the 26th of August 2024. The "RATEFPV" trademark was applied for on the 6th of February 2026, and the "Shenzhen Zhizhi rotor technology co., LTD" company that filed for it was established on the 23rd of January 2026.
+
+<div class="article-image-grid grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+ <figure>
+  <a href="/uploads/articles/rate-isnt-speedybee/paperwork/whois-date.webp"><img src="/uploads/articles/rate-isnt-speedybee/paperwork/whois-date.webp" alt="RateFPV Whois record showing domain registration date" loading="lazy" /></a>
+  <figcaption>Whois record</figcaption>
+ </figure>
+ <figure>
+  <a href="/uploads/articles/rate-isnt-speedybee/paperwork/trademark-application.png"><img src="/uploads/articles/rate-isnt-speedybee/paperwork/trademark-application.png" alt="RATEFPV trademark application" loading="lazy" /></a>
+  <figcaption>Trademark application</figcaption>
+ </figure>
+ <figure>
+  <a href="/uploads/articles/rate-isnt-speedybee/paperwork/company-registration.png"><img src="/uploads/articles/rate-isnt-speedybee/paperwork/company-registration.png" alt="Company registration of Shenzhen Zhizhi rotor technology co., LTD" loading="lazy" /></a>
+  <figcaption>Company registration</figcaption>
+ </figure>
+</div>
+
+While the legal stuff is fairly recent, there clearly was something here long before the current US monarchy came into power, and before trade relations started to break down like they are now. There are youtube reviews of Rate products going back to October 2025, and random videos using Rate-branded hardware as far back as August 2024:
+
+> Rimzler - [The Best Value 3" FPV Drone! Rate S30Pro](https://www.youtube.com/watch?v=1vDZK1bJ31Q) (5. 10. 2025)
+
+> xiang ge - [Rate S30 freestyle at CAAS' 2nd Dedicated Area for drone](https://www.youtube.com/watch?v=dmXT-rKJfEQ) (17. 8. 2024)
+
+### Ownership
+
+We already covered the company behind RateFPV, and their trademark application. But we can dig a little deeper. Their website lists "BLUE STAR TRADING LIMITED", a Hong Kong entity, for its contact information and legal purposes. That company is listed as a contact detail for multiple unrelated stores, so they most likely just act as a cross-border merchant or logistics provider. Rate themselves are registered (and operate/ship from) Shenzhen, China.
+
+SpeedyBee is a completely different story. Their main operator is registered as "Zhuhai KuaiFeng Technology Co., Ltd", with a secondary entity called "LangTian Technology (Shenzhen) Co., Ltd" being responsible for their privacy policy and Betaflight manufacturer registration. Their US trademark being attributed to "RunCam Technology (Shenzhen) Co., Ltd".
+
+There's stronger evidence connecting SpeedyBee to RunCam, Oxbot, and CoreWing than there is connecting them to RateFPV, but that's maybe for another article.
+
+## Firmware Support
+
+I won't share any internal communication or private information from both companies, the aim of this article is to provide everything based on information that is publicly available. But even the public side shows what's going on pretty clearly, and not just within Betaflight.
+
+On one side, there is SpeedyBee with 16 Betaflight targets, a bunch of their latest one being officially verified and supported. On the other side, Rate have no firmware targets merged or waiting in a pull request, they provide firmware support themselves.
+
+Same goes for ELRS, SpeedyBee has 3 firmware targets, two for standalone receivers, and one for their AIO. Rate again have 0 official targets.
+
+This shows a clear difference in the level of involvement with the community and open source projects, with SpeedyBee having a good track record of "playing by the rules" and Rate not being nearly as involved.
+
 ## Product (Dis)Similarities
+
+If we can't draw a connection between them on paper or their open source connections, let's see if there's anything at the hardware level.
 
 Rate have a pretty impressive lineup of products for a relatively new company. A 65A 30.5x30.5 stack and a 40A 20x20 stack, both with F405/F435/F722 FC MCUs... a lot to do basically the same thing lol, but that's beside the point. To top it off, an F435 40A 25.5x25.5 AIO. I suppose that you could say that's similar to SpeedyBee's offerings on the surface level, but by those measures, every single manufacturer out there with F4/F7 stacks and AIOs would be a SpeedyBee shell company.
 
