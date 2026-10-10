@@ -3,7 +3,7 @@ import { formatElapsedTime } from "$lib/format-elapsed-time"
 
 const repositoryApiUrl =
 	"https://api.github.com/repos/VitroidFPV/vitroidfpv.com"
-const commitsApiUrl = `${repositoryApiUrl}/commits?sha=next&per_page=1`
+const commitsApiUrl = `${repositoryApiUrl}/commits?sha=main&per_page=1`
 const cacheDuration = 15 * 60 * 1000
 const dateFormatter = new Intl.DateTimeFormat("en-GB", {
 	day: "2-digit",
@@ -118,7 +118,7 @@ async function fetchRepositoryStats(
 	const committedAt =
 		latestCommit?.commit.committer?.date ?? latestCommit?.commit.author?.date
 
-	if (!latestCommit) throw new Error("The next branch has no commits")
+	if (!latestCommit) throw new Error("The main branch has no commits")
 	if (!committedAt) throw new Error("The latest commit has no date")
 
 	return {

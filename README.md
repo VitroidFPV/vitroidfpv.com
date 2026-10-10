@@ -10,10 +10,10 @@ If you want to request content, please make a [Content Suggestion issue](https:/
 
 Right now, there are four main pages available:
 
-- ❓ [FAQ](https://next.vitroidfpv.com/faq) - Quick answers to frequently asked questions in the world of FPV
-- 🔧 [Builds](https://next.vitroidfpv.com/builds) - All different kinds of (not only) quadcopters, from beginner to advanced
-- 🛠️ [Equipment](https://next.vitroidfpv.com/equipment) - All the things you will need to get flying - Batteries and chargers, video and radio equipment, and tools to put it all together
-- 📰 [Articles](https://next.vitroidfpv.com/articles) - Reviews, FPV news, guides/tutorials, and more in something that's definitely not a blog
+- ❓ [FAQ](https://vitroidfpv.com/faq) - Quick answers to frequently asked questions in the world of FPV
+- 🔧 [Builds](https://vitroidfpv.com/builds) - All different kinds of (not only) quadcopters, from beginner to advanced
+- 🛠️ [Equipment](https://vitroidfpv.com/equipment) - All the things you will need to get flying - Batteries and chargers, video and radio equipment, and tools to put it all together
+- 📰 [Articles](https://vitroidfpv.com/articles) - Reviews, FPV news, guides/tutorials, and more in something that's definitely not a blog
 
 ## Developing
 
