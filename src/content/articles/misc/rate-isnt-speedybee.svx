@@ -1,0 +1,299 @@
+---
+title: RateFPV isn't SpeedyBee
+description: I'm at least like 90% sure
+visible: false
+author: Vitroid
+image:
+date: 2026-10-4T23:23:10.875Z
+---
+
+<script lang="ts">
+	import Admonition from "$components/content/articles/Admonition.svelte"
+</script>
+
+<Admonition type="tip" title="Disclosure">
+
+- I'm a member of the Betaflight development team, I have access to direct manufacturer communication, including SpeedyBee. However, everything in this article will be sourced from public information.
+- SpeedyBee nor RateFPV have any oversight over this article. I did receive SpeedyBee products in the past as hardware samples for official approval. But I'm not influenced by either one of them in writing this.
+
+</Admonition>
+
+# Background
+
+I probably don't need to introduce SpeedyBee, but just so that everything is on the same page. SpeedyBee is a well-known manufacturer of basically everything FPV at this point.
+
+Rate, however, is much less known. I've come across their products around a year ago, when they had a few electronics and a small BNF available on Banggood. Over time, they've expanded a lot across the whole FPV space, and now are seemingly inching into the collective consciousness of the FPV community.
+
+Seemingly, as they're becoming more popular, some rumors are starting to spread. I would like to at least try to set things straight.
+
+# The Rumor
+
+## Reddit, my involvement
+
+I noticed this floating around a few weeks back. A reddit comment here and there, a few messages on Discord. Some of which I replied to myself in increasing bewilderment:
+
+> [That makes sense, iv also heard that speedybee got in trouble with the chineese gov, and they are now speculated to be ratefpv.com](https://www.reddit.com/r/fpv/comments/1w2pjqs/comment/p6udmbl/)
+>
+> > As a member of the BF dev team, I've seen nothing to even suggest this. We have relatively good comms with SpeedyBee, their new stuff is reviewed and officially supported. Rate don't have a single officially supported product in ELRS, AM32 or Betaflight, and some of their FCs/AIOs use MCUs that Betaflight doesn't even support.
+
+If you don't want to read further, this might be reason enough. But let's go a bit deeper. Where did this actually start?
+
+## Earliest Mention - CultureFPV
+
+From what I've been able to find, the first mention of a possible connection between them comes from a French website - https://culturefpv.fr. They posted an article about the [RateFPV F4 40A AIO](https://culturefpv.fr/aio-ratefpv-f4-40a-20260720/) on July 20th 2026:
+
+> Et la ressemblance ne s’arrête pas aux specs : visuellement, la RateFPV rappelle une SpeedyBee de façon assez frappante, du dessin du dissipateur à l’agencement général de la carte. Sur la fiche aussi les deux sont très proches : format compact, 40A, Bluetooth, 3-6S, cible petits moteurs, et même une plaque d’entraînement à la soudure dans la boîte.
+
+Which translates to:
+
+> And the similarities don’t stop at the specs: visually, the RateFPV bears a striking resemblance to a SpeedyBee, from the heat sink design to the overall layout of the board. On paper, too, the two are very similar: compact size, 40A, Bluetooth, 3-6S, designed for small motors, and even a soldering practice board included in the box.
+
+## Joshua Bardwell's Livestream
+
+But the biggest spread of the rumor likely came from Joshua Bardwell, specifically the [Q&A Livestream - August 30, 2026](https://www.youtube.com/watch?v=rVNh2YT1sds). Around the 1:26:00, after a prior topic of SpeedyBee hardware not being discontinued/not available, a chatter directly proclaims that Rate is SpeedyBee in all caps. Other chat members, including more prominent names in the community like CiottiFPV agree. JB pulls Rate's website up on the stream, and talks about it being completely normal:
+
+> The chat is suggesting that RateFPV is SpeedyBee. [RateFPV's website shown in the background] That's the other thing that happens - the company gets taken down, the CEO goes to prison or gets a fine, and then the company starts up again under a different name. Welcome to China. ["RateFPV F4V4 Mini Stack" page is open] Is RateFPV SpeedyBee? That'd be great. 50 bucks for an F405 stack. **_RATEFPV!!!! THE NEW SPEEDYBEE-_** _don't say that. You'll get in trouble_.
+
+JB didn't outright confirm or deny it, but definitely seemed to entertain the idea, with chat being much more enthusiastic about it.
+
+# Not SpeedyBee
+
+Now that we know where it came from, let's look into the possible connections, and then disprove them one by one.
+
+It is true that SpeedyBee has been kind of struggling lately, with regulatory pressure from both the Chinese and US governments, and rampant cloning of their F405 V3 and V4 boards. As an aside... horrible idea to clone the F405 V3, the design is messed up to the point where making it better would break it. But nontheless, SpeedyBee hasn't had a great time.
+
+It is also true that FPV companies split apart pretty often, the most famous example probably being Radiomaster splitting off from Jumper, now there's also HelloRadioSky splitting off from RadioMaster, so now we're two layers of separation down from Jumper, who started off by offering Futaba-adjacent radios. AxisFlying split from T-Motor, and DeepspaceFPV split from Axis.
+
+But those are all essentially clean separations into new standalone brands/teams/companies, not a rebranding to get around regulatory issues.
+
+## Paper Trail
+
+The main motivation for the rumor seems to be that SpeedyBee is struggling to get their boards out, so they're going through a shell company to get around regulatory issues. Rate would be a new company that exploded onto the market with a bunch of products all at once after SpeedyBee started running into trouble, and we might see a paper trail connecting SpeedyBee to Rate. But that's not the case here, like... at all.
+
+### Dates
+
+The RateFPV website has been registered since the 26th of August 2024. The "RATEFPV" trademark was applied for on the 6th of February 2026, and the "Shenzhen Zhizhi rotor technology co., LTD" company that filed for it was established on the 23rd of January 2026.
+
+<div class="article-image-grid grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+ <figure>
+  <a href="/uploads/articles/rate-isnt-speedybee/paperwork/whois-date.webp"><img src="/uploads/articles/rate-isnt-speedybee/paperwork/whois-date.webp" alt="RateFPV Whois record showing domain registration date" loading="lazy" /></a>
+  <figcaption>Whois record</figcaption>
+ </figure>
+ <figure>
+  <a href="/uploads/articles/rate-isnt-speedybee/paperwork/trademark-application.png"><img src="/uploads/articles/rate-isnt-speedybee/paperwork/trademark-application.png" alt="RATEFPV trademark application" loading="lazy" /></a>
+  <figcaption>Trademark application</figcaption>
+ </figure>
+ <figure>
+  <a href="/uploads/articles/rate-isnt-speedybee/paperwork/company-registration.png"><img src="/uploads/articles/rate-isnt-speedybee/paperwork/company-registration.png" alt="Company registration of Shenzhen Zhizhi rotor technology co., LTD" loading="lazy" /></a>
+  <figcaption>Company registration</figcaption>
+ </figure>
+</div>
+
+While the legal stuff is fairly recent, there clearly was something here long before the current US monarchy came into power, and before trade relations started to break down like they are now. There are youtube reviews of Rate products going back to October 2025, and random videos using Rate-branded hardware as far back as August 2024:
+
+> Rimzler - [The Best Value 3" FPV Drone! Rate S30Pro](https://www.youtube.com/watch?v=1vDZK1bJ31Q) (5. 10. 2025)
+
+> xiang ge - [Rate S30 freestyle at CAAS' 2nd Dedicated Area for drone](https://www.youtube.com/watch?v=dmXT-rKJfEQ) (17. 8. 2024)
+
+### Ownership
+
+We already covered the company behind RateFPV, and their trademark application. But we can dig a little deeper. Their website lists "BLUE STAR TRADING LIMITED", a Hong Kong entity, for its contact information and legal purposes. That company is listed as a contact detail for multiple unrelated stores, so they most likely just act as a cross-border merchant or logistics provider. Rate themselves are registered (and operate/ship from) Shenzhen, China.
+
+SpeedyBee is a completely different story. Their main operator is registered as "Zhuhai KuaiFeng Technology Co., Ltd", with a secondary entity called "LangTian Technology (Shenzhen) Co., Ltd" being responsible for their privacy policy and Betaflight manufacturer registration. Their US trademark being attributed to "RunCam Technology (Shenzhen) Co., Ltd".
+
+There's stronger evidence connecting SpeedyBee to RunCam, Oxbot, and CoreWing than there is connecting them to RateFPV, but that's maybe for another article.
+
+## Firmware Support
+
+I won't share any internal communication or private information from both companies, the aim of this article is to provide everything based on information that is publicly available. But even the public side shows what's going on pretty clearly, and not just within Betaflight.
+
+On one side, there is SpeedyBee with 16 Betaflight targets, a bunch of their latest one being officially verified and supported. On the other side, Rate have no firmware targets merged or waiting in a pull request, they provide firmware support themselves.
+
+Same goes for ELRS, SpeedyBee has 3 firmware targets, two for standalone receivers, and one for their AIO. Rate again have 0 official targets.
+
+This shows a clear difference in the level of involvement with the community and open source projects, with SpeedyBee having a good track record of "playing by the rules" and Rate not being nearly as involved.
+
+## Product (Dis)Similarities
+
+If we can't draw a connection between them on paper or their open source connections, let's see if there's anything at the hardware level.
+
+Rate have a pretty impressive lineup of products for a relatively new company. A 65A 30.5x30.5 stack and a 40A 20x20 stack, both with F405/F435/F722 FC MCUs... a lot to do basically the same thing lol, but that's beside the point. To top it off, an F435 40A 25.5x25.5 AIO. I suppose that you could say that's similar to SpeedyBee's offerings on the surface level, but by those measures, every single manufacturer out there with F4/F7 stacks and AIOs would be a SpeedyBee shell company.
+
+If that's not convincing enough, let's look deeper into the actual products.
+
+### Big Stack
+
+RateFPV [F4V4 65A Stack](https://ratefpv.com/products/ratefpv-f4v4-f435-55-65a-stack?variant=53633849688432) vs SpeedyBee [F405 V4 Stack](https://www.speedybee.com/speedybee-f405-v4-bls-60a-30x30-fc-esc-stack/)/[F405 V5 Stack](https://www.speedybee.com/speedybee-f405-v5-55a-stack/)
+
+At the surface, the specs are pretty close. Size, MCUs, ESC specs, even Bluetooth. We'll find the biggest difference in the board design. It's fair to say that SpeedyBee has a pretty distinct design language, with the prominent cutouts/protrusions in the front and rear of their boards respectively. Even though they moved a bit further from that with the V5, there are other parallels we can draw. The FCs all have components on both sides, have the prominently red BLE antennas and battery indicator LEDs right next to each other driven by the Espressif MCU, and all the ESCs have the pads coming straight out, with beefy heatsinks and no FC coverings.
+
+<div class="article-image-grid grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/big-stack/rate-big-stack.png"><img src="/uploads/articles/rate-isnt-speedybee/big-stack/rate-big-stack.png" alt="RateFPV F4V4 65A stack" loading="lazy" /></a>
+		<figcaption>RateFPV F4V4 65A stack</figcaption>
+	</figure>
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/big-stack/sb-big-stack-v4.jpg"><img src="/uploads/articles/rate-isnt-speedybee/big-stack/sb-big-stack-v4.jpg" alt="SpeedyBee F405 V4 stack" loading="lazy" /></a>
+		<figcaption>SpeedyBee F405 V4 stack</figcaption>
+	</figure>
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/big-stack/sb-big-stack-v5.webp"><img src="/uploads/articles/rate-isnt-speedybee/big-stack/sb-big-stack-v5.webp" alt="SpeedyBee F405 V5 stack" loading="lazy" /></a>
+		<figcaption>SpeedyBee F405 V5 stack</figcaption>
+	</figure>
+</div>
+
+In comparison, the big Rate stack goes in essentially the complete opposite direction. The FC has all the components and connectors on the top side, all the components are covered by a black plastic cover. The bottom side is bare of any components, with a ton of pads laid out in two rows in the front and back, visually completely distinct from anything SpeedyBee has made before or since. The FC also seems to use a novel OSD solution instead of the very common MAX7456 IC (and its many clones).
+
+<div class="article-image-grid grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/big-stack/rate-big-fc-top.webp"><img src="/uploads/articles/rate-isnt-speedybee/big-stack/rate-big-fc-top.webp" alt="Top of the RateFPV flight controller with its black cover and connectors" loading="lazy" /></a>
+		<figcaption>RateFPV FC, top</figcaption>
+	</figure>
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/big-stack/rate-big-fc-bottom.webp"><img src="/uploads/articles/rate-isnt-speedybee/big-stack/rate-big-fc-bottom.webp" alt="Bottom of the RateFPV flight controller with two rows of pads" loading="lazy" /></a>
+		<figcaption>RateFPV FC, bottom</figcaption>
+	</figure>
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/big-stack/sb-big-fc-v4.webp"><img src="/uploads/articles/rate-isnt-speedybee/big-stack/sb-big-fc-v4.webp" alt="Both sides of the SpeedyBee F405 V4 flight controller" loading="lazy" /></a>
+		<figcaption>SpeedyBee V4 FC, both sides</figcaption>
+	</figure>
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/big-stack/sb-big-fc-v5-top.webp"><img src="/uploads/articles/rate-isnt-speedybee/big-stack/sb-big-fc-v5-top.webp" alt="Top of the SpeedyBee F405 V5 flight controller" loading="lazy" /></a>
+		<figcaption>SpeedyBee V5 FC, top</figcaption>
+	</figure>
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/big-stack/sb-big-fc-v5-bottom.webp"><img src="/uploads/articles/rate-isnt-speedybee/big-stack/sb-big-fc-v5-bottom.webp" alt="Bottom of the SpeedyBee F405 V5 flight controller" loading="lazy" /></a>
+		<figcaption>SpeedyBee V5 FC, bottom</figcaption>
+	</figure>
+</div>
+
+The ESC lacks a heatsink, and the pads come out at a 45 degree angle, reminiscent of Sequre's offerings instead. And while they advertise it as offering Bluetooth, I haven't been able to spot any relevant components on the board that would allow for it.
+
+<div class="article-image-grid grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/big-stack/rate-big-esc-top.webp"><img src="/uploads/articles/rate-isnt-speedybee/big-stack/rate-big-esc-top.webp" alt="RateFPV ESC with angled motor pads and no heatsink" loading="lazy" /></a>
+		<figcaption>RateFPV ESC, top</figcaption>
+	</figure>
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/big-stack/sb-big-esc-v4.webp"><img src="/uploads/articles/rate-isnt-speedybee/big-stack/sb-big-esc-v4.webp" alt="SpeedyBee F405 V4 ESC" loading="lazy" /></a>
+		<figcaption>SpeedyBee V4 ESC</figcaption>
+	</figure>
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/big-stack/sb-big-esc-v5-top.webp"><img src="/uploads/articles/rate-isnt-speedybee/big-stack/sb-big-esc-v5-top.webp" alt="Top of the SpeedyBee F405 V5 ESC" loading="lazy" /></a>
+		<figcaption>SpeedyBee V5 ESC, top</figcaption>
+	</figure>
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/big-stack/sb-big-esc-v5-bottom.webp"><img src="/uploads/articles/rate-isnt-speedybee/big-stack/sb-big-esc-v5-bottom.webp" alt="Bottom of the SpeedyBee F405 V5 ESC" loading="lazy" /></a>
+		<figcaption>SpeedyBee V5 ESC, bottom</figcaption>
+	</figure>
+</div>
+
+### Small Stack
+
+RateFPV [F4V4 40A Mini Stack](https://ratefpv.com/products/ratefpv-f4v4-f435-40a-mini-stack-for-fpv-racing-drones) vs [SpeedyBee F405 Mini Stack](https://www.speedybee.com/speedybee-f405-mini-bls-35a-20x20-stack/)
+
+Again, we have similar specs to start off with. 35A is reasonably close to 40A, similar MCUs, even BLE (this time easily identifiable on the Rate stack). The Rate stack uses 32bit ESC firmware while SpeedyBee only offers 8bit, and that's where the similarities end.
+
+<div class="article-image-grid grid gap-4 sm:grid-cols-2">
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/small-stack/rate-small-stack.webp"><img src="/uploads/articles/rate-isnt-speedybee/small-stack/rate-small-stack.webp" alt="RateFPV F4V4 40A Mini Stack" loading="lazy" /></a>
+		<figcaption>RateFPV F4V4 40A Mini Stack</figcaption>
+	</figure>
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/small-stack/sb-small-stack.webp"><img src="/uploads/articles/rate-isnt-speedybee/small-stack/sb-small-stack.webp" alt="SpeedyBee F405 Mini Stack" loading="lazy" /></a>
+		<figcaption>SpeedyBee F405 Mini Stack</figcaption>
+	</figure>
+</div>
+
+SpeedyBee's FC and ESC both have that familiar cutout thingy which Rate surprisingly does too... but in the opposite side for some reason. Both FCs have components on both sides, but the pad layout is completely different with SB keeping it in front and back rows, and Rate going all around the board. The MCUs are on different sides, and Rate offers two additional connectors. They even went to pretty great lengths to source black JST-SH connectors, while SpeedyBee uses white ones.
+
+I think the most interesting thing here are the small boards that house the OSD and BLE circuitry. SB integrates everything directly, Rate seem to be re-using existing modules. We'll get back to this further down in the article ;)
+
+<div class="article-image-grid grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/small-stack/rate-small-fc.webp"><img src="/uploads/articles/rate-isnt-speedybee/small-stack/rate-small-fc.webp" alt="Both sides of the RateFPV Mini Stack flight controller" loading="lazy" /></a>
+		<figcaption>RateFPV FC, both sides</figcaption>
+	</figure>
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/small-stack/sb-small-fc-top.webp"><img src="/uploads/articles/rate-isnt-speedybee/small-stack/sb-small-fc-top.webp" alt="Top of the SpeedyBee F405 Mini flight controller" loading="lazy" /></a>
+		<figcaption>SpeedyBee FC, top</figcaption>
+	</figure>
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/small-stack/sb-small-fc-bottom.webp"><img src="/uploads/articles/rate-isnt-speedybee/small-stack/sb-small-fc-bottom.webp" alt="Bottom of the SpeedyBee F405 Mini flight controller" loading="lazy" /></a>
+		<figcaption>SpeedyBee FC, bottom</figcaption>
+	</figure>
+</div>
+
+The ESCs are closer in looks this time, the differences being mostly down to component usage and decorations. The Rate ESC uses larger MCUs/FET drivers, with fancy silkscreen labels. The larger MCUs are used to support 32bit firmware, while the SpeedyBee ESCs use 8bit firmware.
+
+<div class="article-image-grid grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/small-stack/rate-small-esc.webp"><img src="/uploads/articles/rate-isnt-speedybee/small-stack/rate-small-esc.webp" alt="Both sides of the RateFPV Mini Stack ESC" loading="lazy" /></a>
+		<figcaption>RateFPV ESC, both sides</figcaption>
+	</figure>
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/small-stack/sb-small-esc-top.webp"><img src="/uploads/articles/rate-isnt-speedybee/small-stack/sb-small-esc-top.webp" alt="Top of the SpeedyBee 35A Mini ESC" loading="lazy" /></a>
+		<figcaption>SpeedyBee ESC, top</figcaption>
+	</figure>
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/small-stack/sb-small-esc-bottom.webp"><img src="/uploads/articles/rate-isnt-speedybee/small-stack/sb-small-esc-bottom.webp" alt="Bottom of the SpeedyBee 35A Mini ESC" loading="lazy" /></a>
+		<figcaption>SpeedyBee ESC, bottom</figcaption>
+	</figure>
+</div>
+
+### AIO
+
+SpeedyBee [F405 AIO V2](https://www.speedybee.com/speedybee-f405-aio-v2-35-40a-bluejay-25-5x25-5-3-6s-flight-controller/) vs RateFPV [F4V4 40A AIO](https://ratefpv.com/products/ratefpv-rate-f4-v4-40a-32bit-bluetooth-aio)
+
+You guessed it, similar specs once again. Unfortunately, there weren't as many images of the Rate AIO available, I tried cropping some of their product showcase images, but they may be pretty visually busy.
+
+<div class="article-image-grid grid gap-4 sm:grid-cols-2">
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/aio/rate-aio.webp"><img src="/uploads/articles/rate-isnt-speedybee/aio/rate-aio.webp" alt="RateFPV F4V4 40A AIO with its top cover" loading="lazy" /></a>
+		<figcaption>RateFPV F4V4 40A AIO</figcaption>
+	</figure>
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/aio/sb-aio-top.jpg"><img src="/uploads/articles/rate-isnt-speedybee/aio/sb-aio-top.jpg" alt="SpeedyBee F405 AIO V2 with its top cover" loading="lazy" /></a>
+		<figcaption>SpeedyBee F405 AIO V2</figcaption>
+	</figure>
+</div>
+
+The quickest difference here before even looking at the boards themselves is the ESC firmware, once again a 32bit/8bit split between Rate and SpeedyBee.
+
+Looking closer, the construction here is fundementally different. Speedybee has practically the entire FC section of the AIO on its own PCB that's then soldered to the IO+ESC board. Rate has everything on one board, with the exception of the OSD and BLE modules mentioned before. The fancy black connectors make their appearance again on Rate's board, and on the topic of connectors, SpeedyBee has an antenna connector for the BLE communication, while Rate has an integrated one on their small module, and Rate also offers a receiver connector.
+
+<div class="article-image-grid grid gap-4 sm:grid-cols-2">
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/aio/rate-aio-top-bare.webp"><img src="/uploads/articles/rate-isnt-speedybee/aio/rate-aio-top-bare.webp" alt="RateFPV AIO top with its main components exposed" loading="lazy" /></a>
+		<figcaption>RateFPV AIO, top without cover</figcaption>
+	</figure>
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/aio/sb-aio-top-bare.webp"><img src="/uploads/articles/rate-isnt-speedybee/aio/sb-aio-top-bare.webp" alt="SpeedyBee AIO top with its main components exposed" loading="lazy" /></a>
+		<figcaption>SpeedyBee AIO, top without cover</figcaption>
+	</figure>
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/aio/rate-aio-bottom-bare.webp"><img src="/uploads/articles/rate-isnt-speedybee/aio/rate-aio-bottom-bare.webp" alt="RateFPV AIO underside showing four ESC chips and connectors" loading="lazy" /></a>
+		<figcaption>RateFPV AIO, bottom</figcaption>
+	</figure>
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/aio/sb-aio-bottom.webp"><img src="/uploads/articles/rate-isnt-speedybee/aio/sb-aio-bottom.webp" alt="SpeedyBee AIO underside with its second PCB and USB connector" loading="lazy" /></a>
+		<figcaption>SpeedyBee AIO, bottom</figcaption>
+	</figure>
+</div>
+
+I've heard the argument in favor of them being one and the same being that the pad layout is similar. But there's only so many ways that you can arrange IO pads on such a tight yet powerful board. Like here for example, these are boards that predate both Rate and SpeedyBee's current offerings (as far as I know), and they all have a similar layout - USB close to the battery pads, motor pads tucked towards the left and right mounting holes (assuming a diagonal mounting orientation), and IO pads on the front corner on both the left and right sides. Going by this definition, we'd have a ring of shell companies.
+
+<div class="article-image-grid grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/aio/axisflying-aio.webp"><img src="/uploads/articles/rate-isnt-speedybee/aio/axisflying-aio.webp" alt="AxisFlying AIO with IO pads in the corners and motor pads along the sides" loading="lazy" /></a>
+		<figcaption>AxisFlying AIO</figcaption>
+	</figure>
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/aio/oddityrc-aio.png"><img src="/uploads/articles/rate-isnt-speedybee/aio/oddityrc-aio.png" alt="OddityRC AIO with IO pads in the corners and motor pads along the sides" loading="lazy" /></a>
+		<figcaption>OddityRC AIO</figcaption>
+	</figure>
+	<figure>
+		<a href="/uploads/articles/rate-isnt-speedybee/aio/skystars-aio.jpg"><img src="/uploads/articles/rate-isnt-speedybee/aio/skystars-aio.jpg" alt="Skystars AIO with IO pads in the corners and motor pads along the sides" loading="lazy" /></a>
+		<figcaption>Skystars AIO</figcaption>
+	</figure>
+</div>
