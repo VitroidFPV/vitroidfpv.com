@@ -54,6 +54,7 @@
 		"@threlte/extras": "^9.21.0",
 		"@types/three": "^0.185.0",
 		"minisearch": "^7.2.0",
+		"posthog-js": "^1.447.3",
 		"three": "^0.185.1"
 	},
 	"optionalDependencies": {
